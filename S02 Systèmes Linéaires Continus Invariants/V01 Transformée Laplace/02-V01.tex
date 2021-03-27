@@ -31,50 +31,42 @@ L'objectif de cette vidéo est d'écrire la loi d'entrée sortie d'un S.L.C.I so
 
 \section{Transformées de Laplace}
 
-\setbeamertemplate{headline}[pagetitre]
-\frame{\titlepage}
-
-\pgfmathsetmacro{\N}{0}
-\input{anim2.tex}
-
-
 \setbeamertemplate{headline}[renaud theme]
 {\frame{
 \frametitle{Passage dans le domaine de Laplace}
 
 \begin{minipage}{0.47\linewidth}
 \begin{eqnarray}
-	u_m(t)=R_m\cdot i_m(t)+L_m\cdot \frac{d\ i_m}{dt}+e(t) \\
+	\color<1>{blue}{u_m(t)=R_m\cdot i_m(t)+L_m\cdot \frac{d\ i_m}{dt}+e(t)} \\
 	e(t)=K_e\cdot \omega_m(t) \\
 	c_m(t)=K_i\cdot i_m(t) \\
-	J\cdot \frac{d\omega_m(t)}{dt}=c_m(t)
+	\color<2>{blue}{J\cdot \frac{d\omega_m(t)}{dt}=c_m(t)}
 \end{eqnarray}
 \end{minipage}\hfill
 \begin{minipage}{0.47\linewidth}
-\begin{eqnarray}
+\only<1>{
+\begin{circuitikz} \draw
+(0,0) to [V, v=$v(t)$, *-*] (0,2) 
+    to [R, l=$R_d$] (2,2)
+    to [L, l=$L_d$] (4,2)
+    to [V, v<=$e(t)$] (4,0) to [generic] (4,2) -- (4,0) -- (0,0);
+\end{circuitikz}}
+\only<2>{\begin{tikzpicture}
+\draw[fill=blue!50](0,0) circle (1 and 2);
+\draw[top color=blue!25,bottom color=black,middle color=blue!50] (-0.5,2) arc (90:270:1 and 2) -- ++(0.5,0) arc (-90:-270:1 and 2) -- cycle;
+\draw[top color=white,bottom color=black!70] (0,3mm) arc (90:270:1.5mm and 3mm)--++(3cm,0) arc (-90:-270:1.5mm and 3mm)-- cycle;
+\draw (3cm,3mm) arc (90:-90:1.5mm and 3mm);
+\end{tikzpicture}}
+\only<3>{\begin{eqnarray}
 	U_m(p)=R_m\cdot I_m(p)+L_m\cdot p\cdot I_m+E(p) \\
 	E(p)=K_e\cdot \Omega_m(p) \\
 	C_m(p)=K_i\cdot I_m(p) \\
 	J\cdot p\cdot \Omega_m(p)=C_m(p)
-\end{eqnarray}
+\end{eqnarray}}
 \end{minipage}
 
-\begin{tikzpicture}[remember picture,overlay]   %% use here too
-\coordinate (A1) at (3,4);
-\coordinate (A2) at (8,2);
-\coordinate (B1) at (6,6);
-\coordinate (B2) at (6,8);
-\node (0) at (A1) {origin};
-
-\path[draw=red,thick,->] ([xshift=5mm]A1.north) to [out=0, in=0,distance=2in] (A2.east);
-
-
-\draw[->,red] (3,3) -- ( $ (1,1)!.5!(0,0) $ ) node [midway, sloped, above] {12 m/s};
-\end{tikzpicture}
 
 }}
-
-%\animategraphics[autoplay,loop,controls,scale=0.6]{1}{anim1}{}{}
 
 
 \end{document}
