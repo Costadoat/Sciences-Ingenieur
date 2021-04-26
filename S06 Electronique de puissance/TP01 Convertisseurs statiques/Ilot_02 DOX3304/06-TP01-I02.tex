@@ -1,0 +1,149 @@
+\input{../../../headers/tdheaders.tex}
+
+\section{Introduction}
+
+Après avoir lancé le logiciel Scilab, le module Xcos démarre en cliquant sur 'Applications/Xcos'.
+
+L'ensemble des éléments nécessaire au câblage des circuits suivants se trouve dans la palette SIMM située dans le \og Navigateur de palettes \fg, disponible sur la fenêtre Xcos en cliquant sur 'Vue/Navigateur de palettes'.
+
+L'ensemble des éléments nécessaire à la conception des circuits suivant ont été présenté dans le cours, il est possible de retrouver ces composants par identification.
+
+\section{Commande d'un hacheur série}
+
+Le schéma suivant est celui d'un hacheur série.
+
+\begin{center}
+\centering\begin{circuitikz}[scale=0.8]
+\ctikzset{bipoles/length=1cm}
+\ctikzset{inductor=american}
+\draw[color=bleuf] (4,3) node[nigbt, xscale=-1] (npn) {}
+ (npn.base) node[anchor=east] {}
+ (npn.collector) node[anchor=south] {}
+ (npn.emitter) node[anchor=north] {};
+\draw[color=bleuf] (8,0) -- (0,0) to[V, v=$U_{in}$, i>=$i_1$] (0,4) -- (4,4) -- (npn.collector);
+\draw[color=bleuf] (4,0) to[Do, i<=$i_2$] (4,2) -- (npn.emitter);
+\draw[color=bleuf] (4,2) to[L, l_=$L$, i>=$i_3$] (6,2) to[R, l_=$R$] (8,2) to[V, l_=$f.e.m$] (8,0) ;
+\draw[color=bleuf] (3.3,2.7) edge[-triangle 45] (3.3,3.5);	
+\draw[color=bleuf] node at (2.8,3) {$V_{K1}$} ;
+\draw[color=bleuf] (3.3,0.7) edge[-triangle 45] (3.3,1.5);	
+\draw[color=bleuf] node at (2.8,1) {$V_{K2}$} ;
+\draw[color=bleuf] node at (5,3) [right]{Commande de l'IGBT} ;
+\end{circuitikz}
+\end{center}
+
+\paragraph{Question 1:} Réaliser le câblage de ce montage sur le logiciel Scilab: Xcos.
+
+\paragraph{Question 2:} Mettre en place une commande par signal créneaux en entrée de l'interrupteur afin de piloter ce montage.
+
+\paragraph{Question 3:} Faire varier le rapport cyclique du signal d'entrée et constater l'influence de ce paramètre sur:
+\begin{itemize}
+ \item la tension aux bornes du moteur,
+ \item le sens de rotation,
+ \item le courant dans le moteur.
+\end{itemize}
+
+\section{Hacheur 4 quadrants}
+
+Le schéma suivant est celui d'un hacheur 4 quadrants.
+
+\begin{center}
+\begin{circuitikz}[scale=0.8]
+\ctikzset{bipoles/length=0.8cm}
+\node(0) at (4.5,2)[color=bleuf,shape=circle,draw] {M};
+\draw[color=bleuf] (2,3) node[nigbt] (npn) {}
+ (npn.base) node[anchor=east] {}
+ (npn.collector) node[anchor=south] {}
+ (npn.emitter) node[anchor=north] {};
+ \draw[color=bleuf] (2,1) node[nigbt] (npn2) {}
+ (npn2.base) node[anchor=east] {}
+ (npn2.collector) node[anchor=south] {}
+ (npn2.emitter) node[anchor=north] {};
+ \draw[color=bleuf] (6,3) node[nigbt] (npn3) {}
+ (npn3.base) node[anchor=east] {}
+ (npn3.collector) node[anchor=south] {}
+ (npn3.emitter) node[anchor=north] {};
+ \draw[color=bleuf] (6,1) node[nigbt] (npn4) {}
+ (npn4.base) node[anchor=east] {}
+ (npn4.collector) node[anchor=south] {}
+ (npn4.emitter) node[anchor=north] {};
+ \draw[color=bleuf] (7,0) -- (0,0)  to[V=$U_{in}$] (0,4) -- (7,4);
+ \draw[color=bleuf] (2,0) --  (npn2.emitter)  (npn2.collector) -- (npn.emitter) (npn.collector) -- (2,4);
+ \draw[color=bleuf] (6,0) --  (npn4.emitter)  (npn4.collector) -- (npn3.emitter) (npn3.collector) -- (6,4);
+ \draw[color=bleuf] (3,0) to[Do] (3,2) to[Do] (3,4) ;
+ \draw[color=bleuf] (7,0) to[Do] (7,2) to[Do] (7,4) ;
+ \draw[color=bleuf] (2,2) -- (0) -- (7,2) ;
+ \node (K1) at (2.4,3){$K_1$};
+ \node (K1) at (2.4,1){$K_2$};
+ \node (K1) at (6.4,3){$K_3$};
+ \node (K1) at (6.4,1){$K_4$};
+\end{circuitikz}
+\end{center}
+
+Les ensembles IGBT/Diodes $K_i$ seront modélisés par des interrupteurs comme sur le cours.
+
+\paragraph{Question 4:} Réaliser le câblage de ce montage sur le logiciel Scilab: Xcos.
+
+\paragraph{Question 5:} Mettre en place une commande par signal créneaux en entrée des interrupteurs afin de piloter ce montage. Un seul signal devra piloter tous les interrupteurs.
+
+\paragraph{Question 6:} Faire varier le rapport cyclique du signal d'entrée et constater l'influence de ce paramètre sur:
+\begin{itemize}
+ \item la tension aux bornes du moteur,
+ \item le sens de rotation,
+ \item le courant dans le moteur.
+\end{itemize}
+
+
+\section{Commande d'un onduleur}
+
+Le schéma suivant présente le cablage d'un onduleur. Il est semblable à celui d'un hacheur car la seule différence entre les deux tient à la commande.
+
+\begin{center}
+\begin{circuitikz}[scale=0.8]
+\ctikzset{bipoles/length=0.8cm}
+\ctikzset{inductor=american}
+\draw[color=bleuf] (2,3) node[nigbt] (npn) {}
+ (npn.base) node[anchor=east] {}
+ (npn.collector) node[anchor=south] {}
+ (npn.emitter) node[anchor=north] {};
+ \draw[color=bleuf] (2,1) node[nigbt] (npn2) {}
+ (npn2.base) node[anchor=east] {}
+ (npn2.collector) node[anchor=south] {}
+ (npn2.emitter) node[anchor=north] {};
+ \draw[color=bleuf] (6,3) node[nigbt] (npn3) {}
+ (npn3.base) node[anchor=east] {}
+ (npn3.collector) node[anchor=south] {}
+ (npn3.emitter) node[anchor=north] {};
+ \draw[color=bleuf] (6,1) node[nigbt] (npn4) {}
+ (npn4.base) node[anchor=east] {}
+ (npn4.collector) node[anchor=south] {}
+ (npn4.emitter) node[anchor=north] {};
+ \draw[color=bleuf] (7,0) -- (0,0)  to[V=$U_{in}$] (0,4) -- (7,4);
+ \draw[color=bleuf] (2,0) --  (npn2.emitter)  (npn2.collector) -- (npn.emitter) (npn.collector) -- (2,4);
+ \draw[color=bleuf] (6,0) --  (npn4.emitter)  (npn4.collector) -- (npn3.emitter) (npn3.collector) -- (6,4);
+ \draw[color=bleuf] (3,0) to[Do] (3,2) to[Do] (3,4) ;
+ \draw[color=bleuf] (7,0) to[Do] (7,2) to[Do] (7,4) ;
+ \draw[color=bleuf] (2,2) -- (3.5,2) to[L, l_=$L$] (4,2) to[R, l_=$R$] (6,2) -- (7,2) ;
+ \node (K1) at (2.4,3){$K_1$};
+ \node (K1) at (2.4,1){$K_2$};
+ \node (K1) at (6.4,3){$K_3$};
+ \node (K1) at (6.4,1){$K_4$};
+\end{circuitikz}
+\end{center}
+
+\paragraph{Question 7:} Réutiliser le montage précédent pour cette étude en modifiant la charge.
+
+\paragraph{Question 8:} Proposer une solution de génération du signal de l'onduleur et câbler cette solution.
+
+\paragraph{Question 9:} Faire varier la forme du signal modulé et modulant et constater l'influence de ce paramètre sur:
+\begin{itemize}
+ \item la tension aux bornes du circuit R,L,
+ \item le courant dans le circuit.
+\end{itemize}
+
+\section{Asservissement d'un moteur}
+
+Le bloc \textbf{PWM} demande en entrée une valeur de rapport cyclique et génère en sortie un signal créneau correspondant.
+
+\paragraph{Question 10:} Utiliser ce bloc afin de réaliser un asservissement en position d'un moteur électrique. Montrer l'influence des divers réglages sur les critères d'évaluation de l'asservissement (rapidité, précision, stabilité).
+
+\end{document}
