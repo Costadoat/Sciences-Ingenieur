@@ -130,13 +130,14 @@ Les signaux \og Incliner Siège \fg et \og Redresser Siège \fg émis par le mic
 Annexe sur les MOSFET
 
 \begin{center}
- \includegraphics[width=0.7\linewidth]{img/img03}
+ \includegraphics[width=0.7\linewidth]{img/mofset}
 \end{center}
 
-T7 et T8 : Transistor MOSFET à canal N \hfill T9 et T10 : Transistor MOSFET à canal P
-
-Les transistors T7 et T8 sont passants quand leur tension $v_{GS}>0$ et bloqués quand $v_{GS}=0$.
-Les transistors T9 et T10 sont passants quand leur tension $v_{GS}=0$ et bloqués quand $v_{GS}>0$.
+\begin{itemize}
+ \item Le transistor comporte 3 bornes : drain, gate (grille) et source,
+ \item Le canal N offre un sens du courant entre drain et source lorsqu'une tension positive Vgs est appliquée entre source et gate,
+ \item C'est l'inverse pour le canal P.
+\end{itemize}
 
 \newpage
 
@@ -380,7 +381,7 @@ Pour obtenir $u_{moteur}<0$, il faut commander les interrupteurs K7 et K10.
 
 \paragraph{Question 4:} 
 
-Les résistances R9, R10 et le transistor Q3 permettent de réaliser une fonction NON. De même pour les résistances R12, R13 et le transistor Q4.
+Les résistances R9, R10 et le transistor Q3 permettent de réaliser une fonction NON et de passer d'une tension de 5V à une tension de 24V. De même pour les résistances R12, R13 et le transistor Q4.
 
 \begin{center}
 \begin{tabular}{|c|c|c|}
