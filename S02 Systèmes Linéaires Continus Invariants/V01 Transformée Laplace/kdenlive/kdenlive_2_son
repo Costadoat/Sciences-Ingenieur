@@ -1,0 +1,18 @@
+<producer title="Anonymous Submission" id="producer11" in="00:00:00,000" out="00:00:00,560">
+ <property name="length">15</property>
+ <property name="eof">pause</property>
+ <property name="resource">test1.wav</property>
+ <property name="meta.media.nb_streams">1</property>
+ <property name="meta.media.0.stream.type">audio</property>
+ <property name="meta.media.0.codec.sample_fmt">s16</property>
+ <property name="meta.media.0.codec.sample_rate">44100</property>
+ <property name="meta.media.0.codec.channels">2</property>
+ <property name="meta.media.0.codec.name">pcm_s16le</property>
+ <property name="meta.media.0.codec.long_name">PCM signed 16-bit little-endian</property>
+ <property name="meta.media.0.codec.bit_rate">1411200</property>
+ <property name="seekable">1</property>
+ <property name="audio_index">0</property>
+ <property name="video_index">-1</property>
+ <property name="mute_on_pause">1</property>
+ <property name="mlt_service">avformat</property>
+</producer>

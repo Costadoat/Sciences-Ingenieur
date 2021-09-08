@@ -1,0 +1,14 @@
+<producer id="producer10" in="00:00:00,000" out="00:00:04,960">
+ <property name="length">00:00:05,000</property>
+ <property name="eof">pause</property>
+ <property name="resource">image-0.png</property>
+ <property name="ttl">25</property>
+ <property name="aspect_ratio">1</property>
+ <property name="progressive">1</property>
+ <property name="seekable">1</property>
+ <property name="meta.media.width">454</property>
+ <property name="meta.media.height">255</property>
+ <property name="mlt_service">qimage</property>
+ <property name="kdenlive:clipname"/>
+ <property name="kdenlive:duration">00:00:05,000</property>
+</producer>

@@ -1,15 +1,18 @@
 %\documentclass[hyperref={pdfpagelabels=false},slidetop,9pt]{beamer}
 \documentclass[slidetop,8pt,aspectratio=169]{beamer}
-\usepackage{mathpazo}            % Mathpazo  symbols
-\renewcommand {\rmdefault}{ibh} % Bradhley  Hand  ITC
+%\usepackage{mathpazo}            % Mathpazo  symbols
+%\renewcommand {\rmdefault}{ibh} % Bradhley  Hand  ITC
+\usepackage{arev}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \input{intro.tex}
-\usepackage{etex}
+%\usepackage{etex}
+\usepackage{beaudiomer}
 \usepackage{tikz}
-\usetikzlibrary{automata,positioning,fit}
+\usepackage[french]{babel}
+\usetikzlibrary{automata,positioning,fit,babel,tikzmark}
 \usepackage{animate}
-\usepackage[european]{circuitikz}
+\usepackage[european, cuteinductors]{circuitikz}
 \usepackage{pgf}
 \usepackage[all]{xy}
 \usepackage{pgfpages}
@@ -22,18 +25,17 @@
 \usepackage{subfig}
 \usepackage{tabularx}
 \usepackage{setspace}
-\usepackage{soul}
+%\usepackage{soul}
 \usepackage{schemabloc}
 \usepackage{eqnarray}
 \usepackage[dot, phantomtext]{dashundergaps}
 \usepackage{media9}
 \usepackage{multimedia}
 \usepackage{textcomp}
-\usepackage{txfonts}
-\usepackage[upright]{txgreeks}
-\renewcommand\familydefault{fjd} % emerald package
-\usepackage{mathastext}
-
+%\usepackage{txfonts}
+%\usepackage[upright]{txgreeks}
+%\renewcommand\familydefault{fjd} % emerald package
+%\usepackage{mathastext}
 
 \author{Renaud Costadoat}
 \institute{Lycée Dorian}
@@ -45,19 +47,19 @@
 
 \usepackage{color}
 \usepackage{xcolor}
+\usepackage{tcolorbox}
 \usepackage{colortbl}
 
 \usepackage[gen]{eurosym}
 \usepackage{tikz}
 %\usepackage{pstricks,pst-node,pst-tree,pst-solides3d}
-\usepackage{lmodern}
-\usepackage[francais]{babel}
+%\usepackage{lmodern}
 \usetheme{renaudvideo}
 \usepackage{times}
 %\usepackage{amsmath}
 \usepackage{verbatim}
-\usepackage{moreverb}
-%\usetikzlibrary{arrows,shapes}
+%\usepackage{moreverb}
+\usetikzlibrary{shapes}
 \usepackage{graphicx}
 \usepackage{psfrag}
 \usepackage{wrapfig}
@@ -69,7 +71,7 @@
 \definecolor{bleuc}{RGB}{231,239,247}
 \definecolor{rougef}{RGB}{185,18,27}
 \definecolor{rougec}{RGB}{255,188,204}%255,230,231
-\definecolor{vertf}{RGB}{103,126,82}
+\definecolor{vertf}{RGB}{21,151,19}
 \definecolor{vertc}{RGB}{220,255,191}
 
 \addtobeamertemplate{frametitle}{\hspace*{1em}}{}\setlength\parindent{24pt}
@@ -394,6 +396,17 @@
 \renewcommand{\thesection}{\@arabic\c@section}
 \makeatother
 
+\newtcbox{\mybox}{on line,
+  colframe=rougef,colback=rougec,
+  boxrule=0.5pt,arc=4pt,boxsep=0pt,left=3pt,right=3pt,top=3pt,bottom=3pt}
+ 
+\newtcbox{\myboxt}{on line,
+  colframe=white!0,colback=white!0,opacityframe=0, opacityback=0,
+  boxrule=0.5pt,arc=4pt,boxsep=0pt,left=3pt,right=3pt,top=3pt,bottom=3pt,
+  }
+ 
+
+
 
 % \titleformat{\chapter}[display]
 % {\normalfont\Large\filcenter}
@@ -442,7 +455,7 @@
 
 \date{S\sequence \ - \type\num}
 
-\begin{document}\mathversion{bold}
+\begin{document}%\mathversion{bold}
 \shorthandoff{:!}
 \bibliographystyle{abbrvnat-fr}
 

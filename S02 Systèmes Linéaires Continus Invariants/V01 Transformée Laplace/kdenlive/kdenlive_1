@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mlt title="Anonymous Submission" LC_NUMERIC="fr_FR.UTF-8" producer="main_bin" version="6.20.0" root=".">
+ <profile frame_rate_num="25" sample_aspect_num="1" display_aspect_den="9" colorspace="709" progressive="1" description="HD 1080p 25 fps" display_aspect_num="16" frame_rate_den="1" width="1920" height="1080" sample_aspect_den="1"/>
+ <producer id="producer2" in="00:00:00,000" out="00:00:08,560">
+  <property name="length">215</property>
+  <property name="eof">pause</property>
+  <property name="resource">0xffffffff</property>
+  <property name="aspect_ratio">1</property>
+  <property name="mlt_service">color</property>
+  <property name="kdenlive:clipname">Clip couleur</property>
+  <property name="kdenlive:duration">00:00:05,000</property>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">5</property>
+  <property name="kdenlive:file_hash">039b56a692cd66eefeea44a17539e5a2</property>
+ </producer>
+ <producer title="Anonymous Submission" id="producer0" in="00:00:00,000" out="00:00:13,000">
+  <property name="length">00:00:13,040</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Sciences-Ingenieur/headers/intro_video/lunettes/.all.png</property>
+  <property name="ttl">1</property>
+  <property name="aspect_ratio">1</property>
+  <property name="progressive">1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="mlt_service">qimage</property>
+  <property name="kdenlive:clipname">Clip diaporama</property>
+  <property name="animation"/>
+  <property name="luma_file"/>
+  <property name="luma_duration">25</property>
+  <property name="fade">0</property>
+  <property name="crop">0</property>
+  <property name="softness">0</property>
+  <property name="loop">0</property>
+  <property name="kdenlive:duration">00:00:13,040</property>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">6</property>
+  <property name="kdenlive:file_hash">dbd36493c5beee754c52786d42271398</property>
+  <property name="global_feed">1</property>
+ </producer>
+ <producer title="Anonymous Submission" id="producer1" in="00:00:00,000" out="00:00:21,600">
+  <property name="length">541</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Sciences-Ingenieur/headers/intro_video/intro.mp3</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">audio</property>
+  <property name="meta.media.0.codec.sample_fmt">fltp</property>
+  <property name="meta.media.0.codec.sample_rate">44100</property>
+  <property name="meta.media.0.codec.channels">2</property>
+  <property name="meta.media.0.codec.name">mp3float</property>
+  <property name="meta.media.0.codec.long_name">MP3 (MPEG audio layer 3)</property>
+  <property name="meta.media.0.codec.bit_rate">154752</property>
+  <property name="meta.attr.0.stream.encoder.markup">LAME3.100</property>
+  <property name="meta.attr.Software.markup">Lavf57.56.101</property>
+  <property name="meta.attr.compatible_brands.markup">iso6mp41</property>
+  <property name="meta.attr.minor_version.markup">0</property>
+  <property name="meta.attr.major_brand.markup">dash</property>
+  <property name="seekable">1</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">1</property>
+  <property name="mlt_service">avformat</property>
+  <property name="kdenlive:clipname"/>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">7</property>
+  <property name="kdenlive:file_size">418545</property>
+  <property name="kdenlive:file_hash">c5d51ea92c3c5a4ed41293f2ccb0a912</property>
+  <property name="global_feed">1</property>
+ </producer>
+ <producer id="producer3" in="00:00:00,000" out="00:00:04,960">
+  <property name="length">125</property>
+  <property name="eof">pause</property>
+  <property name="resource"/>
+  <property name="progressive">1</property>
+  <property name="aspect_ratio">1</property>
+  <property name="seekable">1</property>
+  <property name="mlt_service">kdenlivetitle</property>
+  <property name="kdenlive:duration">125</property>
+  <property name="kdenlive:clipname">Texte</property>
+  <property name="xmldata">&lt;kdenlivetitle duration="125" LC_NUMERIC="fr_FR.UTF-8" width="1920" height="1080" out="124">
+    &lt;item type="QGraphicsTextItem" z-index="0">
+    &lt;position x="550" y="140">
+    &lt;transform>1,0,0,0,1,0,0,0,1&lt;/transform>
+    &lt;/position>
+    &lt;content shadow="0;#64000000;3;3;3" font-underline="0" box-height="122" font-outline-color="0,0,0,255" font="Ubuntu" letter-spacing="0" font-pixel-size="106" font-italic="0" alignment="2" font-weight="50" font-outline="0" box-width="268.234" font-color="64,135,196,255">Texte&lt;/content>
+    &lt;/item>
+    &lt;startviewport rect="0,0,1920,1080"/>
+    &lt;endviewport rect="0,0,1920,1080"/>
+    &lt;background color="0,0,0,0"/>
+    &lt;/kdenlivetitle>
+  </property>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">8</property>
+  <property name="kdenlive:file_hash">39a6e539e3acc8a4d8af0b606a392d24</property>
+  <property name="force_reload">0</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+ </producer>
