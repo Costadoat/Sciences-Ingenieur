@@ -350,9 +350,7 @@ Les différents vecteurs de la géométrie du train avant sont donnés ci-dessou
 
 \reponse{2}{}{$K_{ad}=K_{im}$}
 
-\reponse{5}{}{$\dfrac{K_{am}\cdot H_{mot}}{1+K_{am}\cdot H_{mot}\cdot K_{cv}}$
-
-$\dfrac{\dfrac{K_{am}\cdot H_{mot}}{1+K_{am}\cdot K_{mot}\cdot K_{cv}}}{1+\dfrac{2\cdot\xi_{mot}\cdot p}{\omega_{mot}\cdot(1+K_{am}\cdot K_{mot}\cdot K_{cv})}+\dfrac{p^2}{\omega^2_{mot}\cdot(1+K_{am}\cdot K_{mot}\cdot K_{cv})}}$
+\reponse{5}{}{$H_{bv}(p)=\dfrac{K_{am}\cdot H_{mot}}{1+K_{am}\cdot H_{mot}\cdot K_{cv}}=\dfrac{\dfrac{K_{am}\cdot H_{mot}}{1+K_{am}\cdot K_{mot}\cdot K_{cv}}}{1+\dfrac{2\cdot\xi_{mot}\cdot p}{\omega_{mot}\cdot(1+K_{am}\cdot K_{mot}\cdot K_{cv})}+\dfrac{p^2}{\omega^2_{mot}\cdot(1+K_{am}\cdot K_{mot}\cdot K_{cv})}}$
 }
 
 \reponse{5}{}{$T_{R5\%}$ est minimal si $\xi_{bv}=0.69$
@@ -421,7 +419,7 @@ Donc $\omega_{bv}\cdot(\sqrt{\xi^2_{bv}+1}-\xi_{bv})=100\cdot(\sqrt{1+1}-1)=100\
 
 \reponse{2}{}{Cette valeur est compatible avec la fourchette déterminée précédemment.}
 
-\reponse{6}{}{$H_{cor(p)}=K_p+\dfrac{K_i}{p}=\dfrac{K_p\cdot p+K_i}{p}=\dfrac{K_p\cdot p+K_i}{p}=\dfrac{1+\dfrac{K_p}{K_i}\cdot p}{\dfrac{1}{K_i}p}=K_p\cdot\dfrac{1+\dfrac{K_p}{K_i}\cdot p}{\dfrac{K_p}{K_i}p}$
+\reponse{6}{}{$H_{cor(p)}=K_p+\dfrac{K_i}{p}=\dfrac{K_p\cdot p+K_i}{p}=\dfrac{1+\dfrac{K_p}{K_i}\cdot p}{\dfrac{1}{K_i}p}=K_p\cdot\dfrac{1+\dfrac{K_p}{K_i}\cdot p}{\dfrac{K_p}{K_i}p}$
 
 Donc, $K_{cor}=K_p$ et $T_i=\dfrac{K_p}{K_i}$}
 
@@ -566,7 +564,7 @@ $\left\{\begin{array}{l}
 
 $-r\cdot \overrightarrow{y_1}-b\cdot\overrightarrow{x_1}-c\cdot\overrightarrow{x_{2g}}+d\cdot\overrightarrow{y_{3g}}+\dfrac{v_a}{2}\cdot\overrightarrow{x}-e\cdot\overrightarrow{y}=\overrightarrow{0}$
 
-$-r\cdot (-sin(\theta)\cdot\overrightarrow{x}+cos(\theta)\cdot\overrightarrow{y})-b\cdot(cos(\theta)\cdot\overrightarrow{x}+sin(\theta)\cdot\overrightarrow{y})-c\cdot(cos(\beta_g)\cdot\overrightarrow{x}+sin(\beta_g)\cdot\overrightarrow{y})+d\cdot(-sin(\gamma_g)\cdot\overrightarrow{x}+cos(\theta)\cdot\overrightarrow{y})+\dfrac{v_a}{2}\cdot\overrightarrow{x}-e\cdot\overrightarrow{y}=\overrightarrow{0}$
+$-r\cdot (-sin(\theta)\cdot\overrightarrow{x}+cos(\theta)\cdot\overrightarrow{y})-b\cdot(cos(\theta)\cdot\overrightarrow{x}+sin(\theta)\cdot\overrightarrow{y})-c\cdot(cos(\beta_g)\cdot\overrightarrow{x}+sin(\beta_g)\cdot\overrightarrow{y})+d\cdot(-sin(\gamma_g)\cdot\overrightarrow{x}+cos(\gamma_g)\cdot\overrightarrow{y})+\dfrac{v_a}{2}\cdot\overrightarrow{x}-e\cdot\overrightarrow{y}=\overrightarrow{0}$
 
 $-r\cdot\overrightarrow{y_1}+b\cdot\overrightarrow{x_1}+c\cdot\overrightarrow{x_{2d}}+d\cdot\overrightarrow{y_{3d}}-\dfrac{v_a}{2}\cdot\overrightarrow{x}-e\cdot\overrightarrow{y}=\overrightarrow{0}$
 
@@ -577,7 +575,7 @@ $-r\cdot(-sin(\theta)\cdot\overrightarrow{x}+cos(\theta)\cdot\overrightarrow{y})
 
 $r\cdot sin(\theta)-b\cdot cos(\theta)-c\cdot cos(\beta_g)-d\cdot sin(\gamma_g)+\dfrac{v_a}{2}=0$
 
-$-r\cdot cos(\theta)-b\cdot sin(\theta)-c\cdot sin(\beta_g)+d\cdot cos(\theta)-e=0$
+$-r\cdot cos(\theta)-b\cdot sin(\theta)-c\cdot sin(\beta_g)+d\cdot cos(\gamma_g)-e=0$
 
 $\beta_g=arccos\left(\dfrac{r\cdot sin(\theta)-b\cdot cos(\theta)-d\cdot sin(\gamma_g)+\dfrac{v_a}{2}}{c}\right)$
 
