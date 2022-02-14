@@ -169,12 +169,13 @@
 }
 
 
-\newcommand{\reponse}[3]
-{\refstepcounter{num_rep}
-\noindent
+
+\newcommand{\reponse}[4][1]
+{\noindent
 \rule{\linewidth}{.5pt}\\
-\textbf{Question \ref{\arabic{num_rep}}:} ~\ \\
-\ifdef{\public}{#2 ~\ \\ \feuilleDR{#1}}{#3}
+\textbf{Question\ifthenelse{#1>1}{s}{} \multido{}{#1}{%
+\refstepcounter{num_rep}\ref{\arabic{num_rep}} }:} ~\ \\
+\ifdef{\public}{#3 ~\ \\ \feuilleDR{#2}}{#4}
 }
 
 \newcommand{\cor}
