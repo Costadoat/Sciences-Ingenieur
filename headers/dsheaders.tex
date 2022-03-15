@@ -165,7 +165,7 @@
 }
 
 \newcommand{\question}[1]{\refstepcounter{num_quest}\par
-~\ \\ \parbox[t][][t]{0.15\linewidth}{\textbf{Question \label{\arabic{num_quest}}\arabic{num_quest}}}\parbox[t][][t]{0.85\linewidth}{#1}\par
+~\ \\ \parbox[t][][t]{0.15\linewidth}{\textbf{Question \arabic{num_quest}}}\parbox[t][][t]{0.85\linewidth}{#1\label{q\the\value{num_quest}}}\par
 }
 
 
