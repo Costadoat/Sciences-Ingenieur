@@ -77,7 +77,20 @@ On note : $\overrightarrow{E_{3 \rightarrow 1}}=Z_E.\overrightarrow{z_0}+X_E.\ov
 
 \paragraph{Question 3:} Préciser l'isolement et le théorème utilisé permettant de déterminer $X_E$. En déduire l'expression de $\overrightarrow{E_{3 \rightarrow 1}}$.
 
-\paragraph{Question 4:} Préciser l'isolement et le théorème utilisé permettant de déterminer une relation entre $x_{FG}$, $x_{DG}$ (projections des vecteurs $\overrightarrow{FG}$ et $\overrightarrow{DG}$ sur l'axe $\overrightarrow{x}$), $Z_F$, $Z_D$, $P_{courreur}$, $P_{cadre}$, $x_{coureur}$ et $x_{cadre}$.
+Pour la suite, dans la position du système, en sachant que:
+\begin{itemize}
+ \item $\overrightarrow{GF}.\overrightarrow{x_0}>>\overrightarrow{GF}.\overrightarrow{z_0}$
+ \item $\overrightarrow{GD}.\overrightarrow{x_0}>>\overrightarrow{GD}.\overrightarrow{z_0}$
+\end{itemize}
+
+On supposera 
+\begin{itemize}
+ \item $\overrightarrow{GF}=x_{GF}\cdot\overrightarrow{x_0}$
+ \item $\overrightarrow{GD}=x_{GD}\cdot\overrightarrow{x_0}$
+\end{itemize}
+
+
+\paragraph{Question 4:} Préciser l'isolement et le théorème utilisé permettant de déterminer une relation entre $x_{GF}$, $x_{GD}$, $Z_F$, $Z_D$, $P_{courreur}$, $P_{cadre}$, $x_{coureur}$ et $x_{cadre}$.
 
 \newpage
 
@@ -269,48 +282,19 @@ D'après la question 11, $X_C+X_D=0$, donc $X_E=0$. La direction de l'effort en 
 
 \begin{itemize}
  \item Solide isolé : La pièce $1$,
- \item Théorème de la résultante statique appliqué à cet ensemble en projection sur l'axe $\overrightarrow{x}$: $X_F+X_D+X_E=0$.
+ \item Théorème du moment statique appliqué à cet ensemble en projection sur l'axe $\overrightarrow{y_0}$ au point G.
 \end{itemize}
 
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-Action & Direction & Norme \\
-\hline
-\textbf{liaison pivot en F} & connue (droite CF) & inconnue \\
-\hline
-\textbf{liaison pivot en E} & effort nul & effort nul \\
-\hline
-\textbf{liaison pivot en D} & connue & inconnue \\
-\hline
-\textbf{liaison linéaire rectiligne en G} & connue (axe (G,$\overrightarrow{z_0}$) & inconnue \\
-\hline
-\textbf{Poids du cadre} & connu & connu \\
-\hline
-\textbf{Poids du coureur} & connu & connu \\
-\hline
-\end{tabular}
-\end{center}
+$\overrightarrow{M_{G,5\to 1}}=\overrightarrow{M_{F,5\to 1}}+\overrightarrow{GF}\wedge\overrightarrow{F_{5\to 1}}=x_{GF}\overrightarrow{x_0}\wedge(-X_{F}\overrightarrow{x_0}-Z_{F}\overrightarrow{z_0})=x_{GF}~Z_{F}\overrightarrow{y_0}$
 
-Méthode possible de résolution :
-\begin{enumerate}
- \item Soit I le point d'intersection des efforts $\overrightarrow{F_{5\rightarrow 1}}$ et $\overrightarrow{D_{4\rightarrow 1}}$,
- \item La somme de ces efforts en I donne un effort $\overrightarrow{I_{45\rightarrow 1}}=X_{451}.\overrightarrow{x_0}+Y_{451}.\overrightarrow{y_0}$. Cette action mécanique ($45\rightarrow 1$) est une résultante pure, car exprimée au point d'intersection des directions des deux actions mécaniques ($5\rightarrow 1$) et ($4\rightarrow 1$),
- \item $X_F+X_D=0$ (car $X_E=0$), donc $X_{451}=-X_F-X_D=0$, ce qui signifie que l'effort est purement vertical,
- \item En utilisant le théorème du moment autour de l'axe $\overrightarrow{y}$ appliqué en G, on obtient:\\
-$-x_I.(Z_F+Z_D)+x_{coureur}.P_{coureur}+x_{coureur}.P_{cadre}=0$.
-\end{enumerate}
+De même,
+\begin{itemize}
+ \item $\overrightarrow{M_{G,4\to 1}}=x_{GD}~Z_{D}\overrightarrow{y_0}$
+ \item $\overrightarrow{M_{G,P_{coureur}\to 1}}=x_{coureur}~P_{coureur}\overrightarrow{y_0}$
+ \item $\overrightarrow{M_{G,P_{cadre}\to 1}}=x_{cadre}~P_{cadre}\overrightarrow{y_0}$
+\end{itemize}
 
-Donc, $Z_F+Z_D=\dfrac{x_{coureur}.P_{coureur}+x_{coureur}.P_{cadre}}{x_M}$, or $Z_F=Z_C$, donc
-
-$Z_C+Z_D=\dfrac{x_{coureur}.P_{coureur}+x_{coureur}.P_{cadre}}{x_M}=\dfrac{80.130.10+60.20.10}{95}=1221$
-
-Or, $Z_C+Z_D+Z_B=0$ (isolement de 4), donc $Z_B=-1221N$, donc en utilisant le triangle des forces, on trouve $Z_C=-3700N$.
-
-
-\paragraph{Question 5:}
-
-La charge admissible par le vérin est de $5000N$. Le vérin est donc compatible avec l'effort le plus défavorable.
+Ainsi, $x_{GF}~Z_{F}+x_{GD}~Z_{D}+x_{coureur}~P_{coureur}+x_{cadre}~P_{cadre}=0$
 
 \newpage
 
