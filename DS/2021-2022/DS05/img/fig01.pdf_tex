@@ -1,0 +1,79 @@
+%% Creator: Inkscape inkscape 0.92.5, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'img/fig01.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{308.1429923bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.77138861)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{img/fig01.pdf}}%
+    \put(0.21438099,0.54253967){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Flotteur\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{img/fig01.pdf}}%
+    \put(0.10650805,0.396093){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Lest supérieur\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{img/fig01.pdf}}%
+    \put(0.10033003,0.24006123){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Lest inférieur\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{img/fig01.pdf}}%
+    \put(0.0449921,0.02839526){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Fond marin\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{img/fig01.pdf}}%
+    \put(0.64986062,0.4350571){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Station \end{tabular}}}}%
+    \put(0.62883142,0.38316561){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}électrique\end{tabular}}}}%
+    \put(0.67102891,0.3353562){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}sous\end{tabular}}}}%
+    \put(0.65502891,0.2853562){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}marine\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{img/fig01.pdf}}%
+    \put(0.84963799,0.48217808){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}C\end{tabular}}}}%
+    \put(0.87572977,0.48217808){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}âbles \end{tabular}}}}%
+    \put(0.84029168,0.43077337){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}d’\end{tabular}}}}%
+    \put(0.87261434,0.43077337){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}autres \end{tabular}}}}%
+    \put(0.8484697,0.37927131){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}bouées\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{img/fig01.pdf}}%
+    \put(0.58560474,0.07356909){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Câble vers \end{tabular}}}}%
+    \put(0.61598024,0.02216438){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}littoral\end{tabular}}}}%
+  \end{picture}%
+\endgroup%
