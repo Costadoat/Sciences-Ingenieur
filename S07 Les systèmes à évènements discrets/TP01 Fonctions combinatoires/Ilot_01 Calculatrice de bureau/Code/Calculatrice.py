@@ -45,7 +45,7 @@ def addition(a,b):
 
 
 #Convertir un nombre binaire en entier
-def bittoint(a):
+def bintoint(a):
     s=0
     for i in range(len(a)):
         s+=2**i*a[i]
@@ -98,7 +98,7 @@ def seven_segments(a):
 
 a=22
 b=5
-somme=bittoint(addition(a,b))
+somme=bintoint(addition(a,b))
 print(somme)
 seven_segments(decomposition_deci(somme))
 
