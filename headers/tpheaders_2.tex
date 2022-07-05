@@ -1,6 +1,6 @@
 % Paquets généraux
 \documentclass[a4paper,12pt,titlepage,twoside]{article}
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
 \usepackage{textgreek}
@@ -9,6 +9,7 @@
 \usepackage{fancyhdr}
 \usepackage{pdfpages}
 \usepackage{multido}
+\PassOptionsToPackage{obeyspaces}{url}
 \usepackage{hyperref}
 \usepackage{numprint}
 \nplpadding{2}
@@ -150,6 +151,10 @@
 ~\ \\ \parbox[t][][t]{0.18\linewidth}{\textbf{Question \arabic{num_quest}}\\ \competensequestion}\parbox[t][][t]{0.8\linewidth}{#2}\par
 }
 
+\newcommand{\miseenoeuvre}[1]{
+https://github.com/Costadoat/Sciences-Ingenieur/raw/master/Systemes/\systemes/\systemes\_MO/\systemes\_MO.pdf}
+
+\newcommand{\dossiergithub}[1]{https://github.com/Costadoat/Sciences-Ingenieur/raw/master/S\sequence\%20\nomsequence/\type\num\%20\nom/}
 
 \newcommand{\reponse}[1]
 {\refstepcounter{num_rep}
@@ -288,7 +293,7 @@
 \node[titlebox] (box){%
 \begin{minipage}{0.94\textwidth}
 \begin{minipage}{0.15\linewidth}
-\includegraphics[width=0.8\linewidth]{../../img/todo}
+\includegraphics[width=0.8\linewidth]{../../../img/todo}
 \end{minipage}
 \begin{minipage}{0.8\linewidth}
 \textbf{\textcolor{orfr}{
@@ -310,7 +315,7 @@
 \node[titlebox] (box){%
 \begin{minipage}{0.94\textwidth}
 \begin{minipage}{0.15\linewidth}
-\includegraphics[width=0.8\linewidth]{../../img/user-manual}
+\includegraphics[width=0.8\linewidth]{../../../img/user-manual}
 \end{minipage}
 \begin{minipage}{0.8\linewidth}
 \textbf{\textcolor{bleuf}{#1}}
@@ -341,18 +346,18 @@ Ce modèle a été construit à partir des pièces, assemblages et contraintes d
 Procédure :
 \begin{itemize}
  \item Dézipper l'archive à télécharger \matlabsimscape,
- \item Lancer Matlab \includegraphics[width=80pt]{../../img/matlabsimscape/matlab}
- \item Depuis Matlab, naviguer \includegraphics[width=80pt]{../../img/matlabsimscape/matlab_01} dans le dossier dézippé jusqu'au dossier contenant les fichiers \og .slx \fg\ et \og Simscape \fg,\\
+ \item Lancer Matlab \includegraphics[width=80pt]{../../../img/matlabsimscape/matlab}
+ \item Depuis Matlab, naviguer \includegraphics[width=80pt]{../../../img/matlabsimscape/matlab_01} dans le dossier dézippé jusqu'au dossier contenant les fichiers \og .slx \fg\ et \og Simscape \fg,\\
   \begin{center}
-  \includegraphics[width=0.3\linewidth]{../../img/matlabsimscape/matlab_02}
+  \includegraphics[width=0.3\linewidth]{../../../img/matlabsimscape/matlab_02}
   \end{center}
  \item Faire un clic-droit sur le dossier \og Simscape \fg\ et cliquer sur \og Add to Path \fg,\\
   \begin{center}
-  \includegraphics[width=0.4\linewidth]{../../img/matlabsimscape/matlab_03}
+  \includegraphics[width=0.4\linewidth]{../../../img/matlabsimscape/matlab_03}
   \end{center}
  \item Double-cliquer sur le fichier correspondant au TP et à la version de Matlab utilisée, il doit avoir une extension en \og slx \fg.\\
   \begin{center}
-  \includegraphics[width=0.4\linewidth]{../../img/matlabsimscape/matlab_04}
+  \includegraphics[width=0.4\linewidth]{../../../img/matlabsimscape/matlab_04}
   \end{center}
  \item Afin d'exporter des données, il est nécessaire d'insérer un bloc \textbf{To File} disponible dans la section \textit{Sinks} et de le connecter à la donnée à extraire,
  \item Double-cliquer dessus afin de modifier le paramètre \textit{Save format} en \textbf{Array}. Cela a pour effet de créer un fichier \textit{fichier.mat},
@@ -388,14 +393,14 @@ Procédure :
 
 % En tête et pied de page
 \lhead{\nom}
-\rhead{\includegraphics[width=2cm]{../../img/logo}}
+\rhead{\includegraphics[width=2cm]{../../../img/logo}}
 \lfoot{\auteurs}
 \cfoot{Page \thepage}
 
 \fancypagestyle{correction}{%
   \fancyhf{}
   \lhead{\colorbox{danger}{\begin{minipage}{0.65\paperwidth} \textcolor{white}{\textbf{Correction}} \end{minipage}} }
-  \rhead{\includegraphics[width=2cm]{../../img/logo}}
+  \rhead{\includegraphics[width=2cm]{../../../img/logo}}
   \lfoot{Renaud Costadoat}
   \rfoot{\colorbox{danger}{\begin{minipage}{0.6\paperwidth} \begin{flushright}\textcolor{white}{\textbf{Correction}}\end{flushright} \end{minipage}} }}
 
@@ -409,7 +414,7 @@ Procédure :
 \begin{center}
 \hspace{0.5cm}\vspace{0.5cm}
 \includegraphics[width=\paperwidth,height=\paperheight,%
-keepaspectratio]{../../img/fond3}%
+keepaspectratio]{../../../img/fond3}%
 \end{center}
 \vfill
 }}}
@@ -420,7 +425,7 @@ keepaspectratio]{../../img/fond3}%
 \vfill
 \begin{center}
 \includegraphics[width=\paperwidth,height=\paperheight,%
-keepaspectratio]{../../img/fond4}%
+keepaspectratio]{../../../img/fond4}%
 \end{center}
 \vfill
 }}}
@@ -447,12 +452,12 @@ keepaspectratio]{../../img/fond4}%
 \AddToShipoutPicture*{\BackgroundPic}
 
 \ifdef{\auteurdeux}{\begin{tabular}{>{\columncolor{gray!00}}m{.33\linewidth} m{.27\linewidth} >{\columncolor{gray!00}}m{.3\linewidth}}
-Séquence \sequence \ - \type \num \ - Îlot \numprint{\ilot} &  \multirow{3}{*}{\hspace{1cm}\includegraphics[height=1.5cm]{../../img/logo}} &  \begin{flushright} \multirow{4}{*}{\hspace{1cm}\includegraphics[height=4cm]{"\dossierilot/img/qrcode"}}\end{flushright}\\
+Séquence \sequence \ - \type \num \ - Îlot \numprint{\ilot} &  \multirow{3}{*}{\hspace{1cm}\includegraphics[height=1.5cm]{../../../img/logo}} &  \begin{flushright} \multirow{4}{*}{\hspace{1cm}\includegraphics[height=4cm]{"img/qrcode"}}\end{flushright}\\
  \textbf{\institute} \\
  \auteurun\\
  \auteurdeux
 \end{tabular}}{\begin{tabular}{>{\columncolor{gray!00}}m{.3\linewidth} m{.3\linewidth} >{\columncolor{gray!00}}m{.3\linewidth}}
-Séquence \sequence \ - \type \num \ - Îlot \numprint{\ilot}  &  \multirow{3}{*}{\hspace{1cm}\includegraphics[height=1.5cm]{../../img/logo}} &  \begin{flushright} \multirow{4}{*}{\hspace{1cm}\includegraphics[height=4cm]{"\dossierilot/img/qrcode"}}\end{flushright}\\
+Séquence \sequence \ - \type \num \ - Îlot \numprint{\ilot}  &  \multirow{3}{*}{\hspace{1cm}\includegraphics[height=1.5cm]{../../../img/logo}} &  \begin{flushright} \multirow{4}{*}{\hspace{1cm}\includegraphics[height=4cm]{"img/qrcode"}}\end{flushright}\\
  \textbf{\institute} \\
  \auteurun
 \end{tabular}}

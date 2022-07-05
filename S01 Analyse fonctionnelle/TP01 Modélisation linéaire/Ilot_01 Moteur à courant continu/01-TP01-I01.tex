@@ -1,11 +1,11 @@
-\input{../../../headers/tpheaders.tex}
+\input{../../../headers/tpheaders_2.tex}
 
 
-\prob{Déterminer les caractéristiques d'un moteur à courant continu.} 
+\prob{Modéliser les caractéristiques d'un moteur à courant continu.} 
 
 \\
 
-\section{Modèle du moteur électrique: tension/vitesse de rotation}
+\section{Modèle du moteur électrique à courant continu}
 
 \begin{eqnarray}
 u_m(t)=L_m.\frac{di(t)}{dt}+R_m.i(t)+e(t) \\
@@ -35,9 +35,9 @@ En général, on suppose $K_e=K_m$ pour une MCC.
 
 \paragraph{Question 1:} D'après les équations (1) à (4), \textbf{écrire} une équation liant $u_m(t)$, $\omega_m(t)$ et $C_m(t)$.
 
-\paragraph{Question 2:} Quelles sont les \textbf{hypothèses} à prendre afin de mettre cette équation sous la forme $u_m(t)=K.\omega_m(t)$.
+\paragraph{Question 2:} Quelles sont les \textbf{hypothèses} à poser afin de mettre cette équation sous la forme $u_m(t)=K.\omega_m(t)$.
 
-\paragraph{Question 3:} En supposant que l'on arrive à mesurer le courant qui traverse le moteur, que devient-il alors possible de \textbf{mesurer} ?
+\paragraph{Question 3:} En supposant que l'on arrive à mesurer le courant qui traverse le moteur, que devient-il alors possible d'\textbf{estimer} ?
 
 \newpage
 
@@ -47,7 +47,9 @@ En général, on suppose $K_e=K_m$ pour une MCC.
 
 \paragraph{Question 5:} \textbf{Déterminer} un protocole afin de mesurer la vitesse de rotation du moteur à l'aide du tachymètre. Donner les caractéristiques du matériel (sensibilité, plage de mesure...).
 
-\paragraph{Question 6:} \textbf{Mettre en \oe uvre} ce protocole pour des tensions allant de 0V à 12V. Écrire les résultats mesurés dans un tableur et tracer la courbe $\omega_m(t)=f(u_m(t))$. Conclure quant à l'allure de ce tracé.
+\paragraph{Question 6:} \textbf{Mettre en \oe uvre} ce protocole pour des tensions allant de 0V à 12V. Écrire les valeurs mesurés dans le script 
+\href{https://github.com/Costadoat/Sciences-Ingenieur/raw/master/S01\%20Analyse\%20fonctionnelle/TP01\%20Modélisation\%20linéaire/Ilot_01\%20Moteur\%20\%C3\%A0\%20courant\%20continu/01-TP01-I01.py}{te} python
+un tableur et tracer la courbe $\omega_m(t)=f(u_m(t))$. Conclure quant à l'allure de ce tracé.
 
 \paragraph{Question 7:} \textbf{Refaire} la mesure précédente en mesurant aussi le courant qui traverse le moteur.
 

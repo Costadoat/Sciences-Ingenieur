@@ -9,10 +9,10 @@ from numpy.linalg import norm
 from scipy.optimize import leastsq
 
 # Paramètre pour générer des défauts sur le cylindre
-aleac=40
+aleac=30
 
 # Paramètre pour générer des défauts sur le plan
-aleap=00
+aleap=30
 
 ##################################################
 ####Générer le nuage de points####################
@@ -174,10 +174,10 @@ if __name__=="__main__":
     print('Défaut de forme:', max-min)
 
     # Tracé des cylindres tangents au nuage de points extérieurs et intérieurs des moindres carrés
-#    Xc,Yc,Zc = cylindre_axe_z(est_p[0],est_p[1],est_p[2],est_p[3],max,10)
-#    ax.plot_surface(Xc, Yc, Zc, alpha=0.5)
-#    Xc,Yc,Zc = cylindre_axe_z(est_p[0],est_p[1],est_p[2],est_p[3],min,10)
-#    ax.plot_surface(Xc, Yc, Zc, alpha=0.5)
+    Xc,Yc,Zc = cylindre_axe_z(est_p[0],est_p[1],est_p[2],est_p[3],max,10)
+    ax.plot_surface(Xc, Yc, Zc, alpha=0.5)
+    Xc,Yc,Zc = cylindre_axe_z(est_p[0],est_p[1],est_p[2],est_p[3],min,10)
+    ax.plot_surface(Xc, Yc, Zc, alpha=0.5)
 
     c,normal=fitPlaneLTSQ(plan_pt)
     point = np.array([0.0, 0.0, c])
