@@ -515,6 +515,64 @@ $f(t)=t^ne^{-at}u(t)$ & $F(p)=\frac{n!}{\left( p+a\right)^{n+1}}$ \\
 
 \section{Correction}
 
+\subsection{Motorisation d'un axe vertical de plateau tournant}
+
+\paragraph{Question 1:}
+
+\begin{enumerate}
+ \item $U(p)=R.I(p)+E(p)$.
+ \item $E(t)=K_e.\Omega_2(p)$,
+ \item $C_m(p)=K_c.I(p)$,
+ \item $C_m(p)=J_2.p.\Omega_2(p)$,
+\end{enumerate}
+
+\paragraph{Question 2:}
+
+$U(p)=R.\frac{J_2.p.\Omega_2(p)}{K_c}+K_e.\Omega_2(p)$.
+
+$U(p)=\left(R.\frac{J_2.p}{K_c}+K_e\right).\Omega_2(p)$.
+
+\paragraph{Question 3:}
+
+$\frac{\Omega_2(p)}{U(p)}=\frac{1}{R.\frac{J_2.p}{K_c}+K_e}=\frac{\frac{1}{K_e}}{1+\frac{R.J_2}{K_c.K_e}.p}$.
+
+Donc, $K_m=\frac{1}{K_e}$ et $\tau_m=\frac{R.J_2}{K_c.K_e}$
+
+
+\paragraph{Question 4:}
+
+D'après le théorème de la valeur limite: \\
+$\lim\limits_{t\rightarrow +\infty} \omega_2(t)=\lim\limits_{p\rightarrow 0} p.\Omega_2(p)=\lim\limits _{p\rightarrow 0} p.\frac{K_m}{1+\tau_m.p}.\frac{25}{p}=K_m.25$
+
+D'après le graphique: 
+\begin{itemize}
+ \item $\lim\limits_{t\rightarrow +\infty} \omega_2(t)=90$, donc $K_m=\frac{90}{25}=3.6$,
+ \item $3.\tau_m=0.015s$, donc $\tau_m=0.005s$.
+\end{itemize}
+
+
+\paragraph{Question 5:}
+
+$\tau_m=\frac{R.J_2}{K_c.K_e}=0.005$, donc $J_2=0.005\frac{K_c.K_e}{R}=0.005\frac{0.265^2}{1.1}=\frac{5.10^{-3}.25.10^{-2}}{4}=5.10^{-3}.6.10^{-2}=30.10^{-5}kg.m^2$ 
+
+\paragraph{Question 6:}
+
+$\frac{\Omega_2(p)}{U(p)}=\frac{1}{R.\frac{J_i.p}{K_c}+K_e}=\frac{\frac{1}{K_e}}{1+\frac{R.J_i}{K_c.K_e}.p}$.
+
+Donc, $K_T=\frac{1}{K_e}$ et $\tau_Y=\frac{R.\left(J_2+r.J_3\right)}{K_c.K_e}$
+
+\paragraph{Question 7:}
+
+$\frac{\tau_T}{\tau_m}=\frac{\frac{R.\left(J_2+r.J_3\right)}{K_c.K_e}}{\frac{R.J_2}{K_c.K_e}}=\frac{J_2+r.J_3}{J_2}=1+r.\frac{J_3}{J_2}$
+
+\paragraph{Question 8:}
+
+$3.\tau_T=0.023$ donc $\tau_T\approx 0.007$
+
+donc $J_2+r.J_3=0.007\frac{K_c.K_e}{R}$
+
+donc $J_3=0.002\frac{K_c.K_e}{r.R}=0.002\frac{0.265^2.50}{1.1}=0.1\frac{25.10^{-2}}{4}=6.10^{-3}kg.m^2$
+
 \subsection{Maxpid}
 
 \paragraph{Question 1:}
