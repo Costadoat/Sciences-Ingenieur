@@ -491,7 +491,7 @@ Les conditions initiales sont nulles.
 
 \paragraph{Question 2:} Donner la transformée de Laplace de l'équation différentielle trouvée à la question 1.
 
-\paragraph{Question 3:} Mettre cette équation sous la forme $\Theta(p)=G(p).\Theta_c(t)$.
+\paragraph{Question 3:} Mettre cette équation sous la forme $\Theta(p)=G(p).\Theta_c(p)$.
 
 On considère une consigne échelon $\theta_c(t)=\theta_0.u(t)$ avec $\theta_0$ constante réelle. 
 
@@ -927,6 +927,60 @@ J.p.\Omega(p)=C_m(p)-C_r(p)+f.\Omega(p)
 
 \begin{center}
  \includegraphics[width=0.8\linewidth]{img/Figure_moteur_charge}
+\end{center}
+
+
+\subsection{Asservissement en température d'un four (1er ordre) de type proportionnel dérivé}
+
+\paragraph{Question 1:}
+
+$\varepsilon(t)=\theta_c(t)-\theta(t)$
+
+$p(t)=K_c.\left(\varepsilon(t)+\tau_d.\frac{\mathrm{d}\varepsilon(t)}{\mathrm{d}t}\right)$
+
+$\theta(t)+\tau.\frac{\mathrm{d}\theta(t)}{\mathrm{d}t}=K.p(t)$
+
+
+$\theta(t)+\tau.\frac{\mathrm{d}\theta(t)}{\mathrm{d}t}=K.K_c.\left(\theta_c(t)-\theta(t)+\tau_d.\frac{\mathrm{d}\left(\theta_c(t)-\theta(t)\right)}{\mathrm{d}t}\right)$
+
+$\theta(t)+\tau.\frac{\mathrm{d}\theta(t)}{\mathrm{d}t}+K.K_c.\left(\theta(t)+\tau_d.\frac{\mathrm{d}\theta(t)}{\mathrm{d}t}\right)=K.K_c.\left(\theta_c(t)+\tau_d.\frac{\mathrm{d}\theta_c(t)}{\mathrm{d}t}\right)$
+
+$(1+K.K_c).\theta(t)+(\tau+K.K_c.\tau_d).\frac{\mathrm{d}\theta(t)}{\mathrm{d}t}=K.K_c.\left(\theta_c(t)+\tau_d.\frac{\mathrm{d}\theta_c(t)}{\mathrm{d}t}\right)$
+
+\paragraph{Question 2:} 
+
+$(1+K.K_c).\Theta(p)+(\tau+K.K_c.\tau_d).p.\Theta(p)=K.K_c.\left(\Theta_c(p)+\tau_d.p.\Theta_c(p)\right)$
+
+\paragraph{Question 3:} 
+
+$\left((1+K.K_c)+(\tau+K.K_c.\tau_d).p\right).\Theta(p)=K.K_c.\left(1+\tau_d.p\right).\Theta_c(p)$
+
+Donc, $G(p)=\frac{K.K_c.\left(1+\tau_d.p\right)}{(1+K.K_c)+(\tau+K.K_c.\tau_d).p}$
+
+\paragraph{Question 4:} $\lim\limits_{t\rightarrow 0}\theta(t)=\lim\limits_{p\rightarrow +\infty}p.\Theta(p)=\lim\limits_{p\rightarrow +\infty}\frac{K.K_c.\left(1+\tau_d.p\right)}{(1+K.K_c)+(\tau+K.K_c.\tau_d).p}.\theta_0=\frac{K.K_c.\tau_d}{\tau+K.K_c.\tau_d}.\theta_0$.
+
+$\lim\limits_{t\rightarrow +\infty}\theta(t)=\lim\limits_{p\rightarrow 0}p.\Theta(p)=p.\frac{K.K_c.\left(1+\tau_d.p\right)}{(1+K.K_c)+(\tau+K.K_c.\tau_d).p}.\dfrac{\theta_0}{p}=\frac{K.K_c}{1+K.K_c}.\theta_0$
+
+\paragraph{Question 5:} Exprimer $P(p)$ en fonction de $\Theta_c(p)$.
+
+$\left(1+\tau.p\right).\Theta(p)=K.P(p)$
+
+$\Theta(p)=\frac{K.P(p)}{\left(1+\tau.p\right)}$
+
+$\left((1+K.K_c)+(\tau+K.K_c.\tau_d).p\right).\frac{K.P(p)}{\left(1+\tau.p\right)}=K.K_c.\left(1+\tau_d.p\right).\Theta_c(p)$
+
+$P(p)=\frac{K_c.\left(1+\tau_d.p\right).\left(1+\tau.p\right)}{\left((1+K.K_c)+(\tau+K.K_c.\tau_d).p\right).\left(1+\tau.p\right)}.\Theta_c(p)$
+
+\paragraph{Question 6:}
+
+$\lim\limits_{t\rightarrow 0}p(t)=\lim\limits_{p\rightarrow +\infty}p.P(p)=\lim\limits_{p\rightarrow +\infty}\frac{K_c.\left(1+\tau_d.p\right).\left(1+\tau.p\right)}{\left((1+K.K_c)+(\tau+K.K_c.\tau_d).p\right).\left(1+\tau.p\right)}.\theta_0=\frac{K_c.\tau_d}{\left(\tau+K.K_c.\tau_d\right)}.\theta_0$
+
+$\lim\limits_{t\rightarrow +\infty}p(t)=\lim\limits_{p\rightarrow 0}p.P(p)=\lim\limits_{p\rightarrow 0}\frac{K_c.\left(1+\tau_d.p\right).\left(1+\tau.p\right)}{\left((1+K.K_c)+(\tau+K.K_c.\tau_d).p\right).\left(1+\tau.p\right)}.\theta_0=\frac{K_c}{1+K.K_c}.\theta_0$
+
+\paragraph{Question 7:}
+
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/trace_exo_6}
 \end{center}
 
 \end{document}
