@@ -464,6 +464,47 @@ On donne les valeurs numériques suivantes:\\
 
 \paragraph{Question 6:} Tracer la réponse temporelle $s(t)$ pour une entrée en échelon $u_m(t)=20V$ avec un effort résistant nul $c_r(t)=0N.m$.
 
+\newpage
+
+\section{Asservissement en température d'un four (1er ordre) de type proportionnel dérivé}
+
+On considère l'asservissement de température du système constitué d'un four et d'un capteur de température associé.
+
+Avec : 
+\begin{itemize}
+ \item $\theta_c(t)$ : tension de consigne [V]. Elle représente la température de consigne désirée pour le four (par rapport à la température ambiante),
+ \item $\theta(t)$ : tension de mesure [V]. C'est la tension image de la température intérieure du four délivrée par le capteur (exprimée par rapport à la température ambiante),
+ \item $p(t)$ : puissance électrique délivrée au four [W]. 
+ \item $\varepsilon(t)$ : erreur entre la consigne et la mesure [V].
+\end{itemize}
+
+La loi de commande est telle que : 
+$p(t)=K_c.[\varepsilon(t)+\tau_d.\frac{\mathrm{d}\varepsilon(t)}{\mathrm{d}t}]$ avec $K_c$ gain statique et $\tau_d$ constante de dérivation.
+
+Et les équations de fonctionnement du système conduisent à :
+$\theta(t)+\tau.\frac{\mathrm{d}\theta(t)}{\mathrm{d}t}=K.p(t)$
+avec $K$ gain statique du système et $\tau$ constante de temps du système.
+
+\paragraph{Question 1:} Exprimer l'équation différentielle liant $\theta_c(t)$ et $\theta(t)$.
+
+Les conditions initiales sont nulles.
+
+\paragraph{Question 2:} Donner la transformée de Laplace de l'équation différentielle trouvée à la question 1.
+
+\paragraph{Question 3:} Mettre cette équation sous la forme $\Theta(p)=G(p).\Theta_c(t)$.
+
+On considère une consigne échelon $\theta_c(t)=\theta_0.u(t)$ avec $\theta_0$ constante réelle. 
+
+\paragraph{Question 4:} Quelles sont alors les valeurs initiales et finales de la fonction $\theta(t)$ ?
+
+\paragraph{Question 5:} Exprimer $P(p)$ en fonction de $\Theta_c(p)$.
+
+\paragraph{Question 6:} En déduire les valeurs initiale et finale de la commande $p(t)$ pour $\theta_c(t)=\theta_0.u(t)$.
+
+On considère $\tau_d=\tau=60\ s$, $K=0,01\ V/W$ et $\theta_0=7\ V$.
+
+\paragraph{Question 7:} Tracer sur le même graphe : $\theta_c(t)$, $\theta(t)$ et $p(t)$ pour $K_c=100$.
+
 \section{Transformée de Laplace de fonctions usuelles}
 
 \begin{center}
@@ -510,6 +551,7 @@ $f(t)=t^ne^{-at}u(t)$ & $F(p)=\frac{n!}{\left( p+a\right)^{n+1}}$ \\
 \hline
 \end{tabular}
 \end{center}
+
 
 \ifdef{\public}{\end{document}}{}
 
@@ -733,7 +775,7 @@ Le temps de réponse est donc: $t_{R,5\%}.\omega_0=50$, donc $t_{R,5\%}=\dfrac{5
 %	\includegraphics[width=0.7\linewidth]{img/courbe4}
 %\end{center}
 
-\subsection{Correction Diravi}
+\subsection{Diravi}
 
 \paragraph{Question 1:}
 
@@ -870,7 +912,7 @@ J.p.\Omega(p)=C_m(p)-C_r(p)+f.\Omega(p)
 
 \paragraph{Question 2:} $H_1(p)=\frac{{\Omega}(p)}{{U}_{m}(p)}=\frac{K_c}{K_e.K_c+R.f} \cdot \frac{1}{1+\frac{R.J+L.f}{K_e.K_c+R.f}.p+\frac{L.J}{K_e.K_c+R.f}.p^2}$
 
-\paragraph{Question 3:} $H_2(p)=\frac{{\Omega}(p)}{C_r(p)}=\frac{-(L.s+R)}{K_e.K_c+R.f} \cdot \frac{1}{1+\frac{R.J+L.f}{K_e.K_c+R.f}p+\frac{L.J}{K_e.K_c+R.f}.p^2}$
+\paragraph{Question 3:} $H_2(p)=\frac{{\Omega}(p)}{C_r(p)}=\frac{-(L.p+R)}{K_e.K_c+R.f} \cdot \frac{1}{1+\frac{R.J+L.f}{K_e.K_c+R.f}p+\frac{L.J}{K_e.K_c+R.f}.p^2}$
 
 \paragraph{Questions 4 et 5:} 
 
@@ -889,42 +931,3 @@ J.p.\Omega(p)=C_m(p)-C_r(p)+f.\Omega(p)
 
 \end{document}
 
-
-\section{Asservissement en température d'un four (1er ordre) de type proportionnel dérivé}
-
-On considère l'asservissement de température du système constitué d'un four et d'un capteur de température associé.
-
-Avec : 
-\begin{itemize}
- \item $\theta_c(t)$ : tension de consigne [V]. Elle représente la température de consigne désirée pour le four (par rapport à la température ambiante),
- \item $\theta(t)$ : tension de mesure [V]. C'est la tension image de la température intérieure du four délivrée par le capteur (exprimée par rapport à la température ambiante),
- \item $p(t)$ : puissance électrique délivrée au four [W]. 
- \item $\varepsilon(t)$ : erreur entre la consigne et la mesure [V].
-\end{itemize}
-
-La loi de commande est telle que : 
-$p(t)=K_c.[\varepsilon(t)+\tau_d.\frac{\mathrm{d}\varepsilon(t)}{\mathrm{d}t}]$ avec $K_c$ gain statique et $\tau_d$ constante de dérivation.
-
-Et les équations de fonctionnement du système conduisent à :
-$\theta(t)+\tau.\frac{\mathrm{d}\theta(t)}{\mathrm{d}t}=K.p(t)$
-avec $K$ gain statique du système et $\tau$ constante de temps du système.
-
-\paragraph{Question 1:} Exprimer l'équation différentielle liant $\theta_c(t)$ et $\theta(t)$.
-
-Les conditions initiales sont nulles.
-
-\paragraph{Question 2:} Donner la transformée de Laplace de l'équation différentielle trouvée à la question 1.
-
-\paragraph{Question 3:} Mettre cette équation sous la forme $\Theta(p)=G(p).\Theta_c(t)$.
-
-On considère une consigne échelon $\theta_c(t)=\theta_0.u(t)$ avec $\theta_0$ constante réelle. 
-
-\paragraph{Question 4:} Quelles sont alors les valeurs initiales et finales de la fonction $\theta(t)$ ?
-
-\paragraph{Question 5:} Exprimer $P(p)$ en fonction de $\Theta_c(p)$.
-
-\paragraph{Question 6:} En déduire les valeurs initiale et finale de la commande $p(t)$ pour $\theta_c(t)=\theta_0.u(t)$.
-
-On considère $\tau_d=\tau=60\ s$, $K=0,01\ V/W$ et $\theta_0=7\ V$.
-
-\paragraph{Question 7:} Tracer sur le même graphe : $\theta_c(t)$, $\theta(t)$ et $p(t)$ pour $K_c=100$.
