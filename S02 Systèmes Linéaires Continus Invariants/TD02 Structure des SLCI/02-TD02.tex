@@ -129,18 +129,12 @@ $ \displaystyle \epsilon_{Vs}=\epsilon_V(+\infty)=\lim_{t\rightarrow + \infty}.\
 
 \paragraph{Question 5 :} Montrer que l'on peut assimiler la fonction du transfert $H_2(p)$ à une fonctions $H'_2(p)$ du premier ordre, déterminer son temps de réponse.
 
-\paragraph{Question 6 :} On donne ci-dessous, la réponse indicielle du système, à une entrée de type échelon unitaire $(C_V(t)=1V)$. Placer sur la figure le temps de réponse à 5\%. Donner les valeurs numériques correspondantes et retrouver le résultat de la question précédente. La seconde courbe présente l'écart statique de ce système. Vérifier la valeur calculée précédemment.
+\paragraph{Question 6 :} On donne ci-dessous, la réponse indicielle du système, à une entrée de type échelon unitaire $(C_V(t)=1V)$. Placer sur la figure le temps de réponse à 5\%. Donner les valeurs numériques correspondantes et retrouver le résultat de la question précédente.
 
 \begin{figure}[!h]
- \centering\includegraphics[width=0.6\linewidth]{img/motoreduc_courbe1}
+ \centering\includegraphics[width=0.6\linewidth]{img/motoreduc_courbe}
  \caption{Réponse indicielle}
  \label{bloc2}
-\end{figure}
-
-\begin{figure}[!h]
- \centering\includegraphics[width=0.6\linewidth]{img/motoreduc_courbe2}
- \caption{Erreur}
- \label{bloc3}
 \end{figure}
 
 ~\
@@ -742,7 +736,7 @@ $\epsilon_v(p)=\dfrac{C_v(p)}{1+G_2(p)}$
 
 $\epsilon_{vs}=\lim\limits_{p \rightarrow 0} p.\epsilon_v(p)=\lim\limits_{p \rightarrow 0} p.\dfrac{C_v(p)}{1+G_2(p)}=\lim\limits_{p \rightarrow 0} \dfrac{1}{1+G_2(p)}=\dfrac{1}{1+K.K_v.K_1}=\dfrac{1}{1+200.0,1.1,66}=\dfrac{1}{34,2}=\epsilon_{vs}\simeq0,03$
 
-$\Omega_c.K_a-\Omega_M.K_v=0$, si $\Omega_c=\Omega_M$, donc $K_a=K_v$.
+$\Omega_c.K_a-\Omega_v.K_v=0$, si $\Omega_c=\Omega_M$, donc $K_a=\frac{K_v}{\rho}$.
 
 \paragraph{Question 4 :} En supposant toujours que $C_P(t)$ est nul, en déduire littéralement la fonction de transfert en boucle fermée : $H_2(p)=\frac{\Omega_m(p)}{\Omega_c(p)}$	
 
@@ -758,13 +752,12 @@ $\tau_1=30s >> \tau=15ms$, donc on peut assimiler ce système à un premier ordr
 
 $H'_2(p)=\frac{K.K_a.K_1}{(1+\tau_1.p)+K.K_v.K_1}=\frac{\frac{K.K_a.K_1}{1+K.K_v.K_1}}{1+\frac{\tau_1}{1+K.K_v.K_1}.p}$
 
-$\tau_2=\frac{\tau_1}{1+K.K_v.K_1}=\frac{30}{1+33}\simeq0,9s.$
+$\tau_2=\frac{\tau_1}{1+K.K_v.K_1}=\frac{30}{1+3.3}\simeq7s.$
 
 ~\
 
 \begin{center}
-\includegraphics[width=0.7\linewidth]{img/motoreduc_courbe1_cor} \\
-\includegraphics[width=0.7\linewidth]{img/motoreduc_courbe2_cor}
+\includegraphics[width=0.7\linewidth]{img/motoreduc_courbe_cor}
 \end{center}
 
 \subsection{Diravi}
@@ -865,7 +858,7 @@ $\xi=\frac{S.\sqrt{S}}{2.\sqrt{K_b.k.K_c.K_d.M.f}}$
 $\omega_0=\sqrt{\frac{3000.10^{-6}.0,04.10^{-3}.\frac{180}{\pi}.0,24.10^3.\frac{2.\pi.10^3}{500}.\frac{34}{57}}{500.6.10^{-3}.\frac{1}{60}.10^{-6}}}=\sqrt{\frac{3.10^{-3}.4.10^{-4}.\frac{18}{\pi}.24.10^1.4.\pi.\frac{34}{57}}{5.6.10^{-1}.\frac{1}{6}.10^{-7}}}
 =12.6.10.\sqrt{\frac{4.34}{57.5}}\approx12.6.10.\sqrt{\frac{4.36}{285}}\approx2.6.12.6.10.\sqrt{\frac{1}{25*12}}\approx\frac{6.12.6.10}{5}.\sqrt{\frac{1}{3}}\approx\frac{6.12.6.10}{5.1,7}\approx\frac{6.12.6.10}{5.1,7}\approx\frac{864}{1,7}\approx500rad^{-1}.$
 
-$\xi=\frac{3000.10^{-6}.\sqrt{3000.10^{-6}}}{2.\sqrt{0,04.10^{-3}.\frac{180}{\pi}.0,24.10^3.\frac{2.\pi.10^3}{500}.\frac{34}{57}.500.6.10^{-3}.\frac{1}{60}.10^{-6}}}=3000.10^{-8}.\sqrt{30}}{2.\sqrt{4.10^{-4}.18.24.10.4.\frac{34}{57}.5.10^{-2}.10^{-6}}}\approx\frac{3000.10^{-8}.\sqrt{30}}{480.10^{-6}.\sqrt{12.\frac{17}{57}}}\approx\frac{3.\sqrt{10}}{48}\approx\frac{9}{48}\approx0,2$
+$\xi=\frac{3000.10^{-6}.\sqrt{3000.10^{-6}}}{2.\sqrt{0,04.10^{-3}.\frac{180}{\pi}.0,24.10^3.\frac{2.\pi.10^3}{500}.\frac{34}{57}.500.6.10^{-3}.\frac{1}{60}.10^{-6}}}=\frac{3000.10^{-8}.\sqrt{30}}{2.\sqrt{4.10^{-4}.18.24.10.4.\frac{34}{57}.5.10^{-2}.10^{-6}}}\approx\frac{3000.10^{-8}.\sqrt{30}}{480.10^{-6}.\sqrt{12.\frac{17}{57}}}\approx\frac{3.\sqrt{10}}{48}\approx\frac{9}{48}\approx0,2$
 
 $K=\frac{\frac{34}{57}}{\frac{2.\pi.10^3}{500}.\frac{34}{57}}=\frac{1}{4.\pi}\approx0,08$
 
