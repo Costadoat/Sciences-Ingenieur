@@ -18,38 +18,47 @@ La démarche de l’ingénieur permet :
 \documentsressource{Pour ce TP, vous aurez à votre disposition :
 \begin{itemize}
  \item la \miseenoeuvre du système,
- \item le script python permettant de tracer la réponse à une fonction de transfert,
+ \item le \href{https://github.com/Costadoat/Sciences-Ingenieur/raw/master/S02\%20Syst\%C3\%A8mes\%20Lin\%C3\%A9aires\%20Continus\%20Invariants/C01\%20Pr\%C3\%A9sentation\%20des\%20SLCI/02-C01.py}{script python} permettant de tracer la réponse indicielle à une fonction de transfert,
  \item les diverses informations sur le \urlsysteme.
 \end{itemize}}
 \newpage
 
 \newpage
 
-\section{Modéliser la chaîne d'énergie du système en Boucle Ouverte}
+\section{Identifier un paramètre par minimisation de l'écart 3.}
 
-Nous allons dans cette partie chercher à déterminer la fonction de transfert qui lie la tension en entrée du moteur $u_m(t)$ (V) et la tension de la corde $Fc(t)$ (N).
+L'objectif de cette partie est de déterminer la valeur des frottements visqueux $f$ par identification.
 
-On donnera le système d'équations suivants: \\
+On donne la fonction de transfert $\frac{Vc(p)}{U(p)}$ qui lie la vitesse du charriot à la tension aux bornes du moteur (à retrouver à partir des équations du moteur à courant continu et des équations propres au système) :
+
+\begin{center}
+ $\dfrac{Vc(p)}{U(p)}=\dfrac{\dfrac{R\cdot r\cdot K_t}{R\cdot f +K_e\cdot K_t}}{1+\dfrac{R\cdot J+L\cdot f}{R\cdot f +K_e\cdot K_t}\cdot p+\dfrac{L\cdot J}{R\cdot f +K_e\cdot K_t}\cdot p^2}$
+\end{center}
+
+Avec:
 \begin{itemize}
- \item $J.\dfrac{d \omega_m(t)}{dt}=C_m(t)-r.R_p.F_c(t)$
-\end{itemize}~\
-
-Les caractéristiques du système sont données sur la page \urlsysteme. Si les valeurs numériques de certaines grandeurs ne sont pas données, c'est qu'elles seront négligées par la suite.
-
-\question{Donner l'ensemble des équations temporelles permettant de modéliser un moteur à courant continu.}
+ \item $R$ résistance aux bornes du moteur ($\Omega$),
+ \item $L$ l'inductance du moteur ($H$),
+ \item $K_e$ constante électrique du moteur ($V\cdot rad^{-1}\cdot s$),
+ \item $K_t$ constante de couple du moteur ($N\cdot m\cdot A^{-1}$),
+ \item $J$ inertie équivalente sur l'arbre moteur ($kg.m^2$),
+ \item $f$ coefficient de frottement fluides ($N\cdot m\cdot rad^{-1}\cdot s$),
+ \item $r$ rapport de réduction du réducteur ($1$),
+ \item $R_p$ rayon de la poulie d'entraînement de la chaîne ($m$).
+\end{itemize}
 
 ~\
 
-\textbf{La question suivante est une des plus complexes et plus importantes du TP.} Pour y répondre, il faudra fouiller dans le logiciel de pilotage du système, proposer des mesures à réaliser sur le système,... et proposer à votre enseignant des idées sur la démarche à suivre.
+Les caractéristiques du système sont données sur la page \urlsysteme. Si les valeurs numériques de certaines grandeurs ne sont pas données, c'est qu'elles seront négligées par la suite.
 
-\question{Déterminer les équation qui lient les paramètres suivants:
-\begin{itemize}
-\item la vitesse de rotation du moteur $\omega_m(t)$,
-\item la vitesse de déplacement du charriot $v_c(t)$,
-\item la position du charriot $x_c(t)$,
-\item l'allongement de la corde $\delta_c(t)$,
-\item la tension de la corde $Fc(t)$ (N).
-\end{itemize}}
+\question{En utilisant le logiciel d'acquisition, sans corde, appuyer sur le bouton de mise sous tension de la corde et tracer la \textbf{tension aux bornes du moteur} et la \textbf{vitesse du charriot} en fonction du \textbf{temps}.}
+
+\question{En utilisant le script python, tracer la réponse à cette fonction de transfert avec une entrée égale à la tension mesurée précédemment et en prenant $f=0.01N\cdot m\cdot rad^{-1}\cdot s$ pour commencer.}
+
+\question{Comparer les deux tracés et identifier les justifications des écarts.}
+
+\question{Proposer une valeur de $f$ qui minimise les écarts entre les deux tracés. Cette valeur vous paraît-elle cohérente.}
+
 
 \section{Résolution des équations du modèle}
 
