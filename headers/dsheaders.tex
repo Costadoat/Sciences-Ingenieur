@@ -9,6 +9,7 @@
 }
 \usepackage[gen]{eurosym}
 %\usepackage[dvips]{graphicx}
+\usepackage{minted}
 \usepackage{fancyhdr}
 \usepackage{pdfpages} 
 \usepackage{multido}
@@ -175,7 +176,7 @@
 \rule{\linewidth}{.5pt}\\
 \textbf{Question\ifthenelse{#1>1}{s}{} \multido{}{#1}{%
 \refstepcounter{num_rep}\ref{q\the\value{num_rep}} }:} ~\ \\
-\ifdef{\public}{#3 ~\ \\ \feuilleDR{#2}}{#4}
+\ifdef{\public}{#3 \ifthenelse{#2>0}{~\ \\ 	\feuilleDR{#2}}}{#4}
 }
 
 \newcommand{\cor}

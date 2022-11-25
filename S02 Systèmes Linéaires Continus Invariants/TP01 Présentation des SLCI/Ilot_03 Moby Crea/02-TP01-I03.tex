@@ -1,84 +1,95 @@
-\newcommand{\sortie}{la vitesse de rotation de la manivelle $\Omega_v(t)$ ($rad.s^{-1}$)}
-\newcommand{\entree}{la tension en entrée du moteur $u_m(t)$ (V)}
-\newcommand{\systequations}{\item $J.\dfrac{d \omega_m(t)}{dt}=C_m(t)$}
-\newcommand{\grandeurs}{\item la vitesse de rotation du moteur $\omega_m(t)$,
-\item \sortie.}
-\newcommand{\fonctiontransfert}{$H(p)=\dfrac{\Omega_v(p)}{U_m(p)}$}
+\input{../../../headers/tpheaders_2.tex}
 
-\newcommand{\correction}{\newpage
+\prob{Modéliser un Système Linéaire Continu et Invariant} \\
 
-\pagestyle{correction}\setcounter{section}{0}
+\graphicspath{{../../../img/}}
+\begin{center}
+\def\svgwidth{\columnwidth}
+\input{../../../img/triptyque.pdf_tex}
+\end{center}
 
-\begin{eqnarray}
-J\cdot \frac{d\omega (t)}{dt}=Cm(t) \\
-Um(t)=R\cdot i(t) +e(t) \\
-e(t)=K_e\cdot \omega (t) \\
-Cm(t)=K_t\cdot i(t)
-\end{eqnarray}
+La démarche de l’ingénieur permet :
+\begin{itemize}
+ \item De vérifier les performances attendues d’un système, par évaluation de l’écart entre un cahier des charges et les réponses expérimentales (écart 1),
+ \item De proposer et de valider des modèles d’un système à partir d’essais, par évaluation de l’écart entre les performances mesurées et les performances simulées (écart 2),
+ \item De prévoir le comportement à partir de modélisations, par l’évaluation de l’écart entre les performances simulées et les performances attendues du cahier des charges (écart 3).
+\end{itemize}
 
-$H(p)=\dfrac{\dfrac{1}{K_e}}{1+\dfrac{R\cdot J}{K_e\cdot K_t}\cdot p}$
+\documentsressource{Pour ce TP, vous aurez à votre disposition :
+\begin{itemize}
+ \item la \miseenoeuvre du système,
+ \item le \href{https://github.com/Costadoat/Sciences-Ingenieur/raw/master/S02\%20Syst\%C3\%A8mes\%20Lin\%C3\%A9aires\%20Continus\%20Invariants/C01\%20Pr\%C3\%A9sentation\%20des\%20SLCI/02-C01.py}{script python} permettant de tracer la réponse indicielle à une fonction de transfert,
+ \item les diverses informations sur le \urlsysteme.
+\end{itemize}}
+\newpage
 
-Avec $U=\frac{U_0}{p}$.
+\newpage
 
-$\Omega(p)=\dfrac{\dfrac{U_0}{K_e}}{p\cdot \left(1+\dfrac{R\cdot J}{K_e\cdot K_t}\cdot p\right)}$, donc $\omega(t)=K(1-e^{-\frac{t}{\tau}})$
+\section{Identifier un paramètre par minimisation de l'écart 3.}
 
-\begin{eqnarray}
-J\cdot \frac{d\omega (t)}{dt}=Cm(t)-Cr(t)-f.\omega(t) \\
-Um(t)=R\cdot i(t) +e(t) \\
-e(t)=K_e\cdot \omega (t) \\
-Cm(t)=K_t\cdot i(t)
-\end{eqnarray}
+L'objectif de cette partie est de déterminer la valeur des frottements visqueux $f$ par identification.
 
-Avec $Cr(t)=Cr_0.cos(\omega_r.t)+Cs_0$.\\
+On donne la fonction de transfert $\frac{Vc(p)}{U(p)}$ qui lie la vitesse du charriot à la tension aux bornes du moteur (à retrouver à partir des équations du moteur à courant continu et des équations propres au système) :
 
-$J\cdot p \cdot \Omega = Cm(p)-Cr(p)-f.\Omega$
+\begin{center}
+ $\dfrac{Vc(p)}{U(p)}=\dfrac{\dfrac{R_p\cdot r\cdot K_t}{R\cdot f +K_e\cdot K_t}}{1+\dfrac{R\cdot J+L\cdot f}{R\cdot f +K_e\cdot K_t}\cdot p+\dfrac{L\cdot J}{R\cdot f +K_e\cdot K_t}\cdot p^2}$
+\end{center}
 
-$Um(p)-\dfrac{R\cdot Cr(p)}{K_t}=\left(\dfrac{R\cdot (J\cdot p+f)}{K_t}+K_e\right)\cdot\Omega=\left(\dfrac{R\cdot (J\cdot p+f)}{K_t}+K_e\right)\cdot\Omega$
-
-$\Omega(p)=\dfrac{\dfrac{Kt}{Kt\cdot Ke+R\cdot f}}{1+\dfrac{R\cdot J}{Kt\cdot Ke+R\cdot f}\cdot p}\cdot \left(Um(p)-\dfrac{R\cdot Cr(p)}{K_t}\right)$
-
-Avec $U=\frac{U_0}{p}$ et $Cr=0$.
-
-$\Omega_1(p)=\dfrac{\dfrac{Kt}{Kt\cdot Ke+R\cdot f}}{1+\dfrac{R\cdot J}{Kt\cdot Ke+R\cdot f}\cdot p}\cdot \dfrac{U_0}{p}$
-
-Avec $U=0$ et $Cr=\dfrac{Cr_0\cdot p}{p^2+\omega_r^2}+\dfrac{Cs_0}{p}$.
-
-
-$\Omega_2(p)=-\dfrac{\dfrac{Kt}{Kt\cdot Ke+R\cdot f}}{1+\dfrac{R\cdot J}{Kt\cdot Ke+R\cdot f}\cdot p}\cdot \dfrac{R}{K_t}\cdot \left(\dfrac{Cr_0\cdot p}{p^2+\omega_r^2}+\dfrac{Cs_0}{p}\right)$
-
-On prend:
-
-$K=-\dfrac{Kt}{Kt\cdot Ke+R\cdot f}\cdot \dfrac{R}{K_t}$
-
-$\tau=\dfrac{R\cdot J}{Kt\cdot Ke+R\cdot f}$
-
-$\Omega_2(p)=\dfrac{K}{1+\tau\cdot p}\cdot \left(\dfrac{Cr_0\cdot p}{p^2+\omega_r^2}+\dfrac{Cs_0}{p}\right)=\dfrac{K\cdot(Cr_0\cdot p^2+Cs_0\cdot p^2+Cs_0\cdot \omega_r^2)}{(1+\tau\cdot p)\cdot(p^2+\omega_r^2)\cdot p}$
+Avec:
+\begin{itemize}
+ \item $R$ résistance aux bornes du moteur ($\Omega$),
+ \item $L$ l'inductance du moteur ($H$),
+ \item $K_e$ constante électrique du moteur ($V\cdot rad^{-1}\cdot s$),
+ \item $K_t$ constante de couple du moteur ($N\cdot m\cdot A^{-1}$),
+ \item $J$ inertie équivalente sur l'arbre moteur ($kg.m^2$),
+ \item $f$ coefficient de frottement fluides ($N\cdot m\cdot rad^{-1}\cdot s$),
+ \item $r$ rapport de réduction du réducteur ($1$),
+\end{itemize}
 
 ~\
 
-$\Omega_2(p)=\dfrac{A}{1+\tau\cdot p}+\dfrac{B\cdot p+C}{p^2+\omega_r^2}+\dfrac{D}{p}$
+Les caractéristiques du système sont données sur la page \urlsysteme. Si les valeurs numériques de certaines grandeurs ne sont pas données, c'est qu'elles seront négligées par la suite.
 
-$=\dfrac{A\cdot p^3+A\cdot \omega_r^2\cdot p+B\cdot p^2+C\cdot p+B\cdot \tau\cdot p^3+C\cdot \tau \cdot p^2+D\cdot p^2+D\cdot \omega_r^2+D\cdot \tau\cdot p^3+D\cdot \omega_r^2\cdot \tau\cdot p}{(1+\tau\cdot p)\cdot(p^2+\omega_r^2)\cdot p}$
+\question{En utilisant le logiciel d'acquisition, sans corde, appuyer sur le bouton de mise sous tension de la corde et tracer la \textbf{tension aux bornes du moteur} et la \textbf{vitesse du charriot} en fonction du \textbf{temps}.}
 
-\begin{eqnarray}
-A+B\cdot \tau+D\cdot \tau=0 \\
-B+C\cdot \tau+D=K\cdot(Cr_0+Cs_0) \\
-A\cdot \omega_r^2+C+D\cdot \omega_r^2\cdot \tau=0 \\
-D \cdot \omega_r^2=K\cdot Cs_0\cdot \omega_r^2
-\end{eqnarray}
+\question{En utilisant le script python, tracer la réponse à cette fonction de transfert avec une entrée égale à la tension mesurée précédemment et en prenant $f=0.01N\cdot m\cdot rad^{-1}\cdot s$ pour commencer.}
 
-$D=K\cdot Cs_0$
+\question{Comparer les deux tracés et identifier les justifications des écarts.}
 
-$C=B\cdot \tau \cdot \omega_r^2$
-
-$B\cdot (1+\tau^2 \cdot \omega_r^4)+D=K\cdot(Cr_0+Cs_0)$
-
-$B=\dfrac{K\cdot Cr_0}{1+\tau^2 \cdot \omega_r^4}$
-
-$C=\dfrac{K\cdot Cr_0\cdot \tau \cdot \omega_r^2}{1+\tau^2 \cdot \omega_r^4}$
-
-$A=-\dfrac{K\cdot Cr_0\cdot \tau}{1+\tau^2 \cdot \omega_r^4}-\tau\cdot K\cdot Cs_0$
+\question{Proposer une valeur de $f$ qui minimise les écarts entre les deux tracés. Cette valeur vous paraît-elle cohérente.}
 
 
-$\omega_2(t)=\dfrac{A}{\tau}.e^{\frac{-t}{\tau}}+B\cdot cos(\omega_r\cdot t)+\dfrac{C}{\omega_r}\cdot sin(\omega_r\cdot t)+D$
-}
+\section{Résolution des équations du modèle}
+
+\question{Passer ces équations dans le domaine de Laplace.}
+
+\question{Mettre le système sous la forme de la fonction de transfert suivante: $H(p)=\dfrac{F_c(p)}{U_m(p)}$. }
+
+\question{Donner les caractéristiques de cette fonction de transfert et vérifier l'homogénéité des constantes déterminées.}
+
+~\
+
+Afin de tracer les réponses temporelles, il est possible d'utiliser un script python téléchargeable 
+\href{https://github.com/Costadoat/Sciences-Ingenieur/raw/master/S02\%20Syst\%C3\%A8mes\%20Lin\%C3\%A9aires\%20Continus\%20Invariants/C01\%20Pr\%C3\%A9sentation\%20des\%20SLCI/02-C01.py}{ici}.
+
+\section{Expérimentation sur le système réel}
+
+Mettre en \oe uvre le système, et préparer la prise de mesure. 
+
+\question{Après avoir analysé le logiciel d'expérimentation, déterminer quelles grandeurs peuvent être utilisées en entrée. Est-ce que la tension en entrée du moteur $u_m(t)$ (V) en fait partie ?}
+
+\question{Relever les tracés des réponses temporelles de la tension en entrée du moteur $u_m(t)$ (V) et de la tension de la corde $Fc(t)$ (N).}
+
+\question{En mettant en parallèle les tracés issus de la modélisation et ceux issus de l'expérimentation, conclure quand à la validation du modèle utilisé.}
+
+\ifdef{\public}{\end{document}}{}
+
+\pagestyle{correction}\setcounter{section}{0}
+
+Modélisation
+\begin{center}
+$H(p)=\dfrac{F_c(p)}{U_m(p)}=\dfrac{\dfrac{K_m}{R_m.R_p.r}}{1+\dfrac{K_e.K_m}{R_m.K_c.R_p^2.r^2}.p+\dfrac{R_m.J}{R_m.K_c.R_p^2.r^2}.p^2}$
+\end{center}
+
+
+\end{document}
