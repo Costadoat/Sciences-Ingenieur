@@ -202,7 +202,7 @@ Correcteur & $C(p)$ (réglé par la suite) \\
 \hline
 Amplificateur & $K_A=7.9$ sans unité \\
 \hline
-Traitement numérique de la vitesse & $K_{Vit} = 1.4\cdot 10^{-3}\ V\cdot rad \cdot s^{-1}$ \\
+Traitement numérique de la vitesse & $K_{Vit} = 1.4\cdot 10^{-3}\ V\cdot rad^{-1} \cdot s$ \\
 \hline
 Réduction et roue & KR (à déterminer) \\
 \hline
@@ -414,13 +414,13 @@ $\tau_1=0,0275s$ et $\tau_2=0,0025s$.
 \end{center}
 }
 
-\reponse{2}{}{$E=5$ et $\omega_n=\frac{2\cdot \pi\cdot 2,5}{0.04}=2\cdot \pi\cdot 2,5\cdot 25\approx 400rad\cdot s^{-1}$}
+\reponse{2}{}{$E105$ et $\omega_n=\frac{2\cdot \pi\cdot 2,5}{0.04}=2\cdot \pi\cdot 2,5\cdot 25\approx 400rad\cdot s^{-1}$}
 
 \reponse{0}{\begin{center}
   \resizebox{0.6\textwidth}{!}{\input{img/q6_DR.pgf}}
 \end{center}
 }{
-D'après le diagramme de Bode, $G_{db}(\omega_n)=-20db$, donc $G(\omega_n)=0,1$ et $\varphi(\omega_n)=-135\degree$, donc, $s(t)=1\cdot \sin(400\cdot t-135)$. Il faut donc tracer un signal dont l'amplitude est de 1, la période est la même que l'entrée et il y a un retard de $\frac{135}{360}\approx 0.4$ période.
+D'après le diagramme de Bode, $G_{db}(\omega_n)=0db$, donc $G(\omega_n)=1$ et $\varphi(\omega_n)=-135\degree$, donc, $s(t)=10\cdot \sin(400\cdot t-135)$. Il faut donc tracer un signal dont l'amplitude est de 10, la période est la même que l'entrée et il y a un retard de $\frac{135}{360}\approx 0.4$ période.
 \begin{center}
   \resizebox{0.7\textwidth}{!}{\input{img/q6_cor.pgf}}
 \end{center}

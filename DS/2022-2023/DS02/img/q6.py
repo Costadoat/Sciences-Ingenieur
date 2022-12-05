@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 w=400
 E=10
-K=10**(-20/20)
+K=10**(0/20)
 phi=-135
 
 t=np.linspace(0,0.1,1000)
