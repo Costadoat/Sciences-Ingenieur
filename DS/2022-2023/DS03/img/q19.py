@@ -19,7 +19,7 @@ def dichotomie(L, a):
         m = (debut+fin) // 2
         if L[m] == a:
             return m
-        elif L[m] > a:
+        elif L[m] < a:
             debut = m + 1
         else:
             fin = m - 1
