@@ -21,7 +21,6 @@
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 \usepackage[shortlabels]{enumitem}
 
-
 \input{intro.tex}
 %\usepackage{style}
 \usepackage{bodegraph}
@@ -250,16 +249,15 @@
 \lfoot{\auteurun,\ \auteurdeux}
 \cfoot{Page \thepage}
 
-\fancypagestyle{documentreponse}{%
+\fancypagestyle{docreponse}{%
   \fancyhf{}
-  \ifdef{\public}{\fancyhead[LO]{Nom: ........................ Prénom: ........................}}
-  {\fancyhead[LO]{\colorbox{danger}{Correction\hspace{12.5cm}}}}
-  \fancyhead[LE]{\nom}
-  \fancyhead[RE,RO]{\includegraphics[width=2cm]{../../../img/logo}}
+  \lhead{Nom: ........................ Prénom: ........................}
+  \rhead{\nom}
   \lfoot{Document réponse}
   \cfoot{Page \thepage}
    }
-  
+
+
 \fancypagestyle{correction}{%
   \fancyhf{}
   \lhead{\colorbox{danger}{\begin{minipage}{0.65\paperwidth} \textcolor{white}{\textbf{Correction}} \end{minipage}} }
