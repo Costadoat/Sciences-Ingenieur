@@ -848,7 +848,7 @@ Commande \textbf{avec} réversibilité de la source de courant.
 \ctikzset{bipoles/length=0.6cm}
 \ctikzset{inductor=american}
 \node(0) at (5,2)[color=bleuf,shape=circle,draw] {M};
-\draw[color=bleuf] (2,3) node[nigbt, scale=0.5] (npn) {}
+\draw[color=bleuf, dashed] (2,3) node[nigbt, scale=0.5] (npn) {}
  (npn.base) node[anchor=east] {}
  (npn.collector) node[anchor=south] {}
  (npn.emitter) node[anchor=north] {};
@@ -856,11 +856,12 @@ Commande \textbf{avec} réversibilité de la source de courant.
  (npn2.base) node[anchor=east] {}
  (npn2.collector) node[anchor=south] {}
  (npn2.emitter) node[anchor=north] {};
-\draw[color=bleuf] (6,0) -- (0,0) to[V, v=$U_{in}$] (0,4) -- (2,4) -- (npn.collector);
+\draw[color=bleuf] (6,0) -- (0,0) to[V, v=$U_{in}$] (0,4) --(2,4);
+\draw[color=bleuf, dashed] (2,4) -- (npn.collector);
 \draw[color=bleuf, dashed] (4,0) to[Do] (4,2);
 \draw[color=bleuf] (4,2) to[Do] (4,4) -- (2,4);
 \draw[color=bleuf, dashed] (2,0) -- (npn2.emitter) (npn2.collector) -- (2,2);
-\draw[color=bleuf] (2,2) -- (npn.emitter);
+\draw[color=bleuf, dashed] (2,2) -- (npn.emitter);
 \draw[color=bleuf, dashed] (2,2) -- (4,2);
 \draw[color=bleuf] (4,2) -- (0) -- (6,2) -- (6,0) ;
 \end{circuitikz}
