@@ -220,7 +220,6 @@ $\left \{T_{i\rightarrow j}\right \}=\left\{
 \right \}_{M,B_0}$
 \end{minipage}
 
-
 \section{Etude de l'asservissement en position selon $\vec{y_0}$ du système de basculement}
 
 Pour positionner le coulisseau (solidaire du système basculeur) selon la direction $\overrightarrow{y_0}$ , on utilise un vérin hydraulique.
@@ -406,7 +405,7 @@ Justifier la valeur de $\overrightarrow{V_{G2,S1/S3}}$. Tracer toutes les direct
 \reponse{9}{}{$H_{BO}=\dfrac{f\cdot M\cdot p}{S^2}$, $H_{1}=\dfrac{\dfrac{1}{S\cdot p}}{1+\dfrac{f\cdot M\cdot p}{S^2}}=\dfrac{\dfrac{1}{S}}{p\cdot \left(1+\dfrac{f\cdot M}{S^2}\cdot p\right)}$}
 
 \reponse{9}{}{$H_{2}=\dfrac{\dfrac{k}{S}}{p\cdot \left(1+\dfrac{f\cdot M}{S^2}\cdot p\right)}$
-Fonction de classe 1, d'ordre 2, gain $\dfrac{k}{S}=\dfrac{24\cdot 10^7}{3\cdot 10^3}=8\cdot 10^4\cdot s^{-1}$, $\tau=\dfrac{f\cdot M}{S^2}=\dfrac{6\cdot 10^6\cdot 42}{60\cdot 3000^2}=\dfrac{6\cdot 10^6\cdot 42}{6\cdot 10\cdot 9 \cdot 10^6}=\dfrac{4,2}{9}\approx 0.5s$.
+Fonction de classe 1, d'ordre 2, gain $\dfrac{k}{S}=\dfrac{24\cdot 10^7}{3\cdot 10^3}=8\cdot 10^4\cdot s^{-1}$\\ $\tau=\dfrac{f\cdot M}{S^2}=\dfrac{6\cdot 10^{-3}\cdot 42}{60\cdot 10^6\cdot 3000^2\cdot 10^{-6}}=\dfrac{10^{-10}\cdot 42}{9}=5\cdot 10^{-10}s$.
 }
 
 \ifdef{\public}{\newpage}
@@ -535,6 +534,9 @@ Le vérin choisit ayant une course de $100mm$, il est compatible.
   \def\svgwidth{0.9\linewidth}
   \input{img/DR07_cor.pdf_tex}
  \end{center}
+}
+
+\reponse{3}{}{
 $\overrightarrow{V_{G_2\in S1/S0}}=\overrightarrow{V_{G_2\in S1/S3}}+\overrightarrow{V_{G_2\in S3/S2}}+\overrightarrow{V_{G_2\in S2/S0}}
 $
 
@@ -550,7 +552,7 @@ $\overrightarrow{V_{H_2\in S5/S4}}=\overrightarrow{0}$
 
 Donc, $\overrightarrow{V_{H_2\in S5/S0}}=\overrightarrow{V_{H_2\in S4/S0}}$
 
-On trouve donc $\|\overrightarrow{V_{N\in S5/S0}}=130mm\cdot s^{-1}$
+On trouve donc $\|\overrightarrow{V_{N\in S5/S0}}\|=130mm\cdot s^{-1}$
 }
 
 \reponse{3}{}{$\|\overrightarrow{V_{N\in S5/S0}}=130mm\cdot s^{-1}<200mm\cdot s^{-1}$, donc le cahier des charges est respecté.}
