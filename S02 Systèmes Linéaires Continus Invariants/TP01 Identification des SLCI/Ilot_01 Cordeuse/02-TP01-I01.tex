@@ -25,72 +25,26 @@ La démarche de l’ingénieur permet :
 
 \newpage
 
-\section{Identifier un paramètre par minimisation de l'écart 3.}
+\section{Tracer la réponse à un échelon}
 
-L'objectif de cette partie est de déterminer la valeur des frottements visqueux $f$ par identification.
-
-On donne la fonction de transfert $\frac{Vc(p)}{U(p)}$ qui lie la vitesse du charriot à la tension aux bornes du moteur (à retrouver à partir des équations du moteur à courant continu et des équations propres au système) :
-
-\begin{center}
- $\dfrac{Vc(p)}{U(p)}=\dfrac{\dfrac{R_p\cdot r\cdot K_t}{R\cdot f +K_e\cdot K_t}}{1+\dfrac{R\cdot J+L\cdot f}{R\cdot f +K_e\cdot K_t}\cdot p+\dfrac{L\cdot J}{R\cdot f +K_e\cdot K_t}\cdot p^2}$
-\end{center}
-
-Avec:
-\begin{itemize}
- \item $R$ résistance aux bornes du moteur ($\Omega$),
- \item $L$ l'inductance du moteur ($H$),
- \item $K_e$ constante électrique du moteur ($V\cdot rad^{-1}\cdot s$),
- \item $K_t$ constante de couple du moteur ($N\cdot m\cdot A^{-1}$),
- \item $J$ inertie équivalente sur l'arbre moteur ($kg.m^2$),
- \item $f$ coefficient de frottement fluides ($N\cdot m\cdot rad^{-1}\cdot s$),
- \item $r$ rapport de réduction du réducteur ($1$),
- \item $R_p$ rayon de la poulie d'entraînement de la chaîne ($m$).
-\end{itemize}
+L'objectif de cette première partie est de tracer et d'analyser la réponse à un échelon pour un système.
 
 ~\
-
-Les caractéristiques du système sont données sur la page \urlsysteme. Si les valeurs numériques de certaines grandeurs ne sont pas données, c'est qu'elles seront négligées par la suite.
 
 \question{En utilisant le logiciel d'acquisition, sans corde, appuyer sur le bouton de mise sous tension de la corde et tracer la \textbf{tension aux bornes du moteur} et la \textbf{vitesse du charriot} en fonction du \textbf{temps}.}
 
-\question{En utilisant le script python, tracer la réponse à cette fonction de transfert avec une entrée égale à la tension mesurée précédemment et en prenant $f=0.01N\cdot m\cdot rad^{-1}\cdot s$ pour commencer.}
+\question{Déterminer les performances du système dans la mesure du possible (précision, stabilité, rapidité,...).}
 
-\question{Comparer les deux tracés et identifier les justifications des écarts.}
+\question{A l'aide de vos connaissances et en vous aidant du cours, déterminer l'ordre et la classe de cette fonction de transfert.}
 
-\question{Proposer une valeur de $f$ qui minimise les écarts entre les deux tracés. Cette valeur vous paraît-elle cohérente.}
+\question{A l'aide de vos connaissances et en vous aidant du cours, déterminer les valeurs numériques des caractéristiques de cette fonction de transfert.}
 
 
-\section{Résolution des équations du modèle}
+\section{Tracé simulé de la fonction de transfert déterminée}
 
-\question{Passer ces équations dans le domaine de Laplace.}
+\question{A l'aide du script python, tracer la fonction de transfert ainsi déterminée.}
 
-\question{Mettre le système sous la forme de la fonction de transfert suivante: $H(p)=\dfrac{F_c(p)}{U_m(p)}$. }
-
-\question{Donner les caractéristiques de cette fonction de transfert et vérifier l'homogénéité des constantes déterminées.}
-
-~\
-
-Afin de tracer les réponses temporelles, il est possible d'utiliser un script python téléchargeable 
-\href{https://github.com/Costadoat/Sciences-Ingenieur/raw/master/S02\%20Syst\%C3\%A8mes\%20Lin\%C3\%A9aires\%20Continus\%20Invariants/C01\%20Pr\%C3\%A9sentation\%20des\%20SLCI/02-C01.py}{ici}.
-
-\section{Expérimentation sur le système réel}
-
-Mettre en \oe uvre le système, et préparer la prise de mesure. 
-
-\question{Après avoir analysé le logiciel d'expérimentation, déterminer quelles grandeurs peuvent être utilisées en entrée. Est-ce que la tension en entrée du moteur $u_m(t)$ (V) en fait partie ?}
-
-\question{Relever les tracés des réponses temporelles de la tension en entrée du moteur $u_m(t)$ (V) et de la tension de la corde $Fc(t)$ (N).}
-
-\question{En mettant en parallèle les tracés issus de la modélisation et ceux issus de l'expérimentation, conclure quand à la validation du modèle utilisé.}
-
-\ifdef{\public}{\end{document}}{}
-
-\pagestyle{correction}\setcounter{section}{0}
-
-Modélisation
-\begin{center}
-$H(p)=\dfrac{F_c(p)}{U_m(p)}=\dfrac{\dfrac{K_m}{R_m.R_p.r}}{1+\dfrac{K_e.K_m}{R_m.K_c.R_p^2.r^2}.p+\dfrac{R_m.J}{R_m.K_c.R_p^2.r^2}.p^2}$
-\end{center}
+\question{Comparer avec le tracé de la fonction précédente.}
 
 
 \end{document}
