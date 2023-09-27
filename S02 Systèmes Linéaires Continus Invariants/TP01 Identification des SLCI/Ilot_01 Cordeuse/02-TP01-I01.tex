@@ -25,26 +25,56 @@ La démarche de l’ingénieur permet :
 
 \newpage
 
-\section{Tracer la réponse à un échelon}
+\section{Fonction de transfert du moteur à courant continu}
 
-L'objectif de cette première partie est de tracer et d'analyser la réponse à un échelon pour un système.
+On donne la fonction de transfert suivante pour lier la vitesse de rotation et la tension aux bornes d'un moteur à courant continu.
+
+\begin{center}
+$H(p)=\dfrac{\Omega(p)}{U(p)}=\dfrac{\dfrac{K_c}{R\cdot f+K_e\cdot K_c}}{1+\dfrac{K_e.K_m}{R\cdot J+L\cdot f}.p+\dfrac{L\cdot J}{R\cdot f+K_e\cdot K_c}.p^2}$
+\end{center}
+
+\question{A partir des équations du moteur vues en TD, retrouver cette fonction de transfert.}
+
+\question{A quoi correspondent $L$ et $f$ ?}
+
+\section{Relevé expérimental}
+
+L'objectif de cette première partie est de tracer et d'analyser la réponse à un échelon du système réel.
 
 ~\
 
-\question{En utilisant le logiciel d'acquisition, sans corde, appuyer sur le bouton de mise sous tension de la corde et tracer la \textbf{tension aux bornes du moteur} et la \textbf{vitesse du charriot} en fonction du \textbf{temps}.}
+Pour cet essai, il faudra retirer la corde et lancer le déplacement du charriot en appuyer sur le bouton noir situé sur la cordeuse.
 
-\question{Déterminer les performances du système dans la mesure du possible (précision, stabilité, rapidité,...).}
+\question{En utilisant le logiciel d'acquisition, tracer la \textbf{tension aux bornes du moteur} et la \textbf{vitesse de rotation du moteur} en fonction du \textbf{temps}.}
 
-\question{A l'aide de vos connaissances et en vous aidant du cours, déterminer l'ordre et la classe de cette fonction de transfert.}
+\question{Extraire les données numériques du logiciel d'acquisition afin de tracer la courbe sur un tableur (LibreOffice Calc,...). Si besoin cette courbe pourra être traitée pour être exploitable.}
 
-\question{A l'aide de vos connaissances et en vous aidant du cours, déterminer les valeurs numériques des caractéristiques de cette fonction de transfert.}
+\question{Ajouter sur cette courbe (paint,...) les informations suivantes:}
+\begin{itemize}
+ \item valeur d'entrée,
+ \item la valeur asymptotique de la sortie,
+ \item le temps de réponse.
+\end{itemize}
 
+\question{Uploader cette courbe commentée sur le questionnaire en ligne.}
 
-\section{Tracé simulé de la fonction de transfert déterminée}
+\section{Réponse temporelle simulée}
 
-\question{A l'aide du script python, tracer la fonction de transfert ainsi déterminée.}
+\question{Modifier le \href{https://github.com/Costadoat/Sciences-Ingenieur/raw/master/S02\%20Syst\%C3\%A8mes\%20Lin\%C3\%A9aires\%20Continus\%20Invariants/C01\%20Pr\%C3\%A9sentation\%20des\%20SLCI/02-C01.py}{script python} afin qu'il trace la fonction de transfert donnée dans la partie 1.}
 
-\question{Comparer avec le tracé de la fonction précédente.}
+\question{Utiliser les valeurs numériques présentes sur la \href{https://www.costadoat.fr/systeme/\systemesnum/}{page du système} et choisir les paramètres manquants et tracer une première version de la réponse temporelle de la sortie.}
 
+\question{Modifier ces paramètres pour que le tracé simulé se rapproche de la réponse temporelle expérimentale.}
+
+\question{Comparer avec le tracé expérimental.}
+
+\question{Ajouter sur cette courbe (paint,...) les informations suivantes:}
+\begin{itemize}
+ \item valeur d'entrée,
+ \item la valeur asymptotique de la sortie,
+ \item le temps de réponse.
+\end{itemize}
+
+\question{Uploader cette courbe commentée sur le questionnaire en ligne.}
 
 \end{document}
