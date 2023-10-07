@@ -1,19 +1,84 @@
-\newcommand{\lentree}{la consigne de tension de la corde $f_{cc}$ ($N$)}
-\newcommand{\lasortie}{la tension dans la corde $f_c$ ($N$)}
-\newcommand{\dusysteme}{de la cordeuse}
-\newcommand{\lesgrandeurs}{\item la tension du moteur $u_m$ ($V$),
-\item la vitesse de rotation en sortie du réducteur $\omega_r$ ($rad.s^{-1}$),
-\item la position du charriot $x_c$ ($m$),
-\item la position angulaire du moteur $\theta_m$ ($rad$),
-\item la vitesse de rotation du moteur $\omega_m$ ($rad.s^{-1}$),
-\item la force contre électromotrice $e$ ($V$),
-\item le couple moteur $c_m$ ($N.m$),
-\item le courant dans le moteur $i_m$ ($A$),
-\item \lentree,
-\item \lasortie.}
-\newcommand{\lacorrection}{Modélisation
-\begin{center}
-$H(p)=\dfrac{F_c(p)}{U_m(p)}=\dfrac{\dfrac{K_m}{R_m.R_p.r}}{1+\dfrac{K_e.K_m}{R_m.K_c.R_p^2.r^2}.p+\dfrac{R_m.J}{R_m.K_c.R_p^2.r^2}.p^2}$
-\end{center}}
+\input{../../../headers/tpheaders_2.tex}
 
+\prob{Modéliser la structure d'un Système Linéaire Continu et Invariant} \\
+
+\graphicspath{{../../../img/}}
+\begin{center}
+\def\svgwidth{\columnwidth}
+\input{../../../img/triptyque.pdf_tex}
+\end{center}
+
+La démarche de l’ingénieur permet :
+\begin{itemize}
+ \item De vérifier les performances attendues d’un système, par évaluation de l’écart entre un cahier des charges et les réponses expérimentales (écart 1),
+ \item De proposer et de valider des modèles d’un système à partir d’essais, par évaluation de l’écart entre les performances mesurées et les performances simulées (écart 2),
+ \item De prévoir le comportement à partir de modélisations, par l’évaluation de l’écart entre les performances simulées et les performances attendues du cahier des charges (écart 3).
+\end{itemize}
+
+\documentsressource{Pour ce TP, vous aurez à votre diposition les documents suivants:
+\begin{itemize}
+ \item La \miseenoeuvre\ du système,
+ \item de la procédure d'utilisation de Simscape disponible à la page \pageref{proceduresimscape},
+ \item Les divers documents des \urlsysteme.
+\end{itemize}}
+
+\newpage
+
+\section{Modélisation d'un S.L.C.I. à l'aide d'un schéma bloc} 
+
+\titleexp{Identifier les blocs sur le système}
+
+L'objectif de ce TP est de modéliser le système par le schéma blocs suivant.
+
+\graphicspath{{"../../../Systemes/\systemes/"}}
+
+\begin{center}
+\def\svgwidth{\columnwidth}
+\input{"../../../Systemes/\systemes/\systemes_schema_bloc.pdf_tex"}
+\end{center}
+
+L'objectif de cette première partie va être de déterminer les fonctions de transfert manquantes dans la description de ce système.
+
+~\
+
+Les deux questions suivantes nécessite de copier/coller l'image du schéma-bloc sur un logiciel de présentation afin de pouvoir l'annoter.
+
+\question{Déterminer à quels sous-systèmes chaque bloc peut être associé et l'indiquer en encadrant des sous parties du schéma.}
+
+\question{Associer à chaque lien entre deux blocs la grandeur qui le traverse et l'indiquer sur le schéma.}
+
+~\
+
+La figure ainsi obtenue devra être chargée sur le questionnaire en ligne.
+
+\section{Simulation du comportement du modèle}
+
+Le logiciel \textbf{Scilab} permet de tracer la réponse temporelle d'une fonction de transfert donnée.
+
+Pour cela, il suffit de lancer le logiciel et d'aller dans le module \textbf{Xcos}.
+
+Le schéma-bloc édité sur Scilab peut être récupéré sur la \href{https://www.costadoat.fr/systeme/\systemesnum}{page du système}.
+\question{Effectuer le tracé du schéma bloc du système sur Scilab.}
+
+\question{Tracer les réponses temporelles obtenues durant les activités précédentes afin de vérifier le modèle choisi.}
+
+\question{Associer le second ordre le plus proche de la réponse obtenue.}
+
+\section{Relevé expérimentaux du comportement du système.}
+
+\question{Tracer les réponses temporelles de l'entrée et de la sortie.}
+
+\question{Comparer ces résultats avec les tracés issus de la simulation.}
+
+\question{Associer le second ordre le plus proche de la réponse obtenue.}
+
+\ifdef{\public}{\end{document}}{}
+
+\newpage
+
+\pagestyle{correction}\setcounter{section}{0}
+
+%\lacorrection
+
+\end{document}
 
