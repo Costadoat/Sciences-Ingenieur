@@ -3,94 +3,71 @@
 \newcommand{\nomtitre}{de la cordeuse}
 
 \input{../../../headers/moheaders.tex}
+	
+\begin{tabular}{|Ep{0.4\linewidth}|p{.5\linewidth}|}
+\hline
+& Mettre le système sous tension en basculant l'interrupteur,
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \includegraphics[width=0.4\linewidth]{img/0001}}\tabularnewline\hline
+& Mettre le boîtier d'acquisition sous tension,
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \includegraphics[width=0.4\linewidth]{img/0002}}\tabularnewline\hline
+& Vérifier la présence des deux cavaliers en haut à gauche du boîtier,
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \includegraphics[width=0.4\linewidth]{img/0006}}\tabularnewline\hline
+ & Lancer l'application \og SP55\fg,
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \includegraphics[width=0.4\linewidth]{img/0003}}\tabularnewline\hline
+  & Sur l'écran d'accueil, cliquer sur \vspace{0pt} \raisebox{-.5\height}{\includegraphics[width=0.2\linewidth]{img/00042}} \og Effectuer une mesure \fg,
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.6\linewidth}
+ \input{img/0004.pdf_tex}}\tabularnewline\hline
+& Cliquer sur \og Initialiser\fg,
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \includegraphics[width=0.4\linewidth]{img/0005}}
+\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \includegraphics[width=0.4\linewidth]{img/00051}}\tabularnewline\hline
+& Appuyer sur le \og Bouton départ\fg, la mesure de 10s démarre et un compte à rebours apparaît. Il faut faire fonctionner la cordeuse dans ce laps de temps pour enregistrer son comportement. A la fin le système importe les mesures sur le PC.
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \includegraphics[width=0.4\linewidth]{img/0006}}
+\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \includegraphics[width=0.25\linewidth]{img/00061}}
+\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \includegraphics[width=0.25\linewidth]{img/00062}}\tabularnewline\hline
+   & Sur l'écran d'accueil, cliquer sur \vspace{0pt} \raisebox{-.5\height}{\includegraphics[width=0.2\linewidth]{img/00042}} \og Visualiser les résultats une mesure \fg,
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.6\linewidth}
+ \input{img/0004.pdf_tex}}\tabularnewline\hline
+\end{tabular}
+
+\newpage
 
 \begin{tabular}{|Ep{0.4\linewidth}|p{.5\linewidth}|}
 \hline
-& Mettre le système sous tension,
-&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
- \input{img/maxpid_01.pdf_tex}}\tabularnewline\hline
- & Sur l'écran d'accueil, cliquer sur Connexion,
-&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
- \input{img/maxpid_02.pdf_tex}}\tabularnewline\hline
-  & Cliquer sur \og Établir la connexion \fg,
-&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
- \input{img/maxpid_03.pdf_tex}}\tabularnewline\hline
- & Sur l'écran d'accueil, cliquer sur le bouton d'étalonnage du capteur,
+& L'interface de visualisation se compose de 4 parties,
  \begin{enumerate}
-  \item Mettre à la main, le bras en position horizontale (pointe sur 0\textdegree),
-  \item Cliquer sur \og Valider 0\textdegree \fg,
-  \item Mettre à la main, le bras en position verticale (pointe sur 90\textdegree),
-  \item Cliquer sur \og Valider 90\textdegree \fg,
-  \item Cliquer sur \og VALIDER \fg.
+  \item La zone de sélection des points de mesure,
+  \item La zone de définition de la courbe,
+  \item Le bouton pour tracer la courbe,
+  \item La zone de choix de l'expérience à traiter.
   \end{enumerate}
+  
+Pour visualiser un tracé, il faut choisir l'abscisse et la ou les ordonnées et cliquer sur \og Tracer\fg. Il est aussi possible d'exporter les données en cliquant sur le bouton .
 &\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
- \input{img/maxpid_04.pdf_tex}}\tabularnewline\hline
-& Sur l'écran d'accueil, cliquer sur le bouton de réglage du PID,
- \begin{enumerate}
-  \item Régler les 3 valeurs de l'asservissement,
-  \item Cocher la case \og MAXPID Asservi \fg.
-  \end{enumerate}
-&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
- \input{img/maxpid_05.pdf_tex}}\tabularnewline\hline
+ \includegraphics[width=0.9\linewidth]{img/0008}}\tabularnewline\hline
 \end{tabular}
 
-\section{Étude géométrique ou cinématique}
+\vspace{2cm}
 
-\setcounter{rowcounter}{1}
-
-\begin{tabular}{|Ep{0.4\linewidth}|p{.5\linewidth}|}
-\hline
-& Sur l'écran d'accueil, cliquer le bouton d'accès aux mesures, et choisir \og Réponse à une sollicitation \fg.
-&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
- \input{img/maxpid_06.pdf_tex}}\tabularnewline\hline
-&  \begin{itemize}
- \item Régler les paramètres de mesure en haut à gauche,
- \item Régler l'angle à parcourir en haut à droite,
- \item Sélectionner les courbes à afficher grâce aux cases à cocher,
- \item Cliquer sur \og Echelon de position \fg\ ou \og Trapèze de vitesse \fg.
-\end{itemize}
-&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
- \input{img/maxpid_07.pdf_tex}}\tabularnewline\hline
- &  La courbe mesurée s'affiche:
- \begin{itemize}
- \item Déplacer le curseur pour voir s'afficher les valeurs,
- \item Il est possible d'enregistrer la courbe, en cliquant sur la disquette, cela a pour effet de générer aussi un fichier \verb?txt? avec les données.
-\end{itemize}
-&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
- \input{img/maxpid_08.pdf_tex}}\tabularnewline\hline
-\end{tabular}
-
-
-\section{Étude sollicitations harmoniques}
-
-\setcounter{rowcounter}{1}
-
-\begin{tabular}{|Ep{0.4\linewidth}|p{.5\linewidth}|}
-\hline
-&  Cliquer sur \og Commande sinusoïdale \fg.
-&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
- \input{img/maxpid_07.pdf_tex}}\tabularnewline\hline
- & Régler les paramètres de la sollicitation et cliquer sur \og Envoyer \fg.
-&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
- \input{img/maxpid_09.pdf_tex}}\tabularnewline\hline
-\end{tabular}
-
-
-\section{Étude statique}
-
-\setcounter{rowcounter}{1}
-
-\begin{tabular}{|Ep{0.4\linewidth}|p{.5\linewidth}|}
-\hline
-& Sur l'écran d'accueil, cliquer le bouton d'accès aux mesures, et choisir \og Couple statique du moteur \fg.
-&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
- \input{img/maxpid_06.pdf_tex}}\tabularnewline\hline
-&  Cliquer sur le bouton permettant de lancer l'acquisition,
-&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
- \input{img/maxpid_10.pdf_tex}}\tabularnewline\hline
- & Régler les paramètres de la sollicitation et cliquer sur \og Acquisition \fg.
-&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
- \input{img/maxpid_11.pdf_tex}}\tabularnewline\hline
-\end{tabular}
+\begin{center}
+\fbox{%
+  \parbox{.7\textwidth}{
+En cas de problème, avec la connexion, vérifier les paramètres du port COM suivant:
+\begin{itemize}
+ \item Baud Rate: 9600,
+ \item Data bits: 7,
+ \item Parity: Even,
+ \item Stop bits: 1,
+ \item Flow control: None.
+\end{itemize}}}
+\end{center}
 
 \end{document}
