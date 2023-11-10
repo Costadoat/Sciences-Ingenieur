@@ -1,0 +1,10 @@
+Ka=4.4/127
+Km=1/30.5
+Ke=Km
+Rm=4
+Lm=0.63*10^(-3)
+Rp=28.35
+Kred=1/66.2
+Kcap=4*100/(2*%pi)
+Kad=Kcap/(Kred*Rp)
+Jeq=1.7e-5
