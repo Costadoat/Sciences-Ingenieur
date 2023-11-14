@@ -32,7 +32,8 @@ Le robot à étudier améliore de façon notable la santé et la qualité de vie
 \begin{center}
  \includegraphics[width=0.5\linewidth]{img/fig003}
 \end{center}
-\caption{\label{fig003}Description des composants principaux du robot de traite Lely}
+\label{fig003}
+\caption{Description des composants principaux du robot de traite Lely}
 \end{figure}
 
 Le robot Lely est composé (figure \ref{fig003}) :
@@ -272,7 +273,7 @@ Pour la suite, on prendra $w_n=100$ et $z=5$.
 
 \question{Quelle(s) hypothèse(s) pouvez-vous faire afin d’assimiler $H(p)$ à un premier ordre ? Donner alors la nouvelle expression de $H(p)$ sous forme canonique littérale et l’écrire avec également sous forme numérique.}
 
-Quels que soient les résultats trouvés précédemment, on prend maintenant $H(p)=\frac{1}{1+0,005\cdot p}$.
+Quels que soient les résultats trouvés précédemment, on prend maintenant $H(p)=\frac{1}{1+0,1\cdot p}$.
 
 On sollicite le moteur avec un échelon  $u_0=25 V$.
 
@@ -356,7 +357,119 @@ Soit la réponse temporelle $s(t)$ en $rad.s^{-1}$ à un échelon $u_0(t)=12V$.
 
 \ifdef{\public}{\pagestyle{documentreponse}}{\pagestyle{correction}}
 
-\goforum
+\reponse{4}{}{La durée d'un cycle est $d_{cycle}=20\cdot d_t+3\cdot d_{ns}+1\cdot d_{nc}=20\cdot6+3\cdot4+1\cdot 10=120+12+20=142 minutes=2heure22min$.}
 
+\reponse{4}{}{Sur une durée quotidienne de 20h, il est possible de faire $n=\frac{20*60}{142}=\frac{1200}{142}=8cycles$.}
+
+\reponse{4}{}{Il reste alors $t_d=1200-8\cdot 142=1200-800-320-16=64min$.}
+
+\reponse{4}{}{En $64min$, il est possible de faire encore 10 traites. Donc, le total peut être porté à $n_t=8\cdot20+10=170traites$.}
+
+\reponse{4}{}{A raison d'une moyenne de 2,5 traites par vache cela donne pour 1 robot 68 vaches.}
+
+\reponse{4}{\begin{center}
+\includegraphics[width=0.6\linewidth]{img/contexte}
+\end{center}}{\begin{center}
+\includegraphics[width=0.6\linewidth]{img/contexte_cor}
+\end{center}}
+
+\reponse{4}{}{Exigences:
+\begin{itemize}
+ \item Traire les vaches,
+ \item Alimenter les vaches.
+\end{itemize}}
+
+\reponse{4}{}{Le système de triangulation laser permet de positionner les gobelets trayeurs un par un.}
+
+\reponse{4}{}{Lorsque la vache est dans le box, elle est installée sur un tapis de pesée équipé de capteurs de pesage.}
+
+\reponse{4}{}{Toutes les vaches laitières du troupeau sont équipées d'un collier d'identification à infrarouge qu'elles portent autour du cou.}
+
+\reponse{4}{}{$m_{tapis}=m_{revetement}+m_{structure}+m_{grille}=(2,5\cdot 1-0,7\cdot 0,5)\cdot 0,01\cdot 900+(2,5\cdot 1)\cdot 15=22,5+37,5+5,25=56,85$.
+
+La masse d'une vache étant de 700kg, le tapis représente 8\% de la masse ce qui ne le rend pas négligeable.}
+
+\reponse{4}{}{
+\begin{eqnarray}
+U_m(p)=r\cdot I_m(p)+L\cdot p\cdot I_m(p)+E(p) \nonumber \\
+E(p)=K_e\cdot \Omega_m(p) \nonumber \\
+Cm(p)=K_i\cdot I_m(p)  \nonumber \\
+J\cdot p\cdot \Omega_m(p)=Cm(p)-\mu\cdot \Omega_m(p) \nonumber
+\end{eqnarray}
+}
+
+\reponse{6}{}{
+$U_m(p)=(r+L\cdot p)\cdot \frac{Cm(p)}{K_i}+K_e\cdot \Omega_m(p)$
+
+$U_m(p)=(r+L\cdot p)\cdot \frac{(J\cdot p+\mu)\cdot \Omega_m(p)}{K_i}+K_e\cdot \Omega_m(p)$
+
+Donc $H(p)=\frac{\Omega_m(p)}{U_m(p)}=\frac{K_i}{(r+L\cdot p)\cdot (J\cdot p+\mu)+K_e\cdot K_i}$
+}
+
+\reponse{1}{}{
+Sous la forme canonique, on obtient:
+
+$H(p)=\frac{\frac{K_i}{r\cdot \mu+K_e\cdot K_i}}{1+\frac{r\cdot J+L\cdot \mu}{r\cdot \mu+K_e\cdot K_i}\cdot p+\frac{L\cdot J}{r\cdot \mu+K_e\cdot K_i}\cdot p^2}$
+
+La fonction de transfert est d'ordre 2 et de classe 0.
+}
+
+\reponse{3}{}{
+$z=\frac{r\cdot J+L\cdot \mu}{2\cdot\sqrt{(r\cdot \mu+K_e\cdot K_i)\cdot L\cdot J}}$
+
+$\omega_n=\sqrt{\frac{r\cdot \mu+K_e\cdot K_i}{L\cdot J}}$
+
+$G=\frac{K_i}{r\cdot \mu+K_e\cdot K_i}$
+}
+
+\reponse{3}{}{
+$G$ est en $V^{-1}\cdot rad\cdot s^{-1}=A.N^{-1}.m^{-1}=A.kg^{-1}.m^{-2}.s^2$
+
+$G=1.52V^{-1}\cdot rad\cdot s^{-1}$.
+}
+
+\reponse{3}{}{
+$w_n=100.4rad.s^{-1}$ et $z=4.7$
+}
+
+\reponse{3}{}{
+$z>1$, cela signifie que les deux racines sont réelles.
+
+$\tau_1.\tau_2=\frac{1}{w_n^2}$
+$\tau_1+\tau_2=\frac{2.z}{w_n}$
+
+$\tau_1^2+\tau_1.\tau_2-\frac{2.z}{w_n}.\tau_1=0$
+
+$\tau_1^2+\frac{1}{w_n^2}-\frac{2.z}{w_n}.\tau_1=0$
+
+$\tau_1^2+10^{-4}-0,1.\tau_1=0$
+
+$\Delta=10^{-2}-4*10^{-4}=10^{-2}.(1-4*10^{-2})$
+
+$\tau=\frac{0,1\pm 0,1\sqrt{1-4*10^{-2}}}{2}=\frac{0,1.(1\pm 0,98)}{2}$
+
+$\tau_1=0,1s$ et $\tau_2=1ms$.
+}
+
+\reponse{3}{}{
+$\tau_1>\tau_2$, cela signifie qu'une des deux racines est négligeable devant l'autre.
+
+On peut alors écrire la fonction de transfert:
+$H(p)=\frac{1}{1+0.005\cdot p}$
+}
+
+\reponse{3}{}{
+$\omega_m(t)=u_0.(1-e^{\frac{-t}{\tau}})=25.(1-e^{\frac{-t}{0.005}})$
+}
+
+\reponse{3}{}{
+Il s'agit de la courbe \ref{fig008b}, elle correspond bien à un premier ordre dont al constante de temps est $\tau=0.005s$, l'autre a un temps de réponse $\tau=0.015s$.}
+
+\reponse{3}{}{$K.u_0=144$ avec $u_0=12$, donc $K=12$}
+
+\reponse{3}{}{On sait que $(1+5\%).144=144+7.2=151.2$, ce qui ressemble au dépassement de la courbe, on en déduit que $\xi=0.69$.}
+
+
+\reponse{3}{}{On sait que $t_{R5\%}.\omega_0=0.3$, or $t_{R5\%}=0.015s$ (graphiquement), donc $\omega_0=\frac{3}{0.015}=200rad.s^{-1}$}
 
 \end{document}
