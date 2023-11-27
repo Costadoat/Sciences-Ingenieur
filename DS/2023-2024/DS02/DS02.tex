@@ -1,0 +1,640 @@
+\input{../../../headers/dsheaders.tex}
+
+\section{Introduction}
+
+\subsection{Contexte de l'étude}
+
+L'entretien des avions représente un budget conséquent pour les compagnies aériennes (de l'ordre de 10\% des dépenses d'exploitation). Chaque type d'avion possède son propre programme de maintenance. Des opérations de \og petits entretiens\fg\ sont prévues à partir de quelques centaines d'heures de vol et annuellement ; celles-ci intègrent des inspections détaillées des éléments de
+mécanique, de tuyauterie ou de câblage, ainsi que des essais fonctionnels avec mesures de performance.
+
+Tous les 6 à 7 ans en moyenne, l'avion subit un entretien approfondi sur plusieurs semaines, durant lequel certaines parties sont refaites à neuf, de nombreux sous-assemblages sont démontés et des matériels sont systématiquement changés.
+
+Parmi ces opérations, la révision d'un moteur s'avère l'une des plus contraignantes. En effet, ce dernier doit être désassemblé de l'avion, habituellement par l'intermédiaire de treuils à chaîne, suspendus à un échafaudage et actionnés manuellement par plusieurs opérateurs. Ces manutentions s'avèrent longues et très délicates vis-à-vis de la sécurité des techniciens et
+occasionnent des risques de dommages sur les composants.
+
+\subsection{Présentation du produit}
+
+Le groupe EXCENT, basé à Toulouse, conçoit et intègre des solutions industrielles innovantes pour des secteurs très variés tels que le transport, l'énergie, la défense, le spatial...
+
+Le \og JacXson U70\fg\ (https://www.jacxson.com/index.php/jacxson-u70/), développé par ce groupe (figure \ref{fig01}), se destine aux activités de pose/dépose des moteurs sur des avions moyens courriers (Airbus A220, A320, Boeing B737, Embraer 170-175, 190-195).
+
+Ce produit se substitue aux traditionnels outillages très fastidieux à mettre en \oe uvre, en proposant une assistance mécanique entièrement pilotée et en répondant à tous les impératifs liés à la manipulation des moteurs lors des différentes séquences de pose et dépose.
+
+Il présente également la particularité de s'adapter aisément aux modèles de moteurs usuels pour ce type d'avion.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.5\linewidth]{img/fig01}
+\end{center}
+\caption{\label{fig01} Chariot JacXson en action}
+\end{figure}
+
+Selon ses concepteurs, les avantages du chariot \og JacXson U70\fg\ sont :
+\begin{itemize}
+ \item un gain de temps significatif sur les opérations et par conséquent un gain de coût,
+ \item une amélioration considérable de la sécurité des opérateurs et de l'ergonomie de travail,
+ \item un risque très réduit de dommage sur les moteurs et sur leur environnement proche,
+ \item une quantité d'outillages à gérer fortement diminuée.
+\end{itemize}
+
+Le chariot \og JacXson U70\fg\ se présente globalement sous la forme d'un chariot élévateur.
+
+Un châssis de manutention appelé \og stand\fg\ est préalablement fixé au moteur d'avion afin de manipuler ce dernier sans risque d'avarie (le stand est une structure mécanique fournie par le constructeur du moteur).
+
+L'ensemble moteur + stand est supporté par deux poutres par l'intermédiaire de fourches solidaires de ces dernières (figure \ref{fig02}). Un sous-système motorisé adapte automatiquement l'écartement des deux poutres à la largeur du stand.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/fig02}
+\end{center}
+\caption{\label{fig02} Principe de préhension d'un moteur d'avion}
+\end{figure}
+
+Chaque poutre est liée au châssis du chariot par deux sous-systèmes \og bras élévateur \fg\ (figure \ref{fig03}), chacun constitué d'un bras principal, d'un bras secondaire et d'un vérin électrique (intégrant un moteur, un réducteur, un frein à manque de courant). La commande différenciée de chacun des quatre bras élévateurs permet de soulever et d'orienter le stand selon des angles de tangage et de roulis.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/fig03}
+\end{center}
+\caption{\label{fig03} Ensemble bras élévateur}
+\end{figure}
+
+\begin{figure}[ht!]
+\begin{minipage}{0.35\linewidth}
+Deux roues arrières motrices et directrices et deux paires de roues avant uniquement directrices assurent des mobilités omnidirectionnelles au porteur (figure \ref{fig04}).
+
+Le JacXson U70 a aussi l'avantage de pouvoir être entièrement piloté à distance par une seule personne grâce à une interface tactile mobile.
+\end{minipage}\hfill
+\begin{minipage}{0.6\linewidth}
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/fig04}
+\end{center}
+\caption{\label{fig04} Déplacements possibles du JacXson}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+\section{Autonomie du JacXson U70}
+
+\paragraph{Objectif :} évaluer les besoins en énergie lors d'un déplacement type du JacXson U70 (mode roulage) et lors d'une séquence de pose et dépose d'un moteur (mode pose/dépose).
+
+Le diagramme partiel de blocs internes du système est donné en annexe 1.
+
+\question{Compléter sur le DR, le tableau relatif aux types d'échanges MEI (Matière, Energie ou Information) entre les divers blocs. Préciser, pour les énergies, la nature des grandeurs de flux (intensité du courant $I$, vitesse de translation $V$, vitesse de rotation $\omega$) ainsi que la nature des
+grandeurs d'effort (tension $U$, force $F$, couple $C$).}
+
+~\
+
+Afin de valider l'autonomie du système, on cherche à évaluer sa consommation énergétique suivant deux modes d'utilisation caractéristiques : le mode roulage et le mode pose/dépose d'un moteur.
+
+\paragraph{Mode pose/dépose :} dans cette configuration, le JacXson U70 est immobile par rapport au sol, seul le système de levage est consommateur d'énergie électrique. \\ ~\
+
+La figure \ref{fig05} illustre les différentes étapes ainsi que les mouvements des bras lors de la pose d'un
+moteur.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/fig05}
+\end{center}
+\caption{\label{fig05} Étapes pour la pose d'un moteur}
+\end{figure}
+
+\textit{Nota} : le maintien en position levée est assuré de façon pratique par un frein dont la consommation en énergie est négligeable.
+
+\newpage
+
+Le choix de la batterie doit satisfaire l'exigence suivante :
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.5\linewidth]{img/fig06}
+\end{center}
+\caption{\label{fig06} Extrait du diagramme d'exigences}
+\end{figure}
+
+Afin d'évaluer l'énergie consommée par une opération de pose et dépose, on procède à un essai qui consiste à monter puis descendre une charge nominale de 5 tonnes qui correspond à la masse d'un moteur d'avion et du stand.
+
+Les évolutions du courant fourni par la batterie (en A) et de la puissance développée par cette dernière (en W) lors de l'essai sont présentées dans le DR relatif à la question 2.
+
+\question{Sur le DR, entourer les zones des courbes correspondant aux phases de montée et de descente de la charge lors de cet essai.}
+
+\begin{figure}[ht!]
+\begin{minipage}{0.55\linewidth}
+Le relevé temporel du courant fourni par la batterie est enregistré dans un fichier de données au format \og .csv\fg\ dont un extrait est présenté ci-contre (figure \ref{fig07}).
+
+Ces résultats ont été exploités par un programme Python dont le script partiel est donné en annexe 4.
+
+Celui-ci définit trois listes notés $I_{bat}$, $P_{bat}$ et $t$, qui contiennent respectivement les valeurs numériques du courant fourni par la batterie (en A), de la puissance disponible en sortie de la batterie (en W) ainsi que des instants échantillonnés (en s).
+
+On rappelle que $P_{bat}=I_{bat}\cdot U_{bat}$.
+
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/fig07}
+\end{center}
+\caption{\label{fig07} Extrait du fichier de données}
+\end{minipage}
+\end{figure}
+
+\question{Sur le DR, compléter le script python, à partir de la ligne 35, afin de construire les valeurs de la puissance électrique fournie par la batterie stockées dans le tableau $P_{bat}$ avec les éléments calculés à partir des données mesurées et des caractéristiques de la batterie en supposant la tension batteries $U_{bat}$ constante.}
+
+\question{Compléter la définition de la fonction \verb?energie(p,t)? qui prend en argument deux tableaux $p$ et $t$ contenant les valeurs respectivement de la puissance $P$ et des instants d'échantillonnages et qui renvoie l'énergie $E$ consommée. On rappelle que $P=\dfrac{dE}{dt}$.} ~\ \\
+
+L'exécution de cette fonction python donne l'énergie consommée lors d'un cycle de pose et de dépose : $W_{cycle} = 420 kJ$.
+
+De plus, un essai similaire permet d'évaluer l'énergie électrique nécessaire pour un déplacement du chariot correspondant à un aller-retour type de 100 m : $W_{deplacement} = 2 392 kJ$.
+
+
+Pour la suite, on considère que chaque aller-retour s'accompagne d'une opération unique de pose et de dépose d'un moteur. De plus, on néglige les phases de maintien de la charge.
+
+\question{Déterminer $W_{bat}$ en (Wh) à partir des caractéristiques de la batterie données en annexe 5.}
+
+\question{En considérant une disponibilité de 80\% de sa charge (20\% de sa capacité énergétique ne seront donc pas utilisés), déterminer la puissance $W_{utile\ bat}$ en (Wh) qui pourra réellement être consommée.}
+
+\question{Déterminer alors le nombre disponible d'opérations de pose et de dépose. Vérifier la cohérence de ce résultat avec le cahier des charges donné par le constructeur.}
+
+\section{Paramètres géométriques d'un ensemble bras élévateur}
+
+\paragraph{Objectif :} exprimer la loi entrée-sortie géométrique d'un ensemble bras élévateur et valider le choix de la course du vérin électrique.
+
+Une modélisation paramétrée d'un ensemble bras élévateur est illustrée par le schéma, annexe 6.
+
+Le principe de la cinématique de ce mécanisme, dit de Scott-Russell, repose sur 2 bras :
+\begin{itemize}
+ \item un bras secondaire (1) limité par les points O, B, M, en liaison pivot d'axe (O,$\vec{z_0}$) avec le châssis (0),
+ \item un bras principal (2) limité par les points A, C, N, en liaison pivot d'axe (B,$\vec{z_0}$) avec le bras (1) et en appui ponctuel de normale (A,$\vec{y_0}$) avec le châssis (0) ; l'extrémité C de ce bras représente un
+point caractéristique du mécanisme de Scott-Russell.
+\end{itemize}
+
+
+Cette cinématique se caractérise par l'égalité des distances OB = AB = BC qui entraîne un déplacement purement vertical de l'extrémité C du bras principal suivant l'axe (O,$\vec{y_0}$).
+
+Le vérin électrique qui met en mouvement les deux bras est schématisé dans le plan de travail par 2 solides (3) et (4).
+
+\paragraph{Exigences géométriques}
+
+Les valeurs extrêmes d'altitude $H$ de l'extrémité C du bras (2) sont imposées par 2 butées mécaniques physiques : une butée \og mécanique haute\fg\ et une butée \og mécanique basse\fg. Par contre, en phase de travail, l'altitude $H$ est limitée par 2 butées virtuelles, butées \og soft haute\fg\ et \og soft basse \fg\ de façon à ne pas atteindre, pour des raisons de sécurité, les butées mécaniques.
+
+La géométrie du mécanisme impose les exigences suivantes :
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/fig08}
+\end{center}
+\caption{\label{fig08} Extrait du diagramme d'exigences}
+\end{figure}
+
+\vspace{-0.5cm}
+
+\question{A partir de la fermeture géométrique liant les vecteurs $\overrightarrow{OC}$, $\overrightarrow{CB}$ et $\overrightarrow{BO}$, déduire une relation géométrique liant les paramètres $H(t)$ et $L$ dans les repères $R_0$, $R_1$ et $R_2$.}
+
+\question{Projeter cette relation dans le repère $R_0$.}
+
+\question{Donner l'expression de la distances $H(t)$ en fonction de l'angle $\theta(t)$ et de la longueur $L$.}
+
+\question{A partir de la fermeture géométrique liant les vecteurs $\overrightarrow{OA}$, $\overrightarrow{AB}$ et $\overrightarrow{BO}$, déduire une relation géométrique liant les paramètres $\lambda(t)$ et $L$ dans les repères $R_0$, $R_1$ et $R_2$.}
+
+\question{Projeter cette relation dans le repère $R_0$.}
+
+\question{Donner les expressions de la distance $\lambda(t)$ en fonction de l'angle $\theta(t)$ et de la longueur $L$.}
+
+\question{En traduisant une fermeture géométrique de chaîne de solides, montrer que l'on peut écrire:\\
+$\left\{\begin{array}{l}
+l_3(t)\cdot cos\delta=(2\cdot L-l_1-l_2)\cdot cos\theta(t)+(e_1-e_2)\cdot sin\theta(t)\\
+l_3(t)\cdot sin\delta=(-e_1-e_2)\cdot cos\theta(t)+(l_2-l_1)\cdot sin\theta(t)\end{array}\right.$}
+
+\question{Montrer alors que la distance $l_3(t)$ peut s'exprimer en fonction de l'angle $\theta(t)$ sous la forme :\\
+$l_3(t)=\sqrt{(A_3\cdot cos(\theta(t))+B_3\cdot sin(\theta(t)))^2+(C_3\cdot cos(\theta(t))+D_3\cdot sin(\theta(t)))^2}$\\
+où $A_3$, $B_3$, $C_3$ et $D_3$ représentent des constantes à exprimer en fonction de $l_1$, $l_2$, $e_1$, $e_2$ et de $L$.}
+
+~\
+
+On déduit du résultat précédent la variation de la distance $l_3$ (entraxe du vérin) en fonction de l'altitude $H$ entre les positions extrêmes définies par les butées mécaniques (figure 7).
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/fig09}
+\end{center}
+\caption{\label{fig09} Évolution de l'entraxe du vérin $l_3$ en fonction de l'altitude}
+\end{figure}
+
+\question{Relever la course utile du vérin nécessaire pour assurer le déplacement de l'extrémité C du bras principal depuis la position \og butée mécanique basse \fg\ jusqu'à la position \og butée mécanique haute \fg.}
+
+\newpage
+
+L'annexe 3 illustre une schématisation simplifiée du vérin électrique.
+
+\question{Le système vis-écrou du vérin électrique doit présenter une longueur filetée de la vis au minimum égale à la course utile augmentée de la longueur de l'écrou. Justifier la longueur filetée de la vis retenue par le constructeur (annexe 2).}
+
+On chercher maintenant à déterminer la vitesse $\overrightarrow{V_{M\in 4/0}}$ à partir de $\overrightarrow{\Omega_{1/0}}=\omega_1\cdot \vec{z_0}$.
+
+\question{Déterminer la vitesse $\overrightarrow{V_{M\in 4/3}}$ en fonction de $\dot{l}_3(t)$ dans le repère de votre choix.}
+
+\question{Déterminer la vitesse $\overrightarrow{V_{O\in 1/0}}$, en déduire $\overrightarrow{V_{M\in 1/0}}$ en fonction de $e$, $l_1$ et $\omega_1$ dans le repère de votre choix.}
+
+\question{En déduire $\overrightarrow{V_{M\in 4/0}}$.}
+
+\section{Asservissement en position d'un bras}
+
+\paragraph{Objectif :} concevoir le modèle de l'asservissement en position d'un bras de levage.
+
+On limite l'étude à l'asservissement en position du vérin électrique schématisé dans l'annexe 3, qui motorise un bras de levage. Les notations utilisées dans cette partie sont définies dans l'annexe 9.
+
+On s'intéresse en particulier à la grandeur de sortie $l_3(t)$ qui représente la position de l'extrémité N de la tige (4) par rapport au point de référence M du corps (3) du vérin (annexe 6).
+
+L'asservissement doit satisfaire aux exigences ci-dessous :
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/fig18}
+\end{center}
+\caption{\label{fig18} Extrait du diagramme d'exigences}
+\end{figure}
+
+La structure de l'asservissement en position du vérin électrique est présentée sur la figure \ref{fig19}. On note $L_{3C}(p)$ la transformée de Laplace de la consigne exprimée en mm. Les gains $K_R$ et $K_V$ modélisent respectivement le réducteur et le système vis écrou ; on donne : $K_R=r$ et $K_v=\dfrac{p}{2\cdot \pi}$. Le bloc $D(p)$ modélise un correcteur.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/fig19}
+\end{center}
+\caption{\label{fig19} Structure de l'asservissement en position}
+\end{figure}
+
+On considère tout d'abord l'absence de variation du couple résistant ($C_R(p)=0$). Le constructeur a choisi de mettre en œuvre une correction proportionnelle : $D(p)=K_D$.
+
+\question{Donner l'expression littérale de la fonction de transfert en boucle ouverte $F(p)$ sous forme canonique. Donner l'ordre et la classe de la fonction de transfert. Conclure sur le respect des exigences du critère de précision vis-à-vis de la consigne.}
+
+~\
+
+\question{Le diagramme de Bode de $F(p)$ avec $K_D=1$ est donné sur le DR. A partir de ce même tracé, déterminer l'expression numérique des valeurs caractéristiques de $F(p)$. Vous indiquerez les construction sur le DR.}
+
+~\
+
+Le cahier des charges indique qu'il faudra pour assurer la stabilité du système une marge de gain de $18dB$. Cela signifie qu'il faut que le gain soit égal à $-18dB$ quand la phase est égale à $-180\degree$.
+
+Il indique aussi qu'il faudra une marge de phase plus grande que $60\degree$. Cela signifie que l'écart entre la valeur $-180\degree$ et la phase au point où le gain vaut $0dB$ doit être plus grand que $60\degree$.
+
+\question{Le diagramme de Bode de $F(p)$ avec $K_D=1$ est donné sur le DR. Déterminer la valeur de $K_D$ permettant de respecter les exigences de stabilité. Vous laisserez apparaître vos constructions graphiques sur le document réponse et donnerez les valeurs des marges de phase et de gain.}
+
+Les évolutions respectivement de $l_3(t)$ et de la tension appliquée aux bornes du moteur $y(t)$ soumis à un échelon de consigne de 372 mm avec un correcteur proportionnel permettant de respecter le critère de stabilité sont données sur la figure \ref{fig21} et sur le DR.
+
+On prendra $K_D= 500$ pour la suite.
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/fig21}
+\end{center}
+\caption{\label{fig21} Évolution de la tension aux bornes du moteur $u(t)$}
+\end{figure}
+
+\question{Évaluer, à partir de constructions graphiques à réaliser sur le DR, le temps de réponse à 5\%. À partir d'un raisonnement dans le domaine temporel à l'instant particulier $t=0^+$, justifier la valeur maximale de la tension. En comparant celle-ci à la tension nominale du moteur de 72 V, conclure sur la validité du modèle mis en \oe uvre.}
+
+\begin{minipage}{0.8\linewidth}
+Compte tenu des résultats précédents, on complète le schéma bloc de l'asservissement avec un bloc de saturation qui agit sur la tension du moteur $u(t)$.
+\end{minipage}\hfill
+\begin{minipage}{0.15\linewidth}
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/fig22}
+\end{center}
+\end{minipage}
+
+\question{L'évolution de $l_3(t)$ en réponse à un échelon de consigne de 372 mm avec cette nouvelle modélisation est donnée sur le DR. Identifier sur cette courbe les deux zones associées respectivement à un comportement saturé et à un comportement non saturé de l'asservissement.
+
+Évaluer, à partir de constructions graphiques à réaliser sur le DR, le temps de réponse à 5\%. Conclure sur le respect de l'exigence du cahier des charges en termes de rapidité.}
+
+~\
+
+On s'intéresse désormais au comportement de l'asservissement suite à une variation de couple résistant $C_R(p)$. On considère l'absence de consigne $L_{3C}(p)=0$.
+
+La structure de l'asservissement en position du système de levage est toujours celle présentée à la figure \ref{fig19}.
+
+\question{En considérant un comportement non saturé de l'asservissement, donner l'expression littérale de sa fonction de transfert $G(p)=\dfrac{L_3(p)}{C_R(p)}$ sous forme canonique.}
+
+Pour la suite, on étudie la réponse du système suite à l'application d'un échelon $C_R(p)=\dfrac{C_{R0}}{p}$ du couple résistant.
+
+\question{Donner l'expression de la valeur finale de la position $l_{3\infty}$. Faire l'application numérique avec $C_{R0}=2,3N\cdot m$. Vérifier si les exigences de précision sont respectées.}
+
+Dans l'objectif d'améliorer la précision, le constructeur a choisi de prendre un correcteur dont la fonction de transfert est :
+
+\begin{center}
+$D(p)=\dfrac{K_i\cdot (1+T_i\cdot p)}{T_i\cdot p}$
+\end{center}
+
+Le choix des paramètres du correcteur doit permettre de maîtriser la dynamique du système tout en limitant la dégradation de la marge de phase évaluée pour une pulsation $\omega_{0db}$ identique à celle obtenue avec un correcteur proportionnel.
+
+\question{Donner le nom de ce nouveau correcteur et justifier le choix de celui-ci.}
+
+\newpage
+
+Pour l'asservissement ainsi corrigé, la figure \ref{fig23} présente l'évolution de $l_3(t)$, soumis à l'application d'un échelon de consigne de 372 mm suivie de l'application d'un échelon du couple résistant de 2,3 Nm à l'instant $t=500s$.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/fig23}
+\end{center}
+\caption{\label{fig23} Évolution de la position relative suite à l'application d'un échelon de consigne suivie de l'application d'un échelon de couple résistant}
+\end{figure}
+
+\question{Conclure sur la pertinence du choix et du réglage de ce correcteur vis-à-vis des exigences de précision.}
+
+\newpage
+
+\includepdf[pages=1-5,picturecommand={%
+    \put(280,45){\fcolorbox{white}{white}{\textcolor{white}{caché}}}  
+}]{img/annexes.pdf}
+
+%\includepdf[offset=-8mm -10mm 0mm 0mm]{img/DT2.pdf}
+
+\cleardoublepage
+
+\ifdef{\public}{\pagestyle{docreponse}}{\pagestyle{correction}}
+
+\reponse{0}{\begin{tabular}{|p{0.24\linewidth}|p{0.24\linewidth}|p{0.24\linewidth}|p{0.24\linewidth}|}
+\hline
+Identification & Type MEI & Flux & Effort \\
+\hline
+1&&&\\
+\hline
+2&&&\\
+\hline
+3&&&\\
+\hline
+4&&&\\
+\hline
+\end{tabular}}{\begin{tabular}{|M{0.24\linewidth}|M{0.24\linewidth}|M{0.24\linewidth}|M{0.24\linewidth}|}
+\hline
+Identification & Type MEI & Flux & Effort \\
+\hline
+1&$E$&$I$&$U$\\
+\hline
+2&$E$&$\omega$&$C$\\
+\hline
+3&$I$&&\\
+\hline
+4&$E$&$\omega$&$C$\\
+\hline
+\end{tabular}}
+
+\reponse{0}{\begin{minipage}{0.45\linewidth}
+\centering\includegraphics[width=0.9\linewidth]{img/dr02a}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+\centering\includegraphics[width=0.9\linewidth]{img/dr02b}
+\end{minipage}}{\begin{minipage}{0.45\linewidth}
+\centering\includegraphics[width=0.9\linewidth]{img/dr02a_cor}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+\centering\includegraphics[width=0.9\linewidth]{img/dr02b_cor}
+\end{minipage}}
+
+\newboolean{printdr}
+\newboolean{printcor}
+\setboolean{printdr}{false}
+\setboolean{printcor}{false}
+
+\reponse{0}{\setboolean{printdr}{true}}{\setboolean{printcor}{true}}
+
+\ifprintcor
+\begin{minted}[xleftmargin=2em,linenos,firstnumber=30]{python}
+for i in range (n) : # i varie de 0 à n-1
+	# ajout d’un élément au tableau t
+	t.append(float(feuille.cell_value(i+1,0)))
+	# ajout d’un élément au tableau Ibat
+	Ibat.append(float(feuille.cell_value(i+1,1)))
+	Pbat.append(Ubat*Ibat[i])
+\end{minted}
+\fi
+
+\ifprintdr
+\begin{minted}[xleftmargin=2em,linenos,firstnumber=30]{python}
+for i in range (n) : # i varie de 0 à n-1
+	# ajout d’un élément au tableau t
+	t.append(float(feuille.cell_value(i+1,0)))
+	# ajout d’un élément au tableau Ibat
+	Ibat.append(float(feuille.cell_value(i+1,1)))
+
+\end{minted}
+\fi
+
+\reponse{0}{\setboolean{printdr}{true}}{\setboolean{printcor}{true}}
+
+
+\ifprintcor
+\begin{minted}[xleftmargin=2em,linenos,firstnumber=37]{python}
+def energie(p,t)
+	W=0
+	for i in range (len(t)-1):
+		W+=(t[i+1]-t[i])*p[i]
+	return W
+\end{minted}
+\fi
+
+\ifprintdr
+\begin{minted}[xleftmargin=2em,linenos,firstnumber=37]{python}
+def energie(p,t)
+	W=0
+
+
+	return W
+\end{minted}
+\fi
+
+\reponse{3}{}{
+$W_{bat}=72\cdot 52=3744Wh$
+}
+
+\ifdef{\public}{\newpage}
+
+\reponse{2}{}{
+$W_{utile\ bat}=3744\cdot0.8=3744-748,8\approx 3000Wh$
+}
+
+\reponse{4}{}{
+$W_{utile\ bat}=3000\cdot 3,6=10800kJ$ et chaque cycle consomme $w_{cycle}=420+2392=2812kJ$, donc, il est possible d'effectuer 3 cycles car $3<\dfrac{10800}{2812}<4$.
+}
+
+\reponse{4}{}{$\vec{OC}+\vec{CB}+\vec{BO}=\vec{0}$
+
+$H(t)\cdot \vec{y_0}-L\cdot \vec{x_2} -L\cdot \vec{x_1}=\vec{0}$
+}
+
+\reponse{4}{}{
+$H(t)\cdot \vec{y_0}-L\cdot (cos\beta\cdot \vec{x_0}+sin\beta\cdot\vec{y_0})-L\cdot(cos\theta\cdot \vec{x_0}+sin\theta\cdot \vec{y_0})=H(t)\cdot \vec{y_0}-L\cdot (-cos\theta\cdot \vec{x_0}+sin\theta\cdot \vec{y_0})-L\cdot (cos\theta\cdot \vec{x_0}+sin\theta\cdot \vec{y_0})=\vec{0}$
+}
+
+\reponse{2}{}{
+$H(t)=2\cdot L\cdot sin\theta(t)$
+}
+
+\reponse{4}{}{
+$\vec{OA}+\vec{AB}+\vec{BO}=\vec{0}$
+
+$\lambda(t)\cdot \vec{x_0}+L\cdot \vec{x_2} -L\cdot \vec{x_1}=\vec{0}$
+}
+
+\reponse{4}{}{
+$\lambda(t)\cdot \vec{x_0}+L\cdot (cos\beta\cdot \vec{x_0}+sin\beta\cdot\vec{y_0}) -L\cdot (cos\theta\cdot \vec{x_0}+sin\theta\cdot \vec{y_0})=\lambda(t)\cdot \vec{y_0}+L\cdot (-cos\theta\cdot \vec{x_0}+sin\theta\cdot\vec{y_0}) -L\cdot (cos\theta\cdot \vec{x_0}+sin\theta\cdot \vec{y_0})=\vec{0}$
+}
+
+\reponse{2}{}{
+$\lambda(t)=2\cdot L\cdot cos\theta(t)$
+}
+
+\reponse{6}{}{$\vec{OM}+\vec{MN}+\vec{NA}+\vec{AO}=\vec{0}$
+
+$l_1\cdot \vec{x_1}+e_1\cdot \vec{y_1}+l_3(t)\cdot \vec{x_3}-l_2\cdot \vec{x_2}-e_2\cdot \vec{y_2}-\lambda(t).\vec{x_0}=\vec{0}$
+
+$l_3(t)\cdot \vec{x_3}=l_2\cdot \vec{x_2}+e_2\cdot \vec{y_2}+\lambda(t).\vec{x_0}-l_1\cdot \vec{x_1}-e_1\cdot \vec{y_1}=l_2\cdot \vec{x_2}+e_2\cdot \vec{y_2}+2\cdot L\cdot cos\theta(t)\cdot \vec{x_0}-l_1\cdot \vec{x_1}-e_1\cdot \vec{y_1}$
+
+$\left\{\begin{array}{l}
+l_3(t)\cdot cos\delta=-l_2\cdot cos\theta(t)-e_2\cdot sin\theta(t)+2\cdot L\cdot cos\theta(t)-l_1\cdot cos\theta(t)+e_1\cdot sin\theta(t)\\
+l_3(t)\cdot sin\delta=l_2\cdot sin\theta(t)-e_2\cdot cos\theta(t)-l_1\cdot sin\theta(t)-e_1\cdot cos\theta(t)
+\end{array}\right.$
+
+$\left\{\begin{array}{l}
+l_3(t)\cdot cos\delta=(2\cdot L-l_1-l_2)\cdot cos\theta(t)+(e_1-e_2)\cdot sin\theta(t)\\
+l_3(t)\cdot sin\delta=(-e_1-e_2)\cdot cos\theta(t)+(l_2-l_1)\cdot sin\theta(t)\end{array}\right.$
+}
+
+\ifdef{\public}{\newpage}
+
+\reponse{6}{}{
+$l_3^2=((2\cdot L-l_1-l_2)\cdot cos\theta(t)+(e_1-e_2)\cdot sin\theta(t))^2+((-e_1-e_2)\cdot cos\theta(t)+(l_2-l_1)\cdot sin\theta(t))^2$
+
+$l_3=\sqrt{(A_3\cdot cos\theta(t)+B_3\cdot sin\theta(t))^2+(C_3\cdot cos\theta(t)+D_3\cdot sin\theta(t))^2}$
+
+Donc, $A_3=2\cdot L-l_1-l_2$, $B_3=e_1-e_2$, $C_3=-e_1-e_2$ et $D_3=l_2-l_1$.
+}
+
+\reponse{2}{}{
+Pour la position butée mécanique basse : $H=380mm$ $l_3=610mm$
+Pour la position butée mécanique haute : $H=1550mm$ $l_3=230mm$
+
+
+Donc la course du vérin est : $course=380mm$
+}
+
+
+\reponse{2}{}{La longueur minimum de la vis est de :
+$longueur = course + l_{ecrou} = 445 mm<510mm$, ainsi on n'est pas dans les positions extrêmes.}
+
+\reponse{2}{}{$\overrightarrow{V_{M\in 4/3}}=\dot{l}_3(t)\cdot\vec{x_3}$.}
+
+\reponse{4}{}{$\overrightarrow{V_{O\in 1/0}}=\vec{0}$, $\overrightarrow{V_{M\in 1/0}}=\overrightarrow{V_{O\in 1/0}}+\overrightarrow{MO}\wedge\overrightarrow{\Omega_{1/0}}$
+
+$\overrightarrow{V_{M\in 1/0}}=\omega_1\cdot (-e\cdot \vec{x_1}+l_1\cdot\vec{y_1})$.}
+
+\ifdef{\public}{\newpage}
+
+\reponse{2}{}{$\overrightarrow{V_{M\in 3/1}}=\vec{0}$, donc
+
+$\overrightarrow{V_{M\in 4/0}}=\overrightarrow{V_{M\in 4/3}}+\overrightarrow{V_{M\in 3/1}}+\overrightarrow{V_{M\in 1/0}}=\dot{l}_3(t)\cdot\vec{x_3}+\omega_1\cdot (-e\cdot \vec{x_1}+l_1\cdot\vec{y_1})$.}
+
+\reponse{6}{}{$F(p)=K_D\cdot \dfrac{K_C}{(R+L\cdot p)\cdot (f+J_\Sigma \cdot p)}\cdot \dfrac{1}{1+\dfrac{K_E\cdot K_C}{(R+L\cdot p)\cdot (f+J_\Sigma \cdot p)}}\cdot K_R\cdot K_V\cdot \dfrac{1}{p}$
+
+$=\dfrac{K_D\cdot K_C\cdot K_R\cdot K_V}{p\cdot (K_E\cdot K_C+R\cdot f+(L\cdot f+R\cdot J_\Sigma) \cdot p+L\cdot J_\Sigma\cdot p^2)}$
+
+$F(p)=\dfrac{\dfrac{K_D\cdot K_C\cdot K_R\cdot K_V}{K_E\cdot K_C+R\cdot f}}{p\cdot \left(1+\dfrac{L\cdot f+R\cdot J_\Sigma}{K_E\cdot K_C+R\cdot f} \cdot p+\dfrac{L\cdot J_\Sigma}{K_E\cdot K_C+R\cdot f}\cdot p^2\right)}$
+
+La fonction de transfert en boucle ouverte est de classe 1. L’erreur sera donc nulle pour une consigne de type échelon. L’exigence Id="4.3.1" est donc respectée.}
+
+\reponse{4}{\begin{center}
+  \resizebox{0.9\textwidth}{!}{\input{img/bode_1.pgf}}
+\end{center}}{
+\begin{center}
+  \resizebox{0.9\textwidth}{!}{\input{img/bode_cor1.pdf_tex}}
+\end{center}
+
+$F(p)$ est de classe 1, donc pour trouver $K$, on cherche le gain pour $\omega=0rad\cdot s^{-1}$, ainsi, $20\cdot log(K)=-20$, donc $K=0,1$.
+
+La cassure apparaît pour $\omega_0=800rad\cdot s^{-1}$.
+
+Le $z$ est plus difficile à calculer. Il faut trouver la hauteur de la résonance qui est d'environ $10dB$, donc $20\cdot log\dfrac{H_{max}}{H_0}=10$, donc $\dfrac{H_{max}}{H_0}=3=\dfrac{1}{2\cdot z\sqrt{1-z^2}}$.
+
+Donc $36\cdot z^2\cdot (1-z^2)=1$
+
+$X^2-X+\dfrac{1}{36}=0$ donc $X_1\approx 1$ (trop grand) et $X_2\approx \dfrac{1}{36}$.
+
+On garde $X\approx \dfrac{1}{36}$ et ainsi, $z\approx \dfrac{1}{6}\approx 0.2$.
+
+On peut alors exprimer numériquement : $F(p)=\dfrac{0.1}{p\cdot \left(1+\dfrac{2\cdot 0.2}{800}\cdot p+\dfrac{p^2}{800^2}\right)}$
+}
+
+\reponse{5}{\begin{center}
+  \resizebox{0.9\textwidth}{!}{\input{img/bode_2.pgf}}
+\end{center}}{
+\begin{center}
+  \resizebox{0.9\textwidth}{!}{\input{img/bode_cor2.pdf_tex}}
+\end{center}
+
+Lorsque la phase est de $-180\degree$, le gain est de $-70dB$, on peut donc ajouter $70dB-18dB=52dB$, soit multiplier la fonction de transfert par un gain de $K_D=10^\frac{52}{20}\approx 10^{2.5}\approx 100*\sqrt{10}\approx 300$
+
+Avec $K_D=1$, la phase vaut $180+60=-120\degree$ pour un gain de $-70dB$, ainsi, on peut augmenter ce gain de $70dB$ et toujours valider la marge de phase. Ainsi, la valeur $K_D=300$ est la valeur maximale du gain qui permet de respecter l'exigence de stabilité.
+}
+
+\reponse{3}{\begin{center}
+	\includegraphics[width=0.9\linewidth]{img/dr04}
+\end{center}}{
+\begin{center}
+  \resizebox{0.9\textwidth}{!}{\input{img/dr04_cor.pdf_tex}}
+\end{center}
+
+$0.95\cdot 370mm\approx 350mm$, le temps de réponse est de $0,06s$. Ce qui satisfait largement l’exigence Id="4.1" (temps de réponse à 5\% inférieur à $120 s$).
+
+En revanche, la tension pour $t=0^+$ est environ $190000V$. La tension est le résultat de $K_D\cdot (L_{3C}(p)-L_3(p))=500\cdot 372 = 186000V$.
+
+Ce qui est beaucoup trop important pour le moteur qui a une tension nominale de $72V$. Il faut donc mettre en place une saturation.}
+
+\reponse{3}{\begin{center}
+	\includegraphics[width=0.9\linewidth]{img/dr05}
+\end{center}}{
+\begin{center}
+  \resizebox{0.9\textwidth}{!}{\input{img/dr05_cor.pdf_tex}}
+\end{center}
+
+Jusqu’à $t=2,7s$, l’asservissement est saturé.
+
+Le temps de réponse à 5\% est $t_{5\%}=2,45s$ est plus long mais satisfait toujours l’exigence.
+}
+
+
+\reponse{6}{}{
+
+$\left[\left(-L_3(p)\cdot K_D-K_e\cdot\Omega\right)\cdot \dfrac{K_C}{R+L\cdot p}-C_R(p)\right]\cdot \dfrac{K_R\cdot K_V}{p\cdot(f+J_\Sigma\cdot p)}=L_3(p)$ 
+
+~\
+
+$\left[\left(-L_3(p)\cdot K_D-K_e\cdot\dfrac{p}{K_R\cdot K_V}\cdot L_3(p)\right)\cdot \dfrac{K_C}{R+L\cdot p}-C_R(p)\right]\cdot \dfrac{K_R\cdot K_V}{p\cdot(f+J_\Sigma\cdot p)}=L_3(p)$ 
+
+~\
+
+$L_3(p)\cdot\left[1+\dfrac{K_D\cdot K_C\cdot K_R\cdot K_V}{p\cdot (R+L\cdot p)\cdot (f+J_\Sigma\cdot p)}+\dfrac{K_e\cdot K_C\cdot p}{p\cdot (R+L\cdot p)\cdot (f+J_\Sigma\cdot p)}\right]=-C_R(p)\cdot \dfrac{K_R\cdot K_V}{p\cdot(f+J_\Sigma\cdot p)}$ 
+
+~\
+
+$G(p)=\dfrac{L_3(p)}{C_R(p)}=-\dfrac{K_R\cdot K_V\cdot (R+L\cdot p)}{p\cdot (R+L\cdot p)\cdot (f+J_\Sigma\cdot p)+K_e\cdot K_C\cdot p+K_D\cdot K_C\cdot K_R\cdot K_V}$ 
+
+~\
+
+$G(p)=-\dfrac{\dfrac{R\cdot \left(1+\dfrac{L}{R}\cdot p\right)}{K_D\cdot K_C}}{1+\dfrac{K_e\cdot K_C+R\cdot f}{K_D\cdot K_C\cdot K_R\cdot K_V}\cdot p+\dfrac{L\cdot f+R\cdot J_\Sigma}{K_D\cdot K_C\cdot K_R\cdot K_V}\cdot p^2+\dfrac{L\cdot J_\Sigma}{K_D\cdot K_C\cdot K_R\cdot K_V}\cdot p^3}$ 
+}
+
+\reponse{6}{}{
+$l_{3\infty}=\lim\limits_{t \rightarrow \infty}l_3(t)=\lim\limits_{p \rightarrow 0}L_3(p)=\lim\limits_{p \rightarrow 0}p\cdot C_R(p)\cdot G(p)$
+
+$l_{3\infty}=\lim\limits_{p \rightarrow 0}p\cdot \dfrac{C_{R0}}{p}\cdot \left(-\dfrac{\dfrac{R\cdot \left(1+\dfrac{L}{R}\cdot p\right)}{K_D\cdot K_C}}{1+\dfrac{K_e\cdot K_C+R\cdot f}{K_D\cdot K_C\cdot K_R\cdot K_V}\cdot p+\dfrac{L\cdot f+R\cdot J_\Sigma}{K_D\cdot K_C\cdot K_R\cdot K_V}\cdot p^2+\dfrac{L\cdot J_\Sigma}{K_D\cdot K_C\cdot K_R\cdot K_V}\cdot p^3}\right)$
+
+$l_{3\infty}=-C_{R0}\cdot \dfrac{R}{K_D\cdot K_C}$
+
+L’exigence de précision vis-à-vis d’une perturbation Id="4.3.2" n’est donc pas respectée puisque l’erreur de position est non nulle.
+}
+
+
+\reponse{2}{}{
+Ce correcteur est un correcteur PI qui va permettre d’améliorer la précision mais peut détériorer la stabilité et
+la rapidité.}
+
+\reponse{2}{}{
+Ce correcteur permet de respecter l’exigence précédente Id="4.3.2" puisque l’asservissement revient à la position de consigne. La perturbation ne fait pas sortir le système de l’intervalle de 5 \% par rapport à la position finale.}
+
+
+\end{document}
