@@ -133,11 +133,20 @@ def Essai_creneau(io,servo,pos_init,amplitude,t_debut,t_fin,duree):
     return x_time_f,consigne,position_reelle
 
 io,ids=init_param([9,11,13,10,12,14])
-Reglage_gain(io,ids,[[3,0,0]]*len(ids))
+Reglage_gain(io,ids,[[10,0,0]]*len(ids))
 time.sleep(1)
-print(io.get_present_position(tuple(ids)))
-angles=np.linspace(0,35,35)
+
+
+pos0=np.array([float(i) for i in io.get_present_position(tuple(ids))])
+steps=10
+for i in range(steps):
+    pos=pos0*(steps-i)/steps
+    move(io,ids,pos)
+    time.sleep(.04)
+
+time.sleep(2)
+
+angles=np.linspace(0,40,10)
 for angle in angles:
     move(io,ids,[-angle,2*angle,angle,+angle,-2*angle,-angle])
-    time.sleep(.05)
 #io.close()
