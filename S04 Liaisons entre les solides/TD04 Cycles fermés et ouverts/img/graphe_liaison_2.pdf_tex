@@ -1,0 +1,73 @@
+%% Creator: Inkscape 1.1.2 (0a00cf5339, 2022-02-04), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'img/graphe_liaison_2.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{20 pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{468.91626043bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.56936334)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{img/graphe_liaison_2.pdf}}%
+    \put(0.04722818,0.33375846){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$sol$\end{tabular}}}}%
+    \put(0.52099617,0.38609507){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$2_d$\end{tabular}}}}%
+    \put(0.2513969,0.4735436){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$1_d$\end{tabular}}}}%
+    \put(0.00511484,0.48644831){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}pivot($A_d,\vec{z}$)\end{tabular}}}}%
+    \put(0.45224322,0.54505945){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}pivot($B_d,\vec{z}$)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{img/graphe_liaison_2.pdf}}%
+    \put(0.86826626,0.26836155){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$3$\end{tabular}}}}%
+    \put(0.78351891,0.42732592){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}pivot($C_d,\vec{z}$)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{img/graphe_liaison_2.pdf}}%
+    \put(0.56542876,0.04307563){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$2_g$\end{tabular}}}}%
+    \put(0.29582948,0.13052421){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$1_g$\end{tabular}}}}%
+    \put(0.0495474,0.14342894){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}pivot($A_g,\vec{z}$)\end{tabular}}}}%
+    \put(0.49667571,0.20204001){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}pivot($B_g,\vec{z}$)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{img/graphe_liaison_2.pdf}}%
+    \put(0.82795154,0.08430649){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}pivot($C_g,\vec{z}$)\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

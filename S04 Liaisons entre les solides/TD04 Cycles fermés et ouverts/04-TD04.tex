@@ -18,7 +18,7 @@ Le but de ce travail va être de faire tracer un trait \og à main levée\fg\ à
 
 On définit $x$ et $y$ tels que $\overrightarrow{AC}=x\cdot\vec{x}+y\cdot\vec{y}$.
 
-On cherche à tracer la droite $y(x)=c\cdot x+d$ reliant les points de coordonnées $\left(\begin{array}{c}a+b\\0
+On cherche à tracer la droite $y(x)=c\cdot x+d$ reliant les points $\left(\begin{array}{c}a+b\\0
 \end{array}\right)_R$ et $\left(\begin{array}{c}0\\a+b
 \end{array}\right)_R$.
 
@@ -28,13 +28,15 @@ On cherche à tracer la droite $y(x)=c\cdot x+d$ reliant les points de coordonn�
 
 \question{Déterminer $x$ et $y$ en fonction de $\theta$ et de $u=\left\|\overrightarrow{AC}\right\|$.} 
 
+\question{Déterminer $u=\left\|\overrightarrow{AC}\right\|$ en fonction de $\theta$ et des dimensions du système.} 
+
 \question{Déterminer $\alpha$ et $\beta$ en fonction de $\theta$, de $u=\left\|\overrightarrow{AC}\right\|$ et des dimensions du système. Et justifier que:
 \begin{center}
-$\left\{\begin{array}{l}
-\alpha=\theta\pm\arccos\left((\dfrac{u^2+a^2-b^2}{2\cdot u\cdot a}\right)\\\beta=\theta-\alpha\pm\arccos\left(\dfrac{u^2+b^2-a^2}{2\cdot u\cdot b}\right)
-\end{array}\right.$
+$\alpha=\theta\pm\arccos\left((\dfrac{u^2+a^2-b^2}{2\cdot u\cdot a}\right)$ et $\beta=\theta-\alpha\pm\arccos\left(\dfrac{u^2+b^2-a^2}{2\cdot u\cdot b}\right)$
 \end{center}
 } 
+
+\question{Tester le résultat à l'aide d'un code python.}
 
 \section{Faire des squats}
 
@@ -83,7 +85,14 @@ On notera respectivement $i_g$ et $i_d$ les pièces des jambes gauche et droite.
 
 \subsection{Tracer un trait}
 
-\paragraph{Question 1:} 
+\paragraph{Question 1:} ~\ \\
+
+\begin{figure}[h!]
+\begin{center}
+  \resizebox{0.4\textwidth}{!}{\input{img/graphe_liaison_1.pdf_tex}}
+  \caption{\label{fig05} Graphe de liaison 1}
+\end{center}
+\end{figure}
 
 \paragraph{Question 2:} C'est un cycle ouvert car il n'y a pas de cycle fermé dans le graphe.
 
@@ -116,7 +125,16 @@ x=u\cdot cos\theta\\
 y=u\cdot sin\theta
 \end{array}\right.$
 
-\paragraph{Question 6:}
+\paragraph{Question 6:} $u=\dfrac{a+b}{\sqrt{2}\cdot cos\left(\theta-\dfrac{\pi}{4}\right)}$
+
+\begin{figure}[h!]
+\begin{center}
+  \resizebox{0.4\textwidth}{!}{\input{img/construction_u.pdf_tex}}
+  \caption{\label{fig06} Construction pour u}
+\end{center}
+\end{figure}
+
+\paragraph{Question 7:}
 
 $\left\{\begin{array}{l}
 u\cdot cos\theta=a\cdot cos\alpha+b\cdot cos(\alpha+\beta)\\
@@ -160,9 +178,37 @@ $cos(\theta-(\alpha+\beta))=\dfrac{u^2+b^2-a^2}{2\cdot u\cdot b}$
 
 $\beta=\theta-\alpha\pm\arccos\left(\dfrac{u^2+b^2-a^2}{2\cdot u\cdot b}\right)$
 
+\paragraph{Question 8:}
+
+\begin{minted}[xleftmargin=2em,linenos,firstnumber=1]{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+a=45
+b=65
+
+theta=np.linspace(0,np.pi/2,100)
+u=np.sqrt(2)/2*(a+b)/np.cos(theta-np.pi/4)
+alpha=theta-np.arccos((u**2+a**2-b**2)/(2*u*a))
+beta=theta-alpha+np.arccos((u**2-a**2+b**2)/(2*u*b))
+
+x=a*np.cos(alpha)+b*np.cos(alpha+beta)
+y=a*np.sin(alpha)+b*np.sin(alpha+beta)
+
+plt.plot(x,y)
+plt.show()
+\end{minted}
+
 \subsection{Faire des squats}
 
-\paragraph{Question 1:}
+\paragraph{Question 1:} ~\ \\
+
+\begin{figure}[h!]
+\begin{center}
+  \resizebox{0.7\textwidth}{!}{\input{img/graphe_liaison_2.pdf_tex}}
+  \caption{\label{fig07} Graphe de liaison 2}
+\end{center}
+\end{figure}
 
 \paragraph{Question 2:} 
 
