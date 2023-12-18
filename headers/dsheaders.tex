@@ -169,9 +169,14 @@
 	\end{tikzpicture}
 }
 
+%\newcommand{\question}[1]{\refstepcounter{num_quest}\par
+%~\ \\ \parbox[t][][t]{0.15\linewidth}{\textbf{Question \arabic{num_quest}}}\parbox[t][][t]{0.85\linewidth}{#1\label{q\the\value{num_quest}}}\par
+%}
+
 \newcommand{\question}[1]{\refstepcounter{num_quest}\par
-~\ \\ \parbox[t][][t]{0.15\linewidth}{\textbf{Question \arabic{num_quest}}}\parbox[t][][t]{0.85\linewidth}{#1\label{q\the\value{num_quest}}}\par
+~\ \\ \textbf{Question \arabic{num_quest} : }#1\label{q\the\value{num_quest}}\par
 }
+
 
 \newcommand{\goforum}{
 \begin{figure}[ht!]
@@ -274,7 +279,7 @@
   \lhead{\colorbox{danger}{\begin{minipage}{0.65\paperwidth} \textcolor{white}{\textbf{Correction}} \end{minipage}} }
   \rhead{\includegraphics[width=2cm]{../../../img/logo}}
   \lfoot{Renaud Costadoat, Françoise Puig}
-  \rfoot{\colorbox{danger}{\begin{minipage}{0.5\paperwidth} \begin{flushright}\textcolor{white}{\textbf{Correction}}\end{flushright} \end{minipage}} }}
+  \rfoot{\colorbox{danger}{\begin{minipage}{0.4\paperwidth} \begin{flushright}\textcolor{white}{\textbf{Correction}}\end{flushright} \end{minipage}} }}
 
 \fancypagestyle{correctioninfo}{%
   \fancyhf{}
