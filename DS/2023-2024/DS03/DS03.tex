@@ -779,7 +779,24 @@ T_8(p)=\dfrac{F_R(p)}{L(p)}=k_{eq}=8N\cdot mm^{-1}
 \end{array}
 \right.$}
 
-\reponse{5}{}{$\tau_1=\dfrac{R\cdot J}{k_v\cdot k_i}$, $\tau_2=\dfrac{L\cdot J}{k_v\cdot k_i}$ et $\tau_3=\dfrac{K_1\cdot R_t\cdot K_{eq}}{k_v\cdot k_i}$ }
+\reponse{5}{}{
+$H_{BF}(p)=\frac{T_1\cdot \frac{T_2(p)\cdot T_3(p)\cdot T_4(p)}{1+T_2(p)\cdot T_3(p)\cdot T_4(p)\cdot T_{10}(p)}\cdot T_5\cdot T_6\cdot T_7\cdot T_8}{1+T_1\cdot \frac{T_2(p)\cdot T_3(p)\cdot T_4(p)}{1+T_2(p)\cdot T_3(p)\cdot T_4(p)\cdot T_{10}(p)}\cdot T_5\cdot T_6\cdot T_7\cdot T_8\cdot T_9}$
+
+$H_{BF}(p)=\frac{T_1\cdot T_2\cdot T_3\cdot T_4\cdot T_5\cdot T_6\cdot T_7\cdot T_8}{1+T_2\cdot T_3\cdot T_4\cdot T_{10}+T_1\cdot T_2\cdot T_3\cdot T_4\cdot T_5\cdot T_6\cdot T_7\cdot T_8\cdot T_9}$
+
+Soit $Rt=\frac{1}{66}\cdot \frac{p_{vis}}{2\cdot \pi}=T_5\cdot T_6$
+
+$H_{BF}(p)=\frac{K_1\cdot \frac{1}{R+L\cdot p}\cdot k_i\cdot \frac{1}{J\cdot p}\cdot Rt\cdot \frac{1}{p}\cdot K_{eq}}{1+\frac{1}{R+L\cdot p}\cdot k_i\cdot \frac{1}{J\cdot p}\cdot k_v+K_1\cdot \frac{1}{R+L\cdot p}\cdot k_i\cdot \frac{1}{J\cdot p}\cdot Rt\cdot \frac{1}{p}\cdot K_{eq}\cdot K_9}$
+
+$H_{BF}(p)=\frac{K_1\cdot k_i\cdot Rt\cdot K_{eq}}{\left(R+L\cdot p\right)\cdot\left(J\cdot p\right)\cdot p+k_i\cdot k_v\cdot p+K_1\cdot k_i\cdot Rt\cdot K_{eq}\cdot K_9}$
+
+$H_{BF}(p)=\frac{\frac{1}{K_9}}{1+\frac{1}{K_1\cdot k_i\cdot Rt\cdot K_{eq}\cdot K_9}\cdot\left(\left(R+L\cdot p\right)\cdot\left(J\cdot p\right)\cdot p+k_i\cdot k_v\cdot p\right)}$
+
+$H_{BF}(p)=\frac{\frac{1}{K_9}}{1+\frac{1}{K_1\cdot k_i\cdot Rt\cdot K_{eq}\cdot K_9}\cdot p\cdot\left(k_i\cdot k_v+R\cdot J\cdot p+L\cdot J\cdot p^2\right)}$
+
+$H_{BF}(p)=\frac{\frac{1}{K_9}}{1+\frac{1+\frac{R\cdot J}{k_i\cdot k_v}\cdot p+\frac{L\cdot J}{k_i\cdot k_v}\cdot p^2}{\frac{K_1\cdot Rt\cdot K_{eq}}{k_v}\cdot K_9}\cdot p}$
+
+$\tau_1=\dfrac{R\cdot J}{k_v\cdot k_i}$, $\tau_2=\dfrac{L\cdot J}{k_v\cdot k_i}$ et $\tau_3=\dfrac{K_1\cdot R_t\cdot K_{eq}}{k_v}$ }
 
 \reponse{5}{}{$H_1(p)=\frac{U_{var}(p)}{U_{cons}(p)}=\frac{U_{cons}(p)-T_9(p)\cdot F_R(p)}{U_{cons}(p)}=1-T_9(p)\cdot\frac{F_R(p)}{U_{cons}(p)}=1-T_9(p)\cdot H_{BF}(p)$
 
