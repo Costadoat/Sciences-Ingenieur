@@ -101,7 +101,7 @@ Le démarreur est fixé sur le carter moteur, il entraîne une couronne dentée 
 
 Le démarreur D6RA n'a pas cessé d'évoluer depuis sa première version. La dernière évolution de ce modèle est le D6RA-100. Ce modèle, le plus puissant de la série, est destiné aux moteurs diesel de moyenne cylindrée. Le couple maximum sur l'arbre secondaire est alors de $C_{max} = 120 N.m$. Ce couple, plus important que sur le précédent modèle, engendre une augmentation de la pression de contact exercée par l'arbre 4 sur les paliers 2 et 24.
 
-Afin de vérifier la tenue du palier 2, on demande de déterminer les torseurs d'actions mécaniques appliqués au système matériel $\left\{12+4\right\}$.
+Afin de vérifier la tenue du palier 2, on demande de déterminer les torseurs d'actions mécaniques appliqués au système matériel $\left\{12+4\right(\}$.
 
 \newpage
 
@@ -148,13 +148,9 @@ $\left\{T_{moteur \rightarrow \left\{12+4\right\}}\right\}_{(H,(\overrightarrow{
 Représenter, par un torseur, les actions mécaniques de la couronne du moteur sur $\left\{12+4\right\}$.
 Écrire les composantes de ce torseur dans $(H,(\overrightarrow{x},\overrightarrow{y},\overrightarrow{z}))$.
 
-\paragraph{Question 2:} Énoncer le Principe Fondamental de la Statique sur le système matériel $\left\{12+4\right\}$. Peut-on déterminer les actions mécaniques inconnues. Justifier la réponse.
+\paragraph{Question 2:} Énoncer le Principe Fondamental de la Statique sur le système matériel $\left\{12+4\right\}$. Déterminer les actions mécaniques des liaisons en G et en I.
 
-Un logiciel de calcul informatique a permis de déterminer $Z_G = 7880 N$ et $Y_G = 2720 N$.
-
-A l'aide des composantes de $\left\{T_{1 \rightarrow \left\{12+4\right\}}\right\}_{(G,(\overrightarrow{x},\overrightarrow{y},\overrightarrow{z}))}$, calculer la norme de l'effort radial dans le palier 2.
-
-\paragraph{Question 3:} Les paliers sont dimensionnés pour supporter un effort maxi de 8KN. Justifier du choix de ces paliers.
+\paragraph{Question 3:} Calculer la norme de l'effort radial dans le palier au point I. Les paliers sont dimensionnés pour supporter un effort maxi de 8KN. Justifier du choix de ces paliers. Ces mêmes paliers pourraient-ils être utilisés pour la liaison en G ?
 
 \newpage
 
@@ -476,12 +472,17 @@ Y_I=\frac{FG}{FI}.Y_G \\
 sin\alpha.\|\overrightarrow{H_{mot\rightarrow 12+4}}\|+(\frac{FG}{FI}+1).Y_G=0 \\
 -cos\alpha.\|\overrightarrow{H_{mot\rightarrow 12+4}}\|+(\frac{FG}{FI}+1).Z_G=0 \\
 Y_G=-\frac{sin\alpha.\|\overrightarrow{H_{mot\rightarrow 12+4}}\|}{(\frac{FG}{FI}+1)}\approx-\frac{0,34.11605}{(\frac{25}{65}+1)}\approx-2849N\\
-Z_G=\frac{cos\alpha.\|\overrightarrow{H_{mot\rightarrow 12+4}}\|}{(\frac{FG}{FI}+1)}\approx\frac{0,94.11605}{(\frac{25}{65}+1)}\approx7878N\\
+Z_G=\frac{cos\alpha.\|\overrightarrow{H_{mot\rightarrow 12+4}}\|}{(\frac{FG}{FI}+1)}\approx\frac{0,94.11605}{(\frac{25}{65}+1)}\approx 7878N\\
 Y_I=-Y_G-sin\alpha.\frac{120}{FH.cos\alpha}\approx -1100N \\
 Z_I=-Z_G+\frac{120}{FH}\approx 3030N
 \end{array}\right.$
 
-La norme est donc $\sqrt{Y_I^2+Z_I^2}=\sqrt{1100^2+3030^2}\approx 3200N$, les paliers sont donc bien dimensionnés.
+\paragraph{Question 3:}
+
+La norme en I est donc $\sqrt{Y_I^2+Z_I^2}=\sqrt{1100^2+3030^2}\approx 3200N$, les paliers sont donc bien dimensionnés.
+
+La norme en G est donc $\sqrt{Y_G^2+Z_G^2}=\sqrt{2849^2+7878^2}\approx 8400N$
+ils ne conviendraient pas pour cette liaison.
 
 \subsection{Siège de dentiste}
 
