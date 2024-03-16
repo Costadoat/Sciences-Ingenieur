@@ -20,6 +20,7 @@
 \usepackage{array}
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 \usepackage[shortlabels]{enumitem}
+\usepackage[framemethod=TikZ]{mdframed}
 
 \input{intro.tex}
 %\usepackage{style}
@@ -63,6 +64,7 @@
 \definecolor{bleu}{RGB}{18,33,98}
 \definecolor{bleuf}{RGB}{42,94,171}
 \definecolor{bleuc}{RGB}{231,239,247}
+\definecolor{bleum}{RGB}{160,195,226}
 \definecolor{rougef}{RGB}{185,18,27}
 \definecolor{rougec}{RGB}{255,188,204}%255,230,231
 \definecolor{vertf}{RGB}{103,126,82}
@@ -159,6 +161,22 @@
 \end{tabular}
 }
 
+
+\newcommand{\objectif}[1]{
+\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=bleum]
+{\strut Objectif~};}}
+\mdfsetup{innertopmargin=10pt,linecolor=bleum,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+#1
+\end{mdframed}}
+
+
 \newcounter{num_quest} \setcounter{num_quest}{0}
 \newcounter{num_rep} \setcounter{num_rep}{0}
 \newcounter{num_cor} \setcounter{num_cor}{0}
@@ -177,6 +195,13 @@
 ~\ \\ \textbf{Question \arabic{num_quest} : }#1\label{q\the\value{num_quest}}\par
 }
 
+\newcommand{\posetafigure}[3]{
+\begin{figure}[ht!]
+ \begin{center}
+  \includegraphics[width=#2\linewidth]{img/#1}
+ \end{center}
+ \caption{\label{#1} #3}
+\end{figure}}
 
 \newcommand{\goforum}{
 \begin{figure}[ht!]
