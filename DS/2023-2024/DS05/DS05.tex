@@ -193,15 +193,13 @@ Le modèle pour la résistance totale à l’avancement est donné figure \ref{f
 
 A $25km\cdot h^{-1}$, $M_f=-\vec{M}_{O,\vec{f}_L}\cdot \vec{z}_1=0.00038(R_d^4-R_1^4)$ (rayons en mm). La caractéristique de freinage pour une vitesse de translation de $25km\cdot h^{-1}$ est donnée figure \ref{fig13}.
 
-\posetafigure{fig13}{0.7}{Norme du moment de freinage $M_f$ pour $v=25km\cdot h^{-1}$}
+\posetafigure{fig13}{0.65}{Norme du moment de freinage $M_f$ pour $v=25km\cdot h^{-1}$}
 
 \question{En déduire le déplacement $\Delta_y$ nécessaire des aimants pour assurer la résistance maximale $R_T$ à l’avancement de la figure \ref{fig10}.}
 
 ~\
 
 Cette étude a donc permis de faire le lien entre la résistance à l’avancement en situation réelle et le déplacement $\Delta_y$ d’un aimant qui permet de reproduire cet effort sur un vélo d’appartement. La partie suivante permet d’étudier la manière dont est généré et piloté ce déplacement.
-
-\newpage
 
 \subsection{Pilotage du dispositif de freinage}
 
@@ -530,7 +528,7 @@ donc $0.5\cdot\rho\cdot A_d\cdot C_D=0.2$, donc $A_d\cdot C_D=\dfrac{0.2}{0.5\cd
 \reponse{6}{}{
 $\vec{M}_{O,\vec{f}_L}=\int_{secteur} r\cdot \vec{x}_2\wedge (-\gamma r \omega B^2\vec{y}_2)erdrd\theta$
 
-$\vec{M}_{O,\vec{f}_L}=-\gamma\cdot r\cdot \omega\cdot B^2\cdot e\cdot \vec{z}_2\int_{r=R_1}^{r=R_2} r^3\cdot dr\int_{\theta=0}^{\theta=\alpha}d\theta=-\gamma\cdot r\cdot \omega\cdot B^2\cdot e\cdot \vec{z}_2\left[\dfrac{r^4}{4}\right]_{r=R_1}^{r=R_2} \alpha=-\gamma\cdot r\cdot \omega\cdot B^2\cdot e\cdot  \alpha\dfrac{R^4_2-R^4_1}{4}\cdot \vec{z}_2$
+$\vec{M}_{O,\vec{f}_L}=-\gamma\cdot \omega\cdot B^2\cdot e\cdot \vec{z}_2\int_{r=R_1}^{r=R_2} r^3\cdot dr\int_{\theta=0}^{\theta=\alpha}d\theta=-\gamma\cdot r\cdot \omega\cdot B^2\cdot e\cdot \vec{z}_2\left[\dfrac{r^4}{4}\right]_{r=R_1}^{r=R_2} \alpha=-\gamma\cdot r\cdot \omega\cdot B^2\cdot e\cdot  \alpha\dfrac{R^4_2-R^4_1}{4}\cdot \vec{z}_2$
 
 Donc, $Mf=\gamma\cdot r\cdot \omega\cdot B^2\cdot e\cdot  \alpha\dfrac{R^4_2-R^4_1}{4}$, c'est proportionnel à $\omega$, il s'agit donc de frottement visqueux, il ne peut pas stopper la roue car ce freinage tend vers 0 quand la vitesse tend vers 0.}
 
