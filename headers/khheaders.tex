@@ -110,12 +110,6 @@
  }
 }
 
-\newcommand{\reponse}[1][4]
-{
-\multido{}{#1}
-{\begin{center}\makebox[0.9\linewidth]{}  \\
-\begin{center}\makebox[0.9\linewidth]{\dotfill} \\ \end{center}
-}}
 
 \newcommand{\titre}[1]
 {\begin{center}
@@ -123,6 +117,18 @@
 \end{center}
 }
 
+\newcounter{num_quest} \setcounter{num_quest}{0}
+\newcounter{num_rep} \setcounter{num_rep}{0}
+
+\newcommand{\question}[1]{\refstepcounter{num_quest}\par
+~\ \\ \textbf{Question \arabic{num_quest} : }#1\label{q\the\value{num_quest}}\par
+}
+
+\newcommand{\reponse}[1]
+{\noindent
+\rule{\linewidth}{.5pt}\\
+\textbf{Question \refstepcounter{num_rep}\ref{q\the\value{num_rep}} :} ~\ \\
+#1}
 
 % En tête et pied de page
 \lhead{\nom}

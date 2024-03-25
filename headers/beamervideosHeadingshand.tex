@@ -54,7 +54,7 @@
 \usepackage{tikz}
 %\usepackage{pstricks,pst-node,pst-tree,pst-solides3d}
 %\usepackage{lmodern}
-\usetheme{renaudvideo}
+\usetheme{renaudvideohand}
 \usepackage{times}
 %\usepackage{amsmath}
 \usepackage{verbatim}
@@ -257,6 +257,16 @@
 		\draw[gray!30](0,0)grid[step=0.5cm](\linewidth,#1);
 	\end{tikzpicture}
 }
+
+\newcommand{\question}[1]{
+\setbeamertemplate{headline}[pagetitre]
+\frame{
+\begin{minipage}[t][0.8cm]{\linewidth}
+#1
+\end{minipage}
+\feuilleDR{7}
+}}
+
 
 % \usepackage{pstricks}
 %\usepackage{minitoc}
@@ -465,5 +475,3 @@
 \begin{document}%\mathversion{bold}
 \shorthandoff{:!}
 \bibliographystyle{abbrvnat-fr}
-
-\setbeamertemplate{footline}[pagetitre]
