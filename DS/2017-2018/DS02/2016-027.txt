@@ -1,0 +1,230 @@
+
+Second modèle
+
+Q 17. Exprimer 𝜀(𝑝) en fonction de 𝜃𝑚𝐶 (𝑝), 𝑇, 𝐾1 , 𝐾3 et 𝑝.
+Le second modèle avec anticipation de la figure 12 n'a pas d'incidence sur la valeur de l'erreur de position.
+Q 18. Exprimer l'erreur de trainage et déterminer la valeur de 𝐾3 permettant l'annuler cette erreur.
+Q 19. Exprimer et déterminer l'erreur d'accélération en prenant les valeurs de 𝐾3 et de 𝐾1 déterminées
+précédemment. Conclure quant au respect du cahier des charges.
+
+IV Exigence fonctionnelle « acquérir l'intention de la mise en mouvement »
+Objectif
+Acquérir l'intention de mise en mouvement du porteur de l'exosquelette afin de pouvoir déterminer
+l'amplitude de la loi de commande trapézoïdale du mouvement vertical.
+Une piste prometteuse, étudiée par plusieurs chercheurs pour établir la consigne de déplacement, consiste à
+utiliser les signaux électriques apparaissant au niveau des muscles dès que la personne contracte ces derniers.
+L'intention de contracter un muscle s'initie au niveau du cerveau. Une information traverse alors le système
+nerveux pour provoquer la contraction du muscle par un processus chimique. Les modifications ioniques qui apparaissent alors entrainent des changements du potentiel électrique. Ces changements de potentiel sont recueillis
+par des électrodes posées sur la surface de la peau. Le signal recueilli, appelé EMG (électromyogramme), est
+fortement bruité et de faible amplitude. Sa bande passante est comprise entre 10 et 500 Hz.
+
+2017-01-23 11:17:06
+
+Page 8/10
+
+Ce signal est amplifié et adapté pour atteindre un niveau compatible avec le convertisseur analogique-numérique
+(figure 13). Ce dernier présente une résolution de 12 bits et sa plage d'entrée est comprise entre 0 et 3 V (figure 17).
+L'adaptation consiste en un décalage positif du signal de 1,5 V. La présence de bruit au delà de la bande passante
+du signal nécessite un filtrage analogique passe-bas pour éviter tout repliement de spectre.
+Électrodes
+EMG
+
+𝑉𝑒
+
+Amplificateur
+
+𝑉𝑠
+
+Filtre
+analogique
+Figure 13
+
+Adaptateur
+
+𝑉CAN
+
+Convertiseur
+analogique
+numérique
+
+𝑁EMG
+
+Chaine analogique
+
+Le signal, une fois converti en numérique, subit un décalage négatif de valeur 2048 suivi, dans l'ordre, d'un
+redressement, d'une multiplication par 2 et d'un filtrage numérique passe-bas de fréquence de coupure égale à
+6 Hz (figure 14). Le calcul de la valeur efficace de ce signal filtré est une image de l'intention de contraction du
+muscle. Un réglage à la première mise en service est nécessaire car le niveau du signal dépend de la pose des
+électrodes. Il consiste à mémoriser la valeur efficace obtenue lors d'une contraction maximale du muscle. Trois
+étapes du traitement du signal EMG sont représentées figure 15.
+𝑁EMG
+
+Décalage puis
+redressement
+
+𝐸
+
+Filtre
+numérique
+Figure 14
+
+𝑆
+
+Calcul de la
+valeur efficace
+
+𝑁RMS
+
+Calcul de la
+consigne de vitesse
+
+Traitement numérique
+
+𝑉𝑒 (V)
+
+1
+0
+−1
+
+𝐸
+
+4000
+2000
+0
+3000
+
+𝑆
+
+2000
+1000
+0
+
+0
+
+0,5
+
+1
+
+1,5
+
+2
+
+2,5
+
+3
+
+3,5
+
+𝑡 (s)
+Figure 15
+
+Différentes étapes du traitement du signal EMG
+
+Q 20. Quelle doit être la fréquence théorique d'échantillonnage du convertisseur analogique-numérique ?
+Cette fréquence théorique nécessite un filtre d'ordre très élevé. Le concepteur a choisi un filtre passif (figure 16)
+et une fréquence d'échantillonnage du convertisseur analogique-numérique élevée. L'étude suivante, menée en
+représentation complexe, a pour objectif la détermination de la valeur minimale de cette fréquence d'échantillonnage.
+𝑅
+𝑉𝑒
+
+10𝑅
+𝑉𝑎
+
+Figure 16
+2017-01-23 11:17:06
+
+𝐶
+10
+
+𝐶
+
+Filtre passif
+
+Page 9/10
+
+𝑉𝑠
+
+Q 21. Exprimer la tension 𝑉𝑎 en fonction de 𝑉𝑒 , 𝑉𝑠 , 𝑅 et 𝐶.
+Q 22. Exprimer ensuite 𝑉𝑠 , en fonction de 𝑉𝑎 .
+Q 23. En déduire l'expression de la fonction de transfert sous la forme :
+𝑉𝑠
+=
+𝑉𝑒
+
+1
+2
+𝜔
+1 + 2,1𝑗 𝜔 + (𝑗 𝜔𝜔 )
+0
+0
+
+Q 24. Déterminer l'expression de 𝜔0 en fonction de 𝑅 et de 𝐶 puis déterminer sa valeur au regard du filtrage
+à réaliser.
+Le choix de la fréquence d'échantillonnage 𝑓𝑒 du convertisseur analogique-numérique doit conduire au respect
+𝑉𝑠
+𝑞
+du critère ∣ ∣ <
+pour 𝜔 > 𝜋𝑓𝑒 , 𝑞 étant la résolution et Δ𝑉CAN la plage de conversion du convertisseur.
+𝑉𝑒
+Δ𝑉CAN
+
+Sortie numérique
+
+4096
+
+0
+
+0
+
+Entrée analogique (V)
+Figure 17
+
+3
+
+Convertisseur analogique-numérique
+
+Q 25. Déterminer la résolution 𝑞 en fonction de la plage de conversion Δ𝑉CAN et du nombre de bits 𝑁 du
+convertisseur. Déterminer ensuite la valeur de la fréquence 𝑓𝑒 d'échantillonnage nécessaire.
+L'objectif suivant consiste à établir l'algorithme du traitement numérique en amont du calcul de la valeur
+𝑆(𝑝)
+1
+efficace. Le filtre passe-bas de fonction de transfert
+=
+, fonction de transfert issue de l'équation
+𝐸(𝑝)
+1 + 𝜏𝑝
+d𝑠
+𝑠 − 𝑠𝑛−1
+différentielle 𝜏
++ 𝑠(𝑡) = 𝑒(𝑡), est réalisé par l'équation discrète 𝜏 𝑛
++ 𝑠𝑛 = 𝑒𝑛 avec 𝑇𝑐 la période de
+d𝑡
+𝑇𝑐
+calcul, 𝑠𝑛 = 𝑠(𝑡 = 𝑛𝑇𝑐 ), 𝑒𝑛 = 𝑒(𝑡 = 𝑛𝑇𝑐 ), 𝑛 ∈ ℕ.
+Q 26. Exprimer l'équation du filtre discrétisé sous la forme 𝑠𝑛 = 𝐴𝑠𝑛−1 + 𝐵𝑒𝑛 en explicitant les termes 𝐴 et 𝐵.
+La fonction Acquérir_temps(), dédiée du microcontrôleur, permet d'obtenir la durée de fonctionnement en µs
+de ce dernier depuis sa mise en service. Trois variables sont définies :
+− t à laquelle sera affectée le résultat de la fonction Acquérir_temps(),
+− Tn la variable permettant de mémoriser l'instant 𝑛𝑇𝑐,
+− Dt = t - Tn.
+Pour obtenir une période de calcul 𝑇𝑐 fixe, indépendante du nombre d'instructions, on commence par une boucle
+d'attente tant que Dt < Tc.
+Q 27. Compléter l'algorithme du document réponse.
+
+V Évolution du produit
+
+Malgré un traitement efficace des signaux EMG, des actions parasites peuvent conduire à des mouvements
+involontaires. D'autres capteurs, placés au niveau des membres inférieurs deviennent nécessaires pour confirmer
+l'intention effective de mouvement.
+Q 28. Proposer un type de capteur qui peut satisfaire cette nouvelle exigence.
+En vue de diminuer l'encombrement au niveau des genoux de l'exosquelette, certains constructeurs envisagent
+d'intégrer ces moteurs au niveau de la hanche.
+Q 29. Quelle structure de transmission de mouvement faut-il envisager entre les moteurs et les articulations
+du genou ?
+• • • FIN • • •
+
+2017-01-23 11:17:06
+
+Page 10/10
+
+

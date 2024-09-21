@@ -1,0 +1,242 @@
+\input{../../../headers/dsheaders.tex}
+
+\section{Présentation}
+
+\subsection{Présentation de la laveuse}
+
+\begin{figure}[!h]
+\begin{minipage}{0.55\linewidth}
+La société Nilfisk propose une large gamme d’engins de nettoyage des sols. Celle des laveuses autoportées répond aux besoins de lavage pour des surfaces de plusieurs milliers de km carrés. C’est par exemple le cas des sols de super et hyper-marché. Les qualités de ces machines résident dans leur sécurité d’usage, leur faible nuisance sur l’environnement, leur autonomie et leur maniabilité. Cette maniabilité impose des encombrements minimisés en largeur et des rayons de giration
+très faibles.
+\end{minipage} \hfill
+\begin{minipage}{0.4\linewidth}
+\centering\includegraphics[width=0.8\linewidth]{img/img01}
+ \caption{Laveuse autoportée}
+ \label{img01}
+ \end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+\begin{minipage}{0.4\linewidth}
+\centering\includegraphics[width=0.8\linewidth]{img/img02}
+ \caption{Technicien sur une laveuse autoportée}
+ \label{img02}
+\end{minipage} \hfill
+\begin{minipage}{0.55\linewidth}
+Le modèle étudié dans ce sujet est la laveuse BR 752 dont la structure du châssis à trois roues est privilégiée pour autoriser des rayons de giration très petits. Sur la gamme actuelle, la motorisation est assurée par la roue avant avec une machine à courant continu. Une évolution est envisagée qui conduirait à remplacer la motorisation avant par deux moteurs à l’arrière non orientables mais commandés en vitesse. Cette modification doit a minima maintenir les performances de la solution existante.
+\end{minipage}
+\end{figure}
+
+Ce sujet a pour but d’analyser les différentes performances de la nouvelle laveuse.
+
+\newpage
+
+\subsection{Diagrammes fonctionnels}
+
+\begin{figure}[!h]
+\centering\includegraphics[width=0.8\linewidth]{img/Diagramme_d'exigences}
+ \caption{Diagramme d'exigences du système}
+ \label{img03}
+\end{figure}
+
+\begin{figure}[!h]
+\centering\includegraphics[width=0.8\linewidth]{img/Diagramme_bloc}
+ \caption{Diagramme bloc du système}
+ \label{img04}
+\end{figure}
+
+\question{Sur le diagramme bloc de la figure \ref{img04}, les losanges au bout des blocs \og Balais \fg, \og Raclette \fg et \og Variateur \fg ont été effacés. Donner pour chacun sa couleur et donner le nom de l'association qui correspond.}
+
+\question{Compléter la chaîne d'énergie du document réponse en mettant le nom de la fonction dans le bloc et l'élément du système qui répond à cette fonction sur les pointillés.}
+
+\section{Pilotage des moteurs}
+
+Pour répondre à l'exigence \og Id=4 \fg, il a été décidé de ne pas asservir en vitesse les moteurs. Mais d'envoyer le profil de tension de la figure \ref{img05} lorsque le technicien appuie sur la pédale d'accélération.
+
+\begin{figure}[!h]
+\centering\includegraphics[width=0.6\linewidth]{img/tension}
+ \caption{Tension d'alimentation du système}
+ \label{img05}
+\end{figure}
+
+\question{Justifier qu'il est techniquement possible d'atteindre ce profil de tension à partir des caractéristiques des composants du système.}
+
+~\
+
+Dans un premier temps, il est nécessaire d'étudier le moteur à courant continu utilisé sur ce système.
+
+\question{Donner les 4 équations qui régissent le comportement du moteur à courant continu (on négligera les frottements pour cette question). Doivent apparaître dans ces équations: $u_m(t)$, $\omega_m(t)$, $c_m(t)$, $i(t)$, $e(t)$, $K_e$, $K_t$, $R$, $J_{eq}$ et $L$.}
+
+\question{Les conditions initiales sont nulles, écrire ces équations dans le domaine de Laplace, en citant le ou les théorèmes utilisés.}
+
+\question{Écrire la fonction de transfert $H_m(p)=\frac{\Omega_m(p)}{U_m(p)}$ et la mettre sous la forme canonique.}
+
+\question{Donner l'ordre, la classe et le gain de cette fonction de transfert.}
+
+~\
+
+On s'appuiera sur la forme canonique suivante pour la suite:
+$H_m(p)=\frac{K}{1+\frac{2.\xi}{\omega_0}.p+\frac{p^2}{\omega_0^2}}$.
+
+\question{Déterminer les formes littérales de $K$, $\xi$ et de $\omega_0$. Faire l'application numérique.}
+
+\question{Montrer que l'on peut écrire cette fonction de transfert sous la forme \\ $H_m(p)=\frac{K}{(1+\tau_1.p)(1+\tau_2.p)}$.}
+
+\question{Déterminer les valeurs numériques de $\tau_1$ et $\tau_2$. (Il est conseillé d'effectuer tous les calculs en numérique le plus rapidement possible (notamment $\Delta$)). Pour cela, on donne $\sqrt{3,98}=1,995$.}
+
+\question{Montrer que l'on peut alors mettre la fonction de transfert sous la forme suivante $H_m(p)=\frac{K}{1+\tau_m.p}$ et déterminer $\tau_m$.}
+
+~\
+
+Dans la suite, nous allons considérer la partie du profil de tension telle que $t\in[0,2s]$.
+
+\question{Déterminer la pente de la tension entre 0 et 2s. Mettre alors cette tension sous la forme $u_m(t)=\alpha.t$. Quelle est l'unité de $\alpha$ ?}
+
+\question{Écrire $\Omega_m(p)$ la sortie de la fonction de transfert $H_m(p)$ lorsque l'entrée est $U_m(p)$.}
+
+\question{En déduire $\omega_m(t)$ la sortie dans le domaine temporel lorsque l'entrée est $u_m(t)$.}
+
+\question{Trouver la valeur de $\omega_m(t)$ pour $t=2s$. On donne $e^{-1}=0.37$.}
+
+\section{Identification d'une réponse temporelle}
+
+On donne la réponse suivante $s(t)$ pour un échelon unitaire $e(t)=1$.
+
+\begin{figure}[!ht]
+\centering\includegraphics[width=0.8\linewidth]{img/fig01}
+\caption{Tracé de la réponse temporelle s(t)}
+\label{fig01}
+\end{figure}
+
+\question{Déterminer le $K$  de la fonction de transfert correspondante.}
+
+\question{Déterminer le $\xi$ (à 0,1 près) de la fonction de transfert correspondante. On donne $\left(\frac{ln(2)}{\pi}\right)^2=0,05$.}
+
+\question{Déterminer le $\omega_0$ de la fonction de transfert correspondante.}
+
+\newpage
+
+\cleardoublepage
+
+
+\newpage
+\cleardoublepage
+
+\pagestyle{documentreponse}
+
+\section{Documents réponse}
+
+\reponse{6}{}{Pour le \og Balais \fg et la \og Raclette \fg le losange est blanc (agrégation) car ces éléments ne sont pas obligatoires (leur installation dépend du contexte).
+
+Pour le \og Variateur \fg il est noir (composition) car sans le variateur le système ne fonctionne pas.}
+
+\reponse{0}{\begin{center}
+\includegraphics[width=0.8\linewidth]{img/Chaine_energie_vide.pdf}
+\end{center}}{\begin{center}\includegraphics[width=0.8\linewidth]{img/Chaine_energie.pdf}\end{center}}
+
+\reponse{7}{}{La tension maximale est de 18V, ce qui correspond à la tension de la batterie, ainsi, il est tout à fait possible de demander au variateur de fournir ce profil de tension.
+}
+
+\reponse{8}{}{
+$u_m(t)=R.i(t)+L.\frac{di(t)}{dt}+e(t)$
+
+$e(t)=K_e.\omega_m(t)$
+
+$c_m(t)=K_t.i(t)$
+
+$c_m(t)=J_{eq}.\frac{d\omega_m(t)}{dt}$
+}
+
+\newpage
+
+\reponse{9}{}{
+$U_m(t)=R.I(p)+L.p.I(p)+E(p)$
+
+$E(p)=K_e.\Omega_m(p)$
+
+$C_m(t)=K_t.I(p)$
+
+$C_m(t)=J_{eq}.p.\Omega_m(p)$
+}
+
+\reponse{9}{}{
+$H_m(p)=\frac{\frac{1}{K_e}}{1+\frac{R.J_{eq}}{K_e.K_t}.p+\frac{L.J_{eq}}{K_e.K_t}.p^2}$}
+
+\reponse{5}{}{
+Fonction de transfert d'ordre 2, de classe 0 et de gain $\frac{1}{K_e}$.
+}
+
+\reponse{12}{}{
+$K=\frac{1}{0.06}=\frac{100}{6}\approx 16$
+
+$\omega_0=\sqrt{\frac{K_e.K_t}{L.J_{eq}}}=\sqrt{\frac{0,06^2}{1,5.10^{-3}.0,012}}=\sqrt{\frac{6.6.10^{-4}}{1,5.12.10^{-6}}}=\sqrt{200}\approx14rad.s^{-1}$
+
+$\xi=\frac{1}{2}.\frac{R.J_{eq}}{K_e.K_t}.\sqrt{\frac{K_e.K_t}{L.J_{eq}}}=
+\frac{0,6.0,012.\sqrt{200}}{2.6.6.10^{-4}}=
+\frac{6.12.10^{-4}.\sqrt{200}}{2.6.6.10^{-4}}=\sqrt{200}\approx14$
+}
+
+\newpage
+
+\reponse{8}{}{
+$\xi$ est plus grand que 1 (le discriminant du dénominateur est positif) donc les pôles de la fonction de transfert sont réels négatifs, donc il est possible de décomposer le polynôme du second ordre en un produit de deux polynômes du premier ordre.
+}
+
+\reponse{12}{}{
+Pour trouver $\tau_1$ et $\tau_2$, on cherche $p_1$ et $p_2$.
+
+$\Delta=\left(\frac{R.J}{K_e.K_t}\right)^2-4.\frac{L.J}{K_e.K_t}=\left(\frac{0,6.0,012}{0,06.0,06}\right)^2-4\frac{1,5.10^{-3}.0,012}{0,06.0,06}=\left(\frac{6.12.10^{-4}}{6.6.10^{-4}}\right)^2-\frac{6.12.10^{-6}}{6.6.10^{-4}}=2^2-0,02=3,98$
+
+On a $b=\frac{R.J}{K_e.K_t}=2$ et $a=0,005$, donc
+$p_1=\frac{-2-1,995}{0,01}=\frac{-3,995}{0,01}\approx{-400}$
+
+$p_2=\frac{-2+1,995}{0,01}=\frac{-0,005}{0,01}\approx{-0.5}$
+
+On a donc $\tau_1=\frac{1}{400}=0,0025$ et $\tau_2=2$.
+}
+
+\reponse{5}{}{
+$\tau_1$ est négligeable devant $\tau_2$, donc on peut assimiler ce second ordre à un premier ordre avec $\tau_m=\tau_2=2$.
+}
+
+\reponse{3}{}{
+$\alpha=9V.s^{-1}$
+}
+
+\reponse{4}{}{
+$\Omega_m(p)=H_m(p).U_m(p)=\frac{K}{1+\tau_m.p}.\frac{\alpha}{p^2}$
+}
+
+\newpage
+
+\reponse{10}{}{
+$\Omega_m(p)=\frac{K}{1+\tau_m.p}.\frac{\alpha}{p^2}=\frac{A}{1+\tau_m.p}+\frac{B.p+C}{p^2}=\frac{A.p^2+B.p+C+B.\tau_m.p^2+C.\tau_m.p}{(1+\tau_m.p).p^2}$
+
+Donc,
+
+$C=K.\alpha$, $B+C.\tau_m=0$, donc $B=-\tau_m.K.\alpha$ et $A+B\tau_m=0$, donc $A=\tau_m^2.K.\alpha$.
+
+Ainsi, $\Omega_m(p)=\frac{\tau_m^2.K.\alpha}{1+\tau_m.p}+\frac{-\tau_m.K.\alpha.p+K.\alpha}{p^2}$
+
+Et donc, $\omega_m(t)=\tau_m.K.\alpha.e^{-\frac{t}{\tau_m}}+K.\alpha.t-\tau_m.K.\alpha$.
+
+$\omega_m(t)=K.\alpha.\left(t-\tau_m.\left(1-e^{-\frac{t}{\tau_m}}\right)\right)$
+}
+
+\reponse{6}{}{
+$\omega_m(2)=\frac{9}{0,06}.\left(2-2.\left(1-e^{-1}\right)\right)=150.(2-2.0,63)=150.(2-1,26)=150.(0,74)=74+37=111rad.s^{-1}$
+}
+
+\reponse{5}{}{
+$K=\frac{s(+\infty)}{1}=2$
+}
+
+
+\reponse{6}{}{
+D'après la figure, $0,5=e^{-\frac{\xi.\pi}{\sqrt{1-\xi^2}}}$, donc $-ln(2)=-\frac{\xi.\pi}{\sqrt{1-\xi^2}}$, donc $\xi^2=\frac{\left(\frac{ln(2)}{\pi}\right)^2}{1+\left(\frac{ln(2)}{\pi}\right)^2}$, donc $\xi\approx\sqrt{\frac{0,05}{1,05}}\approx\sqrt{\frac{1}{21}}\approx0,2$.}
+
+\reponse{5}{}{
+D'après la figure, $Tp\approx0,03$, or $\omega_0=\frac{2.\pi}{Tp.\sqrt{1-\xi^2}}$, donc $\omega_0\approx\frac{2.\pi}{Tp}\approx\frac{2.3}{0,03}\approx200rad.s^{-1}$.}
+
+\end{document}
+

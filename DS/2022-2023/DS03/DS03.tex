@@ -1,0 +1,783 @@
+\input{../../../headers/dsheaders.tex}
+
+\section{Présentation du système}
+
+\subsection{Contexte}
+
+L'utilisation du mode vidéo, en haute définition sur les appareils photo réflex et légers, pose aux photographes le problème de la stabilisation de l'image car les vibrations engendrées y sont importantes et visibles. Des stabilisateurs installés à l'intérieur des appareils diminuent l'effet de ces vibrations mais ils restent très insuffisants
+pour assurer une bonne stabilisation notamment sur des sujets mobiles car ces systèmes ne sont efficaces que pour des temps de pose relativement longs. C'est pour cette raison que des systèmes de stabilisation externes ont été développés avec des supports et accessoires purement mécaniques ou motorisés.
+
+\paragraph{Nacelles gyrostabilisées} ~\ \\ Parmi les systèmes de stabilisation externes, les nacelles gyrostabilisées, installées sur une perche portée par les deux mains de l'utilisateur et sur lesquelles se fixe l'appareil photographique présentent l'avantage d'être légères, compactes et d'utilisation facile. Elles permettent de corriger les perturbations dues aux mouvements de l'utilisateur selon trois axes de rotations (figure \ref{fig01}). Néanmoins, elles ne permettent pas de réduire les perturbations verticales dues à la marche ou à la course de l'utilisateur.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/fig01}
+\end{center}
+\caption{Nacelle gyrostabilisée}
+\label{fig01}
+\end{figure}
+
+\newpage
+
+\paragraph{Stabilisateur vertical} ~\ \\ Pour maitriser les perturbations verticales dues à la marche ou la course des photographes, un constructeur commercialise un stabilisateur vertical à installer entre la perche et la nacelle gyrostabilisée (figure \ref{fig02}).
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/fig02}
+\end{center}
+\caption{Nacelle gyrostabilisée avec stabilisateur vertical}
+\label{fig02}
+\end{figure}
+
+Une analyse du besoin des photographes a permis de documenter le cahier des charges fonctionnel dont un extrait est donné figure \ref{fig18} du document réponse. Le cadre de ce sujet porte plus spécifiquement sur l'évaluation des solutions retenues pour satisfaire les objectifs de maitrise de la position d'un appareil photo à l'équilibre et en mouvement. Le sujet est décomposé en quatre parties :
+\begin{itemize}
+ \item dans la partie II, une analyse des mouvements de marche et de course d'un utilisateur est effectuée et les critères chiffrés de l'exigence relative à la position de l'appareil photo en mouvement sont justifiés ;
+ \item la partie III porte sur la vérification du respect de l'exigence relative à la position à l'équilibre de l'appareil
+photo ;
+ \item en partie IV, une étude dynamique met en évidence la nécessité d'ajouter une commande active au système pour assurer le respect de l'exigence relative à la position en mouvement de l'appareil photo ;
+ \item la partie V porte sur la conception de la commande active du système en vue d'assurer la maîtrise de la position de l'appareil photo avec le niveau de précision requis par le cahier des charges.
+\end{itemize}
+
+\newpage
+
+\section{Analyse du mouvement de l'utilisateur et justification du cahier
+des charges}
+
+\paragraph{Objectif:} Analyser les mouvements de l'utilisateur lorsqu'il marche ou lorsqu'il court et justifier les critères chiffrés de l'exigence relative à la position de l'appareil photo en mouvement.
+
+~\
+
+Pour réduire les perturbations verticales de l'appareil photo, la solution retenue est de filtrer les mouvements de translation verticale de la perche dont les fréquences sont précisées dans le cahier des charges (figure \ref{fig18}). Pour justifier ces performances, on réalise des captures du mouvement vertical d'une perche tenue des deux mains
+par un utilisateur qui se déplace sur un sol plat.
+
+Cette capture de mouvement est réalisée à partir d'un système optoélectronique dont le principe est le suivant : des caméras projettent une lumière dans le spectre infrarouge et détectent la lumière réfléchie par des marqueurs réfléchissants placés sur l'utilisateur. À partir des focales des caméras, de leur position et de leur orientation, il est possible de reconstruire, à chaque instant, par triangulation, la position spatiale des marqueurs et d'en déduire le mouvement vertical des mains, en retenant la valeur moyenne de la position verticale des deux mains.
+
+Les graphes des enregistrements de deux passages, marche et course, sont donnés ainsi que leur analyse spectrale (figure \ref{fig03}). Le contenu spectral est estimé en utilisant un enregistrement sur une durée limitée et la relation utilisée permet d'obtenir directement les amplitudes des différentes composantes harmoniques. Le calcul du spectre est
+réalisé pour un ensemble de fréquences choisi selon une distribution linéaire.
+
+Cela signifie que les signaux des figures temporelles peuvent être décomposés en une somme de signaux sinusoïdaux, dont les amplitudes en (mm) ont été tracées en fonction de leur fréquence sur les deux figures du bas.
+
+L'objectif de cette partie est de supprimer les effets de ces déplacement verticaux.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/fig03}
+\end{center}
+\caption{Représentations temporelle et spectrale du déplacement vertical des mains de l'utilisateur lors de la capture du mouvement}
+\label{fig03}
+\end{figure}
+
+\vspace{-1cm}
+
+\question{Associer chacune des courbes (a) ou (b) à l'enregistrement du mouvement pendant la marche ou la course de l'utilisateur. Il est conseillé d'analyser les caractéristiques de l'harmonique de plus grande amplitude.}
+
+~\
+
+On souhaite atténuer les perturbations dues à la marche ou à la course de l'utilisateur tout en conservant les mouvements de translation verticale souhaités.
+
+Dans cet objectif un filtre dont le diagramme de Bode serait celui de la figure \ref{fig04} est proposé. Il s'agit d'un filtre coupe bande. Le tracé de la figure \ref{fig04} correspond à un coupe bande mais ses valeurs caractéristiques n'ont rien à voir avec notre étude.
+
+\vspace{-0.5cm}
+
+\begin{figure}[ht!]
+\begin{center}
+  \resizebox{0.6\textwidth}{!}{\input{img/fig04.pgf}}
+\end{center}
+\caption{Diagramme de Bode d'un filtre coupe bande.}
+\label{fig04}
+\end{figure}
+
+\vspace{-0.5cm}
+
+\question{Justifier qu'un tel type de filtre convient pour notre cas d'utilisation.}
+
+~\
+
+Nous allons maintenant étudier le principe d'un tel filtre en électronique (non applicable à notre système). Le schéma électrique est présenté sur la figure \ref{fig05}, ainsi que la fonction de transfert qui le caractérise.
+
+\begin{figure}[ht!]
+\begin{minipage}{0.45\linewidth}
+\begin{center}
+\begin{circuitikz}
+\ctikzset{
+    resistors/scale=0.8,
+    capacitors/scale=0.7,
+}
+\draw (0,4) -- (1,4)-- (1,4.5) to [L, l=$L$] (3,4.5)--(3,4)--(4,4);
+\draw (1,4)-- (1,3) to [C, l=$C$] (3,3)--(3,4);
+\draw (4,4) to [R, l_=$R$] (4,0);
+\draw (4,0) -- (0,0);
+\draw[-triangle 45] (4.8,0) -- (4.8,4) node[right, midway] {$V_s$};
+% utilisation de la librairie arrow
+\draw[-triangle 45] (-0.2,0) -- (-0.2,4) node[left, midway] {$V_e$};
+\end{circuitikz} 
+\end{center}
+\caption{Montage électronique d'un filtre coupe bande.}
+\label{fig05}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+On montre alors que : \\ ~\ \\ $V_s=H(j\omega)\cdot V_e$
+
+Avec: $H(j\omega)=\dfrac{R}{R+\dfrac{1}{\dfrac{1}{jL\omega}+jC\omega}}$
+\end{minipage}
+\end{figure}
+
+\question{Montrer que $H(j\omega)$ peut prendre la forme suivante
+
+$H(j\omega)=\dfrac{1-\tau_1\omega^2}{1+j\tau_2\omega-\tau_1\omega^2}$. \\
+Déterminer les expressions de $\tau_1$ et $\tau_2$ en fonction de $R$, $C$ et $L$.}
+
+~\
+
+On définit $a$, $b$ et $c$ tels que :
+\begin{itemize}
+\item $\tau_2\omega>1$ si $\omega>a$,
+\item $\tau_1\omega^2>1$ si $\omega>b$,
+\item $\tau_1\omega^2>\tau_2\omega$ si $\omega>c$,
+\end{itemize}
+
+\question{Déterminer $a$, $b$ et $c$ en fonction de $\tau_1$ et $\tau_2$.}
+
+\question{Compléter les tableaux de variation du document réponse.}
+
+\question{Justifier que les valeurs $\tau_1=0.005$ et $\tau_2=0.1$ conviennent pour répondre à l'objectif de notre système.}
+
+\question{Réaliser les tracés asymptotique de $H(j\omega)$.}
+~\
+
+En sachant que $R=0.1\Omega$.
+
+\question{Déterminer les valeurs numériques de $C$ et $L$.}
+
+\section{Respect de l'exigence relative à la position d'équilibre}
+
+\paragraph{Objectif:} Vérifier le respect de l'exigence relative à la position d'équilibre du système.
+
+Le cahier des charges précise que le stabilisateur peut être utilisé avec des appareils photo de masse comprise entre 0,350 kg et 1,550 kg (figure \ref{fig18}). L'objectif de cette partie est de vérifier que la conception est assez robuste vis-à-vis du facteur de masse de l'appareil photo pour satisfaire l'exigence 1.1 relative à la position d'équilibre
+du système.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/fig06}
+\end{center}
+\caption{Schéma cinématique plan et paramétrage du mécanisme}
+\label{fig06}
+\end{figure}
+
+Le mécanisme étudié dont la modélisation retenue est donnée (figure \ref{fig04}) est principalement constitué de quatre solides $\left\{(1), (2), (2'), (3)\right\}$ formant un parallélogramme et guidés deux à deux en rotation par des liaisons modélisées par des pivots aux points A, A', B et B'. La nacelle gyrostabilisée est schématisée par la barre (3).
+
+Le support (1), faisant l'objet d'une liaison encastrement avec la perche, est supposé être en mouvement de translation par rapport au sol (0) autorisé par une glissière fictive. Ce modèle est paramétré par :
+\begin{itemize}
+ \item le repère terrestre $R_0(O,\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})$ supposé galiléen avec $\overrightarrow{z_0}$ vertical ascendant,
+ \item le repère $R_1(A,\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})$ lié au support (1), avec $\overrightarrow{OA}=y_A\cdot\overrightarrow{y_0}+z_{pert}\cdot\overrightarrow{z_0}$,
+ \item le repère $R_2(A,\overrightarrow{x_0},\overrightarrow{y_2},\overrightarrow{z_2})$ lié au bras (2), avec $\alpha=(\overrightarrow{y_0},\overrightarrow{y_2})=(\overrightarrow{z_0},\overrightarrow{z_2})$, 
+ \item le repère $R'_2(A',\overrightarrow{x_0},\overrightarrow{y_2},\overrightarrow{z_2})$ lié au bras (2'), avec $\overrightarrow{AA'}=\ell\cdot\overrightarrow{z_0}$,
+ \item le repère $R_3(B,\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})$ 	lié à la nacelle gyrostabilisée (3) et à l'appareil photo (4) liés rigidement entre eux
+avec $\overrightarrow{AB}=L\overrightarrow{y_2}$. Le centre d'inertie de l'ensemble $\left\{(3) + (4)\right\}$ est noté G, avec \\ $\overrightarrow{BG}=y_G\overrightarrow{y_0}+z_G\overrightarrow{z_0}$,
+\item le repère $R_5(A',\overrightarrow{x_0},\overrightarrow{y_5},\overrightarrow{z_5})$ est défini tel que $\overrightarrow{A'B}=L_r\overrightarrow{y_5}$ avec $\beta=(\overrightarrow{y_0},\overrightarrow{y_5})=(\overrightarrow{z_0},\overrightarrow{z_5})$.
+\end{itemize}
+
+La plage de fonctionnement du mécanisme est limitée par la géométrie des bras (2) et (2') avec $\alpha\in[-35\degree,45\degree]$, $\ell=25mm$, $L=52mm$, $y_G=5mm$ et $z_G=200mm$.
+Le ressort de traction (5) de raideur $K_r$ et de longueur à vide $L_{r0}$ possède une tension initiale $F_{r0}$ lorsque $L_r=L_{r0}$. Il est relié d'une part au support (1) et d'autre part au solide (3) aux points d'ancrage respectivement A' et B.
+Pour cette étude :
+\begin{itemize}
+ \item la nacelle gyrostabilisée (3) et l'appareil photo (4) sont considérés comme formant un seul solide,
+ \item la masse et les inerties des solides sont négligées mis à part pour l'ensemble constitué de la nacelle gyrostabilisée (3) et de l'appareil photo (4) de masse $m_{34}=m_3+m_4$ avec $m_3=1,250kg$ la masse de la nacelle gyrostabilisée (3) et $m_4$ la masse de l'appareil photo (4).
+\end{itemize}
+
+La référence retenue pour décrire la position de l'appareil photo est le centre d'inertie G de l'ensemble constitué de la nacelle gyrostabilisée (3) et de l'appareil photo (4) dans le repère $R_0$.
+
+Dans cette partie, l'étude est conduite avec les hypothèses suivantes :
+\begin{itemize}
+ \item les quatre liaisons pivots et la liaison glissière sont parfaites,
+ \item la modélisation est plane,
+ \item il n'y pas de perturbation ($z_{pert}=0$).
+\end{itemize}
+
+\question{Justifier que les bases $B_1$ (associée à $R_1$), $B_3$ (associée à $R_3$) et $B_4$ (associée à $R_4$) n'aient pas eu besoin d'être définies. A quelle autre base peuvent-elles être associées ?}
+
+\question{Exprimer après avoir complété les figures de changement de base du document réponse, exprimer les bases $B_2$ (associée à $R_2$) et $B_5$ (associée à $R_5$) dans la base $B_0$ (associée à $R_0$).}
+
+\question{Exprimer les coordonnées du centre d'inertie G dans la base $B_0$ en fonction de l'angle $\alpha$ et des paramètres géométriques du système.}
+
+\question{En utilisant une fermeture géométrique, donner l'expression de l'angle $\beta$ en fonction de l'angle $\alpha$ et des paramètres géométriques $L$ et $\ell$ du système.}
+
+\question{Déterminer le vecteur $\overrightarrow{OB}$ en fonction de $y_A$, $L$ et $\alpha$ dans la base $B_0$.}
+
+\question{Déterminer alors la longueur du ressort $Lr$ en fonction de $\ell$, $L$ et $\alpha$. Faire l'application numérique pour les deux valeurs extrêmes de $\alpha$, ce qui donnera $Lr_H$ ($\alpha=45\degree$) et $Lr_B$ ($\alpha=-35\degree$). On donne $cos(35\degree)=0.8$ et $sin(35)=0.6$.}
+
+~\
+
+La figure \ref{fig07} présente le tracé de $sin(x)$ en fonction de $x$.
+
+\begin{figure}[ht!]
+\begin{center}
+  \resizebox{0.5\textwidth}{!}{\input{img/fig07.pgf}}
+\end{center}
+\caption{Tracé de sin(x)}
+\label{fig07}
+\end{figure}
+
+La longueur à l'équilibre du ressort étant de $50mm$, on néglige le poids des pièces et on enlève la caméra du support.
+
+\question{A quelle valeur de l'angle $\alpha$ le système sera-t-il à l'équilibre ?}
+
+\paragraph{Objectif:} On souhaite retrouver cette valeur grâce à un calcul sur python.
+
+~\
+
+Pour cela, le tracé, tel qu'il a été calculé avec python, de la longueur $L_r-L_{r0}$ en fonction de $\alpha$ est présenté sur la figure \ref{fig19}.
+
+\begin{figure}[ht!]
+\begin{center}
+  \resizebox{0.4\textwidth}{!}{\input{img/q19_vierge.pgf}}
+\end{center}
+\caption{Tracé de $L_r-L_{r0}$ en fonction de $\alpha$}
+\label{figq19}
+\end{figure}
+
+\newpage
+
+Le python suivant va permettre de déterminer la valeur à l'équilibre de l'angle $\alpha$.
+
+\begin{minted}[xleftmargin=2em,linenos]{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+L=0.052
+L0=0.05
+l=0.025
+alpha=np.linspace(-35,35,100)
+alpha=alpha*np.pi/180
+
+def longueur_ressort(alpha):
+    return ((L*np.cos(alpha))**2+(L*np.sin(alpha)-l)**2)**0.5-L0
+
+Lr=longueur_ressort(alpha)
+
+def methode(L, a):
+    debut = 0
+    fin = len(L) - 1
+    while debut <= fin:
+        m = ...
+        if L[m] == a:
+            return m
+        elif ... :
+            debut = m + 1
+        else:
+            fin = m - 1
+    return m
+\end{minted}
+
+\question{Quelle méthode mathématique est utilisée ici pour répondre à l'objectif. Justifier qu'elle peut effectivement être appliquée ici.}
+
+\question{Compléter les lignes 19 et 22 de ce code.}
+
+\question{Ajouter une ligne à la fin du code afin d'utiliser les fonctions ainsi codées pour afficher la valeur de alpha calculée par cette méthode.}
+
+\section{Détermination de la loi de mouvement du système perturbé}
+
+\paragraph{Objectif:} ~\ Élaborer le modèle dynamique et déterminer la loi de mouvement du système perturbé afin de mettre en évidence la nécessité d'ajouter une commande active au système pour assurer le respect de l'exigence 1.2. relative à la position en mouvement du cahier des charges.
+
+\question{Déterminer la vitesse $\overrightarrow{V_{G\in3/0}}$ en fonction de $L$, $\dot{z}_{pert}$ et $\dot{\alpha}$.}
+
+\question{Déterminer l'accélération $\overrightarrow{\Gamma_{G\in3/0}}$ en fonction de $L$, $\ddot{z}_{pert}$, $\dot{\alpha}$ et $\ddot{\alpha}$.}
+
+\section{Étude d’avant-projet d’une solution technique avec une commande active}
+
+\paragraph{Objectif:} ~\ Modéliser la commande et déterminer le réglage du correcteur. Spécifier la motorisation.
+
+~\
+
+Dans cette partie, la régulation en hauteur de l’ensemble constitué de la nacelle gyrostabilisée (3) et de l’appareil photo (4) est réalisée par un motoréducteur dont le stator est lié au support (1) et dont l’arbre de sortie entraîne le bras (2) (figure \ref{fig10}). Le rendement de la chaîne de motorisation est supposé parfait.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.5\linewidth]{img/fig10}
+\end{center}
+\caption{Modèle simplifié}
+\label{fig10}
+\end{figure}
+
+Les grandeurs utilisées dans cette partie sont :
+\begin{itemize}
+ \item $C_m$ le moment du couple qui modélise l’action du moteur sur l’arbre d’entrée du réducteur,
+ \item $\omega_m$ la vitesse de rotation de l’arbre du moteur,
+ \item $C_s$ le moment du couple qui modélise l’action exercée par l’arbre de sortie du réducteur sur le bras (2),
+ \item $\omega_s$ la vitesse de rotation de l’arbre de sortie du réducteur sur le bras (2),
+ \item $N$ le rapport de transmission du réducteur avec $N=\dfrac{\Omega_m}{\Omega_s}=100$,
+ \item $\alpha$ l’angle formé entre le bras (2) et le support (1) défini par $\alpha=(\vec{y_0},\vec{y_2})=(\vec{z_0},\vec{z_2})$,
+ \item $F_z$ le modèle de la composante verticale de l’effort exercé sur l’ensemble constitué de la nacelle gyrostabilisée (3) et de l’appareil photo (4) dû au couple moteur,
+ \item $F_p$ le modèle de l’effort de perturbation, dû au poids de l’ensemble constitué de la nacelle gyrostabilisée (3) et de l’appareil photo (4),
+ \item $C^*_m$ la consigne en couple sur la machine à courant continu ;
+ \item $m_{34}$ la masse de l’ensemble constitué de la nacelle gyrostabilisée (3) et de l’appareil photo (4),
+ \item $L$ la longueur du bras (2).
+\end{itemize}
+
+Un diagramme des exigences partiel du stabilisateur vertical avec la commande active est donné figure \ref{fig19} du document réponse.
+
+%\begin{figure}[ht!]
+%\begin{center}
+% \includegraphics[width=0.7\linewidth]{img/fig11}
+%\end{center}
+%\caption{Schéma-bloc de la boucle ouverte non corrigée}
+%\label{fig11}
+%\end{figure}
+
+Pour réaliser un asservissement, un comparateur forme la différence entre une consigne en position notée $\Delta Z^*(p)$ et une mesure de la hauteur $\Delta Z(p)$ de l’appareil photo renvoyée par un capteur. Cette différence est corrigée par un correcteur de fonction de transfert notée $C(p)$. En pratique, $\Delta Z(p)$ correspond à l’écart par rapport
+à une position de référence non présentée ici. Le capteur est modélisé par un gain unitaire. Le schéma-bloc d’asservissement est donné (figure \ref{fig12}).
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/fig12}
+\end{center}
+\caption{Schéma-bloc de l’asservissement de position avec un correcteur $C(p)$.}
+\label{fig12}
+\end{figure}
+
+
+\subsection{Choix et réglage du correcteur}
+
+Dans cette sous-partie, après avoir mis en évidence la nécessité d’introduire un correcteur, l’objet est d’en régler les paramètres de manière à ce que les performances du système vérifient les exigences du cahier des charges (figure \ref{fig19}). Pour la suite, on prendra $Z_{pert}(p)=0$.
+
+\question{Déterminer les expressions littérales des fonctions de transfert du moteur en poursuite $H_1(p)=\left.\frac{\Delta Z(p)}{\Delta Z^*(p)}\right|_{F_p(p)=0}$ sans perturbation, et en régulation \\
+$H_2(p)=\left.\frac{\Delta Z(p)}{F_p(p)}\right|_{\Delta Z^*(p)=0}$, sous forme canonique en fonction de $C(p)$, $L$, $N$ et $m_{34}$.}
+
+~\ \\ ~\ 
+
+Pour la suite, on prendra $G(p)=\dfrac{\Delta Z(p)}{\Delta Z^*(p)}=\dfrac{1}{1+\frac{p^2}{441\cdot C(p)}}$, avec dans un premier temps, $C(p)=K$.
+
+\question{Identifier les valeurs des caractéristiques $K$, $\omega_0$ et $\xi$ de cette fonction de transfert en fonction de $K$.}
+
+\question{Déterminer le dépassement pourcent correspondant à cette fonction de transfert.}
+
+\question{Déterminer la pseudo-période.}
+
+\question{Tracer la réponse indicielle à cette fonction de transfert pour $K=1$.}
+
+\question{Tracer le diagramme de Bode asymptotique et réel de cette fonction  pour $K=1$.}
+
+\question{Montrer que ce type de correcteur proportionnel ne permet pas d’assurer la stabilité du système en boucle fermée.}
+
+~\
+
+Un nouveau correcteur est alors proposé:
+\begin{center}
+$C(p)=K\cdot\left(1+\dfrac{1}{T_ip}+T_dp\right)$
+\end{center}
+
+En prenant $T_i=2T$ et $T_d=\dfrac{T}{2}$ (avec $T=0.1s$) on obtient le correcteur sous la forme:
+\begin{center}
+$C(p)=\dfrac{K\cdot(1+Tp)^2}{2Tp}$
+\end{center}
+
+\question{Montrer que l'on peut alors mettre la fonction de transfert sous la forme
+\begin{center}
+$G(p)=\frac{1+a\cdot j\omega+b\cdot \omega^2}{1+a\cdot j\omega+b\cdot \omega^2+c\cdot j\omega^3}$
+\end{center} En déduire les expressions de $a$, $b$ et $c$.}
+
+\newpage
+
+Pour la suite on prendra:
+\begin{center}
+$G(p)=\frac{1+0.2\cdot j\omega-0.01\cdot \omega^2}{1+0.2\cdot j\omega-0.01\cdot \omega^2-4\cdot 10^{-4}\cdot j\omega^3}$
+\end{center}
+
+\question{Compléter alors le tableau de variations.}
+
+\question{Réaliser le tracé asymptotique de la fonction de transfert.}
+
+\question{Conclure quant à l'impact de ce correcteur sur la stabilité du système.}
+
+~\
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/fig18}
+\end{center}
+\caption{Extrait du cahier des charges fonctionnel}
+\label{fig18}
+\end{figure}
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/fig19}
+\end{center}
+\caption{Diagramme des exigences partiel du stabilisateur vertical avec la commande active}
+\label{fig19}
+\end{figure}
+
+\newpage
+
+\ifdef{\public}{\pagestyle{docreponse}}{\pagestyle{correction}}
+
+\newpage
+
+
+\reponse{2}{}{
+\begin{itemize}
+ \item Sur la courbe (a), l’harmonique la plus grande existe pour 1,66 Hz (marche),
+ \item Sur la courbe (b), l’harmonique la plus grande existe pour 2,66 Hz (course).
+\end{itemize}}
+
+\reponse{2}{}{Ce filtre a un gain en décibel nul sur tout le spectre sauf sur une plage spectrale pour laquelle il atténue le signal. Cela est donc adapté à notre besoin.}
+
+\reponse{3}{}{\begin{center}
+$H(j\omega)=\dfrac{1-LC\omega^2}{1+j\frac{L}{R}\omega-LC\omega^2}$, ainsi $\tau_1=LC$ et $\tau_2=\frac{L}{R}$
+\end{center}
+}
+
+\reponse{2}{}{
+$a=\frac{1}{\tau_2}$, $b=\frac{1}{\sqrt{\tau_1}}$ et $c=\frac{\tau_2}{\tau_1}$
+}
+
+\reponse{0}{
+\begin{center}
+\begin{tikzpicture}
+   \tkzTabInit[lgt=4,espcl=3]{$\omega$ / 1 , $1-\tau_1\omega^2$ / 1, $1+j \tau_2\omega-\tau_1\omega^2$ / 1, $\dfrac{1-\tau_1\omega^2}{1+j \tau_2\omega-\tau_1\omega^2}$ / 2}{$0$, $\frac{1}{\tau_2}$, $\frac{1}{\sqrt{\tau_1}}$, $\frac{\tau_2}{\tau_1}$, $+\infty$}
+\tkzTabLine{,1, , 1 , , $$-\tau_1\omega^2$$, ,$$-\tau_1\omega^2$$,}
+\tkzTabLine{,, , ,  , , , , }
+\tkzTabLine{,, , , , , ,, }
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\begin{tikzpicture}
+   \tkzTabInit[lgt=4,espcl=3]{$\omega$ / 1 , $G_{db}(H(j\omega))$ / 1, $\varphi(H(j\omega))$ / 1}{$0$, $\frac{1}{\tau_2}$, $\frac{1}{\sqrt{\tau_1}}$, $\frac{\tau_2}{\tau_1}$, $+\infty$}
+\tkzTabLine{,, ,  , , , , , }
+\tkzTabLine{,, , , , ,  , , }
+\end{tikzpicture}
+\end{center}
+}{\begin{center}
+\begin{tikzpicture}
+   \tkzTabInit[lgt=4,espcl=3]{$\omega$ / 1 , $1-\tau_1\omega^2$ / 1, $1+j \tau_2\omega-\tau_1\omega^2$ / 1, $\dfrac{1-\tau_1\omega^2}{1+j \tau_2\omega-\tau_1\omega^2}$ / 2}{$0$, $\frac{1}{\tau_2}$, $\frac{1}{\sqrt{\tau_1}}$, $\frac{\tau_2}{\tau_1}$, $+\infty$}
+\tkzTabLine{,1, , 1 , , $$-\tau_1\omega^2$$, ,$$-\tau_1\omega^2$$,}
+\tkzTabLine{,1, , $$j\tau_2\omega$$ ,  ,$$j\tau_2\omega$$ , , $$-\tau_1\omega^2$$, }
+\tkzTabLine{,1, , $$\dfrac{1}{j\tau_2\omega}$$ , , $$\dfrac{j\tau_1\omega}{\tau_2}$$, ,1, }
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\begin{tikzpicture}
+   \tkzTabInit[lgt=4,espcl=3]{$\omega$ / 1 , $G_{db}(H(j\omega))$ / 1, $\varphi(H(j\omega))$ / 1}{$0$, $\frac{1}{\tau_2}$, $\frac{1}{\sqrt{\tau_1}}$, $\frac{\tau_2}{\tau_1}$, $+\infty$}
+\tkzTabLine{,0, , $$-20log\left(\tau_2\omega\right)$$ , ,$$20log\left(\dfrac{\tau_1}{\tau_2}\omega\right)$$ , , 0, }
+\tkzTabLine{,0, , -90 , , 90,  , 0, }
+\end{tikzpicture}
+\end{center}
+}
+
+\reponse{3}{}{
+$\frac{1}{\tau_2}=10rad.s^{-1}<2\cdot\pi 1.66$ et $\frac{\tau_2}{\tau_1}=\dfrac{0.1}{0.005}=20rad.s^{-1}>2\cdot\pi 2.66$
+}
+
+\reponse{0}{
+\begin{center}
+  \resizebox{0.7\textwidth}{!}{\input{img/q5_DR.pgf}}
+\end{center}
+}{
+\begin{center}
+  \resizebox{0.7\textwidth}{!}{\input{img/q5_cor.pgf}}
+\end{center}
+}
+
+\ifdef{\public}{\newpage}
+
+\reponse{3}{}{
+\begin{itemize}
+ \item $\tau_2=\frac{L}{R}$ donc $L=R\tau_2=0.1\cdot 0.1=0.01H$,
+ \item $\tau_1=LC$ donc $C=\frac{\tau_1}{L}=\frac{0.005}{0.01}=0.5F$
+\end{itemize}
+}
+
+\reponse{2}{}{
+$B_1$, $B_3$ et $B_4$ peuvent être associées à la base $B_0$.
+}
+
+\reponse{0}{
+\begin{center}
+ \begin{tikzpicture}[scale=1]
+\draw [thick] [->] (2,0.5) --++(-0.51,1.93) node [left] {};
+\draw [thick] [->] (2,0.5) --++(0,2) node [right] {};
+ \draw (2,0.5) circle (0.2cm); 
+\draw [thick] [->] (2,0.5) --++(1.93,0.51) node [right] {};
+\draw [thick] [->] (2,0.5) --++(2,0) node [right] {};
+\node at (2,0) {}; 
+\draw[thick] [->] ([shift=(0:1.5cm)]2,0.5) arc (0:15:1.5cm);
+\node at (3.7,0.7) {\small{}}; 
+\end{tikzpicture} \begin{tikzpicture}[scale=1]
+\draw [thick] [->] (2,0.5) --++(-0.51,1.93) node [left] {};
+\draw [thick] [->] (2,0.5) --++(0,2) node [right] {};
+ \draw (2,0.5) circle (0.2cm); 
+\draw [thick] [->] (2,0.5) --++(1.93,0.51) node [right] {};
+\draw [thick] [->] (2,0.5) --++(2,0) node [right] {};
+\draw[thick] [->] ([shift=(0:1.5cm)]2,0.5) arc (0:15:1.5cm);
+\end{tikzpicture}
+\end{center}
+\begin{itemize}
+ \item $\overrightarrow{x_2}=$
+ \item $\overrightarrow{y_2}=$
+ \item $\overrightarrow{z_2}=$
+ \item $\overrightarrow{x_5}=$
+ \item $\overrightarrow{y_5}=$
+ \item $\overrightarrow{z_5}=$ 
+\end{itemize}
+}{
+\begin{center}
+ \begin{tikzpicture}[scale=1]
+\draw [thick] [->] (2,0.5) --++(-0.51,1.93) node [left] {$\vec{z_2}$};
+\draw [thick] [->] (2,0.5) --++(0,2) node [right] {$\vec{z_0}$};
+ \draw (2,0.5) circle (0.2cm); 
+\draw [thick] [->] (2,0.5) --++(1.93,0.51) node [right] {$\vec{y_2}$};
+\draw [thick] [->] (2,0.5) --++(2,0) node [right] {$\vec{y_0}$};
+\node at (2,0) {$\vec{x_0}=\vec{x_2}$}; 
+\draw[thick] [->] ([shift=(0:1.5cm)]2,0.5) arc (0:15:1.5cm);
+\node at (3.7,0.7) {\small{$\alpha$}}; 
+\end{tikzpicture} \begin{tikzpicture}[scale=1]
+\draw [thick] [->] (2,0.5) --++(-0.51,1.93) node [left] {$\vec{z_5}$};
+\draw [thick] [->] (2,0.5) --++(0,2) node [right] {$\vec{z_0}$};
+ \draw (2,0.5) circle (0.2cm); 
+\draw [thick] [->] (2,0.5) --++(1.93,0.51) node [right] {$\vec{y_5}$};
+\draw [thick] [->] (2,0.5) --++(2,0) node [right] {$\vec{y_0}$};
+\node at (2,0) {$\vec{x_0}=\vec{x_5}$}; 
+\draw[thick] [->] ([shift=(0:1.5cm)]2,0.5) arc (0:15:1.5cm);
+\node at (3.7,0.7) {\small{$\beta$}}; 
+\end{tikzpicture}
+\end{center}
+\begin{itemize}
+ \item $\overrightarrow{x_2}=\overrightarrow{x_0}$
+ \item $\overrightarrow{y_2}=cos(\alpha)\overrightarrow{y_0}+sin(\alpha)\overrightarrow{z_0}$
+ \item $\overrightarrow{z_2}=-sin(\alpha)\overrightarrow{y_0}+cos(\alpha)\overrightarrow{z_0}$
+ \item $\overrightarrow{x_5}=\overrightarrow{x_0}$
+ \item $\overrightarrow{y_5}=cos(\beta)\overrightarrow{y_0}+sin(\beta)\overrightarrow{z_0}$
+ \item $\overrightarrow{z_5}=-sin(\beta)\overrightarrow{y_0}+cos(\beta)\overrightarrow{z_0}$ 
+\end{itemize}
+}
+
+\reponse{5}{}{
+$\overrightarrow{OG}=\overrightarrow{OA}+\overrightarrow{AB}+\overrightarrow{BG}=
+y_A\cdot \overrightarrow{y_0}+z_{pert}\cdot \overrightarrow{z_0}+L\cdot\overrightarrow{y_2}+y_G\cdot \overrightarrow{y_0}+z_G\cdot \overrightarrow{z_0}$
+
+$\overrightarrow{OG}=y_A\cdot \overrightarrow{y_0}+z_{pert}\cdot \overrightarrow{z_0}+L\cdot\left(cos(\alpha)\overrightarrow{y_0}+sin(\alpha)\overrightarrow{z_0}\right)+y_G\cdot \overrightarrow{y_0}+z_G\cdot \overrightarrow{z_0}$
+
+$\overrightarrow{OG}=\left(y_A+L\cdot cos(\alpha)+y_G\right)\cdot \overrightarrow{y_0}+\left(z_{pert}+L\cdot sin(\alpha)+z_G\right)\cdot \overrightarrow{z_0}$
+}
+
+\ifdef{\public}{\newpage}
+
+\reponse{4}{}{
+$\overrightarrow{AB}+\overrightarrow{BA'}=\overrightarrow{AA'}$
+$L\cdot\overrightarrow{y_2}-L_r\cdot\overrightarrow{y_5}=\ell\cdot\overrightarrow{y_0}$
+
+$L\cdot cos(\alpha)+L_r\cdot cos(\beta)=0$
+
+$L\cdot sin(\alpha)+L_r\cdot sin(\beta)=\ell$
+
+$\dfrac{sin(\beta)}{cos(\beta)}=-\dfrac{\ell-L\cdot sin(\alpha)}{L\cdot cos(\alpha)}$
+
+Donc 
+
+$\beta=\arctan\left(-\dfrac{\ell-L\cdot sin(\alpha)}{L\cdot cos(\alpha)}\right)$
+}
+
+
+\reponse{4}{}{
+$\overrightarrow{OB}=(y_A+L\cdot\cos(\alpha))\cdot \vec{y_0}+(L\cdot\sin(\alpha))\cdot \vec{z_0}$
+}
+
+\reponse{6}{}{
+La longueur du ressort est la norme du vecteur $\overrightarrow{A'B}=\overrightarrow{A'O}+\overrightarrow{OB}$
+
+Avec $\overrightarrow{A'O}=-y_A\cdot\vec{y_0}-\ell\cdot\vec{z_0}$.
+
+On a donc: $Lr=\sqrt{(L\cdot\cos(\alpha))^2+(L\cdot\sin(\alpha)-\ell)^2}$.
+
+$\cos(45)=\sin(45)=\frac{\sqrt{2}}{2}\approx 0.7$
+\begin{itemize}
+ \item $Lr_H=\sqrt{(0.052\cdot 0.7)^2+(0.052\cdot 0.7-0.025)^2}=\sqrt{0.0364^2+0.0114^2}=\sqrt{0.0364^2+0.0114^2}=\sqrt{12*10^{-4}+10^{-4}}=\sqrt{13*10^{-4}+10^{-4}}\approx 0.04=40mm$
+ \item $Lr_B=\sqrt{(0.052\cdot 0.8)^2+(-0.052\cdot 0.6-0.025)^2}=\sqrt{0.0416^2+0.0562^2}=0.1*\sqrt{4.16^2+5.62^2}\approx0.01*\sqrt{17+31}\approx0.07\approx70mm$
+\end{itemize}
+}
+
+\reponse{4}{}{
+$Lr=\sqrt{(L\cdot\cos(\alpha))^2+(L\cdot\sin(\alpha)-\ell)^2}$
+
+$Lr^2=L^2-2\cdot L\cdot\ell\cdot\sin(\alpha)+\ell^2$
+
+$\sin(\alpha)=\dfrac{L^2+\ell^2-Lr^2}{2\cdot L\cdot\ell}$
+
+$\alpha=\arcsin\left(\dfrac{L^2+\ell^2-Lr^2}{2\cdot L\cdot\ell}\right)$
+
+$\alpha=\arcsin\left(\dfrac{52^2+25^2-50^2}{2\cdot 52\cdot25}\right)$
+
+$\alpha=\arcsin\left(\dfrac{50^2+25^2-50^2}{4\cdot 25\cdot25}\right)$
+
+$\alpha=\arcsin\left(\dfrac{1}{4}\right)$
+
+Donc $\alpha=15\degree$.
+}
+
+\reponse{1}{}{
+Il s'agit de la dichotomie. Comme la courbe est strictement décroissante, on peut utiliser la dichotomie.
+}
+
+\reponse{2}{}{
+m = (debut+fin) // 2
+
+elif L[m] < a:
+}
+
+\reponse{1}{}{
+print(alpha[methode(Lr, 0)])
+}
+
+\reponse{6}{}{
+$\overrightarrow{V_{G\in3/0}}=\left[\dfrac{d\overrightarrow{OG}}{dt} \right]_{R_0}=-
+L\cdot\dot{\alpha}\cdot sin(\alpha)\cdot \overrightarrow{y_0}+L\cdot\dot{\alpha}\cdot\cos(\alpha)\cdot \overrightarrow{z_0}=
+L\cdot\dot{\alpha}\cdot \overrightarrow{z_2}$
+}
+
+\reponse{6}{}{
+$\overrightarrow{\Gamma_{G\in3/0}}=\left[\dfrac{d\overrightarrow{V_{G\in3/0}}}{dt} \right]_{R_0}=-\left(
+L\cdot\ddot{\alpha}\cdot sin(\alpha)+
+L\cdot\dot{\alpha}^2\cdot cos(\alpha)\right)\cdot \overrightarrow{y_0}+\left(L\cdot\ddot{\alpha}\cdot\cos(\alpha)-L\cdot\dot{\alpha}^2\cdot\sin(\alpha)\right)\cdot \overrightarrow{z_0}=L\cdot\ddot{\alpha}\cdot\overrightarrow{z_2}-
+L\cdot\dot{\alpha}^2\cdot \overrightarrow{y_2}$
+}
+
+\ifdef{\public}{\newpage}
+
+\reponse{8}{}{
+$\Delta Z(p)=Z_G(p)$
+
+$Z_G(p)=\left(F_z(p)-F_p(p)\right)\dfrac{1}{m_{34}p}\dfrac{1}{p}$
+
+$F_z(p)=\left(\Delta Z^*(p)-\Delta Z(p)\right)\cdot\dfrac{N}{L}\cdot C(p)$
+
+Cas 1: $F_p(p)=0,Z_{pert}(p)=0$
+
+$\Delta Z(p)=F_z(p)\dfrac{1}{m_{34}p}\dfrac{1}{p}$
+
+$F_z(p)=\left(\Delta Z^*(p)-\Delta_Z(p)\right)\cdot\dfrac{N}{L}\cdot C(p)$
+
+$\Delta Z(p)=\dfrac{N\cdot C(p)}{L\cdot m_{34}p^2}\left(\Delta Z^*(p)-\Delta Z(p)\right)$
+
+$\Delta Z(p)\cdot \left(1+\dfrac{N\cdot C(p)}{L\cdot m_{34}p^2}\right)=\dfrac{N\cdot C(p)}{L\cdot m_{34}p^2}\cdot\Delta Z^*(p)$
+
+$\dfrac{\Delta Z(p)}{\Delta Z^*(p)}=\dfrac{\dfrac{N\cdot C(p)}{L\cdot m_{34}p^2}}{\cdot \left(1+\dfrac{N\cdot C(p)}{L\cdot m_{34}p^2}\right)}=\dfrac{1}{1+\dfrac{L\cdot m_{34}}{N\cdot C(p)}\cdot p^2}$
+
+Cas 2: $\Delta Z^*(p)=0,Z_{pert}(p)=0$
+
+$\Delta Z(p)=\left(F_z(p)-F_p(p)\right)\dfrac{1}{m_{34}p}\dfrac{1}{p}$
+
+$F_z(p)=-\Delta Z(p)\cdot\dfrac{N}{L}\cdot C(p)$
+
+$\Delta Z(p)\cdot m_{34}\cdot p^2=\left(-\Delta Z(p)\cdot\dfrac{N}{L}\cdot C(p)-F_p(p)\right)$
+
+$\Delta Z(p)\left(m_{34}\cdot p^2+\dfrac{N}{L}\cdot C(p)\right)=-F_p(p)$
+
+$\dfrac{\Delta Z(p)}{F_p(p)}=-\dfrac{1}{m_{34}\cdot p^2+\dfrac{N}{L}\cdot C(p)}$
+
+$\dfrac{\Delta Z(p)}{F_p(p)}=-\dfrac{\dfrac{L}{N\cdot C(p)}}{1+\dfrac{L\cdot m_{34}}{N\cdot C(p)}\cdot p^2}$}
+
+\reponse{4}{}{
+$K=1$, $\xi=0$ et $\omega_0=21\cdot \sqrt{K}rad.s^{-1}$.
+}
+
+\reponse{2}{}{
+$D\%=100\cdot e^0=100\%$
+}
+
+\reponse{3}{}{
+$T_p=\dfrac{2\pi}{\omega_0}=\dfrac{2\pi}{21\sqrt{K}}\approx 0.3s$
+}
+
+\ifdef{\public}{\newpage}
+
+\reponse{0}{
+\begin{figure}[ht!]
+\begin{center}
+  \resizebox{0.6\textwidth}{!}{\input{img/q28_DR.pgf}}
+\end{center}
+\caption{Réponse indicielle}
+\label{figq28}
+\end{figure}
+}{
+\begin{figure}[ht!]
+\begin{center}
+  \resizebox{0.6\textwidth}{!}{\input{img/q28_cor.pgf}}
+\end{center}
+\caption{Réponse indicielle}
+\label{figq28}
+\end{figure}
+}
+
+\reponse{0}{
+\begin{center}
+  \resizebox{0.7\textwidth}{!}{\input{img/q29_DR.pgf}}
+\end{center}
+}{
+\begin{center}
+  \resizebox{0.7\textwidth}{!}{\input{img/q29_cor.pgf}}
+\end{center}
+}
+
+\ifdef{\public}{\newpage}
+
+\reponse{2}{}{
+La réponse temporelle oscille infiniment, ce correcteur ne convient donc pas.
+}
+
+\reponse{7}{}{
+$\dfrac{\Delta Z(p)}{\Delta Z^*(p)}=\dfrac{1}{1+\dfrac{L\cdot m_{34}}{N\cdot K\cdot\dfrac{(1+Tp)^2}{2Tp}}\cdot p^2}=\dfrac{1}{1+\dfrac{L\cdot m_{34}}{N\cdot K\cdot(1+Tp)^2}\cdot 2T\cdot p^3}$
+
+$=\dfrac{1}{1+\dfrac{L\cdot m_{34}}{N\cdot K\cdot(1+Tp)^2}\cdot 2T\cdot p^3}=\dfrac{(1+Tp)^2}{(1+Tp)^2+\dfrac{L\cdot m_{34}}{N\cdot K}\cdot 2T\cdot p^3}$
+
+$=\dfrac{(1+0.1*p)^2}{(1+0.1p)^2+\dfrac{1}{21**2}\cdot 0.2\cdot p^3}$
+
+$=\dfrac{1+0.2*p+0.01*p^2}{1+0.2*p+0.01*p^2+4\cdot 10^{-4}\cdot p^3}$
+
+$=\dfrac{1+0.2*j\omega-0.01*\omega^2}{1+0.2*j\omega-0.01*\omega^2-j\cdot 4\cdot 10^{-4}\cdot \omega^3}$
+}
+
+\reponse{0}{\begin{center}
+\begin{tikzpicture}
+   \tkzTabInit[lgt=4,espcl=3]{$\omega$ / 1 , $1+0.2*j\omega-0.01*\omega^2$ / 1, $1+0.2*j\omega-0.01*\omega^2-4j\cdot 10^{-4}\cdot \omega^3$ / 1, $\dfrac{\Delta Z(p)}{\Delta Z^*(p)}$ / 2}{$0$, $5$, $20$, $25$, $+\infty$}
+\tkzTabLine{,, ,  , , , ,, }
+\tkzTabLine{,, ,  , , , ,, }
+\tkzTabLine{,, ,  , , , ,, }
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\begin{tikzpicture}
+   \tkzTabInit[lgt=4,espcl=3]{$\omega$ / 1 , $G_{db}(H(j\omega))$ / 1, $\varphi(H(j\omega))$ / 1}{$0$, $\frac{1}{\tau_2}$, $\frac{1}{\sqrt{\tau_1}}$, $\frac{\tau_2}{\tau_1}$, $+\infty$}
+\tkzTabLine{,, ,  , , ,  , , }
+\tkzTabLine{,, ,  , , ,  , , }
+\end{tikzpicture}
+\end{center}}{
+\begin{center}
+\begin{tikzpicture}
+   \tkzTabInit[lgt=4,espcl=3]{$\omega$ / 1 , $1+0.2*j\omega-0.01*\omega^2$ / 1, $1+0.2*j\omega-0.01*\omega^2-4j\cdot 10^{-4}\cdot \omega^3$ / 1, $\dfrac{\Delta Z(p)}{\Delta Z^*(p)}$ / 2}{$0$, $5$, $20$, $25$, $+\infty$}
+\tkzTabLine{,1, , $$0.2*j\omega$$ , , $$-0.01*\omega^2$$, ,$$-0.01*\omega^2$$,}
+\tkzTabLine{,1, , $$0.2*j\omega$$ ,  ,$$-0.01*\omega^2$$ , , $$-4j\cdot 10^{-4}\cdot \omega^3$$, }
+\tkzTabLine{,1, , 1 , , 1, ,$$\dfrac{25}{j\omega}$$, }
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\begin{tikzpicture}
+   \tkzTabInit[lgt=4,espcl=3]{$\omega$ / 1 , $G_{db}(H(j\omega))$ / 1, $\varphi(H(j\omega))$ / 1}{$0$, $\frac{1}{\tau_2}$, $\frac{1}{\sqrt{\tau_1}}$, $\frac{\tau_2}{\tau_1}$, $+\infty$}
+\tkzTabLine{,0, , 0, ,0 , , $$-20log\left(\dfrac{\omega}{25}\right)$$, }
+\tkzTabLine{,0, , 0 , , 0,  , -90, }
+\end{tikzpicture}
+\end{center}}
+
+\reponse{0}{
+\begin{center}
+  \resizebox{0.7\textwidth}{!}{\input{img/q32_DR.pgf}}
+\end{center}
+}{
+\begin{center}
+  \resizebox{0.7\textwidth}{!}{\input{img/q32_cor.pgf}}
+\end{center}
+}
+
+\reponse{6}{}{
+Le système est stable avec ce nouveau correcteur.}
+
+\end{document}

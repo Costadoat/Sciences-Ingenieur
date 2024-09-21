@@ -1,0 +1,19 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{\numberline {I}Présentation du système}{2}{section.1}%
+\contentsline {subsection}{\numberline {I.1}Mise en situation}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {I.2}Analyse système partielle}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {I.3}Problème posé}{5}{subsection.1.3}%
+\contentsline {subsection}{\numberline {I.4}Démarche}{5}{subsection.1.4}%
+\contentsline {section}{\numberline {II}Validation des exigences relatives au positionnement du sous-système d'imagerie}{5}{section.2}%
+\contentsline {subsection}{\numberline {II.1}Prévision des performances \@FB@og l'asservissement en vitesse du mouvement de translation de l'AGV \@FB@fg \relax }{5}{subsection.2.1}%
+\contentsline {paragraph}{Objectif:}{5}{section*.8}%
+\contentsline {paragraph}{Étude préliminaire : moteurs brushless de propulsion}{6}{section*.9}%
+\contentsline {paragraph}{Hypothèses et modélisations :}{6}{section*.10}%
+\contentsline {paragraph}{Fonction de transfert d'un moteur de propulsion}{7}{section*.11}%
+\contentsline {paragraph}{Étude de l'asservissement en vitesse de la base motorisée AGV}{7}{section*.12}%
+\contentsline {paragraph}{Étude du système non corrigé : $C(p)=1$.}{9}{section*.15}%
+\contentsline {paragraph}{Analyse de la rapidité}{9}{section*.16}%
+\contentsline {paragraph}{Analyse de la précision}{10}{section*.17}%
+\contentsline {paragraph}{Étude du système corrigé : $C(p)=K_p\cdot \left (1 +\frac {1}{T_i\cdot p}\right )$}{10}{section*.18}%
+\contentsline {paragraph}{Synthèse}{11}{section*.19}%
+\contentsline {section}{\numberline {III}Dessin inductriel}{11}{section.3}%

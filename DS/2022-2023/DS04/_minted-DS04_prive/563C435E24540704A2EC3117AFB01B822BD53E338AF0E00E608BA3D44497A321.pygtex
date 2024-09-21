@@ -1,0 +1,32 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{err}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}\PYG{+w}{ }\PYG{n}{Contexte}\PYG{+w}{ }\PYG{err}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+
+\PYG{n}{import}\PYG{+w}{ }\PYG{n}{matplotlib}\PYG{p}{.}\PYG{n}{pyplot}\PYG{+w}{ }\PYG{k}{as}\PYG{+w}{ }\PYG{n}{plt}
+
+\PYG{n}{def}\PYG{+w}{ }\PYG{n+nf}{dichotomie}\PYG{p}{(}\PYG{n}{L}\PYG{p}{):}
+\PYG{+w}{    }\PYG{n}{debut}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m}{0}
+\PYG{+w}{    }\PYG{n}{fin}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{len}\PYG{p}{(}\PYG{n}{L}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m}{1}
+\PYG{+w}{    }\PYG{k}{while}\PYG{+w}{ }\PYG{n}{debut}\PYG{+w}{ }\PYG{p}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{fin}\PYG{p}{:}
+\PYG{+w}{        }\PYG{n}{m}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{debut}\PYG{p}{+}\PYG{n}{fin}\PYG{p}{)}\PYG{+w}{ }\PYG{c+c1}{// 2}
+\PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{n}{L}\PYG{p}{[}\PYG{n}{m}\PYG{p}{]}\PYG{+w}{ }\PYG{p}{==}\PYG{+w}{ }\PYG{l+m}{0}\PYG{p}{:}
+\PYG{+w}{            }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{m}
+\PYG{+w}{        }\PYG{n}{elif}\PYG{+w}{ }\PYG{n}{L}\PYG{p}{[}\PYG{n}{m}\PYG{p}{]}\PYG{+w}{ }\PYG{p}{\PYGZlt{}}\PYG{+w}{ }\PYG{l+m}{0}\PYG{p}{:}
+\PYG{+w}{            }\PYG{n}{debut}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{m}\PYG{+w}{ }\PYG{p}{+}\PYG{+w}{ }\PYG{l+m}{1}
+\PYG{+w}{        }\PYG{k}{else}\PYG{p}{:}
+\PYG{+w}{            }\PYG{n}{fin}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{m}\PYG{+w}{ }\PYG{p}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m}{1}
+\PYG{+w}{    }\PYG{k}{return}\PYG{p}{(}\PYG{n}{m}\PYG{p}{)}
+
+\PYG{n}{t}\PYG{p}{=}\PYG{n}{list}\PYG{p}{(}\PYG{n}{range}\PYG{p}{(}\PYG{l+m}{0}\PYG{p}{,}\PYG{l+m}{20}\PYG{p}{))}
+\PYG{n}{x}\PYG{p}{=[}\PYG{n}{ti}\PYG{p}{**}\PYG{l+m}{2}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{ti}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{]}
+
+\PYG{n}{plt}\PYG{p}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{t}\PYG{p}{,}\PYG{n}{x}\PYG{p}{)}
+\PYG{n}{plt}\PYG{p}{.}\PYG{n}{show}\PYG{p}{()}
+
+\PYG{err}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}\PYG{+w}{ }\PYG{n}{Réponse}\PYG{+w}{ }\PYG{err}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+
+\PYG{n}{y}\PYG{p}{=[]}
+\PYG{k}{for}\PYG{+w}{ }\PYG{n}{xi}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n}{y}\PYG{p}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{xi}\PYG{p}{\PYGZhy{}}\PYG{l+m}{100}\PYG{p}{)}
+
+\PYG{n}{print}\PYG{p}{(}\PYG{n}{t}\PYG{p}{[}\PYG{n}{dichotomie}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)])}
+\end{Verbatim}

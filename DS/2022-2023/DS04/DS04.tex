@@ -1,0 +1,606 @@
+\input{../../../headers/dsheaders.tex}
+
+\section{Introduction}
+
+\subsection{Contexte}
+
+\begin{figure}[ht!]
+\begin{minipage}{0.6\linewidth}
+La France produit plus de 400 TWh d'électricité à partir d'énergie nucléaire. Une centrale nucléaire contient plusieurs transformations d'énergie. On va s'intéresser à la transformation de l'énergie thermique de la vapeur d'eau du circuit secondaire en énergie mécanique de rotation de la turbine.
+
+La zone d'étude se limitera aux vannes de régulation et de sécurité. 
+\end{minipage}
+\hfill
+\begin{minipage}{0.36\linewidth}
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/fig01}
+\end{center}
+\caption{Centrale nucléaire}
+\label{fig01}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/fig02}
+\end{center}
+\caption{Schéma installation d'une centrale nucléaire}
+\label{fig02}
+\end{figure}
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.5\linewidth]{img/fig03}
+\end{center}
+\caption{Turbine de centrale nucléaire}
+\label{fig03}
+\end{figure}
+
+\subsection{Présentation de la vanne}
+
+L'objet de notre étude porte sur deux vannes installées sur le circuit secondaire. Ces deux vannes quasi identiques ont deux fonctions différentes :
+\begin{itemize}
+ \item vanne de régulation VI : permet de réguler le débit de vapeur et donc la fréquence de rotation de la turbine,
+ \item vanne Tout ou Rien VM : permet de couper le circuit en cas d'alerte de sécurité.
+\end{itemize}
+ 
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/fig04}
+\end{center}
+\caption{Présentation de la vanne}
+\label{fig04}
+\end{figure}
+
+Le débattement angulaire de l’obturateur (papillon) est d’un quart de tour pour passer de la position section de passage nulle (vanne totalement fermée) à section de passage maximale (vanne totalement ouverte).
+
+Problématique : la fréquence du courant électrique produit par l’alternateur est liée à la vitesse de rotation de l'alternateur installé en bout d'arbre de la turbine. Cette vitesse de rotation est liée au débit de fluide circulant dans les canalisations d'alimentation de la turbine. Il est donc nécessaire de réguler ce débit.
+
+Nous allons étudier les éléments de nature à garantir cette contrainte de vitesse de rotation du GTA et son contrôle en cas d'incident en relation avec le débit de vapeur du circuit secondaire alimentant la (ou les) turbine(s).
+
+\newpage
+
+Le diagramme partiel des exigences est donné ci-après ainsi que l’ibd (diagramme des blocs internes) du système :
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.5\linewidth]{img/fig05}
+\end{center}
+\caption{Diagramme de Bloc Interne}
+\label{fig05}
+\end{figure}
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.55\linewidth]{img/fig06}
+\end{center}
+\caption{Diagramme d'exigence 1}
+\label{fig06}
+\end{figure}
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.55\linewidth]{img/fig07}
+\end{center}
+\caption{Diagramme d'exigence 2}
+\label{fig07}
+\end{figure}
+
+\section{Validation des performances de l'asservissement en position de la vanne}
+
+Le débit de vapeur alimentant la turbine est piloté par une vanne « quart de tour » (décrite précédemment) dont la position angulaire est asservie. L'objectif de cette partie est le dimensionnement du correcteur installé dans la boucle d'asservissement de la commande de position angulaire du papillon, permettant de vérifier les exigences attendues.
+
+
+\paragraph{Étude géométrique de la vanne} ~\
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/fig08}
+\end{center}
+\caption{Papillon de la vanne}
+\label{fig08}
+\end{figure}
+
+Le guidage en rotation du papillon de la vanne représentée ci-dessus par rapport au bâti est réalisé par l'intermédiaire de deux liaisons en parallèle, modélisées par :
+
+\begin{center}
+$\left\{V_{papillonSP/bati}\right\}=\left\{\begin{array}{cc}
+\omega_{xN} & 0\\
+\omega_{yN} & 0\\
+\omega_{zN} & V_{zN} 
+\end{array}
+\right\}_{N,(\vec{x},\vec{y},\vec{z})}$
+$\left\{V_{papillonR/bati}\right\}=\left\{\begin{array}{cc}
+\omega_{xM} & 0\\
+\omega_{yM} & 0\\
+\omega_{zM} & 0 
+\end{array}
+\right\}_{M,(\vec{x},\vec{y},\vec{z})}$
+\end{center}
+
+\question{Donner le nom et les caractéristiques (axe, direction, centre,...) de chacune des deux liaisons.}
+
+\question{Déterminer $\overrightarrow{V_{N\in papillonR/bati}}$.}
+
+~\
+
+Une fermeture cinématique a permis de montrer (ce n'est pas à démontrer) que:
+\begin{center}
+$\left\{V_{papillonSP/bati}\right\}=\left\{V_{papillonR/bati}\right\}$,
+\end{center}
+
+Cela revient à dire que:
+\begin{center}
+$\overrightarrow{\Omega_{papillonSP/bati}}=\overrightarrow{\Omega_{papillonR/bati}}$ et $\overrightarrow{V_{N\in papillonSP/bati}}=\overrightarrow{V_{N\in papillonR/bati}}$.
+\end{center}
+
+\question{En déduire les valeurs de $\omega_{xN}$, $\omega_{yN}$ et $V_{zN}$. Après avoir mis à jour le torseur de $papillonR/bati$, en déduire le nom de la liaison équivalente entre papillonR et le bati.}
+
+\newpage
+
+La présentation et le paramétrage du pilotage de la vanne sont fournis en annexe 1, figure \ref{a1}.
+
+\question{Déterminer les torseurs $\left\{V_{1/0}\right\}_O$, $\left\{V_{2/1}\right\}_A$, $\left\{V_{3/2}\right\}_B$ et $\left\{V_{3/0}\right\}_B$ dans la base $R_0$: $(\vec{x},\vec{y},\vec{z})$.}
+
+\question{Déterminer le nombre de mobilités (mouvements possibles) du système.}
+
+\question{Établir la fermeture géométrique afin d'expliciter la relation liant l'expression de $\lambda(t)$ avec $\overrightarrow{AB}=\lambda(t)\cdot\overrightarrow{x_3}$ en fonction des données géométriques et de l'angle $\theta(t)$. Il est préférable au préalable de construire les figures de changement de base.}
+
+\question{Après avoir déterminé $\overrightarrow{V_{O\in 1/0}}$, en déduire $\overrightarrow{V_{A\in 1/0}}$ en fonction de $e$ et $\omega_{z10}$ dans la base $R_1$.}
+
+\question{Par une autre loi de composition des vitesses, déterminer $\overrightarrow{V_{A\in 1/0}}$ en fonction de $V_{x32}$, $\lambda(t)$ et $\omega_{z30}$ dans la base $R_3$.}
+
+\question{En déduire $\omega_{z10}$ en fonction de $V_{x32}$, $e$, $\theta$ et $\beta$.}
+
+\question{En déduire $\omega_{z30}$ en fonction de $V_{x32}$, $\lambda(t)$, $\theta$ et $\beta$.}
+
+\question{Montrer que $\overrightarrow{\Omega_{3/2}}=\vec{0}$.}
+
+~\
+
+On cherche à construire un modèle linéaire de la loi entrée-sortie de ce mécanisme. A cet effet, une simulation numérique de l'équation précédente conduit au tracé de l'évolution du paramètre $\lambda$ en fonction de l’angle $\theta$ fourni sur le document réponse.
+
+\question{Identifier la valeur numérique du gain $K_\theta$ tel que : $\theta$ (en radian) $= K_\theta\cdot\Delta\lambda$ (avec $\Delta\lambda$ en mm) fournissant le modèle linéarisé du mécanisme d'ouverture. $\Delta\lambda$ caractérise la variation d'abscisse de la tige du vérin par rapport à la position centrée ($\theta=0$).}
+
+\paragraph{Modèle simplifié du comportement de l'asservissement de la vanne} ~\
+
+Pour la suite du sujet, pour toute fonction temporelle notée $f(t)$, on note $F(p)$ son image dans le domaine de Laplace et on considère que les conditions d’Heaviside sont réalisées.
+
+Le vérin est alimenté par une électrovanne (entrée tension de commande $u(t)$, sortie débit $q(t)$ débit volumique) dont le comportement est modélisé par un gain pur de valeur $K_{ev}$. La section utile du vérin est notée S.
+
+\question{Déterminer la fonction de transfert du vérin, notée $H_V(p)=\frac{\Delta\lambda(p)}{Q(p)}$ du vérin entre le débit d'alimentation $Q(p)$ et la variation $\Delta\lambda(p)$ de la tige du vérin.}
+
+~\
+
+La mesure de l'angle $\theta$ n'est pas réalisée directement, un potentiomètre rectiligne mesure le déplacement de la tige du vérin. Ce capteur de gain $K_{capt}$ délivre une tension $u_\lambda(t)$ image de la position définie par $\Delta\lambda(t)$.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/fig09}
+\end{center}
+\caption{Vérin et potentiomètre}
+\label{fig09}
+\end{figure}
+
+\newpage
+
+Le potentiomètre de comportement linéaire a une course électrique de 200 mm et est alimenté par une tension de 24V. Le signal délivré $u_\lambda(t)$ est proportionnel au déplacement et $0\leq u_\lambda(t)\leq 24V$.
+
+\question{Déterminer la valeur numérique du gain pur du potentiomètre $K_{capt}$ à exprimer en unité SI. Préciser l’unité de $K_{capt}$.}
+
+Un bloc de gain $k$ transforme la consigne angulaire $\theta_c(t)$ (exprimée en radian) en une tension $u_c(t)$.
+
+Un correcteur de gain pur $C$ amplifie l'écart entre la tension de consigne $u_c(t)$ et la tension issue du capteur et délivre la tension d'alimentation de l'électrovanne $u(t)$. Cette tension amplifiée alimente l’électrovanne de commande du vérin.
+
+\question{Construire le schéma-bloc du système avec l'entrée $\theta_c(p)$ et la sortie $\theta(p)$. On précisera pour chaque bloc, la fonction de transfert associée, sous forme littérale.}
+
+\question{Déterminer la fonction de transfert (expression littérale) en boucle fermée H(p) (entrée $\theta_c(p)$ : sortie $\theta(p)$) à mettre sous forme canonique.}
+
+\question{En déduire ses grandeurs caractéristiques (expression littérale).}
+
+\question{Quelle valeur donner à k (expression littérale) pour avoir un gain statique unité de $H(p)$ ?}
+
+\question{Conclure quant à la validation du critère de précision du diagramme des exigences.}
+
+~\
+
+On donne les valeurs numériques suivantes : $S=0.01m^2$ et $K_{ev}=0.01m^3\cdot s^{-1}\cdot V^{-1}$.
+
+\question{Choisir la valeur numérique du gain $C$ permettant de vérifier les exigences de rapidité.}
+
+\paragraph{Modèle affiné du comportement de la vanne} ~\
+
+On choisit d'améliorer la représentativité du modèle en réalisant un essai sur l'électrovanne seule. On impose un échelon de tension de 10V et on mesure l'évolution du débit en sortie (en $m^3.s^{-1}$). La réponse temporelle est fournie sur le document réponse.
+
+\question{Identifier les paramètres caractéristiques du modèle de l'électrovanne qu'il est légitime d'identifier. Donner alors la forme de la fonction de transfert de l'électrovanne $H_{ev}(p)$.}
+
+~\
+
+Pour la suite, on prendra $C=1$.
+
+\question{Déterminer alors l'expression de la fonction de transfert en boucle ouverte $FTBO(p)=\dfrac{U_\lambda(p)}{\epsilon(p)}$ de l'asservissement de la vanne.}
+
+\question{Tracer sur le document réponse les diagrammes de Bode de la fonction ainsi trouvée. On prendra $120\approx 10^{2.1}$.}
+
+\question{Déterminer l'expression de la nouvelle fonction de transfert en boucle fermée $\frac{\theta(p)}{\theta_c(p)}$.}
+~\
+
+Compte tenu de l'identification de l'électrovanne et du réglage du correcteur proportionnel, la fonction de transfert en boucle fermée s'exprime sous la forme (quel que soit le résultat précédent) :
+
+\begin{center}
+$H(p)=\dfrac{1}{1+3\cdot 10^{-2}\cdot p+6\cdot 10^{-4}\cdot p^2}$
+\end{center}
+
+\question{Déterminer les expressions numériques des grandeurs caractéristiques de la fonction de transfert $H(p)$.}
+
+\question{A l'aide de l'abaque, fourni sur le document réponse, donnant le temps de réponse réduit d'un système du second ordre, vérifier la validité de l'exigence de rapidité.}
+
+
+\section{Validation des fonctions de sécurité}
+    
+Pour des raisons de sécurité, la vanne asservie est montée en série avec une deuxième vanne de type tout ou rien. En cas d'incident, il est nécessaire de pouvoir assurer l'interruption de l'alimentation vapeur en tenant compte d'une éventuelle défaillance de la vanne asservie. L'objectif de la partie II est d'étudier la performance de cette vanne tout ou rien, en termes de rapidité de fermeture et de vitesse d'arrivée en butée. En effet, cette vanne n'est pas asservie, le pilotage dans le sens de l'ouverture est imposé par une alimentation hydraulique alimentant un vérin et la fermeture à l'aide d'un rappel par ressort.
+
+La cinématique de cette vanne de type « tout ou rien » est identique à celle de la vanne asservie.
+
+On définit pour cette partie les paramètres suivants :
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/fig10}
+\end{center}
+\caption{Butées d'ouverture et de fermeture}
+\label{fig10}
+\end{figure}
+
+\newpage
+
+\paragraph{Validation de la dynamique de fermeture.}
+
+Pour des raisons de sécurité, cette vanne de type tout ou rien doit assurer l’interruption du débit vapeur en un temps relativement court sans pour autant excéder une vitesse d’arrivée en fin de course de mouvement. La fermeture est imposée par la chute de la pression dans le vérin et du rappel par le ressort.
+Pour limiter la vitesse de fin de course, qui pourrait produire un choc trop important sur la butée, un système d'amortissement et éventuellement de ralentissement supplémentaire doit être installé.
+
+Un programme Python a permis de résoudre l'étude dynamique. Ce programme renvoie les évolutions temporelles de l'abscisse et de la vitesse de la masse $M$, sans tenir compte de la limitation physique de la course. Il a, de plus, permis d'obtenir le tracé de l’évolution de l’abscisse $x(t)$ et de la vitesse $\dot{x}(t)$ en fonction du temps $t$ fourni en annexes 2 et 3, figures \ref{a2} et \ref{a3}.
+
+\question{A la lecture des courbes, déterminer le temps de fermeture et la vitesse d’arrivée en fin de course. Cette dernière est-elle compatible avec les exigences attendues ?}
+
+\paragraph{Objectif:} ~\
+
+Déterminer la valeur de $t$ pour laquelle $x(t)=100mm$, pour cela on dispose:
+\begin{itemize}
+ \item d'une liste \verb?x? qui contient l'ensemble des valeurs de $x(t)$ (en mm),
+ \item d'une liste \verb?t? qui contient l'ensemble des valeurs de $t$ (en s) (chaque valeur de \verb?x? correspond à une valeur de \verb?t?),
+ \item d'une fonction \verb?dichotomie(liste)? qui renvoie l'index de l'élément dans la liste le plus proche de $0$.
+\end{itemize}
+
+\question{Écrire un script python qui utilise la fonction \verb?dichotomie? et qui permet de déterminer le temps $t$ pour lequel $x(t)=100m$.}
+
+\section{Conception de la liaison papillon/axe}
+
+Le montage entre le papillon et l'axe est effectué grâce à un montage en collerette, présenté sur la figure \ref{fig08}.
+
+L'objectif de cette partie est de proposer une modification de cette solution. L'idée serait de réaliser un encastrement démontable entre la pièce 17 et la pièce 7 en utilisant une clavette.
+
+\question{Pour cela, sur le document réponse dessiner ou en compléter:
+\begin{itemize}
+ \item la clavette \textbf{26},
+ \item la vis \textbf{19},
+ \item la rondelle \textbf{18},
+ \item l'arbre \textbf{7},
+ \item la pièce \textbf{17}.
+\end{itemize}}
+
+\newpage
+
+\begin{center}
+\Huge{Annexes}
+\end{center}
+
+~\
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=\linewidth]{img/a1}
+\end{center}
+\caption{Annexe 1 : Modèle et paramétrage cinématique de la vanne}
+\label{a1}
+\end{figure}
+
+\newpage
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.85\linewidth]{img/a21}\\
+ \includegraphics[width=0.85\linewidth]{img/a22}
+\end{center}
+\caption{Annexe 2 : Réponse temporelle de la position $x(t)$ et de la vitesse $\dot{x}(t)$ du vérin sans présence du ralentisseur}
+\label{a2}
+\end{figure}
+
+\newpage
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.85\linewidth]{img/a31}\\
+ \includegraphics[width=0.85\linewidth]{img/a32}
+\end{center}
+\caption{Annexe 3 : Réponse temporelle de la position $x(t)$ et de la vitesse $\dot{x}(t)$ du vérin avec présence du ralentisseur}
+\label{a3}
+\end{figure}
+
+\newpage
+
+\ifdef{\public}{\pagestyle{docreponse}}{\pagestyle{correction}}
+
+\newpage
+
+%1
+\reponse{3}{}{
+\begin{itemize}
+ \item papillonSP/bâti est une liaison linéaire annulaire d'axe $(N,\overrightarrow{z})$,
+ \item papillonR/bâti est une liaison rotule de centre M.
+\end{itemize}}
+
+%2
+\reponse{3}{}{
+$\overrightarrow{V_{N\in papillonR/bati}}=\overrightarrow{V_{M\in papillonR/bati}}+\overrightarrow{NM}\wedge\Omega_{papillonR/bati}=-n\cdot\vec{z}\wedge (\
+\omega_{xM}\cdot\vec{x}+\omega_{yM}\cdot\vec{y}+\omega_{zM}\cdot\vec{z})=n\cdot (-\omega_{xM}\cdot\vec{y}+\omega_{yM}\cdot\vec{x})$
+}
+
+%3
+\reponse{3}{}{
+$\overrightarrow{V_{N\in papillonR/bati}}=n\cdot (-\omega_{xM}\cdot\vec{y}+\omega_{yM}\cdot\vec{x})=V_{zN}\cdot\vec{z}$, donc $\omega_{xM}=\omega_{yM}=V_{zM}=0$.
+
+La liaison entre papillonR et le bâti est donc une pivot.
+}
+
+%4
+\reponse{7}{}{
+$\left\{V_{1/0}\right\}_O=\left\{\begin{array}{cc}
+0 & 0\\
+0 & 0\\
+\omega_{z10} & 0 
+\end{array}
+\right\}_{O,(\vec{x},\vec{y},\vec{z})}$
+$\left\{V_{2/1}\right\}_A=\left\{\begin{array}{cc}
+0 & 0\\
+0 & 0\\
+\omega_{z21} & 0 
+\end{array}
+\right\}_{A,(\vec{x},\vec{y},\vec{z})}$
+$\left\{V_{3/0}\right\}_B=\left\{\begin{array}{cc}
+0 & 0\\
+0 & 0\\
+\omega_{z30} & 0 
+\end{array}
+\right\}_{B,(\vec{x},\vec{y},\vec{z})}$
+
+$\left\{V_{3/2}\right\}_O=\left\{\begin{array}{cc}
+\omega_{x32} & V_{x32}\\
+0 & 0\\
+0 & 0 
+\end{array}
+\right\}_{B,(\vec{x_3},\vec{y_3},\vec{z})}=\left\{\begin{array}{cc}
+\omega_{x32}\cdot \cos\beta(t) & V_{x32}\cdot \cos\beta(t)\\
+\omega_{x32}\cdot \sin\beta(t) & V_{x32}\cdot \sin\beta(t)\\
+0 & 0 
+\end{array}
+\right\}_{B,(\vec{x},\vec{y},\vec{z})}$
+}
+
+\ifdef{\public}{\newpage}
+
+%5
+\reponse{3}{}{
+Le système possède une seule mobilité.
+}
+
+%6
+\reponse{5}{}{
+\begin{minipage}{0.45\linewidth}
+\includegraphics[width=0.9\linewidth]{img/q6}
+\end{minipage}\hfill
+\begin{minipage}{0.5\linewidth}
+$\overrightarrow{OA}+\overrightarrow{AB}+\overrightarrow{BO}=\overrightarrow{0}$\\
+$e\cdot\vec{y_1}+\lambda\cdot\vec{x_3}-L\cdot\vec{x}-d\cdot\vec{y}=\vec{0}$\\
+$\lambda=\sqrt{L^2+d^2+e^2+2\cdot L\cdot e\cdot \sin\theta-2\cdot d\cdot e\cdot \cos\theta}$
+\end{minipage}
+}
+
+%7
+\reponse{5}{}{
+$\overrightarrow{V_{A\in 1/0}}=\overrightarrow{V_{0\in 1/0}}+\overrightarrow{AO}\wedge\Omega_{1/0}=-e\cdot\overrightarrow{y_1}\wedge\omega_{z10}\cdot\vec{z}=-e\cdot\omega_{z10}\cdot\vec{x_1}$.
+}
+
+%8
+\reponse{5}{}{
+$\overrightarrow{V_{A\in 1/0}}=\overrightarrow{V_{A\in 1/2}}+\overrightarrow{V_{A\in 2/3}}+\overrightarrow{V_{A\in 3/0}}=-V_{x32}\cdot \vec{x_3}+\lambda(t)\cdot\vec{x_3}\wedge\omega_{z30}\cdot\vec{z}=-V_{x32}\cdot \vec{x_3}-\lambda(t)\cdot\omega_{z30}\cdot\vec{y_3}$
+}
+
+\ifdef{\public}{\newpage}
+
+%9
+\reponse{4}{}{
+$-e\cdot\omega_{z10}\cdot\vec{x_1}=-V_{x32}\cdot \vec{x_3}-\lambda(t)\cdot\omega_{z30}\cdot\vec{y_3}$
+
+On montre que $\vec{x_1}=\cos\left(\theta-\beta\right)\cdot \vec{x_3}+\sin\left(\theta-\beta\right)\cdot \vec{y_3}$.
+
+Ainsi:
+\begin{center}
+$\left\{\begin{array}{l}
+e\cdot\omega_{z10}\cdot \cos(\theta-\beta)=V_{x32} \nonumber \\
+e\cdot\omega_{z10}\cdot \sin(\theta-\beta)=\lambda(t)\cdot\omega_{z30} \nonumber
+\end{array}\right.$
+\end{center}
+
+Donc, $\omega_{z10}=\dfrac{V_{x32}}{e\cdot \cos(\theta-\beta)}$
+}
+
+%10
+\reponse{3}{}{
+$\omega_{z30}=\dfrac{V_{x32}\cdot \tan(\theta-\beta)}{\lambda(t)}$
+}
+
+%11
+\reponse{3}{}{
+$\overrightarrow{\Omega_{3/0}}=\overrightarrow{\Omega_{3/2}}+\overrightarrow{\Omega_{2/1}}+\overrightarrow{\Omega_{1/0}}=\omega_{x32}\cdot\vec{x_3}+\omega_{z21}\cdot\vec{z}+\omega_{z10}\cdot\vec{z}=\omega_{z30}\cdot\vec{z}$
+
+En projetant, on trouve $\omega_{x32}=0$, donc $\overrightarrow{\Omega_{3/2}}=\vec{0}$.
+}
+
+%12
+\reponse{1}{\begin{center}
+\includegraphics[width=0.6\linewidth]{img/q13_dr}
+\end{center}}{
+\begin{center}
+\includegraphics[width=0.6\linewidth]{img/q13_cor}
+\end{center}
+$K_\theta=\frac{40}{910-820}\cdot\frac{\pi}{180}=\frac{4}{9}\cdot\frac{\pi}{180}=\frac{1}{135}=7.5\cdot 10^{-3}rad\cdot mm^{-1}=7.5rad\cdot m^{-1}$}
+
+%13
+\reponse{4}{}{
+$q(t)=S\cdot\frac{d\Delta\lambda}{dt}$, donc : $Q(p)=S\cdot p\cdot \Delta\lambda(p)$ et $H_V(p)=\frac{1}{S\cdot p}$
+}
+
+%14
+\reponse{4}{}{
+$K_{capt}=\frac{u_\lambda}{\Delta\lambda}=\frac{24}{200}$
+
+$K_{capt}=0.12V\cdot mm^{-1}=120V\cdot m^{-1}$
+}
+
+%15
+\reponse{2}{\begin{center}
+\includegraphics[width=0.9\linewidth]{img/q15_dr}
+\end{center}}{
+\begin{center}
+\includegraphics[width=0.9\linewidth]{img/q15_cor}
+\end{center}}
+
+\ifdef{\public}{\newpage}
+
+%16
+\reponse{5}{}{
+$H(p)=\dfrac{\theta(p)}{\theta_c(p)}=k\cdot K_\theta\cdot \dfrac{\dfrac{C\cdot K_{ev}}{S\cdot p}}{1+\dfrac{C\cdot K_{ev}\cdot K_{capt}}{S\cdot p}}=\dfrac{\dfrac{k\cdot K_\theta}{K_{capt}}}{1+\dfrac{S}{C\cdot K_{ev}\cdot K_{capt}}\cdot p}$}
+
+%17
+\reponse{4}{}{
+$H(p)$ est une fonction de transfert du premier ordre de la forme $\dfrac{K}{1+\tau\cdot p}$.
+
+Avec: $K=\frac{k\cdot K_\theta}{K_{capt}}$ et $\tau=\frac{S}{C\cdot K_{ev}\cdot K_{capt}}$}
+
+%18
+\reponse{4}{}{
+Pour $K=1$, il faut $k=\frac{K_{capt}}{K_\theta}$.}
+
+%19
+\reponse{4}{}{
+Si $K=1$, alors $\lim\limits_{t\rightarrow+\infty} \theta(t)=\theta_c$, l'écart statique est donc nul.}
+
+\ifdef{\public}{\newpage}
+
+%20
+\reponse{5}{}{
+On veut un temps de réponse à 5\% inférieur à 2s, soit:
+
+$t_{5\%}=3\cdot \tau <2s$, donc $\dfrac{S}{C\cdot K_{ev}\cdot K_{capt}}<\dfrac{2}{3}$
+
+Donc $C>\dfrac{3\cdot S}{2\cdot K_{ev}\cdot K_{capt}}$
+
+$C>0.0125$
+}
+
+%21
+\reponse{3}{\begin{center}
+\includegraphics[width=0.6\linewidth]{img/q21_dr}
+\end{center}}{
+\begin{center}
+\includegraphics[width=0.6\linewidth]{img/q21_cor}
+\end{center}
+
+La tangente non nulle à l'origine nous oriente vers un premier ordre.
+
+Ainsi, $K_{ev}(p)=\dfrac{K_{ev}}{1+\tau_{ev}\cdot p}$ avec $K_{ev}\cdot u_0=K_{ev}\cdot 10=0.105$, donc $K_{ev}=0.0105m^3\cdot s^{-1}\cdot V^{-1}$ et $3\cdot \tau_{ev}=60ms$, donc $\tau_{ev}=0.02s$.
+}
+
+\ifdef{\public}{\newpage}
+
+%22
+\reponse{4}{}{
+$H(p)=\frac{U_\lambda(p)}{\epsilon(p)}=\dfrac{\dfrac{C\cdot K_{ev}\cdot K_{capt}}{S}}{p\cdot (1+\tau_{ve}\cdot p)}=\dfrac{120}{p\cdot (1+0.02\cdot p)}$
+}
+
+%23
+\reponse{2}{\begin{center}
+  \resizebox{0.9\textwidth}{!}{\input{img/q23_dr.pgf}}
+\end{center}}{
+\begin{center}
+  \resizebox{0.9\textwidth}{!}{\input{img/q23_cor.pgf}}
+\end{center}}
+
+\ifdef{\public}{\newpage}
+
+%24
+\reponse{5}{}{
+
+$H(p)=\dfrac{\dfrac{k\cdot K_\theta}{K_{capt}}}{1+\dfrac{S}{C\cdot K_{ev}\cdot K_{capt}}\cdot p+\dfrac{S\cdot \tau_{ev}}{C\cdot K_{ev}\cdot K_{capt}\cdot p^2}}$
+
+$H(p)=\dfrac{1}{1+8\cdot 10^{-2}\cdot p+16\cdot 10^{-4}\cdot p^2}$
+}
+
+%25
+\reponse{5}{}{
+
+$H(p)=\dfrac{1}{1+3\cdot 10^{-2}\cdot p+6\cdot 10^{-4}\cdot p^2}=\dfrac{K}{1+\dfrac{2\cdot\xi}{\omega_0}\cdot p+\dfrac{p^2}{\omega_0^2}}$
+
+Donc, $K=1$, $\omega_0=\dfrac{1}{\sqrt{6\cdot 10^{-4}}}=40rad.s^{-1}$ et $\xi=\dfrac{3\cdot 10^{-2}}{2\cdot \sqrt{6\cdot 10^{-4}}}=0.6$
+}
+
+%26
+\reponse{0}{\begin{center}
+\includegraphics[width=0.7\linewidth]{img/q26_dr}
+\end{center}}{
+\begin{center}
+\includegraphics[width=0.7\linewidth]{img/q26_cor}
+\end{center}
+
+D'après l'abaque, $t_{r5\%}\cdot \omega_0=5.1$, donc $t_{r5\%}0.125s$.
+
+Ce temps est bien inférieur à 2s.
+
+}
+
+%27
+\reponse{5}{}{
+A la lecture des courbes, on a :
+\begin{tabular}{|c|c|c|}
+\hline
+ & Temps fermeture & Vitesse d'impact \\
+\hline
+Sans ralentisseur & 0.23$s$ & 1.05$m\cdot s^{-1}$\\
+\hline
+Avec ralentisseur & 0.24$s$ & 0.4$m\cdot s^{-1}$\\
+\hline
+\end{tabular}
+
+Les exigences attendues sont:
+\begin{itemize}
+ \item un temps de fermeture inférieur à 0.4$s$ : la solution convient.
+ \item Une vitesse d’impact inférieure à 0.5$m\cdot s^{-1}$ : le ralentisseur est donc nécessaire.
+\end{itemize}
+}
+
+
+%28
+\reponse{5}{}
+{
+\inputminted{csharp}{q28.py}
+}
+
+%29
+\reponse{0}{\begin{center}
+\includegraphics[width=0.5\linewidth]{img/q29_dr}
+\end{center}}{
+\begin{center}
+\includegraphics[width=0.5\linewidth]{img/q29_cor}
+\end{center}}
+
+\end{document}

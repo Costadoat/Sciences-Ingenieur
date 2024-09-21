@@ -1,0 +1,643 @@
+\input{../../../headers/dsheaders.tex}
+
+\section{Présentation générale (30 min)}
+
+\subsection{Contexte}
+
+L'exosquelette est un appareil qui apporte à un être humain des capacités qu'il ne possède pas ou qu'il a
+perdues à cause d'un accident. Ce type d'appareil peut permettre à une personne de soulever des charges
+lourdes et diminuer considérablement les efforts à fournir sans la moindre fatigue (figure \ref{img01}). Après avoir revêtu un exosquelette adapté à sa morphologie et à sa taille, l'utilisateur peut faire ses mouvements en bénéficiant d'une grande fluidité.
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.9\linewidth]{img/fig01}
+ \caption{Maniement de charges}
+ \label{img01}
+\end{figure}
+
+
+\subsection{Mise en situation}
+
+L'exosquelette (figure \ref{img02}) est constitué :
+\begin{itemize}
+ \item d'un support de charge transportée 4,
+ \item de deux moteurs de l'articulation de la hanche,
+ \item de deux cuisses 2 et 2',
+ \item de deux moteurs de genou,
+ \item de deux jambes 1 et 1',
+ \item de deux articulations de cheville, non motorisées,
+ \item de deux pieds 3 et 3'.
+\end{itemize}
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.9\linewidth]{img/fig02}
+ \caption{Constituants de l'exosquelette}
+ \label{img02}
+\end{figure}
+
+Les actionneurs équipant chaque axe (genoux et hanches) de l'exosquelette sont des moteurs synchrones de
+type \og brushless \fg, couplés à des réducteurs de vitesse de type \og Harmonic Drive \fg. Chaque moteur est alimenté par une carte de positionnement incluant un onduleur triphasé, la source d'énergie étant un pack de batteries de tension nominale égale à 36 V. La carte de positionnement exploite les signaux des capteurs à effet Hall intégrés dans le moteur ainsi que ceux d'un codeur incrémental monté sur l'axe moteur, elle comprend trois asservissements :
+\begin{itemize}
+ \item un asservissement de courant qui correspond à un asservissement de couple,
+ \item un asservissement de vitesse avec un correcteur proportionnel et intégral,
+ \item un asservissement de position offrant des fonctions d'anticipation de vitesse.
+\end{itemize}
+
+Les moteurs au niveau de l'articulation de la hanche permettent de modifier l'inclinaison de la charge afin
+d'éviter un basculement autour de son axe de tangage. Une centrale inertielle est utilisée à cet effet. Un modèle multiphysique de l'exosquelette est représenté figure \ref{img03}.
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.9\linewidth]{img/fig03}
+ \caption{Modèle multiphysique de l'exosquelette}
+ \label{img03}
+\end{figure}
+
+Ce sujet se concentre essentiellement sur le dimensionnement et le pilotage des moteurs des genoux.
+
+\subsection{Étude proposée}
+
+La fluidité de marche et la gestion en temps réel des mouvements (marcher à plat ou sur des pentes jusqu'à 10°, monter des marches, se mettre en position accroupie ou assise) sont des éléments fondamentaux qui conditionnent la conception et la réalisation d'un exosquelette. Les solutions technologiques retenues répondent à cet objectif.
+
+Elles ne sont pas toutes abordées dans ce sujet. Quelques-unes de celles retenues pour l'exosquelette sont étudiées pour valider les solutions choisies par les concepteurs vis-à-vis des performances attendues listées par le cahier des charges.
+
+Dans cette optique, il est proposé les quatre études suivantes :
+\begin{itemize}
+ \item modélisation et validation des constituants associés à l'exigence fonctionnelle \og assurer le mouvement vertical \fg,
+ \item validation de l'architecture de la chaine fonctionnelle réalisant l'exigence fonctionnelle \og gérer le mouvement vertical \fg,
+ \item conception de la chaine d'information réalisant l'exigence fonctionnelle \og acquérir l'intention de la mise en mouvement \fg,
+ \item évolution du produit.
+\end{itemize}
+
+\section{Exigence fonctionnelle \og assurer le mouvement vertical \fg}
+
+\paragraph{Objectif}
+
+Proposer un modèle de connaissance des éléments réalisant l'exigence fonctionnelle \og assurer le mouvement vertical \fg\ puis valider les performances attendues listées par le cahier des charges (tableau \ref{tab01}).
+
+\begin{table}[!h]
+\begin{tabular}{|l|l|l|}
+\hline
+Exigences & Critères d'appréciation & Niveau \\
+\hline
+\multirow{2}{*}{Assurer le mouvement vertical} & Durée du mouvement de la hanche & t = 2 s \\
+ & Masse de la charge à soulever par les deux jambes & m$_4$ = 60 kg \\
+\hline
+\end{tabular}
+ \caption{Extrait du cahier des charges associé à l'exigence \og Assurer le mouvement vertical \fg}
+ \label{tab01}
+\end{table}
+
+\subsection{Élaboration du modèle géométrique direct et du modèle articulaire inverse}
+
+\paragraph{Objectif}
+
+Élaborer la commande du moteur pilotant le genou à partir d'un mouvement défini dans l'espace
+opérationnel puis converti dans l'espace articulaire.
+
+L'étude se limite au passage de la position accroupie à la position relevée de l'exosquelette. Lors de ce passage, le point O$_2$ est en mouvement de translation verticale suivant la direction $\overrightarrow{z_0}$ et sa vitesse de déplacement évolue selon une loi trapézoïdale. Un modèle plan de la chaine cinématique ouverte représente la partie inférieure de l'exosquelette en position debout et fléchie (figure \ref{img04}).
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.9\linewidth]{img/fig04}
+ \caption{Modèle d'étude plan position debout et fléchie}
+ \label{img04}
+\end{figure}
+
+Un modèle d'étude simplifié plan ainsi que l'orientation des repères et le paramétrage angulaire sont proposés
+figure \ref{img05}.
+
+Hypothèses:
+\begin{itemize}
+ \item Le référentiel lié au repère R$_0$(A, $\overrightarrow{x_0}$, $\overrightarrow{y_0}$, $\overrightarrow{z_0}$) est galiléen et est fixe par rapport à la terre,
+ \item Le point O$_2$ représentant la hanche se déplace verticalement selon la direction $\overrightarrow{z_0}$,
+ \item L'angle $\alpha$ entre la charge transportée et la verticale $\overrightarrow{z_0}$ reste constant,
+ \item Le point d'appui A du pied sur le sol est considéré fixe par rapport à la terre,
+ \item Lors du mouvement étudié, la jambe (1) reste perpendiculaire au pied (3).
+\end{itemize}
+
+
+Données:
+\begin{itemize}
+ \item $\theta_{10}$ = ($\overrightarrow{y_0}$, $\overrightarrow{y_1}$) = ($\overrightarrow{z_0}$, $\overrightarrow{z_1}$),
+ \item $\theta_{21}$ = ($\overrightarrow{y_1}$, $\overrightarrow{y_2}$) = ($\overrightarrow{z_1}$, $\overrightarrow{z_2}$),
+ \item $\alpha$ = constante,
+ \item $L = \sqrt{(l_2+l_3)^2+l_4^2}$.
+\end{itemize}
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.9\linewidth]{img/fig05}
+ \caption{Modèle simplifié plan et paramétrage angulaire}
+ \label{img05}
+\end{figure}
+
+
+\question{En choisissant une fermeture géométrique pertinente, déterminer littéralement les coordonnées opérationnelles $l_4$ et $h(t)$ en fonction des coordonnées articulaires $\theta_{10}$, $\theta_{21}$ et des paramètres dimensionnels $L$ et $l_1$.}
+
+\question{Déterminer le modèle articulaire inverse $\theta_{21}$ en fonction de $l_1$, $l_4$, $L$ et $h(t)$.}
+
+\question{Déterminer le modèle articulaire inverse $\theta_{10}$ en fonction de $l_1$, $l_4$, $L$ et $h(t)$.}
+
+\textbf{Indications:}
+\begin{itemize}
+ \item Dans un premier temps, il est conseillé de déterminer l'expression de $\theta_{21}$ à partir des deux relations trouvées à la question 1, provenant du modèle géométrique direct, élevées au carré. (On rappelle que cos(a-b)=cos(a).cos(b)+sin(a).sin(b)),
+ \item Dans un deuxième temps, pour déterminer l'expression de $\theta_{10}$, utiliser le modèle géométrique direct exprimé préalablement sous la forme:
+ \begin{eqnarray}
+	l_1.cos(\theta_{10}+\theta_{21}) = -L.cos\theta_{10} - l_4 \\
+	l_1.sin(\theta_{10}+\theta_{21}) = h(t) - L.sin\theta_{10}
+ \end{eqnarray}
+ \item En éliminant $sin(\theta_{10}+\theta_{21})$ et $cos(\theta_{10}+\theta_{21})$, obtenir une équation de la forme $A.cos\theta_{10} + B.sin\theta_{10} = C$,
+ \item En normant A et B l'équation devient:
+ \begin{eqnarray}
+	\frac{A}{\sqrt{A^2+B^2}}.cos\theta_{10}+\frac{B}{\sqrt{A^2+B^2}}.sin\theta_{10}=\frac{C}{\sqrt{A^2+B^2}}
+ \end{eqnarray}
+ \item En posant $cos \varphi=\frac{A}{\sqrt{A^2+B^2}}$ et $sin \varphi=\frac{B}{\sqrt{A^2+B^2}}$, l'équation devient $cos \varphi.cos \theta_{10}+sin \varphi.sin \theta_{10}=\frac{C}{\sqrt{A^2+B^2}}$ et se ramène à l'écriture:
+  \begin{eqnarray}
+	cos(\theta_{10}-\varphi)=\frac{C}{\sqrt{A^2+B^2}}
+ \end{eqnarray}
+ \item Déterminer l'expression de $\theta_{10}$ en fonction de $l_1$, $l_4$, $L$ et $h(t)$.
+\end{itemize}	
+
+\question{Effectuer le graphe de liaison du mécanisme de la figure \ref{img04}, on se limitera aux solides 1, 2, 3 et 4.}
+
+\question{Écrire les torseurs cinématiques et des actions mécaniques pour les liaisons de ce système. Utiliser le formalisme suivant:}
+
+\begin{center}
+$\left\{V_{i/j}\right\}=\left\{\begin{array}{cc}
+\omega_{ijx} & V_{ijx} \\
+\omega_{ijy} & V_{ijy} \\
+\omega_{ijz} & V_{ijz}
+\end{array}\right\}_{O,R_0(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})}$,
+$\left\{T_{i\rightarrow j}\right\}=\left\{\begin{array}{cc}
+X_{ij} & L_{ij} \\
+Y_{ij} & M_{ij} \\
+Z_{ij} & N_{ij}
+\end{array}\right\}_{O,R_0(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})}$
+\end{center}
+
+\section{Exigence fonctionnelle \og gérer le mouvement vertical \fg}
+
+\paragraph{Objectif}
+
+Déterminer les réglages de la commande asservie des moteurs genou droit et gauche permettant d'assurer un mouvement vertical ne déséquilibrant pas le porteur de l'exosquelette puis valider les performances attendues listées par le cahier des charges (tableau \ref{tab02}).
+
+La consigne de position des axes moteur genou gauche et droit est représentée figure \ref{img06}. Elle montre des parties qui peuvent être approchées par des constantes, des rampes et des paraboles.
+
+\begin{table}[!h]
+\begin{tabular}{|l|l|l|}
+\hline
+Exigences & Critères d'appréciation & Niveau \\
+\hline
+\multirow{4}{*}{Gérer le mouvement vertical} & Précision statique de la boucle d'asservissement de position & 
+ \\
+& erreur de position & < 1\% \\
+& erreur de trainage & < 1\% \\
+& erreur d'accélération & < 1\% \\
+\hline
+\end{tabular}
+ \caption{Extrait du cahier des charges associé à l'exigence \og Gérer le mouvement vertical \fg}
+ \label{tab02}
+\end{table}
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.8\linewidth]{img/fig06}
+ \caption{Évolution de la consigne moteur}
+ \label{img06}
+\end{figure}
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=1\linewidth]{img/fig07}
+ \caption{Premier modèle}
+ \label{img07}
+\end{figure}
+
+Selon le cahier des charges, pour assurer une bonne synchronisation des axes, l'exigence de précision statique
+suite à une entrée de type échelon, de type rampe ou de type accélération doit être inférieure à 1\%.
+Le premier modèle défini figure \ref{img07} est adopté pour chaque axe.
+
+Notations:\\
+\begin{tabular}{|c|l|}
+\hline
+$\theta_{mC}(p)$ &  consigne de position de l'axe moteur (variable temporelle : $\theta_{mC}(t)$ en $rad$), \\
+\hline
+$\theta_{m}(p)$ & position de l'axe moteur (variable temporelle : $\theta_{m}(t)$ en $rad$), \\
+\hline
+$C_{mC}(p)$ & consigne de couple moteur (variable temporelle : $C_{mC}(t)$ en $N.m$), \\
+\hline
+$C_{m}(p)$ & couple moteur (variable temporelle : $C_{m}(t)$ en $N.m$), \\
+\hline
+$C_{r}(p)$ & couple résistant perturbateur (variable temporelle : $C_{r}(t)$ en $N.m$), \\
+\hline
+$K_{1}$ & gain proportionnel du correcteur de l'asservissement de position (en $s^{-1}$), \\
+\hline
+$\Omega_{mC}(p)$ & consigne de vitesse de l'axe moteur (variable temporelle : $\Omega_{mC}(t)$ en $rad.s^{-1}$), \\
+\hline
+$\Omega_{m}(p)$ & vitesse de l'axe moteur (variable temporelle : $\Omega_{m}(t)$ en $rad.s^{-1}$), \\
+\hline
+$C_{\Omega}(p)$ & correcteur de l'asservissement de vitesse, \\
+\hline
+\multirow{2}{*}{$M_{C}(p)$} & modélise la boucle d'asservissement en couple de la machine électrique, \\
+& considérée parfaite au vu de sa dynamique par rapport aux autres boucles : $M_{C}(p)=1$, \\
+\hline
+$J$ & moment d'inertie de l'ensemble en mouvement, rapporté au niveau de l'axe moteur, \\
+\hline
+$f$ & coefficient de frottements visqueux équivalent pour l'ensemble en mouvement. \\
+\hline
+\end{tabular}
+
+~\
+
+Le correcteur de l'asservissement de vitesse est de la forme $C_\Omega(p)=K_2.\frac{J.p+f}{J.p}$.
+
+~\
+
+Le premier modèle de la figure \ref{img07} permet de constater que :
+\begin{itemize}
+ \item l'écart est défini par la variable $\epsilon(t)=\theta_{mC}(t)-\theta_m(t)$,
+ \item l'erreur entre l'entrée et la sortie est définie par la variable $\mu(t)=\theta_{mC}(t)-\theta_m(t)$.
+\end{itemize}
+
+\newpage
+
+Étant donné que le modèle utilisé est à retour unitaire, l'écart $\epsilon(t)$ est égal à l'erreur $\mu(t)$.
+La précision statique du système est définie par les paramètres suivants :
+\begin{itemize}
+ \item $\epsilon_p=\lim\limits_{t \rightarrow +\infty}\epsilon(t)$ suite à une entrée de type échelon unitaire $\theta_{mc}(t)=u(t)$, $\theta_{mc}(p)=\frac{1}{p}$, appelée erreur de position,
+ \item $\epsilon_v=\lim\limits_{t \rightarrow +\infty}\epsilon(t)$ suite à une entrée de type rampe unitaire $\theta_{mc}(t)=t.u(t)$, $\theta_{mc}(p)=\frac{1}{p^2}$, appelée erreur de trainage,
+ \item $\epsilon_a=\lim\limits_{t \rightarrow +\infty}\epsilon(t)$ suite à une entrée de type accélération $\theta_{mc}(t)=\frac{t^2}{2}.u(t)$, $\theta_{mc}(p)=\frac{1}{p^3}$, appelée erreur de accélération.
+\end{itemize}
+
+\paragraph{Hypothèse}
+
+Le couple résistant évolue lentement au regard de la dynamique de l'asservissement, ce qui permet de considérer pour la suite de l'étude $C_r(tp)=0$.
+
+\question{Déterminer la grandeur physique de la consigne et la grandeur physique asservie à partir du modèle multiphysique présenté figure \ref{img03} et préciser leurs unités de base dans le système international d'unités (SI).}
+
+\question{Exprimer $H_\Omega=\frac{\Omega_m(p)}{\Omega_{mc}(p)}$ en fonction de $J$, $K_2$ et $p$.}
+
+\question{Exprimer $\epsilon(p)$ en fonction de $\theta_{mC}(p)$, $H_\Omega(p)$, $K_1$ et $p$.}
+
+\question{Déterminer l'erreur de position $\epsilon_p$ puis l'erreur de trainage $\epsilon_v$. Conclure sur la valeur de $K_1$ pour satisfaire à l'exigence d'erreur en trainage.}
+
+\question{Déterminer l'erreur en accélération et conclure quant au respect du cahier des charges.}
+
+~\
+
+Pour satisfaire l'exigence d'une erreur en accélération inférieure à 1\%, le second modèle avec anticipation de la vitesse (figure \ref{img08}) est adopté avec $H_\Omega(p)=\frac{1}{1+T.p}$ et $T = 33 ms$.
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.9\linewidth]{img/fig08}
+ \caption{Second modèle}
+ \label{img08}
+\end{figure}
+
+\question{Exprimer $\epsilon(p)$ en fonction de $\theta_{mC}(p)$, $T$, $K_1$, $K_3$ et $p$.}
+
+Le second modèle avec anticipation de la figure \ref{img08} n'a pas d'incidence sur la valeur de l'erreur de position.
+
+\question{Exprimer l'erreur de trainage et déterminer la valeur de $K_3$ permettant d'annuler cette erreur.}
+
+\question{Exprimer et déterminer l'erreur d'accélération en prenant les valeurs de $K_3$ et de $K_1$ déterminées précédemment. Conclure quant au respect du cahier des charges.}
+
+\question{Déterminer la fonction de transfert $H(p)=\frac{\theta_m(p)}{\theta_{mC}(p)}$ à partie de la figure 8. Montrer qu'elle peut être mise sous la forme:
+
+\begin{eqnarray}
+H(p)=H_1(p)+H_2(p)=\frac{1}{1+\frac{p}{K_1}+\frac{T.p^2}{K_1}}+\frac{\frac{K_3.p}{K_1}}{1+\frac{p}{K_1}+\frac{T.p^2}{K_1}}
+\end{eqnarray}}
+
+\question{Déterminer les valeurs de $\omega_0$ et $\xi$.}
+
+On donne, sur la figure \ref{img09}, le diagramme de Bode de la fonction de transfert $H_1(p)=\frac{1}{1+\frac{p}{K_1}+\frac{J.p^2}{K_1.K_2}}$.
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.8\linewidth]{img/bode1} \\ ~\ \\
+ \includegraphics[width=0.8\linewidth]{img/bode1_2}
+ \caption{Diagramme de Bode de $H_1(p)$}
+ \label{img09}
+\end{figure}
+
+\question{Retrouver à partir du diagramme de Bode les valeurs de $\omega_0$ et $\xi$. Les comparer à celles trouvées précédemment.}
+
+\question{Tracer, sur le document réponse, le diagramme de Bode de la fonction de transfert $H_2(p)$. Il est conseillé de s'appuyer sur celui de $H_1(p)$. Justifier les constructions.}
+
+~\
+
+On donne sur la figure \ref{img10} deux diagrammes de Bode.
+
+\begin{figure}[!h]
+ \centering	Tracé a \\
+ \includegraphics[width=0.7\linewidth]{img/bode3_1} \\ ~\ \\
+ Tracé b \\
+ \includegraphics[width=0.7\linewidth]{img/bode3_2}
+ \caption{Diagrammes de Bode pour $H(p)$}
+ \label{img10}
+\end{figure}
+
+\question{Quel tracé correspond à celui de la fonction de transfert $H(p)$. Justifier.}
+
+\section{Exercices supplémentaires}
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.9\linewidth]{img/fig09}
+ \caption{Identification d'une fonction}
+ \label{img11}
+\end{figure}
+
+\question{Identifier la fonction de transfert à partir de la réponse indicielle de la figure \ref{img11}. Déterminer à partir des abaques les valeurs numériques de $\xi$ et $\omega_0$. On indiquera toutes les constructions nécessaires sur les courbes.}
+
+\newpage
+
+\section{Conception d'un assemblage par vis}
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.9\linewidth]{img/Malaxeur_vierge}
+ \caption{Conception d'un assemblage par vis}
+ \label{img12}
+\end{figure}
+
+Au niveau de la zone à compléter, l'arbre 12 est cylindrique. Il est inséré dans un trou qui traverse la pièce 9. Une clavette empêche la rotation relative des deux pièces. Une vis traverse la pièce 9 et vient dans un taraudage percé dans la pièce 12. La solution demandée peut s'inspirer d'une autre zone du dessin.
+
+\question{Compléter \textbf{le dessin du document réponse} en dessinant la solution d'assemblage vis+clavette dans le cadre prévu à cet effet.}
+
+\cleardoublepage
+
+\pagestyle{documentreponse}
+
+\section{Documents réponse}
+
+\reponse{14}
+
+\reponse{12}
+
+\reponse{10}
+
+\newpage
+
+\reponse{9}
+
+\reponse{15}
+
+\reponse{9}
+
+\newpage
+
+\reponse{9}
+
+\reponse{8}
+
+\reponse{11}
+
+\reponse{11}
+
+\newpage
+
+\reponse{14}
+
+\reponse{14}
+
+\reponse{14}
+
+\newpage
+
+\reponse{13}
+
+\reponse{13}
+
+\reponse{11}
+
+\newpage
+
+\reponse{5}
+
+\begin{center}
+	\includegraphics[width=0.9\linewidth]{img/bode2}
+\end{center}
+
+\reponse{9}
+
+\newpage
+
+\reponse{9}
+
+\reponse{5}
+
+\begin{center}
+	\includegraphics[width=0.9\linewidth]{img/Malaxeur_vierge}
+\end{center}
+
+\ifdef{\public}{\end{document}}{}
+
+\newpage
+\cleardoublepage
+
+\pagestyle{correction}
+
+\setcounter{equation}{0}
+
+\section{Correction}
+
+\cor
+
+Fermeture géométrique:
+$\overrightarrow{O_0A}+\overrightarrow{AO_1}+\overrightarrow{O_1O_2}+\overrightarrow{O_2O_0}=\overrightarrow{0}$
+
+$l_4.\overrightarrow{y_0}+L.\overrightarrow{y_1}+l_1.\overrightarrow{y_2}-h(t).\overrightarrow{z_0}=\overrightarrow{0}$
+
+Après les projections, ont trouve:
+\begin{eqnarray}
+l_4=-L.cos\theta_{10}-l_1.cos(\theta_{10}+\theta_{21}) \label{coreq1}\\
+h(t)=L.sin\theta_{10}+l_1.sin(\theta_{10}+\theta_{21}) \label{coreq2}
+\end{eqnarray}
+
+\cor
+
+En faisant (\ref{coreq1})$^2$+( \ref{coreq2})$^2$:
+
+$l_4^2+h(t)^2=L^2+2.L.l_1.\left[cos(\theta_{10}+\theta_{21}).cos\theta_{10}+sin(\theta_{10}+\theta_{21}).sin\theta_{10}\right]+l_1^2$
+
+Et ainsi, $\theta_{21}=arccos\left(\frac{l_4^2+h(t)^2-L^2-l_1^2}{2.L.l_1}\right)$
+
+\cor
+
+Comme pour la question précédente, on obtient:
+
+$2.L.l_4.cos\theta_{10}-2.L.h(t).sin\theta_{10}=l_1^2-h(t)^2-L^2-l_4^2$
+
+En posant $cos(\varphi)=\frac{l_4}{\sqrt{l_4^2+h(t)^2}}$ et $sin(\varphi)=\frac{-h(t)}{\sqrt{l_4^2+h(t)^2}}$, on en déduit:
+
+$cos(\theta_{10}-\varphi)=\frac{l_1^2-h(t)^2-L^2-l_4^2}{2.L.\sqrt{l_4^2+h(t)^2}}$ et $\varphi=arctan\left(-\frac{h(t)}{l_4}\right)$
+
+Finalement: $\theta_{10}=arccos\left(\frac{l_1^2-h(t)^2-L^2-l_4^2}{2.L.\sqrt{l_4^2+h(t)^2}}\right)+arctan\left(-\frac{h(t)}{l_4}\right)$
+
+\cor
+
+\begin{center}
+ \includegraphics[width=0.4\linewidth]{img/graphe_liaisons}
+\end{center}
+
+\cor
+
+$\left\{V_{1/3}\right\}=\left\{\begin{array}{cc}
+\omega_{13x} & 0 \\
+0 & 0 \\
+0 & 0
+\end{array}\right\}_{O_0,R_0(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})}$,
+$\left\{V_{2/1}\right\}=\left\{\begin{array}{cc}
+\omega_{21x} & 0 \\
+0 & 0 \\
+0 & 0
+\end{array}\right\}_{O_1,R_0(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})}$
+$\left\{V_{4/2}\right\}=\left\{\begin{array}{cc}
+\omega_{42x} & 0 \\
+0 & 0 \\
+0 & 0
+\end{array}\right\}_{O_2,R_0(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})}$
+
+$\left\{T_{1\rightarrow 3}\right\}=\left\{\begin{array}{cc}
+X_{13} & 0 \\
+Y_{13} & M_{13} \\
+Z_{13} & N_{13}
+\end{array}\right\}_{O_0,R_0(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})}$
+$\left\{T_{2\rightarrow 1}\right\}=\left\{\begin{array}{cc}
+X_{21} & 0 \\
+Y_{21} & M_{21} \\
+Z_{21} & N_{21}
+\end{array}\right\}_{O_1,R_0(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})}$
+$\left\{T_{4\rightarrow 2}\right\}=\left\{\begin{array}{cc}
+X_{42} & 0 \\
+Y_{42} & M_{42} \\
+Z_{42} & N_{42}
+\end{array}\right\}_{O_2,R_0(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})}$
+
+\cor
+
+En regardant le modèle multiphysique, on voit que:
+\begin{itemize}
+ \item on mesure la coordonnée verticale de l'articulation de la hanche (en m),
+ \item on donne en consigne la vitesse de déplacement vertical de la hanche (en m.s$^{-1}$).
+\end{itemize}
+
+\cor
+
+En prenant $C_R(p)=0$,
+
+$H_\Omega(p)=\frac{\Omega_m(p)}{\Omega_{mC}(p)}=\frac{C_\Omega(p).M_C(p).\frac{1}{J.p+f}}{1+C_\Omega(p).M_C(p).\frac{1}{J.p+f}}=\frac{\frac{K_2}{J.p}}{1+\frac{K_2}{J.p}}=\frac{1}{1+\frac{J}{K_2}.p}$
+
+\cor
+
+$\epsilon(p)=\frac{1}{1+K_1.H_\Omega(p).\frac{1}{p}}.\theta_{mc}(p)$
+
+\cor
+
+Erreur de position: $\epsilon_p=\lim\limits_{p\rightarrow 0}p.\epsilon(p)=\lim\limits_{p\rightarrow 0}=\frac{1}{1+K_1.H_\Omega(p).\frac{1}{p}}=0$
+
+Erreur de trainage: $\epsilon_v=\lim\limits_{p\rightarrow 0}p.\epsilon(p)=\lim\limits_{p\rightarrow 0}=\frac{1}{1+K_1.H_\Omega(p).\frac{1}{p}}.\frac{1}{p}=\frac{1}{K_1}$
+
+Pour $\epsilon_v<1\%$, il faut $K_1=100$.
+
+\cor
+
+Erreur d'accélération: $\epsilon_a=\lim\limits_{p\rightarrow 0}p.\epsilon(p)=\lim\limits_{p\rightarrow 0}=\frac{1}{1+K_1.H_\Omega(p).\frac{1}{p}}.\frac{1}{p^2}=+\infty$
+
+Dans ce cas, le cahier des charges n'est pas respecté.
+
+\cor
+
+En utilisant le second modèle,
+
+$\epsilon(p)=\theta_{mc}(p)-\theta_{m}(p)=\theta_{mc}(p)-\left(K_1.\epsilon(p)+K_3.p.\theta_{mc}(p)\right).H_\Omega(p).\frac{1}{p}$
+
+$\epsilon(p)=\frac{1-K_3.H_\Omega(p)}{1+K_1.H_\Omega(p).\frac{1}{p}}.\theta_{mc}(p)=\frac{1-\frac{K_3}{1+T.p}}{1+\frac{K_1}{(1+(T.p).p}}\theta_{mc}(p)=\frac{1+T.p-K_3}{T.p^2+p+K_1}.p.\theta_{mc}(p)$
+
+\cor
+
+$\epsilon_v=\lim\limits_{p\rightarrow 0}p.\epsilon(p)=\lim\limits_{p\rightarrow 0}\frac{1+T.p-K_3}{T.p^2+p+K_1}=\frac{1-K_3}{K_1}$
+
+Pour $\epsilon_v=0$, $K_3=1$.
+
+\cor
+
+$\epsilon(p)=\frac{T.p}{T.p^2+p+100}.p.\theta_{mc}(p)$
+
+$\epsilon_a=\lim\limits_{p\rightarrow 0}p.\epsilon(p)=\lim\limits_{p\rightarrow 0}\frac{T}{T.p^2+p+100}=\frac{T}{100}=33.10^{-5}$
+
+Ce résultat est compatible avec le cahier des charges.
+
+\cor
+
+D'après le schéma bloc:\\
+$\theta_m(p)=\left(\theta_{mc}(p).K_3.p+\left(\theta_{mc}(p)-\theta_{m}(p)\right).K_1\right).H_\Omega(p).\frac{1}{p}$
+
+$\theta_m(p)\left(1+K_1.H_\Omega(p).\frac{1}{p}\right)=\left(\theta_{mc}(p).K_3.p+\theta_{mc}(p).K_1\right).H_\Omega(p).\frac{1}{p}$
+
+$\frac{\theta_m(p)}{\theta_{mc}(p)}=\frac{\left(K_3.p+K_1\right).H_\Omega(p).\frac{1}{p}}{1+K_1.H_\Omega(p).\frac{1}{p}}$
+
+$\frac{\theta_m(p)}{\theta_{mc}(p)}=\frac{\left(K_3.p+K_1\right).\frac{1}{1+T.p}.\frac{1}{p}}{1+K_1.\frac{1}{1+T.p}.\frac{1}{p}}$
+
+$\frac{\theta_m(p)}{\theta_{mc}(p)}=\frac{\frac{K_3.p+K_1}{K_1}}{1+\frac{p}{K_1}+\frac{T.p^2}{K_1}}$
+
+$\frac{\theta_m(p)}{\theta_{mc}(p)}=\frac{1}{1+\frac{p}{K_1}+\frac{T.p^2}{K_1}}+\frac{\frac{K_3.p}{K_1}}{1+\frac{p}{K_1}+\frac{T.p^2}{K_1}}$
+
+\cor
+
+$\omega_0=\sqrt{\frac{K_1}{T}}=\sqrt{\frac{100}{33.10^{-3}}}=\sqrt{3.10^3}=\sqrt{3.10}.10\simeq 1,7.3.10 \simeq 51$
+
+$\frac{2.\xi}{\omega_0}=\frac{1}{K_1}$, donc $\xi=\frac{\omega_0}{2.K_1}=\frac{51}{2.100}\simeq0,25$
+
+\cor
+
+$20.logQ=5,5$
+
+$Q=10^{\frac{5,5}{20}}\simeq 10^{\frac{1}{4}}\simeq\sqrt{3}$
+
+$Q=\frac{1}{2.\xi.\sqrt{1-\xi^2}}$
+
+Donc, $3=\frac{1}{4.\xi^2.(1-\xi^2)}$, en prenant $\xi^2=x$, on a 
+
+$x^2-x+\frac{1}{12}=0$
+
+$\Delta=1-4.\frac{1}{12}=\frac{2}{3}$
+
+$x_1=\frac{1+\sqrt{\frac{2}{3}}}{2}=\frac{1,8}{2}=0,9$
+
+$x_2=\frac{1-\sqrt{\frac{2}{3}}}{2}=\frac{0,2}{2}=0,1$
+
+Donc, $\xi=\sqrt{0,1}\simeq 0,3$
+
+$\omega_r=\omega_0.\sqrt{1-2.\xi^2}$
+
+$\omega_0=\frac{\omega_r}{\sqrt{1-2.\xi^2}}=\frac{50}{\sqrt{0,8}}=\frac{50}{0,9}=55,55$
+
+On retrouve des valeurs proches de celles calculées précédemment.
+
+\cor
+
+La nouvelle fonction de transfert est $H_2(p)=\frac{\frac{K_3.p}{K_1}}{1+\frac{p}{K_1}+\frac{T.p^2}{K_1}}$.
+
+Il s'agit de la première $H_1(p)$, multipliée par $\frac{K_3.p}{K_1}$.
+
+La courbe de l'amplitude est décalée vers le bas de $20.log\frac{K_3}{K_1}=-20.2=-40$. Il faut ensuite ajouter la droite $20.log\omega$, soit une pente de $20dB/dec$ qui coupe l'axe des abscisses pour $\omega=1rad.s^{-1}$.
+
+La courbe de la phase est décalée de 90° vers le haut.
+
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/bode2_cor}
+\end{center}
+
+\cor
+
+Le diagramme de Bode qui correspond à la fonction de transfert $H(p)$ est la solution \textbf{a}, car la \textbf{b} correspond à la fonction $H_1(p).H_2(p)$. De plus, $\frac{1}{100}$ est faible de $1$, donc cela explique que le tracé ressemble à celui de $H_1(p)$.
+
+\cor
+
+La valeur finale est $1$, donc $K=1$.
+
+D'après la lecture, on trouve un dépassement de $\frac{1,48-1}{1}=0,48$, ce qui donne sur le premier graphe $\xi=0,2$.
+
+La pseudo-période est $T=1,8-0,6=1,2s$, donc d'après le second graphe $\omega_0=5,3rad.s^{-1}$.
+
+\cor
+
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/Malaxeur}
+\end{center}
+
+\end{document}
+

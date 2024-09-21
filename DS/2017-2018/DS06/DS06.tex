@@ -1,0 +1,534 @@
+\input{../../../headers/dsheaders.tex}
+
+\section{Mise en situation}
+
+La Société GBMA est une PME spécialisée dans la recherche, la conception, la fabrication, l'installation et la maintenance de matériels d'embouteillage semi automatiques ou automatiques. Parmi ces matériels, l'entreprise fabrique en petite série des boucheuses museleuses entièrement mécaniques et gérées par un automate programmable. 
+
+Ces machines assurent :
+\begin{itemize}
+ \item Le serrage et l'enfoncement du bouchon dans la bouteille,
+ \item La distribution et la mise en place du muselet (Armature de fil de fer dont on coiffe le bouchon des bouteilles de champagne).
+\end{itemize}
+
+\begin{figure}[!h]
+\begin{center}
+	\includegraphics[width=0.4\linewidth]{img/fig01}
+\end{center}
+\caption{Boucheuse museleuse}
+\label{fig01}
+\end{figure} 
+
+Tous les éléments de la machine qui risquent d'être en contact avec les bouteilles ou les bouchons sont en acier inoxydable. Le réglage de la cadence est réalisé par un potentiomètre sur le tableau de bord (800 à 2400 bouteilles par heure). Cette machine permet le traitement des demi-bouteilles, bouteilles et magnums de champagne. Elle est plus particulièrement destinée à équiper les petites exploitations viticoles.
+
+\section{Description de la partie opérative (limitée au compresseur de bouchons)}
+
+Une des fonctions que doit garantir la machine est de réduire le diamètre du bouchon en liège de 30 à 16 mm. Le bouchon peut ainsi être poussé à l'aide d'un poussoir dans le goulot d'une bouteille de champagne qui fait 18 mm de diamètre.
+
+Pour réduire le diamètre des bouchons, on utilise un compresseur à bouchons (voir annexe 1). L'ouverture et la fermeture des 4 mors sont assurées par une came. Cette came est en liaison encastrement avec l'arbre principal de commande. Sur cet arbre, il y a d'autres cames permettant de garantir d'autres fonctions. Cet arbre est commandé par un moto-réducteur à courant continu (230V, 1050 tr/mn, 1200W).
+
+L'arbre principal de commande tourne à fréquence de rotation constante. \textbf{Chaque fois qu'il fait un tour, une bouteille est bouchée et muselée}.
+
+L'ensemble de l'étude portera principalement sur le compresseur à bouchons et la came de commande pour les parties cinématiques, statique et communication technique ainsi que sur la commande du moteur pour la seule partie automatique.
+
+\section{Étude fonctionnelle}
+
+Les bouteilles de champagnes, une fois dégorgées et dosées en liqueur (brut, sec ou demi-sec), sont bouchées puis muselées sur une machine automatique appelée boucheuse museleuse. On donne ci-dessous le diagramme des cas d'utilisation partiel de cette machine.
+
+\begin{figure}[!h]
+\begin{center}
+	\includegraphics[width=0.4\linewidth]{img/fig02}
+\end{center}
+\caption{Diagramme des cas d'utilisation}
+\label{fig02}
+\end{figure} 
+
+\question{Donner le cas d'utilisation correspondant à ce système.}
+
+\begin{figure}[!h]
+\begin{center}
+	\includegraphics[width=0.4\linewidth]{img/fig03}
+\end{center}
+\caption{Diagramme de contexte}
+\label{fig03}
+\end{figure} 
+
+\question{Donner au moins deux autres éléments du milieu extérieur au système non présents dans la description de la figure \ref{fig03}.}
+
+\question{Justifier le fait que les éléments du diagramme de contexte ne se retrouvent pas tous dans le diagramme des cas d'utilisation.}
+
+\section{Étude cinématique}
+
+L'objectif de cette étude est de déterminer certains éléments permettant de valider les choix de solutions retenues pour les guidages en rotation du galet et en translation du coulisseau.
+
+Pour ce qui suit, la machine est réglée à sa cadence maximale, c'est à dire 2400 bouteilles par heure. L'arbre principal de commande tourne à fréquence constante.
+
+\question{Calculer la vitesse de rotation $\dot{\theta}$ de l'arbre principal. Donner le résultat en fonction de $\pi$ et en $rad.s^{-1}$.}
+
+\question{Un galet de diamètre 30 mm est en liaison pivot avec le coulisseau (1) qui commande le serrage des mors (voir annexe 1). La came, dont le profil est donné à l'échelle 1 en annexe 2, agit sur ce galet. Après avoir relevé toutes les dimensions utiles sur l'annexe 2, tracer la courbe donnant la loi de mouvement du centre du galet (O') en fonction de l'angle de rotation de la came.}
+
+\question{Tracer en rouge, sur le dessin du document réponse, les directions de : $\overrightarrow{V_{I\in 1/0}}$, $\overrightarrow{V_{I\in 2/0}}$ et $\overrightarrow{V_{I\in 2/1}}$, en remarquant que le mors (5) \textbf{est fixe par rapport au bâti}.}
+
+\begin{figure}[!h]
+\begin{center}
+	\includegraphics[width=0.8\linewidth]{img/fig04}
+\end{center}
+\caption{Modèle cinématique}
+\label{fig04}
+\end{figure} 
+
+\question{On pose : $\overrightarrow{V_{I\in 1/0}}.\overrightarrow{x}=V$. Calculer, en fonction de $V$ et des paramètres géométriques, les vitesses $\overrightarrow{V_{I\in 1/0}}$, $\overrightarrow{V_{I\in 2/0}}$ et $\overrightarrow{V_{I\in 2/1}}$. (L'angle entre $\overrightarrow{x}$ et $\overrightarrow{x_2}$ est à lire sur l'annexe 1.)}
+
+~\
+
+Pour : $60\degree \leq \theta \leq 240\degree$, le profil de la came est une portion de cercle de centre $O_c$ et de rayon $R$. La came tourne autour du point $O$. Le galet (G) de rayon $r$ et de centre $O'$ roule sans glisser sur le profil de la came au point $I$. Le galet est en liaison pivot d'axe  par rapport au coulisseau (1).
+
+\question{\begin{enumerate}
+ \item Soit $\overrightarrow{O_CI}=R.\overrightarrow{x_i}$, exprimer le vecteur $\overrightarrow{x_i}$ dans la base ($\overrightarrow{X},\overrightarrow{Y},\overrightarrow{Z}$),
+ \item Exprimer l'angle $\alpha$ en fonction de : $e$, $\theta$, $R$ et $r$,
+ \item Déterminer la vitesse du point $I$ appartenant à la came (C) par rapport au bâti (0), dans la base $(\overrightarrow{x},\overrightarrow{y},\overrightarrow{z})$ en fonction de : $e$, $\theta$, $\dot{\theta}$, $R$ et $r$,
+ \item Déterminer le torseur cinématique du mouvement du galet (G) par rapport au bâti (0), dans la base ($\overrightarrow{x},\overrightarrow{y},\overrightarrow{z}$) et au point O' en fonction de $e$, $\theta$, $\dot{\theta}$, $R$ et $r$.
+\end{enumerate}}
+
+\section{Étude statique}
+
+On se propose avec cette étude de déterminer les efforts qui s'exercent sur les mors en fin de phase de compression du bouchon ($\theta= 240\degree - \epsilon$) afin d'être en mesure de dimensionner certains éléments du compresseur.
+
+Pour simplifier le problème on limitera l'étude au seul mors (2) et on fera les hypothèses suivantes :
+\begin{itemize}
+ \item L'étude est assimilée à un problème de statique plane,
+ \item Répartition uniforme des pressions de contact entre les différents solides,
+ \item Le poids des mors est négligeable,
+ \item Le mors glisse sur le coulisseau (1) et sur les mors (3) et (5),
+ \item Le mors ne glisse pas par rapport au bouchon,
+ \item Le coefficient de frottement entre les pièces (1), (2), (3), (4) et (5) est f.
+\end{itemize}
+
+Notation de l'action mécanique de $S_i \rightarrow S_j$ au point P :
+
+\begin{center}
+$\left\{T_{S_i \rightarrow S_j}\right\}=\left\{
+\begin{array}{cc}X_{Pij} & L_{Pij}  \\
+Y_{Pij} & M_{Pij}  \\
+Z_{Pij} & N_{Pij}
+\end{array}
+\right\}_{P,R}$
+\end{center}
+
+\question{Calculer la norme $\|\overrightarrow{E_{R\rightarrow 2}}\|$ de l'effort du ressort (R) sur le mors (2) si la raideur $k$ du ressort est de $4N.mm^{-1}$ et si sa longueur libre (état non comprimé) est de $50mm$. En fin de phase de compression, on peut vérifier sur l'annexe 1 (en tenant compte de l'échelle) que le ressort mesure $30mm$.}
+
+~\
+
+Sur le document réponse, on a isolé le mors (2) à l'échelle 2.
+
+On modélise :
+\begin{itemize}
+ \item L'action de (1) sur (2) par un glisseur dont le support passe par A,
+ \item L'action de (3) sur (2) par un glisseur dont le support passe par B,
+ \item L'action de (5) sur (2) par un glisseur dont le support passe par C,
+ \item L'action du bouchon sur (2) par un glisseur dont le support passe par D,
+ \item L'action du ressort sur (2) par un glisseur dont le support passe par E.
+\end{itemize}
+
+On appelle $F=\|\overrightarrow{F}\|$ avec $\overrightarrow{F}$ résultante de l'action du bouchon sur (2). $\overrightarrow{F}$ est donnée sur la figure du document réponse. Une étude expérimentale a permis de la connaître en sens et en intensité.
+
+\question{Tracer en rouge sur la figure les différentes actions mécaniques qui s'exercent sur le mors (2). Indiquer clairement le sens et l'angle de frottement $\varphi$ si nécessaire.}
+
+~\
+
+On rappelle que l'on est en phase de fin de compression, donc que le mors (2) glisse par rapport aux mors (3) et (5) et par rapport au coulisseau (1). On rappelle d'autre part que le mors (5) est fixe.
+
+\question{Ecrire les 3 équations scalaires traduisant l'équilibre du mors (2) si l'on néglige l'action du ressort. Ces équations seront données dans la base ($\overrightarrow{X_2},\overrightarrow{Y_2},\overrightarrow{Z_2}$) liée au mors (2), en fonction de $F$, $f$, des données géométriques et des composantes en valeur absolue des actions mécaniques $X_{A12}$, $X_{B32}$ et $Y_{C52}$. L'équation de moment sera écrite au point H (voir le document réponse).}
+
+~\
+
+La résolution des trois équations scalaires a permis de déterminer les différentes inconnues statiques de la question précédente. On obtient : $\overrightarrow{A_{1\rightarrow2}}=13585.\overrightarrow{x_2}-679.\overrightarrow{y_2}$ (en newton).
+
+Par ailleurs un calcul de statique appliqué au mors (3) donne :
+
+$\overrightarrow{F_{3\rightarrow1}}.\overrightarrow{x}=-10000N$.
+
+\question{En négligeant les frottements du coulisseau (1) par rapport au bâti (0), calculer numériquement $\|\overrightarrow{R_{C\rightarrow G}}\|$ la norme de la résultante de l'action de la came (C) sur le galet (G) en fin de phase de compression du bouchon.}
+
+\section{Étude de l'asservissement du moteur}
+
+L'objectif de cette étude est de vérifier que le moteur utilisé permet d'obtenir la cadence de 2400 bouteilles / heure.
+
+Hypothèse : On se place dans le cas d'un système linéaire, continu et invariant.
+
+Modélisation du moteur : Le moteur qui entraîne l'arbre principal est équipé d'un moteur à courant continu. Le modèle de connaissance de cet actionneur, si on néglige l'inductance et les différents frottements, permet d'écrire les équations électromécaniques suivantes :
+
+$\left\{\begin{array}{l}
+e(t)=u(t)-R.i(t)=K_e.\omega(t) \\
+C_m(t)=Kt.i(t)=J.\frac{d\omega(t)}{dt}
+\end{array}\right.$
+
+Avec: 
+\begin{itemize}
+ \item $u(t)$: Tension d'entrée en $V$,
+ \item $\omega(t)$: fréquence angulaire de l'arbre du moteur en $rad.s^{-1}$,
+ \item $e(t)$: force électromotrice en $V$,
+ \item $R$: résistance de l'induit en $\Omega$,
+ \item $K_e$: constante de force électromotrice $V.rad^{-1}.s$,
+ \item $K_c$: constante de couple en $N.m.A^{-1}$,
+ \item $C_m(t)$: couple électromécanique délivré par le moteur en $N.m$,
+ \item $J$: moment d'inertie équivalent rapporté à l'arbre de sortie en $kg.m^2$.
+\end{itemize}
+
+\question{Écrire les 4 équations ci-dessus dans le domaine de Laplace si toutes les conditions initiales sont nulles.}
+
+\question{En fonction des résultats trouvés à la question précédente, compléter le schéma blocs proposé sur le document réponse.}
+
+\question{Calculer la fonction de transfert $H(p)=\frac{\Omega(p)}{U(p)}$ de ce moteur. Donner la réponse sous la forme canonique.}
+
+\newpage
+
+Par une expérimentation du moteur en charge, on a relevé les diagrammes de Bode (Modèle de comportement), ils sont présentés ci-dessous.
+
+\begin{figure}[!h]
+\begin{center}
+	\includegraphics[width=0.7\linewidth]{img/fig05a}
+\end{center}
+\caption{Diagrammes de Bode du moteur}
+\label{fig05a}
+\end{figure} 
+
+\question{Déterminer l'ordre du système ainsi que la constante de temps $\tau$ et le gain statique $K_s$. Justifier la réponse. Écrire numériquement la fonction de transfert du moteur sous la forme canonique.}
+
+~\
+
+Les caractéristiques techniques du moteur annoncées par le constructeur sont:\\
+$R=3,4\Omega$ et $K_t=0,85N.m.A^{-1}$.
+
+\question{Calculer la valeur de $K_e$ ($V.rad^{-1}.s$) et celle de $J$ ($kg.m^2$).}
+
+\question{Tracer la réponse temporelle de ce moteur s'il est soumis à un échelon de tension$U_0=220V$. Indiquer la pente à l'origine et le temps de réponse à 5\%.}
+
+~\
+
+Pour la suite, on prendra pour la fonction de transfert de ce moteur :
+\begin{center}
+$H(p)=\frac{0,5}{1+0,05.p}$
+\end{center}
+
+\subsection{Asservissement en vitesse de l'arbre de sortie du moteur}
+
+Pour assurer l'asservissement de la vitesse de rotation de l'arbre de sortie du moteur (donc de l'arbre principal), on associe à l'actionneur un variateur modélisé par un amplificateur pur de gain $K_a$ réglable.
+
+\begin{figure}[!h]
+\begin{center}
+	\includegraphics[width=0.7\linewidth]{img/fig05b}
+\end{center}
+\caption{Modèle de l'asservissement}
+\label{fig05b}
+\end{figure} 
+
+On a placé un capteur de vitesse angulaire en bout de l'arbre de sortie de gain $K_c=0,06V.rad^{-1}.s$.
+ 
+\newpage
+
+\question{Calculer la fonction de transfert $F(p)=\frac{\Omega(p)}{\Omega_c(p)}$ de ce système en boucle fermée en fonction de $K_a$ et des valeurs numériques.}
+
+\question{Tracer la réponse temporelle de cet asservissement s'il est soumis à un échelon $\Omega_c=100rad.s^{-1}$ et si $K_a=800$. En déduire l'erreur statique $\epsilon_s$ (écart entre la valeur de consigne et la valeur réelle).}
+
+\question{Quelle valeur faudrait-il donner à $K_a$ si on souhaite une erreur $\epsilon_s \leq 2\%$ ?}
+
+\section{Étude de fabrication et de construction}
+
+\question{Donner un procédé de fabrication permettant de fabriquer la pièce suivante, la série de fabrication sera de 1000 pièces.}
+
+ \begin{figure}[!h]
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{img/fig06}
+\end{center}
+\caption{Galet excentrique}
+\label{fig06}
+\end{figure} 
+
+\question{Donner la désignation des pièces repérées A, B et C (voir calque réponse)}
+
+\question{Proposer et justifier un procédé de fabrication pour le carter}
+
+\question{Proposer un modèle de liaison entre l'arbre principal (103) et le bâti (100+101+110+...) (voir annexe 3):
+\begin{enumerate}
+ \item Au niveau du roulement (102),
+ \item Au niveau du roulement (111).
+\end{enumerate}}
+
+\question{Réaliser le schéma d'architecture limité au guidage de l'arbre principal (103) avec le bâti (100).
+
+Donner le nom de la liaison équivalente entre l'arbre (103) et le bâti (100).}
+
+\question{Indiquer un ajustement possible entre la came (106) et l'arbre principal (103).}
+
+L'étude statique a montré que l'action du galet (120) sur la came (107) est très importante. L'arbre principal (103) va donc fléchir anormalement. Afin de remédier à cet inconvénient, on ajoute un roulement à billes (105) dans une zone proche des efforts à encaisser. Ce roulement est arrêté en translation par rapport à l'arbre (103) et est en liaison pivot glissant avec le support du compresseur (122).
+
+Pour des raisons de simplicité de fabrication et de moindre coût, on impose :
+\begin{itemize}
+ \item Que le diamètre de l'arbre principal ne doit être ni augmenté ni diminué,
+ \item Que le compresseur doit pouvoir être démonté très facilement (indépendamment de l'arbre principal et de ses pièces montées dessus),
+ \item Que le support (122) doit être obtenu par usinage à partir d'un laminé marchand de nuance S235 (acier de construction d'usage général, ayant une limite minimale d'élasticité de 235 MPa) et de section 150 x 25 x L (L étant fonction de votre conception)
+\end{itemize}
+
+\question{Compléter le calque par une solution montrant la liaison du roulement (105) par rapport à l'arbre (103) et au support (122). Indiquer tous les ajustements permettant de valider votre solution.}
+
+~\
+
+Un axe devra traverser le galet (120) et sera encastré dans la pièce (123), on donne la solution de cet encastrement :
+
+\begin{figure}[!h]
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{img/fig08}
+\end{center}
+\caption{Montage goupille \og entre cuir et chair \fg}
+\label{fig08}
+\end{figure} 
+
+\question{Intégrer cette solution sur le calque réponse, en vue A-A et coupe B-B.}
+
+Remarque : le coulisseau repéré ici (123) était repéré (1) dans les parties précédentes pour une simplification d'écriture.
+
+\section{Étude combinatoire}
+
+Le cogite est un système de compensation de gîte présent sur des porte-avions tels que le porte-avions Clémenceau ou le porte-avions Charles de Gaulle.
+
+La partie opérative du cogite est constituée de 12 trains de 12 chariots à quatre roues (masse d'un train : $Mt = 22 tonnes$, inertie des roues négligeable) pouvant se déplacer sur la largeur du navire ($\pm 16m$)
+Chaque train est entraîné par un moteur électrique relié à un réducteur, lui même accouplé à une poulie, tournant à une vitesse $\omega_p$, entraînant le câble. Deux freins permettent l'arrêt des masses.
+
+\begin{figure}[!h]
+\begin{center}
+	\includegraphics[width=0.8\linewidth]{img/fig09}
+\end{center}
+\caption{Système de transport de bouteilles}
+\label{fig09}
+\end{figure} 
+
+\begin{table}[!h]
+\begin{tabular}{|m{3.5cm}|m{5.5cm}|m{7cm}|}
+\hline
+Actionneurs	& Capteurs& Effecteurs \\
+\hline
+\textbf{Moteur principal :} Convertit une énergie électrique en énergie mécanique
+
+\textbf{Motorisation tendeur :} Convertit une énergie électrique ou hydraulique (on ne sait pas) en énergie mécanique.
+& 
+\textbf{Capteur de position :} Donne indirectement la position du chariot bloqueur en mesurant la position angulaire de la poulie
+
+\textbf{Dynamomètre :} Mesure l'effort de tension
+
+\textbf{Fin de course :} Signale que le train atteint la position extrême (TOR)
+Capteur de recalage : Permet sans doute de corriger l'information fournie par le capteur de position en prenant en compte les modifications dues au réglage de la tension et au glissement du câble sur la poulie.
+&
+\textbf{Chariot bloqueur et Train :} Agissent directement sur la matière d'\oe uvre (répartition des masses du navire...)
+Les effecteurs secondaires agissent sur la masse mobile.
+
+\textbf{Réducteur, Poulie, Câble :} Transformation du mouvement (rotation en translation, augmentation du couple donc de l'effort de traction).
+
+\textbf{Frein :} Bloque le train en position
+
+\textbf{Tampon amortisseur, Butoir :} Arrêt du train en fin de course
+
+\textbf{Vérin tendeur :} Réglage de la tension du câble (tension initiale, rattrapage de l'extension due à l'usure...) \\
+\hline
+\end{tabular}
+\caption{Composants du système}
+\label{tab01}
+\end{table}
+
+Afin de contrôler chaque 1/10 de tour d'une poulie, un ensemble de trois détecteurs lit 4 pistes angulaires adjacentes situées sur la poulie (noir = 1, blanc = 0) (cf. figure ci-dessous).
+
+\begin{figure}[!h]
+\begin{center}
+	\includegraphics[width=0.3\linewidth]{img/fig10}
+\end{center}
+\vspace{-1cm}
+\caption{Codeur}
+\label{fig10}
+\end{figure} 
+
+Ces trois détecteurs : $A(a_0,a_1,a_2,a_3)$, $B(b_0,b_1,b_2,b_3)$ et $C(c_0,c_1,c_2,c_3)$ sont formés de quatre cellules photoélectriques.
+						
+Par exemple : $a_0$, $b_0$, $c_0$ lisent la \textbf{même} piste. La valeur des bits $d_i$ du détecteur de position $D(d_0,d_1,d_2,d_3)$ se construit à la \textbf{majorité} des valeurs des bits $a_i$, $b_i$ et $c_i$ des détecteurs A, B et C.
+		
+Ce système permet au calculateur de gérer les aléas de passage d'une position à une autre et de faciliter la maintenance du système.
+
+En cas de désaccord sur un bit en position $i$, le bit $e_i$ d'un mot  $E(e_0,e_1,e_2,e_3)$ est placé à 1.
+
+\question{Sachant que la poulie d'entraînement des câbles a un rayon de 0,795 m ($2\times \pi\times 0,795\simeq 5$), à combien de tours correspondent un déplacement d'un train de 32 m ? Quelle sera alors la précision de la mesure ?}
+
+\question{Déterminer l'expression de $d_i=f(a_i,b_i,c_i)$ et de $e_i=g(a_i,b_i,c_i)$.}
+
+\question{Proposer un schéma de câblage des $d_i$ avec des portes logiques NON, ET et OU.}
+
+On désire afficher la valeur lue par D sur un pupitre indépendant du calculateur (en cas de dysfonctionnement de celui-ci). Pour cela, il est nécessaire de transcoder D en binaire naturel (soit K ce mot de 4 bits)
+
+\question{Déterminer $K(k_0,k_1,k_2,k_3)$ en fonction de $D(d_0,d_1,d_2,d_3)$.}
+
+\question{Écrire les fonctions de la manière la plus condensées possible en utilisant les fonctions logiques les plus appropriées : NON, ET, NON OU, NON ET, OU EXCLUSIF.}
+
+~\
+
+Pour permettre l'allumage d'une lampe témoin, on donne le schéma de câblage en technologie \og contacts électriques \fg suivant :
+
+\begin{figure}[!h]
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{img/fig11}
+\end{center}
+\caption{Schéma logique}
+\label{fig11}
+\end{figure} 
+
+\question{Écrire pour l'exemple de la figure $e_i$ en fonction de $a_i$, $b_i$ et $c_i$.}
+
+\question{Tracer le schéma logique correspondant à $k_1$.}
+
+\begin{center}
+----- FIN DU SUJET -----
+\end{center}
+
+\cleardoublepage
+
+
+\includepdf[offset=0.5cm -1cm]{img/Annexe1.pdf}
+
+\includepdf[offset=-0.5cm -1cm]{img/Annexe2.pdf}
+
+\includepdf[angle=90,offset=0.7cm -0.5cm]{img/Annexe3.pdf}
+
+\cleardoublepage
+
+\pagestyle{documentreponse}
+
+\section{Documents réponse}
+
+\reponse{2}
+
+\reponse{2}
+
+\reponse{2}
+
+\reponse{2}
+
+\reponse{2}
+
+\begin{center}
+\includegraphics[width=0.7\linewidth]{img/dr01}
+\end{center}
+
+\reponse{0}
+
+\begin{center}
+\includegraphics[width=0.5\linewidth]{img/dr02}
+\end{center}
+
+\reponse{4}
+
+\reponse{33}
+
+\reponse{1}
+
+\newpage
+
+\reponse{2}
+
+\begin{center}
+\includegraphics[width=0.5\linewidth]{img/dr03}
+\end{center}
+
+\reponse{20}
+
+\newpage
+
+\reponse{20}
+
+\reponse{2}
+
+\reponse{0}
+
+\begin{center}
+\includegraphics[width=0.7\linewidth]{img/dr04}
+\end{center}
+
+\reponse{3}
+
+\reponse{3}
+
+\newpage
+
+\reponse{3}
+
+\reponse{3}
+
+\begin{center}
+\includegraphics[width=0.7\linewidth]{img/dr05}
+\end{center}
+
+\reponse{3}
+
+\reponse{3}
+
+\begin{center}
+\includegraphics[width=0.7\linewidth]{img/dr06}
+\end{center}
+
+\reponse{3}
+
+\newpage
+
+\reponse{2}
+
+\reponse{2}
+
+\reponse{2}
+
+\reponse{2}
+
+\reponse{7}
+
+\reponse{2}
+
+\reponse{0} Compléter le calque réponse.
+
+\reponse{0} Compléter le calque réponse.
+
+\reponse{3}
+
+\reponse{3}
+
+\reponse{13}
+
+\reponse{13}
+
+\newpage
+
+\reponse{12}
+
+\reponse{2}
+
+\reponse{6}
+
+
+\newpage
+
+\includepdf[angle=90,offset=-0.5cm -0.5cm]{img/Calque.pdf}
+
+\newpage
+
+\end{document}
+
+
+
+\ifdef{\public}{\end{document}}{}
+
+\newpage
+\cleardoublepage
+
+\pagestyle{correction}
+
+\setcounter{equation}{0}
+
+\section{Correction}
+
+\cor{$M_{roul}=\pi\cdot L\cdot\rho_{roul}\cdot\left(\frac{d_2^2}{4}-\frac{d_1^2}{4}\right)=3,14\cdot 3,2\cdot2700\cdot\left(\frac{0,0196}{4}-\frac{0,0166}{4}\right)\simeq3\cdot 3\cdot3\cdot\left(4,9-4,15\right)$}
+
+
+\end{document}

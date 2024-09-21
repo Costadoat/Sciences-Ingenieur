@@ -1,0 +1,32 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{\numberline {I}Présentation}{2}{section.1}%
+\contentsline {subsection}{\numberline {I.1}Mise en situation}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {I.2}Analyse système partielle}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {I.3}Problème posé}{4}{subsection.1.3}%
+\contentsline {subsection}{\numberline {I.4}Démarche proposée}{4}{subsection.1.4}%
+\contentsline {section}{\numberline {II}Validation des performances cinématiques du robot porte-sonde}{4}{section.2}%
+\contentsline {paragraph}{Objectif :}{4}{section*.5}%
+\contentsline {paragraph}{Modélisation cinématique du robot porte-sonde}{4}{section*.6}%
+\contentsline {subsubsection}{\numberline {II.0.1}Validation de l'exigence " Nature du mouvement " (exigence 1.1.1)}{4}{subsubsection.2.0.1}%
+\contentsline {paragraph}{Objectif :}{4}{section*.7}%
+\contentsline {paragraph}{Objectif intermédiaire:}{5}{section*.8}%
+\contentsline {paragraph}{Objectif:}{6}{section*.11}%
+\contentsline {subsection}{\numberline {II.1}Validation de l'exigence « Espace de travail » (exigence 1.1.2)}{7}{subsection.2.1}%
+\contentsline {paragraph}{Objectif:}{7}{section*.12}%
+\contentsline {subsection}{\numberline {II.2}Orientation de la sonde par rapport au patient}{7}{subsection.2.2}%
+\contentsline {subsection}{\numberline {II.3}Élaboration d'un modèle géométrique direct partiel}{7}{subsection.2.3}%
+\contentsline {subsection}{\numberline {II.4}Prise en compte des butées articulaires}{10}{subsection.2.4}%
+\contentsline {section}{\numberline {III}Commande en position du robot porte-sonde}{10}{section.3}%
+\contentsline {paragraph}{Objectif :}{10}{section*.17}%
+\contentsline {subsection}{\numberline {III.1}Principe de la commande du robot porte-sonde}{11}{subsection.3.1}%
+\contentsline {paragraph}{Commande de l'axe 1}{11}{section*.19}%
+\contentsline {subsection}{\numberline {III.2}Modélisation de l'axe 1}{12}{subsection.3.2}%
+\contentsline {paragraph}{Objectif:}{12}{section*.21}%
+\contentsline {paragraph}{Modélisation de la motorisation}{12}{section*.22}%
+\contentsline {paragraph}{Modélisation de la boucle de vitesse}{13}{section*.24}%
+\contentsline {subsection}{\numberline {III.3}Synthèse de la commande: boucle de vitesse}{14}{subsection.3.3}%
+\contentsline {paragraph}{Objectif :}{14}{section*.28}%
+\contentsline {subsection}{\numberline {III.4}Performances de la commande en position}{15}{subsection.3.4}%
+\contentsline {paragraph}{Objectif :}{15}{section*.29}%
+\contentsline {section}{\numberline {IV}Lecture de plan}{15}{section.4}%
+\contentsline {section}{\numberline {V}Annexe}{16}{section.5}%

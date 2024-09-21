@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range} \PYG{p}{(}\PYG{n}{n}\PYG{p}{)} \PYG{p}{:} \PYG{c+c1}{\PYGZsh{} i varie de 0 à n\PYGZhy{}1}
+	\PYG{c+c1}{\PYGZsh{} ajout d’un élément au tableau t}
+	\PYG{n}{t}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{feuille}\PYG{o}{.}\PYG{n}{cell\PYGZus{}value}\PYG{p}{(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{)))}
+	\PYG{c+c1}{\PYGZsh{} ajout d’un élément au tableau Ibat}
+	\PYG{n}{Ibat}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{feuille}\PYG{o}{.}\PYG{n}{cell\PYGZus{}value}\PYG{p}{(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)))}
+	\PYG{n}{Pbat}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{Ubat}\PYG{o}{*}\PYG{n}{Ibat}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+\end{Verbatim}

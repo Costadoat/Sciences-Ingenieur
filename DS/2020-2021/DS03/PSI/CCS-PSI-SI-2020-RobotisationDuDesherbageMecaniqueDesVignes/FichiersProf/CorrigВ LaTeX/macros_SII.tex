@@ -1,0 +1,185 @@
+%%%%%%%%%%%%
+% Définition des vecteurs 
+%%%%%%%%%%%%
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+\newcommand{\axe}[2]{\left(#1,\vect{#2}\right)}
+\newcommand{\couple}[2]{\left(#1,\vect{#2}\right)}
+\newcommand{\angl}[2]{\left(\vect{#1},\vect{#2}\right)}
+
+\newcommand{\rep}[1]{\mathcal{R}_{#1}}
+\newcommand{\quadruplet}[4]{\left(#1;#2,#3,#4 \right)}
+\newcommand{\repere}[4]{\left(#1;\vect{#2},\vect{#3},\vect{#4} \right)}
+\newcommand{\base}[3]{\left(\vect{#1},\vect{#2},\vect{#3} \right)}
+
+
+\newcommand{\vx}[1]{\vect{x_{#1}}}
+\newcommand{\vy}[1]{\vect{y_{#1}}}
+\newcommand{\vz}[1]{\vect{z_{#1}}}
+
+% d droit pour le calcul différentiel
+\newcommand{\dd}{\text{d}}
+
+\newcommand{\inertie}[2]{I\left({#1}, #2\right)}
+\newcommand{\matinertie}[7]{
+\begin{pmatrix}
+#1 & #6 & #5 \\
+#6 & #2 & #4 \\
+#5 & #4 & #3 \\
+\end{pmatrix}_{#7}}
+%%%%%%%%%%%%
+% Définition des torseurs 
+%%%%%%%%%%%%
+
+\newcommand{\ec}[2]{%
+\mathcal{E}_{c\;#1/#2}}
+
+\newcommand{\pext}[3]{%
+\mathcal{P}_{#1\rightarrow#2/#3}}
+
+\newcommand{\pint}[3]{%
+\mathcal{P}_{#1 \stackrel{\text{#3}}{\leftrightarrow} #2 }}
+
+
+ \newcommand{\torseur}[1]{%
+\left\{{#1}\right\}
+}
+
+\newcommand{\torseurcin}[3]{%
+\left\{\mathcal{#1} \left(#2/#3 \right) \right\}
+}
+
+\newcommand{\torseurci}[2]{%
+\left\{\sigma \left(#1/#2 \right) \right\}
+}
+\newcommand{\torseurdyn}[2]{%
+\left\{\mathcal{D} \left(#1/#2 \right) \right\}
+}
+
+
+\newcommand{\torseurstat}[3]{%
+\left\{\mathcal{#1} \left(#2\rightarrow #3 \right) \right\}
+}
+
+
+ \newcommand{\torseurc}[8]{%
+%\left\{#1 \right\}=
+\left\{
+{#1}
+\right\}
+ = 
+\left\{%
+\begin{array}{cc}%
+{#2} & {#5}\\%
+{#3} & {#6}\\%
+{#4} & {#7}\\%
+\end{array}%
+\right\}_{#8}%
+}
+
+ \newcommand{\torseurcol}[7]{
+\left\{%
+\begin{array}{cc}%
+{#1} & {#4}\\%
+{#2} & {#5}\\%
+{#3} & {#6}\\%
+\end{array}%
+\right\}_{#7}%
+}
+
+ \newcommand{\torseurl}[3]{%
+%\left\{\mathcal{#1}\right\}_{#2}=%
+\left\{%
+\begin{array}{l}%
+{#1} \\%
+{#2} %
+\end{array}%
+\right\}_{#3}%
+}
+
+% Vecteur vitesse
+ \newcommand{\vectv}[3]{%
+\vect{V_{{#2}/{#3}}}\left( {#1}\right)
+}
+
+% Vecteur force
+\newcommand{\vectf}[2]{%
+\vect{R_{ {#1} \rightarrow {#2}}}
+}
+
+% Vecteur moment stat
+\newcommand{\vectm}[3]{%
+\vect{\mathcal{M}_{{#2} \rightarrow {#3}}}    \left( {#1}\right)
+}
+
+
+
+
+% Vecteur résultante cin
+\newcommand{\vectrc}[2]{%
+\vect{R_{c\;{{#1}/ {#2}}}}
+}
+% Vecteur moment cin
+\newcommand{\vectmc}[3]{%
+\vect{\sigma_{{#2}/{#3}}}\left( {#1}\right)
+}
+
+
+% Vecteur résultante dyn
+\newcommand{\vectrd}[2]{%
+\vect{R_{d\;{{#1}/ {#2}}}}
+}
+% Vecteur moment dyn
+\newcommand{\vectmd}[3]{%
+\vect{\delta_{{#2}/{#3}}}\left( {#1}\right)
+}
+
+% Vecteur accélération
+ \newcommand{\vectg}[3]{%
+\vect{\Gamma_{{#2}/{#3}}}\left( {#1}\right)
+}
+
+% Vecteur omega
+ \newcommand{\vecto}[2]{%
+\vect{\Omega_{{#1}/{#2}}}
+}
+% }$$\left\{\mathcal{#1} \right\}_{#2} =%
+% \left\{%
+% \begin{array}{c}%
+%  #3 \\%
+%  #4 %
+% \end{array}%
+% \right\}_{#5}}
+
+
+%% 
+% Boite pour Python
+\usepackage{listingsutf8}
+\lstset{
+	language={Python},
+	columns=flexible,
+	basicstyle=\ttfamily,
+	keywordstyle=\color{blue}, % je voudrais mettre les mots-clÃ© en gras (\bfseries) mais c'est incompatible avec typewriter
+	commentstyle=\color{gray}, % commentaires
+	%backgroundcolor=\color{green!10}, % couleur du fond
+	backgroundcolor=\color{white}, % couleur du fond
+	%frame=single, rulecolor=\color{green!10}, % encadrement + couleur de l'encadrement
+	frame=single, rulecolor=\color{white}, % encadrement + couleur de l'encadrement
+	%numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt,
+	showstringspaces=false, % supprime les espaces apparents dans les lignes de texte
+	stringstyle=\color{red!50}\itshape,
+	inputencoding=utf8,
+	extendedchars=true,
+   literate=
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\EUR}}1 {£}{{\pounds}}1
+}

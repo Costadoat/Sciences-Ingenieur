@@ -1,0 +1,77 @@
+%% Creator: Inkscape inkscape 0.92.5, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'img/fig08.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{437.83302243bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.41930806)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0.90657673,0.35967169){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Puissance \\électrique\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{img/fig08.pdf}}%
+    \put(0.72470002,0.32059652){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Système de \end{tabular}}}}%
+    \put(0.678184236,0.29517564){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}conversion d'énergie\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{img/fig08.pdf}}%
+    \put(0.44383184,0.30906107){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Flotteur\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{img/fig08.pdf}}%
+    \put(0.06281,0.2078218){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Force hydrostatique\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{img/fig08.pdf}}%
+    \put(0.07051008,0.10656813){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Force de radiation\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{img/fig08.pdf}}%
+    \put(0.07879231,0.30742323){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Force d'excitation\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{img/fig08.pdf}}%
+    \put(0.65696034,0.16732234){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Force résistante \end{tabular}}}}%
+    \put(0.66498943,0.14186035){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(coefficient C)\end{tabular}}}}%
+    \put(0.61489682,0.38451381){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$z,\dot{z},\ddot{z}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{img/fig08.pdf}}%
+    \put(0.10709958,0.02556946){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Action de la \end{tabular}}}}%
+    \put(0.13390798,0.00015679){\color[rgb]{0.1372549,0.12156863,0.1254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}houle\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{img/fig08.pdf}}%
+  \end{picture}%
+\endgroup%

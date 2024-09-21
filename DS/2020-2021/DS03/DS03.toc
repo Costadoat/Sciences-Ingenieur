@@ -1,0 +1,26 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{\numberline {I}Présentation}{2}{section.1}%
+\contentsline {section}{\numberline {II}Génération des consignes d'orientation des roues avant et arrière pour le guidage du robot Bakus}{4}{section.2}%
+\contentsline {paragraph}{Objectif}{4}{section*.6}%
+\contentsline {subsection}{\numberline {II.1}Changement de variables ($y_{G_2}$,$\theta $) $\rightarrow $ ($y_F$ , $y_R$)}{4}{subsection.2.1}%
+\contentsline {paragraph}{Objectif}{4}{section*.7}%
+\contentsline {subsection}{\numberline {II.2}Modélisation cinématique étendue du robot}{5}{subsection.2.2}%
+\contentsline {paragraph}{Objectif}{5}{section*.8}%
+\contentsline {subsubsection}{\numberline {II.2.1}Notations et hypothèses}{6}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {II.2.2}Mise en équation du modèle cinématique étendu du robot Bakus}{6}{subsubsection.2.2.2}%
+\contentsline {subsection}{\numberline {II.3}Mesure ou estimation des variables du modèle cinématique étendu}{7}{subsection.2.3}%
+\contentsline {paragraph}{Objectif}{7}{section*.10}%
+\contentsline {subsubsection}{\numberline {II.3.1}Variables mesurées directement par des capteurs dédiés}{7}{subsubsection.2.3.1}%
+\contentsline {paragraph}{Mesure de l'orientation des roues}{7}{section*.11}%
+\contentsline {paragraph}{Mesure des variables cinématiques}{7}{section*.12}%
+\contentsline {subsubsection}{\numberline {II.3.2}Variables estimées par analyse d'images des huit caméras TOF du robot}{8}{subsubsection.2.3.2}%
+\contentsline {section}{\numberline {III}Optimisation énergétique du mouvement de retrait d'une lame décavaillonneuse, choix d'un actionneur et conception de sa com- mande}{8}{section.3}%
+\contentsline {paragraph}{Objectif}{8}{section*.13}%
+\contentsline {subsection}{\numberline {III.1}Modélisation du mouvement des lames, tracé numérique des relations entre paramètres géométriques d'entrée et de sortie puis estimation de la puissance épargnée}{9}{subsection.3.1}%
+\contentsline {paragraph}{Objectif}{9}{section*.15}%
+\contentsline {subsection}{\numberline {III.2}Écriture de la loi entrée/sortie géométrique}{9}{subsection.3.2}%
+\contentsline {section}{\numberline {IV}Implantation l'actionneur}{10}{section.4}%
+\contentsline {subsection}{\numberline {IV.1}Commande de l'actionneur}{10}{subsection.4.1}%
+\contentsline {paragraph}{Objectif}{10}{section*.16}%
+\contentsline {section}{\numberline {V}Modélisation volumique}{10}{section.5}%
+\contentsline {section}{\numberline {VI}Annexes}{11}{section.6}%

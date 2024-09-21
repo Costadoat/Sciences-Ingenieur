@@ -1,0 +1,200 @@
+% Paquets généraux
+\documentclass[a4paper,12pt,titlepage]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[french]{babel}
+\usepackage[gen]{eurosym}
+%\usepackage[dvips]{graphicx}
+\usepackage{fancyhdr}
+\usepackage{pdfpages} 
+\usepackage{multido}
+\usepackage{hyperref}
+%\usepackage{textcomp}
+%\usepackage{aeguill}
+\usepackage{schemabloc}
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage{pstricks}
+\usepackage{helvet}
+
+
+\newcommand{\id}{83}
+\newcommand{\nom}{DS07 Chariot de conditionnement de bobine}
+
+
+
+\newcommand{\auteurun}{Françoise Puig et Renaud Costadoat}
+\newcommand{\institute}{Lycée Dorian}
+
+
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+%\usepackage{xspace}
+\usepackage{varioref}
+\usepackage{tabularx}
+%\usepackage{floatflt}
+\usepackage{graphics}
+\usepackage{wrapfig}
+\usepackage{textcomp}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage{gensymb}
+\usepackage[european]{circuitikz}
+\usetikzlibrary{babel}
+\usepackage{ifthen}
+\usepackage{cancel}
+\usepackage{etoolbox}
+\usepackage{multirow}
+%\usepackage{boxedminipage}
+\definecolor{gris25}{gray}{0.75}
+\definecolor{bleu}{RGB}{18,33,98}
+\definecolor{bleuf}{RGB}{42,94,171}
+\definecolor{bleuc}{RGB}{231,239,247}
+\definecolor{rougef}{RGB}{185,18,27}
+\definecolor{rougec}{RGB}{255,188,204}%255,230,231
+\definecolor{vertf}{RGB}{103,126,82}
+\definecolor{vertc}{RGB}{220,255,191}
+\definecolor{forestgreen}{rgb}{0.13,0.54,0.13}
+\definecolor{blcr}{rgb}{0.59,0.69,0.84}
+\definecolor{blfr}{rgb}{0.32,0.51,0.75}
+\definecolor{orfr}{rgb}{0.90,0.42,0.15}
+\definecolor{orcr}{rgb}{0.90,0.65,0.50}
+\definecolor{orangef}{rgb}{0.659,0.269,0.072}
+\definecolor{orange}{rgb}{0.58,0.35,0.063}
+\definecolor{orangec}{rgb}{0.43,0.32,0.25}
+\definecolor{rcorrect}{rgb}{0.6,0,0}
+\definecolor{sequence}{rgb}{0.75,0.75,0.75}
+\definecolor{competences}{rgb}{0.61,0.73,0.35}
+\definecolor{grisf}{HTML}{222222}
+\definecolor{grisc}{HTML}{636363}
+\definecolor{normal}{HTML}{4087c4}
+\definecolor{info}{HTML}{5bc0de}
+\definecolor{success}{RGB}{92,184,92}
+\definecolor{warning}{RGB}{240,173,78}
+\definecolor{danger}{RGB}{217,83,79}
+\hypersetup{                    % parametrage des hyperliens
+    colorlinks=true,                % colorise les liens
+    breaklinks=true,                % permet les retours à la ligne pour les liens trop longs
+    urlcolor= blfr,                 % couleur des hyperliens
+    linkcolor= orange,                % couleur des liens internes aux documents (index, figures, tableaux, equations,...)
+    citecolor= forestgreen                % couleur des liens vers les references bibliographiques
+    }
+
+% Mise en page
+\pagestyle{fancy}
+
+\setlength{\hoffset}{-18pt}
+
+\setlength{\oddsidemargin}{0pt} 	% Marge gauche sur pages impaire2s
+\setlength{\evensidemargin}{0pt} 	% Marge gauche sur pages paires
+\setlength{\marginparwidth}{00pt} 	% Largeur de note dans la marge
+\setlength{\headwidth}{481pt} 	 	% Largeur de la zone de tête (17cm)
+\setlength{\textwidth}{481pt} 	 	% Largeu\textbf{r de la zone de texte (17cm)
+\setlength{\voffset}{-18pt} 		% Bon pour DOS
+\setlength{\marginparsep}{7pt}	 	% Séparation de la marge
+\setlength{\topmargin}{-30pt} 		% Pas de marge en haut
+\setlength{\headheight}{55pt} 		% Haut de page
+\setlength{\headsep}{20pt} 		% Entre le haut de page et le texte
+\setlength{\footskip}{30pt} 		% Bas de\textbf{ page + séparation
+\setlength{\textheight}{700pt} 		% Hauteur de l'icone zone de texte (25cm)
+\setlength\fboxrule{1 pt}
+\renewcommand{\baselinestretch}{1}
+\setcounter{tocdepth}{1}
+\newcommand{\cadre}[2]
+{\fbox{
+  \begin{minipage}{#1\linewidth}
+   \begin{center}
+    #2\\
+   \end{center}
+  \end{minipage}
+ }
+}
+
+\newcommand{\reponse}[1][4]
+{
+\multido{}{#1}
+{\begin{center}\makebox[0.9\linewidth]{}  \\
+\begin{center}\makebox[0.9\linewidth]{\dotfill} \\ \end{center}
+}}
+
+\newcommand{\titre}[1]
+{\begin{center}
+\cadre{0.8}{\huge #1} 
+\end{center}
+}
+
+
+% En tête et pied de page
+\lhead{\nom}
+\rhead{\includegraphics[width=2cm]{img/logo}}
+\lfoot{Renaud Costadoat}
+\cfoot{Page \thepage}
+
+\fancypagestyle{correction}{%
+  \fancyhf{}
+  \lhead{\colorbox{danger}{\begin{minipage}{0.65\paperwidth} \textcolor{white}{\textbf{Correction}} \end{minipage}} }
+  \rhead{\includegraphics[width=2cm]{../../img/logo}}
+  \lfoot{Renaud Costadoat}
+  \rfoot{\colorbox{danger}{\begin{minipage}{0.6\paperwidth} \begin{flushright}\textcolor{white}{\textbf{Correction}}\end{flushright} \end{minipage}} }}
+
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+
+\begin{document}
+
+\begin{center}
+{\Huge Document d'aide au sujet}
+\end{center}
+
+\section{Notice}
+
+\paragraph{Question 4:} Les angles $\theta_E$ sont choisis entre l'horizontale $(A_RB_T)$ et la droite $(A_RG_{GB-T})$ lors de l'évacuation.
+
+\paragraph{Question 9:} Il ne faut pas comprendre que le système est isostatique (il ne l'est pas) mais le modèle que l'on choisit isostatique.
+
+\paragraph{Question 14:} Dans le cas d'un ensemble rigide composé de $n$ sous-ensembles dont les centres de gravité sont $G_i$ et les poids $p_i$, le centre de gravité de l'ensemble est le barycentre des centres de gravité $G_i$ pondérés par les poids $p_i$: $\overrightarrow{OG}=\dfrac{1}{p}.\sum_{i=1}^{n}p_i.\overrightarrow{OG_i}$
+où $p$ est le poids total, $p=\sum p_i$.
+
+\paragraph{Question 50:} Zone 1: Il est demandé de compléter le dessin des pièces 16 et 25, elles sont liées par une liaison encastrement grâce au moyeu expansible.
+
+Les ajustements nécessaires à l'assemblage doivent être indiqués sur le dessin. Si vous ne vous rappelez pas de leur désignation, indiquez:
+\begin{itemize}
+ \item serré,
+ \item avec jeu,
+ \item jeu incertain.
+\end{itemize}
+
+\paragraph{Question 51:} Il est demandé de compléter la pièce \og profilé châssis \fg qui est mécano soudé. Il faudra mettre en place des coussinets à collerette afin de guider la pièce 12. Une pièce doit être conçue afin de maintenir le coussinet du bas.
+
+Les ajustements nécessaires à l'assemblage doivent être indiqués sur le dessin. Si vous ne vous rappelez pas de leur désignation, indiquez:
+\begin{itemize}
+ \item serré,
+ \item avec jeu,
+ \item jeu incertain.
+\end{itemize}
+
+\paragraph{Question 52:} Il faut
+\begin{itemize}
+ \item concevoir le cylindre mécano-soudé 6,
+ \item concevoir le montage de roulements entre 6 et 3. Sur cette vue, seulement un des deux roulements est présenté. Le montage est en X et n'est pas serré sur l'arbre,
+ \item concevoir le montage de roulements entre 6 et 1. Sur cette vue, seulement un des deux roulements est présenté. Le montage est en X et n'est pas serré sur l'arbre,
+ \item concevoir une solution d'assemblage par vis/écrou pour fixer 9 à 3 et 8 à 1.
+\end{itemize}
+
+
+
+
+
+Les ajustements nécessaires à l'assemblage doivent être indiqués sur le dessin. Si vous ne vous rappelez pas de leur désignation, indiquez:
+\begin{itemize}
+ \item serré,
+ \item avec jeu,
+ \item jeu incertain.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,21 @@
+\babel@toc {french}{}
+\contentsline {section}{\numberline {1}Pr\IeC {\'e}sentation du support}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Description du robot SPHERO}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Manipulation et d\IeC {\'e}placement du robot SPHERO}{2}{subsection.1.2}
+\contentsline {section}{\numberline {2}\IeC {\'E}tude pr\IeC {\'e}liminaire et respect de l'exigence 2 de maniabilit\IeC {\'e}}{3}{section.2}
+\contentsline {section}{\numberline {3}Interfa\IeC {\c c}age utilisateur / Sphero (exigence 1 de contr\IeC {\^o}le)}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Pr\IeC {\'e}sentation de la technologie des \IeC {\'e}crans tactiles capacitifs}{5}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Interface graphique et respect de l'exigence 1}{6}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Consignes utilisateur}{7}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Architecture d\IeC {\'e}taill\IeC {\'e}e du robot Sphero}{7}{subsection.3.4}
+\contentsline {section}{\numberline {4}Architecture d\IeC {\'e}taill\IeC {\'e}e du robot Sphero}{8}{section.4}
+\contentsline {section}{\numberline {5}D\IeC {\'e}placement et r\IeC {\'e}glage de cap du robot Sphero}{9}{section.5}
+\contentsline {subsection}{\numberline {5.1}Mod\IeC {\'e}lisation et param\IeC {\'e}trage}{9}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Comportement des actionneurs pour un changement de cap}{12}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Comportement des actionneurs pour un d\IeC {\'e}placement en ligne droite}{12}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Vitesse d\IeC {\textquoteright }avance et respect de l\IeC {\textquoteright }exigence 2.3 de d\IeC {\'e}placement}{13}{subsection.5.4}
+\contentsline {section}{\numberline {6}Performances en changement de cap du Sphero (exigence 2.1 de suivi de cap}{13}{section.6}
+\contentsline {subsection}{\numberline {6.1}Optimisation de la commande de lacet}{16}{subsection.6.1}
+\contentsline {section}{\numberline {7}\IeC {\'E}tude de sp\IeC {\'e}cifications}{17}{section.7}
+\contentsline {section}{\numberline {8}Montage de roulements}{17}{section.8}
+\contentsline {section}{\numberline {9}Documents r\IeC {\'e}ponse}{19}{section.9}

@@ -1,0 +1,151 @@
+%%%%%%%%%%%%
+% Définition des vecteurs 
+%%%%%%%%%%%%
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+\newcommand{\axe}[2]{\left(#1,\vect{#2}\right)}
+\newcommand{\couple}[2]{\left(#1,\vect{#2}\right)}
+\newcommand{\angl}[2]{\left(\vect{#1},\vect{#2}\right)}
+
+\newcommand{\rep}[1]{\mathcal{R}_{#1}}
+\newcommand{\quadruplet}[4]{\left(#1;#2,#3,#4 \right)}
+\newcommand{\repere}[4]{\left(#1;\vect{#2},\vect{#3},\vect{#4} \right)}
+\newcommand{\base}[3]{\left(\vect{#1},\vect{#2},\vect{#3} \right)}
+
+
+\newcommand{\vx}[1]{\vect{x_{#1}}}
+\newcommand{\vy}[1]{\vect{y_{#1}}}
+\newcommand{\vz}[1]{\vect{z_{#1}}}
+
+% d droit pour le calcul différentiel
+\newcommand{\dd}{\text{d}}
+
+\newcommand{\inertie}[2]{I\left({#1}, #2\right)}
+\newcommand{\matinertie}[7]{
+\begin{pmatrix}
+#1 & #6 & #5 \\
+#6 & #2 & #4 \\
+#5 & #4 & #3 \\
+\end{pmatrix}_{#7}}
+%%%%%%%%%%%%
+% Définition des torseurs 
+%%%%%%%%%%%%
+
+\newcommand{\ec}[2]{%
+\mathcal{E}_{c\;\left(#1/#2\right)}}
+
+\newcommand{\pext}[3]{%
+\mathcal{P}_{\left(#1\rightarrow#2/#3\right)}}
+
+\newcommand{\pint}[3]{%
+\mathcal{P}_{\left(#1 \stackrel{\text{#3}}{\leftrightarrow} #2\right)}}
+
+
+ \newcommand{\torseur}[1]{%
+\left\{{#1}\right\}
+}
+
+\newcommand{\torseurcin}[3]{%
+\left\{\mathcal{#1} \left(#2/#3 \right) \right\}
+}
+
+\newcommand{\torseurci}[2]{%
+\left\{\sigma \left(#1/#2 \right) \right\}
+}
+\newcommand{\torseurdyn}[2]{%
+\left\{\mathcal{D} \left(#1/#2 \right) \right\}
+}
+
+
+\newcommand{\torseurstat}[3]{%
+\left\{\mathcal{#1} \left(#2\rightarrow #3 \right) \right\}
+}
+
+
+ \newcommand{\torseurc}[8]{%
+%\left\{#1 \right\}=
+\left\{
+{#1}
+\right\}
+ = 
+\left\{%
+\begin{array}{cc}%
+{#2} & {#5}\\%
+{#3} & {#6}\\%
+{#4} & {#7}\\%
+\end{array}%
+\right\}_{#8}%
+}
+
+ \newcommand{\torseurcol}[7]{
+\left\{%
+\begin{array}{cc}%
+{#1} & {#4}\\%
+{#2} & {#5}\\%
+{#3} & {#6}\\%
+\end{array}%
+\right\}_{#7}%
+}
+
+ \newcommand{\torseurl}[3]{%
+%\left\{\mathcal{#1}\right\}_{#2}=%
+\left\{%
+\begin{array}{l}%
+{#1} \\%
+{#2} %
+\end{array}%
+\right\}_{#3}%
+}
+
+% Vecteur vitesse
+ \newcommand{\vectv}[3]{%
+\vect{V_{{#2}/{#3}}}\left( {#1}\right)
+}
+
+% Vecteur force
+\newcommand{\vectf}[2]{%
+\vect{R_{ {#1} \rightarrow {#2}}}
+}
+
+% Vecteur moment stat
+\newcommand{\vectm}[3]{%
+\vect{\mathcal{M}_{{#2} \rightarrow {#3}}}    \left( {#1}\right)
+}
+
+
+
+
+% Vecteur résultante cin
+\newcommand{\vectrc}[2]{%
+\vect{R_{c\;{{#1}/ {#2}}}}
+}
+% Vecteur moment cin
+\newcommand{\vectmc}[3]{%
+\vect{\sigma_{{#2}/{#3}}}\left( {#1}\right)
+}
+
+
+% Vecteur résultante dyn
+\newcommand{\vectrd}[2]{%
+\vect{R_{d\;{{#1}/ {#2}}}}
+}
+% Vecteur moment dyn
+\newcommand{\vectmd}[3]{%
+\vect{\delta_{{#2}/{#3}}}\left( {#1}\right)
+}
+
+% Vecteur accélération
+ \newcommand{\vectg}[3]{%
+\vect{\Gamma_{{#2}/{#3}}}\left( {#1}\right)
+}
+
+% Vecteur omega
+ \newcommand{\vecto}[2]{%
+\vect{\Omega_{{#1}/{#2}}}
+}
+% }$$\left\{\mathcal{#1} \right\}_{#2} =%
+% \left\{%
+% \begin{array}{c}%
+%  #3 \\%
+%  #4 %
+% \end{array}%
+% \right\}_{#5}}

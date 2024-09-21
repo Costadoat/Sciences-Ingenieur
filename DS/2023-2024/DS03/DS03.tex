@@ -1,0 +1,899 @@
+\input{../../../headers/dsheaders.tex}
+
+\paragraph{Présentation générale} ~\ \\
+
+Ces dernières années, l'intérêt pour les dispositifs robotiques automatisés pour l'entraînement à la marche pour les patients atteints de troubles locomoteurs d'origines diverses s'est développé.
+
+Le Lokomat\textregistered\ fait partie des premiers outils associant une rééducation sur tapis roulant avec allègement corporel à une orthèse robotisée pour les membres inférieurs. Cet outil a été principalement développé afin de pallier l'insuffisance motrice des membres inférieurs chez des patients présentant des troubles de la marche.
+
+L'orthèse permet de positionner et de soutenir le patient dans sa verticalité, ce qui présente une utilité avérée pour les sujets se déplaçant majoritairement en fauteuil roulant à cause, par exemple, de leur insuffisance musculaire. Le but principal de cet outil est de travailler sur le schéma de marche dans sa totalité afin d'en améliorer la qualité, la performance et l'efficience et ainsi de permettre une meilleure autonomie du patient lors de ses déplacements quotidiens.
+
+Cette méthode de rééducation se fonde principalement sur un processus d'automatisation du mouvement cyclique, permettant ainsi un (ré)apprentissage sensorimoteur actif et progressif pour le patient. Ce processus se caractérise par des programmes adaptés de (ré)apprentissage des différentes phases de marche et des différents paramètres locomoteurs (vitesse de marche, cadence, longueur et symétrie des pas, etc.).
+
+Le travail par répétition intensive du cycle locomoteur permet également, outre la récupération d'une marche autonome, un renforcement musculaire, cardiovasculaire et respiratoire important. En effet, la rééducation intensive et répétitive consiste à réaliser une activité ciblée avec un nombre élevé de répétitions modulables dans des conditions qui en augmentent la charge comparativement à l'intensité habituellement proposée.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.55\linewidth]{img/fig01}
+\end{center}
+\caption{\label{fig01} Lokomat\textregistered }
+\end{figure}
+
+\newpage
+
+\paragraph{Description de l'outil}
+
+Le Lokomat\textregistered\ se compose (figures \ref{fig01} et \ref{fig02}) :
+\begin{itemize}
+ \item d'un exosquelette motorisé et programmable à 2 articulations (hanches et genoux). L'exosquelette est composé de capteurs intégrés au moteur au niveau des articulations, mesurant ainsi en permanence le degré d'amplitude articulaire, le degré de participation ou de résistance du patient au cours des cycles de marche. Les mouvements locomoteurs sont donc guidés par l'exosquelette. La programmation de l'orthèse se fait selon la vitesse du tapis roulant
+et selon le temps des phases de marche correspondant progressivement au schéma de marche normalisée,
+\item d'un harnais de suspension assurant un allègement réglable du poids du corps du patient. Cet allègement corporel, de 40\% du poids du corps au maximum, permet de pallier le déficit musculaire du patient tout en gardant une stimulation sensitive suffisante. Au fil des séances et selon les capacités fonctionnelles du patient, l'allègement est progressivement diminué,
+ \item d'un tapis roulant de marche motorisé proposant une vitesse de déplacement de 0,5 à 5 km/h. Le tapis roulant est synchronisé avec les mouvements articulaires de l'exosquelette. Sa vitesse peut être ajustée au cours de la séance et/ou variée de façon aléatoire proposant ainsi, lors des
+exercices, une fréquence de marche adaptable,
+ \item de deux écrans :
+ \begin{itemize}
+  \item l'un permettant au rééducateur de visualiser et de contrôler chaque articulation (feedback visuel) gauche et droite de l'exosquelette, et d'intervenir sur les différents exercices à proposer au patient en fonction de ses capacités,
+  \item l'autre proposant une interface entre le patient et les mouvements de l'exosquelette via des exercices spécifiques sous forme de jeux interactifs.
+ \end{itemize}
+\end{itemize}
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/fig02}
+\end{center}
+\caption{\label{fig02} Sous-ensembles constitutifs du Lokomat\textregistered }
+\end{figure}
+
+L'objectif principal du système est de reproduire un geste le plus naturellement possible, de manière répétitive et identique. Le thérapeute est en mesure de créer une séance sur mesure pour le patient en adaptant l'exosquelette en termes de vitesse de marche, de poids supporté par le patient et ainsi du poids compensé par la machine.
+
+L'objectif final est de permettre au patient de retrouver une capacité de marche autonome. Enfin, la prise en charge complète par la machine permet au thérapeute de se focaliser entièrement sur le patient et sa progression plutôt que sur son maintien en position debout.
+
+Une séance de rééducation type dure environ une heure au cours de laquelle le thérapeute reste aux côtés du patient pour l'encourager et le guider. L'exosquelette permet une marche très verticale, robotisée et donc répétitive, c'est cette répétition qui lui donne tout son intérêt par rapport à une
+technique traditionnelle. Au fur et à mesure des séances, la diminution contrôlée de l'assistance passive encourage le patient à participer davantage.
+
+Dans ce sujet, on s'attachera à valider certaines performances qui caractérisent la capacité de l'exosquelette du Lokomat\textregistered\ à permettre au patient d'effectuer certains mouvements de manière répétitive.
+
+\section{Exigence fonctionnelle \og Limiter l'amplitude articulaire\fg}
+
+\paragraph{Objectif global :} vérifier la capacité de l'exosquelette à reproduire un comportement similaire du
+point de vue de l'amplitude articulaire des hanches lors de la marche normale.
+
+\begin{figure}[ht!]
+\begin{tabular}{|m{.44\textwidth}|m{.29\textwidth}|m{.25\textwidth}|}\hline
+Exigence & Critères d'appréciation & Niveau \\
+\hline
+Limiter l'amplitude articulaire de & Plage angulaire flexion & $\theta_{flex}\in\left[0\degree,15\degree\right]$\\
+la hanche & Plage angulaire extension & $\theta_{ext}\in\left[-15\degree,0\degree\right]$\\
+\hline
+\end{tabular}
+\caption{\label{fig03} Extrait du cahier des charges associé à l'exigence
+\og Limiter l'amplitude articulaire de la hanche \fg}
+\end{figure}
+
+\subsection{Étude préliminaire}
+
+\paragraph{Objectif :} analyser et valider une modélisation de l'exosquelette.
+
+~\
+
+L'annexe 1 donne l'architecture générale de l'exosquelette. Les deux articulations sont identiques et constituées des éléments principaux suivants :
+\begin{itemize}
+ \item un moteur à courant continu équipé d'un réducteur permet de piloter le reste du mécanisme,
+ \item à chaque articulation, un capteur de position angulaire est placé dans l'axe articulaire et un capteur de force axiale, traction et compression, se situe à l'extrémité de la vis,
+ \item des butées mécaniques amovibles limitent la plage articulaire en fonction des recommandations médicales relatives aux restrictions articulaires du patient. Sans restriction, elles limitent la course angulaire physiologique totale admissible,
+ \item des systèmes coulissants permettent d'ajuster les longueurs des segments de la cuisse, de la jambe et du pied. Ces réglages sont manuels et maintenus par des vis de fixation. Le système de réglage des longueurs de la cuisse et de la jambe est compatible avec l'encombrement linéaire et pendulaire des vis de mouvement. L'exosquelette permet ainsi de s'adapter à des personnes de taille comprise entre 150 et 190 cm.
+\end{itemize}
+
+\question{Compléter la chaîne fonctionnelle qui détaille l'organisation structurelle de la motorisation de la hanche.}
+
+\question{À l'aide de l'annexe 2 et des figures \ref{fig04} et \ref{fig05}, désigner et justifier le plan dans lequel est proposé le modèle des membres inférieurs équipés de l'exosquelette. Justifier également le modèle d'étude proposé.}
+
+\begin{figure}[ht!]
+\begin{minipage}{0.45\linewidth}
+\begin{center}
+ \includegraphics[width=0.25\linewidth]{img/fig04}
+\end{center}
+\caption{\label{fig04} Modèle numérique}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+\begin{center}
+ \includegraphics[width=0.5\linewidth]{img/fig05}
+\end{center}
+\caption{\label{fig05} Modèle d'étude}
+\end{minipage}
+\end{figure}
+
+\vspace{-1cm}
+
+\subsection{Caractérisation géométrique de la marche}
+
+La locomotion est régie par une alternance d'appuis réalisés par les jambes sur le sol. Cette alternance est appelée cycle de marche. Le cycle de marche illustré en figure \ref{fig06} se définit par des phases qui s'enchaînent et se répètent. Un cycle correspond à une succession de doubles appuis également appelés \og doubles contacts\fg\ et d'appuis unilatéraux ou \og unipodes\fg , il se décompose en deux phases principales, l'une d'appui et l'autre d'oscillation du membre étudié.
+
+Une illustration de la décomposition du cycle est proposée figure \ref{fig06}.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/fig06}
+\end{center}
+\caption{\label{fig06} Cycle de marche}
+\end{figure}
+
+Par convention, le cycle de marche débute par l'attaque du talon droit et se termine par l'attaque suivante du même talon. Afin de comparer et d'examiner la marche de plusieurs patients, celui-ci est normalisé en pourcentage de la durée du cycle.
+
+
+Le cycle de marche peut être décomposé, en première approximation, comme une succession de phases d'appui (60\%) où les deux pieds sont en contact avec le sol, notées DC pour double contact sur la figure \ref{fig06}, et de phases oscillantes (40\%) où un des deux pieds n'est plus en contact avec le sol (appui unipode).
+
+
+L'évolution de la position angulaire des articulations de la jambe droite,
+lors du cycle de marche, peut être décrite de façon plus précise à l'aide des quatre phases présentées ci-dessous :
+\begin{itemize}
+ \item \textbf{phase 1}, dite phase de mise en charge de la jambe droite. Elle débute lorsque le talon du pied droit entre en contact avec le sol alors que les orteils du pied gauche sont toujours en contact avec le sol. Cela correspond au premier double appui (double contact, DC) ou appui bipodal. Cette phase est dédiée au transfert du poids entre les deux jambes, à l'absorption des chocs et
+à la conservation de la vitesse de marche tout en maintenant l'équilibre,
+ \item \textbf{phase 2}, dite phase d'appui sur la jambe droite. Elle débute lors du décollement des orteils du pied gauche,
+ \item \textbf{phase 3}, cette phase correspond au deuxième double appui (DC). Son rôle est le transfert du poids vers la nouvelle jambe (ici, jambe gauche) en phase d'appui et la propulsion du corps vers l'avant,
+ \item \textbf{phase 4}, phase pendulaire ou oscillante de la jambe droite. Elle débute lors du décollement des orteils du pied droit et doit permettre au membre oscillant de passer devant sans toucher le sol.
+\end{itemize}
+
+Durant ce cycle de marche, le genou joue un rôle prépondérant. Son activité met en évidence cinq phases :
+\begin{itemize}
+ \item \textbf{phase 1} dite d'amorti : elle commence juste après le contact complet avec le sol de la jambe qui se balance, c'est-à-dire, après le contact du talon et des orteils. Dans cette phase, la jambe antérieure supporte le poids intégral du tronc. Le genou antérieur commence à fléchir jusqu'à environ 20° et se comporte comme un ressort comprimé,
+ \item \textbf{phase 2} dite phase de propulsion. Lorsque la compression maximale est atteinte, le genou s'étend jusqu'à son extension maximale. Le genou agit à nouveau comme un ressort de torsion avec une rigidité identique à la première phase,
+ \item \textbf{phase 3} dite de stabilisation : elle est caractérisée par un double appui pendant laquelle la stabilisation de la posture du corps est garantie. En analysant la cinématique du genou, on constate que le genou commence à fléchir à nouveau pour préparer la jambe à l'élan,
+ \item \textbf{phase 4} dite phase oscillante de la jambe droite. Après le décollement du pied, la phase d'élan commence en transférant la jambe devant le corps et la flexion de cette dernière se termine lorsque l'angle du genou atteint environ 60°. Elle se prolonge ensuite jusqu'à ce que le genou de la jambe d'élan soit totalement étiré. Cette phase comprend à la fois la flexion et l'extension
+du genou,
+ \item \textbf{phase 5} dite d'impact du talon. Dès que le genou de la jambe oscillante est verrouillé et que le talon entre en contact avec le sol, la dernière phase commence. Le genou gère alors l'impact du pied lors de la frappe du talon et permet de contrôler le contact complet du pied. Le genou doit être à nouveau rigide pour gérer l'impact du poids du corps.
+\end{itemize} 
+
+L'exosquelette doit permettre de reproduire ce cycle de marche. Il doit permettre de couvrir l'amplitude articulaire nécessaire aux mouvements des différentes articulations.
+
+L'étude proposée se consacre uniquement à la modélisation de l'articulation de la hanche et plus précisément, à l'amplitude articulaire de la hanche. Cette dernière est caractérisée par deux mouvements :
+\begin{itemize}
+ \item la flexion qui emmène la cuisse de l'arrière vers l'avant,
+ \item l'extension qui est le mouvement opposé.
+\end{itemize}
+
+Les mouvements articulaires de la hanche sont illustrés sur l'annexe 2.
+
+Dans cette sous-partie, on adopte un modèle segmentaire des membres inférieurs illustré figure \ref{fig07}.
+
+\begin{figure}[ht!]
+    \begin{subfigure}[b]{0.45\textwidth}
+      \centering\includegraphics[width=.7\textwidth]{img/fig07a}
+      \caption{\label{fig07a} Modèle d'étude}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+      \centering\includegraphics[width=.7\textwidth]{img/fig07b}
+      \caption{\label{fig07b} Figures géométrales}
+    \end{subfigure}
+    \caption{\label{fig07} Modèle segmentaire des membres inférieurs}
+\end{figure}
+  
+Les segments 2 et 2' représentent la partie de l'exosquelette reliée à la cuisse, les segments 3 et 3', aux jambes et les segments 4 et 4' correspondent aux pieds (figure \ref{fig07a}). On se place dans une phase où les articulations liées aux genoux en $O_2$ et $O'_2$ sont inactives et verrouillées en angle. Les
+jambes seront positionnées dans le prolongement des cuisses. On négligera, en première approche, les angles générés par la dorsiflexion de la cheville et la flexion plantaire : les pieds resteront également orthogonaux aux jambes. Les deux segments 4 et 4' seront considérés constamment orthogonaux aux segments 3 et 3'.
+
+Le point $O_1$ représente le centre de rotation des deux membres inférieurs par rapport aux hanches considérées comme fixes. Les points I et I' représentent les points de contact entre chacun des deux pieds et le sol. Les points T et T' correspondent aux talons des pieds 4 et 4'. Les positions angulaires
+des deux membres sont décrites à l'aide des deux paramètres angulaires $\theta_{flex}$ et $\theta_{ext}$ définis par les figures géométrales (figure \ref{fig07b}). Ces angles correspondent à la rotation des deux membres inférieurs dans le cas où le genou et la cheville sont bloqués et n'autorisent aucune flexion.  
+
+\newpage
+
+Données :\\
+\begin{minipage}{0.45\linewidth}
+\begin{itemize}
+ \item $\left(\vec{x_0},\vec{x_{2'}}\right)=\theta_{flex}$,
+ \item $\left(\vec{x_0},\vec{x_2}\right)=\theta_{ext}$,
+ \item $\overrightarrow{O_1T}=-L_1\cdot\vec{y_2}$,
+ \item $\overrightarrow{O_1T'}=-L_2\cdot\vec{y_{2'}}$,
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+\begin{itemize}
+ \item $\overrightarrow{TI}=L_4\cdot\vec{x_2}$,
+ \item $\overrightarrow{IT'}=L\cdot\vec{x_0}$,
+ \item $\overrightarrow{T'I'}=L_4\cdot\vec{x_{2'}}$,
+ \item le patient mesure 1,75m pour 70kg.
+\end{itemize}
+\end{minipage}
+
+~\
+
+La vitesse du tapis 0 est réglée par le praticien de telle manière à respecter la cinématique souhaitée pour l'exosquelette.
+
+
+~\
+
+\question{Donner l'expression de la longueur d'un pas $L_{pas}$ pour une cadence $cad = 85 pas\cdot min^{-1}$ et une vitesse naturelle de $v = 1,20 m\cdot s^{-1}$. Application numérique.}
+
+\question{Déterminer le temps de cycle de marche $T_{cycle}$.}
+
+\question{Écrire la relation vectorielle associée à la fermeture géométrique ($ITO_1T'I$).}
+
+\begin{figure}[ht!]
+    \begin{subfigure}[b]{0.45\textwidth}
+      \centering\includegraphics[width=0.9\textwidth]{img/fig08a}
+      \caption{\label{fig08a} Modèle d'étude}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+      \centering\includegraphics[width=0.9\textwidth]{img/fig08b}
+      \caption{\label{fig08b} Définition d'un pas}
+    \end{subfigure}
+    \caption{\label{fig08} Modèle segmentaire des membres inférieurs}
+\end{figure}
+
+\question{A l'aide d'une projection à énoncer, préciser l'expression de $L$ en fonction de $L_1$, $L_2$, $L_4$, $\theta_{flex}$ et de $\theta_{ext}$. En déduire l'expression du demi-pas postérieur $d_{pas}$, puis de la longueur d'un pas $L_{pas}$ en fonction de $L_1$, $L_2$, $L_4$, $\theta_{flex}$ et de $\theta_{ext}$.}
+
+\newpage
+
+La figure \ref{fig09} présente une série de courbes illustrant le comportement articulaire de la hanche chez un patient sain dans différentes configurations.
+
+\begin{figure}[ht!]
+	\centering\includegraphics[width=0.8\textwidth]{img/fig09a}
+	\centering\includegraphics[width=0.8\textwidth]{img/fig09b}
+    \caption{\label{fig09} Valeurs articulaires de la hanche : valeurs moyennes (trait gras) et écarts-types (trait fin). Les angles frontal et sagittal sont présentés pour le patient sain au cours de la phase d'appui de la marche (a) et la montée d'escaliers (b)}
+\end{figure}
+
+\question{Préciser sur les figures des courbes du DR les phases de flexion et d'extension de la hanche.}
+
+~\
+
+On pourrait montrer (mais cela n'est pas demandé dans cette étude) que dans le cas de la configuration étudiée, $\theta_{flex}=\theta_{ext}$.
+
+~\
+
+Les résultats des \ref{q6} et \ref{q8} permettent d'exprimer $\theta_{flex}$ uniquement en fonction des paramètres géométriques $L_1$, $L_2$, $L_4$ et $L_{pas}$:
+
+\begin{center}
+$\theta_{flex}=arccos\left(-\dfrac{L_4-\frac{1}{2}\cdot L_{pas}}{\sqrt{(L_1+L_2)^2+L_4^2}}\right)-arctan\left(\dfrac{L_1+L_2}{L_4}\right)$
+\end{center}
+
+\question{Déterminer les valeurs numériques $L_1$,$ L_2$, $L_4$ et $L_{pas}$ nécessaires pour déterminer $\theta_{flex}$.}
+%
+%Le Lokomat\textregistered\ est doté d'un écran de contrôle tactile permettant un retour visuel rapide au rééducateur afin d'intervenir directement sur les différents exercices à proposer et de contrôler chaque articulation, gauche et droite, de l'exosquelette en fonction des capacités du patient.
+%
+%L'annexe 3 présente l'interface logiciel assurant les différents réglages de l'exosquelette.
+%
+%\question{Analyser les réglages effectués par le praticien et entourés sur l'annexe 3.}
+%
+%\question{Par le biais de l'interface logiciel, le praticien a la possibilité de limiter l'amplitude articulaire. Indiquer l'intérêt de la présence des butées mécaniques mises en évidence sur l'annexe 1.}
+%
+%~\ \\ ~\
+%
+%Un modèle multiphysique de l'exosquelette est également représenté en annexe 3.
+%
+%La figure \ref{fig10} présente la superposition des résultats obtenus par simulation à l'aide du modèle Simscape de l'annexe 3 (courbe \og Simulation\fg) et ceux obtenus par relevé expérimental (courbe \og Capture\fg) de l'évolution de l'angle de la hanche dans le plan sagittal.
+%
+%\begin{figure}[ht!]
+%\begin{center}
+% \includegraphics[width=0.7\linewidth]{img/fig10}
+%\end{center}
+%\caption{\label{fig10} Évolution de l'angle de la hanche dans le plan sagittal}
+%\end{figure}
+%
+%\question{Au vu des résultats précédents, critiquer le modèle utilisé pour l'exosquelette. Peut-on affirmer que l'exigence \og Limiter l'amplitude articulaire\fg\ est respectée ?}
+
+\newpage
+
+\section{Exigence fonctionnelle \og Assurer le positionnement de la hanche\fg}
+
+
+\paragraph{Objectif :} vérifier que le moteur choisi est en capacité de fournir le couple à la hanche.
+
+Cette partie vise à déterminer l'équation dynamique qui permet d'obtenir le couple moteur en fonction des caractéristiques géométriques dans une phase critique du cycle de marche : la phase où le patient équipé de l'exosquelette est en appui unipode et le genou est verrouillé (phase 4 de
+l'activité du genou).
+
+On suppose donc le patient en appui sur une jambe et l'autre étant tendue. On cherche à obtenir l'équation de mouvement de la jambe oscillante. Le modèle d'étude de l'exosquelette dans cette phase est celui représenté à la figure \ref{fig11}.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.4\linewidth]{img/fig11}
+\end{center}
+\caption{\label{fig11} Schéma cinématique de l'exosquelette lors de la phase oscillante en appui unipodal et genou verrouillé (phase 4 de l'activité du genou)}
+\end{figure}
+
+Le réducteur utilisé est un réducteur de type train épicycloïdal à trois étages. Un schéma cinématique est fourni en figure \ref{fig13}.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/fig13}
+\end{center}
+\caption{\label{fig13} Modèle du train épicycloïdal}
+\end{figure}
+
+On note $D_i$ le diamètre de la roue dentée $i\in[\![0,3]\!]$.
+
+Donner les relations entre les différents diamètres des roues dentées permettant de garantir la coaxialité des planétaires, des couronnes et des porte-satellites.
+
+On donne le nombre de dents $Z_i$ des éléments constitutifs $i$ du premier étage du train épicycloïdal :
+\begin{itemize}
+ \item $Z_0=60$ dents,
+ \item $Z_1=18$ dents,
+ \item $Z_2=45$ dents,
+ \item $Z_3=24$ dents.
+\end{itemize}
+
+\question{Calculer le rapport de transmission du premier étage.}
+
+\question{Les étages étant tous identiques, en déduire le rapport de transmission global du réducteur ainsi que la référence du réducteur choisi à l'aide de l'extrait du catalogue du constructeur Maxon fourni en annexe 4.}
+
+~\
+
+Toutes les articulations de l'exosquelette ont une structure similaire à celle de la hanche dont on rappelle qu'un modèle volumique partiel est donné en annexe 1. Le schéma cinématique de l'articulation de la hanche est représenté figure \ref{fig14}.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/fig14}
+\end{center}
+\caption{\label{fig14} Schéma cinématique de l'articulation de la hanche}
+\end{figure}
+
+Données :
+\begin{itemize}
+ \item $R_1(O,\vec{x_1},\vec{y_1},\vec{z_1})$ repère associé au bâti 1,
+ \item $R_2(B,\vec{x_2},\vec{y_2},\vec{z_2})$ repère associé au stator du moteur 2 en liaison pivot d'axe ($B,\vec{z_1}$) avec le bâti 1 tel que : $(\vec{x_1},\vec{x_2})=\alpha$ et $\overrightarrow{OB}=b\cdot\vec{y_1}$,
+ \item $R_3(B,\vec{x_3},\vec{y_3},\vec{z_3})$ repère associé à l'écrou 3 en liaison pivot d'axe ($B,\vec{x_3}$) avec le stator du moteur 2 tel que $(\vec{y_2},\vec{y_3})=\beta$,
+ \item $R_4(C,\vec{x_4},\vec{y_4},\vec{z_4})$ repère associé à la vis 4 tel que
+$\overrightarrow{BC}=x\cdot \vec{x_4}$,
+ \item $R_5(A,\vec{x_5},\vec{y_5},\vec{z_5})$ repère associé au segment de la cuisse 5 en liaison pivot d'axe ($A,\vec{z_1}$) avec le stator du moteur 2 tel que : $\left(\vec{x_1},\vec{x_5}\right)=\theta$, $\overrightarrow{OA}=a\cdot\vec{x_1}$,$\overrightarrow{AC}=c\cdot \vec{x_5}$,
+ \item pas de la vis : noté $p$ (filet à droite),
+ \item en position initiale, la distance $x$ est notée $x_0$ et l'angle $\beta=0$.
+\end{itemize}
+ 
+\question{Exprimer le paramètre $x$ en fonction du paramètre d'entrée $\beta$.}
+
+\question{À l'aide de la fermeture géométrique (OBCAO), donner la relation liant les paramètres du mécanisme de mise en mouvement de la hanche sous la forme : $\beta = f(\theta)$.}
+
+\section{Exigence fonctionnelle \og Assurer le déchargement corporel \fg}
+
+\paragraph{Objectif global :} vérifier que le système de décharge corporelle actif permet de réaliser un contrôle en boucle fermée de la force de décharge, soit pour maintenir un niveau de décharge constant durant le cycle de marche qui tient compte des mouvements dynamiques de la masse supportée,soit pour moduler cette décharge en fonction du cycle de marche.
+
+\subsection{Présentation du système de décharge corporelle}
+
+Un système de décharge corporelle (BWS : body weight support) actif a été conçu afin de contrôler précisément et de façon dynamique la force de soutien transmise aux bretelles du harnais. Ce BWS est constitué des éléments suivants (figure \ref{fig16}) :
+\begin{itemize}
+ \item un mécanisme de suspension du harnais possédant 4 degrés de liberté afin de suivre les mouvements du bassin antéro-postérieur, verticaux, l'obliquité et la rotation,
+ \item un treuil motorisé enroulant un câble dont l'extrémité est attachée au système de suspension,
+ \item un capteur de force mesurant la tension dans le câble,
+ \item quatre ressorts de traction placés en parallèle exerçant une traction sur le câble de liaison qui s'enroule sur le treuil. La force des ressorts agit en contre-réaction à la force de décharge corporelle, ce qui diminue le moment moteur. Dans ce cas, le moteur doit compenser uniquement les moments dûs à la dynamique du mouvement corporel vertical et aux variations de force du ressort induit par sa constante,
+ \item un système de variation de la longueur des ressorts pour régler la charge de contre-réaction,
+ \item un système de renvoi d'angle constitué de deux pignons coniques, l'un positionné sur l'arbre de sortie du moteur électrique et l'autre en bout de vis à billes.
+\end{itemize}
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/fig16}
+\end{center}
+\caption{\label{fig16} Constituants internes du système de décharge corporelle}
+\end{figure}
+
+\subsection{Étude de l'architecture générale du système de décharge corporelle}
+
+\paragraph{Objectif :} évaluer les efforts mécaniques dus aux ressorts.
+
+\question{À partir de la figure \ref{fig16}, compléter, sur le DR, le schéma cinématique du système interne constituant le mécanisme de décharge corporelle.}
+
+On donne le graphe des liaisons associé au sous-ensemble S = \{vis, colonnes de guidage, support inférieur\} sur la figure \ref{figgraphe_liaison}.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.4\linewidth]{img/graphe_liaison.png}
+\end{center}
+\caption{\label{figgraphe_liaison} Graphe de liaison du sous-ensemble S}
+\end{figure}
+
+\question{Déterminer le degré d'hyperstatisme du sous-système S.}
+
+\question{Donner la conséquence de ce degré d'hyperstatisme, que faut-il prévoir sur le système ?}
+
+\question{On souhaite modéliser le comportement des 4 ressorts identiques de raideur k par un seul ressort de raideur équivalente $k_{eq}$. En justifiant de manière rigoureuse votre démarche, donner l'expression de $k_{eq}$ en fonction de k.}
+
+\question{Déterminer l'expression de l'effort $F_R$ développé par le ressort équivalent dans le cas d'un déplacement vertical noté y du centre de gravité du patient, l'effort $F_R$ étant nul pour un déplacement y nul.}
+
+~\
+
+La figure \ref{fig17} présente l'évolution minimale (courbe en trait fin continu) et maximale (courbe en trait gras discontinu) du centre de gravité dans le plan sagittal au cours d'un cycle de marche constatée expérimentalement sur plusieurs patients. Les traits fins verticaux représentent les instants de contact initial et de lever des orteils et les pointillés définissent le milieu de la phase de simple appui.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/fig17}
+\end{center}
+\caption{\label{fig17} Évolution de la position du centre de gravité dans le plan sagittal en fonction de l'allure}
+\end{figure}
+
+\question{À partir des différentes courbes de la figure \ref{fig17}, déterminer l'effort maximal $F_R$ réel disponible sachant que la raideur de chacun des ressorts est de $k=2kN\cdot m^{-1}$.}
+
+\subsection{Étude de l'asservissement de l'effort de contre-réaction du ressort $F_R$}
+
+Le moteur utilisé est un moteur MAXON référence RE40-148877.
+
+\paragraph{Objectif :} vérifier la performance du système en termes de précision.
+
+\begin{figure}[ht!]
+\begin{tabular}{|m{.44\textwidth}|m{.29\textwidth}|m{.25\textwidth}|}\hline
+Exigence & Critères d'appréciation & Niveau \\
+\hline
+Limiter l'erreur en régime permanent & $\varepsilon_1$ : erreur indicielle
+& $\varepsilon_1<2\%\ de\ F_{cons}$ \\
+de l'asservissement de l'effort $F_R$ & $\varepsilon_2$ : erreur de poursuite
+& $\varepsilon_2<5\%\ de\ F_{cons}$ \\
+\hline
+\end{tabular}
+\caption{\label{fig18} Extrait du cahier des charges associé à l'exigence \og Limiter l'erreur en régime permanent de l'asservissement de l'effort de contre-réaction du ressort \fg}
+\end{figure}
+
+L'organisation de l'asservissement est décrite par la figure \ref{fig19}.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=.95\linewidth]{img/fig19}
+\end{center}
+\caption{\label{fig19} Organisation structurelle de l'asservissement de l'effort $F_R$}
+\end{figure}
+
+\newpage
+
+On note:
+\begin{itemize}
+ \item $U_{cons}$ : tension de commande, image de la consigne de $F_R$,
+ \item $F_R$ : force de contre-réaction du ressort.
+\end{itemize}
+
+Cet asservissement peut être représenté par le schéma-blocs (figure \ref{fig20}) :
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=\linewidth]{img/fig20}
+\end{center}
+\caption{\label{fig20} Schéma-blocs de l'asservissement}
+\end{figure}
+
+\begin{itemize}
+ \item $T_1$ : fonction de transfert du hacheur avec : $T_1(p)=\frac{U(p)}{U_{var}(p)}=K_1=10$,
+ \item $T_7$ : fonction de transfert d'un intégrateur : elle permet de passer d'une vitesse linéaire $V_{vis}$ à une distance D,
+ \item $T_9$ : fonction de transfert du capteur : $T_9(p)=\frac{U_{capt}(p)}{F_R(p)}=K_9=10mV/N$.
+\end{itemize}
+ 
+On rappelle les équations qui caractérisent le comportement des moteurs à courant continu :
+\begin{center}
+$\left\{\begin{array}{l}
+U(t)=R\cdot i(t) + L\cdot\frac{di(t)}{dt}+e(t)\\
+e(t)=k_v\cdot \omega_{mot}(t)\\
+J\cdot\frac{d\omega_{mot}(t)}{dt}=M_m(t)-C_{rest}(t)\\
+M_m(t)=k_i\cdot I_{mot}(t)
+\end{array}\right.$
+\end{center}
+
+Avec :\\
+\begin{minipage}{0.45\linewidth}
+\begin{itemize}
+ \item $R$ : résistance de l'induit,
+ \item $L$ : inductance de l'induit,
+ \item $k_v$ : constante de vitesse,
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+\begin{itemize}
+ \item $k_i$ : constante de couple,
+ \item $J$ : le moment d'inertie équivalent à tout le système en mouvement ramené sur l'arbre moteur. Les frottements sont négligés.
+\end{itemize}
+\end{minipage}
+
+
+\question{Exprimer littéralement les fonctions de transfert $T_2(p)$, $T_3(p)$,$T_4(p)$ et $T_{10}(p)$ des paramètres des équations temporelles précédentes.}
+
+\question{Exprimer littéralement $T_{mot}(p)=\frac{\Omega(p)}{U(p)}$ pour $C_{rest}(p)=0$.}
+
+~\
+
+La raideur du ressort a pour valeur : $K_{eq}=8N\cdot mm^{-1}$. Le pas de la vis à bille : $p_{vis}=4mm$.
+
+Le rapport de réduction du motoréducteur est de : $i_r=66$.
+
+\question{Exprimer littéralement et numériquement les fonctions de transferts :
+$T_5(p)$, $T_6(p)$, $T_7(p)$ et $T_8(p)$.}
+
+~\ \\ ~\
+
+L'asservissement de l'effort de contre-réaction du ressort doit se faire sur une plage comprise entre 0 N et 1 000 N.
+
+\question{Montrer que la fonction de transfert en boucle fermée est de la forme:
+$H_{BF}(p)=\dfrac{F_R(p)}{U_{cons}(p)}=\dfrac{\frac{1}{K_9}}{1+\frac{1+\tau_1\cdot p+\tau_2\cdot p^2}{K_9\cdot \tau_3}\cdot p}$. En déduire, $\tau_1$, $\tau_2$ et $\tau_3$.}
+
+\question{À partir de $H_{BF}(p)$ et du schéma-blocs (figure \ref{fig20}), déterminer littéralement la fonction de transfert $H_1(p)=\dfrac{U_{var}(p)}{U_{cons}(p)}$ en fonction de $\tau_1$, $\tau_2$, $\tau_3$ et $K_9$.}
+
+~\
+
+Dans le but de pouvoir comparer deux grandeurs de même nature : $F_{cons}(p)$ et $F_R(p)$, on modifie le schéma bloc de la figure \ref{fig20} pour obtenir celui de la figure \ref{fig21}.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=\linewidth]{img/fig21}
+\end{center}
+\caption{\label{fig21} Schéma-blocs avec en entrée $F_{cons}$}
+\end{figure}
+
+\question{Déterminer $U_{var}(p)$ en fonction de $U_{cons}(p)$, $F_R(p)$ et de $K_9$ à partir de la figure \ref{fig20} et en fonction de $F_{cons}(p)$, $F_R(p)$ et de $K_9$ à partir de la figure \ref{fig21}. En déduire $U_{cons}(p)$ en fonction de $F_{cons}(p)$.}
+
+\question{Déterminer littéralement la fonction de transfert $H_2(p)=\dfrac{\varepsilon_1(p)}{F_{cons}(p)}$.}
+
+~\
+
+Afin de pouvoir juger la performance de l'asservissement en termes de précision, on se propose de déterminer l'erreur indicielle.
+
+On prendra pour faire l'application numérique : $\frac{1}{K_9\cdot \tau_3}= 133ms$.
+
+\question{Calculer l'erreur indicielle de cet asservissement si $F_{cons}$ est un échelon de 500 N. Dans ce cas, $F_{cons}(p)=\frac{500}{p}$.}
+
+\question{Calculer l'erreur de poursuite de cet asservissement si la consigne de force est : $F_{cons}(p)=\dfrac{500}{p^2}$.}
+
+\question{En vous référant au cahier des charges figure \ref{fig18}, que pouvez-vous conclure suite aux résultats que vous avez obtenus aux \ref{q26} et \ref{q27} concernant la précision. Faut-il envisager la mise en place d'un correcteur ? Si oui, de quel type ? Ce correcteur peut-il être source de problèmes ?}
+
+\subsection{Étude de la motorisation du mécanisme de précontrainte}
+
+Le moteur utilisé est un moteur MAXON référence RE40 - 148877.
+
+\subsubsection{Commande du moteur}
+
+\paragraph{Objectif :} déterminer comment limiter l'ondulation du courant.
+
+L'alimentation du moteur est faite en utilisant un pont en H. Pour contrôler la vitesse de rotation du moteur, on utilise une modulation de largeur d'impulsion (MLI).
+
+Dans le cas où le frottement n'est pas négligé, le moteur peut être modélisé par une fonction de transfert du second ordre. L'entrée correspond à la tension U appliquée aux bornes du moteur et la sortie correspond à la vitesse de rotation $\omega$ du rotor. $\omega$ est exprimée en $tr\cdot mn^{-1}$.
+
+En tenant compte de la constante de temps mécanique $\tau_m$ et de la constante de temps électrique $\tau_e$, on obtient une fonction de transfert $T(p)$ de la forme :
+
+\begin{center}
+$T(p)=\dfrac{\Omega(p)}{U(p)}=\dfrac{Hmo}{(1+\tau_m\cdot p)\cdot (1+\tau_e\cdot p)}$.
+\end{center}
+
+Avec :
+\begin{itemize}
+ \item $\tau_e=\frac{L}{R}$ : constante de temps électrique du moteur,
+ \item $\tau_m$ : constante de temps mécanique du moteur.
+ \item $H_{mo}=158rpm\cdot V^{-1}=158tr\cdot mn^{-1}\cdot V^{-1}$,
+ \item On précise que $log(160)=2,2$.
+\end{itemize}
+
+\question{À l'aide de l'annexe 10, déterminer les valeurs numériques de $\tau_e$ et $\tau_m$. Tracer le diagramme asymptotique de Bode du gain de cette fonction de transfert sur le DR.}
+
+\subsubsection{Vérifications expérimentales des caractéristiques du moteur}
+
+\paragraph{Objectif :} énoncer les procédés expérimentaux permettant de vérifier les caractéristiques électriques et mécaniques du moteur lors d'une opération de maintenance.
+
+\newpage
+
+On dispose d'une source de tension réglable, d'un oscilloscope, d'un voltmètre, d'un ampèremètre, d'une sonde de courant et d'un capteur de vitesse de rotation.
+
+\question{Proposer une démarche avec plusieurs protocoles expérimentaux permettant de déterminer :
+\begin{itemize}
+ \item la résistance $R$ de l'induit,
+ \item l'inductance de l'induit $L$,
+ \item le coefficient de la force contre électromotrice.
+\end{itemize}}
+
+On rappelle que le couple de frottement visqueux $C_F(t)=f\cdot\omega(t)$.
+
+~\
+
+Pour déterminer la valeur du coefficient de frottement visqueux $f$, on réalise un essai au ralentissement qui permet de relever la courbe $n(t)$ (vitesse de rotation du moteur en $tr\cdot s^{-1}$ en fonction du temps).
+
+~\
+
+L'essai est fait dans les conditions suivantes :
+\begin{itemize}
+ \item le moteur fonctionne à vide et tourne à sa vitesse nominale $n_0$ à l'instant $t_0$,
+ \item à l'instant $t_0$, pris comme origine des temps, on coupe l'alimentation du moteur.
+\end{itemize}
+~\
+
+On considère que le couple de freinage $C_f$ est constant lors de l'essai de ralentissement et que le moment d'inertie $J_{mot}=10^{-3}kg\cdot m^2$.
+
+\question{Déterminer l'équation différentielle régissant l'évolution de la vitesse de rotation angulaire $\omega(t)$ (exprimée en $rad\cdot s^{-1}$). Donner l'expression de la constante de temps mécanique $\tau_m$.}
+
+~\
+
+On donne l'allure de la courbe de ralentissement sur le document réponse.
+
+\question{Ajouter sur la courbe les constructions afin de déterminer le coefficient de frottement visqueux. Déterminer la valeur de $f$.}
+
+\includepdf[offset=0mm -10mm 0mm 0mm,pages=29-33,picturecommand={%
+    \put(275,17){\fcolorbox{white}{white}{\textcolor{white}{caché}}}  
+}]{Ressources/CCINP-TSI-2023-Lokomat-Sujet.pdf}
+
+\includepdf[offset=0mm -10mm 0mm 0mm,pages=38,picturecommand={%
+    \put(275,17){\fcolorbox{white}{white}{\textcolor{white}{caché}}}  
+}]{Ressources/CCINP-TSI-2023-Lokomat-Sujet.pdf}
+
+\cleardoublepage
+
+\ifdef{\public}{\pagestyle{docreponse}}{\pagestyle{correction}}
+
+\reponse{0}{\begin{center}
+	\includegraphics[width=0.9\linewidth]{img/dr01}
+\end{center}}{\begin{center}
+	\includegraphics[width=0.9\linewidth]{img/dr01_cor}
+\end{center}}
+
+\reponse{4}{}{D'après l'annexe 2, le modèle est dans le plan sagittal.
+
+Dans ce modèle, les articulations (les hanches, les genoux et les chevilles) sont modélisées par des liaisons pivots car on néglige les mouvements hors du plan (on aurait pu choisir des rotules).}
+
+\reponse{3}{}{$cad=85pas\cdot min^{-1}=1,4pas\cdot s^{-1}$, donc $L_{pas}=\frac{v}{cad}=\frac{1,2}{1,4}=0,85m$.}
+
+\reponse{3}{}{Un pas étant réalisé en un cycle, on a : $T_{cycle}=\dfrac{1}{cad}=\dfrac{1}{1,4}=0.7s$}
+
+\reponse{1}{}{$\overrightarrow{IT}+\overrightarrow{TO_1}+\overrightarrow{O_1T'}+\overrightarrow{T'I}=\overrightarrow{0}$}
+
+\reponse{4}{}{$-L_4\cdot \vec{x_2}+L_1\vec{y_2}-L_2\vec{y_2'}-L\cdot\vec{x_0}=\vec{0}$
+
+En projetant cette relation sur $\vec{x_0}$, on a (attention, l'angle $\theta_{ext}$ est négatif sur la figure \ref{fig08}) :
+
+$0=-L_4\cdot cos(\theta_{ext})-L_1\cdot sin(\theta_{ext})+L_2\cdot sin(\theta_{flex})-L$
+
+$L=-L_4\cdot cos(\theta_{flex})-L_1\cdot sin(\theta_{ext})+L_2\cdot sin(\theta_{flex})$
+
+$d_{pas}=L+L_4=L_4\cdot(1-cos(\theta_{ext}))-L_1\cdot sin(\theta_{ext})+L_2\cdot sin(\theta_{flex})$
+
+$L_{pas}=2\cdot d_{pas}=2\cdot L_4\cdot(1-cos(\theta_{ext}))-2\cdot L_1\cdot sin(\theta_{ext})+2\cdot L_2\cdot sin(\theta_{flex})$}
+
+\reponse{2}{\begin{center}
+	\includegraphics[width=0.9\linewidth]{img/fig09a}
+	\includegraphics[width=0.9\linewidth]{img/fig09b}
+\end{center}}{
+D'après l'annexe 2, dans le plan sagittal:
+\begin{itemize}
+ \item $angle>0\rightarrow flexion$,
+ \item $angle<0\rightarrow extension$.
+\end{itemize}
+
+\begin{center}
+	\includegraphics[width=0.9\linewidth]{img/fig09b_cor}
+\end{center}}
+
+\reponse{3}{}{D'après la question 3: $L_{pas}=0.85m$
+
+
+D'après l'annexe 5, sachant que $H=1,75m$, on a:
+
+$\left\{\begin{array}{l}
+L_1=L_2=0,530\cdot H=0,530\cdot 1,75=2\cdot 0,530-\frac{0,530}{4}=1,06-0,13=0,93m\\
+L_4=0,152\cdot H=2\cdot 0,152-\frac{0,152}{4}=0,304-0,038=0,266m
+\end{array}\right.$}
+
+\reponse{4}{}{La formule de Willis donne :
+$\dfrac{-\omega_{2/0}}{\omega_{3/0}-\omega_{2/0}}=(-1)^{-1}\cdot\dfrac{Z_3\cdot Z_1}{Z_1\cdot Z_0}=\dfrac{-Z_3}{Z_0}=\lambda$.
+
+Or: $k_{etage}=\dfrac{\omega_{2/0}}{\omega_{3/0}}$.
+
+Donc:
+$\lambda\cdot (\omega_{3/0}-\omega_{2/0})=-\omega_{2/0}
+\Leftrightarrow k_{etage}=\dfrac{\omega_{2/0}}{\omega_{3/0}}=\dfrac{\lambda}{\lambda-1}=\dfrac{-\frac{Z_3}{Z_0}}{-\frac{Z_3}{Z_0}-1}=\dfrac{Z_3}{Z_3+Z_0}=\dfrac{24}{24+60}=\dfrac{2}{7}$}
+
+\reponse{2}{}{Les étages sont tous les mêmes donc : $k_{red}=k_{etage}^3=\left(\dfrac{2}{7}\right)^3=\dfrac{8}{343}$
+
+Sur l'annexe 4 c'est la référence 203120.}
+
+\reponse{2}{}{La liaison hélicoïdale donne $p=2\cdot\pi\cdot\dfrac{\Delta x}{\Delta \beta}$, or $x=x_0+\Delta_x$ et $\beta=\beta_0+\Delta \beta$. On a donc:
+
+$x=x_0+\Delta_x=x_0+\frac{p}{2\cdot \pi}\cdot \Delta\beta\Rightarrow x=x_0+\dfrac{p}{2\cdot \pi}\cdot \beta$}
+
+\reponse{5}{}{$\overrightarrow{OB}+\overrightarrow{BC}+\overrightarrow{CA}+\overrightarrow{AO}=\vec{0}$
+
+$b\cdot\vec{y_1}+x\cdot\vec{x_4}-c\cdot\vec{x_5}-a\cdot\vec{x_1}=\vec{0}$
+
+En projetant dans $R_1$, on a :
+$\left\{\begin{array}{l}
+\vec{x_1}: 0=x\cdot cos\alpha-c\cdot cos\theta-a\\
+\vec{y_1}: 0=b+x\cdot sin\alpha-c\cdot sin\theta
+\end{array}
+\right.$
+
+$\left\{\begin{array}{l}
+x\cdot cos\alpha = a + c\cdot cos\theta\\
+x\cdot sin\alpha = -b + c\cdot sin\theta\\
+\end{array}
+\right.$
+
+$x^2\cdot\left(cos\alpha^2+sin\alpha^2\right)=(a+c\cdot cos\theta)^2+(-b+c\cdot sin\theta)^2$
+
+$x^2=\left(x_0+\dfrac{p}{2\cdot\pi}\cdot\beta\right)^2=(a+c\cdot cos\theta)^2+(-b+c\cdot sin\theta)^2$
+
+$\beta=\dfrac{2\cdot\pi}{p}\left(\sqrt{(a+c\cdot cos\theta)^2+(-b+c\cdot sin\theta)^2}-x_0\right)$}
+
+\reponse{0}{\begin{center}
+	\includegraphics[width=0.9\linewidth]{img/dr02}
+\end{center}}{\begin{center}
+	\includegraphics[width=0.9\linewidth]{img/dr02_cor}
+\end{center}}
+
+\reponse{5}{}{\begin{minipage}{0.45\linewidth}
+Calcul cinématique :
+\begin{itemize}
+ \item une seule mobilité, la mobilité utile : $m=1$,
+ \item deux cycles cinématiques indépendants : $E_c=6\cdot \mu=12$,
+ \item $Ic=1\times 1 (pivot)+ 1 \times 1 (helicoidale) + 2 \times 2 (pivot\ glissant)= 6$.
+\end{itemize}
+
+D'où : $h=m-Ic+Ec=7$
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+Calcul statique :
+\begin{itemize}
+ \item une seule mobilité, la mobilité utile : $m=1$,
+ \item 3 pièces : $p=3$,
+ \item $Ns=5\times 1 (pivot)+ 5 \times 1 (helicoidale) + 4 \times 2 (pivot\ glissant)= 18$.
+\end{itemize}
+
+D'où : $h=Ns-6\cdot (p-1)-m=7$
+\end{minipage}
+}
+
+\reponse{3}{}{Ce degré d'hyperstatisme nécessite la mise en place de jeux, de déformations et/ou de réglages. D'après le contexte du système, c'est sans doute ce dernier élément qui permettra l'assemblage du mécanisme.}
+
+\reponse{3}{}{Soit $F_i=k\cdot \Delta yi$ (pour le i\textsuperscript{ème} ressort) avec $F_i$ l'effort et $\Delta y i$ le déplacement vertical de ce ressort.
+
+Comme les quatre ressorts sont en parallèle:
+\begin{itemize}
+ \item $\Delta y1=\Delta y2=\Delta y3=\Delta y4=\Delta y$,
+ \item $F_R=F_1+F_2+F_3+F_4=4\cdot k\cdot \Delta y= k_{eq}\cdot\Delta_y$ avec $k_{eq}=4\cdot k$
+\end{itemize}
+}
+
+\reponse{3}{}{On a montré que $F_R=k_{eq}\cdot \Delta y=k_{eq}\cdot (y-y_0)$. Or, lorsque $y=0$, $F_R=0=k_{eq}\cdot (0-y_0)$, donc $y_0=0$.
+
+On a donc : $F_R=k_{eq}\cdot y$.}
+
+\reponse{2}{}{Sur la figure \ref{fig17}, le déplacement maximal du centre de gravité est obtenu en allure rapide, et $y_{max}=0,07m$. Donc, $F_{R,max}=4\cdot k\cdot y_{max}=4\cdot 2\cdot 10^3\cdot 0,07=560N$.}
+
+\reponse{4}{}{
+$\left\{\begin{array}{l}
+U(p)=I(p)\cdot (R+L\cdot p)+E(p)\\
+E(p)=k_v\cdot\Omega_{mot}(p)\\
+J\cdot p\cdot \Omega_{mot}(p)=M_m(p)-C_{rest}(p)\\
+M_m(p)=k_i\cdot I_{mot}(p)
+\end{array}
+\right.$
+
+Donc :
+
+$\left\{\begin{array}{l}
+T_2(p)=\dfrac{I_{mot}(p)}{U(p)-E(p)}=\dfrac{1}{R+L\cdot p}\\
+T_3(p)=\dfrac{M_{m}(p)}{I_{mot}(p)}=k_i\\
+T_4(p)=\dfrac{\Omega_{mot}(p)}{M_m(p)-C_{rest}(p)}=\dfrac{1}{J\cdot p}\\
+T_{10}(p)=\dfrac{E(p)}{\Omega_{mot}(p)}=k_v
+\end{array}
+\right.$}
+
+\reponse{4}{}{
+$T_{mot}=\left(\dfrac{\Omega_{mot}(p)}{U(p)}\right)_{C_{rest}(p)=0}=\dfrac{T_2(p)\cdot T_3(p)\cdot T_4(p)}{1+T_2(p)\cdot T_3(p)\cdot T_4(p)\cdot T_{10}(p)}$
+
+$T_{mot}=\dfrac{\dfrac{1}{R+L\cdot p}\cdot k_i\cdot \dfrac{1}{J\cdot p}}{1+\dfrac{1}{R+L\cdot p}\cdot k_i\cdot \dfrac{1}{J\cdot p}\cdot k_v}=\dfrac{\dfrac{1}{k_v}}{1+\dfrac{R\cdot J}{k_i\cdot  k_v}\cdot p+\dfrac{L\cdot J}{k_i\cdot  k_v}\cdot p^2}$
+}
+
+\reponse{5}{}{
+$\left\{\begin{array}{l}
+T_5(p)=\dfrac{\Omega_{red}(p)}{\Omega_{mot}(p)}=\dfrac{1}{i_r}=\dfrac{1}{66}=\dfrac{3}{200}=0.015\\
+T_6(p)=\dfrac{V_{vis}(p)}{\Omega_{red}(p)}=\dfrac{p_{vis}}{2\cdot \pi}=0.64mm\cdot rad^{-1}\\
+T_7(p)=\dfrac{1}{p}\\
+T_8(p)=\dfrac{F_R(p)}{L(p)}=k_{eq}=8N\cdot mm^{-1}
+\end{array}
+\right.$}
+
+\reponse{5}{}{
+$H_{BF}(p)=\frac{T_1\cdot \frac{T_2(p)\cdot T_3(p)\cdot T_4(p)}{1+T_2(p)\cdot T_3(p)\cdot T_4(p)\cdot T_{10}(p)}\cdot T_5\cdot T_6\cdot T_7\cdot T_8}{1+T_1\cdot \frac{T_2(p)\cdot T_3(p)\cdot T_4(p)}{1+T_2(p)\cdot T_3(p)\cdot T_4(p)\cdot T_{10}(p)}\cdot T_5\cdot T_6\cdot T_7\cdot T_8\cdot T_9}$
+
+$H_{BF}(p)=\frac{T_1\cdot T_2\cdot T_3\cdot T_4\cdot T_5\cdot T_6\cdot T_7\cdot T_8}{1+T_2\cdot T_3\cdot T_4\cdot T_{10}+T_1\cdot T_2\cdot T_3\cdot T_4\cdot T_5\cdot T_6\cdot T_7\cdot T_8\cdot T_9}$
+
+Soit $Rt=\frac{1}{66}\cdot \frac{p_{vis}}{2\cdot \pi}=T_5\cdot T_6$
+
+$H_{BF}(p)=\frac{K_1\cdot \frac{1}{R+L\cdot p}\cdot k_i\cdot \frac{1}{J\cdot p}\cdot Rt\cdot \frac{1}{p}\cdot K_{eq}}{1+\frac{1}{R+L\cdot p}\cdot k_i\cdot \frac{1}{J\cdot p}\cdot k_v+K_1\cdot \frac{1}{R+L\cdot p}\cdot k_i\cdot \frac{1}{J\cdot p}\cdot Rt\cdot \frac{1}{p}\cdot K_{eq}\cdot K_9}$
+
+$H_{BF}(p)=\frac{K_1\cdot k_i\cdot Rt\cdot K_{eq}}{\left(R+L\cdot p\right)\cdot\left(J\cdot p\right)\cdot p+k_i\cdot k_v\cdot p+K_1\cdot k_i\cdot Rt\cdot K_{eq}\cdot K_9}$
+
+$H_{BF}(p)=\frac{\frac{1}{K_9}}{1+\frac{1}{K_1\cdot k_i\cdot Rt\cdot K_{eq}\cdot K_9}\cdot\left(\left(R+L\cdot p\right)\cdot\left(J\cdot p\right)\cdot p+k_i\cdot k_v\cdot p\right)}$
+
+$H_{BF}(p)=\frac{\frac{1}{K_9}}{1+\frac{1}{K_1\cdot k_i\cdot Rt\cdot K_{eq}\cdot K_9}\cdot p\cdot\left(k_i\cdot k_v+R\cdot J\cdot p+L\cdot J\cdot p^2\right)}$
+
+$H_{BF}(p)=\frac{\frac{1}{K_9}}{1+\frac{1+\frac{R\cdot J}{k_i\cdot k_v}\cdot p+\frac{L\cdot J}{k_i\cdot k_v}\cdot p^2}{\frac{K_1\cdot Rt\cdot K_{eq}}{k_v}\cdot K_9}\cdot p}$
+
+$\tau_1=\dfrac{R\cdot J}{k_v\cdot k_i}$, $\tau_2=\dfrac{L\cdot J}{k_v\cdot k_i}$ et $\tau_3=\dfrac{K_1\cdot R_t\cdot K_{eq}}{k_v}$ }
+
+\reponse{5}{}{$H_1(p)=\frac{U_{var}(p)}{U_{cons}(p)}=\frac{U_{cons}(p)-T_9(p)\cdot F_R(p)}{U_{cons}(p)}=1-T_9(p)\cdot\frac{F_R(p)}{U_{cons}(p)}=1-T_9(p)\cdot H_{BF}(p)$
+
+$H_1(p)=1-\frac{1}{1+\frac{1+\tau_1\cdot p+\tau_2\cdot p^2}{K_9\cdot \tau_3}\cdot p}=\frac{\frac{1+\tau_1\cdot p+\tau_2\cdot p^2}{K_9\cdot \tau_3}\cdot p}{1+\frac{1+\tau_1\cdot p+\tau_2\cdot p^2}{K_9\cdot \tau_3}\cdot p}=\frac{(1+\tau_1\cdot p+\tau_2\cdot p^2)\cdot p}{K_9\cdot \tau_3+(1+\tau_1\cdot p+\tau_2\cdot p^2)\cdot p}$
+
+}
+
+\reponse{3}{}{\begin{itemize}
+ \item $U_{var}(p)=T_9\cdot \left(F_{cons}(p)-F_R(p)\right)$
+ \item $U_{var}(p)=U_{cons}(p)-T_9\cdot F_R(p)$
+\end{itemize}
+
+Donc, $U_{cons}(p)=T_9\cdot F_{cons}(p)$.}
+
+
+\reponse{4}{}{Comme $T_9(p)=K_9=\dfrac{U_{var}(p)}{\varepsilon_1(p)}$. On a :
+
+$H_2(p)=\dfrac{\varepsilon_1(p)}{F_{cons}(p)}=\dfrac{\frac{U_{var}(p)}{K_9}}{\frac{U_{const}(p)}{K_9}}=\dfrac{U_{var}(p)}{U_{const}(p)}=H_1(p)$}
+
+\reponse{5}{}{Appelons $\varepsilon_s$ l'erreur indicielle, et appliquons le théorème de la valeur finale :
+
+$\varepsilon_i=\lim\limits_{t\rightarrow +\infty}\varepsilon_1(t)=\lim\limits_{p\rightarrow 0}p\cdot\varepsilon_1(p)=\lim\limits_{p\rightarrow 0}p\cdot H_2(p)\cdot F_{cons}(p)$
+
+$\varepsilon_i=\lim\limits_{p\rightarrow 0}p\cdot \dfrac{(1+\tau_1\cdot p+\tau_2\cdot p^2)\cdot p}{K_9\cdot \tau_3+(1+\tau_1\cdot p+\tau_2\cdot p^2)\cdot p}\cdot\dfrac{500}{p}=\lim\limits_{p\rightarrow 0}\dfrac{500\cdot p}{K_9\cdot \tau_3}=0N$}
+
+\reponse{6}{}{Appelons $\varepsilon_s$ l'erreur indicielle, et appliquons le théorème de la valeur finale :
+
+$\varepsilon_p=\lim\limits_{t\rightarrow +\infty}\varepsilon_1(t)=\lim\limits_{p\rightarrow 0}p\cdot\varepsilon_1(p)=\lim\limits_{p\rightarrow 0}p\cdot H_2(p)\cdot F_{cons}(p)$
+
+$\varepsilon_p=\lim\limits_{p\rightarrow 0}p\cdot \dfrac{(1+\tau_1\cdot p+\tau_2\cdot p^2)\cdot p}{K_9\cdot \tau_3+(1+\tau_1\cdot p+\tau_2\cdot p^2)\cdot p}\cdot\dfrac{500}{p^2}=\dfrac{500}{K_9\cdot \tau_3}=50\cdot 1,33=50+\frac{50}{3}=66,6N$}
+
+\reponse{3}{}{
+\begin{itemize}
+ \item Erreur indicielle : $\varepsilon_i= 0 < 0.02\cdot F_{cons}=10N$, validée,
+ \item Erreur de poursuite $\epsilon_p=66,6N> 0.05\cdot F_{cons}=25N$, pas validée.
+\end{itemize}
+
+Un correcteur proportionnel-intégral peut améliorer la précision mais peut déstabiliser le système.}
+
+\reponse{4}{
+\begin{center}
+\resizebox{0.9\textwidth}{!}{\input{img/Bode.pgf}}
+\end{center}}{On lit sur l'annexe 10:
+\begin{itemize}
+ \item \og terminal inductance \fg : $L=0,329mH$,
+ \item \og terminal resistance \fg : $R=1,13\Omega$,
+ \item \og mechanical time constant \fg : $\tau_m=4,28ms$
+\end{itemize}
+
+Donc, $\tau_e=\dfrac{L}{R}=\dfrac{0,33\cdot 10^{-3}}{1,13}\approx 0,3ms$
+
+La fonction de transfert $T(p)$ est donc le produit de deux premiers ordres, de pulsation de cassure respectives :
+
+$\omega_m=\dfrac{1}{\tau_m}=\dfrac{1}{4,28\cdot 10^{-3}}\approx 230rad\cdot s^{-1}$ et $\omega_e\approx \dfrac{1}{0,3\cdot 10^{-3}}\approx 3400rad\cdot s^{-1}$
+
+Et de gain en basse fréquence $G_{dB}=20\cdot log(H_{mo})=20\cdot log(158\cdot \frac{2\pi}{60})\approx 20\cdot log(16)\approx 20\cdot (log(160)-log(10)\approx 20\cdot(2,2-1)=24dB$.
+
+
+\begin{center}
+  \resizebox{0.9\textwidth}{!}{\input{img/Bode_cor.pgf}}
+\end{center}
+}
+
+\reponse{2}{}{Rotor bloqué, on a $E=0$.
+
+On impose $Um(t)=Um$, alors $Um=R\cdot i(t)+L\cdot\dfrac{di(t)}{dt}$. En considérant $i(t)$ comme le signal de sortie, il s'agit alors d'un système du premier ordre :
+
+$\dfrac{I(p)}{U_m(p)}=\dfrac{1}{R+L\cdot p}=\dfrac{\frac{1}{R}}{1+\frac{L}{R}\cdot p}$
+
+Grâce à la sonde et à l'oscilloscope, on obtient la réponse d'un système du premier ordre, sur laquelle on peut mesurer :
+\begin{itemize}
+ \item la valeur finale $I_\infty=\dfrac{U_m}{R}$ $\rightarrow R$,
+ \item la constante de temps $\tau_e=\dfrac{L}{R}$ $\rightarrow L$, 
+\end{itemize}
+
+Rotor libre, on impose une tension $U_m(t)=U_m$. En régime permanent, on mesure  $I$ avec l'ampèremètre et sa vitesse de rotation $\Omega$ avec le capteur de vitesse. On a alors l'équation $U_m=R\cdot I(p)+E(p)=R\cdot I(p)+k_e\cdot\Omega(p)$ $\rightarrow k$.}
+
+
+\reponse{2}{}{Isolons l'arbre moteur. À vide, le seul couple qui s'applique est le couple de frottement. D'après le principe fondamental de la dynamique en moment projeté sur l'axe moteur, on a :
+
+$J_{mot}\cdot\dfrac{d\omega(t)}{dt}=-C_F(t)=-f\cdot\omega(t)$, donc
+
+
+$\tau_m\cdot\dfrac{d\omega(t)}{dt}+\omega(t)=0$
+
+La constante de temps mécanique est donc $\tau_m=\dfrac{J_{mot}}{f}$.}
+
+\reponse{2}{\begin{center}
+	\includegraphics[width=0.9\linewidth]{img/dr03}
+\end{center}}{On peut déterminer la constante de temps mécanique, qui est l'instant où la tangente à l'origine coupe l'asymptote. On a alors $f=\dfrac{J_{mot}}{\tau_m}$.
+
+\begin{center}
+	\resizebox{0.9\textwidth}{!}{\input{img/dr03_cor.pdf_tex}}
+\end{center}
+
+Ainsi, $f=\dfrac{10^{-3}}{0.5}=2\cdot 10^{-3}N\cdot m\cdot rad^{-1}\cdot s$.
+}
+
+
+\end{document}

@@ -1,0 +1,582 @@
+\input{../../../headers/dsheaders.tex}
+
+\section{Présentation du système}
+
+\subsection{Mise en situation}
+
+Développé dans le cadre d'un projet ambitieux associant des industriels (GE Healthcare, BA Systèmes et C\&K), deux laboratoires de recherche (CEA-LIST et IRCCYN) et un centre de recherche préclinique (laboratoire CR2i INRA AP-HP), le Discovery IGS 730 (figure \ref{fig01}) est le premier système mobile d'imagerie interventionnelle.
+
+Embarquant un ensemble de logiciels de traitement d'images pour les applications vasculaires, l'oncologie et la cardiologie (figure \ref{fig02}) et permettant un accès complet au patient, il guide les gestes de l'équipe médicale tout au long de l'intervention chirurgicale.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/fig01}
+\end{center}
+\caption{Système d'imagerie robotisé Discovery IGS 730 en situation de travail (photo de gauche) et en mode parking (photo de droite)}
+\label{fig01}
+\end{figure}
+
+\vspace{-0.5cm}
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/fig02}
+\end{center}
+\caption{Images 3D obtenues avec le système d'imagerie du Discovery IGS 730 pour le système vasculaire du poumon (photo de gauche) et le système vasculaire général (photo de droite)}
+\label{fig02}
+\end{figure}
+
+Le Discovery IGS 730 révolutionne le domaine de l'imagerie interventionnelle. Contrairement aux systèmes d'angiographie traditionnels, il n'est ni fixé au sol, ni suspendu au plafond, mais dispose d'une base motorisée guidée par laser qui transporte l'arceau d'imagerie. Cette innovation technologique offre une mobilité totale au système qui peut, par exemple, rejoindre de manière autonome une position \og parking \fg\ prédéfinie afin de laisser tout le champ disponible à l'équipe médicale pour s'occuper du patient. Ce gain de mobilité permet également une intégration aisée en milieu clinique, un accès facilité au patient et des possibilités de positionnement illimitées.
+
+\vspace{-1cm}
+
+\subsection{Analyse système partielle}
+
+La figure \ref{fig03} présente un extrait du cahier des charges du système d'imagerie dans la phase de vie d'utilisation. La figure \ref{fig04} présente son diagramme de définition de blocs.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.85\linewidth]{img/fig03}
+\end{center}
+\caption{Diagramme d'exigences partiel du Discovery IGS 730}
+\label{fig03}
+\end{figure}
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/fig04}
+\end{center}
+\caption{Diagramme de définition de blocs du Discovery IGS 730}
+\label{fig04}
+\end{figure}
+
+Le système Discovery IGS 730 est constitué principalement (figure \ref{fig04} et figure \ref{fig05}) :
+\begin{itemize}
+ \item d'une base motorisée, aussi appelée AGV (pour Automated Guided Vehicle, soit véhicule à guidage automatique) ;
+ \item d'une perche et d'un support de câbles ;
+ \item du sous-système d'imagerie supporté par un bras en \og C \fg\ ou arceau. Le système d'imagerie est lié à la base motorisée par l'intermédiaire de deux liaisons pivot. Un point caractéristique appelé \og isocentre \fg\ (point IC ) est rattaché au sous-système d'imagerie. Il est défini comme
+l'intersection de l'axe optique et de l'axe de la liaison pivot AGV/système pivot.
+\end{itemize}
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/fig05}
+\end{center}
+\caption{Composants du Discovery IGS 730}
+\label{fig05}
+\end{figure}
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/fig06}
+\end{center}
+\caption{Éléments du sous-système AGV, carter et sous-système d'imagerie enlevés}
+\label{fig06}
+\end{figure}
+
+La base motorisée AGV (figure \ref{fig06}) est constituée :
+\begin{itemize}
+ \item d'une structure support, ou châssis, composée du bras vertical et du cadre Y,
+ \item de deux sous-ensembles roue motrice et motorisation associée (un motoréducteur d'orientation et un motoréducteur de propulsion pour chaque roue),
+ \item de deux doubles roues \og folles \fg\ non motorisées.
+\end{itemize}
+
+
+\subsection{Problème posé}
+
+La mobilité totale apportée au Discovery IGS 730, véritable innovation technologique dans le domaine de l'imagerie interventionnelle, a conduit les ingénieurs responsables du développement à travailler sur des problématiques spécifiques liées :
+\begin{itemize}
+ \item à la maîtrise du positionnement du sous-système d'imagerie par rapport au patient,
+ \item à la sécurité du patient et de l'équipe médicale au cours des déplacements du système dans la salle d'intervention.
+\end{itemize}
+
+~\
+
+\textbf{Objectif:} L'objectif de cette étude est de vérifier certaines performances du système afin de valider partiellement le respect des exigences liées au positionnement de l'AGV et par la suite, du sous-système d'imagerie (Id. 1.1) et à la sécurité des personnes au cours des déplacements (Id. 1.2).
+
+\subsection{Démarche}
+
+Le respect des exigences relatives au positionnement du sous-système d'imagerie (Id. 1.1) est abordé à travers la prévision des performances de la commande associée au mouvement de translation de la base motorisée (Id. 1.1.3).
+
+\section{Validation des exigences relatives au positionnement du sous-système d'imagerie}
+
+\subsection{Prévision des performances \og l'asservissement en vitesse du mouvement de translation de l'AGV \fg}
+
+\paragraph{Objectif:} Vérifier que l'exigence d'asservissement en vitesse du mouvement de translation de la base motorisée AGV (Id. 1.1.3) et ses sous-exigences sont respectées.
+
+~\ \\
+
+Les déplacements de la base motorisée AGV sont contrôlés de la manière suivante : au niveau de chacun des 2 moteurs, des boucles de vitesse et de position assurent l'asservissement en vitesse et position du système. Nous ne nous intéresserons dans le sujet qu'à la boucle de vitesse. L'objectif de cette partie est de déterminer les paramètres de réglage de chacune des boucles d'asservissement en vitesse lors d'un mouvement de translation de l'AGV par rapport au sol.
+
+\newpage
+
+\paragraph{Étude préliminaire : moteurs brushless de propulsion}
+
+\paragraph{Hypothèses et modélisations :}
+\begin{itemize}
+ \item l'AGV se déplace en ligne droite (consigne de vitesse $v_c(t)$, les roues étant dans la même direction que l'axe de symétrie de l'AGV),
+ \item les roues motrices roulent sans glisser sur le sol,
+ \item la charge extérieure est supposée équi-répartie sur chacun des deux moteurs. Ainsi, pour une vitesse $v(t)$ de la plateforme, les deux moteurs de propulsion tournent à la même vitesse angulaire $\omega_m(t)$, sont alimentés par une même tension de commande u(t) et fournissent un même couple moteur $C_m(t)$,
+ \item les perturbations sont réparties sur chacun des axes des deux moteurs et sont modélisées par un même couple de perturbation équivalent appliqué sur chacun des axes moteurs $C_r(t)$,
+ \item les caractéristiques inertielles de la plateforme sont représentées au niveau de chaque axe moteur par un moment d'inertie équivalent $J_{eq}$,
+ \item le comportement individuel d'un des deux moteurs brushless peut être approché par celui d'un moteur à courant continu avec les équations électromécaniques suivantes :
+\end{itemize}
+
+\vspace{-0.5cm}
+
+\begin{eqnarray}
+u(t)=L\frac{di(t)}{dt}+R\cdot i(t)+e(t)\\
+C_m(t)=K_c\cdot i(t)\\
+e(t)=K_e\cdot \omega_m(t)\\
+C_m(t)-C_r(t)=J_{eq}\cdot\frac{d\omega_m(t)}{dt}
+\end{eqnarray}
+
+\begin{center}
+\resizebox{\textwidth}{!}{\begin{tabular}{|c|c|c|}
+\hline
+Symbole & Désignation & Valeurs, unités \\
+\hline
+$u(t)$ & Tension d'alimentation du moteur & [$V$] \\
+\hline
+$e(t)$ & Tension contre-électromotrice dans un moteur & [$V$] \\
+\hline
+$i(t)$ & Intensité du courant dans un moteur & [$A$] \\
+\hline
+$v(t)$ & Vitesse de translation du système & [$m\cdot s^{-1}$] \\
+\hline
+$\omega_m(t)$ & Vitesse angulaire de chacun des deux moteurs & [$rad\cdot s^{-1}$]\\
+\hline
+$C_m(t)$ & Couple moteur appliqué par chacun des deux moteurs & [$N\cdot m$]\\
+\hline
+$C_r(t)$ & Couple de perturbation équivalent appliqué à chacun des deux axes moteurs & [$N\cdot m$]\\
+\hline
+$R$ & Résistance de l'induit d'un moteur & $0.07 \Omega$\\
+\hline
+$L$ & Inductance de l'induit d'un moteur & $0.15 mH$ \\
+\hline
+$K_e$ & Constante de vitesse d'un moteur & $0.113 V\cdot rad^{-1}\cdot s$ \\
+\hline
+$K_c$ & Constante de couple d'un moteur & $0.113 N\cdot m\cdot A^{-1}$ \\
+\hline
+$J_{eq}$ & Inertie équivalente de la moitié du système ramenée sur l'axe d'un moteur & $5.3\cdot 10^{-3} kg\cdot m^2$ \\
+\hline
+\end{tabular}}
+\end{center}
+
+\newpage
+
+\paragraph{Fonction de transfert d'un moteur de propulsion}~\ \\
+
+On note $\Omega_m(p)$, $U(p)$, $E(p)$, $I(p)$, $C_m(p)$ et $C_r(p)$ les transformées de Laplace respectives de $\omega_m(t)$, $u(t)$, $e(t)$, $i(t)$, $C_m(t)$ et $C_r(t)$.
+
+\question{Déterminer les transformées de Laplace des équations (1) à (4) du moteur définies en considérant des conditions initiales nulles. Compléter le schéma-bloc du document réponse par les transmittances manquantes.}
+
+\question{Déterminer les expressions littérales des fonctions de transfert du moteur en poursuite $H_1(p)=\left.\frac{\Omega_m(p)}{U(p)}\right|_{C_r(p)=0}$ (sans perturbation) et en régulation $H_2(p)=\left.\frac{\Omega_m(p)}{C_r(p)}\right|_{U(p)=0}$, sous forme canonique. Par application du principe de superposition, en déduire l'expression de $\Omega_m(p)$ en fonction de $U(p)$ et de $C_r(p)$.}
+
+~\ \\
+
+Le système est étudié en l'absence de perturbation, $C_r(t)=0$.
+
+\question{Réaliser l'application numérique de la fonction de transfert du moteur $\frac{\Omega_m(p)}{U(p)}$ et mettre le résultat sous la forme : $\frac{K}{(1+\tau_1\cdot p)(1+\tau_2\cdot p)}$ en déterminant $K$, $\tau_1$ et $\tau_2$.}
+
+\paragraph{Étude de l'asservissement en vitesse de la base motorisée AGV} ~\ \\
+ 
+Pour une consigne de vitesse $v_c(t)$ [$m\cdot s^{-1}$], les microcontrôleurs de pilotage génèrent une tension de consigne de rotation à appliquer à chaque moteur $u_c(t)$ [$V$]. Un traitement numérique de la vitesse relevée sur l'axe de chaque moteur fournit une tension mesurée $u_m(t)$ [$V$], image de la vitesse de rotation du moteur $\omega_m(t)$. Un correcteur (défini par la suite) adapte le signal écart entre la tension de consigne et la tension mesurée, ce qui permet après correction et amplification, de définir la tension d'alimentation $u(t)$ à appliquer aux moteurs.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=\linewidth]{img/fig08}
+\end{center}
+\caption{Schéma-bloc fonctionnel de l'asservissement en vitesse d'un des deux moteurs}
+\label{fig08}
+\end{figure}
+
+\begin{center}
+\resizebox{0.6\textwidth}{!}{\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Blocs} & \textbf{Fonctions de transfert} \\
+\hline
+Convertisseur & $K_{conv}$ (à déterminer) \\
+\hline
+Correcteur & $C(p)$ (réglé par la suite) \\
+\hline
+Amplificateur & $K_A=7.9$ sans unité \\
+\hline
+Traitement numérique de la vitesse & $K_{Vit} = 1.4\cdot 10^{-3}\ V\cdot rad^{-1} \cdot s$ \\
+\hline
+Réduction et roue & KR (à déterminer) \\
+\hline
+\end{tabular}}
+\end{center}
+
+Indépendamment des résultats trouvés précédemment, la fonction de transfert du moteur brushless sera prise égale à : $H_m(p)=\frac{K_m}{(1+\tau_1\cdot p)\cdot (1+\tau_2\cdot p)}$, avec $K_m=10$, $\tau_1=0.025s$ et $\tau_2=0.0025s$.
+
+\question{Tracer sur le document réponse le diagramme de Bode du moteur brushless. Il faudra faire apparaître le tracé asymptotique et l'allure des diagrammes.}
+
+~\ \\
+
+La figure \ref{fig09} présente une sollicitation temporelle sous la forme $e(t)=E\cdot sin(\omega_n\cdot t)$.
+
+\vspace{-0.5cm}
+
+\begin{figure}[ht!]
+\begin{center}
+  \resizebox{0.8\textwidth}{!}{\input{img/q6_DR.pgf}}
+\end{center}
+\caption{Sollicitation sinusoïdale $e(t)=E\cdot sin(\omega_n\cdot t)$}
+\label{fig09}
+\end{figure}
+
+\question{Déterminer les valeurs numériques de $E$ et $\omega_n$.}
+
+\question{Tracer approximativement sur le document réponse la sortie $s(t)$ telle que \\ $S(p)=H_m(p)\cdot E(p)$.}
+
+~\ \\
+
+Le moteur est suivi d'un réducteur à deux étages : le premier avec un rapport de réduction $k_1 = \frac{1}{4}$ et le second avec un rapport de réduction $k_2 = \frac{1}{28.9}$. Le rayon $r$ des roues motrices est de $115mm$. On peut alors écrire : $V(t)=r\cdot \omega_{roue}(t)=r\cdot k_1\cdot k_2\cdot \omega_m(t)$.
+
+\question{Déterminer les valeurs numériques et unités SI des gains $K_R$ (ensemble réducteur et roue) et $K_{conv}$ (convertisseur) en sachant que lorsque la vitesse réelle de l'AGV $v(t)$ est égale à la vitesse
+de consigne $v_c(t)$, l'écart $\varepsilon(t)$ doit être nul.}
+
+\question{Compléter le schéma-bloc sur le document réponse en y faisant figurer les fonctions de transfert sous forme littérale dans le domaine de Laplace avec des conditions initiales nulles, ainsi que les signes des sommateurs.}
+
+\newpage
+
+\paragraph{Étude du système non corrigé : $C(p)=1$.}
+
+~\
+
+\question{Déterminer, en fonction notamment de $K_m$, $K_R$, $K_{vit}$, $\tau_1$ et $\tau_2$, l'expression de la fonction de transfert de la boucle de vitesse sous la forme canonique d'un système du second ordre $H(p)=\frac{V(p)}{V_c(p)}=\frac{K}{1+\frac{2\cdot\xi}{\omega_0}+\frac{p^2}{\omega_0}}$. Donner les expressions littérales et numériques de $K$, $\xi$ et $\omega_0$.}
+
+~\
+
+L'accélération maximum sera approximée par $a_{max}=\frac{V_{max}}{t_{5\%}}$ dans la suite.
+
+\paragraph{Analyse de la rapidité}~\
+
+\question{À l'aide de l'abaque du document réponse, déterminer le temps de réponse à 5\% de la boucle de vitesse (faire apparaître les tracés sur le document réponse). Ce temps de réponse est-il satisfaisant vis-à-vis de l'exigence Id. 1.1.3.1.1 ? Sinon, comment satisfaire cette exigence ?}
+
+~\ \\
+
+On donne le code python suivant permettant de déterminer le temps de réponse à 5 \% à partir d'une fonction de transfert donnée.
+
+\begin{minted}[xleftmargin=2em,linenos]{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+K=10**(-1)
+xi=2
+w0=150
+t=np.linspace(0,0.4,100)
+
+def s_ind(w0,xi,K,t):
+    p1=-xi*w0-w0*(xi**2-1)**(1/2)
+    p2=-xi*w0+w0*(xi**2-1)**(1/2)
+    return K*(1+1/(p1-p2)*(p2*np.exp(p1*t)-p1*np.exp(p2*t)))
+
+st=s_ind(w0,xi,K,t)
+
+i=0
+while st[i]<0.95*st[-1]:
+    i+=1
+print(t[i])
+\end{minted}
+
+\question{Donner l'expression et les caractéristiques (ordre, classe, gain, ...) de la fonction de transfert définie par les lignes de 4 à 14.}
+
+~\
+
+Les lignes de 18 à 21 ont pour objectif de chercher le temps de réponse de cette fonction en cherchant la première valeur supérieure à 0.95\ \% de la valeur finale. 
+
+\question{Justifier que cette méthode fonctionne pour la fonction de transfert définie par les lignes de 4 à 14.}
+
+\question{Montrer que cette méthode ne fonctionne pas pour toutes les fonctions de transfert de même classe et de même ordre que celle définie. Au-delà de quelle valeur de quel paramètre cette méthode ne fonctionne-t-elle plus ?}
+
+\question{Proposer une modification des lignes 16 à 19 permettant la mise en \oe uvre d'une méthode qui fonctionne pour tous les cas de figure de même ordre et de même classe que celui des lignes 4 à 14 ? La réponse devra être rédigée en langage python.}
+
+\paragraph{Analyse de la précision}~\
+
+\question{Déterminer l'erreur en régime permanent de la boucle de vitesse $H(p)=\frac{V(p)}{V_c(p)}$ pour une entrée en échelon. Permet-elle de satisfaire l'exigence Id. 1.1.3.2.1 ? Sinon, comment satisfaire cette exigence ?}
+
+\paragraph{Étude du système corrigé : $C(p)=K_p\cdot \left(1 +\frac{1}{T_i\cdot p}\right)$}~\ \\
+
+\question{Ce correcteur permet-il de répondre à l'exigence de précision ?}
+
+\question{Déterminer, en fonction notamment de $K_m$, $K_R$, $K_{vit}$, $\tau_1$ et $\tau_2$, l'expression de la fonction de transfert en boucle ouverte, sous la forme canonique suivante : \\ $H_{BO}(p)=\frac{K_{BO}\cdot \left(T_i\cdot p+1\right)}{p\cdot (1 + \tau_1\cdot p)(1 + \tau_2\cdot p)}$. Donner l'expression littérale de $K_{BO}$.}
+
+~\
+
+On choisit $T_i$ de façon à compenser le \og mode le plus lent \fg. C'est à dire $T_i=max(\tau_1,\tau_2)$.
+
+\question{Donner la valeur de $T_i$.}
+
+~\
+
+\question{Déterminer $K_{BO}$ pour que $H_{BO}(p)=\frac{40}{p\cdot (1 + 0.0025\cdot p)}$, c'est cette expression que l'on prendra pour la suite.}
+
+\question{Tracer les asymptotes et l'allure des courbes réelles de la fonction $p\cdot H_{BO}$ avec $K_p=1$ dans le plan de Bode du document réponse.}
+
+\question{Tracer les asymptotes et l'allure des courbes réelles de la fonction $H_{BO}$ avec $K_p=1$ dans le plan de Bode du document réponse.}
+
+~\
+
+On appelle $\omega_{0db}$ la pulsation $\omega$ telle que le gain en décibel $G_{db}(\omega_{0db})=0db$.
+
+\question{Déterminer $\varphi(\omega_{0db})$ sur le diagramme que vous avez tracé.}
+
+~\ 
+
+On souhaite maintenant que $\varphi(\omega_{0db})=-135\degree$.
+
+\question{Déterminer la valeur de $\omega_x$ telle que $\varphi(\omega_x)=-135\degree$.}
+
+\question{Déterminer $G_{db}(\omega_x)$ sur le diagramme que vous avez tracé précédemment.}
+
+\question{Déterminer $K_p$ pour que $G_{db}(\omega_x)=0$. Conclure quant à l'exigence $\varphi(\omega_{0db})=-135\degree$.}
+
+\newpage
+
+La figure du document réponse de la question \ref{q26} présente sur un même graphe les réponses à une consigne en échelon d'amplitude $0.3m.s^{-1}$ obtenues par simulation pour différentes valeurs de $K_p$.
+
+\question{Choisir le gain $K_p$, parmi les trois valeurs proposées, satisfaisant l'exigence de stabilité et de rapidité (notamment l'accélération qui ne doit pas dépasser $0.8m.s^{-2}$). Appuyez votre réponse par des tracés sur le document réponse.}
+
+\paragraph{Synthèse} ~\ \\
+
+\question{Les courbes du document réponse représentent la réponse réelle relevée sur la base motorisée AGV et le résultat obtenu par simulation numérique pour une entrée en échelon d'amplitude $0.3m.s^{-1}$. Comparer quantitativement les résultats au cahier des charges et conclure
+sur les écarts.}
+
+\section{Dessin inductriel}
+
+\question{Compléter les vues esquissées en s'aidant de la perspective et des autres vues.}
+
+\question{Pour chaque pièce, compléter si besoin l'ensemble des vues afin que l'ensemble soit cohérent.}
+
+\newpage
+
+\cleardoublepage
+
+\ifdef{\public}{\pagestyle{documentreponse}}{\pagestyle{correction}}
+
+\reponse{2}{\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/q1_DR}
+\end{center}
+}{
+\begin{eqnarray}
+U(p)=L\cdot p\cdot I(p)+R\cdot I(p)+E(p)\nonumber \\
+C_m(p)=K_c\cdot I(p)\nonumber \\
+E(p)=K_e\cdot \Omega_m(p)\nonumber \\
+J_{eq}\cdot p\cdot \Omega_m(p)=C_m(p)-C_r(p)\nonumber 
+\end{eqnarray}
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/q1_cor}
+\end{center}}
+
+\reponse{6}{}{\begin{center}
+$H_1(p)=\left.\dfrac{\Omega_m(p)}{U(p)}\right|_{C_r(p)=0}=\dfrac{\dfrac{1}{K_e}}{1+\dfrac{(R+L\cdot p)\cdot J_{eq}\cdot p}{K_c\cdot K_e}}$
+
+$H_2(p)=\left.\dfrac{\Omega_m(p)}{C_r(p)}\right|_{U(p)=0}=-\dfrac{\dfrac{R}{K_e\cdot K_c}\cdot \left(1+\dfrac{L}{R}\cdot p\right)}{1+\dfrac{(R+L\cdot p)\cdot J_{eq}\cdot p}{K_c\cdot K_e}}$
+
+$\Omega_m(p)=\dfrac{\frac{1}{K_e}}{1+\dfrac{(R+L\cdot p)\cdot J_{eq}\cdot p}{K_c\cdot K_e}}\cdot U(p)-\dfrac{\dfrac{R}{K_e\cdot K_c}\cdot \left(1+\dfrac{L}{R}\cdot p\right)}{1+\dfrac{(R+L\cdot p)\cdot J_{eq}\cdot p}{K_c\cdot K_e}}\cdot C_r(p)$
+\end{center}
+}
+
+\reponse{6}{}{Si $C_r(p)=0$, $\Omega_m(p)=\dfrac{\frac{1}{K_e}}{1+\dfrac{(R+L\cdot p)\cdot J_{eq}\cdot p}{K_c\cdot K_e}}\cdot U(p)=\dfrac{\frac{1}{K_e}}{1+\dfrac{R\cdot J_{eq}}{K_c\cdot K_e}\cdot p+\dfrac{L\cdot J_{eq}}{K_c\cdot K_e}\cdot p^2}\cdot U(p)$
+
+Ainsi,
+
+\begin{eqnarray}
+\dfrac{R\cdot J_{eq}}{K_c\cdot K_e}=\tau_1+\tau_2 \nonumber \\
+\dfrac{L\cdot J_{eq}}{K_c\cdot K_e}=\tau_1\cdot \tau_2 \nonumber
+\end{eqnarray}
+
+\begin{eqnarray}
+\dfrac{R\cdot J_{eq}}{K_c\cdot K_e}\cdot \tau_1=\tau_1^2+\tau_1\cdot \tau_2 \nonumber \\
+\dfrac{L\cdot J_{eq}}{K_c\cdot K_e}=\tau_1\cdot \tau_2 \nonumber
+\end{eqnarray}
+
+$\tau_1^2-\dfrac{R\cdot J_{eq}}{K_c\cdot K_e}\cdot \tau_1+\dfrac{L\cdot J_{eq}}{K_c\cdot K_e}=0$
+
+$\Delta=\left(\dfrac{R\cdot J_{eq}}{K_c\cdot K_e}\right)^2-4\cdot \dfrac{L\cdot J_{eq}}{K_c\cdot K_e}=\left(\dfrac{0,07\cdot 5,3\cdot 10^{-3}}{0,113^2}\right)^2-4\cdot \dfrac{0,15\cdot 10^{-3}\cdot 5,3\cdot 10^{-3}}{0,113^2}=\left(\dfrac{7\cdot 5,3\cdot 10^{-5}}{113^2\cdot 10^{-6}}\right)^2-4\cdot \dfrac{15\cdot 5,3\cdot 10^{-8}}{113^2\cdot 10^{-6}}=\left(\dfrac{37,1\cdot 10}{113^2}\right)^2-4\cdot \dfrac{79,5\cdot 10^{-2}}{113^2}=\left(\dfrac{10}{3\cdot 113}\right)^2-4\cdot \dfrac{10^{-2}}{1,4\cdot 113}=0,03^2-\frac{4\cdot 10^{-2}}{160}=9\cdot 10^{-4}-\frac{10^{-2}}{40}=9\cdot 10^{-4}-2.5\cdot 10^{-4}=6.5\cdot 10^{-4}$
+
+$\tau=\dfrac{0,03\pm \sqrt{6.5}\cdot 10^{-2}}{2}=\dfrac{0,03\pm 0,025}{2}$
+
+$\tau_1=0,0275s$ et $\tau_2=0,0025s$.
+}
+
+\ifdef{\public}{\newpage}{}
+
+\reponse{0}{\begin{center}
+  \resizebox{0.7\textwidth}{!}{\input{img/q4_DR.pgf}}
+\end{center}
+}{
+\begin{center}
+  \resizebox{0.7\textwidth}{!}{\input{img/q4_cor.pgf}}
+\end{center}
+}
+
+\reponse{2}{}{$E=10$ et $\omega_n=\frac{2\cdot \pi\cdot 2,5}{0.04}=2\cdot \pi\cdot 2,5\cdot 25\approx 400rad\cdot s^{-1}$}
+
+\reponse{0}{\begin{center}
+  \resizebox{0.6\textwidth}{!}{\input{img/q6_DR.pgf}}
+\end{center}
+}{
+D'après le diagramme de Bode, $G_{db}(\omega_n)=0db$, donc $G(\omega_n)=1$ et $\varphi(\omega_n)=-135\degree$, donc, $s(t)=10\cdot \sin(400\cdot t-135)$. Il faut donc tracer un signal dont l'amplitude est de 10, la période est la même que l'entrée et il y a un retard de $\frac{135}{360}\approx 0.4$ période.
+\begin{center}
+  \resizebox{0.7\textwidth}{!}{\input{img/q6_cor.pgf}}
+\end{center}
+}
+
+\reponse{2}{}{$K_R=r\cdot k_1\cdot k_2=0,115\times \frac{1}{4}\times \frac{1}{28,9}=0,115\times \frac{1}{115}=0,001=10^{-3}m.rad^{-1}$ \\ $K_{conv}=\frac{K_{vit}}{r\cdot k_1\cdot k_2}=\frac{1.4\times 10^{-3}}{10^{-3}}=1.4V\cdot m^{-1}\cdot s$}
+
+\reponse{0}{\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/q8_DR}
+\end{center}}{
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/q8_cor}
+\end{center}}
+
+\reponse{4}{}{$\dfrac{V(p)}{V_c(p)}=\dfrac{\dfrac{K_{vit}\cdot K_A\cdot K_m}{1+K_{vit}\cdot K_A\cdot K_m}}{1+\dfrac{\tau_1+\tau_2}{1+K_{vit}\cdot K_A\cdot K_m}\cdot p+\dfrac{\tau_1\cdot \tau_2}{1+K_{vit}\cdot K_A\cdot K_m}\cdot p^2}$
+
+Par identification:
+\begin{itemize}
+ \item $K=\dfrac{K_{vit}\cdot K_A\cdot K_m}{1+K_{vit}\cdot K_A\cdot K_m}=\dfrac{K_{vit}\cdot K_A\cdot K_m}{1+K_{vit}\cdot K_A\cdot K_m}$
+ \item $\omega_0=\sqrt{\dfrac{1+K_{vit}\cdot K_A\cdot K_m}{\tau_1\cdot \tau_2}}$,
+ \item $\xi=\dfrac{\tau_1+\tau_2}{1+K_{vit}\cdot K_A\cdot K_m}\cdot\sqrt{\dfrac{1+K_{vit}\cdot K_A\cdot K_m}{\tau_1\cdot \tau_2}}\dfrac{1}{2}=\dfrac{\tau_1+\tau_2}{2\cdot \sqrt{\tau_1\cdot \tau_2\cdot(1+K_{vit}\cdot K_A\cdot K_m)}}$
+\end{itemize}}
+
+\reponse{2}{\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/q10_DR}
+\end{center}}{
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/q10_cor}
+\end{center}}
+
+\reponse{2}{}{Il s'agit d'une fonction de transfert:
+\begin{itemize}
+ \item d'ordre $2$,
+ \item de classe $0$,
+ \item de gain $10^{-1}$,
+ \item de coefficient d'amortissement $\xi=2$,
+ \item de pulsation propre $\omega_0=150rad.s^{-1}$,
+\end{itemize}}
+
+\reponse{3}{}{Cette méthode fonctionne car dans comme $xi=2$ dès que la réponse dépasse 0.95\ \% de la valeur finale, elle reste dans l'intervalle de $\pm5\%$ et l'instant du premier franchissement correspond au temps de réponse.}
+
+\reponse{3}{}{Elle ne fonctionne pas dans le cas où $xi<\frac{\sqrt{2}}{2}$ car dans ce cas il y a au moins un dépassement supérieur à 5\ \% ce qui a pour effet de décaler le temps de réponse.}
+
+\newboolean{printdr}
+\newboolean{printcor}
+\setboolean{printdr}{false}
+\setboolean{printcor}{false}
+
+\reponse{0}{\setboolean{printdr}{true}}{\setboolean{printcor}{true}}
+
+
+\ifprintcor
+\begin{minted}[xleftmargin=2em,linenos,firstnumber=16]{python}
+i=-1
+while st[i]>0.95*st[-1] and st[i]<1.05*st[-1] :
+    i-=1
+print(t[i])
+\end{minted}
+\fi
+
+\ifprintdr
+\begin{minted}[xleftmargin=2em,linenos,firstnumber=16]{python}
+
+
+
+
+\end{minted}
+\fi
+
+\reponse{3}{}{$\varepsilon(p)=V(p)-V_c(p)=H(p)\cdot V_c(p)-V_c(p)=(H(p)-1)\cdot \frac{V_{c0}}{p}$
+
+$\lim\limits_{p\rightarrow 0}p\cdot \varepsilon(p)=\lim\limits_{p\rightarrow 0}(H(p)-1)\cdot V_{c0}=(H(0)-1)\cdot V_{c0}=(K-1)\cdot V_{c0}$
+
+Or, $K\neq1$, donc l'erreur n'est pas nulle. Pour satisfaire cette exigence, il fautdrait ajouter un correcteur intégral.}
+
+\reponse{4}{}{Oui, car il y a une correction intégrale dans ce correcteur.}
+
+\reponse{5}{}{Avec $C(p)=K_p\cdot \frac{1+T_i\cdot p}{T_i\cdot p}$, on a $H_{BO}(p)= \frac{K_p\cdot K_A\cdot K_m\cdot K_{vit}\cdot (1+\tau_i\cdot p)}{(1+\tau_1\cdot p)\cdot (1+\tau_2\cdot p)\cdot T_i\cdot p}= \frac{\frac{K_p\cdot K_A\cdot K_m\cdot K_{vit}}{T_i}\cdot (1+\tau_i\cdot p)}{(1+\tau_1\cdot p)\cdot (1+\tau_2\cdot p)\cdot p}$, on retrouve la forme demandée avec $K_{BO}=\frac{K_p\cdot K_A\cdot K_m\cdot K_{vit}}{T_i}$.}
+
+\reponse{4}{}{$T_i=\tau_1$, on a alors $H_{BO}(p)=\frac{K_p\cdot K_A\cdot K_m\cdot K_{vit}}{T_i}\cdot \frac{1}{p\cdot (1+\tau_2\cdot p)}$}
+
+\reponse{4}{}{$K_{BO}= 40$}
+
+\ifdef{\public}{\newpage}{}
+
+\reponse{0}{\begin{center}
+  \resizebox{0.8\textwidth}{!}{\input{img/q20_DR.pgf}}
+\end{center}
+}{
+\begin{center}
+  \resizebox{0.8\textwidth}{!}{\input{img/q20_cor.pgf}}
+\end{center}
+}
+
+\reponse{0}{\begin{center}
+  \resizebox{0.8\textwidth}{!}{\input{img/q21_DR.pgf}}
+\end{center}
+}{
+\begin{center}
+  \resizebox{0.8\textwidth}{!}{\input{img/q21_cor.pgf}}
+\end{center}
+} 
+
+\reponse{4}{}{$\varphi(\omega_{0db})\approx -97\degree$}
+
+\reponse{4}{}{$\varphi(\omega_x)=-135\degree \Leftrightarrow \omega_x=\frac{1}{\tau}=400rad.s^{-1}$}
+
+\reponse{4}{}{$G_{db}(\omega_x)\approx-20db$}
+
+\reponse{4}{}{Pour augmenter le gain de 20db, il faut $20log(K_p)=20$, donc $K_p=10$. On a alors bien $\varphi(\omega_{0db})\approx -135\degree$}
+
+\ifdef{\public}{\newpage}{}
+
+\reponse{1}{\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/q26_DR}
+\end{center}}{
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/q26_cor}
+\end{center}
+
+Dans les 3 cas, il n'y a pas de résonance, donc le système est stable.
+
+Pour:
+\begin{itemize}
+ \item $K_p=0.1$: $t_{r5\%}=0.8s$ et $a=\frac{0.3}{0.8}=0.375m\cdot s^{-2}$,
+ \item $K_p=0.2$: $t_{r5\%}=0.4s$ et $a=\frac{0.3}{0.4}=0.75m\cdot s^{-2}$,
+ \item $K_p=0.3$: $t_{r5\%}=0.25s$ et $a=\frac{0.3}{0.25}=1.2m\cdot s^{-2}$, 
+ \end{itemize}
+ 
+La valeur de $K_p=0.2$ convient.}
+
+\reponse{1}{\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/q27_DR}
+\end{center}}{
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/q27_cor}
+\end{center}
+
+L'erreur statique est toujours nulle car les valeurs en régime permanent sont identiques. Le temps de réponse du système réel ($t_{r5\%}=0.5s$) est plus long que celui simulé ($t_{r5\%}=0.38s$), cela peut être du à la non prise en compte des frottements.}
+
+\ifdef{\public}{\newpage}{}
+
+\reponse{0}{\begin{center}
+ \includegraphics[width=\linewidth]{img/q28_DR}
+\end{center}}{
+\begin{center}
+ \includegraphics[width=\linewidth]{img/q28_cor}
+\end{center}}
+
+\ifdef{\public}{\newpage}{}
+
+\reponse{0}{\begin{center}
+ \includegraphics[width=\linewidth]{img/q29_DR}
+\end{center}}{
+\begin{center}
+ \includegraphics[width=\linewidth]{img/q29_cor}
+\end{center}}
+
+\end{document}
