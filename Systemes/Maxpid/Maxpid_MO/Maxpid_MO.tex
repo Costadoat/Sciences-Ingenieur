@@ -1,0 +1,96 @@
+\newcommand{\image}{Maxpid}
+\newcommand{\nomsysteme}{Maxpid}
+\newcommand{\nomtitre}{du Maxpid}
+
+\input{../../../headers/moheaders.tex}
+
+\begin{tabular}{|Ep{0.4\linewidth}|p{.5\linewidth}|}
+\hline
+& Mettre le système sous tension,
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \input{img/maxpid_01.pdf_tex}}\tabularnewline\hline
+ & Sur l'écran d'accueil, cliquer sur Connexion,
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \input{img/maxpid_02.pdf_tex}}\tabularnewline\hline
+  & Cliquer sur \og Établir la connexion \fg,
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \input{img/maxpid_03.pdf_tex}}\tabularnewline\hline
+ & Sur l'écran d'accueil, cliquer sur le bouton d'étalonnage du capteur,
+ \begin{enumerate}
+  \item Mettre à la main, le bras en position horizontale (pointe sur 0\textdegree),
+  \item Cliquer sur \og Valider 0\textdegree \fg,
+  \item Mettre à la main, le bras en position verticale (pointe sur 90\textdegree),
+  \item Cliquer sur \og Valider 90\textdegree \fg,
+  \item Cliquer sur \og VALIDER \fg.
+  \end{enumerate}
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \input{img/maxpid_04.pdf_tex}}\tabularnewline\hline
+& Sur l'écran d'accueil, cliquer sur le bouton de réglage du PID,
+ \begin{enumerate}
+  \item Régler les 3 valeurs de l'asservissement,
+  \item Cocher la case \og MAXPID Asservi \fg.
+  \end{enumerate}
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \input{img/maxpid_05.pdf_tex}}\tabularnewline\hline
+\end{tabular}
+
+\section{Étude géométrique ou cinématique}
+
+\setcounter{rowcounter}{1}
+
+\begin{tabular}{|Ep{0.4\linewidth}|p{.5\linewidth}|}
+\hline
+& Sur l'écran d'accueil, cliquer le bouton d'accès aux mesures, et choisir \og Réponse à une sollicitation \fg.
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \input{img/maxpid_06.pdf_tex}}\tabularnewline\hline
+&  \begin{itemize}
+ \item Régler les paramètres de mesure en haut à gauche,
+ \item Régler l'angle à parcourir en haut à droite,
+ \item Sélectionner les courbes à afficher grâce aux cases à cocher,
+ \item Cliquer sur \og Echelon de position \fg\ ou \og Trapèze de vitesse \fg.
+\end{itemize}
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \input{img/maxpid_07.pdf_tex}}\tabularnewline\hline
+ &  La courbe mesurée s'affiche:
+ \begin{itemize}
+ \item Déplacer le curseur pour voir s'afficher les valeurs,
+ \item Il est possible d'enregistrer la courbe, en cliquant sur la disquette, cela a pour effet de générer aussi un fichier \verb?txt? avec les données.
+\end{itemize}
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \input{img/maxpid_08.pdf_tex}}\tabularnewline\hline
+\end{tabular}
+
+
+\section{Étude sollicitations harmoniques}
+
+\setcounter{rowcounter}{1}
+
+\begin{tabular}{|Ep{0.4\linewidth}|p{.5\linewidth}|}
+\hline
+&  Cliquer sur \og Commande sinusoïdale \fg.
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \input{img/maxpid_07.pdf_tex}}\tabularnewline\hline
+ & Régler les paramètres de la sollicitation et cliquer sur \og Envoyer \fg.
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \input{img/maxpid_09.pdf_tex}}\tabularnewline\hline
+\end{tabular}
+
+
+\section{Étude statique}
+
+\setcounter{rowcounter}{1}
+
+\begin{tabular}{|Ep{0.4\linewidth}|p{.5\linewidth}|}
+\hline
+& Sur l'écran d'accueil, cliquer le bouton d'accès aux mesures, et choisir \og Couple statique du moteur \fg.
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \input{img/maxpid_06.pdf_tex}}\tabularnewline\hline
+&  Cliquer sur le bouton permettant de lancer l'acquisition,
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \input{img/maxpid_10.pdf_tex}}\tabularnewline\hline
+ & Régler les paramètres de la sollicitation et cliquer sur \og Acquisition \fg.
+&\raisebox{-0.9\totalheight}{\def\svgwidth{0.9\linewidth}
+ \input{img/maxpid_11.pdf_tex}}\tabularnewline\hline
+\end{tabular}
+
+\end{document}
