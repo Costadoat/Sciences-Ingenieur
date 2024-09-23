@@ -1,0 +1,79 @@
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+.idea
+
+#Fichier à cacher
+*hide.mp4
+*hide.*
+
+# Folder config file
+Desktop.ini
+
+#Dossier des sujets de DS en rédaction
+En_redaction
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+local_settings.py
+uploads/
+venv/
+migrations/
+__pycache__
+*Simscape/
+*experimental/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+*~
+
+# Fichiers Latex
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+*.bak
+Ressources
+ressources
+*_prive.py
+qrcode.svg
+qrcode.png
+Notes.txt
+
+# Windows shortcuts
+*.lnk
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk

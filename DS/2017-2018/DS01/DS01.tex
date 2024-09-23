@@ -1,0 +1,497 @@
+\input{../../../headers/dsheaders.tex}
+
+\section{Présentation générale (30 min)}
+
+\subsection{Introduction}
+
+Les constructeurs automobiles sont sans cesse dans l'obligation d'innover pour rester attractifs vis-à-vis du client. Les ouvrants pilotés automobiles font partie des atouts différenciateurs. Le terme ouvrant désigne à la fois les lève-vitres électriques, les toits ouvrants, les toits escamotables, les coffres motorisés et les portes latérales coulissantes. Tous ces ouvrants sont une source d'attrait pour le client, de par leur praticité ou encore par leurs facteurs de différenciation importants.
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.9\linewidth]{img/img01}
+ \caption{Différents types d'ouvrants du groupe PSA}
+ \label{img01}
+\end{figure}
+
+Il existe deux types de pilotage des ouvrants :
+\begin{itemize}
+ \item le premier est un système classique et/ou d'assistance. L'utilisateur gère complètement le déplacement de l'ouvrant. Dès qu'il arrête son action sur la commande, l'ouvrant s'immobilise, c'est le cas par exemple du lève-vitre électrique non séquentiel. Ainsi, avec un système classique et/ou d'assistance, le déplacement de l'ouvrant est entièrement imputable aux actions de l'utilisateur,
+ \item le second type est le pilotage automatisé des ouvrants. Ici, l'utilisateur demande simplement à ce que l'ouvrant se déplace jusqu'à une position prédéfinie. Une brève action de sa part entraîne le déplacement complet de l'ouvrant. Pour le lève-vitre électrique séquentiel, l'utilisateur demande à ce que la vitre remonte complètement, par une courte action sur l'interrupteur. Dès lors, le système de contrôle/commande gère le déplacement de l'ouvrant dans le cas normal, mais aussi en cas de dysfonctionnement (perte de fonctionnalité ou présence d'un obstacle sur le trajet de la vitre). Il faut donc assurer un fonctionnement sûr et robuste du système d'ouvrant piloté automatisé pour éviter que le système blesse un occupant.
+\end{itemize}
+
+Le diagramme de cas d'utilisation de la figure \ref{img02} synthétise les explications précédentes.
+
+\newpage
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.5\linewidth]{img/img02}
+ \caption{Diagramme de cas d'utilisation d'un ouvrant électrique}
+ \label{img02}
+\end{figure}
+
+Objectif:
+
+L'objectif du travail proposé dans ce sujet est de mettre en place différentes stratégies de commande d'un lève-vitre électrique de Peugeot 308 de manière à pouvoir extrapoler les résultats à une porte coulissante électrique.
+
+~\
+
+Cette étude nécessite :
+\begin{itemize}
+ \item une analyse de l'architecture du lève-vitre (partie I),
+ \item une modélisation multiphysique du système (partie II),
+ \item la mise en place d'un modèle de commande tout ou rien (partie III),
+ \item le développement d'un modèle de commande de type asservissement continu (partie IV). Le diagramme des exigences de la figure \ref{img03} liste quelques performances attendues pour le lève-vitre électrique.
+\end{itemize}
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.9\linewidth]{img/img03}
+ \caption{Diagramme des exigences}
+ \label{img03}
+\end{figure}
+
+\section{Architecture du lève-vitre}
+
+Pour le développement et la mise en \oe uvre d'une architecture de commande, il est nécessaire de disposer d'un modèle de simulation fiable et précis, tout en connaissant ses limites de validité. L'élaboration d'un tel modèle nécessite de décrire l'implantation de la chaîne d'énergie et de la chaîne d'informations de l'ouvrant.
+
+Le diagramme de définitions de blocs de la figure \ref{img04}, liste l'ensemble des constituants principaux du lève-vitre électrique. La plupart des constituants sont repérés sur les vues tridimensionnelles données en annexe figures \ref{an01}, \ref{an011} et \ref{an02}.
+
+\paragraph{Question 1:} Compléter, à l'aide des noms disponibles sur le diagramme de la figure \ref{img04}, le schéma des chaînes fonctionnelles du document réponse.
+
+~\
+
+Le réducteur du lève-vitre est constitué d'un dispositif roue et vis sans fin. La roue possède $Z=53$ dents et la vis est constituée d'un filet. Le câble s'enroule sur le tambour de diamètre $D=41,5mm$, solidaire de la roue. Le câble est solidaire du coulisseau sur lequel est fixée la vitre.
+ 
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.8\linewidth]{img/img04}
+ \caption{Diagramme de définitions de blocs (BDD) du lève-vitre électrique}
+ \label{img04}
+\end{figure}
+
+On note $v(t)$ la vitesse de déplacement en translation de la vitre et $\omega_m(t)$ la vitesse angulaire du moteur, avec: $v(t)=\frac{D}{2}.\frac{1}{Z}.\omega_m(t)$.
+
+\paragraph{Question 2:}	Déterminer l'expression littérale du rapport de réduction $r$ (roue et vis + poulie) tel que
+$v(t) = r.\omega_m(t)$. Effectuer l'application numérique. On prendra dans la suite la valeur $r=0,39mm.rad^{-1}$.
+
+\paragraph{Question 3:} Déterminer le nombre de tours $N_t$ que doit faire le moteur pour obtenir le déplacement de la vitre indiqué dans le diagramme des exigences.
+
+\paragraph{Question 4:} Sachant que le régime nominal du moteur est de $4000tr.min^{-1}$, en déduire la durée (en $s$) d'ouverture/fermeture $\Delta_o$ de la fenêtre. Conclure quant à l'exigence correspondante du diagramme des exigences.
+
+%\subsection{Modélisation du guidage: Guidage d'une porte coulissante}
+%
+%\begin{figure}[!h]
+%\begin{minipage}{0.45\linewidth}
+%La structure de la porte coulissante électrique est proche de celle du lève-vitre (figure \ref{img08}). Un moto-réducteur entraîne, par l'intermédiaire d'un tambour et de poulies/câble, la porte qui est guidée par trois rails (inférieur, milieu et supérieur) grâce à trois chariots en liaison avec la porte. Des galets (trois par chariot) sont montés sur ces chariots pour assurer le guidage avec les rails. La chaîne d'information de la porte coulissante est exactement la même que pour le lève- vitre. Le diagramme BDD de la porte coulissante est donné sur la figure \ref{img09}.
+%\end{minipage}
+%\begin{minipage}{0.45\linewidth}
+% \centering\includegraphics[width=0.8\linewidth]{img/img08}
+% \caption{Description du système de guidage de la porte coulissante électrique}
+% \label{img08}
+%\end{minipage}
+%\end{figure}
+%
+%\begin{figure}[!h]
+% \centering\includegraphics[width=0.8\linewidth]{img/img09}
+% \caption{Diagramme BDD de la porte coulissante}
+% \label{img09}
+%\end{figure}
+
+\section{Commande asservie}
+
+La partie précédente a permis de mettre en évidence une méthode de détection de pincement dans le cadre d'une commande tout ou rien en boucle ouverte. La plupart des ouvrants sont commandés de cette manière. Cependant, de nouvelles fonctionnalités ou contraintes définies dans le cahier des charges peuvent nécessiter la prise en compte d'une commande asservie de vitesse. C'est le cas, par exemple, de la porte coulissante où la vitesse est variable et contrôlée selon les moments de fonctionnement.
+
+La méthode précédente doit être modifiée car l'asservissement doit réagir pour maintenir une vitesse fixée, ce qui est contraire à la détection d'un obstacle. La nouvelle méthode consiste à développer un estimateur de l'effort dû à l'obstacle et à utiliser cette information pour détecter l'obstacle.
+
+\subsection{Mise en place de l'asservissement de vitesse}
+
+On considère la vitre de masse $m$ se déplaçant verticalement. Le moment d'inertie du rotor autour de son axe de rotation est noté $J_m$. Les inerties, autres que celles de la vitre et du rotor, sont négligées. On appelle $\omega_m(t)$ la vitesse angulaire du rotor du moteur et $r$ le rapport de réduction entre la vitesse $v(t)$ de la vitre et la vitesse angulaire du moteur : $v(t) = r.\omega_m(t)$.
+
+Le référentiel lié à la voiture est supposé galiléen. On pose :
+\begin{itemize}
+ \item $f_v$ le coefficient de frottement visqueux de l'axe du moteur,
+ \item $C_r(t)$ le couple résistant ramené au niveau de l'axe du moteur. Celui-ci prend en compte les frottements (autre que ceux dans le moteur), la pesanteur et aussi la présence ou non d'un obstacle, ce sont les seules pertes. Toutes les autres liaisons seront considérées comme parfaites,
+ \item $C_m(t)$ le couple exercé par le moteur.
+\end{itemize} 
+
+En appliquant le théorème de l'énergie cinétique à l'ensemble en mouvement on peut montrer que:
+
+\begin{center}
+$J.\frac{d\omega_m(t)}{dt}+f_v.\omega_m(t)=C_m(t)-C_r(t)$ (1)
+\end{center}
+avec $J=J_m+m.r^2$
+
+Les équations qui caractérisent le moteur à courant continu sont : $u_m(t)=R.i(t)+k_e.\omega_m(t)$ (2) et $C_m(t)=k_c.i(t)$ (3) avec $R$, $k_e$ et $k_c$ des constantes caractéristiques du moteur.
+
+\paragraph{Question 5:} Passer les équations (1), (2) et (3) dans le domaine de Laplace.
+
+\paragraph{Question 6:} En déduire les fonctions de transfert $H_1(p)$ et $H_2(p)$ telles que $\Omega_m(p)=H_1(p).U_m(p)+H_2(p).C_r(p)$
+
+\paragraph{Question 7:} Mettre ces fonctions de transfert sous leurs formes canonique et en déduire les caractéristiques $K_1$, $\tau_1$, $K_2$ et $\tau_2$.
+
+\paragraph{Question 8:} Déterminer leurs ordres et leurs classes.
+
+~\
+
+La valeurs numériques des caractéristiques du système sont indiquées sur le document réponse.
+
+\paragraph{Question 9:} Comme cela a été fait pour la première ligne $R$, indiquer l'unité de la variable considérée. 
+
+\paragraph{Question 10:} Compléter le tableau du document réponse en indiquant les unités de chacune des variables à partir de unités de base du système international. 
+
+\paragraph{Question 11:} Déterminer les valeurs numériques des composantes $K_1$, $\tau_1$, $K_2$ et $\tau_2$.
+ 
+~\
+
+On donne:
+\begin{itemize}
+ \item $S_1(p)=H_1(p).U_m(p)$
+ \item $S_2(p)=H_2(p).C_r(p)$
+\end{itemize}
+
+\paragraph{Question 12:} En utilisant la décomposition en éléments simples déterminer $s_1(t)$ la réponse temporelle à un échelon $u_m(t)=12V$.
+
+\paragraph{Question 13:} Par identification, en utilisant les résultats de la question précédente, déterminer $s_2(t)$ la réponse temporelle à un échelon $C_r(t)=0,2N.m$.
+
+\paragraph{Question 14:} En déduire $\omega_m(t)=s_1(t)+s_2(t)$ la réponse du système. Tracer cette réponse sur le document réponse et mettre sur ce tracé toutes les constructions nécessaires à son interprétation.
+
+~\
+
+La figure \ref{img15}, présente le schéma-blocs de l'asservissement avec :
+\begin{itemize}
+ \item deux entrées $\Omega_c(p)$ vitesse angulaire de consigne du moteur et $C_r(p)$ couple résistant,
+ \item une sortie $\Omega_m(p)$.
+\end{itemize}
+
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.9\linewidth]{img/img15}
+ \caption{Schéma-blocs de l'asservissement de vitesse du moteur}
+ \label{img15}
+\end{figure}
+
+\paragraph{Question 15:} Déterminer les fonctions de transfert $D(p)$ et $F(p)$, en fonction de $H_1(p)$ et $H_2(p)$.
+
+~\
+
+On donne les données suivantes:
+\begin{itemize}
+ \item $B(p)=10$ (sans unité),
+ \item $E(p)=0,01V.rad^{-1}.s$.
+\end{itemize}
+
+\paragraph{Question 16:} Déterminer la fonction de transfert du bloc $A(p)$ et faire l'application numérique.
+
+~\
+
+\newpage
+
+Pour la suite, on prendra $C_r(p)=0$.
+
+\paragraph{Question 17:} Déterminer $FTBO(p)=\frac{M(p)}{C(p)}$ et $FTBP(p)=\frac{\Omega(p)}{\Omega_c(p)}$. Mettre ces fonctions sous la forme canonique.
+
+\paragraph{Question 18:} Donner l'ordre et la classe pour chacune d'elle. Identifier les valeurs caractéristiques de ces fonctions de transfert et faire l'application numérique.
+
+\section{Système de commande d'un essuie-glace}
+
+Le dessin donné dans le document réponse présente une solution de commande d'essuie-glace.
+
+\paragraph{Question 19:} Colorier les classes d'équivalence sur le dessin d'ensemble et sur la nomenclature associée.
+
+\begin{center}
+FIN DU SUJET
+\end{center}
+
+\newpage
+
+\section{Annexes}
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.9\linewidth]{img/eclate1}
+ \caption{Éclaté de la structure interne du lève-vitre électrique}
+ \label{an01}
+\end{figure}
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.9\linewidth]{img/eclate1_2}
+ \caption{Nomenclature}
+ \label{an011}
+\end{figure}
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.9\linewidth]{img/eclate2}
+ \caption{ du moto-réducteur}
+ \label{an02}
+\end{figure}
+
+
+\newpage
+\cleardoublepage
+
+\pagestyle{documentreponse}
+
+\section{Documents réponse}
+
+\reponse{1}{0}
+
+\begin{center}
+ \centering\includegraphics[width=0.99\linewidth]{img/dr1}
+\end{center}
+
+\reponse{2}{7}
+
+\reponse{3}{6}
+
+\reponse{4}{7}
+
+\reponse{5}{9}
+
+\reponse{6}{12}
+
+\reponse{7}{6}
+
+\reponse{8}{4}
+
+\reponse{9}{0}
+
+\begin{center}
+\begin{tabular}{|c|c||c|c|c|c|}
+\hline
+$R$ & $2$ & $V$ & & $\Omega$ & X \\
+\hline
+$k_e$ & $52,5.10^{-3}$ & $V.s$ & & $N.m.A^{-1}$ & \\
+\hline
+$k_c$ & $52,5.10^{-3}$ & $V.s$ & & $N.m.A^{-1}$ & \\
+\hline
+$J_m$ & $0,01$ & $kg.m^2$ & & $kg.m^2.s^{-2}$ & \\
+\hline
+$m$ & 5 & $kg$ & & $N$ & \\
+\hline
+$f_v$ & 0,125 & $N.m$ & & $N.m.s$ & \\
+\hline
+\end{tabular}
+\end{center}
+
+\reponse{10}{0}
+
+\begin{center}
+\begin{tabular}{|c|m{3cm}|}
+\hline
+$R$ &  \\
+\hline
+$k_e$ &  \\
+\hline
+$k_c$ &  \\
+\hline
+$J_m$ &  \\
+\hline
+$m$ &  \\
+\hline
+$f_v$ & \\
+\hline
+\end{tabular}
+\end{center}
+
+\reponse{11}{4}
+
+\reponse{12}{12}
+
+\reponse{13}{6}
+
+\reponse{14}{11}
+
+\begin{center}
+ \centering\includegraphics[width=0.8\linewidth]{img/temp_vide}
+\end{center}
+
+\reponse{15}{14}
+
+\reponse{16}{6}
+
+\reponse{17}{12}
+
+\reponse{18}{11}
+
+
+\reponse{19}{0}
+
+\begin{center}
+	\includegraphics[width=0.7\linewidth]{img/Commande_essui_glace_nom.pdf}
+\end{center}
+
+\includepdf[angle=90,offset=-6mm -8mm]{img/Commande_essui_glace_dessin.pdf}
+
+\ifdef{\public}{\end{document}}{}
+
+\newpage
+\cleardoublepage
+
+\pagestyle{correction}
+
+\section{Correction}
+
+\reponse{1}{0}
+
+\begin{center}
+ \centering\includegraphics[width=0.9\linewidth]{img/dr1_cor}
+\end{center}
+
+\reponse{2}{0}
+
+$r=\frac{D}{2.Z}=0,39mm.rad^{-1}$
+
+\reponse{3}{0}
+
+La distance à parcourir est de 45 cm (req 4.2). L'angle moteur est donc donné par $\theta_m=\frac{450}{r}=\frac{450}{0,4}\simeq 1125rad$, $N_t=183tours$
+
+\reponse{4}{0}
+
+À vitesse nominale on a $\Delta_o=\frac{\theta_m}{N_m}=\frac{183}{4000}=0,045min=2,7s$. Cette durée est inférieure aux 5 secondes fixées par l'exigence.
+
+\reponse{5}{0}
+
+$J.p.\Omega_m(p)+f_v.\Omega_m(p)=(J.p+f_v).\Omega_m(p)=C_m(p)-C_r(p)$ 
+
+$U_m(p)=R.I(p)+k_e.\Omega_m(p)$ 
+
+$C_m(p)=k_c.I(p)$
+ 
+\reponse{6}{0}
+
+$U_m(p)=R.\frac{(J.p.+f_v).\Omega_m(p)+C_r(p)}{k_c}+k_e.\Omega_m(p)$ 
+
+$U_m(p)-\frac{R}{k_c}.C_r(p)=\frac{R.(J.p.+f_v)+k_e.k_c}{k_c}.\Omega_m(p)$ 
+
+$\Omega_m(p)=\frac{k_c}{R.(J.p.+f_v)+k_e.k_c}.(U_m(p)-\frac{R}{k_c}.C_r(p))$ 
+
+$\Omega_m(p)=\frac{k_c}{R.(J.p.+f_v)+k_e.k_c}.U_m(p)-\frac{R}{R.(J.p.+f_v)+k_e.k_c}.C_r(p)$ 
+
+Donc, $H_1(p)=\frac{k_c}{R.(J.p.+f_v)+k_e.k_c}$ et $H_2(p)=-\frac{R}{R.(J.p.+f_v)+k_e.k_c}$.
+
+\reponse{7}{0}
+
+$H_1(p)=\dfrac{\frac{k_c}{R.f_v+k_e.k_c}}{1+\frac{R.J}{R.f_v+k_e.k_c}.p}$ et $H_2(p)=-\dfrac{\frac{R}{R.f_v+k_e.k_c}}{1+\frac{R.J}{R.f_v+k_e.k_c}.p}$.
+
+$K_1=\frac{k_c}{R.f_v+k_e.k_c}$, $\tau_1=\frac{R.J}{R.f_v+k_e.k_c}$, $K_2=-\frac{R}{R.f_v+k_e.k_c}$ et $\tau_2=\frac{R.J}{R.f_v+k_e.k_c}$.
+
+\reponse{8}{0}
+
+Elles sont toutes les deux d'ordre 1 et de classe 0.
+
+\reponse{9}{0}
+
+\begin{center}
+\begin{tabular}{|c|c||c|c|c|c|}
+\hline
+$R$ & $2$ & $V$ & & $\Omega$ & X \\
+\hline
+$k_e$ & $50.10^{-3}$ & $V.s$ & X & $N.m.A^{-1}$ & \\
+\hline
+$k_c$ & $50.10^{-3}$ & $V.s$ & & $N.m.A^{-1}$ & X \\
+\hline
+$J_m$ & $0,01$ & $kg.m^2$ & X & $kg.m^2.s^{-2}$ & \\
+\hline
+$m$ & 5 & $kg$ & X & $N$ & \\
+\hline
+$f_v$ & 0,125 & $N.m$ & & $N.m.s$ & X \\
+\hline
+\end{tabular}
+\end{center}
+
+\reponse{10}{0}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+$R$ & $A^{-2}.kg.m^2.s^{-3}$ \\
+\hline
+$k_e$ & $kg.m^2.s^{-2}.A^{-1}$ \\
+\hline
+$k_c$ & $kg.m^2.s^{-2}.A^{-1}$ \\
+\hline
+$J_m$ & $kg.m^2$ \\
+\hline
+$m$ & $kg$ \\
+\hline
+$f_v$ & $kg.m^2.s^{-1}$\\
+\hline
+\end{tabular}
+\end{center}
+
+\reponse{11}{0}
+
+$K_1\simeq0.2V^{-1}.s^{-1}$, $\tau_1\simeq0,08s$, $K_2\simeq -8s^{-1}.N^{-1}.m^{-1}$ et $\tau_2\simeq0,08s$.
+
+\reponse{12}{0}
+
+$S_1(p)=H_1(p).E_1(p)=\frac{K_1}{1+\tau_1.p}.\frac{E_{1,0}}{p}=\frac{A}{1+\tau_1.p}+\frac{B}{p}=K_1.E_{1,0}.\left(\frac{1}{p}-\frac{\tau_1}{1+\tau_1.p}\right)$
+
+$s_1(t)=K_1.E_{1,0}.(1-e^{-\frac{t}{\tau_1}})$.
+
+
+\reponse{13}{0}
+
+Par identification, $s_2(t)=K_2.E_{2,0}.(1-e^{-\frac{t}{\tau_2}})$
+
+\reponse{14}{0}
+
+$\omega_m(t)=s_1(t)+s_2(t)=K_1.E_{1,0}.(1-e^{-\frac{t}{\tau_1}})+K_2.E_{2,0}.(1-e^{-\frac{t}{\tau_2}})$.
+
+On a $\tau_1=\tau_2$, donc $\omega(t)=(K_1.E_{1,0}+K_2.E_{2,0}).(1-e^{-\frac{t}{\tau_1}})$
+
+$\omega(t)=(0,2.12-8.0,2).(1-e^{-\frac{t}{0,08}})=0,8.(1-e^{-\frac{t}{0,08}})$
+
+\begin{center}
+ \centering\includegraphics[width=0.9\linewidth]{img/temp_cor}
+\end{center}
+
+\reponse{15}{0}
+
+$\left\{\begin{array}{l}
+H_1(p).U_m(p)+H_2(p).C_r(p)=\Omega_m(p)\\
+(D(p).U_m(p)-C_r(p)).F(p)=\Omega_m(p)
+\end{array}\right.$
+
+$D(p).F(p).U_m(p)-C_r(p).F(p)=\Omega_m(p)$
+
+Donc :\\
+$\left\{\begin{array}{l}
+D(p).F(p)=H_1(p) \\
+-F(p)=H_2(p)
+\end{array}\right.$
+
+$\left\{\begin{array}{l}
+D(p)=-\frac{H_1(p)}{H_2(p)} \\
+F(p)=-H_2(p)
+\end{array}\right.$
+
+\reponse{16}{0}
+
+$A(p)=E(p)=0,01V.rad^{-1}.s$
+
+\reponse{17}{0}
+
+FTBO:\\
+$FTBO(p)=B(p).D(p).F(p).E(p)=B(p).E(p).H_1(p)=\frac{B(p).E(p).K_1}{1+\tau_1.p}$
+
+FTBF:\\
+$FTBF(p)=\frac{A(p).B(p).D(p).F(p)}{1+B(p).D(p).F(p).E(p)}=\frac{A(p).B(p).H_1(p)}{1+B(p).H_1(p).E(p)}$
+
+\reponse{18}{0}
+
+FTBO:classe 0, ordre 1\\
+$K_{FTBO}=B(p).E(p).K_1=0,02$\\
+$\tau_{FTBO}=\tau_1=0,08s$
+
+~\
+
+FTBF:classe 0, ordre 1\\
+$FTBF(p)=\frac{\frac{A(p).B(p).K_1}{1+B(p).K_1.E(p)}}{1+\frac{\tau_1}{1+B(p).K_1.E(p)}.p}$\\
+$K_{FTBF}=\frac{A(p).B(p).K_1}{1+B(p).K_1.E(p)}=0,167$\\
+$\tau_{FTBO}=\tau_1=0,0667s$
+
+\begin{center}
+ \centering\includegraphics[width=0.7\linewidth]{img/Commande_essui_glace_nom_cor.pdf}
+\end{center}
+
+\includepdf[page=1,angle=90,offset=6mm -8mm]{img/Commande_essui_glace_dessin_cor.pdf}
+
+\end{document}
+

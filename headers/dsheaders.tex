@@ -1,0 +1,409 @@
+% Paquets généraux
+\documentclass[a4paper,12pt,titlepage,twoside]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{subcaption}
+\addto\captionsfrench{%
+  \renewcommand{\tablename}{Tableau}%
+}
+\usepackage[gen]{eurosym}
+%\usepackage[dvips]{graphicx}
+\usepackage{minted}
+\usepackage{fancyhdr}
+\usepackage{pdfpages} 
+\usepackage{multido}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{schemabloc}
+%\usepackage[bitstream-charter]{mathdesign}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage[shortlabels]{enumitem}
+\usepackage[framemethod=TikZ]{mdframed}
+
+\input{intro.tex}
+%\usepackage{style}
+\usepackage{bodegraph}
+\usepackage{rpcinematik}
+\usepackage[locale = FR]{siunitx}
+\usepackage{caption}
+\newcommand{\institute}{Lycée Dorian}
+
+\usepackage{listings}
+\usepackage{fancyvrb}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{helvet}
+\usepackage[frenchmath]{newtxsf} % for sans serif symbols
+\renewcommand{\familydefault}{\sfdefault}
+%\usepackage{amsfonts}
+%\usepackage{amsmath}
+%\usepackage{lmodern}
+\usepackage{mathastext}
+%\usepackage{xspace}
+\usepackage{varioref}
+\usepackage{tabularx}
+%\usepackage{floatflt}
+\usepackage{graphics}
+\usepackage{wrapfig}
+\usepackage{textcomp}
+\usepackage{tikz,tkz-tab}
+\usepackage[european resistor, european voltage, european current]{circuitikz}
+\usepackage{wrapfig}
+\usepackage{gensymb}
+\usepackage[percent]{overpic}
+\usetikzlibrary{babel}
+\usepackage{ifthen}
+\usepackage{cancel}
+\usepackage{etoolbox}
+\usepackage{multirow}
+%\usepackage{boxedminipage}
+\definecolor{gris25}{gray}{0.75}
+\definecolor{bleu}{RGB}{18,33,98}
+\definecolor{bleuf}{RGB}{42,94,171}
+\definecolor{bleuc}{RGB}{231,239,247}
+\definecolor{bleum}{RGB}{160,195,226}
+\definecolor{rougef}{RGB}{185,18,27}
+\definecolor{rougec}{RGB}{255,188,204}%255,230,231
+\definecolor{vertf}{RGB}{103,126,82}
+\definecolor{vertc}{RGB}{220,255,191}
+\definecolor{forestgreen}{rgb}{0.13,0.54,0.13}
+\definecolor{blcr}{rgb}{0.59,0.69,0.84}
+\definecolor{blfr}{rgb}{0.32,0.51,0.75}
+\definecolor{orfr}{rgb}{0.90,0.42,0.15}
+\definecolor{orcr}{rgb}{0.90,0.65,0.50}
+\definecolor{orangef}{rgb}{0.659,0.269,0.072}
+\definecolor{orange}{rgb}{0.58,0.35,0.063}
+\definecolor{orangec}{rgb}{0.43,0.32,0.25}
+\definecolor{rcorrect}{rgb}{0.6,0,0}
+\definecolor{sequence}{rgb}{0.75,0.75,0.75}
+\definecolor{competences}{rgb}{0.61,0.73,0.35}
+\definecolor{rose}{HTML}{ff00ff}
+\definecolor{grisf}{HTML}{222222}
+\definecolor{grisc}{HTML}{636363}
+\definecolor{normal}{HTML}{4087c4}
+\definecolor{info}{HTML}{5bc0de}
+\definecolor{success}{RGB}{92,184,92}
+\definecolor{warning}{RGB}{240,173,78}
+\definecolor{danger}{RGB}{217,83,79}
+\hypersetup{                    % parametrage des hyperliens
+    colorlinks=true,                % colorise les liens
+    breaklinks=true,                % permet les retours à la ligne pour les liens trop longs
+    urlcolor= blfr,                 % couleur des hyperliens
+    linkcolor= orange,                % couleur des liens internes aux documents (index, figures, tableaux, equations,...)
+    citecolor= forestgreen                % couleur des liens vers les references bibliographiques
+    }
+
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+% Mise en page
+\pagestyle{fancy}
+
+\setlength{\hoffset}{-18pt}
+\setlength{\oddsidemargin}{0pt} 	% Marge gauche sur pages impaire2s
+\setlength{\evensidemargin}{0pt} 	% Marge gauche sur pages paires
+\setlength{\marginparwidth}{00pt} 	% Largeur de note dans la marge
+\setlength{\headwidth}{481pt} 	 	% Largeur de la zone de tête (17cm)
+\setlength{\textwidth}{481pt} 	 	% Largeu\textbf{r de la zone de texte (17cm)
+\setlength{\voffset}{-18pt} 		% Bon pour DOS
+\setlength{\marginparsep}{7pt}	 	% Séparation de la marge
+\setlength{\topmargin}{-30pt} 		% Pas de marge en haut
+\setlength{\headheight}{55pt} 		% Haut de page
+\setlength{\headsep}{20pt} 		% Entre le haut de page et le texte
+\setlength{\footskip}{30pt} 		% Bas de\textbf{ page + séparation
+\setlength{\textheight}{700pt} 		% Hauteur de l'icone zone de texte (25cm)
+\setlength\fboxrule{1 pt}
+\renewcommand{\baselinestretch}{1}
+\setcounter{tocdepth}{1}
+\newcommand{\cadre}[2]
+{\fbox{
+  \begin{minipage}{#1\linewidth}
+   \begin{center}
+    #2\\
+   \end{center}
+  \end{minipage}
+ }
+}
+
+\newcommand{\repon}[1]
+{
+~\ \\
+\begin{tabular}{|m{\linewidth}|}
+ \hline
+\multido{}{#1}{\\ \hline}
+\end{tabular}
+}
+
+
+\newcommand{\objectif}[1]{
+\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=bleum]
+{\strut Objectif~};}}
+\mdfsetup{innertopmargin=10pt,linecolor=bleum,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+#1
+\end{mdframed}}
+
+
+\newcounter{num_quest} \setcounter{num_quest}{0}
+\newcounter{num_rep} \setcounter{num_rep}{0}
+\newcounter{num_cor} \setcounter{num_cor}{0}
+
+\newcommand{\feuilleDR}[1]{
+	\begin{tikzpicture}
+		\draw[gray!30](0,0)grid[step=0.5cm](\linewidth,#1);
+	\end{tikzpicture}
+}
+
+%\newcommand{\question}[1]{\refstepcounter{num_quest}\par
+%~\ \\ \parbox[t][][t]{0.15\linewidth}{\textbf{Question \arabic{num_quest}}}\parbox[t][][t]{0.85\linewidth}{#1\label{q\the\value{num_quest}}}\par
+%}
+
+\newcommand{\question}[1]{\refstepcounter{num_quest}\par
+~\ \\ \textbf{Question \arabic{num_quest} : }#1\label{q\the\value{num_quest}}\par
+}
+
+\newcommand{\posetafigure}[3]{
+\begin{figure}[ht!]
+ \begin{center}
+  \includegraphics[width=#2\linewidth]{img/#1}
+ \end{center}
+ \caption{\label{#1} #3}
+\end{figure}}
+
+\newcommand{\goforum}{
+\begin{figure}
+
+\end{figure}
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{../../../img/go_forum}
+\end{center}
+\label{go_forum}
+\caption{J'pète les plombs}
+\end{figure}}
+
+\newcommand{\reponse}[4][1]
+{\noindent
+\parbox{\textwidth}{
+\rule{\linewidth}{.5pt}\\
+\textbf{Question\ifthenelse{#1>1}{s}{} \multido{}{#1}{%
+\refstepcounter{num_rep}\ref{q\the\value{num_rep}} }:} ~\ \\
+\ifdef{\public}{#3 \ifthenelse{#2>0}{~\ \\ 	\feuilleDR{#2}}}{#4}
+}}
+
+\newcommand{\cor}
+{\refstepcounter{num_cor}
+\noindent
+\rule{\linewidth}{.5pt}
+\textbf{Question \arabic{num_cor}:} \\
+}
+
+\newcommand{\finsujet}
+{
+    \begin{center}
+    \Large{FIN}
+    \end{center}
+
+    \cleardoublepage
+
+    \ifdef{\public}{\pagestyle{docreponse}}{\pagestyle{correction}}
+
+    \ifdef{\public}{
+        \begin{tikzpicture} 
+            \draw (0,0) rectangle (2,2);
+            \draw (0,0) -- (2,2);
+            \draw (1.5,0.5) node {\large 20};
+            \draw (2.5,0) rectangle (16,2);
+            \draw (4.5,1.7) node {\large Commentaires:};
+        \end{tikzpicture}
+    }
+    ~\ \\
+}
+
+
+%\newcommand{\repcarre}[2]
+%{
+%~\ \\
+%\begin{tikzpicture}
+%\draw [fill=white] (0,0) rectangle +(\linewidth,#1);
+%\node[align=left] at (1.1,#2-0.3) {\textbf{Question #1:}};
+%\end{tikzpicture}
+%}
+
+\newcommand{\titre}[1]
+{\begin{center}
+\cadre{0.8}{\huge #1} 
+\end{center}
+}
+
+
+%Définition des torseurs :
+\newcommand{\torseur}[2]{\left\{\mathcal{#1}_{#2} \right\}}
+\newcommand{\torseurh}[3]{\left\{\genfrac{}{}{0pt}{0}{#1}{#2}\right\}_{#3}}
+\newcommand{\torseurv}[8]{\left\{
+\begin{matrix}
+#1 & #4 \\ #2 & #5 \\ #3 &#6
+\end{matrix}
+\right\}_{{#7},{#8}}}
+
+%Définition des torseurs :
+%\newcommand{\torseur}[2]{\left \{\mbox{\relsize{2}{$\mathcal {#1}$}\relsize{-2}}\phantom{}_{\mbox{\scriptsize $#2$}} \right \}}
+%\newcommand{\torseurh}[3]{\left\{\genfrac{}{}{0pt}{0}{#1}{#2}\right\}_{#3}}
+%\newcommand{\torseurv}[8]{
+%\left\{\begin{array}{@{}c|c@{}} #1 & #4 \\ #2 & #5 \\ #3 & #6 \end{array} \right\}_{#7,#8}
+%}
+\newcommand{\derivee}[2]{\left.\dfrac{\d #1}{\d t}\right|_{#2}}
+\newcommand{\tripleint}{\int\!\!\!\!\!\int\!\!\!\!\!\int}
+
+% Notation cinématique et statique
+\newcommand{\cinematique}[2]{\mbox{#1}/\mbox{#2}}
+\newcommand{\statique}[2]{\mbox{#1}\rightarrow\mbox{#2}}
+\newcommand{\moment}[3]{\vv {#1}_{\scriptsize{#3}}(#2)}
+\newcommand{\resultante}[2]{\vv {#1}_{\scriptsize{#2}}}
+
+
+%Commande de base
+\newcommand{\jo}{\left(j\omega\right)} % j \omega dans l'analyse fréquentielle
+\newcommand{\tl}{\xrightarrow{\mathcal{L}}} % transformée de laplace sur fleche
+\newcommand{\tli}{\xrightarrow{\mathcal{L}^{-1}}} % transformée inverse de laplace sur fleche
+\renewcommand{\d}[1][]{\mathrm{d#1}}
+\newcommand{\dd}[1][]{\mathrm{d#1}}
+\newcommand{\vect}[2]{{#1}\wedge{#2}}
+\newcommand{\base}[3]{(\vec #1,\vec #2,\vec #3)}
+\newcommand{\vectbase}[4]{{\vphantom{\left| \begin{matrix}
+#1\\#2\\#3 \end{matrix} \right|}}_{#4}{\left| \begin{matrix}
+#1\\#2\\#3 \end{matrix} \right.}}
+%Pour avoir les paragraphes sous la forme I, II, III
+\renewcommand{\thesection}{\Roman{section}}
+\setcounter{secnumdepth}{3}
+\renewcommand{\Frlabelitemii}{$\bullet$}
+
+% En tête et pied de page
+\lhead{\nom}
+\rhead{\includegraphics[width=2cm]{../../../img/logo}}
+\lfoot{\auteurun,\ \auteurdeux}
+\cfoot{Page \thepage}
+
+\fancypagestyle{docreponse}{%
+  \fancyhf{}
+  \lhead{Nom: ........................ Prénom: ........................}
+  \rhead{\sujet}
+  \lfoot{Document réponse}
+  \cfoot{Page \thepage}
+   }
+
+\fancypagestyle{correction}{%
+  \fancyhf{}
+  \lhead{\colorbox{danger}{\begin{minipage}{0.65\paperwidth} \textcolor{white}{\textbf{Correction}} \end{minipage}} }
+  \rhead{\includegraphics[width=2cm]{../../../img/logo}}
+  \lfoot{Renaud Costadoat, Françoise Puig}
+  \rfoot{\colorbox{danger}{\begin{minipage}{0.4\paperwidth} \begin{flushright}\textcolor{white}{\textbf{Correction}}\end{flushright} \end{minipage}} }}
+
+\fancypagestyle{correctioninfo}{%
+  \fancyhf{}
+  \lhead{\colorbox{danger}{\begin{minipage}{0.65\paperwidth} \textcolor{white}{\textbf{Correction}} \end{minipage}} }
+  \rhead{\includegraphics[width=2cm]{../../../img/logo}}
+  \lfoot{Renaud Costadoat, Juliette Genzmer}
+  \rfoot{\colorbox{danger}{\begin{minipage}{0.6\paperwidth} \begin{flushright}\textcolor{white}{\textbf{Correction}}\end{flushright} \end{minipage}} }}
+
+\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{eso-pic}
+\newcommand{\BackgroundPic}{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\begin{center}
+\hspace{0.5cm}\vspace{0.5cm}
+\includegraphics[width=\paperwidth,height=\paperheight,%
+keepaspectratio]{../../../img/fond3}%
+\end{center}
+\vfill
+}}}
+
+\newcommand{\BackgroundPicdeux}{%
+\put(25,-30){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\begin{center}
+\includegraphics[width=\paperwidth,height=\paperheight,%
+keepaspectratio]{../../../img/fond4}%
+\end{center}
+\vfill
+}}}
+
+\begin{document}
+
+\pagestyle{empty}
+
+\AddToShipoutPicture*{\BackgroundPic}
+
+\includegraphics[width=2cm]{../../../img/logo}
+
+\Huge{DS \numero - \sujet}
+
+\vspace{1cm}
+
+\ifdef{\prive}{\begin{center}\colorbox{danger}{\Huge{Avec Correction}}\end{center}}{}
+
+\begin{center}
+\centering\huge{PTSI}
+\end{center}
+
+\vspace{2cm}
+
+
+\begin{center}
+\centering\Large{\jour}
+\end{center}
+
+\vspace{2cm}
+
+\normalsize
+
+\tableofcontents
+
+\newpage
+
+\AddToShipoutPicture{\BackgroundPicdeux}
+
+\pagestyle{fancy}
+
+\begin{center}
+\Huge \sujet
+\end{center}
+
+
+\normalsize

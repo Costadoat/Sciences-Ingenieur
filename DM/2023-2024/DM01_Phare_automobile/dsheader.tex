@@ -1,0 +1,116 @@
+% Paquets généraux
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[french]{babel}
+\usepackage[gen]{eurosym}
+\usepackage[dvips]{graphicx}
+\usepackage{fancyhdr}
+%\usepackage{pstricks}
+%\usepackage{textcomp}
+%\usepackage{aeguill}
+\usepackage[pdftex]{color}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{pdfpages} 
+%\usepackage{xspace}
+\usepackage{varioref}
+\usepackage{tabularx}
+%\usepackage{floatflt}
+\usepackage{graphics}
+%\usepackage{wrapfig}
+\usepackage{textcomp}
+%\usepackage{boxedminipage}
+\definecolor{forestgreen}{rgb}{0.13,0.54,0.13}
+\definecolor{orangef}{rgb}{0.659,0.269,0.072}
+\definecolor{orange}{rgb}{0.58,0.35,0.063}
+\definecolor{orangec}{rgb}{0.43,0.32,0.25}
+\definecolor{rcorrect}{rgb}{0.6,0,0}
+
+% Mise en page
+\pagestyle{fancy}
+
+\setlength{\hoffset}{-18pt}
+
+\setlength{\oddsidemargin}{0pt} 	% Marge gauche sur pages impaire2s
+\setlength{\evensidemargin}{0pt} 	% Marge gauche sur pages paires
+\setlength{\marginparwidth}{00pt} 	% Largeur de note dans la marge
+\setlength{\headwidth}{481pt} 	 	% Largeur de la zone de tête (17cm)
+\setlength{\textwidth}{481pt} 	 	% Largeu\textbf{r de la zone de texte (17cm)
+\setlength{\voffset}{-18pt} 		% Bon pour DOS
+\setlength{\marginparsep}{7pt}	 	% Séparation de la marge
+\setlength{\topmargin}{-30pt} 		% Pas de marge en haut
+\setlength{\headheight}{55pt} 		% Haut de page
+\setlength{\headsep}{20pt} 		% Entre le haut de page et le texte
+\setlength{\footskip}{30pt} 		% Bas de\textbf{ page + séparation
+\setlength{\textheight}{700pt} 		% Hauteur de la zone de texte (25cm)
+\setlength\fboxrule{1 pt}
+\renewcommand{\baselinestretch}{1}
+\setcounter{tocdepth}{1}
+\newcommand{\cadre}[2]
+{\fbox{
+  \begin{minipage}{#1\linewidth}
+   \begin{center}
+    #2\\
+   \end{center}
+  \end{minipage}
+ }
+}
+
+\newcommand{\titre}[1]
+{\begin{center}
+\cadre{0.8}{\huge #1} 
+\end{center}
+}
+
+% En tête et pied de page
+\lhead{\numero - \sujet}
+\rhead{\includegraphics[width=2cm]{../../../Admin/Logo_Corbu.PNG}}
+\lfoot{Renaud Costadoat}
+\cfoot{Page \thepage}
+
+\fancypagestyle{correction}{%
+  \fancyhf{}
+  \lhead{\colorbox{rcorrect}{\begin{minipage}{0.65\paperwidth} \textcolor{white}{\textbf{Correction}} \end{minipage}} }
+  \rhead{\includegraphics[width=2cm]{../../../Admin/Logo_Corbu.PNG}}
+  \lfoot{Renaud Costadoat}
+  \rfoot{\colorbox{rcorrect}{\begin{minipage}{0.6\paperwidth} \begin{flushright}\textcolor{white}{\textbf{Correction}}\end{flushright} \end{minipage}} }}
+
+
+\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+
+\pagestyle{empty}
+
+\includegraphics[width=2cm]{../../../Admin/Logo_Corbu.PNG} \hfill \Huge{\numero - \sujet}
+
+\vspace{2cm}
+
+\begin{center}
+\centering\huge{PTSI}
+\end{center}
+
+\vspace{2cm}
+
+
+\begin{center}
+\centering\Large{\jour}
+\end{center}
+
+\vspace{2cm}
+
+\normalsize
+
+\tableofcontents
+
+\newpage
+
+\pagestyle{fancy}
+
+\begin{center}
+\Huge \sujet
+\end{center}
+
+\normalsize

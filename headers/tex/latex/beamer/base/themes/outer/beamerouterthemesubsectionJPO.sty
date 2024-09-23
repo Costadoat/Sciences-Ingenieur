@@ -1,0 +1,158 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNUPublic License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\ProvidesPackageRCS $Header: /cvsroot/latex-beamer/latex-beamer/themes/outer/beamerouterthemesubsection.sty,v 1.8 2007/01/28 20:48:30 tantau Exp $
+
+\setbeamercolor{section in head/foot}{parent=palette primary}
+\setbeamercolor{subsection in head/foot}{parent=palette secondary}
+\setbeamercolor{author in head/foot}{parent=section in head/foot}
+\setbeamercolor{author in head/foot}{parent=section in head/foot}
+
+%Title page
+
+\defbeamertemplate*{title page}{renaud}[1][]
+{
+\setbeamercolor{title}{fg=normal, bg=}
+}
+
+\defbeamertemplate*{title page tp}{renaud}[1][]
+{
+\setbeamercolor{title}{fg=black, bg=}
+  \begin{centering}
+    \begin{beamercolorbox}[sep=10pt,center,#1,shadow=true,rounded=true]{title}
+\usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[white]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}
+    \end{centering}
+    \vskip1em\par
+    \vspace{1cm}
+    \begin{minipage}{0.45\linewidth}
+    \includegraphics[scale=0.2]{/home/renaud/Documents/Renaud/GitHub/Sciences-Ingenieur/img/logo.png}
+    \end{minipage}\hfill
+      \begin{minipage}{0.45\linewidth}
+    \begin{beamercolorbox}[sep=4pt,right,#1]{author}
+      \usebeamerfont{author}\insertauthor \\
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \end{minipage}  
+
+}
+
+%Footline
+
+\defbeamertemplate*{footline}{pagetitre}
+{%\hrule width 5cm height 0.2mm   
+}
+
+%{ \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+%  \end{beamercolorbox}
+%  \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,leftskip=5cm,rightskip=.3cm %plus1fil]{}%{title in head/foot}%
+%    {\usebeamerfont{author in head/foot}\usebeamercolor[blef]{author in %head/foot}\insertshortauthor}%
+%    \hfill%
+%    {\usebeamerfont{date in head/foot}\usebeamercolor[blef]{date in %head/foot}\insertdate}%
+%  \end{beamercolorbox}%
+%  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+%  \end{beamercolorbox}
+%}
+
+\defbeamertemplate*{footline}{renaud theme}
+{\hrule width 5cm height 0.2mm    \vfill
+\begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+ \end{beamercolorbox}
+  \begin{beamercolorbox}[ht=9pt,dp=9pt,%
+    leftskip=.3cm,rightskip=.3cm plus1fil]{}%{title in head/foot}%
+ \leavevmode \vfill
+\hspace{5pt}
+\raisebox{-7pt}{\includegraphics[height=0.5cm]{/home/renaud/Documents/Renaud/GitHub/Sciences-Ingenieur/img/logo.png}}
+\hspace{2cm}{\usebeamerfont{author in head/foot}\usebeamercolor[grisf]{author in head/foot}\insertshortauthor}%
+    \hfill%
+    {\usebeamerfont{date in head/foot}\usebeamercolor[grisf]{date in head/foot}\insertdate}%
+%    \hfill%
+%    {\usebeamerfont{page in head/foot}\usebeamercolor[grisf]{page in %head/foot}\insertframenumber}%
+%     /%
+%    {\usebeamerfont{page in head/foot}\usebeamercolor[fg]{page in %head/foot}\inserttotalframenumber}
+    \hfill%
+    {\usebeamerfont{page in head/foot}\usebeamercolor[grisf]{page in head/foot}$\dfrac{\insertframenumber}{\inserttotalframenumber}$}%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+  \end{beamercolorbox}
+}
+
+\newif\ifbeamer@theme@subsection
+\beamer@theme@subsectiontrue
+
+\DeclareOptionBeamer{footline}{\csname beamer@theme@footline@#1\endcsname}
+\DeclareOptionBeamer{subsection}[true]{\csname beamer@theme@subsection#1\endcsname}
+\ProcessOptionsBeamer
+
+
+\mode<presentation>
+
+% Head
+
+\defbeamertemplate*{headline}{pagetitre}
+{     \vskip22pt
+}
+
+
+
+\defbeamertemplate*{headline}{renaud theme}
+{%
+  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}{section in head/foot}
+    \vskip2pt\insertsectionnavigationhorizontal{\textwidth}{\hskip0pt}{}
+\vskip2pt
+  \end{beamercolorbox}%
+  \ifbeamer@theme@subsection%
+    \begin{beamercolorbox}[colsep=1.5pt]{middle separation line head}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+      \usebeamerfont{subsection in head/foot}
+\insertsubsectionnavigationhorizontal{0.9\textwidth}{\hskip0pt}{}
+    \end{beamercolorbox}%
+  \fi%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+  \end{beamercolorbox}
+}
+
+% Frame title: default
+
+\defbeamertemplate*{frametitle}{renaud theme}[1][left]
+{
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=0.9\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+\begin{beamercolorbox}[sep=0.3cm,#1,wd=\the\@tempdima]{frametitle}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1ex%
+    \if@tempswa\else\csname beamer@fte#1\endcsname\fi%
+    \strut\insertframetitle\strut\par%
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+      \fi
+    }%
+    \vskip-1ex%
+    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{beamercolorbox}%
+}
+
+\def\beamer@fteright{\vskip0.35cm\advance\leftskip by 1.7cm\advance\rightskip by1.7cm}
+
+
+\mode
+<all>

@@ -1,0 +1,465 @@
+\input{../../../headers/dsheaders.tex}
+
+\section{Présentation du système}
+
+\subsection{Contexte}
+
+Ce concept a été inventé au Canada en 2008, et s'est étendu à toute l'Amérique du Nord avant de traverser l'Atlantique pour proposer un cinéma dynamique avec une quantité d'effets spéciaux et spatiaux. Le fauteuil dynamique de cinéma est principalement destiné à l'industrie du divertissement et de la simulation.
+
+Pour ressentir au mieux ces sensations, la technologie permet désormais de ressentir dans son fauteuil les différents mouvements, par de fortes vibrations et accélérations. Ce système repose sur la post-synchronisation des films. Comme pour un doublage ou un sous-titrage, les mouvements du film sont transmis au fauteuil.
+
+Si la plate-forme à six degrés de liberté s'est imposée dans le cas des simulateurs de vols, elle ne répond pas aux exigences plus étendues des fauteuils dynamiques. Des solutions spécifiques à un environnement de simulation aussi réaliste que possible nécessitent le recours à un système de restitution des mouvements. Le système étudié est une évolution en cours d'étude des fauteuils dynamiques actuellement commercialisés, qui s'inspire des sièges dynamiques utilisés pour l'entrainement des pilotes d'avion de chasse (voir figure \ref{fig1}).
+
+\begin{figure}[!ht]
+\begin{minipage}{0.35\linewidth}
+ \centering\includegraphics[width=0.8\linewidth]{img/img01}
+\end{minipage}\hfill
+\begin{minipage}{0.55\linewidth}
+ \centering\includegraphics[width=1\linewidth]{img/img02}
+\end{minipage}
+
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/img03}
+\end{center}
+\caption{Modèles de sièges}
+\label{fig1}
+\end{figure}
+
+
+\subsection{Mise en situation}
+
+Le siège dynamique est constitué :
+\begin{itemize}
+ \item du dosseret (voir figure \ref{fig2}) qui permet d'agir directement sur la tête du spectateur afin d'amplifier la sensation d'accélération (via l'oreille interne). Le point de contact entre le dosseret et la tête du spectateur est matérialisé par le point D,
+ \item de l'assise du siège (voir figure \ref{fig3}) qui permet d'obtenir un mouvement de tangage et un mouvement de roulis du spectateur.
+\end{itemize}
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/img04}
+\end{center}
+\caption{Dosseret}
+\label{fig2}
+\end{figure}
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/img05}
+\end{center}
+\caption{Assise du siège}
+\label{fig3}
+\end{figure}
+
+Les trois motorisations (une pour le dosseret et deux pour l'assise) sont composées chacune d'un moteur à courant continu à aimants permanents et d'un réducteur de vitesse. Chaque moteur est alimenté par un variateur de vitesse dont la structure de puissance est un hacheur. Un capteur de courant interne au variateur est utilisé par ce accouplée à l'axe de chaque moteur est utilisée par le variateur correspondant pour réaliser un asservissement de vitesse. Un codeur incrémental accouplé aussi sur l'axe de chaque moteur est utilisé par une carte à base de microcontrôleur pour réaliser un asservissement de position, une sortie analogique de cette carte étant reliée à l'entrée de consigne du variateur de vitesse.
+
+\subsection{Étude proposée}
+
+Les accélérations procurées aux spectateurs sont un élément fondamental qui conditionne la conception et la réalisation de ce fauteuil dynamique de cinéma. Les solutions technologiques retenues répondent à cet objectif. Elles ne sont pas toutes abordées dans ce sujet. Quelques unes de celles retenues pour le fauteuil dynamique de cinéma sont étudiées pour valider les solutions choisies par les concepteurs vis-à-vis des performances attendues listées par le cahier des charges. Dans cette optique, il est proposé au candidat les trois études suivantes :
+\begin{itemize}
+ \item modélisation, validation et optimisation de certains constituants associés à l'exigence fonctionnelle \og amplifier la sensation d'accélération \fg,
+ \item validation de l'architecture de la chaine fonctionnelle réalisant l'exigence fonctionnelle \og incliner le spectateur suivant l'axe de tangage et de roulis \fg,
+ \item synthèse globale de l'étude proposée.
+\end{itemize}
+
+\section{Exigence fonctionnelle \og amplifier la sensation d'accélération \fg}
+
+\textbf{Objectif}
+
+Proposer un modèle de comportement des éléments réalisant l'exigence fonctionnelle \og amplifier la sensation d'accélération »\fg puis valider les performances attendues listées par le cahier des charges (figure \ref{fig4}).
+
+\begin{figure}[!ht]
+\begin{tabular}{|p{2cm}|p{8cm}|p{5cm}|}
+\hline
+\textbf{Exigence} & \textbf{Critères d'appréciation} & \textbf{Niveau} \\
+\hline
+\multirow{3}{2cm}{Amplifier la sensation d'accélération} & Précision statique de la boucle d'asservissement de position:
+\begin{itemize}
+ \item Erreur statique de position,
+ \item Erreur statique de trainage,
+ \item Erreur statique d'accélération.
+\end{itemize}
+& \par ~\ \par ~\ \par <1\% \par <1\% \par <1\% \par \\
+\cline{2-3}
+& Rapidité pour un échelon de consigne d'accélération:
+\begin{itemize}
+ \item Temps de montée de 0 à 100\% de la consigne 
+ \item Dépassement	
+\end{itemize}
+& \par ~\ \par ~\ \par ~\ \par <5ms \par <20\% \\
+\cline{2-3}
+& Accélération maximale du point D de la tête du spectateur situé à 85 mm au-dessus de l'axe de rotation du dosseret & $6m.s^{-2} < a_{max} < 7m.s^{-2}$ \\
+\hline
+\end{tabular}
+\caption{Extrait du cahier des charges associé à l'exigence fonctionnelle \og Amplifier la sensation d'accélération \fg réalisée par le dosseret}
+\label{fig4}
+\end{figure}
+
+\newpage
+
+\subsection{Notations et hypothèses}
+
+Le schéma multi physique modélisant l'asservissement de position du dosseret est fourni (figure \ref{fig5}).
+Le schéma-bloc retenu pour la modélisation de l'asservissement de position du dosseret est fourni (figure \ref{fig6}).
+
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|p{2cm}|}
+\hline
+ & \textbf{Description} & \textbf{Variable temporelle} & \textbf{Unité} \\
+\hline
+$\theta_{Cd}(p)$ & consigne de position du dosseret	& $\theta_{Cd}(t)$ & rad \\
+\hline
+$\theta_{C}(p)$ & consigne de position de l'axe moteur & $\theta_{C}(t)$ & rad \\
+\hline
+$\theta(p)$ & position de l'axe moteur & $\theta(t)$ & rad \\
+\hline
+$\theta_{r}(p)$ & position de l'axe de sortie du réducteur & $\theta_{r}(t)$ & rad \\
+\hline
+$\theta_{d}(p)$ & position du dosseret & $\theta_{d}(t)$ & rad \\
+\hline
+$N_{Codeur}(p)$ & valeur numérique issue du comptage incrémental & $N_{Codeur}(t)$ & 	 \\
+\hline
+$r$ & rapport de transmission du réducteur & &  \\
+\hline
+$K_{c}$ & gain du mécanisme  de la transformation de mouvement du dosseret & &  \\
+\hline
+\end{tabular}
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=\linewidth]{img/img06}
+\end{center}
+\caption{Schéma multi-physique  de l'asservissement du dosseret}
+\label{fig5}
+\end{figure}
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=\linewidth]{img/img07}
+\end{center}
+\caption{Schéma-bloc de l'asservissement du dosseret}
+\label{fig6}
+\end{figure}
+
+\clearpage
+
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|p{2cm}|}
+\hline
+ & \textbf{Description} & \textbf{Variable temporelle} & \textbf{Unité} \\ \hline
+$c$ & gain du codeur incrémental & & $rad^{-1}$ \\ \hline
+$a$ & gain proportionnel du correcteur de l'asservissement de position & & $V$ \\ \hline
+$U_{C\Omega}(p)$ & image de la consigne de vitesse de l'axe moteur & $u_{C\Omega}(t)$ & $V$ \\ \hline
+$\Omega(p)$ & vitesse de l'axe moteur & $\Omega(t)$ & $rad.s^{-1}$ \\ \hline
+$C_{\Omega}(p)$ & correcteur de l'asservissement de vitesse	& &  \\ \hline
+$I_C(p)$ & image de la consigne de courant & $i_C(t)$	& $V$ \\ \hline
+$C_I(p)$ & correcteur de l'asservissement de courant & & \\ \hline
+$h$ & gain du hacheur & & \\ \hline
+$K_{rI}$ & gain du capteur de courant & &  \\ \hline
+$U(p)$ & tension d'alimentation du moteur & $u(t)$ & $V$ \\ \hline
+$E(p)$ & force électromotrice du moteur	& $e(t)$ & $V$ \\ \hline
+$I(p)$ & courant dans l'induit  du moteur & $i(t)$ & $A$ \\ \hline
+$C_M(p)$ & couple moteur & $c_M(t)$ & $N.m$ \\ \hline
+$C_R(p)$ & couple résistant perturbateur & $c_R(t)$ & $N.m$ \\ \hline
+$L$ & inductance du circuit d'induit du moteur & & \\ \hline
+$R$ & résistance du circuit d'induit du moteur & & \\ \hline
+$K_{\Omega}$ & gain de la génératrice tachymétrique	& & $V.s.rad^{-1}$ \\ \hline
+$K$ & gain de la constante de couple ou de la constante de force électromotrice	& &  \\ \hline
+$J$ & moment d'inertie  de l'ensemble  en mouvement, ramené  au  niveau  de l'axe moteur & &  \\ \hline
+$f$ & coefficient de frottements visqueux équivalent pour l'ensemble en mouvement & &  \\ \hline
+\end{tabular}
+
+Données: \\
+\begin{itemize}
+ \item $K = 0,115 N.m.A^{-1}(V.s.rad^{-1})$
+ \item $R = 1 \Omega$
+ \item $L = 1,1mH$
+ \item $K_{rI}= 0,5 V. A^{-1}$
+ \item $h = 6$
+ \item $r = 1/50$
+ \item $f = 4.10^{-4} N.m.s.rad^{-1}$
+ \item $J=0,16.10^{-3} kg.m^2$
+ \item Correcteur de courant $C_I(p)=k_2.(1+\dfrac{1}{T_2.p})$, avec $k_2 = 5$ et $T_2=0,3ms$,
+ \item Correcteur de vitesse $C_{\Omega}(p)=k_1.(1+\dfrac{1}{T_1.p})$, avec $k_1=20$
+\end{itemize}
+
+Hypothèses: \\
+\begin{itemize}
+ \item La période d'échantillonnage est suffisamment faible pour être négligeable devant la dynamique globale du système et les différentes variables sont donc toutes considérées comme des fonctions continues du temps,
+ \item Le temps de réponse du hacheur est considéré négligeable dans l'étude,
+ \item Les conditions de Heaviside sont vérifiées.
+\end{itemize}
+
+\subsection{Comportement cinématique du mécanisme de transformation de mouvement du dosseret}
+
+\textbf{Objectif:}\\
+Valider la linéarité du comportement du mécanisme de transformation de mouvement du dosseret (figure \ref{fig7}) en établissant la loi de comportement cinématique.
+
+Le modèle cinématique de la transformation de mouvement du dosseret est fourni figure \ref{fig8}.
+
+\paragraph{Question 1:} À l'aide d'une fermeture géométrique, exprimer littéralement l'angle $\theta_d$ en fonction de l'angle $\theta_r$. Mettre l'expression sous la forme :
+\begin{center}
+$cos\theta_d.(E+F.cos\theta_r)+sin\theta_d.(G+F.sin\theta_r)=H+(I.cos\theta_r+J.sin\theta_r)$
+\end{center}
+
+Une simulation numérique a permis d'obtenir le tracé représenté sur la figure \ref{fig9}. Afin d'obtenir un modèle linéaire de la caractéristique $\theta_d=f(\theta_r)$, l'étude se fait autour de son point de fonctionnement statique pour de petites variations.
+
+\paragraph{Question 2:} Déterminer par linéarisation autour du point de fonctionnement $\theta_r=0\text{°}$, la valeur numérique du gain dynamique $K_C$ de la transformation de mouvement du dosseret.
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/img08}
+\end{center}
+\caption{Mécanisme de transformation de mouvement du dosseret}
+\label{fig7}
+\end{figure}
+
+\subsection{Comportement du codeur incrémental et de la génératrice tachymétrique}
+
+\textbf{Objectif:}\\
+Établir un modèle de comportement du codeur incrémental et de la génératrice tachymétrique.
+Le moteur AXEM a pour référence F12M4. Il est alimenté par une carte variateur de vitesse RTS 10-20-60 (PARVEX) alimentée sous $60V DC$ et pouvant délivrer $20A$ pendant $2s$, avec un courant nominal de $10A$.
+
+Ce dernier comprend les boucles d'asservissement de vitesse et de courant. Sur l'arbre moteur sont montés une génératrice tachymétrique et un codeur incrémental $250 points.tour^{-1}$. Le comptage incrémental est effectué sur le front montant d'une des deux voies. La génératrice tachymétrique est raccordée à l'entrée de retour vitesse du variateur. Un réglage par potentiomètre présent dans le variateur est effectué pour obtenir une tension de $5V$ au niveau du comparateur de l'asservissement de vitesse lorsque la fréquence de rotation du moteur est égale à $3000tr.min^{-1}$.
+
+\paragraph{Question 3:} En tenant compte des informations précédentes, calculer la valeur numérique de $c$ et de $K_{\Omega}$ (figure \ref{fig6}).
+
+\textit{Commentaire: Vous ferez attention aux unités données dans le tableau \ref{fig4}.}
+
+\subsection{Comportement de l'ensemble variateur et moteur du dosseret}
+
+\textbf{Objectif:}\\
+Valider un modèle simplifié de l'asservissement de position de l'axe moteur afin d'analyser les paramètres influant sur la précision et proposer une amélioration du système.
+
+Pour cela, il faut :
+\begin{itemize}
+ \item établir un modèle simplifié de l'asservissement de courant,
+ \item établir un modèle simplifié de l'asservissement de vitesse,
+ \item analyser la précision de l'asservissement de position.
+\end{itemize}
+
+\subsubsection{Modélisation de l'asservissement du courant}
+
+L'étude suivante consiste à vérifier la validité de la simplification du modèle de la boucle d'asservissement du courant de la figure \ref{fig10} par le modèle de la figure \ref{fig11}.
+
+Pour le modèle de la figure \ref{fig10} lorsque $C_R(p)=0$, la fonction de transfert s'écrit :
+
+\begin{center}
+$\dfrac{\Omega(p)}{I_C(p)}=\dfrac{Kk_2hT_2p+Kk_2h}{T_2LJp^3+(T_2(Lf+RJ)+k_2hk_{rI}T_2 J)p^2+(T_2(Rf+K^2)+k_2hk_{rI}(T_2f+J))p+k_2hk_{rI}f}$
+\end{center}
+
+À l'aide d'un logiciel de simulation, une comparaison du comportement de la vitesse en sortie des deux modèles a été effectuée (figure \ref{fig12}) et ce pour un échelon unitaire de consigne de courant appliqué en entrée.
+
+\newpage
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/img09}
+\end{center}
+\caption{Modèle cinématique de la transformation de mouvement du dosseret}
+\label{fig8}
+\end{figure}
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/img10}
+\end{center}
+\caption{Représentation de l'équation de fermeture géométrique}
+\label{fig9}
+\end{figure}
+
+\paragraph{Question 4:}	Pour chacun des deux modèles (initial et simplifié), quelle est la valeur finale de $\Omega(t)$ lorsque $i_c(t)$ est un échelon unitaire ? À l'aide de ces résultats et des relevés issus de la simulation dans le régime transitoire, conclure quant à la validité de la simplification du modèle sachant que chaque sollicitation du dosseret a une durée d'environ $30 ms$.
+
+\textit{Commentaire: Attention, on ne demande que la valeur finale}
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/img11}
+\end{center}
+\caption{Modèle initial de la boucle d'asservissement de courant}
+\label{fig10}
+\end{figure}
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/img12}
+\end{center}
+\caption{Modèle simplifié de la boucle d'asservissement de courant}
+\label{fig11}
+\end{figure}
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/img13}
+\end{center}
+\caption{Tracés}
+\label{fig12}
+\end{figure}
+
+\subsubsection{Modélisation de l'asservissement de vitesse}
+
+L'étude suivante consiste à obtenir un modèle simplifié de la boucle d'asservissement de vitesse (figure \ref{fig13}) au regard des réglages effectués et de l'influence d'une perturbation de type échelon sur le dosseret. En effet, vu la courte durée des sollicitations, la perturbation sur le dosseret, dont l'origine peut être une action du spectateur sur ses muscles cervicaux, peut être modélisée par un échelon.
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/img14}
+\end{center}
+\caption{Modèle de la boucle d'asservissement de vitesse}
+\label{fig13}
+\end{figure}
+
+\paragraph{Question 5:}	Exprimer la fonction de transfert de la boucle de vitesse $H_{\Omega}(p)=\dfrac{\Omega(p)}{U_{C\Omega}(p)}$, lorsque $C_R(p)=0$. Rappel : $C_{\Omega}(p)=k_1.(1+\dfrac{1}{T_1. p})$
+
+\paragraph{Question 6:}	$T_1$ étant égal à $\dfrac{J}{f}$, montrer alors que la fonction de transfert en boucle fermée peut se mettre sous la forme $\dfrac{b}{\tau.p+1}$. Calculer les valeurs numériques des termes $b$ et $\tau$.
+
+\paragraph{Question 7:} En déduire, à l'aide de la figure \ref{fig13}, $\dfrac{\theta(p)}{C_R(p)}$ lorsque $\theta_C(p)=0$. Calculer ensuite la valeur finale de $\theta(t)$ lorsque $c_R(t)$ est un échelon unitaire. Conclure quant à l'action, en régime permanent, du correcteur proportionnel et intégral sur les effets d'une perturbation $c_R(t)$ de type échelon.
+
+\textit{Commentaire: Il faudra pour cela déplacer le sommateur de $C_R(p)$, si vous avez oublié la méthode il est possible de la retrouver en transformant un extrait du schéma bloc en équation.}
+
+\subsubsection{Modélisation de la boucle d'asservissement de position}
+
+Après toutes les simplifications précédentes, est obtenu le modèle de la figure \ref{fig14} où seul le comportement en réponse à la consigne $\theta_C$ est abordé.
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/img15}
+\end{center}
+\caption{Modèle simplifié de la boucle d'asservissement de position}
+\label{fig14}
+\end{figure}
+
+\paragraph{Question 8:} Exprimer la fonction de transfert $\dfrac{\theta(p)}{\theta_C(p)}$. Déterminer ensuite la valeur numérique de $a$ pour avoir un facteur d'amortissement égal à 0,7. Justifier le choix de ce facteur d'amortissement. (Pour ce calcul et les calculs suivants prendre $b=63rad.s^{-1}.V^{-1}$, $\tau=2,2ms$, $c=40rad^{-1}$.)
+
+\subsubsection{Analyse de la précision du système}
+
+Un aspect important pour la simulation sensorielle du siège dynamique est la capacité du système à reproduire fidèlement la consigne de position issue du programme de simulation sensorielle du siège dynamique. Dans un premier temps, l'étude se limite à la précision statique en utilisant le modèle défini à la figure \ref{fig14}. L'erreur représente la différence entre l'entrée $\theta_C(t)$ et la sortie $\theta(t)$ et est définie par la variable $\mu(t)=\theta_C(t)-\theta(t)$.
+
+La précision statique du système est définie par les trois paramètres suivants :
+\begin{itemize}
+ \item $\mu_p=\lim\limits_{t \rightarrow +\infty} \mu(t)$, suite à une entrée de type échelon unité ($\theta_C(t)=u(t)$,$\theta_C(p)=\dfrac{1}{p}$) appelé erreur de position,
+ \item $\mu_v=\lim\limits_{t \rightarrow +\infty} \mu(t)$, suite à une entrée de type rampe ($\theta_C(t)=t.u(t)$,$\theta_C(p)=\dfrac{1}{p^2}$) appelé erreur de trainage ;
+ \item $\mu_a=\lim\limits_{t \rightarrow +\infty} \mu(t)$,suite à une entrée de type accélération ($\theta_C(t)=\dfrac{t^2.u(t)}{2}$,$\theta_C(p)=\dfrac{1}{p^3}$) appelé erreur en accélération.
+\end{itemize}
+
+\paragraph{Question 9:} Exprimer dans un premier temps $\mu(p)$ en fonction de $\theta_C(p)$, puis déterminer de façon littérale et numérique l'erreur de position $\mu_p$, l'erreur de trainage $\mu_v$ et l'erreur en accélération $\mu_a$. Conclure quant à la précision statique du système suite aux différentes consignes $\theta_C(p)$ de type échelon, rampe et accélération.
+
+\subsection{Validation de la performance simulée en accélération du dosseret}
+
+\textbf{Objectif:}\\
+Valider la performance simulée en accélération au regard du cahier des charges fonctionnel.
+
+Grâce à la modélisation de la chaine fonctionnelle réalisée précédemment, un logiciel de simulation permet d'obtenir la courbe de la vitesse angulaire maximale $\dot{\theta}_d$ (figure \ref{fig15}) ainsi que celle de l'accélération angulaire maximale $\ddot{\theta}_d$ (figure \ref{fig15}) du dosseret. Ces deux courbes sont tracées sur une durée de $30ms$ lors du démarrage du moteur (au-delà de ce temps le moteur atteint sa vitesse nominale).
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/img16}
+\end{center}
+\caption{Vitesse et accélération angulaires en fonction du temps}
+\label{fig15}
+\end{figure}
+
+\paragraph{Question 10:} Déterminer, à partir du paramétrage donné figure \ref{fig8}, l'expression littérale au point D (représentant le point de contact avec la tête du spectateur) du vecteur accélération $\overrightarrow{\Gamma}_{D\in dosseret/chassis}$. Calculer numériquement la norme de ce vecteur accélération au point D correspondant à la valeur maximale de $\ddot{\theta}_d$.
+
+\paragraph{Question 11:} Conclure quant au respect du nombre de $g$ du cahier des charges (figure \ref{fig4}) vis-à-vis des accélérations simulées produites par le dosseret du siège dynamique de cinéma.
+
+\subsubsection{Optimisation des performances du dosseret}
+
+La figure \ref{fig16} représente la structure d'une correction par anticipation qui permet d'améliorer la précision statique du système
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/img17}
+\end{center}
+\caption{Structure avec anticipation}
+\label{fig16}
+\end{figure}
+
+\paragraph{Question 12:} Déterminer l'erreur de position $\mu_p$ puis l'erreur de trainage $\mu_v$. Conclure sur l'erreur de position au regard du cahier des charges.
+
+\paragraph{Question 13:} D'après l'erreur de trainage $\mu_v$ déterminée à la question précédente, calculer la valeur numérique de $d$ qui permet d'annuler cette erreur de trainage. En prenant en compte la valeur numérique de $d$ et de $b$, déterminer l'expression de l'erreur en accélération $\mu_a$. Calculer ensuite sa valeur numérique et conclure au regard du cahier des charges.
+
+Un aspect important pour la simulation sensorielle du siège dynamique est la capacité du système à reproduire rapidement les consignes d'accélération. À l'aide d'une simulation, la variable accélération $\ddot{\theta}_d$ possède les deux comportements donnés figure \ref{fig17} pour la période transitoire, et ce lorsque la consigne vaut $\theta_{Cd}(t)=\dfrac{t^2}{2}.u(t)$.
+
+\newpage 
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/img18}
+\end{center}
+\caption{Accélération du dosseret avec et sans anticipation}
+\label{fig17}
+\end{figure}
+
+\paragraph{Question 14:} Conclure quant au respect du cahier des charges vis-à-vis des accélérations produites par le dosseret du siège dynamique de cinéma.
+
+\section{Conception du montage d'une roue de charriot}
+
+\subsection{Fabrication de l'arbre}
+
+Des spécifications ont été mises en place sur le mécanisme afin de garantir le bon fonctionnement du système.
+
+\paragraph{Question 15:} Donner la signification des spécifications suivantes en complétant les tableaux GPS donnés en document réponse.
+\\ ~\ \\
+\begin{minipage}{0.45\linewidth}
+\centering\includegraphics[width=2.5cm]{img/specif1}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+\centering\includegraphics[width=2.5cm]{img/specif2}
+\end{minipage} ~\ \\
+
+\subsection{Fabrication du chapeau}
+
+Le chapeau suivant permet de bloquer les roulements à bille. ~\ \\
+
+\begin{center}
+ \includegraphics[width=5cm]{img/specif3}
+\end{center}\hfill
+
+\paragraph{Question 16:} Comment est réalisée la mise en position du chapeau sur le système ? (centrage court, centrage long, nature des surfaces: point, droite, plan, cercle, cone, sphère,...)
+
+\paragraph{Question 17:} Proposer une solution de spécification des surfaces indiquées \og Surfaces à spécifier \fg à partir des références. Cette spécification doit être réalisée sur le document réponse.
+
+\subsection{Montage de roulements}
+ 
+Le montage d'une roue de charriot est à concevoir dans la suite. Le montage à mettre en place est un montage en X.
+
+Contraintes:\\
+\begin{itemize}
+ \item Le serrage axial doit être réglable,
+ \item Le système doit être démontable,
+ \item Des roulements à rouleaux doivent être utilisés.
+\end{itemize}
+
+\paragraph{Question 18:} Compléter les zones 1a et 1b, en intégrant les deux roulements à mettre en place.
+
+Dans la zone 1a, le roulement est placé entre les pièces 9 et 2, il faut prévoir une étanchéité dynamique de ce côté, pour empêcher le lubrifiant présent à l'intérieur de la pièce 2 de s'échapper par la gauche.
+
+Dans la zone 1b, le roulement est placé entre les pièces 9 et 6, la fermeture par un chapeau permet de conserver le lubrifiant à l'intérieur de la pièce 2 de ce côté.
+
+Vous mettrez en place les ajustements nécessaires au montage.
+
+\subsection{Fixation de la roue}
+
+La fixation de la roue s'effectue par la mise en place d'un écrou à encoches.
+
+\paragraph{Question 19:} Mettre en place l'écrou et la rondelle à encoches dans la zone 2 du dessin.
+
+\includepdf[page=20,scale=0.9,angle=90]{Ressource/Sujet_BTS.pdf}
+
+\clearpage ~\ \clearpage 
+
+\includepdf[scale=0.9,angle=90]{img/doc_rep2.pdf}
+
+\includepdf[scale=0.9,angle=90]{img/doc_rep2.pdf}
+
+\includepdf[scale=0.9,angle=90]{img/doc_rep3.pdf}
+
+\ifdef{\public}{\end{document}}{}
+
+\newpage
+\cleardoublepage
+
+\pagestyle{correction}\setcounter{section}{0}
+
+\section{Correction}
+
+
+\end{document}
+

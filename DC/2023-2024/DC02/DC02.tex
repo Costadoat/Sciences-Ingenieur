@@ -1,0 +1,52 @@
+\newcommand{\num}{01}
+\input{../../headers/dcheaders.tex}
+
+\section{Modélisation des S.L.C.I.}
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/schema_bloc}
+\end{center}\end{figure}
+
+\question{Déterminer la FTBF $\frac{S(p)}{E(p)}$ de ce schéma bloc sous la forme canonique.}
+
+\ifdef{\public}{\vspace{3.5cm}}{$\frac{S(p)}{E(p)}=6\cdot\frac{\frac{3\cdot 9\cdot 11}{1+1,2\cdot p+0,01\cdot p^2}}{1+\frac{3\cdot 9\cdot 11\cdot \frac{1}{3}}{1+1,2\cdot p+0,01\cdot p^2}}=\frac{6\cdot 3\cdot 9\cdot 11}{1+1,2\cdot p+0,01\cdot p^2+99}=\frac{17,82}{1+\frac{1,2}{100}\cdot p+\frac{1}{10^4}\cdot p^2}$}
+
+\question{En déduire ses paramètres $K$, $\xi$ et $\omega_0$.}
+
+\ifdef{\public}{\vspace{1.5cm}}{$\omega_0=100rad.s^{-1}$, $\xi=0,6$ et $K=17,82$.}
+
+\question{Donner la formule du dépassement $D\%$ en fonction de $\xi$.}
+
+\ifdef{\public}{\vspace{1cm}}{$D\%=100\cdot e^{-\xi\cdot\frac{\pi}{\sqrt{1-\xi^2}}}$}
+
+\question{A l'aide des tracés suivants, déterminer le dépassement $D\%$ pour la FTBF de la question 1. Si l'entrée $e(t)=1$, quelle sera la valeur maximale de $s(t)$.}
+
+\ifdef{\public}{\vspace{1cm}}{\begin{minipage}{0.45\linewidth}
+$D\%=100\cdot e^{-\xi\cdot\frac{\pi}{\sqrt{1-\xi^2}}}=100\cdot e^{-0,6\cdot\frac{\pi}{0,8}}=100\cdot e^{-\frac{3\cdot\pi}{4}}=100\cdot 0,1=10\%$
+
+~\
+
+$\lim\limits_{t\rightarrow +\infty}p\cdot S(p)=\lim\limits_{t\rightarrow +\infty}p\cdot S(p)=K=17,82$
+
+~\
+
+Donc, $s(max)=17,82\cdot 1,1=17,82+1,782=19,6$.
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+ \includegraphics[width=\linewidth]{img/Figure_cor}
+\end{minipage}}
+
+\begin{figure}[ht!]
+\begin{center}
+\begin{minipage}{0.49\linewidth}
+ \includegraphics[width=\linewidth]{img/Figure_1}
+\end{minipage}
+\hfill
+\begin{minipage}{0.49\linewidth}
+ \includegraphics[width=\linewidth]{img/Figure_2}
+\end{minipage}
+\end{center}
+\end{figure}
+
+\end{document}

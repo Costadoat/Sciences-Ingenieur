@@ -1,0 +1,344 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Package pour l'édition des corrigés de concours UPSTI                                 
+% -----------                                                                        
+% Auteur: Emmanuel Pinault-Bigeard                                                   
+% email: e.pinault-bigeard@upsti.fr
+% -----------
+% Version: 0.1 - 2020/04/20
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% UPSTI - http://www.upsti.fr
+% CC BY-NC-SA 2.0 FR - http://creativecommons.org/licenses/by-nc-sa/2.0/fr/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}[1999/01/01]
+\ProvidesPackage{UPSTI_Corrige_Concours}[2020/04/20]
+
+ %==============================================================================%
+%	Changelog
+%==============================================================================%
+% 0.1 - 2020/04/20 - Mise en ligne de la première version
+
+%==============================================================================%
+%	Importation des packages nécessaires
+%==============================================================================%
+
+%--------------------------------------------------------%
+% Options du package
+%--------------------------------------------------------%
+% options possibles:
+%   - UPSTI           : importe automatiquement les packages UPSTI (voir https://www.upsti.fr/documents-pedagogiques/upsti-kit-de-demarrage-latex)
+%   - fancyFont       : police UPSTI
+
+\newif\if@UPSTI \@UPSTIfalse
+\DeclareOption{UPSTI}{\@UPSTItrue}
+\newif\if@fancyFont \@fancyFontfalse
+\DeclareOption{fancyFont}{\@fancyFonttrue}
+\DeclareOption*{} % Ne rien faire quand une option est inconnue
+\ProcessOptions
+
+%--------------------------------------------------------%
+% Packages génériques
+%--------------------------------------------------------%
+\RequirePackage[utf8]{inputenc}               % Encodage
+\RequirePackage[T1]{fontenc}                  % Encodage
+\if@fancyFont                                 % Police de caractère
+  \usepackage[sfdefault,light]{roboto}
+\else
+  \RequirePackage{lmodern} 
+\fi
+\RequirePackage[french]{babel}                % Gestion du français
+\RequirePackage[pdftex,hidelinks]{hyperref}   % Gestion des liens
+\RequirePackage[svgnames]{xcolor}             % Couleur
+\RequirePackage{tabularx}                     % Tableaux avancés
+\RequirePackage{enumitem}                     % Puces
+\RequirePackage{etoolbox}                     % Scripting
+\RequirePackage{lastpage}                     % Gestion des pages
+\RequirePackage{geometry}                     % Mise en page
+\RequirePackage{fancyhdr}                     % Styles de pages
+\RequirePackage{wallpaper}                    % Filigrane
+\RequirePackage[framemethod=tikz]{mdframed}   % Boîtes
+\RequirePackage{tikz}                         % Pour les boîtes aussi...
+
+
+%==============================================================================%
+% "Compilation" des différentes variables spécifiées dans le document
+%==============================================================================%
+
+%--------------------------------------------------------%
+% Début du script de définition des différentes variables en fonction des variables du document
+%--------------------------------------------------------%
+\newcommand{\UPSTIprepareDocument}{
+
+  %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+  % Concours
+  %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+  % 0: Custom*
+  % 1: ATS
+  % 2: Banque PT
+  % 3: CCINP
+  % 4: CCP
+  % 5: CCS (par défaut)
+  % 6: E3A
+  % 7: ICNA
+  % 8: Mines AADN
+  % 9: Mines Ponts
+  % 10: X-ENS
+  \ifdef{\UPSTIidConcours}{}{\newcommand{\UPSTIidConcours}{5}} % Par défaut: CCS
+  \ifcase\UPSTIidConcours
+      \newcommand{\UPSTIconcours}{\UPSTIconcoursCustom}
+    \or 
+      \newcommand{\UPSTIconcours}{ATS}
+    \or 
+      \newcommand{\UPSTIconcours}{Banque PT}
+    \or 
+      \newcommand{\UPSTIconcours}{CCINP}
+    \or 
+      \newcommand{\UPSTIconcours}{CCP}
+    \or
+      \newcommand{\UPSTIconcours}{CCS}
+    \or  
+      \newcommand{\UPSTIconcours}{e3a}
+    \or
+      \newcommand{\UPSTIconcours}{Mines AADN}
+    \or 
+      \newcommand{\UPSTIconcours}{CCMP}
+    \or 
+      \newcommand{\UPSTIconcours}{X-ENS}
+    \else 
+    \newcommand{\UPSTIconcours}{Erreur dans UPSTIconcours (Trop grand)}
+  \fi
+
+  %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+  % Filière
+  %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+  % 0: Custom*
+  % 1: ATS
+  % 2: MP
+  % 3: MPI
+  % 4: PSI (par défaut)
+  % 5: PT
+  % 6: TSI
+  % 7: MP2I
+  % 8: MPSI
+  % 9: PCSI
+  % 10: PTSI
+  \ifdef{\UPSTIidFiliere}{}{\newcommand{\UPSTIidFiliere}{4}} % Par défaut, on est en PSI
+  \ifcase\UPSTIidFiliere
+      \newcommand{\UPSTIfiliere}{\UPSTIfiliereCustom}
+    \or 
+      \newcommand{\UPSTIfiliere}{ATS}
+    \or  
+      \newcommand{\UPSTIfiliere}{MP}
+    \or 
+      \newcommand{\UPSTIfiliere}{MPI}
+    \or 
+      \newcommand{\UPSTIfiliere}{PSI}
+    \or 
+      \newcommand{\UPSTIfiliere}{PT}
+    \or 
+      \newcommand{\UPSTIfiliere}{TSI}
+    \or 
+      \newcommand{\UPSTIfiliere}{MP2I}
+    \or 
+      \newcommand{\UPSTIfiliere}{MPSI}
+    \or  
+      \newcommand{\UPSTIfiliere}{PCSI}
+    \or  
+      \newcommand{\UPSTIfiliere}{PTSI}
+    \else Erreur dans UPSTIidFiliere (Trop grand)
+  \fi
+
+  % Dans le cas de l'ATS et la PT, il n'y a qu'un concours unique. Inutile de repréciser la filière
+  \ifnumequal{1}{\UPSTIidConcours}{\renewcommand{\UPSTIfiliere}{}}{}  
+  \ifnumequal{2}{\UPSTIidConcours}{\renewcommand{\UPSTIfiliere}{}}{}  
+
+  %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+  % Épreuve
+  %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+  % 0: Custom*
+  % 1: S2I (par défaut)
+  % 2: Informatique
+  % 3: Modélisation et informatique
+  % 4: Modélisation
+  % 5: Physique - SI
+  % 6: SI A
+  % 7: SI B
+  % 8: SI C
+  % 9: SI 1
+  % 10: SI 2
+  \ifdef{\UPSTIidEpreuve}{}{\newcommand{\UPSTIidEpreuve}{1}} % Par défaut: S2I
+  \ifcase\UPSTIidEpreuve
+      \newcommand{\UPSTIepreuve}{\UPSTIepreuveCustom}
+    \or 
+      \newcommand{\UPSTIepreuve}{S2I}
+    \or  
+      \newcommand{\UPSTIepreuve}{Info}
+    \or  
+      \newcommand{\UPSTIepreuve}{Info-Mod.}
+    \or 
+      \newcommand{\UPSTIepreuve}{Phys-SI}
+    \or 
+      \newcommand{\UPSTIepreuve}{SiA}
+    \or 
+      \newcommand{\UPSTIepreuve}{SiB}
+    \or  
+      \newcommand{\UPSTIepreuve}{SiC}
+    \or  
+      \newcommand{\UPSTIepreuve}{Si1}
+    \or  
+      \newcommand{\UPSTIepreuve}{Si2}
+    \else Erreur dans UPSTIidEpreuve (Trop grand)
+  \fi
+
+  %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+  % Définition des méta informations du fichier PDF généré
+  %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+  \hypersetup{ 
+      pdftitle={\UPSTIconcours \ifstrempty{\UPSTIfiliere}{}{ - \UPSTIfiliere} - \UPSTIepreuve - \UPSTIsession - \UPSTItitreEpreuve - Corrigé UPSTI},
+      pdfauthor={UPSTI}
+  }
+}
+
+
+%==============================================================================%
+% Mise en page
+%==============================================================================%
+% Mise en page
+\geometry{a4paper, top=1.27cm, bottom=1.5cm, left=1.27cm, right=1.27cm, footskip=1.5cm, headsep=0.5cm, includeheadfoot}
+\pagestyle{fancy} % On précise que les en-têtes sont gérés par fancyhdr
+\renewcommand{\headrulewidth}{0.75pt}
+\renewcommand{\footrulewidth}{0.75pt}
+\setlength{\headheight}{14pt}
+
+% Couleurs
+\definecolor{gris}{rgb}{0.66, 0.66, 0.66}
+\definecolor{bleuUPSTI}{rgb}{0.16, 0.23, 0.55}
+\definecolor{corrigeUPSTI}{rgb}{0.6, 0, 0}
+%\definecolor{corrigeUPSTI}{rgb}{0.2, 0.2, 0.2}
+
+% Images
+\graphicspath{{images/}}
+
+% Défnition du parskip
+\newcommand{\UPSTIparskipValue}{0.5em}
+
+% Suppression des alinéas
+\setlength{\parindent}{0pt}
+
+% Puces
+\setlist{itemsep=0pt,parsep=0pt,topsep=-0.4em}
+\setlist[itemize,1]{label=$\bullet$,after={\vspace{\UPSTIparskipValue}}}
+\setlist[itemize,2]{label=$\diamond$,leftmargin=2em}
+\setlist[itemize,3]{label=$\circ$,leftmargin=2em}
+\setlist[enumerate,1]{after={\vspace{\UPSTIparskipValue}}}
+\setlist[description,1]{after={\vspace{\UPSTIparskipValue}}}
+
+% Espacements des paragraphes (pour aérer un peu le document)
+\setlength{\parskip}{\UPSTIparskipValue} % Espacement entre paragraphes
+\newcommand{\UPSTIparskipMinipage}{\setlength{\parskip}{\medskipamount}
+\makeatletter
+\newcommand{\@minipagerestore}{\setlength{\parskip}{\medskipamount}}
+\makeatother
+}
+
+%--------------------------------------------------------%
+% Si l'option UPSTI a été chargée avec le package, on charge les styles UPSTI 
+%--------------------------------------------------------%
+\if@UPSTI
+
+  % Couleurs
+  \colorlet{UPSTIcustomColor1}{bleuUPSTI}
+
+  % Packages
+  \RequirePackage{UPSTI_SI}           % commandes spécifiques à la SI
+  \RequirePackage{UPSTI_Typographie}  % aides pour la présentation des documents
+  \RequirePackage{UPSTI_Pedagogique}  % commandes liées à la pédagogie (diagrammes, compétences...)
+
+  % Réglages divers
+  \allowdisplaybreaks[1] % Sauts de pages autorisés dans les équations
+
+  % Mise en forme des tableaux
+  \renewcommand{\tabularxcolumn}[1]{>{\small}m{#1}} % Centrage vertical des cellules dans les colonnes X de tabularX
+  \setlength\extrarowheight{2pt}
+
+\fi
+  
+%--------------------------------------------------------%
+% En-tête, pied de page et filigrane 
+%--------------------------------------------------------%
+% En-tête
+\fancyhead[L]{\UPSTIconcours \ifboolexpr{test{\ifnumequal{1}{\UPSTIidConcours}} or test{\ifnumequal{2}{\UPSTIidConcours}}}{}{ - \UPSTIfiliere} - \UPSTIepreuve}
+\fancyhead[C]{\ifdef{\UPSTItitreEpreuveRaccourci}{\UPSTItitreEpreuveRaccourci}{\UPSTItitreEpreuve}}   % Titre ou titre raccourci
+\fancyhead[R]{Session \UPSTIsession}  % Année
+
+% Filigrane
+\CenterWallPaper{0.85}{images/templateUPSTI/filigraneUPSTI.png}
+
+% Pied de page
+\fancyfoot[L]{\begin{minipage}{0.055\textwidth}\href{https://www.upsti.fr}{\includegraphics[width=\linewidth,height=26pt,keepaspectratio]{images/templateUPSTI/logoUPSTI.png}}\end{minipage}\begin{minipage}{.935\textwidth}\rule[1pt]{0cm}{7pt}\small{\href{https://www.upsti.fr}{\textbf{Union des Professeurs de Sciences et Techniques Industrielles}}}\\	\raisebox{0.5\depth}{\footnotesize{\copyright}} \small{UPSTI - Toute reproduction interdite sans l'autorisation de l'UPSTI}\end{minipage}}
+\fancyfoot[C]{}
+\fancyfoot[R]{\vspace{-1.15em}\small{Page \textbf{\thepage}} \\ \small{sur \textbf{\pageref{LastPage}}}}
+
+%--------------------------------------------------------%
+% Titre de l'épreuve
+%--------------------------------------------------------%
+\newcommand{\UPSTIpreambuleEpreuve}{
+  \begin{center}
+  \vspace*{0.4em}
+  \huge{\textbf{\UPSTItitreEpreuve}}
+  
+  \Large{Corrigé UPSTI}
+  \vspace{1.5em}
+  \end{center}
+}
+
+%--------------------------------------------------------%
+% Autres commandes
+%--------------------------------------------------------%
+% Ligne gris clair
+\newcommand{\grayrule}{{\color{gris}\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi\hrule\@height\headrulewidth\@width\headwidth\vskip-\headrulewidth}}  
+
+% Titres de partie
+\newcommand{\UPSTItitrePartieCorrige}[1]{\begin{center}\LARGE{\textsc{#1}}\end{center}\vspace{-0.5em}\grayrule\vspace{1em}}   
+
+% Gestion de la numérotation des questions
+\newcounter{UPSTInumeroQuestionCorrige}
+\newcommand*{\resetNumQuestionCorrige}{\setcounter{UPSTInumeroQuestionCorrige}{0}}
+\ifdef{\UPSTIquestion}{
+  \renewcommand{\UPSTIquestion}{\@ifstar\UPSTIquestionEtoilee\UPSTIquestionNonEtoilee}
+}{
+  \newcommand{\UPSTIquestion}{\@ifstar\UPSTIquestionEtoilee\UPSTIquestionNonEtoilee}
+} 
+\newcommand{\UPSTIquestionEtoilee}{\noindent\refstepcounter{UPSTInumeroQuestionCorrige}\textbf{Question \theUPSTInumeroQuestionCorrige} \quad}
+\newcommand{\UPSTIquestionNonEtoilee}{\vspace{1em}\noindent\refstepcounter{UPSTInumeroQuestionCorrige}\textbf{Question \theUPSTInumeroQuestionCorrige} \quad}
+
+% Corrigé
+\newenvironment{UPSTIcorrige}{\color{corrigeUPSTI}}{}
+
+% Boîte générique
+\newcommand{\UPSTIboiteGeneriqueCorrige}[2]{
+\global\mdfdefinestyle{UPSTIboiteStyle}{%
+	linecolor=black,
+	linewidth=1pt,
+	leftline=false,
+	rightline=false,
+	frametitleaboveskip=-1em,
+	innertopmargin=-5pt,
+	innerbottommargin=7pt,
+%  leftmargin=3em,
+	innerrightmargin=0pt,
+	innerleftmargin=0pt,
+	frametitle={
+		\tikz[baseline=(current bounding box.east),outer sep=0pt]
+		\node[anchor=east,rectangle,fill=white]{\strut #1};}
+}
+\begin{mdframed}[style=UPSTIboiteStyle]{#2}\end{mdframed}}
+
+% Boîte Objectif
+\ifdef{\UPSTIobjectif}{
+  \renewcommand{\UPSTIobjectif}[1]{\UPSTIboiteGeneriqueCorrige{Objectif}{#1}}
+}{
+  \newcommand{\UPSTIobjectif}[1]{\UPSTIboiteGeneriqueCorrige{Objectif}{#1}}
+} 
+
+\endinput

@@ -1,0 +1,78 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\ProvidesPackageRCS $Header: /cvsroot/latex-beamer/latex-beamer/themes/outer/beamerouterthemesubsection.sty,v 1.8 2007/01/28 20:48:30 tantau Exp $
+
+\setbeamercolor{section in head/foot}{parent=palette primary}
+\setbeamercolor{subsection in head/foot}{parent=palette secondary}
+\setbeamercolor{author in head/foot}{parent=section in head/foot}
+\setbeamercolor{author in head/foot}{parent=section in head/foot}
+
+\defbeamertemplate*{title page}{renaud}[1][]
+{
+\setbeamercolor{}{fg=grisf, bg=}
+  \begin{centering}
+    \begin{beamercolorbox}[sep=10pt,center,#1,shadow=true,rounded=true]{title}
+\expandafter\ifstrempty\expandafter{\insertsection}{%
+    \usebeamerfont{title}\inserttitle%
+  }{%
+    \usebeamerfont{titlesection}
+    \insertsection%
+  }%
+  \par%
+    \end{beamercolorbox}
+    \end{centering}
+
+}
+
+\defbeamertemplate*{footline}{pagetitre}
+{
+}
+
+\defbeamertemplate*{headline}{pagetitre}
+{
+\vskip10pt
+}
+
+%Footline
+
+\defbeamertemplate*{footline}{renaud theme}
+{\begin{beamercolorbox}[ht=9pt,dp=9pt,%
+    leftskip=.3cm,rightskip=.3cm plus1fil]{}%{title in head/foot}%
+ \leavevmode \vfill
+\hspace{5pt}
+{\usebeamerfont{author in head/foot}\usebeamercolor[grisf]{author in head/foot}\insertshortauthor}%
+    \hfill%
+ {\usebeamerfont{title in head/foot}\usebeamercolor[grisf]{title in head/foot}\inserttitle}%
+    \hfill%
+ {\usebeamerfont{date in head/foot}\usebeamercolor[grisf]{date in head/foot}\insertdate}%
+    \hfill%
+    {\usebeamerfont{page in head/foot}\usebeamercolor[grisf]{page in head/foot}$\dfrac{\insertframenumber}{\inserttotalframenumber}$}%
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+  \end{beamercolorbox}
+}
+
+\newif\ifbeamer@theme@subsection
+\beamer@theme@subsectiontrue
+
+\DeclareOptionBeamer{footline}{\csname beamer@theme@footline@#1\endcsname}
+\DeclareOptionBeamer{subsection}[true]{\csname beamer@theme@subsection#1\endcsname}
+\ProcessOptionsBeamer
+
+
+\mode<presentation>
+\setbeamercolor*{section in head/foot}{fg=orgr}
+
+
+\def\beamer@fteright{\vskip0.35cm\advance\leftskip by 1.7cm\advance\rightskip by1.7cm}
+
+\setbeamertemplate{navigation symbols}{}
+\mode
+<all>

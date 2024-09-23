@@ -1,0 +1,440 @@
+\documentclass[a4paper,12pt,titlepage]{article}
+\newcommand{\jour}{Mercredi 06 mai}
+\newcommand{\numero}{DM04}
+\newcommand{\sujet}{Scooter MP3\textregistered{}}
+\input{../../headers/dsheader.tex}
+
+\section{Présentation (20 min)}
+
+La densification des zones urbaines ces vingt dernières années a conduit à une saturation de la plupart des grandes villes européennes. Ainsi, les conditions de circulation devenues très difficiles, les réseaux de transport en commun saturés, ont conduit de nombreux usagers à se tourner vers les véhicules à deux roues. D'abord destiné à un public de passionnés recherchant des sensations et un sentiment de liberté, le marché des deux roues a connu une évolution plus utilitaire. Ceci explique le fort succès des scooters cette dernière décennie. L'enjeu des constructeurs de scooters est donc de proposer des véhicules pouvant se déplacer aisément en milieu urbain et sur route tout en s'adaptant à ces nouveaux usagers peu habitués aux spécificités des deux roues en améliorant le confort et la sécurité. Dans ce domaine, la société Piaggio propose un scooter dont le train avant est muni de deux roues.
+
+\begin{figure}[!h]
+ \begin{minipage}{0.58\linewidth}
+ Les objectifs sont d'avoir une tenue de route plus proche d'un véhicule à quatre roues, d'augmenter la capacité de freinage ainsi que le confort d'utilisation en ville tout en conservant la maniabilité d'un deux roues classique.
+ 
+ Nous allons nous intéresser dans ce sujet à certains aspects de la conception du train avant à deux roues développé par la société Piaggio sur son scooter MP3, figure \ref{scoot1}.
+ \end{minipage}
+ \hfill
+ \begin{minipage}{0.4\linewidth}
+ \centering\includegraphics[width=0.6\linewidth]{img/scoot1.png}
+ \caption{Scooter MP3}
+ \label{scoot1}
+ \end{minipage} 
+\end{figure}
+
+Le train avant est défini comme l'ensemble comprenant : la roue (ou les roues) avant, la suspension, le dispositif de freinage, tous les éléments participant aux liaisons entre ces éléments. Sur un scooter à une seule roue avant, le train avant est lié au châssis du véhicule par une liaison pivot permettant d'orienter la roue avant par rapport au véhicule par l'intermédiaire du guidon. Cette liaison permet de diriger le véhicule. Pour un scooter à deux roues avant, le train avant doit non seulement permettre le pivotement des roues commandé par le guidon mais il doit également permettre l'inclinaison de l'ensemble du scooter tout en conservant le contact des roues au sol, figure  \ref{scoot2}.
+
+\begin{figure}[!h]
+ \begin{minipage}{0.48\linewidth}
+ \centering\includegraphics[width=0.6\linewidth]{img/scoot2.png}
+ \end{minipage}
+ \hfill
+ \begin{minipage}{0.48\linewidth}
+ \centering\includegraphics[width=0.6\linewidth]{img/scoot3.png}
+  \end{minipage} 
+  \caption{Scooters à 2 et à 3 roues}
+  \label{scoot2}
+\end{figure}
+
+\newpage
+
+La solution retenue pour permettre une inclinaison du véhicule malgré la présence de deux roues sur le train avant repose sur la cinématique imposée par un dispositif en parallélogramme représenté figure \ref{scoot3}. Une vue d'ensemble du train avant avec le parallélogramme d'inclinaison est fournie Document 1.
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.6\linewidth]{img/paral.png}
+ \caption{Principe du parallélogramme d'inclinaison}
+ \label{scoot3}
+\end{figure}
+
+Le diagramme des interacteurs \ref{scoot4} et l'extrait de cahier des charges, figure \ref{scoot5}, suivant permettent de spécifier les principales performances attendues par ce train avant innovant.
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.6\linewidth]{img/interacteurs.png}
+ \caption{Diagramme des interacteurs}
+ \label{scoot4}
+\end{figure}
+
+\begin{itemize}
+ \item FS1: Permettre au conducteur de maîtriser le véhicule sur la route,
+ \item FS2: Assurer la liaison sur le sol,
+ \item FS3: Assurer une partie du freinage du scooter,
+ \item FS4: Être conforme à la législation en vigueur.
+\end{itemize}
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.6\linewidth]{img/tableau.png}
+ \caption{Principales performances du train avant}
+ \label{scoot5}
+\end{figure}
+
+\section{Étude et validation partielle du parallélogramme d'inclinaison (30 min)}
+
+Objectifs : On cherche à vérifier le critère de rigidité de l'ensemble du train avant sous sollicitations de la fonction FS1. Pour cela on étudie le mécanisme d'inclinaison des roues en parallélogramme dont une illustration est donnée
+Document 1. On utilisera pour la suite de notre étude les modèles simplifiés donnés Document 2, Document 3 et Document 4.
+
+Ce système, constitué de deux bras B1 et B2 et de deux colonnes C3 et C4, est relié au châssis 0 du scooter par deux liaisons pivots. Chaque bras est en liaison pivot avec chaque colonne. Les colonnes C3 et C4 sont liées en liaison pivot avec les deux bras de suspension qui supportent les deux roues avant, figure \ref{scoot3}. Un schéma cinématique minimal du système d'inclinaison est donné sur le Document 2.
+
+\paragraph{Question 1:}
+
+Calculer le degré d'hyperstatisme du mécanisme modélisé par le schéma cinématique minimal du Document 2.
+
+On applique un chargement connu au système étudié en imposant un torseur d'effort extérieur, représentant le contact roue-sol, à chacune des colonnes.
+
+\paragraph{Question 2:}
+
+En appliquant le principe fondamental de la statique à chacune des pièces du système d'inclinaison (liaisons supposées parfaites), on obtient un système d'équations reliant les inconnues de liaison aux données du problème. Est-il
+possible de résoudre le système obtenu sans hypothèse supplémentaire ?
+
+Justifier, mais il n'est pas demandé de résoudre.
+
+%Nous allons à présent vérifier le critère de rigidité du train avant en prenant en compte les déformations de certaines pièces. Les colonnes C3 et C4 sont de forme tubulaire et réalisées dans un matériau dont la désignation normalisée est 30NiCr11.
+%
+%Les bras B1 et B2 sont des pièces massives réalisées dans un matériau dont la désignation normalisée est EN AC-43100 (AlSi10Mg). La forme générale de ces pièces est donnée Document 1.
+%
+%\paragraph{Question 3:}
+%
+%Donner la signification des désignations normalisées 30NiCr11 et EN AC-43100 (AlSi10Mg). Donner pour chacun de ces matériaux la valeur du module d'Young. Proposer un mode d'obtention du brut pour les deux bras B1 et B2, étant donné la série (ici grande série) et le matériau considérés.
+
+
+\section{Étude et validation partielle du dispositif de verrouillage (1h10)}
+
+On s'intéresse dans cette partie à la conception du dispositif de verrouillage de l'inclinaison. Il doit permettre de vérifier le critère de verrouillage de la fonction de service FS1 pour les vitesses inférieures à $15 km.h^{-1}$. Ce dispositif, présent en option, répond à un souci d'amélioration du confort d'utilisation du scooter en milieu urbain. Le train avant est sensiblement alourdi, par sa structure particulière, par rapport à un véhicule classique. D'autre part, les protections et les éléments de confort propres au marché du scooter amènent le poids des scooters, même de faible cylindrée, à atteindre celui d'une moto de grosse cylindrée. Afin de conserver une bonne maniabilité aux faibles vitesses et de s'adapter aux usagers de tout gabarit, le verrouillage de l'inclinaison est donc proposé en option dans la fonction FS1 de la partie 1. Il permet en outre d'éviter de poser le pied aux arrêts (nombreux en circulation urbaine), et de garer le scooter dans n'importe quelle configuration (pente, à cheval sur un trottoir ou une bordure, etc ...) sans avoir à utiliser la béquille centrale (opération difficile sur un engin d'environ 200 kg).
+
+\begin{figure}[!h]
+ \begin{minipage}{0.48\linewidth}
+ Le diagramme suivant présente la fonction technique à remplir par le dispositif de verrouillage d'inclinaison du train avant ainsi que les données influant sur son fonctionnement.
+ \end{minipage}
+ \begin{minipage}{0.5\linewidth}
+ \centering\includegraphics[width=0.9\linewidth]{img/SADT.png}
+ \label{scoot6}
+ \end{minipage}
+\end{figure}
+
+\newpage
+
+La commande du dispositif doit être actionnée au guidon et validée par le calculateur en fonction de la vitesse du scooter (mesure de la vitesse de rotation des roues) et du régime moteur. Un voyant au guidon permet d'avertir le conducteur de l'état du dispositif. Le dispositif ne peut être déverrouillé que si le conducteur est assis sur la selle.
+
+L'extrait de cahier des charges de la figure \ref{scoot7} permet de spécifier la fonction technique FT1. Afin de clarifier la spécification de FT1, trois phases de fonctionnement ont été distinguées :
+\begin{itemize}
+ \item verrouillage (toujours par commande manuelle) (Phase A),
+ \item déverrouillage automatique (Phase B),
+ \item déverrouillage manuel (Phase C).
+\end{itemize}
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.6\linewidth]{img/tableau2.png}
+ \caption{Extrait du cahier des charges}
+ \label{scoot7}
+\end{figure}
+
+Le verrouillage de l'inclinaison du train avant nécessite la suppression de ces mobilités :
+\begin{itemize}
+ \item la mobilité du parallélogramme d'inclinaison (voir partie 1),
+ \item la mobilité de la suspension avant (particulièrement utile en mode parking).
+\end{itemize}
+
+Les solutions retenues pour bloquer ces deux mobilités sont :
+\begin{itemize}
+ \item un frein à disque (visible sur le Document 1) actionné par câble pour le parallélogramme d'inclinaison,
+ \item un verrou hydraulique pour chaque bras de suspension (visible sur le Document 1 et schématisé sur les Document 5 et Document 6).
+\end{itemize}
+
+\subsection{Validation du dispositif de verrouillage}
+
+Objectifs : On s'intéresse ici à la conception de la chaîne d'énergie du dispositif de verrouillage. Nous allons établir une notice de calcul permettant de concevoir et de valider le mécanisme de transmission du dispositif de verrouillage en conformité avec le cahier des charges de la fonction FT1.
+
+Malgré la nature différente des énergies mises en jeu pour les deux dispositifs de verrouillage, le constructeur souhaite utiliser un unique actionneur pour limiter les coûts de production, faciliter les opérations de maintenance, limiter les masses embarquées ainsi que l'encombrement et garantir la synchronisation des deux types de verrouillage.
+
+\textbf{Détermination de la pression hydraulique nécessaire au verrouillage de la mobilité de la suspension avant.}
+
+Une schématisation du bras de suspension et du verrou hydraulique (identiques pour les deux roues avant) est fournie Document 5 et Document 6 respectivement. Une roue est en liaison pivot d'axe $(O,\overrightarrow{x_0})$ avec le bras oscillant 11 lui-même en liaison pivot d'axe $(O,\overrightarrow{x_0})$ avec le bras de suspension constitué des pièces 12 et 13.
+
+Le bras oscillant 11 est en liaison pivot d'axe $(P,\overrightarrow{x_0})$ avec la demi-fourche 10. La liaison équivalente entre 12 et 13 est assimilée à une glissière de direction $\overrightarrow{x_{13}}$. Entre 12 et 13 sont placés un amortisseur et un ressort non représentés. En parallèle du bras de suspension, une tige 14 est liée par une liaison pivot glissant d'axe $(M,\overrightarrow{x_0})$ avec 12 et par une liaison pivot glissant d'axe $(M,\overrightarrow{x_{13}})$ avec 13. C'est cette dernière liaison pivot glissant qui sera verrouillée par le verrou hydraulique.
+
+Le principe retenu pour verrouiller la liaison pivot glissant entre 13 et 14 consiste à pincer un cylindre élastique Cy sur la tige 14 (Document 6). Le blocage se fait alors par adhérence. Le contact entre Cy et 14 sera considéré comme ponctuel aux points $J'_1$ et $J'_2$.
+
+Pour simplifier, on considère que les coefficients de frottement et d'adhérence entre Cy et 14 sont égaux et valent : f=0,3.
+
+La résultante globale des efforts à transmettre par adhérence de 14 sur Cy est : $\overrightarrow{R_{14\rightarrow Cy}} = Z_{14\rightarrow Cy}.\overrightarrow{z_{13}}$ avec $Z_{14 \rightarrow Cy} = 923 N$, le coefficient de frottement étant inclus dans cette valeur.
+
+Compte tenu de la grande souplesse de Cy, on considère que les efforts transmis en $J_1$ et $J_2$ sont identiques en norme aux efforts en $J'_1$ et $J'_2$ respectivement.
+
+Données du Document 5 : $\overrightarrow{IO}=R.\overrightarrow{z_0}$ avec $R=240 mm$, $\overrightarrow{OP}\approx l_{11}.\overrightarrow{y_0}$ avec $l_{11}=200mm$, $(\overrightarrow{y_0},\overrightarrow{y_{13}})=(\overrightarrow{z_0},\overrightarrow{z_{13}})=\theta_{013}=-30$\textdegree.
+
+L'angle étant supposé petit, on travaillera sur la configuration non déformée (partie Doc 6a du Document 6).
+
+\paragraph{Question 3:} En isolant la pièce 14, exprimer les torseurs d'actions mécaniques transmissibles par les liaisons ponctuelles avec frottement en $J'_1$ et $J'_2$, notés $\left\{T^{J'_1}_{Cy \rightarrow 14}\right\}$ et $\left\{T^{J'_2}_{Cy \rightarrow 14}\right\}$ à la limite du glissement entre 14 et Cy. On exprimera ces torseurs dans la base $B_{13}=(\overrightarrow{x_{13}}=\overrightarrow{x_0},\overrightarrow{y_{13}},\overrightarrow{z_{13}})$ respectivement en $J'_1$ et $J'_2$ en fonction de $Z_{14 \rightarrow Cy}$ et de $f$.
+
+\paragraph{Question 4:} En isolant B, en déduire la projection sur $\overrightarrow{x_{13}}$ de la résultante des actions mécaniques transmissibles de P sur B $\overrightarrow{R_{P \rightarrow B}}$, en fonction de $Z_{14 \rightarrow Cy}$ et de $f$.
+
+En déduire la pression $P_2$ à imposer dans le dispositif de verrouillage en fonction de $Z_{14 \rightarrow Cy}$, $f$, $P_{atm}$ et des caractéristiques géométriques.
+
+\newpage
+
+\textbf{Détermination du couple moteur nécessaire au verrouillage des mobilités du train avant.}
+
+Le mécanisme de transmission du dispositif de verrouillage schématisé Document 7 est actionné par un moteur électrique. Il est principalement constitué d'un ensemble 1 en liaison pivot par rapport au bâti 0. L'axe du moteur électrique est solidaire de la vis V qui engrène sur la roue R solidaire de la roue R' qui entraîne l'ensemble 1.
+
+L'extrémité du câble actionnant le frein à disque du parallélogramme est fixée à l'ensemble 1 au point E. La rotation de 1 permet donc de mettre en tension le câble du frein à disque du parallélogramme. La pièce 2 est en liaison pivot avec l'ensemble 1. Un ressort de torsion placé entre 1 et 2 permet d'imposer un couple noté $\overrightarrow{C_{res \rightarrow 2}} = C_{res \rightarrow 2}.\overrightarrow{z_0}$ sur 2. La pièce 2 est en liaison sphérique au point C avec la bielle 3.
+
+La bielle 3 est en liaison sphérique au point D avec le piston 4 du maître cylindre dont le schéma de principe est présenté Document 8. Le maître cylindre permet d'actionner les verrous hydrauliques des deux bras de suspension avant.
+
+\paragraph{Question 5:} On supposera qu'en position verrouillée :
+$\theta_{32}=(\overrightarrow{x_2},\overrightarrow{x_3})=(\overrightarrow{y_2},\overrightarrow{y_3})=-30$\textdegree et $\theta_{20}=(\overrightarrow{x_0},\overrightarrow{x_2})=(\overrightarrow{y_0},\overrightarrow{y_2})=0$\textdegree.
+
+Les actions du ressort du maître cylindre ainsi que les actions dues à la pression arrière $P_1$ seront négligées.
+
+En isolant la pièce 4, puis la pièce 2, déterminer alors le couple $C_{res \rightarrow 2}$ à imposer par le ressort de torsion sur 2 pour verrouiller les deux bras de suspension en fonction de $P_2$ et des données géométriques.
+
+Lors du verrouillage des verrous hydrauliques, la course $C_4$ du piston 4 du maître cylindre est de 6 mm. On considère que cela entraîne un débattement angulaire maximum de la pièce 2, $\Delta \theta_{20,MAX} = 6°$.
+
+La Figure 8 montre un relevé expérimental de l'effort de tension dans le câble noté $F$ en fonction de l'angle lorsque l'on actionne le frein à disque. $F$ est mesuré au point E du Document 7. La résultante des actions du câble en E est : $\overrightarrow{F_{cab \rightarrow 1}}=-F.\overrightarrow{x_1}$.
+
+Pour assurer le blocage du parallélogramme d'inclinaison, la tension dans le câble doit être égale à 200 N.
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.6\linewidth]{img/graphe.jpg}
+ \caption{Tension dans le câble $F$ en fonction de l'angle $\theta_{10}$}
+ \label{scoot8}
+\end{figure}
+
+\paragraph{Question 6} Relever la valeur $\theta_{10,MAX}$ à imposer à la pièce 1 pour obtenir l'effort de tension de verrouillage. Déduire alors des questions précédentes l'expression de la raideur du ressort de torsion notée $K_{Res}$ (en $N.m.deg^{-1}$) qui permettra d'imposer la pression $P_2$. Faire l'application numérique.
+
+%\section{Statique des efforts répartis (1h)}
+%
+%\textbf{CETTE PARTIE EST A RENDRE SUR UNE COPIE SEPAREE}
+%
+%\includepdf[pages={1-2}]{img/frein_disques.pdf}
+
+\includepdf[pages={1-8},landscape]{img/documents.pdf}
+
+\ifdef{\public}{\end{document}}{}
+
+\newpage
+
+\pagestyle{correction}\setcounter{section}{0}
+
+\paragraph{Question 1:}
+
+$N_s=6*5=30$ \\
+$r_s=6*(5-1)-1=23$ \\
+$h=7$
+
+\paragraph{Question 2:}
+
+En appliquant le PFS sur chaque pièce isolée (4 car on ne peut pas isoler le bâti), on obtient 24 équations. Il existe une mobilité dans ce système, ce qui signifie qu'une de ces équations est de la forme $0=0$, il reste donc 23 équations indépendantes.
+
+Il y a 30 inconnues statiques car 6 liaisons pivots, il est alors impossible de résoudre. IL faudrait un système isotatique pour résoudre.
+
+\paragraph{Question 3:}
+
+En isolant 14,
+
+$\left\{T_{Cy\rightarrow 14}^{J'_1}\right\}=\left\{\begin{array}{c c}
+X_{J'_1} & 0 \\
+Y_{J'_1} & 0 \\
+Z_{J'_1} & 0
+\end{array}\right\}_{J'_1}$
+
+$\left\{T_{Cy\rightarrow 14}^{J'_2}\right\}=\left\{\begin{array}{c c}
+X_{J'_2} & 0 \\
+Y_{J'_2} & 0 \\
+Z_{J'_2} & 0
+\end{array}\right\}_{J'_2}$
+
+$\left\{T_{12\rightarrow 14}^{M}\right\}=\left\{\begin{array}{c c}
+X_M & 0 \\
+Y_M & M_M \\
+Z_M & N_M
+\end{array}\right\}_{M}$
+
+Soit $\overrightarrow{J'_1M}=-L.\overrightarrow{z_{13}}$,
+
+$\left\{T_{12\rightarrow 14}^{J'_1}\right\}=\left\{\begin{array}{c c}
+X_M & L.Y_M \\
+Y_M & M_M-L.X_M \\
+Z_M & N_M
+\end{array}\right\}_{J'_1}$
+
+$\left\{T_{Cy\rightarrow 14}^{J'_2}\right\}=\left\{\begin{array}{c c}
+X_{J'_2} & 0 \\
+Y_{J'_2} & -d_T.Z_{J'_2} \\
+Z_{J'_2} & d_T.Y_{J'_2}
+\end{array}\right\}_{J'_1}$
+
+$\left\{\begin{array}{l}
+X_{J'_1} + X_{J'_2} + X_M =0\\
+Y_{J'_1} + Y_{J'_2} + Y_M =0\\
+Z_{J'_1} + Z_{J'_2} + Z_M =0\\
+0 + 0 + L.Y_M =0\\
+0 -d_T.Z_{J'_2} + M_M - L.X_M = 0 \\
+0 + d_T.Y_{J'_2} + N_M=0
+\end{array}\right.$
+
+~\
+
+$Y_M=0$, donc $Y_{J'_1} + Y_{J'_2}=0$, or comme ils s'agit d'effort de frottement qui n'existent que s'ils s'opposent à un autre effort, ils sont donc nuls ici $Y_{J'_1}=Y_{J'_2}=0$
+
+Cela signifie que $X_{J'_1}=-f.Z_{J'_1}$ ($Z_{J'_1}$ est négatif d'après les données, $Z_{14\rightarrow Cy}=923N$ et $X_{J'_1}$ est positif, d'après le sens de la normale). De même, $X_{J'_2}=f.Z_{J'_2}$.
+
+~\
+
+On a de plus: $\sqrt{f^2.Z_{J'_1}^2+Z_{J'_1}^2}=\sqrt{f^2.Z_{J'_2}^2+Z_{J'_2}^2}$ \\
+$\sqrt{f^2.Z_{J'_1}^2+Z_{J'_1}^2}=\sqrt{f^2.Z_{J'_2}^2+Z_{J'_2}^2}$ \\
+$\mid Z_{J'_1} \mid=\mid Z_{J'_2} \mid$, d'où $\mid X_{J'_1} \mid=\mid X_{J'_2} \mid$, avec $X_{J'_1}$, de signe opposé à $X_{J'_2}$, donc $X_M=0$
+
+~\
+
+Donc, 
+$\left\{T_{Cy\rightarrow 14}^{J_1}\right\}=\left\{\begin{array}{c c}
+-\dfrac{Z_{Cy\rightarrow 14}}{2.f} & 0 \\
+0 & 0 \\
+\dfrac{Z_{Cy\rightarrow 14}}{2} & 0
+\end{array}\right\}_{J_1}$
+
+$\left\{T_{Cy\rightarrow 14}^{J_2}\right\}=\left\{\begin{array}{c c}
+\dfrac{Z_{Cy\rightarrow 14}}{2.f} & 0 \\
+0 & 0 \\
+\dfrac{Z_{Cy\rightarrow 14}}{2} & 0
+\end{array}\right\}_{J_2}$
+
+\paragraph{Question 4:}
+
+En isolant B,
+
+$\left\{T_{P\rightarrow B}\right\}=\left\{\begin{array}{c c}
+X_{B_1} & L_{B_1} \\
+Y_{B_1} & 0 \\
+Z_{B_1} & N_{B_1}
+\end{array}\right\}_{B_1}$
+
+$\left\{T_{13\rightarrow B}\right\}=\left\{\begin{array}{c c}
+X_{B_2} & L_{B_2} \\
+Y_{B_2} & 0 \\
+Z_{B_2} & N_{B_2}
+\end{array}\right\}_{B_2}$
+
+$\left\{T_{Cy\rightarrow B}\right\}=\left\{\begin{array}{c c}
+\dfrac{Z_{Cy\rightarrow 14}}{2.f} & 0 \\
+0 & 0 \\
+\dfrac{Z_{Cy\rightarrow 14}}{2} & 0
+\end{array}\right\}_{J_1}$
+
+Calcul au point $B_2$ en ne gardant que le moment afin de supprimer les composantes qui ne nous intéressent pas.
+
+$-\dfrac{l_B}{2}.\dfrac{Z_{Cy\rightarrow 14}}{2.f}+l_B.X_{B_1}=0$
+
+$X_{B_1}=\overrightarrow{R_{P\rightarrow B}}.\overrightarrow{x_{13}}=\dfrac{Z_{Cy\rightarrow 14}}{4.f}$
+
+$X_{B_1}+P_{atm}.\frac{\pi}{4}.\Phi_c^2-P_2.\frac{\pi}{4}.(\Phi_c^2-\Phi_p^2)=0$
+
+$P_2=\dfrac{X_{B_1}+P_{atm}.\frac{\pi}{4}.\Phi_c^2}{\frac{\pi}{4}.(\Phi_c^2-\Phi_p^2)}$
+
+$P_2=\dfrac{\dfrac{923}{4*0.3}+0.1*\frac{\pi}{4}.30^2}{\frac{\pi}{4}.(30^2-15^2)}$
+
+$P_2=1.58MPa=15.8bars$
+
+\paragraph{Question 5:}
+
+On isole 4:
+
+$\left\{T_{0\rightarrow 4}\right\}=\left\{\begin{array}{c c}
+X_{04} & L_{04} \\
+0 & M_{04} \\
+Z_{04} & N_{04}
+\end{array}\right\}_{P}$
+
+$\left\{T_{P\rightarrow 4}\right\}=\left\{\begin{array}{c c}
+0 & 0 \\
+F_P & 0 \\
+0 & 0
+\end{array}\right\}_{P}$
+
+$\left\{T_{3\rightarrow 4}\right\}=\left\{\begin{array}{c c}
+X_D & 0 \\
+Y_D & 0 \\
+Z_D & 0
+\end{array}\right\}_{D}$
+
+En projetant le théorème de la résultante sur X, on obtient $F_P+Y_D=0$
+
+On isole 3 (non demandé, mais cela permet de détailler les calculs)
+
+$\left\{T_{4\rightarrow 3}\right\}=\left\{\begin{array}{c c}
+-X_D & 0 \\
+-Y_D & 0 \\
+-Z_D & 0
+\end{array}\right\}_{D}$
+
+$\left\{T_{2\rightarrow 3}\right\}=\left\{\begin{array}{c c}
+X_C & 0 \\
+Y_C & 0 \\
+Z_C & 0
+\end{array}\right\}_{C}$
+
+On a $\overrightarrow{DC}=l_{DC}.\overrightarrow{y_3}=-l_{DC}.sin(\theta_{32}).\overrightarrow{x_2}+l_{DC}.cos(\theta_{32}).\overrightarrow{y_2}$
+
+De plus, $\theta_{20}=(\overrightarrow{x_0},\overrightarrow{x_2})=(\overrightarrow{y_0},\overrightarrow{y_2})=0$\textdegree, donc
+
+$\overrightarrow{DC}=l_{DC}.\left(\begin{array}{c}
+-sin(\theta_{32}) \\
+cos(\theta_{32}) \\
+0
+\end{array}\right)$
+
+$\left\{T_{2\rightarrow 3}\right\}=\left\{\begin{array}{c c}
+X_C & l_{DC}.cos(\theta_{32}).Z_C \\
+Y_C & l_{DC}.sin(\theta_{32}).Z_C \\
+Z_C & -l_{DC}.sin(\theta_{32}).Y_C-l_{DC}.cos(\theta_{32}).X_C
+\end{array}\right\}_{C}$
+
+Donc, $-l_{DC}.sin(\theta_{32}).Y_C-l_{DC}.cos(\theta_{32}).X_C=0$, donc $sin(\theta_{32}).Y_C+cos(\theta_{32}).X_C=0$ et $Z_C=0$
+
+On isole 2:
+
+$\left\{T_{3\rightarrow 2}\right\}=\left\{\begin{array}{c c}
+-X_C & 0 \\
+-Y_C & 0 \\
+0 & 0
+\end{array}\right\}_{C}$
+
+$\left\{T_{1\rightarrow 2}\right\}=\left\{\begin{array}{c c}
+X_B & L_B \\
+Y_B & M_B \\
+Z_B & 0
+\end{array}\right\}_{B}$
+
+$\left\{T_{res\rightarrow 2}\right\}=\left\{\begin{array}{c c}
+0 & 0 \\
+0 & 0 \\
+0 & C_{res\rightarrow 2}
+\end{array}\right\}_{B}$
+
+Avec $\overrightarrow{BC}=r_2.\overrightarrow{x_2}=r_2.\overrightarrow{x_0}$
+
+$\left\{T_{3\rightarrow 2}\right\}=\left\{\begin{array}{c c}
+-X_C & 0 \\
+-Y_C & 0 \\
+0 & -r_2.Y_C
+\end{array}\right\}_{B}$
+
+En projetant le théorème du moment sur Z, on obtient $C_{res\rightarrow 2}=r_2.Y_C$
+
+Donc, $C_{res\rightarrow 2}=r_2.Y_C=r_2.Y_D=r_2.F_P$.
+
+$C_{res\rightarrow 2}=r_2.P_2.\dfrac{\pi}{4}.\Phi_{mc}^2$
+
+$C_{res\rightarrow 2}=60*10^{-3}*1.5*\dfrac{\pi}{4}.20^2$
+
+$C_{res\rightarrow 2}=28.26N.m$
+
+\paragraph{Question 6:}
+
+$\theta_{10,MAX}=12\degree$ pour $F=2000N$.
+
+$K_{res}=\dfrac{C_{res\rightarrow 2}}{\theta_{10,MAX}-\Delta \theta_{20,MAX}}$
+
+$K_{res}=\dfrac{28.26}{12-6}=4.72N.m/deg^{-1}$
+
+
+\end{document}

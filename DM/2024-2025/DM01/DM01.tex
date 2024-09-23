@@ -1,0 +1,56 @@
+\documentclass[a5paper,12pt,norsk]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{babel,fouriernc,parskip,booktabs,array}
+\usepackage[margin=0cm,landscape]{geometry}
+\usepackage{enumitem}
+
+\usepackage{pgfpages}                                 % <— load the package
+  \pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm] % <— set options
+
+\usepackage{atbegshi}
+  % duplicate the content at shipout time
+  \AtBeginShipout{
+    \pgfpagesshipoutlogicalpage{1}\copy\AtBeginShipoutBox
+    \pgfpagesshipoutlogicalpage{2}\box\AtBeginShipoutBox
+    \pgfshipoutphysicalpage
+  }
+
+
+\setlist{nolistsep}
+\renewcommand\labelitemi{--}
+
+\begin{document}
+\thispagestyle{empty}
+NOM:..................... Prénom:..................\\
+~\ \\
+\begin{center}
+   {DM du 02 septembre}
+\end{center}
+
+\textit{Répondre au dos.}
+
+Un coureur parcours 10km à une allure de $5min\cdot km^{-1}$.
+
+\paragraph{Question 1:} Quelle est sa vitesse moyenne ? %Il court à $60/5=12km\cdot h^{-1}$.
+
+\paragraph{Question 2:} Combien de temps met-il pour parcourir les 10km ? %Il court 5*10=50min.
+
+Ce coureur lors d'un autre entrainement en fractionné a parcouru :
+\begin{enumerate}
+ \item 200m à  $15km\cdot h^{-1}$.
+ \item 2km à  $11km\cdot h^{-1}$.
+ \item 300m à  $15km\cdot h^{-1}$.
+ \item 10km  à  $9,5km\cdot h^{-1}$.
+\end{enumerate}
+
+\paragraph{Question 3:} Combien de temps a-t-il courru lors de cette sortie ? Ce résultat devra être exprimé au format \textbf{h} heure, \textbf{m} minutes et \textbf{s} secondes (on arrondira à la seconde). %Il a courru les 200m en 48s, les 2km en 654,54s, les 300m en 72s et les 10km en 3789,47s, soit un total de 4564,02s soit 1h16min.
+
+\paragraph{Question 4:} Quelle a été sa vitesse moyenne en $km\cdot h^{-1}$ ? %Sa moyenne est de $9,86km\cdot h^{-1}$
+
+Il souhaite que sa vitesse moyenne sur cette sortie soit de $10km\cdot h^{-1}$, il se propose de rajouter 1km à sa course.
+
+\paragraph{Question 5:} A quelle vitesse doit-il parcourir ce dernier km pour arriver à une moyenne de $10km\cdot h^{-1}$.
+
+%Avec ce dernier km, il aura parcouru 13,5km, pour avoir une moyenne de $10km\cdot h^{-1}$, il doit parcourir ce total en 1,35h=4860s, soit 295,98s pour ce dernier km. Cela revient à une vitesse de $3600/295,98=12,16km\cdot h^{-1}$
+
+\end{document}

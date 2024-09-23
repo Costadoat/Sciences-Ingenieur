@@ -1,0 +1,485 @@
+\newcommand{\jour}{Mercredi 07 mars}
+\newcommand{\numero}{DM04}
+\newcommand{\sujet}{Portique conteneur}
+\newcommand{\nom}{Portique conteneur}
+\newcommand{\type}{DM}
+\newcommand{\num}{01}
+\newcommand{\auteurun}{Renaud Costadoat}
+
+\input{../../headers/dsheaders.tex}
+
+\section{Présentation du système (15 min)}
+
+\subsection{Contexte de l'étude}
+
+\begin{minipage}{0.55\linewidth}
+La nécessité de diminuer le coût de transport des marchandises embarquées sur les bateaux  porte-conteneurs impose de limiter au maximum le temps d'immobilisation des navires à quai. 
+
+Un portique permet de transborder un ou plusieurs conteneurs d'un quai à un emplacement sur un bateau porte-conteneurs.
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+ \centering\includegraphics[width=0.9\linewidth]{img/fig1}
+\end{minipage}
+
+Le développement de portiques permettant de déplacer plusieurs conteneurs simultanément en un temps minimum permet des économies importantes pour les armateurs.
+
+La société MSC a commandé la conception de trois portiques \og nouvelles générations \fg à l'entreprise chinoise ZMPC pour ses nouvelles installations de Port 2000 au Havre.
+	
+Un portique est constitué :
+\begin{itemize}
+ \item d'une structure acier qui se déplace le long de rails ancrés dans le béton du quai,
+ \item d'un chariot porteur qui saisit un conteneur sur le quai pour le poser sur une plateforme intermédiaire arrimée à la structure,
+ \item d'un chariot principal qui permet de déplacer un conteneur de la plate-forme intermédiaire jusqu'au bateau.
+\end{itemize}
+
+Chaque chariot est constitué d'une salle des machines et d'un spreader, bloc d'accroche des conteneurs, reliés par quatre câbles.
+
+\begin{center}
+ \includegraphics[width=0.5\linewidth]{img/fig2}
+\end{center}
+
+\begin{center}
+ \includegraphics[width=0.5\linewidth]{img/fig3}
+\end{center}
+
+%\subsection{Transfert d'un conteneur du quai au bateau}
+%
+%L'opérateur situé dans le chariot porteur positionne son spreader au-dessus du conteneur.
+%
+%\begin{center}
+% \includegraphics[width=0.8\linewidth]{img/fig4}
+%\end{center}
+%
+%Les dimensions du spreader sont réglées à l'aide de deux vérins hydrauliques en fonction de la taille du conteneur : 20 pieds (6 mètres) ou 40 pieds (12 mètres) de long.
+%
+%\begin{center}
+% \includegraphics[width=0.8\linewidth]{img/fig5}
+%\end{center}
+%
+%Le spreader est descendu jusqu'à ce que ses quatre coins entrent en contact avec le conteneur.
+%
+%\begin{center}
+% \includegraphics[width=0.8\linewidth]{img/fig6}
+%\end{center}
+%
+%Quatre verrous hydrauliques situés dans les quatre coins du spreader le solidarisent avec le conteneur.
+%
+%\newpage
+%
+%L'opérateur déplace l'ensemble du quai à la plateforme intermédiaire de la grue, puis désolidarise le conteneur et le spreader du chariot porteur.
+%
+%\begin{center}
+% \includegraphics[width=0.8\linewidth]{img/fig7}
+%\end{center}
+%
+%Un autre opérateur situé dans le chariot principal transporte le conteneur dans le bateau. 
+%
+%\begin{center}
+% \includegraphics[width=0.8\linewidth]{img/fig8}
+%\end{center}
+
+\section{Étude de l'exigence produire un mouvement de translation (1h15)}
+
+L'objectif de cette partie est de déterminer la vitesse angulaire du moteur qui permet de respecter la vitesse de treuillage définie dans le cahier des charges ainsi que de concevoir la liaison entre une poulie et le spreader.
+
+La conversion de la puissance électrique est réalisée par deux moteurs électriques accouplés chacun à un réducteur à engrenages. Les arbres d'entrée de chaque réducteur sont liés par une liaison complète démontable. Les arbres de sortie des réducteurs sont liés chacun à un tambour sur lequel s'enroulent deux câbles.
+
+\begin{minipage}{0.55\linewidth}
+ \centering\includegraphics[width=0.7\linewidth]{img/fig10}
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+ \centering\includegraphics[width=0.7\linewidth]{img/fig11}
+\end{minipage}
+
+\subsection{Détermination de la vitesse angulaire du moteur}
+
+Hypothèse : le chariot principal est à l'arrêt.
+
+~\
+
+\begin{tabular}{|c|c|}
+\hline
+Données (voir figure 5 page 7/20) & \\
+\hline
+Vitesse nominale de l'ensemble S = {spreader + conteneur} & $V_S=80m.min^{-1}$ \\
+\hline
+Diamètre d'un tambour & $D_T=1,67m$ \\
+\hline
+Rayon d'une poulie & $R=0,4m$ \\
+\hline
+Rapport de réduction d'un réducteur & $r=1/21,6$ \\
+\hline
+Notations (voir figure 5) & \\
+\hline
+Vitesse de l'ensemble  S = {spreader + conteneur} & $V_S$ \\
+\hline
+Vitesse angulaire d'une poulie par rapport au chariot principal noté (0) & $\omega_P$ \\
+\hline
+Vitesse angulaire du moteur par rapport à (0) & $\omega_M$ \\
+\hline
+Vitesse angulaire du tambour par rapport à (0) & $\omega_T$ \\
+\hline
+Norme de la vitesse d'un point M du câble par rapport à (0) & $V_C= \|\overrightarrow{V_{M\in cable/O}}\|$ \\
+\hline
+Norme de la vitesse du centre I de la poulie par rapport à (0) & $V_P= \|\overrightarrow{V_{I\in poulie/O}}\|$\\
+\hline
+\end{tabular}
+
+~\
+
+La translation verticale du conteneur est réalisée à l'aide de 4 câbles enroulés sur deux tambours.
+
+L'extrémité de chaque câble est encastrée avec le chariot principal.
+
+La poulie est en liaison pivot d'axe $(I,\overrightarrow{z})$ avec l'ensemble S = {spreader + conteneur} qui translate verticalement.
+
+\begin{minipage}{0.49\linewidth}
+ \centering\includegraphics[width=0.7\linewidth]{img/fig12}
+\end{minipage}
+\hfill
+\begin{minipage}{0.49\linewidth}
+Hypothèses :
+\begin{itemize}
+ \item on suppose qu'il y a roulement sans glissement du câble sur la poulie,
+ \item on suppose que les brins des câbles sont verticaux,
+ \item le câble est supposé inextensible.
+\end{itemize}
+\end{minipage}
+
+On rappelle que le torseur cinématique s'écrit:
+$\left\{V_{1/0}\right\}=\left\{\begin{array}{c c} \omega_{10x} & V_{A,10x} \\ \omega_{10y} & V_{A,10y} \\ \omega_{10z} & V_{A,10z} \end{array}\right\}_{A,R_0}$
+
+\paragraph{Question 1:} Donner le torseur de la liaison pivot en O entre le tambour (1) et le bâti (0), on appellera $\omega_{10}$ sa vitesse de rotation. Écrire son torseur au point N. 
+Calculer $\overrightarrow{V_{N\in 1/0}}$.
+\\ ~\ \\
+On rappelle la relation de Varignon: $\overrightarrow{V_{B\in 1/0}}=\overrightarrow{V_{A\in 1/0}}+\overrightarrow{BA}\wedge \overrightarrow{\Omega_{1/0}}$
+\\ ~\ \\
+D'après les hypothèses des liaisons entre les poulies et les câbles, on peut dire que:
+$\overrightarrow{V_{N\in 1/0}}=\overrightarrow{V_{N\in cable/0}}=\overrightarrow{V_{A\in cable/0}}=\overrightarrow{V_{A\in 2/0}}$.
+
+\paragraph{Question 2:} Donner le torseur de la liaison en I entre la poulie (2) et l'ensemble \og spreader+conteneur \fg (3), on appellera $\omega_{23}$ sa vitesse de rotation. Écrire son torseur au point I.
+
+\paragraph{Question 3:} Donner la relation de Chasles qui lie $\overrightarrow{V_{B\in 2/0}}$, $\overrightarrow{V_{B\in cable/0}}$ et $\overrightarrow{V_{B\in 2/cable}}$.
+
+Sachant que $\overrightarrow{V_{B\in cable/0}}=\overrightarrow{0}$ et $\overrightarrow{V_{B\in 2/cable}}=\overrightarrow{0}$, déterminer $\overrightarrow{V_{B\in 2/0}}$.
+
+\paragraph{Question 4:} Écrire $\overrightarrow{V_{I\in 2/0}}$ en fonction de $\overrightarrow{V_{B\in 2/0}}$, $\overrightarrow{IB}$  et $\overrightarrow{\Omega_{2/0}}$, grâce au théorème de Varignon.
+
+\paragraph{Question 5:} Écrire $\overrightarrow{V_{I\in 2/0}}$ en fonction de $\overrightarrow{V_{A\in 2/0}}$, $\overrightarrow{IA}$  et $\overrightarrow{\Omega_{2/0}}$, grâce au théorème de Varignon.
+
+\paragraph{Question 6:} En utilisant toutes les équations précédentes, écrire $\omega_{23}$ en fonction de $D_T$, $R$ et $\omega_{10}$.
+\\ ~\ \\
+On donne $\overrightarrow{V_{I\in 2/0}}=V_S.\overrightarrow{y}$.
+
+\paragraph{Question 7:} En déduire $\omega_{10}$ en fonction de $D_T$, $R$ et $V_S$. Faire l'application numérique.
+
+\section{Freiner et bloquer l'ensemble S = {spreader + conteneur} (1h30)}
+
+L'objectif de cette partie est d'étudier le frein mécanique utilisé lors d'un arrêt de sécurité.
+
+Deux modes d'arrêt du spreader sont possibles : l'arrêt en rampe et l'arrêt de sécurité.
+L'arrêt en rampe est la méthode d'arrêt normale dans laquelle la vitesse du spreader est réduite automatiquement en fonction de la temporisation de la rampe définie figure 8 (page 10/20). 
+
+%Ce type d'arrêt est utilisé par exemple lorsque le conducteur relâche le manipulateur ou lors de l'approche d'un interrupteur de fin de course. Ce freinage est un freinage électrique.
+%L'arrêt de sécurité s'effectue en cas de déclenchement d'un interrupteur de position situé en bout de course par exemple. Lorsque le circuit d'arrêt de sécurité est actionné, les circuits de commande du convertisseur d'entrainement et l'alimentation de son frein servo-commandé sont coupés, entraînant l'arrêt immédiat du convertisseur d'entrainement et un freinage mécanique.
+
+\subsection{Freinage mécanique}
+
+\begin{minipage}{0.7\linewidth}
+Le frein de service retenu par le concepteur est le frein Bubenzer SB28-Ed 301/10bb associé à un disque de diamètre 800 mm. Les caractéristiques des freins SB28 sont présentées sur le document technique DT6. Ce frein a la particularité d'associer une unité hydraulique à un frein à disque formant ainsi un ensemble autonome électrique.
+\end{minipage}
+\hfill
+\begin{minipage}{0.27\linewidth}
+ \centering\includegraphics[width=0.9\linewidth]{img/fig17}
+\end{minipage}
+
+Hypothèses :
+\begin{itemize}
+ \item l'action de la pesanteur est négligée,
+ \item les liaisons autres que les liaisons appuis plans sont supposées parfaites.
+\end{itemize}
+
+Le schéma cinématique de ce frein lorsque le disque de frein est en mouvement est présenté ci-dessous. L'effort de serrage $\overrightarrow{F}$ est exercé verticalement par des rondelles coniques lorsque l'alimentation électrique du frein est coupée. On prendra $\|\overrightarrow{F}\|=1kN$.
+
+\begin{center}
+ \includegraphics[width=0.4\linewidth]{img/fig18}
+\end{center}
+
+Une projection plane de ce schéma est donnée dans la suite avec les dimensions correspondantes. Le modèle a été modifié afin de simplifier la résolution de l'étude.
+
+Les liaisons en A, B, C, D, E, F et O sont des liaisons pivot d'axe $\overrightarrow{x}$.
+
+\begin{minipage}{0.65\linewidth}
+ \centering \includegraphics[width=1\linewidth]{img/Figure_stat_2}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+\begin{itemize}
+ \item $\overrightarrow{DG}=l_1.\overrightarrow{z}$,
+ \item $\overrightarrow{CD}=l_2.\overrightarrow{y}$,
+ \item $\overrightarrow{FE}=\overrightarrow{OA}=l_3.\overrightarrow{y}$,
+ \item $\overrightarrow{EC}=l_4.\overrightarrow{y}-l_5.\overrightarrow{z}$,
+ \item $\overrightarrow{AB}=l_4.\overrightarrow{y}+l_5.\overrightarrow{z}$,
+ \item $\overrightarrow{FO}=l_6.\overrightarrow{z}$,
+ \item $\overrightarrow{EA}=l_6.\overrightarrow{z}$.
+\end{itemize}
+\end{minipage}
+
+Le problème sera considéré comme plan $(\overrightarrow{y},\overrightarrow{z})$.
+
+\paragraph{Question 8:} Déterminer l'ensemble des torseurs d'action mécanique de toutes les liaisons du système, $\left\{T_{6\rightarrow2}\right\}_D$, $\left\{T_{3\rightarrow6}\right\}_C$, $\left\{T_{4\rightarrow2}\right\}_E$, $\left\{T_{0\rightarrow2}\right\}_F$, $\left\{T_{1\rightarrow3}\right\}_B$, $\left\{T_{4\rightarrow1}\right\}_A$, $\left\{T_{0\rightarrow1}\right\}_O$.
+
+On donne pour l'exemple: $\left\{T_{6\rightarrow2}\right\}_D=\left\{\begin{array}{c c}
+\sim & 0 \\ Y_{62} & \sim \\ Z_{62} & \sim\end{array}\right\}_D$.
+
+On donne aussi l'action de la force $F$ en G, $\left\{T_{P\rightarrow6}\right\}_G=\left\{\begin{array}{c c}
+\sim & 0 \\ -F & \sim \\ 0 & \sim\end{array}\right\}_G$.
+
+\paragraph{Question 9:} Isoler la pièce 3 (rassembler tous les torseurs de la forme $i\rightarrow 3$), les déplacer au même point et déterminer le système d'équations issu du PFS (somme des torseurs nulle).
+
+\paragraph{Question 10:} Isoler la pièce 6, faire un bilan des actions mécaniques et déterminer le système d'équations issu du PFS.
+
+\paragraph{Question 11:} Isoler la pièce 4, faire un bilan des actions mécaniques et déterminer le système d'équations issu du PFS.
+
+\paragraph{Question 12:} Isoler la pièce 2, faire un bilan des actions mécaniques et déterminer le système d'équations issu du PFS.
+
+\paragraph{Question 13:} Isoler la pièce 1, faire un bilan des actions mécaniques et déterminer le système d'équations issu du PFS.
+
+\paragraph{Question 14:} Résoudre le système d'équations afin de déterminer la valeur de l'effort de 2 vers 4, qui correspondra à l'effort de pression sur le disque.
+
+\subsection{Étude de l'hyperstaticité de la solution}
+
+\paragraph{Question 15:} Décrire la structure du mécanisme à l'aide d'un graphe de liaison. Vous prendrez en compte toutes les liaisons qui apparaissent sur le schéma cinématique en 3D.
+
+\paragraph{Question 16:} Calculer le degré d'hyperstatisme du système complet. On rappelle que $h=N_s-r_s$, avec $N_s$ le nombre d'inconnues statiques et $r_s=6(p-1)-m$, avec $p$ le nombre de pièce bâti inclus et $m$ le nombre de mobilités du système.
+
+\ifdef{\public}{\end{document}}
+
+\newpage
+
+\pagestyle{correction}\setcounter{section}{0}
+
+\paragraph{Question 1:} La liaison en O est une liaison pivot.
+
+$\left\{V_{1/0}\right\}=\left\{\begin{array}{c c}
+0 & 0 \\ 0 & 0 \\ \omega_{10} & 0\end{array}\right\}_O$
+
+$\overrightarrow{V_{N\in 1/0}}=\overrightarrow{V_{O\in 1/0}}+\overrightarrow{NO}\wedge \overrightarrow{\Omega_{1/0}}$
+
+$\overrightarrow{V_{N\in 1/0}}=-\dfrac{D_T}{2}.\overrightarrow{x} \wedge \omega_{10}.\overrightarrow{z}=\dfrac{D_T}{2}.\omega_{10}.\overrightarrow{y}$
+
+\paragraph{Question 2:} La liaison en I est une liaison pivot.
+
+$\left\{V_{2/3}\right\}=\left\{\begin{array}{c c}
+0 & 0 \\ 0 & 0 \\ \omega_{23} & 0\end{array}\right\}_I$
+
+$\overrightarrow{V_{I\in 2/3}}=\overrightarrow{0}$
+
+\paragraph{Question 3:} 
+
+$\overrightarrow{V_{B\in 2/0}}=\overrightarrow{V_{B\in 2/c}}+\overrightarrow{V_{B\in c/0}}=\overrightarrow{0}$
+
+\paragraph{Question 4:} 
+
+$\overrightarrow{V_{I\in 2/0}}=\overrightarrow{V_{B\in 2/0}}+\overrightarrow{IB}\wedge \overrightarrow{\Omega_{2/0}}$
+
+\paragraph{Question 5:} 
+
+$\overrightarrow{V_{I\in 2/0}}=\overrightarrow{V_{A\in 2/0}}+\overrightarrow{IA}\wedge \overrightarrow{\Omega_{2/0}}$
+
+\paragraph{Question 6:} 
+
+$\overrightarrow{V_{I\in 2/0}}=-R.\overrightarrow{x}\wedge \omega_{20}.\overrightarrow{z}=R.\omega_{20}.\overrightarrow{y}$
+
+$\overrightarrow{V_{I\in 2/0}}=\dfrac{D_T}{2}.\omega_{10}.\overrightarrow{y}+ R.\overrightarrow{x}\wedge \omega_{20}.\overrightarrow{z}=(\dfrac{D_T}{2}.\omega_{10}-R.\omega_{20}).\overrightarrow{y}$
+
+$\omega_{23}=\omega_{20}+\omega_{03}=\omega_{20}$
+
+$\omega_{23}=\dfrac{D_T}{4R}.\omega_{10}$
+
+\paragraph{Question 7:} 
+
+$\omega_{10}.\dfrac{D_T}{2}=(V_S+R.\omega_{23})=(V_S+\dfrac{D_T}{4}.\omega_{10})$
+
+$\omega_{10}=\dfrac{4.V_S}{D_T}=3.19rad.s^{-1}$
+
+\paragraph{Question 8:} Le problème est plan.
+
+$\left\{T_{6->2}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ Y_{62} & \sim \\ Z_{62} & \sim\end{array}\right\}_D$
+
+$\left\{T_{3->6}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ Y_{36} & \sim \\ Z_{36} & \sim\end{array}\right\}_C$
+
+$\left\{T_{4->2}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ Y_{42} & \sim \\ Z_{42} & \sim\end{array}\right\}_E$
+
+$\left\{T_{0->2}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ Y_{02} & \sim \\ Z_{02} & \sim\end{array}\right\}_F$
+
+$\left\{T_{1->3}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ Y_{13} & \sim \\ Z_{13} & \sim\end{array}\right\}_B$
+
+$\left\{T_{4->1}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ Y_{41} & \sim \\ Z_{4->1} & \sim\end{array}\right\}_A$
+
+$\left\{T_{0->1}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ Y_{01} & \sim \\ Z_{01} & \sim\end{array}\right\}_O$
+
+\paragraph{Question 9:}
+
+$\left\{T_{1->3}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ Y_{13} & \sim \\ Z_{13} & \sim\end{array}\right\}_B=\left\{\begin{array}{c c}
+\sim & -(2.l_5+l_6).Y_{13} \\ Y_{13} & \sim \\ Z_{13} & \sim\end{array}\right\}_C$
+
+$\left\{T_{6->3}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ -Y_{36} & \sim \\ -Z_{36} & \sim\end{array}\right\}_C$
+
+$\left\{\begin{array}{l}
+Y_{13}-Y_{36}=0 \\ Z_{13}-Z_{36}=0 \\ -(2.l_5+l_6).Y_{13}=0,  \Rightarrow Y_{13}=Y_{36}=0
+\end{array}\right.$
+
+\paragraph{Question 10:}
+
+$\left\{T_{3->6}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ 0 & \sim \\ Z_{36} & \sim\end{array}\right\}_C=\left\{\begin{array}{c c}
+\sim & -l_2.Z_{36} \\ 0 & \sim \\ Z_{36} & \sim\end{array}\right\}_D$
+
+$\left\{T_{2->6}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ -Y_{62} & \sim \\ -Z_{62} & \sim\end{array}\right\}_D$
+
+$\left\{T_{F->6}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ -F & \sim \\ 0 & \sim\end{array}\right\}_G=\left\{\begin{array}{c c}
+\sim & l_1.F \\ -F & \sim \\ 0 & \sim\end{array}\right\}_D$
+
+$\left\{\begin{array}{l}
+-Y_{62}-F=0 \\ Z_{36}-Z_{62}=0 \\ -l_2.Z_{36}+l_1.F=0
+\end{array}\right.$
+
+\paragraph{Question 11:}
+
+$\left\{T_{1->4}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ -Y_{41} & \sim \\ -Z_{41} & \sim\end{array}\right\}_A=\left\{\begin{array}{c c}
+\sim & l_6.Y_{41} \\ -Y_{41} & \sim \\ -Z_{41} & \sim\end{array}\right\}_E$
+
+$\left\{T_{2->4}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ -Y_{42} & \sim \\ -Z_{42} & \sim\end{array}\right\}_E$
+
+$\left\{T_{2->4}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ 0 & \sim \\ Z_{04} & \sim\end{array}\right\}_H=\left\{\begin{array}{c c}
+\sim & 0 \\ 0 & \sim \\ Z_{04} & \sim\end{array}\right\}_E$
+
+$\left\{\begin{array}{l}
+-Y_{41}-Y_{42}=0 \\ -Z_{41}-Z_{42}+Z_{04}=0 \\ l_6.Y_{41}=0,  \Rightarrow Y_{41}=Y_{42}=0
+\end{array}\right.$
+
+\paragraph{Question 12:}
+
+$\left\{T_{0->2}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ Y_{02} & \sim \\ Z_{02} & \sim\end{array}\right\}_F$
+
+$\left\{T_{4->2}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ 0 & \sim \\ Z_{42} & \sim\end{array}\right\}_E=\left\{\begin{array}{c c}
+\sim & l_3.Z_{42} \\ 0 & \sim \\ Z_{42} & \sim\end{array}\right\}_F$
+
+$\left\{T_{6->2}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ Y_{62} & \sim \\ Z_{62} & \sim\end{array}\right\}_D=\left\{\begin{array}{c c}
+\sim & (l_2+l_3+l_4).Z_{62} \\ Y_{62} & \sim \\ Z_{62} & \sim\end{array}\right\}_F$
+
+$\left\{\begin{array}{l}
+Y_{02}+Y_{62}=0 \\ Z_{02}+Z_{42}+Z_{62}=0 \\ l_3.Z_{42}+(l_2+l_3+l_4).Z_{62}+l_5.Y_{62}=0
+\end{array}\right.$
+
+\paragraph{Question 13:}
+
+$\left\{T_{3->1}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ 0 & \sim \\ -Z_{13} & \sim\end{array}\right\}_B=\left\{\begin{array}{c c}
+\sim & -(l_3+l_4).Z_{13} \\ 0 & \sim \\ -Z_{13} & \sim\end{array}\right\}_O$
+
+$\left\{T_{4->1}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ 0 & \sim \\ Z_{41} & \sim\end{array}\right\}_A=\left\{\begin{array}{c c}
+\sim & l_3.Z_{41} \\ 0 & \sim \\ Z_{41} & \sim\end{array}\right\}_O$
+
+$\left\{T_{0->1}\right\}=\left\{\begin{array}{c c}
+\sim & 0 \\ Y_{01} & \sim \\ Z_{01} & \sim\end{array}\right\}_O$
+
+$\left\{\begin{array}{l}
+Y_{01}=0 \\ Z_{41}-Z_{13}+Z_{01}=0 \\ l_3.Z_{41}-(l_3+l_4).Z_{13}=0
+\end{array}\right.$
+
+\paragraph{Question 14:}
+
+On recherche l'effort de 2 vers 4, cela revient à calculer $Z_{42}$.
+
+$Z_{42}=-\dfrac{l_2+l_3+l_4}{l_3}.Z_{62}+\dfrac{l_5}{l_3}.F$
+
+$Z_{62}=Z_{36}$
+
+$Z_{36}=\dfrac{l_1}{l_2}.F$
+
+$Z_{42}=-\dfrac{l_1.(l_2+l_3+l_4)}{l_2.l_3}.F+\dfrac{l_5}{l_3}.F$
+
+$Z_{42}=\dfrac{-l_1.(l_2+l_3+l_4)+l_2.l_5}{l_2.l_3}.F$
+
+\paragraph{Question 15:}
+
+~\ \\ ~\
+
+\begin{minipage}{0.3\linewidth}
+Cas 1
+
+\includegraphics[width=0.9\linewidth]{img/Cas_1}
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+Cas 2
+
+\includegraphics[width=0.9\linewidth]{img/Cas_2}
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+Cas 3
+
+\includegraphics[width=0.9\linewidth]{img/Cas_3}
+\end{minipage}
+
+\paragraph{Question 16:}
+
+~\
+
+\begin{minipage}{0.3\linewidth}
+Cas 1
+
+$N_S=5\times 7+2\times 3 =41$
+
+$m=0, p=7$
+
+$r_S=6\times 6-0=36$
+
+$h=5$
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+Cas 2
+
+$N_S=5\times 7+1=36$
+
+$m=0, p=6$
+
+$r_S=6\times 5-0=30$
+
+$h=6$
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+Cas 3
+
+$N_S=5\times 8+2\times 3=46$
+
+$m=1, p=8$
+
+$r_S=6\times 7-1=41$
+
+$h=5$
+\end{minipage}
+
+
+\end{document}

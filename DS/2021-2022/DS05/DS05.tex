@@ -1,0 +1,730 @@
+\input{../../../headers/dsheaders.tex}
+
+\section{Présentation}
+
+\subsection{Contexte}
+
+La houle est constituée de vagues successives nées de l'effet du vent à la surface de la mer et pouvant parfois se propager sur de très longues distances. Il s'agit d'une forme concentrée de l'énergie du vent, elle-même issue de l'énergie solaire, c'est donc une énergie renouvelable dont le potentiel n'est actuellement quasiment pas exploité.
+
+~\
+
+\begin{wrapfigure}[18]{r}{0.65\textwidth}
+	\vspace{-0.8cm}
+\begin{center}
+  \def\svgwidth{0.8\linewidth}
+  \input{img/fig01.pdf_tex}
+ \end{center}
+  \caption{Principe des bouées de type \og Powerbuoy \fg}
+\label{fig01}
+\end{wrapfigure}
+
+L'énergie produite à partir de la houle est appelée houlomotrice (ou énergie des vagues). Cette énergie est le plus souvent transformée en énergie électrique.
+
+Différents dispositifs pour exploiter cette énergie sont en développement. Même si certains d'entre eux font l'objet d'une commercialisation, aucun n'a réellement atteint le stade de la maturité industrielle, contrairement au domaine de l'énergie éolienne ou solaire.
+
+Le dispositif étudié est une bouée houlomotrice de type \og Powerbuoy \fg (figure \ref{fig01}). Il s'agit d'une structure flottante constituée :
+
+\begin{itemize}
+ \item d'un lest, composé de deux parties (lest inférieur et lest supérieur), partie immergée fixe (ou peu mobile) grâce à un système de mouillage (amarrage) au fond marin (non représenté),
+ \item d'un flotteur, partie émergeante flottante pouvant coulisser verticalement par rapport au lest.
+\end{itemize}
+
+Celui-ci capte l'énergie de la houle en suivant les déplacements verticaux de la surface de la mer, ce qui permet de produire de l'énergie électrique.
+
+\begin{wrapfigure}[9]{l}{0.55\textwidth}
+	\vspace{-0.8cm}
+  \begin{center}
+    \includegraphics[width=0.7\linewidth]{img/fig02}
+  \end{center}
+  \caption{Ferme marine}
+\label{fig02}
+\end{wrapfigure}
+
+Les bouées houlomotrices sont généralement déployées par groupe allant jusqu'à une dizaine d'unités constituant ainsi des "fermes marines" (figure \ref{fig02}). Celles-ci partagent le système d'amarrage des lests ainsi qu'une station sous marine qui permet de collecter l'énergie électrique produite et de l'envoyer au réseau électrique à terre par l'intermédiaire d'un câble sous-marin.
+
+\newpage
+
+Le diagramme SysML des cas d'utilisation en annexe permet de mettre en évidence deux configurations que doit adopter la bouée houlomotrice :
+
+\begin{itemize}
+ \item une configuration verticale, avec le lest inférieur complètement immergé, en phase de production d'énergie ;
+ \item une configuration horizontale (figure \ref{fig03}), avec le lest inférieur partiellement immergé, en phase d'installation sur zone de production et de retour à terre pour maintenance, par simple
+remorquage.
+\end{itemize}
+
+\begin{figure}[ht!]
+  \begin{center}
+    \includegraphics[width=0.32\linewidth]{img/fig03a}
+    \includegraphics[width=0.32\linewidth]{img/fig03b}
+  \end{center}
+  \caption{Configuration horizontale pour maintenance et transport}
+\label{fig03}
+\end{figure}
+
+\vspace{-1cm}
+
+\subsection{Description du système}
+
+Le système d'absorption d'énergie est constitué de deux principaux sous-ensembles représentés sur les figure \ref{fig01} et figure 4 :
+\begin{itemize}
+ \item un lest immergé incluant le dispositif de conversion d'énergie ; ce lest est amarré au fond marin par des câbles ;
+ \item un flotteur en partie immergé, lié au lest par un ensemble de liaisons ne permettant qu'une translation selon la direction $\vec{z}$.
+\end{itemize}
+
+\begin{figure}[ht!]
+\begin{center}
+  \def\svgwidth{0.7\linewidth}
+  \input{img/fig04.pdf_tex}
+ \end{center}
+  \caption{Principe de fonctionnement du système houlomoteur}
+\label{fig04}
+\end{figure}
+
+Le mouvement de la houle provoque le déplacement du flotteur par rapport au lest. Cette translation entraîne le système de conversion d'énergie en provoquant le déplacement d'un vérin hydraulique dont le corps est lié au lest et dont la tige et le piston sont liés au flotteur. L'énergie hydraulique
+ainsi générée est convertie en énergie mécanique puis électrique par un moteur hydraulique entraînant une génératrice électrique. Cette dernière doit produire une énergie électrique pouvant être directement distribuée au réseau électrique selon les spécifications définies dans le diagramme SysML des exigences fourni en annexe.
+
+\section{Étude du cas d'utilisation : "Installer sur zone de production et entretenir"}
+
+Pour passer de la configuration horizontale (phase de remorquage) à la configuration verticale (phase de production d'énergie houlomotrice), un système de ballasts est actionné au niveau inférieur du lest. En configuration remorquage, ceux-ci sont vides et assurent un équilibre de la bouée, à demie immergée, en position horizontale (figure 5). En configuration production
+d'énergie, ils sont partiellement remplis d'eau et assurent un équilibre du lest en position verticale en le laissant émerger de 4 m (figure 6).
+
+On se propose dans cette partie d'analyser ces deux configurations d'équilibre afin de valider la capacité des ballasts. Seule la poussée d'Archimède sera prise en compte pour les actions de l'eau.
+
+\begin{figure}[ht!]
+\begin{center}
+  \def\svgwidth{0.8\linewidth}
+  \input{img/fig05.pdf_tex}
+ \end{center}
+  \caption{Bouée en configuration horizontale}
+\label{fig05}
+\end{figure}
+
+\begin{wrapfigure}[16]{r}{0.35\textwidth}
+	\vspace{-0.8cm}
+\begin{center}
+  \def\svgwidth{0.7\linewidth}
+  \input{img/fig06.pdf_tex}
+ \end{center}
+  \caption{Bouée en configuration verticale}
+\label{fig06}
+\end{wrapfigure}
+
+Hypothèses et données (figure \ref{fig05}) :
+\begin{itemize}
+ \item la masse volumique de l'eau de mer est $\rho=\SI{1000}{\kg \m^{-3}}$;
+ \item l'accélération de la pesanteur est $\vec{g} = \SI{-10}{}.\vec{z}$ (en \SI{}{\m \s^{-2}});
+ \item on considère que la bouée se compose de 3
+parties détaillées ci-dessous:
+\begin{itemize}
+\item La partie inférieure du lest, de centre de
+gravité $G_1$, de masse $m_1=\num{35}$ tonnes et de volume $V_1~=~\SI{130}{\m^3}$, contenant le système de ballasts de volume $V_b~=~\SI{30,00}{\m^3}$.
+\item La partie supérieure du lest, de centre de gravité $G_2$ tel que $\overrightarrow{G_1G_2}= l_1\cdot \vec{x}= \SI{20}{}\cdot \vec{x}$ (en \SI{}{\m}), de masse $m_2~=~\num{120}$~tonnes et de volume $V_2~=~\SI{60}{\m^3}$, qui sera assimilée à un cylindre de diamètre $d_2=\SI{1,5}{\m}$ et de hauteur $h_2=\SI{34}{m}$.
+\item Le flotteur, de centre de gravité $G_3$ tel que $\overrightarrow{G_1G_3}~=~l_2\cdot \vec{x}=~\SI{30}{}\cdot\vec{x}$ (en $\SI{}{\m}$), de masse $m_3~=~\num{25}$~tonnes et de volume $V_3~=~\SI{170}{\m^3}$.
+\end{itemize}
+\end{itemize}
+
+\subsection{Étude en configuration remorquage}
+
+On considère que la bouée est en configuration horizontale (figure \ref{fig05}) à demie immergée, et que les poussées d'Archimède sur les trois parties de la bouée s'appliquent respectivement en $A_1$, $A_2$ et $A_3$ tels que: $\overrightarrow{G_1A_1}=l_1\cdot\vec{z}$,
+$\overrightarrow{G_2A_2}=l_2\cdot\vec{z}$,
+$\overrightarrow{G_3A_3}=l_3\cdot\vec{z}$.
+
+La poussée d'Archimède appliquée à la partir inférieure du lest s'exprime comme suit:
+\begin{center}
+$\overrightarrow{F_1}=0.5~\rho~V_1~g\overrightarrow{z}$
+\end{center}
+
+\question{Justifier l'écriture de $\overrightarrow{F_1}$.}
+
+\question{Écrire les 6 actions qui s'exercent sur la bouée.}
+
+\question{Écrire les 6 torseurs correspondants à ces actions mécaniques en $G_1$.}
+
+\question{Valider le fait que dans cette configuration la bouée est complètement à l'équilibre.}
+
+\subsection{Étude de la configuration en production d'énergie}
+
+On considère à présent que la bouée est en configuration verticale et que le lest émerge de 4 m (figure \ref{fig06}). Dans cette configuration, on a alors $\overrightarrow{G_1G_2}=\SI{20}{}\cdot\vec{z}$ (en \SI{}{\m}).
+
+Lors de la production d'énergie, le flotteur peut se translater par rapport au lest, c'est donc l'équilibre du lest seul que l'on choisit d'étudier. On modélisera l'action du flotteur sur le lest comme celle transmissible par une liaison glissière de direction verticale $\vec{z}$.
+
+\question{En étudiant le volume immergé du lest, déterminer la poussée d'Archimède s'appliquant sur ce dernier.}
+
+\question{En étudiant l'équilibre du lest, déterminer quel est le volume d'eau remplissant les ballasts. Comparer ce volume à la capacité maximale de ces derniers.}
+
+\section{Étude du cas d'utilisation : \og Recevoir de l'énergie électrique produite à partir de l'énergie houlomotrice \fg}
+
+\subsection{Identification des caractéristiques du site de production}
+
+Le développement de ce système en zone atlantique nord nécessite une étude préalable des périodes (ou fréquences) et des hauteurs de houle caractéristiques de la zone d'implantation de la ferme houlomotrice. Les diagrammes de la figure \ref{fig07} présentent la répartition de 1480 relevés pour le mois d'octobre.
+
+\begin{figure}[ht!]
+  \begin{center}
+    \includegraphics[width=0.85\linewidth]{img/fig07}
+  \end{center}
+  \caption{Répartition des relevés de la hauteur et de la période de houle du mois d'octobre}
+\label{fig07}
+\end{figure}
+
+\question{En considérant le système houlomoteur comme un filtre dans le domaine fréquentiel, donner la bande passante: $[\omega_{min},\omega_{max}]$
+ (en \SI{}{rad s^{-1}}) du système afin qu'il capte convenablement la houle correspondant à 50 relevés au moins. Préciser la pulsation dominante $\omega_n$.}
+ 
+Durant la conception du système les quatre configurations de houle présentées dans le tableau \ref{tab01}, ont été retenues comme étant représentatives des phases de production d'énergie. Les puissances inférieures à l'état 1 seront généralement insuffisantes à la production d'énergie. Les amplitudes de houle supérieures à 4 mètres conduiront à une mise en sécurité du système.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Configurations de & Hauteur & Période & Puissance maximale\\
+houle & H (m) & T (s) & (kW)\\
+\hline
+État 1 & 1,0 & 8,0 & 13,5 \\
+\hline
+État 2 & 2,0 & 10,0 & 67,3 \\
+\hline
+État 3 & 3,0 & 12,0 & 181,7 \\
+\hline
+État 4 & 4,0 & 14,0 & 376,9 \\
+\hline
+\end{tabular}
+\end{center}
+  \caption{Paramètres associés aux états représentatifs des phases de production d'énergie}
+\label{tab01}
+\end{table}
+
+\subsection{Démarche de modélisation multiphysique}
+
+Afin d'identifier et de valider les paramètres permettant au système de capter l'énergie houlomotrice, une modélisation complète multiphysique de l'ensemble est nécessaire. Le schéma de principe du modèle est donné figure \ref{fig08}.
+
+\begin{figure}[ht!]
+\begin{center}
+  \def\svgwidth{0.95\linewidth}
+  \input{img/fig08.pdf_tex}
+ \end{center}
+  \caption{Modèle multiphysique}
+\label{fig08}
+\end{figure}
+
+On modélisera dans un premier temps le comportement hydrodynamique du flotteur sous l'effet de la houle afin de valider sa capacité à capter et transmettre l'énergie de manière optimale au système de conversion d'énergie.
+
+On modélisera dans un second temps le système de conversion d'énergie afin de vérifier et d'optimiser les paramètres influant sur la quantité d'énergie produite.
+
+Les modèles de comportement du flotteur et du système de conversion d'énergie sont liés par l'action résistante appliquée par le dispositif de conversion sur la bouée. Un modèle multiphysique (figure \ref{fig08}) liant les deux modèles précédents sera utilisé pour les simulations du comportement global du système.
+
+\subsection{Modélisation hydrodynamique et validation des dimensions du flotteur}
+
+Hypothèses et données (figure 4, page 3 et tableau 2, page 7) :
+\begin{itemize}
+ \item sous l'effet de la houle, le flotteur est animé d'un mouvement de translation selon la direction verticale $\vec{z}$, paramétré par le déplacement $z(t)$ par rapport à la position d'équilibre.
+L'ensemble lest contenant le système de conversion d'énergie est considéré fixe par rapport au référentiel terrestre supposé galiléen ;
+ \item on se placera dans les conditions de Heaviside (conditions initiales nulles) ;
+ \item la théorie des vagues linéaires s'applique pour l'étude des actions de la houle sur le flotteur, on peut alors décomposer les actions de la houle sur le flotteur en la somme de trois actions :
+ \begin{itemize}
+ \item une force hydrostatique $\overrightarrow{f_{hs}(t)}$ incluant les actions du poids et de la poussée d'Archimède autour de la position d'équilibre $z = \SI{0}{\m}$:
+ \begin{center}
+	 $\overrightarrow{f_{hs}(t)}=-\rho\cdot g\cdot S\cdot z(t)\cdot\vec{z}$
+ \end{center}
+ \item une force d'excitation $\overrightarrow{f_{e}(t)}$ de la houle d'une hauteur $H$ et de pulsation $\omega$ s'exerçant sur un flotteur fixe :
+ \begin{center}
+	 $\overrightarrow{f_{e}(t)}=f_{e}(t)\cdot\vec{z}=-\rho\cdot g\cdot S\cdot \dfrac{H}{2}\cdot\sin(\omega\cdot t)\cdot\vec{z}$
+ \end{center}
+ \item une force de radiation $\overrightarrow{f_{r}(t)}$ s'exerçant sur un flotteur en mouvement dans un plan d'eau immobile:
+  \begin{center}
+	 $\overrightarrow{f_{r}(t)}=-A\cdot \ddot{z}(t)\cdot\vec{z}-B\cdot \dot{z}(t)\cdot\vec{z}$.
+ \end{center}
+ \end{itemize}
+ \item l'action mécanique $\Phi(t)$ exercée par le vérin hydraulique sur le flotteur dépend des propriétés de l'ensemble du système de conversion d'énergie incluant le moteur hydraulique et la génératrice électrique. L'action de ce système de conversion d'énergie ramenée au vérin peut être modélisée globalement comme une action résistante proportionnelle à la vitesse de translation du vérin, faisant apparaître un coefficient d'amortissement équivalent noté C.
+
+Cette action s'exprime :
+  \begin{center}
+	 $\overrightarrow{f_{v}(t)}=\Phi(t)\cdot\vec{z}=-C\cdot \dot{z}(t)\cdot\vec{z}$.
+ \end{center}
+La puissance mécanique captée par le système de conversion vaudra alors au maximum :
+  \begin{center}
+	 $P_{cap}=\dfrac{1}{2}\cdot C\cdot [\dot{z}(t)]^2$
+ \end{center}
+\end{itemize}
+
+\begin{table}[ht!]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Symbole & Désignation & Valeur numérique\\
+\hline
+$\rho$ & Masse volumique de l'eau & \SI{1 025}{\kg\m^{-3}}\\
+\hline
+$g$ & Accélération de la pesanteur & \SI{9,81}{\m\s^{-2}}\\
+\hline
+$S$ & Section du flotteur & \SI{12,58}{\m^2}\\
+\hline
+$m$ & Masse du flotteur & \multirow{2}{*}{m + A = \SI{53}{tonne}} \\
+\cline{1-2}
+$A$ & Masse additionnelle de radiation & \\
+\hline
+$B$ & Amortissement de radiation & \SI{80}{\kN\m^{-1}\s}\\
+\hline
+$H$ & Hauteur de houle & Variable\\
+\hline
+$C$ & Coefficient d'amortissement & Variable\\
+ & équivalent & $C_{min}=$\SI{100}{\kN\m^{-1}\s}\\
+\hline
+$T$ & Période de la houle & Variable\\
+\hline
+\end{tabular}
+\end{center}
+  \caption{Données numériques pour la modélisation du flotteur}
+\label{tab02}
+\end{table}
+
+L'application du théorème de la résultante du principe fondamental de la dynamique appliqué au flotteur donne l'équation suivante:
+\begin{center}
+$\left(\overrightarrow{f_{hs}}+\overrightarrow{f_{e}}+\overrightarrow{f_{r}}+\overrightarrow{f_{v}}\right)\cdot\overrightarrow{z}=m\ddot{z}$
+\end{center}
+
+\question{Montrer que l'on peut mettre l'équation différentielle du mouvement du flotteur paramétré par le déplacement z(t) sous la forme :
+\begin{center}
+ $a_2\cdot \ddot{z}(t)+a_1\cdot \dot{z}(t)+a_0\cdot z(t)=f_e(t)$
+\end{center}
+
+Donner l'expression algébrique des coefficients $a_i$ en fonction des données du tableau \ref{tab02}.}
+
+\question{Déduire de la question précédente la fonction de transfert du flotteur, en fonction des coefficients $a_i$, donnant la transformée de Laplace du déplacement du flotteur $Z(p)=L[z(t)]$ à partir de la transformée de Laplace de l'action d'excitation $F_e(p)=L[f_e(t)]$:
+\begin{center}
+$H_{B}(p)=\dfrac{Z(p)}{F_e(p)}$
+\end{center}}
+
+
+\question{Déterminer l'expression algébrique puis numérique des paramètres caractéristiques de la fonction de transfert $H_B(p)$ (gain statique $K$, coefficient d'amortissement $\xi$ et pulsation propre non
+amortie $\omega_0$ ) en fonction des données du tableau \ref{tab02} (on prendra $C=C_{min}$).}
+
+\question{Tracer dans le plan de Bode sur le document réponse, le diagramme asymptotique de la fonction de transfert $\dfrac{H_B(p)}{K}$. Représenter l'allure du tracé réel.}
+
+\question{Sur le document réponse faire apparaître la bande passante à - 6dB (plage des fréquences pour lesquelles le gain est supérieur à -6dB)  du flotteur. Conclure quant à la capacité du système à capter l'énergie de la houle pour la pulsation dominante $\omega_n$ déterminée à la question \ref{q5}.}
+
+\subsection{Modélisation, validation et optimisation du système de conversion d'énergie}
+
+Le système de conversion d'énergie est schématisé sur le document réponse, question \ref{q11}.
+
+Le vérin hydraulique est entraîné par le mouvement relatif de translation entre le flotteur et le lest. La translation du piston par rapport au cylindre du vérin est donc également paramétrée par le déplacement $z(t)$ par rapport à la position d'équilibre. La section utile du piston est notée $S_p$. Les
+pressions dans les chambres supérieure et inférieure du vérin sont notées respectivement $P_1$ et $P_2$.
+
+Un réservoir accumulateur haute pression (a) et un réservoir accumulateur basse pression (b) permettent de maintenir les pressions $P_a$ (pression d'admission du moteur hydraulique) et $P_b$ (pression de refoulement du moteur hydraulique) quasi-constantes en régime établi.
+
+
+\begin{wrapfigure}[8]{r}{0.25\textwidth}
+	\vspace{-0.8cm}
+\begin{center}
+    \includegraphics[width=0.8\linewidth]{img/fig09}
+  \end{center}
+    \caption{Schéma de principe des clapets}
+\label{fig09}
+\end{wrapfigure}
+
+
+Un ensemble de clapets anti-retour permet de générer un débit volumique unidirectionnel $Q_m(t)$ vers le moteur hydraulique, quel que soit le sens de déplacement du piston. Le schéma et le principe des clapets anti-retour sont donnés sur la figure 
+
+Les pertes induites par ce circuit redresseur seront négligées. On pourra alors considérer en régime établi, et en première approximation, les relations suivantes entre les pressions dans les réservoirs et dans les chambres du vérin : $P_a=max(P_1,P_2)$, $P_b=min(P_1,P_2)$.
+
+\question{Compléter les zones en pointillés du schéma hydraulique du document réponse en dessinant les clapets anti-retour conformément à la description précédente.}
+
+\subsubsection{Modélisation du système de contrôle de la cylindrée du moteur hydraulique}
+
+Le moteur hydraulique employé dans le dispositif de conversion mécanique est un moteur à 9 pistons axiaux, à cylindrée variable. Nous allons chercher à modéliser la partie mécanique du dispositif de commande de la cylindrée et à valider la linéarité de son comportement.
+
+Le principe de fonctionnement du moteur hydraulique est représenté sur le schéma cinématique de la figure \ref{fig10}.
+
+Le débit volumique $Q_m(t)$ provenant du vérin hydraulique par l'intermédiaire du système redresseur (clapets anti-retour) alimente le moteur hydraulique. Ce débit provoque le déplacement axial des pistons $p_i$ par rapport au rotor 3 selon $\vec{z_0}$ ainsi que le glissement des pistons $p_i$ par rapport
+au plateau 1, incliné d'un angle $\alpha (t)=(\vec{z_0},\vec{z_1})$. Le mouvement des pistons entraîne le rotor 3 du moteur hydraulique en rotation autour de l'axe $(O, \vec{z_0})$. La variation de cylindrée est réalisée en
+modifiant l'amplitude du mouvement axial des pistons et donc en réglant l'inclinaison d'angle $\alpha$ du plateau 1. En effet, on peut montrer que le lien entre la cylindrée du moteur et l'inclinaison du plateau est donné par la relation : $x_m(\alpha)\cdot D_m=K_\alpha\cdot tan(\alpha)$ où $K_\alpha$ est une constante dépendant de la géométrie.
+
+Le plateau 1 est entraîné en rotation autour de l'axe $(O,\vec{y_0})$
+0 par un vérin de commande 2 lui-même piloté en translation de direction $\vec{x_0}$ par une servovalve hydraulique. Le déplacement du vérin de
+commande 2 est paramétré par $\lambda (t)$.
+
+\begin{figure}[ht!]
+\begin{center}
+  \def\svgwidth{0.65\linewidth}
+  \input{img/fig10.pdf_tex}
+ \end{center}
+  \caption{Schéma cinématique du moteur hydraulique}
+\label{fig10}
+\end{figure}
+
+Paramètres géométriques :
+$\overrightarrow{OA}=r(t)\cdot\vec{z_1}$ \hfill
+$\overrightarrow{IA}=-e\cdot\vec{z_0}$ \hfill
+$\overrightarrow{HI}=\lambda(t)\cdot\vec{x_0}$ \hfill
+$\overrightarrow{OH}=L\cdot\vec{z_0}$ \hfill
+$\alpha(t)=(\vec{z_0},\vec{z_1})=(\vec{x_0},\vec{x_1})$
+
+\question{Déterminer l'expression de $\lambda$ en fonction de $\alpha$, $L$ et $e$.}
+
+\question{Déduire de la question précédente le paramètre $K_m$ tel que : $x_m(\alpha)\cdot D_m=K_m\cdot \lambda$. Conclure quant à la linéarité du mécanisme de commande de la cylindrée.}
+
+\newpage
+
+Le comportement dynamique du système de variation de la cylindrée du moteur peut être modélisé comme un système du premier ordre tel que :
+\begin{center}
+$H_{mh}(p)=\dfrac{X_m(p)}{X_{mC}(p)}=\dfrac{K_{mh}}{1+\tau_{mh}\cdot p}$, avec $K_{mh}=\SI{1}{}$ et $\tau_{mh}=\SI{0,1}{\s}$.
+\end{center}
+
+Où $X_m(p)=L[x_m(t)]$ est le facteur de commande de la cylindrée et $X_{mC}(p)=L[x_{mC}(t)]$ la consigne de facteur de commande de la cylindrée.
+
+\subsubsection{Modélisation de la boucle d'asservissement de vitesse du moteur hydraulique}
+
+Le schéma-bloc à retour unitaire de l'asservissement en vitesse du moteur hydraulique est présenté sur le document réponse, question \ref{q15}. L'écart en sortie de comparateur $\epsilon(p)=\omega_{mc}(p)-\omega_{m}(p)$ est corrigé par un correcteur à action proportionnelle et intégrale (PI), de fonction de transfert $C(p)$, qui génère une consigne de facteur de commande du débit $X_{mC}(p)$:
+\begin{center}
+$C(p)=\dfrac{X_{mc}(p)}{\epsilon(p)}=\dfrac{K_i}{p}+K_c$
+\end{center}
+
+\question{Compléter la zone en pointillés du schéma-bloc du document réponse en utilisant l'équation suivante (elle n'est pas à démontrer).}
+\begin{center}
+$J\cdot\dfrac{d\omega_m(t)}{dt}=-f{cg}\cdot\omega_m(t)+x_m(t)\cdot D_m\cdot\Delta P$
+\end{center}
+
+\newpage
+
+Avec:
+\begin{table}[ht!]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Symbole & Désignation & Valeur numérique \\
+\hline
+$D_m$ & Cylindrée du moteur & \SI{60}{\cm^3 tr^{-1}}, soit \\
+& & 9,55.10 -6 m 3 /rad \\
+\hline
+$x_m$ & Facteur de commande de la cylindrée &  $\in[0,1 ; 1]$\\
+\hline
+$f_{cg}$ & Facteur de couple variable de la &  Valeur maximale :\\
+ & génératrice &  \SI{0,19}{\N\m rad^{-1}\s}\\
+\hline
+$J$ & Moment d'inertie &  \SI{2}{\kg\m^2} \\
+\hline
+$S_p$ & Section utile du piston &  \SI{0,007}{\m^2} \\
+\hline
+$P_a$ & Pression d'admission du moteur &  $P_{a,max}=\SI{350}{\bar}$\\
+ & &  $P_{a,min}=\SI{30}{\bar}$\\
+\hline
+$P_b$ & Pression de refoulement du moteur &  $P_{b,min}=\SI{10}{\bar}$\\
+\hline
+\end{tabular}
+\end{center}
+  \caption{Données numériques pour la modélisation du système de conversion d'énergie}
+\label{tab03}
+\end{table}
+
+\paragraph{Système non corrigé}~\ \\
+
+On considère d'abord que $K_c=1$ et $K_i=0$.
+
+\question{Sous ces hypothèses, déterminer la fonction de transfert en boucle ouverte FTBO(p) de l'asservissement en vitesse du moteur hydraulique sous forme canonique.}
+
+\question{Donner l'expression de l'écart statique pour un échelon unitaire de vitesse de rotation. Est-ce conforme à l'exigence de précision ? Justifier alors la présence du correcteur PI dans le système.}
+
+Le tracé de la fonction de transfert en boucle ouverte dans le plan de Bode pour $K_c=1$, $K_i=0$ et $\Delta P=\SI{100}{\bar}$ est donné sur le document réponse, question \ref{q19}.
+
+\question{Déterminer la fonction de transfert correspondant au tracé de Bode du document réponse. Présenter directement sur le diagramme les constructions nécessaires à la démonstration.}
+
+\newpage
+
+\section{Lecture de plan}
+
+\subsection{Palier de moteur électrique}
+
+Les couvercles (1) et (2) immobilisent en translation la bague extérieure du roulement (4).
+
+La liaison complète de ces deux couvercles avec la flasque (3) du moteur électrique est assurée par 3 vis CHC, M10, vissées de l'extérieur.
+
+Les vis sont implantées dans le couvercle (2) sur toute l'épaisseur.
+
+\begin{figure}[ht!]
+\begin{center}
+	\includegraphics[width=0.3\linewidth]{img/dessin_01_pers}
+\end{center}
+  \caption{Vue en perspective d'un couvercle}
+\label{fig11}
+\end{figure}
+
+\question{Mettre en place l'une de ces vis.}
+
+\subsection{Cosse}
+
+Sur la coupe du document réponse, à l'échelle 2.
+
+\begin{figure}[ht!]
+\begin{center}
+	\includegraphics[width=0.3\linewidth]{img/dessin_02_pers}
+\end{center}
+  \caption{Vue en perspective de la cosse}
+\label{fig12}
+\end{figure}
+
+\question{Mettre en place le boulon H, M8 établissant la liaison complète entre la borne (1) et la cosse (2).}
+
+\question{Placer la tête du boulon vers le bas. Terminer la représentation du fraisage nécessaire à l'immobilisation en rotation de la tête du boulon.}
+
+\cleardoublepage
+
+\ifdef{\public}{\pagestyle{documentreponse}}{\pagestyle{correction}}
+
+\reponse{4}{}{La poussée d’Archimède s'oppose au poids du volume d'eau déplacé, elle est donc:
+\begin{itemize}
+ \item verticale (+),
+ \item elle correspond à la moitié du volume $0.5V_1$, car une seule moitié immergée,
+ \item le poids de l'eau s'obtient en multipliant le volume par la masse volumique et l'accélération de pesanteur.
+\end{itemize}}
+
+\reponse{4}{}{$\overrightarrow{P_1}=-m_1~g\overrightarrow{z}$\\
+$\overrightarrow{P_2}=-m_2~g\overrightarrow{z}$\\
+$\overrightarrow{P_3}=-m_3~g\overrightarrow{z}$\\
+$\overrightarrow{F_1}=0.5~\rho~V_1~g\overrightarrow{z}$\\
+$\overrightarrow{F_2}=0.5~\rho~V_2~g\overrightarrow{z}$\\
+$\overrightarrow{F_3}=0.5~\rho~V_3~g\overrightarrow{z}$}
+
+\reponse{9}{}{$\left\{T_{P_1}\right\}=\left\{
+\begin{array}{cc}
+0 & 0\\
+0 & 0\\
+-m_1~g&0
+\end{array}
+\right\}_{G_1,B}$
+$\left\{T_{P_2}\right\}=\left\{
+\begin{array}{cc}
+0 & 0\\
+0 & 0\\
+-m_2~g&0
+\end{array}
+\right\}_{G_2,B}$
+$\left\{T_{P_3}\right\}=\left\{
+\begin{array}{cc}
+0 & 0\\
+0 & 0\\
+-m_3~g&0
+\end{array}
+\right\}_{G_3,B}$
+
+$\left\{T_{F_1}\right\}=\left\{
+\begin{array}{cc}
+0 & 0\\
+0 & 0\\
+0.5~\rho~V_1~g&0
+\end{array}
+\right\}_{A_1,B}$
+$\left\{T_{F_2}\right\}=\left\{
+\begin{array}{cc}
+0 & 0\\
+0 & 0\\
+0.5~\rho~V_2~g&0
+\end{array}
+\right\}_{A_2,B}$
+$\left\{T_{F_3}\right\}=\left\{
+\begin{array}{cc}
+0 & 0\\
+0 & 0\\
+0.5~\rho~V_3~g&0
+\end{array}
+\right\}_{A_3,B}$
+
+$\left\{T_{P_1}\right\}=\left\{
+\begin{array}{cc}
+0 & 0\\
+0 & 0\\
+-m_1~g&0
+\end{array}
+\right\}_{G_1,B}$
+$\left\{T_{P_2}\right\}=\left\{
+\begin{array}{cc}
+0 & 0\\
+0 & l_1~m_2~g\\
+-m_2~g&0
+\end{array}
+\right\}_{G_1,B}$
+$\left\{T_{P_3}\right\}=\left\{
+\begin{array}{cc}
+0 & 0\\
+0 & l_2~m_3~g\\
+-m_3~g&0
+\end{array}
+\right\}_{G_1,B}$
+
+$\left\{T_{F_1}\right\}=\left\{
+\begin{array}{cc}
+0 & 0\\
+0 & 0\\
+0.5~\rho~V_1~g&0
+\end{array}
+\right\}_{G_1,B}$
+$\left\{T_{F_2}\right\}=\left\{
+\begin{array}{cc}
+0 & 0\\
+0 & -0.5~\rho~V_2~g~l_1\\
+0.5~\rho~V_2~g&0
+\end{array}
+\right\}_{G_1,B}$
+
+$\left\{T_{F_3}\right\}=\left\{
+\begin{array}{cc}
+0 & 0\\
+0 & -0.5~\rho~V_3~g~l_2\\
+0.5~\rho~V_3~g&0
+\end{array}
+\right\}_{G_1,B}$}
+
+\ifdef{\public}{\newpage}
+
+\reponse{4}{}{$-m_1~g-m_2~g-m_3~g+0.5~\rho~V_1~g+0.5~\rho~V_2~g+0.5~\rho~V_3~g=
+-35000\times 10-120000\times 10-25000\times 10+0.5\times 1000\times 130\times 10+0.5\times 1000\times 60\times 10+0.5\times 1000\times 170\times 10=
+-350000-1200000-250000+650000+300000+850000=0$
+
+$l_1~m_2~g+l_2~m_3~g-0.5~\rho~V_2~g~l_1-0.5~\rho~V_3~g~l_2=
+20\times 120000\times 10+30\times 25000\times 10-0.5\times 1000\times 60\times 10\times 20-0.5\times 1000\times 170\times 10\times 30=
+24000000+7500000-6000000-25500000=(240+75-60-255=*100000=0$
+
+Le système est bien à l'équilibre statique.}
+
+\reponse{4}{}{Le volume immergé du lest est celui de 1, plus celui de 2, mais sans les \SI{4}{m} de lest qui sont hors de l'eau.
+
+$V_im=V_1+V_2-\dfrac{\pi~d_2^2}{4}~4=130+60-\dfrac{3,14~1.5^2}{4}~4=130+60-\dfrac{7}{4}~4=183m^2$, on a donc la poussée d'Archimède $\overrightarrow{F_a}=V_im~\rho~g=183~1000~10=1830kN$.}
+
+\reponse{4}{}{Le poids du système est la somme des poids de 1, de 2 et des ballasts.
+
+$P_{total}=-(m_1+m_2+V_b~\rho)~g=-(155000+V_b~1000)~10=-1550-V_b~10kN$
+
+Donc $V_b=\dfrac{(1830-1550)}{10}=\dfrac{280}{10}=28m^3<30m^3$.}
+
+\reponse{4}{}{Les périodes mesurées sur au moins 50 relevés sont comprises entre 8 et 14 secondes.
+
+La bande passante doit donc être $\left[\omega_{min},\omega_{max}\right]=\left[\dfrac{2~\pi}{14},\dfrac{2~\pi}{8}\right]=\left[0.44,0.79\right](rad/s)$.
+
+La pulsation dominante correspond à une période de 12 secondes, c'est-à-dire $\omega_n=\SI{0.52}{rad s^{-1}}$.}
+
+
+\reponse{4}{}{$-\rho\cdot g\cdot S\cdot z(t)+f_e(t)-A\cdot \ddot{z}(t)-B\cdot \dot{z}(t)-C\cdot \dot{z}(t)=m\ddot{z}$
+
+$(m+A)\ddot{z}+(B+C)\cdot \dot{z}(t)+\rho\cdot g\cdot S\cdot z(t)=f_e(t)$
+
+Donc, $a_2=m+A$, $a_1=B+C$ et $a_0=\rho\cdot g\cdot S$.}
+
+\reponse{5}{}{$a_2\cdot p^2\cdot Z(p)+a_1\cdot p\cdot Z(p)+a_0\cdot Z(p)=F_e(p)$
+
+$\left(a_2\cdot p^2+a_1\cdot p+a_0\right)\cdot Z(p)=F_e(p)$
+
+$H_B(p)=\dfrac{Z(p)}{F_e(p)}=\dfrac{1}{a_2\cdot p^2+a_1\cdot p+a_0}$
+
+$H_B(p)=\dfrac{Z(p)}{F_e(p)}=\dfrac{\dfrac{1}{a_0}}{\dfrac{a_2}{a_0}\cdot p^2+\dfrac{a_1}{a_0}\cdot p+1}$}
+
+\reponse{9}{}{On identifie, $K=\dfrac{1}{a_0}=\dfrac{1}{\rho\cdot g\cdot S}=\dfrac{1}{1000\cdot 10\cdot 12.5}=\dfrac{1}{1000\cdot 1000\cdot 0.125}=8.10^{-6} N^{-1}.m$
+
+$\omega_0=\sqrt{\dfrac{a_0}{a_2}}=\sqrt{\dfrac{\rho\cdot g\cdot S}{m+A}}=\sqrt{\dfrac{1}{8\cdot 10^{-6}\cdot 50000}}=\sqrt{\dfrac{1}{0.4}}=\sqrt{2.5}=\dfrac{5}{\sqrt{10}}=\dfrac{5}{3}=1.66 rad.s^{-1}$
+
+$\xi=\dfrac{1}{2}\cdot\dfrac{a_1}{a_0}\cdot \sqrt{\dfrac{a_0}{a_2}}=\dfrac{a_1}{2\cdot \sqrt{a_0\cdot a_2}}$
+
+$\xi=\dfrac{B+C}{2\cdot \sqrt{\rho\cdot g\cdot S\cdot (m+A)}}=\dfrac{180\cdot 10^3}{2\cdot \sqrt{\dfrac{50\cdot 10^3}{8.10^{-6}}}}=\dfrac{90\cdot 10^3}{\sqrt{\dfrac{50\cdot 10^9}{8}}}=\dfrac{90\cdot 10^3}{\sqrt{\dfrac{5}{8}}\cdot 10^5}=\dfrac{9}{\sqrt{\dfrac{5}{2}}\cdot 5}=\dfrac{9}{1.66\cdot 5}=\dfrac{9}{8.2}=\dfrac{8.2+0.8}{8.2}=1.1$}
+
+\ifdef{\public}{\newpage}
+
+
+\reponse[2]{0}{\begin{center}
+\includegraphics[width=0.9\linewidth]{img/bode01}
+\end{center}}{\begin{center}
+\includegraphics[width=0.9\linewidth]{img/bode01_cor}
+\end{center}
+Comme il s'agit d'un second ordre avec $\xi$ proche de 1, on sait que $G(\omega_0)$ est proche de -6dB par rapport à l'asymptote horizontale. Donc, le gain est supérieur à -6dB pour $\omega\in\left]0,\omega_0\right]$. $\omega_n$ est bien inclus dans cette bande passante.
+}
+
+\reponse{0}{\begin{center}
+\includegraphics[width=0.85\linewidth]{img/hydraulique}
+\end{center}}{\begin{center}
+\includegraphics[width=0.85\linewidth]{img/hydraulique_cor}
+\end{center}
+Si $P_1$ augmente mouvement vers le haut, alors $P_2$ diminue et donc $P_a$ doit être connecté à $P_1$ et $P_b$ à $P_2$.
+Dans le cas d'un mouvement de descente, c'est l'inverse.
+}
+
+\ifdef{\public}{\vspace{-2cm}}
+
+\reponse{4}{}{Fermeture géométrique: $\overrightarrow{OA} + \overrightarrow{AI} + \overrightarrow{IH} + \overrightarrow{HO} = \overrightarrow{0}$
+
+$r\cdot \overrightarrow{z_1}+ e\cdot \overrightarrow{z_0}-\lambda\cdot \overrightarrow{x_0} -L\cdot \overrightarrow{z_0} =\overrightarrow{0}$
+
+\begin{itemize}
+ \item sur $\overrightarrow{x_0}$ : $r~sin\alpha-\lambda = 0$ \\
+ \item sur $\overrightarrow{z_0}$ : $r~cos\alpha + e-L = 0$
+\end{itemize}
+
+Donc, $\lambda=(L-e)tan\alpha$}
+
+\reponse{4}{}{$x_m(\alpha)\cdot D_m=K_\alpha\cdot tan(\alpha)=K_m\cdot \lambda)$
+
+Donc, $K_m=\dfrac{K_\alpha\cdot tan(\alpha)}{\lambda}=\dfrac{K_\alpha\cdot tan(\alpha)}{(L-e)\cdot tan(\alpha)}=\dfrac{K_\alpha}{L-e}$
+
+$K_m$ étant constant, on a ainsi une preuve de la linéarité du mécanisme de commande de la cylindrée.}
+
+\reponse{4}{\begin{center}
+\includegraphics[width=0.9\linewidth]{img/schemabloc}
+\end{center}}{\begin{center}
+  \def\svgwidth{0.65\linewidth}
+  \input{img/schemabloc_cor.pdf_tex}
+\end{center}
+Laplace: $Jp\Omega_m(p)=-f_{cg}\Omega_m(p)+X_m(p)D_m\Delta_p$
+
+Donc, $\Omega_m(p)=\dfrac{1}{Jp}\left(X_m(p)D_m\Delta_p-f_{cg}\Omega_m(p)\right)$, ce qui permet de compléter les blocs du schéma.
+}
+
+\ifdef{\public}{\newpage}
+
+\reponse{6}{}{
+$FTBO(p)=C(p)\cdot H_{mh}(p)\cdot D_m\cdot \Delta_p\cdot\dfrac{\dfrac{1}{J\cdot p}}{1+\dfrac{1}{J\cdot p}\cdot f_{cg}}=\dfrac{K_{mh}}{1+\tau_{mh}p} \cdot D_m\cdot \Delta_p\cdot\dfrac{1}{Jp+ f_{cg}}$
+
+Ce qui donne sous la forme canonique:
+$FTBO(p)=\dfrac{K_{mh}\cdot D_m\cdot \Delta_p}{f_{cg}}
+\dfrac{1}{(1+\tau_{mh}p)(1+\dfrac{J}{f_{cg}}p)}$
+}
+
+
+\reponse{6}{}{La classe étant nulle, on sait que l'écart statique sera non nul.
+
+$e_s=\lim\limits_{x \to +\infty} \omega_{mc}(t)-\omega_m(t)$\\
+$e_s=\lim\limits_{p \to 0} p\cdot\left(\omega_{mc}(p)-\omega_m(p)\right)$\\
+$e_s=\lim\limits_{p \to 0} p\cdot\left(\omega_{mc}(p)-\dfrac{FTBO(p)}{1+FTBO(p)}\omega_{mc}(p)\right)$
+
+Échelon unitaire en entrée, donc $\omega_{mc}(p)=\dfrac{1}{p}$
+
+$e_s=\lim\limits_{p \to 0} p\cdot\left(1-\dfrac{FTBO(p)}{1+FTBO(p)}\right)\cdot\dfrac{1}{p}=\lim\limits_{p \to 0} \dfrac{1}{1+FTBO(p)}=\dfrac{1}{1+K_{BO}}$
+
+Avec $K_{BO}=\dfrac{K_{mh}\cdot D_m\cdot \Delta_p}{f_{cg}}$.
+
+Le cahier des charges n'est pas respecté, il faut donc mettre en place un correcteur PI.
+}
+
+\ifdef{\public}{\newpage}
+
+\reponse{6}{\begin{center}
+\includegraphics[width=0.9\linewidth]{img/bode02}
+\end{center}}{\begin{center}
+  \def\svgwidth{0.65\linewidth}
+  \input{img/bode02_cor.pdf_tex}
+\end{center}
+$20log(K)=50$, donc $K=10^{2.5}=10^2\times 10^{0.5}\approx 100\times 3.1\approx 310$
+
+$\omega_1=$\SI{0.1}{rad.s^{-1}}
+$\omega_2=$\SI{10}{rad.s^{-1}}
+
+La fonction de transfert est alors $\dfrac{K}{\left(1+\dfrac{p}{\omega_1}\right)\left(1+\dfrac{p}{\omega_2}\right)}$
+}
+
+\reponse{0}{\begin{center}
+\includegraphics[width=0.85\linewidth]{img/dessin_01_dr}
+\end{center}}{\begin{center}
+\includegraphics[width=0.85\linewidth]{img/dessin_01_cor}
+\end{center}}
+
+\reponse[2]{0}{\begin{center}
+\includegraphics[width=0.85\linewidth]{img/dessin_02_dr}
+\end{center}}{\begin{center}
+\includegraphics[width=0.85\linewidth]{img/dessin_02_cor}
+\end{center}}
+
+
+\end{document}

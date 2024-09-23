@@ -1,0 +1,218 @@
+% Paquets généraux
+\documentclass[a4paper,12pt,titlepage,twoside]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[gen]{eurosym}
+%\usepackage[dvips]{graphicx}
+\usepackage{fancyhdr}
+\usepackage{pdfpages} 
+\usepackage{multido}
+\usepackage{enumitem}
+\usepackage{hyperref}
+%\usepackage{textcomp}
+%\usepackage{aeguill}
+\usepackage{schemabloc}
+\usepackage[bitstream-charter]{mathdesign}
+
+\input{intro.tex}
+
+\newcommand{\institute}{Lycée Dorian}
+
+
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[frenchmath]{newtxsf} % for sans serif symbols
+%\usepackage{amsfonts}
+%\usepackage{amsmath}
+%\usepackage{xspace}
+\usepackage{varioref}
+\usepackage{tabularx}
+%\usepackage{floatflt}
+\usepackage{graphics}
+\usepackage{wrapfig}
+\usepackage{textcomp}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage{gensymb}
+\usepackage[european]{circuitikz}
+\usetikzlibrary{babel}
+\usepackage{ifthen}
+\usepackage{cancel}
+\usepackage{etoolbox}
+\usepackage{multirow}
+%\usepackage{boxedminipage}
+\definecolor{gris25}{gray}{0.75}
+\definecolor{bleu}{RGB}{18,33,98}
+\definecolor{bleuf}{RGB}{42,94,171}
+\definecolor{bleuc}{RGB}{231,239,247}
+\definecolor{rougef}{RGB}{185,18,27}
+\definecolor{rougec}{RGB}{255,188,204}%255,230,231
+\definecolor{vertf}{RGB}{103,126,82}
+\definecolor{vertc}{RGB}{220,255,191}
+\definecolor{forestgreen}{rgb}{0.13,0.54,0.13}
+\definecolor{blcr}{rgb}{0.59,0.69,0.84}
+\definecolor{blfr}{rgb}{0.32,0.51,0.75}
+\definecolor{orfr}{rgb}{0.90,0.42,0.15}
+\definecolor{orcr}{rgb}{0.90,0.65,0.50}
+\definecolor{orangef}{rgb}{0.659,0.269,0.072}
+\definecolor{orange}{rgb}{0.58,0.35,0.063}
+\definecolor{orangec}{rgb}{0.43,0.32,0.25}
+\definecolor{rcorrect}{rgb}{0.6,0,0}
+\definecolor{sequence}{rgb}{0.75,0.75,0.75}
+\definecolor{competences}{rgb}{0.61,0.73,0.35}
+\definecolor{grisf}{HTML}{222222}
+\definecolor{grisc}{HTML}{636363}
+\definecolor{normal}{HTML}{4087c4}
+\definecolor{info}{HTML}{5bc0de}
+\definecolor{success}{RGB}{92,184,92}
+\definecolor{warning}{RGB}{240,173,78}
+\definecolor{danger}{RGB}{217,83,79}
+\hypersetup{                    % parametrage des hyperliens
+    colorlinks=true,                % colorise les liens
+    breaklinks=true,                % permet les retours à la ligne pour les liens trop longs
+    urlcolor= blfr,                 % couleur des hyperliens
+    linkcolor= orange,                % couleur des liens internes aux documents (index, figures, tableaux, equations,...)
+    citecolor= forestgreen                % couleur des liens vers les references bibliographiques
+    }
+
+% Mise en page
+\pagestyle{fancy}
+
+\setlength{\hoffset}{-18pt}
+
+\setlength{\oddsidemargin}{0pt} 	% Marge gauche sur pages impaire2s
+\setlength{\evensidemargin}{0pt} 	% Marge gauche sur pages paires
+\setlength{\marginparwidth}{00pt} 	% Largeur de note dans la marge
+\setlength{\headwidth}{481pt} 	 	% Largeur de la zone de tête (17cm)
+\setlength{\textwidth}{481pt} 	 	% Largeu\textbf{r de la zone de texte (17cm)
+\setlength{\voffset}{-18pt} 		% Bon pour DOS
+\setlength{\marginparsep}{7pt}	 	% Séparation de la marge
+\setlength{\topmargin}{-30pt} 		% Pas de marge en haut
+\setlength{\headheight}{35pt} 		% Haut de page
+\setlength{\headsep}{20pt} 		% Entre le haut de page et le texte
+\setlength{\footskip}{30pt} 		% Bas de\textbf{ page + séparation
+\setlength{\textheight}{700pt} 		% Hauteur de l'icone zone de texte (25cm)
+\setlength\fboxrule{1 pt}
+\renewcommand{\baselinestretch}{1}
+\setcounter{tocdepth}{1}
+\newcommand{\cadre}[2]
+{\fbox{
+  \begin{minipage}{#1\linewidth}
+   \begin{center}
+    #2\\
+   \end{center}
+  \end{minipage}
+ }
+}
+
+\newcounter{num_quest} \setcounter{num_quest}{0}
+\newcounter{num_rep} \setcounter{num_rep}{0}
+\newcounter{num_cor} \setcounter{num_cor}{0}
+
+\newcommand{\question}[1]{\refstepcounter{num_quest}\par
+~\ \\ \textbf{Question \arabic{num_quest} : }#1\label{q\the\value{num_quest}}\par
+}
+
+
+\newcommand{\feuilleDR}[1]{
+	\begin{tikzpicture}
+		\draw[gray!30](0,0)grid[step=0.5cm](\linewidth,#1);
+	\end{tikzpicture}
+}
+
+
+\newcommand{\reponse}[4][1]
+{\noindent
+\parbox{\textwidth}{
+\rule{\linewidth}{.5pt}\\
+\textbf{Question\ifthenelse{#1>1}{s}{} \multido{}{#1}{%
+\refstepcounter{num_rep}\ref{q\the\value{num_rep}} }:} ~\ \\
+\ifdef{\public}{#3 \ifthenelse{#2>0}{~\ \\ 	\feuilleDR{#2}}}{#4}
+}}
+
+\newcommand{\cor}
+{\refstepcounter{num_cor}
+\noindent
+\rule{\linewidth}{.5pt}
+\textbf{Question \arabic{num_cor}:} \\
+}
+
+\newcommand{\titre}[1]
+{\begin{center}
+\cadre{0.8}{\huge #1} 
+\end{center}
+}
+
+\newcommand{\finsujet}
+{
+    \begin{center}
+    \Large{FIN}
+    \end{center}
+
+    \cleardoublepage
+
+    \ifdef{\public}{\pagestyle{docreponse}}{\pagestyle{correction}}
+
+    \ifdef{\public}{
+        \begin{tikzpicture} 
+            \draw (0,0) rectangle (2,2);
+            \draw (0,0) -- (2,2);
+            \draw (1.5,0.5) node {\large 20};
+            \draw (2.5,0) rectangle (16,2);
+            \draw (4.5,1.7) node {\large Commentaires:};
+        \end{tikzpicture}
+    }
+    ~\ \\
+}
+
+% En tête et pied de page
+\fancypagestyle{normal}{%
+\fancyhf{}
+\fancyhead[LO]{NOM Prénom: .............................}
+\rhead{\includegraphics[width=2cm]{../../../img/logo}\hspace{2pt}}
+\ifdef{\auteurdeux}{\lfoot{\auteurun,\ \auteurdeux}}{\lfoot{\auteurun}}
+\rfoot{\nom}
+}
+
+\fancypagestyle{correction}{%
+  \fancyhf{}
+  \lhead{\colorbox{danger}{\begin{minipage}{0.65\paperwidth} \textcolor{white}{\textbf{Correction}} \end{minipage}} }
+  \rhead{\includegraphics[width=2cm]{../../../img/logo}}
+  \ifdef{\auteurdeux}{\lfoot{\auteurun,\auteurdeux}}{\lfoot{\auteurun}}
+  \rfoot{\colorbox{danger}{\begin{minipage}{0.5\paperwidth} \begin{flushright}\textcolor{white}{\textbf{Correction}}\end{flushright} \end{minipage}} }}
+
+\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{eso-pic}
+\newcommand{\BackgroundPic}{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\begin{center}
+\hspace{0.5cm}\vspace{0.5cm}
+\includegraphics[width=\paperwidth,height=\paperheight,%
+keepaspectratio]{../../../img/fond3}%
+\end{center}
+\vfill
+}}}
+
+\newcommand{\BackgroundPicdeux}{%
+\put(25,-30){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\begin{center}
+\includegraphics[width=\paperwidth,height=\paperheight,%
+keepaspectratio]{../../../img/fond4}%
+\end{center}
+\vfill
+}}}
+
+\begin{document}
+
+\AddToShipoutPicture{\BackgroundPicdeux}
+
+\pagestyle{normal}

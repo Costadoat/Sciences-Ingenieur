@@ -1,0 +1,459 @@
+%\documentclass[hyperref={pdfpagelabels=false},slidetop,9pt]{beamer}
+\documentclass[slidetop,8pt]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\input{intro.tex}
+\usepackage{etex}
+\usepackage{tikz}
+\usepackage[european]{circuitikz}
+\usepackage{pgf}
+\usepackage[all]{xy}
+\usepackage{pgfpages}
+\usepackage{graphbox}
+\usepackage{pdfpages}
+%\usepackage[adobe-utopia]{mathdesign}
+\usepackage{ifthen}
+\usepackage{cancel}
+\usepackage{framed}
+\usepackage{subfig}
+\usepackage{tabularx}
+\usepackage{setspace}
+\usepackage{soul}
+\usepackage{schemabloc}
+\usepackage{eqnarray}
+\usepackage[dot, phantomtext]{dashundergaps}
+\usepackage{media9}
+\usepackage{multimedia}
+\usepackage{textcomp}
+\usefonttheme[onlymath]{serif}
+
+\author{Renaud Costadoat}
+\institute{Lycée Dorian}
+
+\usepackage{multido}
+\usepackage{multirow}
+\usepackage{multicol} % Portions de texte en colonnes
+\usepackage{flafter}%floatants après la référence
+
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+\usepackage[gen]{eurosym}
+\usepackage{tikz}
+%\usepackage{pstricks,pst-node,pst-tree,pst-solides3d}
+\usepackage{lmodern}
+\usepackage[francais]{babel}
+\usepackage{pslatex}
+\usetheme{renaud}
+\usepackage{times}
+\usepackage[frenchmath]{newtxsf} % for sans serif symbols
+\renewcommand{\familydefault}{\sfdefault}
+%\usepackage{amsfonts}
+%\usepackage{amsmath}
+%\usepackage{mathastext}
+\usepackage{verbatim}
+\usepackage{moreverb}
+%\usetikzlibrary{arrows,shapes}
+\usepackage{graphicx}
+\usepackage{psfrag}
+\usepackage{wrapfig}
+\usepackage{etoolbox}
+
+\definecolor{gris25}{gray}{0.75}
+\definecolor{bleu}{RGB}{18,33,98}
+\definecolor{bleuf}{RGB}{42,94,171}
+\definecolor{bleuc}{RGB}{231,239,247}
+\definecolor{rougef}{RGB}{185,18,27}
+\definecolor{rougec}{RGB}{255,188,204}%255,230,231
+\definecolor{vertf}{RGB}{103,126,82}
+\definecolor{vertc}{RGB}{220,255,191}
+
+\setlength\parindent{24pt}
+\parskip 7.2pt
+\parindent 8pt
+
+\newenvironment{rem}[1][\hsize]%
+{%
+    \def\FrameCommand
+   {%
+\rotatebox{90}{\textit{\textsf{Remarque}}} 
+       {\color{bleuf}\vrule width 3pt}%
+       \hspace{0pt}%must no space.
+       \fboxsep=\FrameSep\colorbox{bleuc}%
+  }%
+    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}%
+{\endMakeFramed}%
+
+
+\newenvironment{savoir}[1][\hsize]%
+{%
+    \def\FrameCommand
+    {%
+\rotatebox{90}{\textit{\textsf{Savoir}}} 
+        {\color{bleuf}\vrule width 3pt}%
+        \hspace{0pt}%must no space.
+        \fboxsep=\FrameSep\colorbox{bleuc}%
+    }%
+    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}%
+{\endMakeFramed}%
+
+\newenvironment{prob}[1][\hsize]%
+{%
+    \def\FrameCommand%
+    {%
+\rotatebox{90}{\textit{\textsf{Problematique}}} 
+        {\color{rougef}\vrule width 3pt}%
+        \hspace{0pt}%must no space.
+        \fboxsep=\FrameSep\colorbox{rougec}%
+    }%
+    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}%
+{\endMakeFramed}%
+
+\newenvironment{obj}[1][\hsize]%
+{%
+    \def\FrameCommand%
+    {%
+\rotatebox{90}{\textit{\textsf{Objectif}}} 
+        {\color{vertf}\vrule width 3pt}%
+        \hspace{0pt}%must no space.
+        \fboxsep=\FrameSep\colorbox{vertc}%
+    }%
+    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}%
+{\endMakeFramed}%
+
+\newenvironment{defi}[1][\hsize]%
+{%
+    \def\FrameCommand%
+    {%
+\rotatebox{90}{\textit{\textsf{Definition}}} 
+        {\color{bleuf}\vrule width 3pt}%
+        \hspace{0pt}%must no space.
+        \fboxsep=\FrameSep\colorbox{rougec}%
+    }%
+    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}%
+{\endMakeFramed}%
+
+
+\newenvironment{hypo}[1][\hsize]%
+{%
+    \def\FrameCommand%
+    {%
+\rotatebox{90}{\textit{\textsf{Hypothèse\\}}} 
+        {\color{bleuf}\vrule width 3pt}%
+        \hspace{0pt}%must no space.
+        \fboxsep=\FrameSep\colorbox{bleuc}%
+    }%
+    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}%
+{\endMakeFramed}%
+
+
+\newenvironment{prop}[1][\hsize]%
+{%
+    \def\FrameCommand%
+    {%
+\rotatebox{90}{\textit{\textsf{Propriété}}} 
+        {\color{bleuf}\vrule width 3pt}%
+        \hspace{0pt}%must no space.
+        \fboxsep=\FrameSep\colorbox{bleuc}%
+    }%
+    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}%
+{\endMakeFramed}%
+
+\newenvironment{props}[1][\hsize]%
+{%
+    \def\FrameCommand%
+    {%
+\rotatebox{90}{\textit{\textsf{Propriétés}}} 
+        {\color{bleuf}\vrule width 3pt}%
+        \hspace{0pt}%must no space.
+        \fboxsep=\FrameSep\colorbox{bleuc}%
+    }%
+    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}%
+{\endMakeFramed}%
+
+\newenvironment{exemple}[1][\hsize]%
+{%
+    \def\FrameCommand%
+    {%
+\rotatebox{90}{\textit{\textsf{Exemple}}} 
+        {\color{vertf}\vrule width 3pt}%
+        \hspace{0pt}%must no space.
+        \fboxsep=\FrameSep\colorbox{vertc}%
+    }%
+    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}%
+{\endMakeFramed}%
+
+\newenvironment{resultat}[1][\hsize]%
+{%
+    \def\FrameCommand%
+    {%
+\rotatebox{90}{\textit{\textsf{Résultat}}} 
+        {\color{rougef}\vrule width 3pt}%
+%        {\color{bleuf}\vrule width 3pt}%
+        \hspace{0pt}%must no space.
+        \fboxsep=\FrameSep\colorbox{rougec}%
+    }%
+    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}%
+{\endMakeFramed}%
+
+\newenvironment{methode}[1][\hsize]%
+{%
+    \def\FrameCommand%
+    {%
+\rotatebox{90}{\textit{\textsf{Méthode\\}}} 
+        {\color{rougef}\vrule width 3pt}%
+        \hspace{0pt}%must no space.
+        \fboxsep=\FrameSep\colorbox{rougec}%
+    }%
+    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}%
+{\endMakeFramed}%
+
+\newenvironment{theo}[1][\hsize]%
+{%
+    \def\FrameCommand%
+    {%
+\rotatebox{90}{\textit{\textsf{Théorème\\}}} 
+        {\color{rougef}\vrule width 3pt}%
+        \hspace{0pt}%must no space.
+        \fboxsep=\FrameSep\colorbox{rougec}%
+    }%
+    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}%
+{\endMakeFramed}%
+
+\newenvironment{warn}[1][\hsize]%
+{%
+    \def\FrameCommand%
+    {%
+\rotatebox{90}{\textit{\textsf{Attention\\}}} 
+        {\color{rougef}\vrule width 3pt}%
+        \hspace{0pt}%must no space.
+        \fboxsep=\FrameSep\colorbox{rougec}%
+    }%
+    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}%
+{\endMakeFramed}%
+
+% \usepackage{pstricks}
+%\usepackage{minitoc}
+% \setcounter{minitocdepth}{4}
+
+\setcounter{tocdepth}{2}
+
+% \mtcselectlanguage{french} 
+
+%\usepackage{draftcopy}% "Brouillon"
+% \usepackage{floatflt}
+\usepackage{psfrag}
+%\usepackage{listings} % Permet d'insérer du code de programmation
+\renewcommand{\baselinestretch}{1.2}
+
+% Changer la num�rotation des figures :
+% ------------------------------------
+% \makeatletter
+% \renewcommand{\thefigure}{\ifnum \c@section>\z@ \thesection.\fi
+%  \@arabic\c@figure}
+% \@addtoreset{figure}{section}
+% \makeatother
+ 
+
+
+%%%%%%%%%%%%
+% Définition des vecteurs %
+%%%%%%%%%%%%
+ \newcommand{\vect}[1]{\overrightarrow{#1}}
+
+%%%%%%%%%%%%
+% Définition des torseusr %
+%%%%%%%%%%%%
+
+ \newcommand{\torseur}[1]{%
+\left\{{#1}\right\}
+}
+
+\newcommand{\torseurcin}[3]{%
+\left\{\mathcal{#1} \left(#2/#3 \right) \right\}
+}
+
+\newcommand{\torseurstat}[3]{%
+\left\{\mathcal{#1} \left(#2\rightarrow #3 \right) \right\}
+}
+
+ \newcommand{\torseurc}[8]{%
+%\left\{#1 \right\}=
+\left\{
+{#1}
+\right\}
+ = 
+\left\{%
+\begin{array}{cc}%
+{#2} & {#5}\\%
+{#3} & {#6}\\%
+{#4} & {#7}\\%
+\end{array}%
+\right\}_{#8}%
+}
+
+ \newcommand{\torseurcol}[7]{
+\left\{%
+\begin{array}{cc}%
+{#1} & {#4}\\%
+{#2} & {#5}\\%
+{#3} & {#6}\\%
+\end{array}%
+\right\}_{#7}%
+}
+
+ \newcommand{\torseurl}[3]{%
+%\left\{\mathcal{#1}\right\}_{#2}=%
+\left\{%
+\begin{array}{l}%
+{#1} \\%
+{#2} %
+\end{array}%
+\right\}_{#3}%
+}
+
+ \newcommand{\vectv}[3]{%
+\vect{V\left( {#1} \in {#2}/{#3}\right)}
+}
+
+
+\newcommand{\vectf}[2]{%
+\vect{R\left( {#1} \rightarrow {#2}\right)}
+}
+
+\newcommand{\vectm}[3]{%
+\vect{\mathcal{M}\left( {#1}, {#2} \rightarrow {#3}\right)}
+}
+
+
+ \newcommand{\vectg}[3]{%
+\vect{\Gamma \left( {#1} \in {#2}/{#3}\right)}
+}
+
+ \newcommand{\vecto}[2]{%
+\vect{\Omega\left( {#1}/{#2}\right)}
+}
+
+\newcommand{\reponse}[1][4]
+{
+\multido{}{#1}
+{
+\begin{center}
+\makebox[0.9\linewidth]{\dotfill} \end{center}
+}}
+
+
+% }$$\left\{\mathcal{#1} \right\}_{#2} =%
+% \left\{%
+% \begin{array}{c}%
+%  #3 \\%
+%  #4 %
+% \end{array}%
+% \right\}_{#5}}
+
+
+%  ------------------------------------------
+% | Modification du formatage des sections : | 
+%  ------------------------------------------
+
+% Grands titres :
+% ---------------
+
+\newcommand{\titre}[1]{%
+\begin{center}
+      \bigskip
+      \rule{\textwidth}{1pt}
+      \par\vspace{0.1cm}
+      
+      \textbf{\large #1}
+      \par\rule{\textwidth}{1pt}
+    \end{center}
+    \bigskip
+  }
+
+% Supprime le numéro du chapitre dans la numérotation des sections:
+% -----------------------------------------------------------------
+\makeatletter
+\renewcommand{\thesection}{\@arabic\c@section}
+\makeatother
+
+
+% \titleformat{\chapter}[display]
+% {\normalfont\Large\filcenter}
+% {}
+% {1pc}
+% {\titlerule[1pt]
+%   \vspace{1pc}%
+%   \Huge}[\vspace{1ex}%
+% \titlerule]
+
+
+%%%% Chapitres Comme PY Pechard %%%%%%%%%
+% numéro du chapitre
+\DeclareFixedFont{\chapnumfont}{OT1}{phv}{b}{n}{80pt}
+% pour le mot " Chapitre "
+\DeclareFixedFont{\chapchapfont}{OT1}{phv}{m}{it}{40pt}
+% pour le titre
+\DeclareFixedFont{\chaptitfont}{T1}{phv}{b}{n}{25pt}
+
+\definecolor{gris}{gray}{0.75}
+\setbeamertemplate{section in toc}[sections numbered]
+
+\newlength{\RoundedBoxWidth}
+\newsavebox{\GrayRoundedBox}
+\newenvironment{GrayBox}[1][\dimexpr\textwidth-4.5ex]%
+   {\setlength{\RoundedBoxWidth}{\dimexpr#1}
+    \begin{lrbox}{\GrayRoundedBox}
+       \begin{minipage}{\RoundedBoxWidth}}%
+   {   \end{minipage}
+    \end{lrbox}
+    \begin{center}
+    \begin{tikzpicture}%
+       \draw node[draw=bleuf,fill=bleuc,rounded corners,%
+             inner sep=2ex,text width=\RoundedBoxWidth]%
+             {\usebox{\GrayRoundedBox}};
+    \end{tikzpicture}
+    \end{center}}
+    
+\ifdef{\prive}{\pgfpagesuselayout{2 on 1}[a4paper,border shrink=0mm]}
+\ifdef{\prive}{\setbeamertemplate{navigation symbols}{}}
+\setbeamertemplate{itemize item}[ball]
+%\setbeamertemplate{blocks}[rounded]%[shadow=true]
+\setbeamercolor{block title}{fg=white,bg=grisf}        % titre block normal 
+\setbeamercolor{block body}{fg=grisf,bg=grisc!50}      % corps block normal
+\setbeamercolor{block body alerted}{fg=white,bg=warning}   % idem pour un block alerte
+
+\title{\nom}
+\date{S\sequence \ - \type\num}
+
+\begin{document}
+\shorthandoff{:!}
+\bibliographystyle{abbrvnat-fr}
+
+\usebackgroundtemplate%
+{%
+    \centering\includegraphics[width=\paperwidth]{/home/renaud/Documents/Renaud/GitHub/Sciences-Ingenieur/img/fond2}%
+}
+
+{
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}[pagetitre]
+\setbeamertemplate{footline}[pagetitre]
+\usebackgroundtemplate{\centering\includegraphics[width=\paperwidth]{/home/renaud/Documents/Renaud/GitHub/Sciences-Ingenieur/img/fond}}
+\frame{\titlepage}
+}
+

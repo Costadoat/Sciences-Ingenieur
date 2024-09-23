@@ -1,0 +1,154 @@
+\documentclass[a4paper,12pt,titlepage]{article}
+\newcommand{\jour}{Vacances Toussaint}
+\newcommand{\numero}{DM01}
+\newcommand{\sujet}{Phare automobile}
+\input{dsheader.tex}
+
+\section{Présentation générale (30 min)}
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.7\linewidth]{img/fig1}
+\end{figure}
+
+\subsection{Mise en situation}
+
+L'assiette d'un véhicule se modifie avec sa charge, le profil de la route ou les conditions de conduite (phase de freinage ou d'accélération). Cette modification entraîne une variation d'inclinaison de l'axe du faisceau lumineux produit par les phares du véhicule. Ceux ci peuvent alors éblouir d'autres conducteurs ou mal éclairer la chaussée.
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=1\linewidth]{img/fig2}
+\end{figure}
+
+Certaines voitures sont équipées de système de correction de portée. Ce système fait appel à des capteurs d'assiette reliés aux essieux avant et arrière du véhicule. Les données sont traitées électroniquement par un calculateur et transmises aux actionneurs situés derrière les projecteurs. La position du projecteur est ajustée en maintenant un angle de faisceau optimal évitant tout éblouissement et fournissant le meilleur éclairage de la route. Le système étudié est un correcteur de portée statique, qui corrige la portée lorsque le véhicule est à l'arrêt et conserve cette correction lorsque le véhicule roule (le correcteur ne tient compte que de la variation d'assiette due à la charge).
+
+
+Le but de l'étude est d'analyser le système et de montrer s'il est capable de corriger la portée de manière dynamique, c'est à dire en tenant compte des variations d'assiette dues au profil de la route.
+
+\section{Présentation du système}
+
+Éléments constitutifs du correcteur de portée :
+\begin{itemize}
+ \item Capteurs d'assiette : codeurs optiques permettant de mesurer le débattement des suspensions.
+ \item Système d'orientation : bloc d'orientation + moto-réducteur + système vis écrou
+
+
+Le bloc d'orientation supporte les différentes lampes du phare (codes, clignotants...). Il peut pivoter par rapport au support lié à la carrosserie autour d'un axe horizontal (axe de rotation indiqué sur la figure ci-dessous). Le bloc est protégé par une vitre liée à la carrosserie. Ce mouvement est motorisé grâce au moto-réducteur + système vis écrou. Il existe aussi une possibilité de réglage manuel en sortie d'usine ou en cas de défaillance du système électrique.
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.7\linewidth]{img/fig3}
+\end{figure}
+
+ \item Calculateur : à partir des données des capteurs d'assiette, le calculateur pilote le moto- réducteur.
+\end{itemize}
+
+Les diagrammes SysMl suivant ne sont pas complets.
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.9\linewidth]{img/IBD1_vid} \\
+ \centering\includegraphics[width=0.9\linewidth]{img/IBD2_vid}
+\end{figure}
+
+\paragraph{Question 1:} Déterminer A, B, C, D et E (sur feuille de copie).
+
+\paragraph{Question 2:} Réaliser le diagramme des cas d'utilisation.
+
+\paragraph{Question 3:} Réaliser le diagramme de contexte.
+
+\section{Étude de la fonction : « orienter l'axe optique »}
+
+\subsection{Étude de la chaîne cinématique : moto-réducteur + système vis écrou}
+
+Voir le plan d'ensemble et la nomenclature sur l'annexe 2.
+La chaîne cinématique est constituée d'un moteur électrique 208, de 2 réducteurs roue et vis sans fin (209 / 210a et 210b / 203) et d'un double système vis écrou (réglage manuel et réglage motorisé).
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.7\linewidth]{img/fig4}
+\end{figure}
+
+Le moteur 208 entraîne en rotation la vis sans fin 209 qui entraîne la roue 210a par un système roue et vis sans fin. La vis 210b entraîne à son tour la roue 203 par un autre système roue et vis sans fin.
+
+\textbf{Mode motorisé :} système vis 204 écrou 203 Un système vis 204 écrou 203 permet de transformer la rotation de la roue 203 en une translation de la tige 206 (liée à 204 en mode motorisé). Celle-ci permet l'orientation du phare par l'intermédiaire de la biellette de poussée 303 (voir schéma cinématique et annexe 1).
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.6\linewidth]{img/fig5}
+\end{figure}
+
+\textbf{Mode manuel :} système vis 206 écrou 204 La rotation du bouton de réglage manuel 201 permet la rotation de la vis 206 par l'intermédiaire de l'engrenage conique 201 - 202 et de cannelures entre 202 et 206. L'écrou 204 étant fixe en mode manuel la vis 206 a donc un mouvement hélicoïdal.
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.7\linewidth]{img/fig6}
+\end{figure}
+
+Le système moto-réducteur et vis écrou est modélisé par le schéma cinématique suivant :
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.7\linewidth]{img/fig7}
+\end{figure}
+
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=\linewidth]{img/Exigences_vid}
+\end{figure}
+
+\clearpage
+
+\paragraph{Question 4:} Sur le document réponse 1, pour le réglage motorisé et le réglage manuel.
+\begin{itemize}
+ \item Surligner en vert les pièces ayant un mouvement de rotation par rapport au bâti,
+ \item Surligner en bleu les pièces ayant un mouvement de translation par rapport au bâti,
+ \item Surligner en rouge les pièces ayant un mouvement de rotation et translation par rapport au bâti.
+\end{itemize}
+
+\paragraph{Question 5:} Sur le dessin d'ensemble, document réponse 2:
+Colorier en vert, sur toutes les vues l'écrou 204.
+
+\paragraph{Question 6:} Compléter le diagramme des exigences incomplet précédent en déterminant F, G, H, I, J, K et L (sur feuille de copie).
+
+\section{Étude de l'orientation du bloc optique}
+
+Voir le système d'orientation en annexe 1 et sur les figures page 2.
+
+Deux horizontal liaisons en A et B permettent au boîtier 301 de pivoter par rapport au bâti autour d'un axe $(A,\overrightarrow{y})$.
+
+La liaison rotule de centre A est réalisée par une pièce intermédiaire en plastique, 302, clipsée sur un embout sphérique lié au bâti 304 et fixé sur le boîtier 301.
+La liaison linéaire annulaire en B est réalisée par une pièce plastique 302 identique clipsée sur un embout sphérique lié au bâti 304 mais en liaison glissière de direction $\overrightarrow{y}$ par rapport au boitier 301.
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.7\linewidth]{img/fig8}
+\end{figure}
+
+\paragraph{Question 7:} Démontrer par les torseurs que la liaison équivalente en B est une liaison linéaire annulaire d'axe $(B,\overrightarrow{y})$.
+
+\paragraph{Question 8:} Justifier sans calcul la liaison équivalente entre le boîtier 301 et le bâti 304 en ne tenant compte que des liaisons en $A$ et $B$.
+
+\paragraph{Question 9:} Tracer sur le document réponse 3, dans le cas d'un réglage motorisé, le schéma cinématique minimal dans le plan $(A,\overrightarrow{x},\overrightarrow{y})$ de la chaîne fermée constituée du bâti 304 et des pièces 301, 206 et 303.
+
+La position définie sur l'épure, document réponse 3, correspond à une position extrême 0 (points A, C et D).
+On notera $A$, $C_1$ et $D_1$ les points dans l'autre configuration extrême 1.
+
+\paragraph{Question 10:} En supposant la course de l'axe 206 égale à 30 mm ($\overrightarrow{DD_1}=30.\overrightarrow{x}$), tracer sur le document réponse 3 le point $C_1$, les pièces 301 et 303 et l'axe du faisceau lumineux. Mesurer l'amplitude angulaire du faisceau.
+
+%Le cahier des charges impose une vitesse de rotation du boîtier 301 par rapport au bâti de $0,06rad.s^{-1}$ dans la configuration extrême 1. On a : $AC=100mm$.
+%Échelle impérative : $10mm$ pour $1mm.s^{-1}$.
+
+%\paragraph{Question 11:} Déterminer graphiquement la vitesse de translation de la tige 206 par rapport au bâti.
+%On expliquera soigneusement les tracés.
+
+%A partir des données se trouvant dans la nomenclature de l'annexe 2
+
+%\paragraph{Question 12:} Calculer le rapport de réduction $\frac{\omega_{203/bati}}{\omega_{209/bati}}$ puis la vitesse de rotation du moteur. Donner la valeur en tour.min-1.
+
+\section{Étude de la conception des pièces 203 et 205}
+
+\paragraph{Question 13:} Représenter la pièce 203, à l'échelle 1:1, isolée du reste du mécanisme
+La vue de face correspond à la vue A-A du document Annexe 2.
+
+\paragraph{Question 14:} Représenter la pièce 205, à l'échelle 2:1, isolée du reste du mécanisme
+La vue de face correspond à la vue A-A du document Annexe 2.
+
+\includepdf[pages=1-2]{Ressources/1-Ressources.pdf}
+
+\includepdf[pages=4-6]{Ressources/1-Ressources.pdf}
+
+\includepdf[pages=1-2,landscape]{Ressources/2-Reponses.pdf}
+
+\end{document}

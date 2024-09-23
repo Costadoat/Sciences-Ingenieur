@@ -1,0 +1,85 @@
+\newcommand{\num}{01}
+\input{../../headers/dcheaders.tex}
+
+\section{Modélisation des S.L.C.I.}
+
+\question{Quel est le théorème de la dérivée première ?}
+\begin{enumerate}[label=\Alph*]
+ \item $L[f'(t)]=\frac{1}{p}\cdot F(p)-f(0+)$,
+ \item $L[f'(t)]=\frac{1}{p}\cdot F(p)+f(0+)$,
+ \item $L[f'(t)]=p\cdot F(p)+f(0+)$,
+ \item $L[f'(t)]=p\cdot F(p)-f(0+)$,
+ \item $L[f'(t)]=p\cdot F(p)$.
+\end{enumerate}
+
+\question{Quel est le théorème du retard ?}
+\begin{enumerate}[label=\Alph*]
+ \item $L\left[f(t-\tau)\right]=e^{\tau\cdot p}\cdot F(p)$,
+ \item $L\left[f(t-\tau)\right]=e^{-\tau\cdot p}\cdot F(p)$,
+ \item $L\left[f(t+\tau)\right]=e^{\tau\cdot p}\cdot F(p)$,
+ \item $L\left[f(t+\tau)\right]=e^{-\tau\cdot p}\cdot F(p)$.
+\end{enumerate}
+
+Soit la réponse indicielle d'une fonction de transfert H(p) telle que $H(p)=\frac{K}{1+\frac{2\cdot \xi}{\omega_0}\cdot p+\frac{p^2}{\omega_0^2}}$, avec $xi<1$.
+
+\question{Sa pseudo période est :}
+\begin{enumerate}[label=\Alph*]
+ \item $T_p=\dfrac{2.\pi}{\omega_0\cdot \sqrt{1-\xi^2}}$,
+ \item $T_p=\dfrac{2.\pi}{\omega_0\cdot \sqrt{1+\xi^2}}$,
+ \item $T_p=\dfrac{\pi}{\omega_0\cdot \sqrt{\xi^2-1}}$,
+ \item $T_p=\dfrac{\pi}{\omega_0\cdot \sqrt{1+\xi^2}}$.
+\end{enumerate}
+
+\question{Son dépassement est :}
+\begin{enumerate}[label=\Alph*]
+ \item $D\%=100.e^{-\xi\cdot \dfrac{\pi}{\sqrt{1+\xi^2}}}$,
+ \item $D\%=100.e^{\xi\cdot \dfrac{\pi}{\sqrt{1-\xi^2}}}$,
+ \item $D\%=100.e^{-\xi\cdot \dfrac{\pi}{\sqrt{1-\xi^2}}}$,
+ \item $D\%=100.e^{\xi\cdot \dfrac{\pi}{\sqrt{1+\xi^2}}}$.
+\end{enumerate}
+
+\question{Son temps de réponse est :}
+\begin{enumerate}[label=\Alph*]
+ \item $t_{R,5\%}=\dfrac{\xi}{\omega_0}\cdot ln(20)$,
+ \item $t_{R,5\%}=\dfrac{1}{\xi\cdot \omega_0}\cdot ln(20)$,
+ \item $t_{R,5\%}=\dfrac{\xi}{\omega_0}\cdot ln(10)$,
+ \item $t_{R,5\%}=\dfrac{1}{\xi\cdot \omega_0}\cdot ln(10)$.
+\end{enumerate}
+
+\section{Structure des S.L.C.I.}
+
+Lorsque la FTBO d'un système est de classe 0 et d'ordre 1, alors la FTBF est:
+\begin{enumerate}[label=\Alph*]
+ \item de classe 0 et d'ordre 1,
+ \item de classe 1 et d'ordre 1,
+ \item de classe 0 et d'ordre 2,
+ \item de classe 1 et d'ordre 2. 
+\end{enumerate}
+
+Soit une FTBO de la forme $FTBO(p)=\frac{K}{1+\frac{2\cdot \xi}{\omega_0}\cdot p+\frac{p^2}{\omega_0^2}}$
+
+\question{Le gain statique de la FTBF est :}
+\begin{enumerate}[label=\Alph*]
+ \item $FTBF(0)=\frac{A(0)}{1+K}$,
+ \item $FTBF(0)=\frac{A(0)}{K}$,
+ \item $FTBF(0)=A(0)\cdot (1+K)$,
+ \item $FTBF(0)=A(0)\cdot K$.
+\end{enumerate}
+
+\question{La pulsation bouclée de la FTBF est :}
+\begin{enumerate}[label=\Alph*]
+ \item $\omega_0^*=\omega_0\cdot\sqrt{1+K}$,
+ \item $\omega_0^*=\frac{\omega_0}{\sqrt{1+K}}$,
+ \item $\omega_0^*=\omega_0\cdot\sqrt{K}$,
+ \item $\omega_0^*=\frac{\omega_0}{\sqrt{K}}$.
+\end{enumerate}
+
+\question{Le facteur d'amortissement bouclé de la FTBF est :}
+\begin{enumerate}[label=\Alph*]
+ \item $\xi^*=\frac{\xi}{\sqrt{1+K}}$,
+ \item $\xi^*=\xi\cdot \sqrt{1+K}$,
+ \item $\xi^*=\xi\cdot \sqrt{K}$,
+ \item $\xi^*=\frac{\xi}{\sqrt{K}}$.
+\end{enumerate}
+
+\end{document}

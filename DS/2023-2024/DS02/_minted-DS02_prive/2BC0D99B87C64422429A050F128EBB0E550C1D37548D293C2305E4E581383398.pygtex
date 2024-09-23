@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{energie}\PYG{p}{(}\PYG{n}{p}\PYG{p}{,}\PYG{n}{t}\PYG{p}{)}
+	\PYG{n}{W}\PYG{o}{=}\PYG{l+m+mi}{0}
+	\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range} \PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{t}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{):}
+		\PYG{n}{W}\PYG{o}{+=}\PYG{p}{(}\PYG{n}{t}\PYG{p}{[}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{t}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}\PYG{o}{*}\PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}
+	\PYG{k}{return} \PYG{n}{W}
+\end{Verbatim}

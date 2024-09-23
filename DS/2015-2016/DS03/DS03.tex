@@ -1,0 +1,96 @@
+\input{../../../headers/dsheaders.tex}
+
+\section{Cours (10 min)}
+
+\paragraph{Question 1:} Donner les hypothèses nécessaire afin d'utiliser le Principe Fondamental de la Statique.
+
+\reponse[3]
+
+\section{Exercice: Colleuse de lamelle (50 min)}
+
+\subsection{Présentation}
+
+\begin{figure}[!h]
+  \begin{minipage}{0.35\linewidth}
+  \centering\includegraphics[width=0.8\linewidth]{img/colleuse.png}
+  \caption{Colleuse}
+  \label{img1}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.60\linewidth}
+  Le groupe TECH-INTER commercialise du matériel de laboratoire d'histopathologie. Cette spécialité médicale consiste à découper des tissus d'organes en fine épaisseur ($4-5 \mu m$). Ces tissus sont ensuite collés sur des lames de verres de 2 mm d'épaisseur puis colorés chimiquement dans un automate. Pour certains tissus, il est nécessaire de coller sur les tissus colorés une lamelle de verre de 0,3 mm d'épaisseur afin de les protéger (photo 3 document 2). Cette dernière opération est très délicate à effectuer manuellement et très longue, une étude pouvant comporter plusieurs centaines de lames.
+
+  L'appareil appelé « Colleuse de lamelle » automatise ce procédé, figure \ref{img1}.
+\end{minipage}
+\end{figure}
+
+\subsection{Analyse statique de l'élévateur de rack}
+
+\begin{minipage}{0.3\linewidth}
+  \centering\includegraphics[width=\linewidth]{img/colleuse_cin.png}
+\end{minipage}
+  \hfill
+\begin{minipage}{0.6\linewidth}
+Le schéma cinématique, représente le système d'élévateur de rack. Un moteur non représenté exerce sur l'axe 10 un couple moteur Cm inconnu, ce dernier entraîne par un système vis-écrou comportant un pas à droite, le support de rack 11 qui supporte une charge P connue. Les poids sont négligés. Le système est considéré comme spatial.
+
+Le mouvement étant très lent, on peut supposer que l'ensemble est à l'équilibre par rapport au repère galiléen $R_0$. Le but est de valider le couple moteur choisi par le constructeur.
+\end{minipage}
+
+Le couple moteur nominal en charge est égal à 1 N.m. pour une charge P = 100N.
+
+Les liaisons sont supposées parfaites.
+
+Les torseurs couple moteur et charge sont les suivants :\\
+  \begin{minipage}{0.3\linewidth}
+  \begin{math}
+  \left\{F_{mot \rightarrow 10}\right\}=\left\{
+  \begin{array}{c c}
+  0 & 0 \\
+  0 & C_m \\
+  0 & 0
+  \end{array}\right\}_{(O,R_0)}
+  \end{math}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.3\linewidth}
+  \begin{math}
+  \left\{F_{charge \rightarrow 11}\right\}=\left\{
+  \begin{array}{c c}
+  0 & 0 \\
+  -P & 0 \\
+  0 & 0
+  \end{array}\right\}_{(O,R_0)}
+  \end{math}
+\end{minipage}
+
+
+\paragraph{Question 2:} A partir du schéma cinématique de la figure, établir le graphe de liaison du mécanisme.
+
+\vspace{3cm}
+
+\paragraph{Question 3:} Identifier et écrire le torseur statique de chaque liaison.
+
+\reponse[6]
+
+Donner une équation supplémentaire en fonction des caractéristiques du torseur pour la liaison hélicoïdale, faisant intervenir le pas p du filetage.
+
+\paragraph{Question 4:} Écrire les torseurs statiques $\left\{T'_{0 \rightarrow 11}\right\}_B$ et $\left\{T''_{0 \rightarrow 11}\right\}_C$ au point O, indiquer les calculs des moments.
+
+\reponse[8]
+
+\paragraph{Question 5:} Isoler le solide 10. Faire le Bilan des Actions Mécaniques et déterminer les 6 équations d'équilibre du solide 10 (moments au point O).
+
+\reponse[10]
+
+\paragraph{Question 6:} Isoler le solide 11. Faire le Bilan des Actions Mécaniques et déterminer les 6 équations d'équilibre du solide 11 (moments au point O).
+
+\reponse[10]
+
+\paragraph{Question 7:} Déterminer le couple moteur Cm en fonction de la charge P et du pas p.
+
+\reponse[6]
+
+A.N. : calculer $C_m$ pour $p = 6,28 mm$ (pour un tour) et $P = 100 N$. Conclure.
+
+\end{document}
+
