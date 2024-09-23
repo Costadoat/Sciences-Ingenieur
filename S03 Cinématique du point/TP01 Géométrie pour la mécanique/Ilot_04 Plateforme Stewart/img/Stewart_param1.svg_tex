@@ -1,0 +1,93 @@
+%% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Stewart_param1.svg' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{408.50684894bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,1.13916296)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Stewart_param1.svg}}%
+    \put(0.47961171,0.56113134){\color[rgb]{0.26666667,0.44705882,0.76862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}x\end{tabular}}}}%
+    \put(0.5007619,0.54908748){\color[rgb]{0.26666667,0.44705882,0.76862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}M\end{tabular}}}}%
+    \put(0.95245566,0.87331704){\color[rgb]{0.26666667,0.44705882,0.76862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}y\end{tabular}}}}%
+    \put(0.97478087,0.86127318){\color[rgb]{0.26666667,0.44705882,0.76862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}M\end{tabular}}}}%
+    \put(0.45665004,1.11573647){\color[rgb]{0.26666667,0.44705882,0.76862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}z\end{tabular}}}}%
+    \put(0.47603772,1.10369261){\color[rgb]{0.26666667,0.44705882,0.76862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}M\end{tabular}}}}%
+    \put(0.42546329,0.86323153){\color[rgb]{0.26666667,0.44705882,0.76862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}O\end{tabular}}}}%
+    \put(0.45806984,0.85118767){\color[rgb]{0.26666667,0.44705882,0.76862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}M\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{Stewart_param1.svg}}%
+    \put(0.61826299,1.00646046){\color[rgb]{0.26666667,0.44705882,0.76862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}r\end{tabular}}}}%
+    \put(0.63530065,0.9944166){\color[rgb]{0.26666667,0.44705882,0.76862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}M\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{Stewart_param1.svg}}%
+    \put(0.42908624,0.60335829){\color[rgb]{0.26666667,0.44705882,0.76862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}β\end{tabular}}}}%
+    \put(0.38414207,0.70893791){\color[rgb]{0.26666667,0.44705882,0.76862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A\end{tabular}}}}%
+    \put(0.41263609,0.69689405){\color[rgb]{0.26666667,0.44705882,0.76862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}i\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{Stewart_param1.svg}}%
+    \put(0.43185241,0.72458024){\color[rgb]{0.92941176,0.49019608,0.19215686}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}x\end{tabular}}}}%
+    \put(0.45300261,0.71253638){\color[rgb]{0.92941176,0.49019608,0.19215686}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}i\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{Stewart_param1.svg}}%
+    \put(-0.00055159,0.27283752){\color[rgb]{0.43921569,0.67843137,0.27843137}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}x\end{tabular}}}}%
+    \put(0.02059861,0.26079366){\color[rgb]{0.43921569,0.67843137,0.27843137}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}F\end{tabular}}}}%
+    \put(0.58519133,0.01204386){\color[rgb]{0.43921569,0.67843137,0.27843137}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}y\end{tabular}}}}%
+    \put(0.60751654,0){\color[rgb]{0.43921569,0.67843137,0.27843137}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}F\end{tabular}}}}%
+    \put(0.41716477,0.44174534){\color[rgb]{0.43921569,0.67843137,0.27843137}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}z\end{tabular}}}}%
+    \put(0.43655245,0.42970148){\color[rgb]{0.43921569,0.67843137,0.27843137}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}F\end{tabular}}}}%
+    \put(0.38597803,0.31871191){\color[rgb]{0.43921569,0.67843137,0.27843137}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}O\end{tabular}}}}%
+    \put(0.41858458,0.30666805){\color[rgb]{0.43921569,0.67843137,0.27843137}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}F\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{Stewart_param1.svg}}%
+    \put(0.57603604,0.44544172){\color[rgb]{0.43921569,0.67843137,0.27843137}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}r\end{tabular}}}}%
+    \put(0.59307369,0.43339786){\color[rgb]{0.43921569,0.67843137,0.27843137}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}F\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{Stewart_param1.svg}}%
+    \put(0.11971567,0.19658421){\color[rgb]{0.43921569,0.67843137,0.27843137}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}α\end{tabular}}}}%
+    \put(0.0637313,0.14517259){\color[rgb]{0.43921569,0.67843137,0.27843137}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}B\end{tabular}}}}%
+    \put(0.09046279,0.13312873){\color[rgb]{0.43921569,0.67843137,0.27843137}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}i\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{Stewart_param1.svg}}%
+  \end{picture}%
+\endgroup%

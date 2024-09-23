@@ -1,0 +1,45 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 06/02/01 by pierre
+' ******************************************************************************
+
+Dim swApp As Object
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long
+Dim Annotation As Object
+Dim Gtol As Object
+Dim DatumTag As Object
+Dim FeatureData As Object
+Dim Feature As Object
+Dim Component As Object
+Sub main()
+Set swApp = CreateObject ("SldWorks.Application")
+Set Part = swApp.OpenDoc3 ("C:\bdpince\pl_ens_pince.SLDDRW", 3, 0, 0, 0, 0, longstatus)
+Set Part = swApp.ActivateDoc ("pl_ens_pince - Feuille1")
+swApp.ActiveDoc.ActiveView.FrameLeft = 0
+swApp.ActiveDoc.ActiveView.FrameTop = 0
+swApp.ActiveDoc.ActiveView.FrameState = 1
+swApp.ActiveDoc.ActiveView.FrameState = 1
+Part.SelectByID "Feuille1", "SHEET", 0, 0, 0
+Part.SelectByID "Fond de plan1", "SHEET", 0, 0, 0
+Part.SelectByID "Fond de plan1", "SHEET", 0, 0, 0
+Part.EditTemplate
+Part.EditSketch
+Part.ClearSelection
+Part.SelectByID "Objet de détail2@Fond de plan1", "NOTE", 0.319712195122, 0.06, 0
+Part.SelectByID "Objet de détail2@Fond de plan1", "NOTE", 0.3212795121951, 0.05158756097561, 0
+Part.SelectByID "Fond de plan1", "SHEET", 0.1593234146341, 0.1367451219512, 0
+Part.SelectByID "Fond de plan1", "SHEET", 0, 0, 0
+Part.SelectByID "Feuille1", "SHEET", 0, 0, 0
+Part.EditSheet
+Part.EditSketch
+Part.ClearSelection
+Part.EditSketch
+Part.EditSketch
+Part.EditSketch
+Part.EditSketch
+Part.Save2 FALSE
+Set Part = Nothing
+swApp.CloseDoc "pl_ens_pince - Feuille1"
+swApp.ExitApp
+End Sub

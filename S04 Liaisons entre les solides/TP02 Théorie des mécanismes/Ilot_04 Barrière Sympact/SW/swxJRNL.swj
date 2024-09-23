@@ -1,0 +1,32 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 04/04/07 by ADMIN
+' *****************************************************************************
+Dim swApp As Object
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long
+Dim Annotation As Object
+Dim Gtol As Object
+Dim DatumTag As Object
+Dim FeatureData As Object
+Dim Feature As Object
+Dim Component As Object
+Sub main()
+
+Set swApp = Application.SldWorks
+
+Set Part = swApp.OpenDoc4 ("C:\Documents and Settings\ADMIN\Bureau\Dessins SolidWorks Sympact\AsemblageTP.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("AsemblageTP")
+swApp.ActiveDoc.ActiveView.FrameWidth = 799
+swApp.ActiveDoc.ActiveView.FrameHeight = 602
+Part.ShowNamedView2 "*Face", 1
+Part.ShowNamedView2 "*Dessus", 5
+Set Part = Nothing
+swApp.CloseDoc "AsemblageTP"
+Set Part = swApp.OpenDoc4 ("E:\Projet GEL 2008 V4\Format Sw 2006-2007\PompeMS.SLDASM", 2, 0, "", longstatus)
+' MSGBOX
+' Ne peut pas ouvrir E:\Projet GEL 2008 V4\Format Sw 2006-2007\PompeMS.SLDASM.
+' Version future
+
+swApp.ExitApp
+End Sub

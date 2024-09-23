@@ -1,0 +1,81 @@
+</playlist>
+<producer id="black_track" in="00:00:00,000" out="00:20:21,640">
+ <property name="length">2147483647</property>
+ <property name="eof">continue</property>
+ <property name="resource">black</property>
+ <property name="aspect_ratio">1</property>
+ <property name="mlt_service">color</property>
+ <property name="mlt_image_format">rgb24a</property>
+ <property name="set.test_audio">0</property>
+</producer>
+<playlist id="playlist0">
+ <property name="kdenlive:audio_track">1</property>
+ <filter id="filter0">
+  <property name="window">75</property>
+  <property name="max_gain">20dB</property>
+  <property name="mlt_service">volume</property>
+  <property name="internal_added">237</property>
+  <property name="disable">1</property>
+ </filter>
+ <filter id="filter1">
+  <property name="channel">-1</property>
+  <property name="mlt_service">panner</property>
+  <property name="internal_added">237</property>
+  <property name="start">0,5</property>
+  <property name="disable">1</property>
+ </filter>
+</playlist>
+<playlist id="playlist1">
+ <property name="kdenlive:audio_track">1</property>
+</playlist>
+<tractor id="tractor0" in="00:00:00,000">
+ <property name="kdenlive:audio_track">1</property>
+ <property name="kdenlive:trackheight">128</property>
+ <property name="kdenlive:collapsed">0</property>
+ <property name="kdenlive:thumbs_format"/>
+ <property name="kdenlive:audio_rec"/>
+ <property name="kdenlive:timeline_active"/>
+ <track hide="video" producer="playlist0"/>
+ <track hide="video" producer="playlist1"/>
+ <filter id="filter2">
+  <property name="iec_scale">0</property>
+  <property name="mlt_service">audiolevel</property>
+ </filter>
+</tractor>
+<producer title="Anonymous Submission" id="producer4" in="00:00:00,000" out="00:00:21,600">
+ <property name="length">541</property>
+ <property name="eof">pause</property>
+ <property name="resource">/home/renaud/Sciences-Ingenieur/headers/intro_video/intro.mp3</property>
+ <property name="meta.media.nb_streams">1</property>
+ <property name="meta.media.0.stream.type">audio</property>
+ <property name="meta.media.0.codec.sample_fmt">fltp</property>
+ <property name="meta.media.0.codec.sample_rate">44100</property>
+ <property name="meta.media.0.codec.channels">2</property>
+ <property name="meta.media.0.codec.name">mp3float</property>
+ <property name="meta.media.0.codec.long_name">MP3 (MPEG audio layer 3)</property>
+ <property name="meta.media.0.codec.bit_rate">154752</property>
+ <property name="meta.attr.0.stream.encoder.markup">LAME3.100</property>
+ <property name="meta.attr.Software.markup">Lavf57.56.101</property>
+ <property name="meta.attr.compatible_brands.markup">iso6mp41</property>
+ <property name="meta.attr.minor_version.markup">0</property>
+ <property name="meta.attr.major_brand.markup">dash</property>
+ <property name="seekable">1</property>
+ <property name="audio_index">0</property>
+ <property name="video_index">-1</property>
+ <property name="mute_on_pause">0</property>
+ <property name="mlt_service">avformat-novalidate</property>
+ <property name="kdenlive:clipname"/>
+ <property name="kdenlive:folderid">-1</property>
+ <property name="kdenlive:id">7</property>
+ <property name="kdenlive:file_size">418545</property>
+ <property name="kdenlive:file_hash">c5d51ea92c3c5a4ed41293f2ccb0a912</property>
+ <property name="global_feed">1</property>
+ <property name="xml">was here</property>
+ <property name="set.test_audio">0</property>
+ <property name="set.test_image">1</property>
+</producer>
+<playlist id="playlist2">
+ <property name="kdenlive:audio_track">1</property>
+ <entry producer="producer4" in="00:00:00,000" out="00:00:21,600">
+  <property name="kdenlive:id">7</property>
+ </entry>

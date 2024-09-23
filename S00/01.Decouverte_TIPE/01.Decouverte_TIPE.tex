@@ -1,0 +1,161 @@
+%\documentclass[hyperref={pdfpagelabels=false},slidetop,9pt]{beamer}
+\documentclass[slidetop,8pt]{beamer}
+\usepackage{pgfpages}
+\input{beamercoursHeadings}%,draft,handout
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%Zone à modifier%%%%%%%%%%%%%%%%%
+%Est-ce un cours, si oui, mettre un 1.%%%%%%%%%%%
+\newcommand{\cours}{1}
+\title{Découverte des TIPE}
+\date{TIPE}
+\author{Renaud Costadoat}
+\institute{Lycée le Corbusier}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\cours = 1}{}{\pgfpagesuselayout{2 on 1}[a4paper,border shrink=0mm]}
+\setbeamertemplate{itemize item}[ball]
+%\setbeamertemplate{blocks}[rounded]%[shadow=true]
+\setbeamercolor{block title}{fg=white,bg=blef}        % titre block normal 
+\setbeamercolor{block body}{fg=blef,bg=blec!50}      % corps block normal
+\setbeamercolor{block body alerted}{fg=white,bg=red}   % idem pour un block alerte
+
+%--------------------------------------------------------------------------------------------------------------------
+
+\begin{document}
+\bibliographystyle{abbrvnat-fr}
+
+{
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}[pagetitre]
+\setbeamertemplate{footline}[pagetitre]
+\usebackgroundtemplate{\centering\includegraphics[width=\paperwidth]{../../img/fond}}
+\frame{\titlepage}
+}
+
+\setcounter{framenumber}{0}
+
+
+{\frame{
+\frametitle{Travail demandé}
+
+\textbf{Étudier} la problématique:
+\begin{itemize}
+ \item Comprendre tous les termes de la problématique,
+ \item Étudier l'état de l'art sur internet.
+\end{itemize}
+
+\vfill
+ 
+\textbf{Répondre} à la problématique:
+\begin{itemize}
+ \item Proposer une solution afin de répondre à la problématique,
+ \item Proposer une expérimentation permettant de valider la solution.
+\end{itemize}
+}}
+
+{\frame{
+\frametitle{Problématique 1}
+
+\begin{minipage}{0.63\linewidth}
+\textit{Comment garantir la vitesse de rotation d'une platine vinyle ?}
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\centering \includegraphics[width=0.9\linewidth]{img/01-platine}
+\end{minipage}
+
+\begin{minipage}{0.48\linewidth}
+\centering \includegraphics[width=0.7\linewidth]{img/01-compo}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+\centering \includegraphics[width=0.7\linewidth]{img/01-tete}
+\end{minipage}
+
+\begin{minipage}{0.48\linewidth}
+\centering \includegraphics[width=0.7\linewidth]{img/01-strobo}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+\centering \includegraphics[width=0.7\linewidth]{img/01-strobo2}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Problématique 2}
+
+\begin{minipage}{0.63\linewidth}
+\textit{Comment détecter et empêcher le survol d'une zone par un drone ?}
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\centering \includegraphics[width=0.9\linewidth]{img/02-drone}
+\end{minipage}
+
+\begin{minipage}{0.48\linewidth}
+\centering \includegraphics[width=0.7\linewidth]{img/02-compo}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+\centering \includegraphics[width=0.7\linewidth]{img/02-telecommande}
+\end{minipage}
+
+\begin{minipage}{0.48\linewidth}
+\centering \includegraphics[width=0.7\linewidth]{img/02-paris}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+\centering \includegraphics[width=0.7\linewidth]{img/02-epave}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Problématique 3}
+
+\begin{minipage}{0.63\linewidth}
+\textit{Comment stabiliser l'image d'une caméra sur un vélo ?}
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\centering \includegraphics[width=0.5\linewidth]{img/03-gopro}
+\end{minipage}
+
+\begin{minipage}{0.48\linewidth}
+\centering \includegraphics[width=0.6\linewidth]{img/03-image}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+\centering \includegraphics[width=0.6\linewidth]{img/03-support}
+\end{minipage}
+
+\centering \includegraphics[width=0.6\linewidth]{img/03-flou}
+}}
+
+{\frame{
+\frametitle{Problématique 4}
+
+\begin{minipage}{0.63\linewidth}
+\textit{Comment protéger les utilisateurs d'un hack RFID ?}
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\centering \includegraphics[width=0.5\linewidth]{img/04-rfid}
+\end{minipage}
+
+\begin{minipage}{0.48\linewidth}
+\centering \includegraphics[width=0.4\linewidth]{img/04-visa}
+
+\centering \includegraphics[width=0.4\linewidth]{img/04-paiement}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+\centering \includegraphics[width=0.9\linewidth]{img/04-hack}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{A vous de jouer}
+
+Résultats de votre travail:
+\begin{itemize}
+ \item Une introduction sur vos recherches sur l'état de l'art,
+ \item Une présentation de votre solution avec les outils du cours,
+ \item Une conclusion sur certains résultats et sur votre simulation.
+\end{itemize}
+}}
+
+
+\end{document}
+

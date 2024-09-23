@@ -1,0 +1,167 @@
+\input{../../../headers/tpheaders_2.tex}
+
+
+\prob{Modéliser les caractéristiques d'un moteur à courant continu.} 
+
+\\
+
+\section{Modèle du moteur électrique à courant continu}
+
+\begin{eqnarray}
+u_m(t)=L_m.\frac{di(t)}{dt}+R_m.i(t)+e(t) \\
+e(t)=K_e.\omega_m(t) \\
+J.\frac{d\omega_m(t)}{dt}=C_m(t)-C_r(t) \\
+C_m(t)=K_m.i(t)
+\end{eqnarray}
+
+Données:
+\begin{itemize}
+ \item $u_m(t)$: tension aux bornes du moteur ($V$),
+ \item $i(t)$: intensité du courant dans le moteur ($A$),
+ \item $e(t)$: force électromotrice ($V$),
+ \item $\omega_m(t)$: vitesse de rotation du moteur ($rad.s^{-1}$),
+ \item $C_m(t)$: couple moteur ($N.m$),
+ \item $C_r(t)$: couple résistant ($N.m$),
+ \item $L_m$: inductance de la bobine du moteur ($H$),
+ \item $R_m$: résistance électrique interne au moteur ($\Omega$),
+ \item $K_e$: constante électrique du moteur ($V.rad^{-1}.s$),
+ \item $J$: inertie du moteur ($kg.m^2$),
+ \item $K_m$: constante de couple du moteur ($N.m.A^{-1}$).
+\end{itemize}
+
+~\
+
+En général, on suppose $K_e=K_m$ pour une MCC.
+
+\paragraph{Question 1:} D'après les équations (1) à (4), \textbf{écrire} une équation liant uniquement $u_m(t)$, $\omega_m(t)$ et $C_m(t)$.
+
+\paragraph{Question 2:} Quelles sont les \textbf{hypothèses} à poser afin de mettre cette équation sous la forme $u_m(t)=K.\omega_m(t)$. Est-ce que cela vous paraît raisonnable de prendre ces hypothèses ?
+
+\paragraph{Question 3:} En supposant que l'on arrive à mesurer le courant qui traverse le moteur, que devient-il alors possible d'\textbf{estimer} ?
+
+\newpage
+
+\section{Mesure des valeurs caractéristiques du moteur} 
+
+\paragraph{Question 4:} \textbf{Déterminer} un protocole afin de mesurer la tension aux bornes du moteur. Donner la liste du matériel utilisé et ses caractéristiques (sensibilité, plage de mesure...).
+
+\paragraph{Question 5:} \textbf{Déterminer} un protocole afin de mesurer la vitesse de rotation du moteur à l'aide du tachymètre. Donner les caractéristiques du matériel (sensibilité, plage de mesure...).
+
+\paragraph{Question 6:} \textbf{Mettre en \oe uvre} ce protocole pour des tensions allant de 0V à 12V. Écrire les valeurs mesurés dans le script python à télécharger 
+\href{https://github.com/Costadoat/Sciences-Ingenieur/raw/master/S01\%20\nomsequence/TP01\%20Mod\%C3\%A9lisation\%20lin\%C3\%A9aire/Ilot_01\%20Moteur\%20\%C3\%A0\%20courant\%20continu/01-TP01-I01.py}{ici} 
+et l'utiliser afin de tracer la courbe $\omega_m(t)=f(u_m(t))$. Conclure quant à l'allure de ce tracé, quel modèle peut-on appliquer à ce phénomène ?
+
+\paragraph{Question 7:} \textbf{Refaire} la mesure précédente en mesurant aussi le courant qui traverse le moteur.
+
+\paragraph{Question 8:} \textbf{Proposer} et \textbf{mettre en \oe uvre} un protocole permettant de mesurer la résistance interne du moteur. Donner la liste du matériel utilisé et ses caractéristiques (sensibilité, plage de mesure...).
+
+\section{Vérification des modèles et analyse des résultats}
+
+\paragraph{Question 9:} À partir des résultats précédents, \textbf{déterminer} le couple résistant $C_r(t)$ pour le moteur libre. \textbf{Proposer} une solution permettant d'augmenter ce couple, \textbf{prédire} le comportement du système.
+
+\subsection{Vérifier expérimentalement un modèle théorique}
+
+\paragraph{Question 10:} \textbf{Mettre en \oe uvre} ce nouveau protocole et \textbf{conclure} quant à la validité de la prédiction de la question 9.
+
+\subsection{Déterminer la valeur de $L_m$}
+
+\paragraph{Question 11:} \textbf{Proposer} sans les mettre en \oe uvre des protocoles permettant de déterminer la valeur de $L_m$.
+
+\section{Synthèse du TP}
+
+\paragraph{Question 12:} \textbf{Conclure} quant au modèle obtenu pour ce moteur à courant continu, \textbf{réaliser} une synthèse de ce TP présentant votre démarche pour répondre à la problématique.
+
+\section{Annexes}
+
+\subsection{Régression linéaire}
+
+A partir d'un ensemble de couples de valeurs $(x_i,y_i)$, le but de la régression linéaire et la prédiction d'un modèle linéaire: \\
+\begin{center}
+$\hat{y}=\theta_0+\theta_1\cdot x_1+\theta_2\cdot x_2+...+\theta_n\cdot x_n$ \\
+$\hat{y}=X \Theta$
+\end{center}
+
+Ainsi, il faut trouver l'ensemble des $\theta_i$ qui minimisent l'écart (RMSE Root Mean Square Error ou critère des moindres carrés) entre $y=[y_0, y_1,...,y_n]$ et $\hat{y}$. Pour la suite, on utilisera la MSE car le min de la RMSE est aussi celui de la MSE.
+
+Il existe alors 2 solutions l'équation normale et la descente de gradient.
+
+\paragraph{Équation normale} ~\ \\
+
+Il existe une solution analytique pour trouver la valeur de $\Theta$ qui minimise l'écart.
+\begin{center}
+$\hat{\Theta}=(X^TX)^{-1}X^Yy$
+\end{center}
+
+Fonction python
+\begin{lstlisting}
+def regression_lineaire_eq_normale(x,y):
+    X_b = np.array([[xi] for xi in x])
+    theta_best = np.linalg.inv(X_b.T.dot(X_b)).dot(X_b.T).dot(y)
+    return theta_best
+\end{lstlisting}
+
+\paragraph{Descente de gradient} ~\ \\
+
+La descente de gradient est un algorithme d'optimisation très général, capable de trouver des solutions optimales à un grand nombre de problèmes. 
+
+L'idée générale de la descente de gradient est de corriger petit à petit les paramètres dans le but de minimiser une fonction de coût.
+
+L'algorithme suit la pente de la descente de la fonction MSE vers le bas pour la minimiser.
+
+Dans le cas où il y aurait plusieurs variables il faudrait les normaliser afin que l'impact de leur variation soit identique, ce n'est pas le cas pour notre étude.
+
+La descente de gradient consiste à calculer la dérivée partielle (cf cours de math)
+\begin{center}
+$\dfrac{\partial}{\partial \theta_j}MSE(\theta)=\dfrac{2}{m}\sum\limits_{i=1}^m (\Theta^T x^{(i)}-y^{(i)})x_j^{(i)}$
+\end{center}
+
+On prendra en entrée:
+\begin{itemize}
+ \item $\eta$: le taux d'apprentissage qui correspond à la taille des pas que l'on effectue dans la descente (plus $\eta$ est grand, plus vite on converge, mais cela peut générer de l'instabilité),
+ \item le nombre d'itérations
+\end{itemize}
+
+Fonction python
+\begin{lstlisting}
+def regression_lineaire_descente_gradient(x,y):
+    X_b = np.c_[np.ones((len(x), 1)), x]
+    eta = 0.1 # taux d'apprentissage (vitesse à laquelle on suit la pente)
+    n_iterations = 1000 # tester plusieurs valeurs
+    m = 2 # nombre de paramètres
+    theta = np.random.randn(2,1)    # initialisation aléatoire de la solution
+    for iteration in range(n_iterations):
+        gradients = 2/m * X_b.T.dot(X_b.dot(theta) - y)
+        theta = theta - eta * gradients
+    return theta
+\end{lstlisting}
+
+\ifdef{\public}{\end{document}}{}
+
+\clearpage
+
+\newpage
+
+\pagestyle{correction}
+
+\section{Correction}
+
+\paragraph{Question 1:} D'après les équations (1) à (4), \textbf{écrire} une équation liant $u_m(t)$, $\omega_m(t)$ et $C_m(t)$.
+
+$u_m(t)=\frac{L_m}{K_m}.\frac{dC_m(t)}{dt}+\frac{R_m}{K_m}.C_m(t)+K_e.\omega_m(t)$
+
+$u_m(t)=\frac{L_m.J}{K_m}.\frac{d^2\omega_m(t)}{dt^2}+\frac{R_m.J}{K_m}.\frac{d\omega_m(t)}{dt}+K_e.\omega_m(t)$
+
+
+\paragraph{Question 2:} Quelles sont les \textbf{hypothèses} à prendre afin de mettre cette équation sous la forme $u_m(t)=K.\omega_m(t)$.
+
+Il faut se placer à vitesse constante (régime établi) et négliger les frottements, ainsi, $C_r(t)=0$, $\frac{d^2\omega_m(t)}{dt^2}=0$ et $\frac{d\omega_m(t)}{dt}=0$.
+
+Ainsi, $u_m(t)=K_e.\omega_m(t)$
+
+\paragraph{Question 3:} En supposant que l'on arrive à mesurer le courant qui traverse le moteur, que devient-il alors possible de \textbf{mesurer} ?
+
+Il est alors possible de déterminer le couple résistant $C_r(t)$ en régime établi.
+
+Avec $C_m(t)=K_m.i(t)$ et $J.\frac{d\omega_m(t)}{dt}=C_m(t)-C_r(t)=0$ en régime établi, on obtient $C_r(t)=K_m.i(t)=K_e.i(t)$.
+
+\end{document}

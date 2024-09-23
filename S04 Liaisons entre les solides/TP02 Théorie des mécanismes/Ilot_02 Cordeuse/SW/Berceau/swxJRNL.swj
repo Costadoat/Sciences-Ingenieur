@@ -1,0 +1,348 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 03/11/04 by JR
+' *****************************************************************************
+Dim swApp As Object
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long
+Dim Annotation As Object
+Dim Gtol As Object
+Dim DatumTag As Object
+Dim FeatureData As Object
+Dim Feature As Object
+Dim Component As Object
+Sub main()
+
+Set swApp = Application.SldWorks
+
+Set Part = swApp.OpenDoc4 ("D:\Jacky\Actia\Cordeuse CPGE 2\SW et M3D\Berceau\berceau.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("berceau.SLDASM")
+Part.ActiveView().RotateAboutCenter 0.00675957, -0.0080949
+Part.ActiveView().RotateAboutCenter 0.0202787, -0.0242847
+Part.ActiveView().RotateAboutCenter 0.0540766, -0.0647592
+Part.ActiveView().RotateAboutCenter 0.047317, -0.0728541
+Part.ActiveView().RotateAboutCenter 0.0743553, -0.0890439
+Part.ActiveView().RotateAboutCenter 0.0540766, -0.080949
+Part.ActiveView().RotateAboutCenter 0.0405574, -0.0647592
+Part.ActiveView().RotateAboutCenter 0.0405574, -0.080949
+Part.ActiveView().RotateAboutCenter 0.0337979, -0.0971388
+Part.ActiveView().RotateAboutCenter 0.0270383, -0.121424
+Part.ActiveView().RotateAboutCenter -0.0337979, -0.420935
+Part.ActiveView().RotateAboutCenter -0.0675957, -0.169993
+Part.ActiveView().RotateAboutCenter -0.0675957, -0.178088
+Part.ActiveView().RotateAboutCenter -0.0270383, -0.0890439
+Part.ActiveView().RotateAboutCenter 0, -0.0080949
+Part.ActiveView().RotateAboutCenter -0.047317, -0.0242847
+Part.ActiveView().RotateAboutCenter -0.0405574, -0.0242847
+Part.ActiveView().RotateAboutCenter -0.047317, -0.0323796
+Part.ActiveView().RotateAboutCenter 0, -0.0080949
+Part.ActiveView().RotateAboutCenter -0.00675957, 0
+Part.ActiveView().RotateAboutCenter -0.0202787, 0
+Part.ActiveView().RotateAboutCenter -0.0270383, 0
+Part.ActiveView().RotateAboutCenter -0.0270383, -0.0080949
+Part.ActiveView().RotateAboutCenter -0.0337979, -0.0161898
+Part.ActiveView().RotateAboutCenter -0.0405574, -0.0242847
+Part.ActiveView().RotateAboutCenter -0.0675957, -0.0485694
+Part.ActiveView().RotateAboutCenter -0.0540766, -0.0485694
+Part.ActiveView().RotateAboutCenter -0.0405574, -0.0404745
+Part.ActiveView().RotateAboutCenter -0.0270383, -0.0242847
+Part.ActiveView().RotateAboutCenter -0.0202787, -0.0323796
+Part.ActiveView().RotateAboutCenter -0.0202787, -0.0323796
+Part.ActiveView().RotateAboutCenter -0.0337979, -0.0647592
+Part.ActiveView().RotateAboutCenter -0.047317, -0.0728541
+Part.ActiveView().RotateAboutCenter -0.0405574, -0.0566643
+Part.ActiveView().RotateAboutCenter -0.0405574, -0.080949
+Part.ActiveView().RotateAboutCenter -0.00675957, -0.0647592
+Part.ActiveView().RotateAboutCenter 0.0135191, -0.0566643
+Part.ActiveView().RotateAboutCenter 0.0405574, -0.0485694
+Part.ActiveView().RotateAboutCenter 0.0405574, -0.0323796
+Part.ActiveView().RotateAboutCenter 0.0405574, -0.0323796
+Part.ActiveView().RotateAboutCenter 0.047317, -0.0161898
+Part.ActiveView().RotateAboutCenter 0.0337979, -0.0242847
+Part.ActiveView().RotateAboutCenter 0.0337979, -0.0161898
+Part.ActiveView().RotateAboutCenter 0.0405574, -0.0242847
+Part.ActiveView().RotateAboutCenter 0.0337979, -0.0161898
+Part.ActiveView().RotateAboutCenter 0.0337979, -0.0161898
+Part.ActiveView().RotateAboutCenter 0.0270383, -0.0080949
+Part.ActiveView().RotateAboutCenter 0.0540766, -0.0161898
+Part.ActiveView().RotateAboutCenter 0.0202787, 0
+Part.ActiveView().RotateAboutCenter 0.0202787, 0
+Part.ActiveView().RotateAboutCenter 0.0135191, 0
+Part.ActiveView().RotateAboutCenter 0.0202787, 0
+Part.ActiveView().RotateAboutCenter 0.0202787, -0.0080949
+Part.ActiveView().RotateAboutCenter 0.0135191, -0.0161898
+Part.ActiveView().RotateAboutCenter 0, -0.0161898
+Part.ActiveView().RotateAboutCenter 0.00675957, -0.0323796
+Part.ActiveView().RotateAboutCenter 0, -0.0323796
+Part.ActiveView().RotateAboutCenter -0.0135191, -0.0647592
+Part.ActiveView().RotateAboutCenter -0.0270383, -0.0485694
+Part.ActiveView().RotateAboutCenter -0.0135191, -0.0161898
+Part.ActiveView().RotateAboutCenter -0.047317, -0.0323796
+Part.ActiveView().RotateAboutCenter -0.0811149, -0.0161898
+Part.ActiveView().RotateAboutCenter -0.047317, 0
+Part.ActiveView().RotateAboutCenter -0.047317, 0.0323796
+Part.ActiveView().RotateAboutCenter -0.0202787, 0.0242847
+Part.ActiveView().RotateAboutCenter 0, 0.0242847
+Part.ActiveView().RotateAboutCenter 0, 0.0323796
+Part.ActiveView().RotateAboutCenter 0.0135191, 0.0566643
+Part.ActiveView().RotateAboutCenter 0.00675957, 0.080949
+Part.ActiveView().RotateAboutCenter 0, 0.0647592
+Part.ActiveView().RotateAboutCenter 0.0135191, 0.0404745
+Part.ActiveView().RotateAboutCenter 0.0135191, 0.0404745
+Part.ActiveView().RotateAboutCenter 0.0337979, 0.0404745
+Part.ActiveView().RotateAboutCenter 0.0405574, 0.0566643
+Part.ActiveView().RotateAboutCenter 0.0675957, 0.080949
+Part.ActiveView().RotateAboutCenter 0.047317, 0.0728541
+Part.ActiveView().RotateAboutCenter 0.0337979, 0.0485694
+Part.ActiveView().RotateAboutCenter 0.0202787, 0.0323796
+Part.ActiveView().RotateAboutCenter 0.0270383, 0.0485694
+Part.ActiveView().RotateAboutCenter 0.00675957, 0.0323796
+Part.ActiveView().RotateAboutCenter 0.0202787, 0.0485694
+Part.ActiveView().RotateAboutCenter 0.0135191, 0.0485694
+Part.ActiveView().RotateAboutCenter 0.00675957, 0.0323796
+Part.ActiveView().RotateAboutCenter 0.00675957, 0
+Part.ActiveView().RotateAboutCenter -0.00675957, 0
+Part.ActiveView().RotateAboutCenter -0.00675957, 0
+Set Part = Nothing
+swApp.CloseDoc "berceau.SLDASM"
+Set Part = swApp.OpenDoc4 ("D:\Jacky\Actia\Cordeuse CPGE 2\SW et M3D\Berceau\support_droit.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("support_droit.SLDASM")
+Set Part = Nothing
+swApp.CloseDoc "support_droit.SLDASM"
+Set Part = swApp.OpenDoc4 ("D:\Jacky\Actia\Cordeuse CPGE 2\SW et M3D\Berceau\support_gauche.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("support_gauche.SLDASM")
+Set Part = Nothing
+swApp.CloseDoc "support_gauche.SLDASM"
+Set Part = swApp.OpenDoc4 ("D:\Jacky\Actia\Cordeuse CPGE 2\SW et M3D\berceau_pinces\berceau_pince.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("berceau_pince.SLDASM")
+Part.TranslateComponent
+boolstatus = Part.Extension.SelectByID("", "FACE", 0.0113862705997, -0.07103307477337, 0.05350639195598, False, 0, Nothing)
+Part.ClearSelection
+Set Part = Nothing
+swApp.CloseDoc "berceau_pince.SLDASM"
+Set Part = swApp.OpenDoc4 ("D:\Jacky\Actia\Cordeuse CPGE 2\SW et M3D\berceau_pinces\chariot.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("chariot.SLDASM")
+Part.ViewZoomtofit2
+Set Part = Nothing
+swApp.CloseDoc "chariot.SLDASM"
+Set Part = swApp.OpenDoc4 ("D:\Jacky\Actia\Cordeuse CPGE 2\SW et M3D\pince évoluée\ensemble.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("ensemble.SLDASM")
+Part.ActiveView().RotateAboutCenter 0.00675957, 0
+Part.ActiveView().RotateAboutCenter 0.0405574, -0.0485694
+Part.ActiveView().RotateAboutCenter 0.0608362, -0.0242847
+Part.ActiveView().RotateAboutCenter 0.0540766, -0.0242847
+Part.ActiveView().RotateAboutCenter 0.047317, -0.0323796
+Part.ActiveView().RotateAboutCenter 0.0608362, -0.0323796
+Part.ActiveView().RotateAboutCenter 0.0337979, -0.0161898
+Part.ActiveView().RotateAboutCenter 0.0135191, -0.0080949
+Part.ActiveView().RotateAboutCenter 0.0540766, -0.0242847
+Part.ActiveView().RotateAboutCenter 0.141951, -0.080949
+Part.ActiveView().RotateAboutCenter 0.196028, -0.105234
+Part.ActiveView().RotateAboutCenter 0.16223, -0.0566643
+Part.ActiveView().RotateAboutCenter 0.141951, -0.0080949
+Part.ActiveView().RotateAboutCenter 0.114913, 0.0404745
+Part.ActiveView().RotateAboutCenter 0.0608362, 0.113329
+Part.ActiveView().RotateAboutCenter 0.0202787, 0.218562
+Part.ActiveView().RotateAboutCenter -0.0202787, 0.121424
+Part.ActiveView().RotateAboutCenter -0.0337979, 0.080949
+Part.ActiveView().RotateAboutCenter -0.0337979, 0.0890439
+Part.ActiveView().RotateAboutCenter -0.0202787, 0.0323796
+Part.ActiveView().RotateAboutCenter -0.0202787, 0.0161898
+Part.ActiveView().RotateAboutCenter -0.0608362, 0.0323796
+Part.ActiveView().RotateAboutCenter -0.0675957, 0.0080949
+Part.ActiveView().RotateAboutCenter -0.094634, -0.0161898
+Part.ActiveView().RotateAboutCenter -0.135191, -0.0971388
+Part.ActiveView().RotateAboutCenter -0.141951, -0.129518
+Part.ActiveView().RotateAboutCenter -0.094634, -0.113329
+Part.ActiveView().RotateAboutCenter -0.0405574, -0.0647592
+Part.ActiveView().RotateAboutCenter -0.0405574, -0.0971388
+Part.ActiveView().RotateAboutCenter -0.0405574, -0.080949
+Part.ActiveView().RotateAboutCenter -0.0202787, -0.0404745
+Part.ActiveView().RotateAboutCenter -0.0270383, -0.0323796
+Part.ActiveView().RotateAboutCenter -0.0337979, -0.0161898
+Part.ActiveView().RotateAboutCenter -0.047317, 0.0242847
+Part.ActiveView().RotateAboutCenter -0.0675957, 0.0890439
+Part.ActiveView().RotateAboutCenter -0.0202787, 0.0566643
+Part.ActiveView().RotateAboutCenter -0.0337979, 0.0647592
+Part.ActiveView().RotateAboutCenter -0.0202787, 0.0566643
+Part.ActiveView().RotateAboutCenter -0.0135191, 0.0728541
+Part.ActiveView().RotateAboutCenter -0.00675957, 0.0485694
+Part.ActiveView().RotateAboutCenter 0.0202787, 0.0485694
+Part.ActiveView().RotateAboutCenter 0.0540766, 0.0161898
+Part.ActiveView().RotateAboutCenter 0.0608362, 0.0161898
+Part.ActiveView().RotateAboutCenter 0.0270383, 0.0080949
+Part.ActiveView().RotateAboutCenter 0.0337979, 0.0080949
+Part.ActiveView().RotateAboutCenter 0.0270383, -0.0080949
+Part.ActiveView().RotateAboutCenter 0.0270383, -0.0242847
+Part.ActiveView().RotateAboutCenter 0, -0.0080949
+Part.ActiveView().RotateAboutCenter 0, -0.0080949
+Part.TranslateComponent
+boolstatus = Part.Extension.SelectByID("", "VERTEX", -0.002364127104973, 0.06037815108881, 0.02931275563082, False, 0, Nothing)
+Part.ClearSelection
+Set Part = Nothing
+swApp.CloseDoc "ensemble.SLDASM"
+Set Part = swApp.OpenDoc4 ("D:\Jacky\Actia\Cordeuse CPGE 2\SW et M3D\pince évoluée\ensemble_pince.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("ensemble_pince.SLDASM")
+Part.ActiveView().RotateAboutCenter 0.00675957, 0
+Part.ActiveView().RotateAboutCenter 0.0270383, -0.0161898
+Part.ActiveView().RotateAboutCenter 0.0540766, -0.0323796
+Part.ActiveView().RotateAboutCenter 0.0743553, -0.0323796
+Part.ActiveView().RotateAboutCenter 0.168989, -0.0728541
+Part.ActiveView().RotateAboutCenter 0.189268, -0.0728541
+Part.ActiveView().RotateAboutCenter 0.189268, -0.0890439
+Part.ActiveView().RotateAboutCenter 0.189268, -0.0728541
+Part.ActiveView().RotateAboutCenter 0.121672, -0.0323796
+Part.ActiveView().RotateAboutCenter 0.101394, -0.0242847
+Part.ActiveView().RotateAboutCenter 0.148711, -0.0242847
+Part.ActiveView().RotateAboutCenter 0.0675957, -0.0080949
+Part.ActiveView().RotateAboutCenter 0.0743553, 0.0080949
+Part.ActiveView().RotateAboutCenter 0.0675957, 0.0323796
+Part.ActiveView().RotateAboutCenter 0.135191, 0.129518
+Part.ActiveView().RotateAboutCenter 0.277143, 0.388555
+Part.ActiveView().RotateAboutCenter 0.182509, 0.291416
+Part.ActiveView().RotateAboutCenter 0.00675957, 0.0161898
+Part.ActiveView().RotateAboutCenter 0.00675957, -0.145708
+Part.ActiveView().RotateAboutCenter -0.16223, -0.84187
+Part.ActiveView().RotateAboutCenter -0.0608362, -0.113329
+Part.ActiveView().RotateAboutCenter -0.121672, -0.153803
+Part.ActiveView().RotateAboutCenter -0.15547, -0.121424
+Part.ActiveView().RotateAboutCenter -0.121672, -0.0647592
+Part.ActiveView().RotateAboutCenter -0.101394, -0.0404745
+Part.ActiveView().RotateAboutCenter -0.0675957, -0.0242847
+Part.ActiveView().RotateAboutCenter -0.0135191, -0.0080949
+Part.ActiveView().RotateAboutCenter -0.0270383, 0.0080949
+Part.ActiveView().RotateAboutCenter -0.0202787, 0.0161898
+Set Part = Nothing
+swApp.CloseDoc "ensemble_pince.SLDASM"
+Set Part = swApp.OpenDoc4 ("D:\Jacky\Actia\Cordeuse CPGE 2\SW et M3D\système_tension\Bloc_de_tirage.sldasm", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("Bloc_de_tirage.sldasm")
+Set Part = Nothing
+swApp.CloseDoc "Bloc_de_tirage.sldasm"
+Set Part = swApp.OpenDoc4 ("D:\Jacky\Actia\Cordeuse CPGE 2\SW et M3D\M3D TP motorisation\cordeusemeca.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("cordeusemeca.SLDASM")
+Part.ActiveView().RotateAboutCenter 0, -0.0161898
+Part.ActiveView().RotateAboutCenter 0.0135191, -0.0485694
+Part.ActiveView().RotateAboutCenter 0.0337979, -0.0566643
+Part.ActiveView().RotateAboutCenter 0.047317, -0.0728541
+Part.ActiveView().RotateAboutCenter 0.0405574, -0.0728541
+Part.ActiveView().RotateAboutCenter 0.047317, -0.0485694
+Part.ActiveView().RotateAboutCenter 0.0337979, -0.0566643
+Part.ActiveView().RotateAboutCenter 0.047317, -0.0485694
+Part.ActiveView().RotateAboutCenter 0.135191, -0.0728541
+Part.ActiveView().RotateAboutCenter 0.223066, -0.080949
+Part.ActiveView().RotateAboutCenter 0.250104, -0.0566643
+Part.ActiveView().RotateAboutCenter 0.0811149, -0.0161898
+Part.ActiveView().RotateAboutCenter 0.00675957, 0
+Part.ActiveView().RotateAboutCenter 0.00675957, -0.080949
+Part.ActiveView().RotateAboutCenter -0.00675957, -0.080949
+Part.ActiveView().RotateAboutCenter -0.0202787, -0.0566643
+Part.ActiveView().RotateAboutCenter -0.0270383, -0.0485694
+Part.ActiveView().RotateAboutCenter -0.047317, -0.0485694
+Part.ActiveView().RotateAboutCenter -0.0811149, -0.0323796
+Part.ActiveView().RotateAboutCenter -0.0878745, -0.0080949
+Part.ActiveView().RotateAboutCenter -0.121672, 0.0242847
+Part.ActiveView().RotateAboutCenter -0.128432, 0.0728541
+Part.ActiveView().RotateAboutCenter -0.121672, 0.0728541
+Part.ActiveView().RotateAboutCenter -0.0878745, 0.080949
+Part.ActiveView().RotateAboutCenter -0.0675957, 0.0566643
+Part.ActiveView().RotateAboutCenter -0.0337979, 0.0485694
+Part.ActiveView().RotateAboutCenter -0.0405574, 0.080949
+Part.ActiveView().RotateAboutCenter -0.0405574, 0.0890439
+Part.ActiveView().RotateAboutCenter -0.0270383, 0.0971388
+Part.ActiveView().RotateAboutCenter -0.0202787, 0.0647592
+Part.ActiveView().RotateAboutCenter -0.0135191, 0.105234
+Part.ActiveView().RotateAboutCenter -0.00675957, 0.129518
+Part.ActiveView().RotateAboutCenter -0.0135191, 0.0971388
+Part.ActiveView().RotateAboutCenter 0.0270383, 0.194278
+Part.ActiveView().RotateAboutCenter 0.0608362, 0.194278
+Part.ActiveView().RotateAboutCenter 0.114913, 0.226657
+Part.ActiveView().RotateAboutCenter 0.0811149, 0.169993
+Part.ActiveView().RotateAboutCenter 0.047317, 0.0647592
+Part.ActiveView().RotateAboutCenter 0.0202787, 0.0161898
+Part.ActiveView().RotateAboutCenter 0.00675957, 0
+Part.ActiveView().RotateAboutCenter 0.00675957, -0.080949
+Part.ActiveView().RotateAboutCenter 0.0135191, -0.129518
+Part.ActiveView().RotateAboutCenter 0.0135191, -0.145708
+Part.ActiveView().RotateAboutCenter -0.0135191, -0.234752
+Part.ActiveView().RotateAboutCenter -0.0135191, -0.242847
+Part.ActiveView().RotateAboutCenter -0.0202787, -0.202373
+Part.ActiveView().RotateAboutCenter -0.00675957, -0.113329
+Part.ActiveView().RotateAboutCenter -0.0202787, -0.129518
+Part.ActiveView().RotateAboutCenter 0, -0.0971388
+Part.ActiveView().RotateAboutCenter 0, -0.0323796
+Part.ActiveView().RotateAboutCenter 0.00675957, -0.0323796
+Part.ActiveView().RotateAboutCenter 0.0270383, -0.0647592
+Part.ActiveView().RotateAboutCenter 0.047317, -0.0566643
+Part.ActiveView().RotateAboutCenter 0.0540766, -0.0485694
+Part.ActiveView().RotateAboutCenter 0.0405574, -0.0485694
+Part.ActiveView().RotateAboutCenter 0.0540766, -0.0566643
+Part.ActiveView().RotateAboutCenter 0.0743553, -0.0404745
+Part.ActiveView().RotateAboutCenter 0.0811149, 0
+Part.ActiveView().RotateAboutCenter 0.094634, 0.0242847
+Part.ActiveView().RotateAboutCenter 0.101394, 0.0323796
+Part.ActiveView().RotateAboutCenter 0.0811149, 0.0728541
+Part.ActiveView().RotateAboutCenter 0.148711, 0.218562
+Part.ActiveView().RotateAboutCenter 0.114913, 0.202373
+Part.ActiveView().RotateAboutCenter 0.00675957, 0.0161898
+Part.ActiveView().RotateAboutCenter 0.0202787, 0.0971388
+Part.ActiveView().RotateAboutCenter 0.0337979, 0.153803
+Part.ActiveView().RotateAboutCenter -0.0270383, 0.0890439
+Part.ActiveView().RotateAboutCenter -0.101394, 0.0323796
+Part.ActiveView().RotateAboutCenter -0.0878745, 0.0080949
+Part.ActiveView().RotateAboutCenter -0.141951, -0.0080949
+Part.ActiveView().RotateAboutCenter -0.15547, -0.0242847
+Part.ActiveView().RotateAboutCenter -0.128432, -0.0566643
+Part.ActiveView().RotateAboutCenter -0.094634, -0.0647592
+Part.ActiveView().RotateAboutCenter -0.0608362, -0.0404745
+Part.ActiveView().RotateAboutCenter -0.0675957, -0.0404745
+Part.ActiveView().RotateAboutCenter -0.0202787, -0.0242847
+Part.ActiveView().RotateAboutCenter 0, -0.0080949
+Part.ActiveView().RotateAboutCenter -0.00675957, 0
+Part.ActiveView().RotateAboutCenter -0.0337979, -0.0242847
+Part.ActiveView().RotateAboutCenter -0.0337979, -0.0080949
+Part.ActiveView().RotateAboutCenter -0.0202787, -0.0242847
+Part.ActiveView().RotateAboutCenter -0.00675957, -0.0080949
+Part.ActiveView().RotateAboutCenter -0.0202787, -0.0323796
+Part.ActiveView().RotateAboutCenter -0.0270383, -0.0566643
+Part.ActiveView().RotateAboutCenter 0, -0.0485694
+Part.ActiveView().RotateAboutCenter 0.0270383, -0.0971388
+Part.ActiveView().RotateAboutCenter 0.047317, -0.153803
+Part.ActiveView().RotateAboutCenter 0.0270383, -0.0485694
+Part.ShowNamedView2 "*Face", 1
+Part.ShowNamedView2 "*Gauche", 3
+boolstatus = Part.Extension.SelectByID("chassis2-1@cordeusemeca", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+boolstatus = Part.Extension.SelectByID("moteur-1@cordeusemeca", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+boolstatus = Part.Extension.SelectByID("Coaxial5", "MATE", 0, 0, 0, True, 0, Nothing)
+Part.ClearSelection
+boolstatus = Part.Extension.SelectByID("Bloc_de_tirage1-1@cordeusemeca", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+boolstatus = Part.Extension.SelectByID("chassis2-1@cordeusemeca", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+Part.ClearSelection
+boolstatus = Part.Extension.SelectByID("Bloc_de_tirage1-1@cordeusemeca", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+boolstatus = Part.Extension.SelectByID("chassis2-1@cordeusemeca", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+Part.ClearSelection
+Set Part = Nothing
+swApp.CloseDoc "cordeusemeca.SLDASM"
+Set Part = swApp.OpenDoc4 ("D:\Jacky\Actia\Cordeuse CPGE 2\SW et M3D\M3D TP motorisation\cordeusemeca-1.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("cordeusemeca-1.SLDASM")
+boolstatus = Part.Extension.SelectByID("Bloc_de_tirage1-1@cordeusemeca-1", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+Part.ClearSelection
+boolstatus = Part.Extension.SelectByID("Bloc_de_tirage1-1@cordeusemeca-1", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+Part.ClearSelection
+boolstatus = Part.Extension.SelectByID("Bloc_de_tirage1-1@cordeusemeca-1", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+Part.ClearSelection
+boolstatus = Part.Extension.SelectByID("Bloc_de_tirage1-1@cordeusemeca-1", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+Part.ClearSelection
+boolstatus = Part.Extension.SelectByID("Bloc_de_tirage1-1@cordeusemeca-1", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+Part.ClearSelection
+boolstatus = Part.Extension.SelectByID("Bloc_de_tirage1-1@cordeusemeca-1", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+Part.ClearSelection
+boolstatus = Part.Extension.SelectByID("Bloc_de_tirage1-1@cordeusemeca-1", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+Part.ClearSelection
+boolstatus = Part.Extension.SelectByID("Bloc_de_tirage1-1@cordeusemeca-1", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+Part.ClearSelection
+boolstatus = Part.Extension.SelectByID("chassis2-1@cordeusemeca-1", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+boolstatus = Part.Extension.SelectByID("moteur-1@cordeusemeca-1", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+boolstatus = Part.Extension.SelectByID("Coaxial5", "MATE", 0, 0, 0, True, 0, Nothing)
+Part.ClearSelection
+swApp.ExitApp
+End Sub

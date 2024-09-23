@@ -1,0 +1,183 @@
+\input{../../headers/beamercoursHeadings}
+
+{\frame{
+\frametitle{Représentations}
+
+\centering\includegraphics[width=0.9\linewidth]{img/Picture1}
+
+}}
+
+{\frame{
+\frametitle{Trains à un engrenage: contact extérieur}
+
+\begin{minipage}{0.45\linewidth}
+\begin{itemize}
+ \item Pour un couple de roues, si $Z_a$ est le nombre de dents de la roue ($a$) et $D_a$ son diamètre primitif, le rapport de transmission est : $R_{2/1}=\dfrac{\omega_2}{\omega_1}=-\dfrac{Z_1}{Z_2}=-\dfrac{D_1}{D_2}$,
+ \item Remarque: Le signe $-$ indique une inversion du sens de rotation entre l'entrée $1$ et la sortie $2$.
+ \item Le rapport des couples transmis, en supposant un rendement $\eta$ est: $\eta.\dfrac{C_1}{C_2}=R_{2/1}=\dfrac{\omega_2}{\omega_1}$,
+ \begin{itemize}
+ \item $C_1$: couple sur la roue 1 (\og moteur \fg),
+ \item $C_2$: couple sur la roue 2 (\og récepteur \fg), $\eta \leq 1$.
+ \end{itemize}
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+\centering\includegraphics[width=0.9\linewidth]{img/Picture2}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Trains à un engrenage: contact intérieur}
+
+\begin{center}
+	\includegraphics[width=0.8\linewidth]{img/Picture3}
+\end{center}
+
+\begin{minipage}{0.45\linewidth}
+Rapport de transmission est : \\
+$R_{2/1}=\dfrac{\omega_2}{\omega_1}=\dfrac{Z_1}{Z_2}=\dfrac{D_1}{D_2}$
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+Le rapport des couples transmis, en supposant un rendement $\eta$ est: \\
+$\eta.\dfrac{C_1}{C_2}=R_{2/1}=\dfrac{\omega_2}{\omega_1}$.
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Exemple: Calculer $\dfrac{\omega_5}{\omega_1}$}
+
+\begin{minipage}[t]{0.4\textwidth}
+	\includegraphics[width=0.9\linewidth]{img/Picture4}
+\end{minipage}
+\begin{minipage}[t]{0.55\textwidth}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Formule générale}
+
+\begin{center}
+	\begin{defi}
+ \ifdef{\public}{$r=\dfrac{\omega_S}{\omega_E}=(-1)^p.\dfrac{\text{produit des roues menantes}}{\text{produit des roues menées}}$.}{ \hfill \\ \hfill \\ \hfill}
+	\end{defi}
+\end{center}
+
+\begin{itemize}
+ \item Avec:
+ \begin{itemize}
+  \item $p$: nombre de contacts extérieurs,
+  \item $\omega_S$: vitesse de rotation de la pièce de sortie du réducteur,
+  \item $\omega_E$: vitesse de rotation de la pièce d'entrée du réducteur.
+ \end{itemize}
+ \item Pour les trains avec engrenages coniques et systèmes roues et vis sans fin, la formule générale est applicable en supprimant le $(-1)^p$,
+ \item Dans le cas d'un engrenage roue et vis, le nombre de filet de la vis correspond à son nombre de dents.
+\end{itemize}
+}}
+
+{\frame{
+\frametitle{Exemple: Calculer $\dfrac{\omega_S}{\omega_E}$}
+
+\begin{minipage}[t]{0.55\textwidth}
+	\includegraphics[width=0.8\linewidth]{img/Picture5} \\
+ \begin{itemize}
+  \item $Z_1 = 32$ dents,
+  \item $Z_2 = 65$ dents,
+  \item $Z_3 = 80$ dents,
+  \item $Z_4 = 18$ dents,
+  \item $Z_5 = 25$ dents,
+  \item $Z_6 = 85$ dents.
+ \end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.4\textwidth}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Les trains d'engrenages}
+
+\begin{itemize}
+ \item Les trains d'engrenages sont utilisés dans une grande quantité de machines et mécanismes divers,
+ \item Les dentures hélicoïdales, plus silencieuses sont les plus utilisées lorsqu'il s'agit de transmettre de la puissance,
+ \item Afin de réduire l'encombrement et économiser la matière on limite le rapport de transmission d'un même couple de roue ($1/8 \leq Z_1/Z_2 \leq 8$). Au-delà de ces valeurs, il est préférable d'utiliser deux couples de roues ou plus,
+ \item Dans la plupart des applications, les trains d'engrenages fonctionnent en réducteur (réduisent la vitesse et augmentent le couple),
+ \item Ils sont liés aux arbres en rotation par des liaisons encastrement démontables, souvent en utilisant des \textbf{clavettes}.
+\end{itemize}
+}}
+
+
+{\frame{
+\frametitle{Trains épicycloïdaux}
+
+\begin{itemize}
+ \item Un train d'engrenage est dit \og épicycloïdal \fg lorsque, au cours du fonctionnement une ou plusieurs roues dentées tournent autour d'un arbre mobile en rotation. Ces roues dentées possèdent donc un mouvement relatif de rotation autour de leur axe et un mouvement d'entraînement de rotation autour de l'axe de l'arbre,
+ \item Ils autorisent de grands rapports de réduction sous un faible encombrement et sont régulièrement utilisés dans les boîtes de vitesse automatique.
+\end{itemize}
+
+\begin{minipage}[t]{0.45\textwidth}
+Cette configuration est la plus utilisée. On peut avoir 2,3 ou 4 satellites (sans influence sur le rapport de transmission). Le système, par défaut, a deux mobilités.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.45\textwidth}
+~\ \\
+\includegraphics[width=0.9\linewidth]{img/Picture6}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Train épicycloïdal simple}
+
+\includegraphics[width=0.9\linewidth]{img/Picture7}
+
+Formule de Willis:\\
+\begin{center}
+	\begin{defi}
+ \ifdef{\public}{$\dfrac{\omega_c-\omega_{ps}}{\omega_p-\omega_{ps}}=(-1)^p.\dfrac{\text{produit des roues menantes}}{\text{produit des roues menées}}$ \\ c: Couronne, p: planétaire, ps: porte satellite.}{ \hfill \\ \hfill \\ \hfill}
+	\end{defi}
+\end{center}
+}}
+
+{\frame{
+\frametitle{Les satellites}
+
+\includegraphics[width=0.9\linewidth]{img/Picture8}
+}}
+
+{\frame{
+\frametitle{Cas usuels de fonctionnement}
+
+\textbf{Couronne bloquée} \\
+\includegraphics[width=0.8\linewidth]{img/Picture9}
+
+\begin{center}
+	\begin{rem}
+ \ifdef{\public}{$\dfrac{\omega_{ps}}{\omega_p}=\dfrac{Z_1}{Z_1+Z_3}=\dfrac{C_p}{C_{ps}}$}{ \hfill \\ \hfill \\ \hfill}
+ 	\end{rem}
+\end{center}
+}}
+
+{\frame{
+\frametitle{Cas usuels de fonctionnement}
+
+\textbf{Planétaire bloqué} \\
+\includegraphics[width=0.8\linewidth]{img/Picture10}
+
+\begin{center}
+	\begin{rem}
+ \ifdef{\public}{$\dfrac{\omega_{ps}}{\omega_c}=\dfrac{Z_3}{Z_1+Z_3}=\dfrac{C_c}{C_{ps}}$}{ \hfill \\ \hfill \\ \hfill}
+ 	\end{rem}
+\end{center}
+}}
+
+{\frame{
+\frametitle{Cas usuels de fonctionnement}
+
+\textbf{Porte satellites bloqué} \\
+\includegraphics[width=0.8\linewidth]{img/Picture11}
+
+\begin{center}
+	\begin{rem}
+ \ifdef{\public}{$\dfrac{\omega_c}{\omega_p}=-\dfrac{Z_1}{Z_3}=\dfrac{C_p}{C_{c}}$}{ \hfill \\ \hfill \\ \hfill}
+	\end{rem}
+\end{center}
+}}
+
+\end{document}

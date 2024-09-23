@@ -1,0 +1,63 @@
+\input{../../headers/beamervideosHeadingshand}
+
+\title{Fonctions de transfert dans le domaine de Laplace}
+
+\setbeamertemplate{headline}[pagetitre]
+\setbeamertemplate{footline}[pagetitre]
+\begin{frame}[noframenumbering]
+\titlepage
+\end{frame}
+
+\setbeamertemplate{footline}[renaud theme]
+\setbeamertemplate{headline}[pagetitre]
+\frame{
+\frametitle{\inserttitle}
+
+\begin{obj}
+Déterminer la fonction de transfert d'un S.L.C.I. à partir des équations.\\
+Exercice 01 : S02TD01
+\end{obj}
+
+\begin{minipage}[t]{0.3\linewidth}
+Les équations du moteur à courant continu sont les suivantes:
+\begin{eqnarray}
+u(t)=R.i(t)+e(t) \\
+e(t)=K_e.\omega_2(t) \\
+C_m(t)=K_c.i(t) \\
+C_m(t)=J_i.\frac{d\omega_2(t)}{dt}
+\end{eqnarray}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.6\linewidth}
+Avec:
+\begin{itemize}
+ \item $u(t)$ (en $V$), tension de l'induit,
+ \item $R=1,1\ \Omega$, résistance de l'induit,
+ \item $i(t)$ (en $A$), intensité du courant d'induit,
+ \item $e(t)$ (en $V$), force contre-électromotrice,
+ \item $\omega_2(t)$ (en $rad.s^{-1}$) vitesse de rotation de l'arbre moteur (2),
+ \item $K_e=0,265\ V.rad^{-1}.s$ constante électrique du moteur
+ \item $C_m(t)$ (en $N.m$), couple moteur,
+ \item $K_c=0,265\ N.m.A^{-1}$ constante de couple,
+ \item $J_i$ (en $kg.m^2$), moment d'inertie ramené sur l'arbre moteur (2).
+\end{itemize}
+\end{minipage}
+
+
+}
+
+\question{Question 1: Écrire les équations du moteur dans le domaine de Laplace (les conditions initiales sont nulles), et citer le(s) théorème(s) utilisé(s)}
+
+\question{Question 2: Trouver une relation entre $U(p)$ et $\Omega_2(p)$.}
+
+\question{Question 3: Mettre la relation précédente sous la forme
+$H(p)=\frac{\Omega_2(p)}{U(p)}=\frac{K_m}{1+\tau_m.p}$. Préciser les expressions littérale de $K_m$ et $\tau_m$.}
+
+
+
+
+
+
+
+
+\end{document}	
+

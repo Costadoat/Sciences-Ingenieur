@@ -1,0 +1,2 @@
+convert -quality 100 -density 300 -channel rgba -alpha on 02-V01.pdf image_%02d.png
+

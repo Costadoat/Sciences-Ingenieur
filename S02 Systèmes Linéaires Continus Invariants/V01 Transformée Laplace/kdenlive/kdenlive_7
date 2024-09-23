@@ -1,0 +1,67 @@
+<filter id="filter3">
+ <property name="window">75</property>
+ <property name="max_gain">20dB</property>
+ <property name="mlt_service">volume</property>
+ <property name="internal_added">237</property>
+ <property name="disable">1</property>
+</filter>
+<filter id="filter4">
+ <property name="channel">-1</property>
+ <property name="mlt_service">panner</property>
+ <property name="internal_added">237</property>
+ <property name="start">0,5</property>
+ <property name="disable">1</property>
+</filter>
+</playlist>
+<playlist id="playlist3">
+<property name="kdenlive:audio_track">1</property>
+</playlist>
+<tractor id="tractor1" in="00:00:00,000" out="00:00:21,600">
+<property name="kdenlive:audio_track">1</property>
+<property name="kdenlive:trackheight">128</property>
+<property name="kdenlive:collapsed">0</property>
+<property name="kdenlive:thumbs_format"/>
+<property name="kdenlive:audio_rec"/>
+<property name="kdenlive:timeline_active">1</property>
+<track hide="video" producer="playlist2"/>
+<track hide="video" producer="playlist3"/>
+<filter id="filter5">
+ <property name="iec_scale">0</property>
+ <property name="mlt_service">audiolevel</property>
+</filter>
+</tractor>
+<producer title="Anonymous Submission" id="producer5" in="00:00:00,000" out="00:00:13,000">
+<property name="length">00:00:13,040</property>
+<property name="eof">pause</property>
+<property name="resource">/home/renaud/Sciences-Ingenieur/headers/intro_video/lunettes/.all.png</property>
+<property name="ttl">1</property>
+<property name="aspect_ratio">1</property>
+<property name="progressive">1</property>
+<property name="seekable">1</property>
+<property name="meta.media.width">1920</property>
+<property name="meta.media.height">1080</property>
+<property name="mlt_service">qimage</property>
+<property name="kdenlive:clipname">Clip diaporama</property>
+<property name="animation"/>
+<property name="luma_file"/>
+<property name="luma_duration">25</property>
+<property name="fade">0</property>
+<property name="crop">0</property>
+<property name="softness">0</property>
+<property name="loop">0</property>
+<property name="kdenlive:duration">00:00:13,040</property>
+<property name="kdenlive:folderid">-1</property>
+<property name="kdenlive:id">6</property>
+<property name="kdenlive:file_hash">dbd36493c5beee754c52786d42271398</property>
+<property name="global_feed">1</property>
+<property name="xml">was here</property>
+<property name="set.test_audio">1</property>
+<property name="set.test_image">0</property>
+</producer>
+<playlist id="playlist4">
+<entry producer="producer5" in="00:00:00,000" out="00:00:13,000">
+ <property name="kdenlive:id">6</property>
+</entry>
+<entry producer="producer2" in="00:00:00,000" out="00:00:08,560">
+ <property name="kdenlive:id">5</property>
+</entry>

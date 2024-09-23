@@ -1,0 +1,19 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 06/02/01 by pierre
+' ******************************************************************************
+
+Dim swApp As Object
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long
+Dim Annotation As Object
+Dim Gtol As Object
+Dim DatumTag As Object
+Dim FeatureData As Object
+Dim Feature As Object
+Dim Component As Object
+Sub main()
+Set swApp = CreateObject ("SldWorks.Application")
+Set Part = swApp.OpenDoc3 ("C:\bdpince\pl_ens_pince.SLDDRW", 3, 0, 0, 0, 0, longstatus)
+swApp.ExitApp
+End Sub

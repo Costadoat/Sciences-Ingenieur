@@ -1,0 +1,66 @@
+\input{../../../headers/tpheaders.tex}
+
+\prob{Déterminer les caractéristiques d'un ressort.} 
+
+\section{Modèle du ressort élastique} 
+
+Dans un premier temps, on considérera que le ressort utilisé dans cette expérience peut être modélisé comme un ressort élastique pur. 
+
+\paragraph{Question 1:} Déterminer la raideur pure d'un ressort qui nécessite un effort de traction $F$ pour s'allonger d'une longueur $\Delta L$. On rappelle que la raideur d'un ressort s'exprime en $N.m^{-1}$.
+
+Une masse $m_1$ est suspendue à un ressort de raideur $K$, sa longueur mesurée est $L_1$. Une masse $m_2$ est suspendue à ce ressort (en remplacement de la précédente), sa longueur est maintenant $L_2$.
+
+\paragraph{Question 2:} Déterminer la raideur de ce ressort en fonction de $L_1$, $L_2$, $m_1$ et $m_2$. Prendre toutes les hypothèses nécessaire à la mise en équation du problème. Est-ce que cela vous paraît raisonnable de prendre ces hypothèses ?
+
+\section{Vérification de la raideur pure d'un ressort}
+
+Il faudra pour la suite mettre en place un protocole de mesure permettant la répétabilité des mesures, il faut donc au préalable effectuer une installation propre et stable du matériel fournis. Il faudra aussi donner la liste et les caractéristiques (sensibilité, plage de mesure,...) du matériel de mesure utilisé.
+
+\paragraph{Question 3:} Suspendre une masse $m_1$ à un ressort et mesurer sa longueur.
+
+\paragraph{Question 4:} Suspendre une masse $m_2$ à un ressort et mesurer sa longueur.
+
+\paragraph{Question 5:} Suspendre une masse $m_3$ à un ressort et mesurer sa longueur.
+
+\subsection{Déterminer le comportement élastique d'un ressort}
+
+\paragraph{Question 6:} A l'aide des résultats expérimentaux et des résultats de la question 2, déterminer la raideur $K$ du ressort.
+
+\section{Modèle du ressort élastique/amortisseur}  
+
+Le modèle du ressort va maintenant évoluer afin de prendre en compte le coefficient d'amortissement du ressort. Pour cela, un fichier python  
+\href{https://github.com/Costadoat/Sciences-Ingenieur/raw/master/S01\%20Analyse\%20fonctionnelle/TP01\%20Mod\%C3\%A9lisation\%20lin\%C3\%A9aire/Ilot_02\%20Ressort/modele_ressort_dyn.py}{\texttt{modele\_ressort\_dyn.py}} doit être ouvert avec le logiciel Spyder. Il permet de tracer le comportement d'un ressort amorti en fonction des paramètres suivants:
+\begin{itemize}
+ \item la durée de la mesure ($s$),
+ \item la raideur du ressort ($N.m^{-1}$),
+ \item la masse suspendue ($kg$),
+ \item le coefficient d'amortissement ($N.m^{-1}.s$).
+\end{itemize}
+
+\paragraph{Question 7:} Définir l'influence de chacun de ces paramètres sur la courbe tracée.
+
+\subsection{Mesure de la trajectoire amortie du ressort}
+
+\paragraph{Question 8:} Filmer le mouvement du ressort après avoir lâché la masse (le ressort doit être en position de repos au départ).
+
+\paragraph{Question 9:} Utiliser un logiciel de traitement pour déterminer la position de la masse en fonction du temps.
+
+\subsection{Identifier le coefficient d'amortissement du ressort}
+
+\paragraph{Question 10:} A partir des relevés expérimentaux et du programme python \\ \href{https://github.com/Costadoat/Sciences-Ingenieur/raw/master/S01\%20Analyse\%20fonctionnelle/TP01\%20Mesures\%20physiques/Ilot_02\%20Ressort/modele_ressort_dyn.py}{\texttt{modele\_ressort\_dyn.py}}, déterminer le coeffcient d'amortissement du ressort.
+
+\clearpage
+
+\ifdef{\public}{\end{document}}{}
+
+\newpage
+
+\pagestyle{correction}
+
+\section{Correction}
+
+\paragraph{Question 2:} 
+
+$K=\frac{(m_1-m_2).g}{L_1-L_2}$, l'accélération de pesanteur est choisie égale à $9.81m.s^{-2}$.
+
+\end{document}

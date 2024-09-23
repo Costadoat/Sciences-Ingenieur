@@ -1,0 +1,877 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mlt title="Anonymous Submission" LC_NUMERIC="fr_FR.UTF-8" producer="main_bin" version="6.20.0" root="/home/renaud/Documents/Renaud/GitHub/Sciences-Ingenieur/S02 Systèmes Linéaires Continus Invariants/V01 Transformée Laplace">
+ <profile frame_rate_num="25" sample_aspect_num="1" display_aspect_den="9" colorspace="709" progressive="1" description="HD 1080p 25 fps" display_aspect_num="16" frame_rate_den="1" width="1920" height="1080" sample_aspect_den="1"/>
+ <producer title="Anonymous Submission" id="producer0" in="00:00:00,000" out="00:00:14,280">
+  <property name="length">358</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Documents/Renaud/Dorian/Admin/Logo/Anim/kawasaki.avi</property>
+  <property name="audio_index">1</property>
+  <property name="video_index">0</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
+  <property name="meta.media.nb_streams">2</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">29,97</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">1</property>
+  <property name="meta.media.0.codec.width">1280</property>
+  <property name="meta.media.0.codec.height">720</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.frame_rate">29,97</property>
+  <property name="meta.media.0.codec.pix_fmt">yuvj420p</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">1</property>
+  <property name="meta.media.0.codec.colorspace">601</property>
+  <property name="meta.media.0.codec.name">mjpeg</property>
+  <property name="meta.media.0.codec.long_name">MJPEG (Motion JPEG)</property>
+  <property name="meta.media.0.codec.bit_rate">38496371</property>
+  <property name="meta.media.1.stream.type">audio</property>
+  <property name="meta.media.1.codec.sample_fmt">fltp</property>
+  <property name="meta.media.1.codec.sample_rate">48000</property>
+  <property name="meta.media.1.codec.channels">2</property>
+  <property name="meta.media.1.codec.name">mp3float</property>
+  <property name="meta.media.1.codec.long_name">MP3 (MPEG audio layer 3)</property>
+  <property name="meta.media.1.codec.bit_rate">256000</property>
+  <property name="meta.attr.encoder.markup">Lavf58.12.100</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="aspect_ratio">1</property>
+  <property name="kdenlive:clipname"/>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="meta.media.frame_rate_num">30000</property>
+  <property name="meta.media.frame_rate_den">1001</property>
+  <property name="meta.media.colorspace">601</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.width">1280</property>
+  <property name="meta.media.height">720</property>
+  <property name="meta.media.color_range">full</property>
+  <property name="kdenlive:id">54</property>
+  <property name="kdenlive:file_size">69213840</property>
+  <property name="kdenlive:file_hash">3fda2a030912e0da0f2ff40176e61b6f</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="global_feed">1</property>
+ </producer>
+ <producer id="producer2" in="00:00:00,000" out="00:00:15,400">
+  <property name="length">386</property>
+  <property name="eof">pause</property>
+  <property name="resource">0xffffffff</property>
+  <property name="aspect_ratio">1</property>
+  <property name="mlt_service">color</property>
+  <property name="kdenlive:clipname">Clip couleur</property>
+  <property name="kdenlive:duration">00:00:10,000</property>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">2</property>
+  <property name="kdenlive:file_hash">039b56a692cd66eefeea44a17539e5a2</property>
+ </producer>
+ <producer title="Anonymous Submission" id="producer3" in="00:00:00,000" out="00:03:03,880">
+  <property name="length">4598</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Documents/Renaud/Dorian/Admin/intro_video/charlie-parker-a-night-in-tunisia-featuring-the-famous-alto-break.mp3</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">audio</property>
+  <property name="meta.media.0.codec.sample_fmt">fltp</property>
+  <property name="meta.media.0.codec.sample_rate">48000</property>
+  <property name="meta.media.0.codec.channels">2</property>
+  <property name="meta.media.0.codec.name">mp3float</property>
+  <property name="meta.media.0.codec.long_name">MP3 (MPEG audio layer 3)</property>
+  <property name="meta.media.0.codec.bit_rate">233044</property>
+  <property name="meta.attr.0.stream.encoder.markup">Lavc57.64</property>
+  <property name="meta.attr.encoder.markup">Lavf57.56.101</property>
+  <property name="seekable">1</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">1</property>
+  <property name="mlt_service">avformat</property>
+  <property name="kdenlive:clipname"/>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">4</property>
+  <property name="kdenlive:file_size">5358189</property>
+  <property name="kdenlive:file_hash">c4dcb7bbad1139eae3487ca88c7d7fd9</property>
+  <property name="global_feed">1</property>
+ </producer>
+ <producer title="Anonymous Submission" id="producer14" in="00:00:00,000" out="00:00:09,240">
+  <property name="length">232</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Documents/Renaud/Dorian/Admin/intro_video/coltrane_intro.mp3</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">audio</property>
+  <property name="meta.media.0.codec.sample_fmt">fltp</property>
+  <property name="meta.media.0.codec.sample_rate">44100</property>
+  <property name="meta.media.0.codec.channels">2</property>
+  <property name="meta.media.0.codec.name">mp3float</property>
+  <property name="meta.media.0.codec.long_name">MP3 (MPEG audio layer 3)</property>
+  <property name="meta.media.0.codec.bit_rate">89951</property>
+  <property name="meta.attr.0.stream.encoder.markup">LAME3.100</property>
+  <property name="meta.attr.Software.markup">Lavf57.56.101</property>
+  <property name="meta.attr.TYER.markup">20180210</property>
+  <property name="meta.attr.date.markup">20180210</property>
+  <property name="meta.attr.title.markup">John Coltrane Blue Train (Music Matters) MONO 2014</property>
+  <property name="meta.attr.description.markup">Music Matters 180g 33 1/3 (MMBLP 1577)  A1 Blue Train A2 Moment's Notice B1 Locomotion B2 I'm Old Fashioned B3 Lazy Bird  Bass  Paul Chambers (3) Design [Cover]  Reid Miles Drums  "Philly" Joe Jones Lacquer Cut By  KG*, RR* (tracks: A1-A2) Liner Notes  Robert Levin (2) Photography By  Francis Wolff Piano  Kenny Drew Producer  Alfred Lion Recorded By  #RudyVanGelder Tenor Saxophone  #JohnColtrane Trombone  Curtis Fuller Trumpet  #LeeMorgan  Jazz uploads: https://www.youtube.com/playlist?list=PLSrXnTVEBgYm8M2xgjuZcgqidbmkwZpzv  If you have the means and desire to contribute to this channel, you can buy me a cup of coffee at:  https://www.buymeacoffee.com/cgoroo</property>
+  <property name="meta.attr.purl.markup">https://www.youtube.com/watch?v=fEqrnR7_yT8</property>
+  <property name="meta.attr.compatible_brands.markup">iso6mp41</property>
+  <property name="meta.attr.artist.markup">cgoroo</property>
+  <property name="meta.attr.minor_version.markup">0</property>
+  <property name="meta.attr.comment.markup">Music Matters 180g 33 1/3 (MMBLP 1577)  A1 Blue Train A2 Moment's Notice B1 Locomotion B2 I'm Old Fashioned B3 Lazy Bird  Bass  Paul Chambers (3) Design [Cover]  Reid Miles Drums  "Philly" Joe Jones Lacquer Cut By  KG*, RR* (tracks: A1-A2) Liner Notes  Robert Levin (2) Photography By  Francis Wolff Piano  Kenny Drew Producer  Alfred Lion Recorded By  #RudyVanGelder Tenor Saxophone  #JohnColtrane Trombone  Curtis Fuller Trumpet  #LeeMorgan  Jazz uploads: https://www.youtube.com/playlist?list=PLSrXnTVEBgYm8M2xgjuZcgqidbmkwZpzv  If you have the means and desire to contribute to this channel, you can buy me a cup of coffee at:  https://www.buymeacoffee.com/cgoroo</property>
+  <property name="meta.attr.major_brand.markup">dash</property>
+  <property name="seekable">1</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">1</property>
+  <property name="mlt_service">avformat</property>
+  <property name="kdenlive:clipname"/>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">5</property>
+  <property name="kdenlive:file_size">106260</property>
+  <property name="kdenlive:file_hash">844b656748168f69319fbf87691ec69b</property>
+  <property name="global_feed">1</property>
+ </producer>
+ <producer id="producer4" in="00:00:00,000" out="00:00:05,320">
+  <property name="length">00:00:05,360</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Sciences-Ingenieur/S02 Systèmes Linéaires Continus Invariants/V01 Transformée Laplace/image-0.png</property>
+  <property name="ttl">25</property>
+  <property name="aspect_ratio">1</property>
+  <property name="progressive">1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.width">1890</property>
+  <property name="meta.media.height">1063</property>
+  <property name="mlt_service">qimage</property>
+  <property name="kdenlive:clipname"/>
+  <property name="kdenlive:duration">00:00:05,000</property>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">3</property>
+  <property name="kdenlive:file_size">15453</property>
+  <property name="kdenlive:file_hash">6c3eafdb62676ba2508a1ed71696c84b</property>
+  <property name="global_feed">1</property>
+ </producer>
+ <producer id="producer5" in="00:00:00,000" out="00:00:08,880">
+  <property name="length">00:00:08,920</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Sciences-Ingenieur/S02 Systèmes Linéaires Continus Invariants/V01 Transformée Laplace/image-1.png</property>
+  <property name="ttl">25</property>
+  <property name="aspect_ratio">1</property>
+  <property name="progressive">1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.width">1890</property>
+  <property name="meta.media.height">1063</property>
+  <property name="mlt_service">qimage</property>
+  <property name="kdenlive:clipname"/>
+  <property name="kdenlive:duration">00:00:05,000</property>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">7</property>
+  <property name="kdenlive:file_size">95608</property>
+  <property name="kdenlive:file_hash">f1d81164d6d506efd964b3dd64953b01</property>
+  <property name="global_feed">1</property>
+ </producer>
+ <producer id="producer6" in="00:00:00,000" out="00:00:04,960">
+  <property name="length">00:00:05,000</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Sciences-Ingenieur/S02 Systèmes Linéaires Continus Invariants/V01 Transformée Laplace/image-4.png</property>
+  <property name="ttl">25</property>
+  <property name="aspect_ratio">1</property>
+  <property name="progressive">1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.width">1890</property>
+  <property name="meta.media.height">1063</property>
+  <property name="mlt_service">qimage</property>
+  <property name="kdenlive:clipname"/>
+  <property name="kdenlive:duration">00:00:05,000</property>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">10</property>
+  <property name="kdenlive:file_size">117889</property>
+  <property name="kdenlive:file_hash">7d5557e989a61cab1db89c18d88d81e0</property>
+  <property name="global_feed">1</property>
+ </producer>
+ <producer id="producer7" in="00:00:00,000" out="00:00:09,880">
+  <property name="length">00:00:09,920</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Sciences-Ingenieur/S02 Systèmes Linéaires Continus Invariants/V01 Transformée Laplace/image-2.png</property>
+  <property name="ttl">25</property>
+  <property name="aspect_ratio">1</property>
+  <property name="progressive">1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.width">1890</property>
+  <property name="meta.media.height">1063</property>
+  <property name="mlt_service">qimage</property>
+  <property name="kdenlive:clipname"/>
+  <property name="kdenlive:duration">00:00:05,000</property>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">8</property>
+  <property name="kdenlive:file_size">75541</property>
+  <property name="kdenlive:file_hash">569d5eab7e78e3e598d9d4b252984765</property>
+  <property name="global_feed">1</property>
+ </producer>
+ <producer id="producer8" in="00:00:00,000" out="00:00:04,960">
+  <property name="length">00:00:05,000</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Sciences-Ingenieur/S02 Systèmes Linéaires Continus Invariants/V01 Transformée Laplace/image-3.png</property>
+  <property name="ttl">25</property>
+  <property name="aspect_ratio">1</property>
+  <property name="progressive">1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.width">1890</property>
+  <property name="meta.media.height">1063</property>
+  <property name="mlt_service">qimage</property>
+  <property name="kdenlive:clipname"/>
+  <property name="kdenlive:duration">00:00:05,000</property>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">9</property>
+  <property name="kdenlive:file_size">109400</property>
+  <property name="kdenlive:file_hash">499f76cc558e31315108906f9d1386ff</property>
+  <property name="global_feed">1</property>
+ </producer>
+ <producer id="producer9" in="00:00:00,000" out="00:00:04,960">
+  <property name="length">00:00:05,000</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Sciences-Ingenieur/S02 Systèmes Linéaires Continus Invariants/V01 Transformée Laplace/image-8.png</property>
+  <property name="ttl">25</property>
+  <property name="aspect_ratio">1</property>
+  <property name="progressive">1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.width">1890</property>
+  <property name="meta.media.height">1063</property>
+  <property name="mlt_service">qimage</property>
+  <property name="kdenlive:clipname"/>
+  <property name="kdenlive:duration">00:00:05,000</property>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">14</property>
+  <property name="kdenlive:file_size">117031</property>
+  <property name="kdenlive:file_hash">507cbc9288d4abf769f43f727e7fa624</property>
+  <property name="global_feed">1</property>
+ </producer>
+ <producer id="producer10" in="00:00:00,000" out="00:00:04,960">
+  <property name="length">00:00:05,000</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Sciences-Ingenieur/S02 Systèmes Linéaires Continus Invariants/V01 Transformée Laplace/image-9.png</property>
+  <property name="ttl">25</property>
+  <property name="aspect_ratio">1</property>
+  <property name="progressive">1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.width">1890</property>
+  <property name="meta.media.height">1063</property>
+  <property name="mlt_service">qimage</property>
+  <property name="kdenlive:clipname"/>
+  <property name="kdenlive:duration">00:00:05,000</property>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">15</property>
+  <property name="kdenlive:file_size">134733</property>
+  <property name="kdenlive:file_hash">b83d6e6a15f78f6385596c048a1207e2</property>
+  <property name="global_feed">1</property>
+ </producer>
+ <producer id="producer11" in="00:00:00,000" out="00:00:04,960">
+  <property name="length">00:00:05,000</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Sciences-Ingenieur/S02 Systèmes Linéaires Continus Invariants/V01 Transformée Laplace/image-7.png</property>
+  <property name="ttl">25</property>
+  <property name="aspect_ratio">1</property>
+  <property name="progressive">1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.width">1890</property>
+  <property name="meta.media.height">1063</property>
+  <property name="mlt_service">qimage</property>
+  <property name="kdenlive:clipname"/>
+  <property name="kdenlive:duration">00:00:05,000</property>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">13</property>
+  <property name="kdenlive:file_size">108533</property>
+  <property name="kdenlive:file_hash">9e0b9a6dac97b58f1580cb1843ae7b7f</property>
+  <property name="global_feed">1</property>
+ </producer>
+ <producer id="producer12" in="00:00:00,000" out="00:00:09,240">
+  <property name="length">232</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Sciences-Ingenieur/S02 Systèmes Linéaires Continus Invariants/V01 Transformée Laplace/image-6.png</property>
+  <property name="ttl">25</property>
+  <property name="aspect_ratio">1</property>
+  <property name="progressive">1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.width">1890</property>
+  <property name="meta.media.height">1063</property>
+  <property name="mlt_service">qimage</property>
+  <property name="kdenlive:clipname"/>
+  <property name="kdenlive:duration">00:00:05,000</property>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">12</property>
+  <property name="kdenlive:file_size">73276</property>
+  <property name="kdenlive:file_hash">e8315aa6f51fea58b6da48a63c0d45f2</property>
+  <property name="global_feed">1</property>
+ </producer>
+ <producer id="producer13" in="00:00:00,000" out="00:00:04,960">
+  <property name="length">00:00:05,000</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Sciences-Ingenieur/S02 Systèmes Linéaires Continus Invariants/V01 Transformée Laplace/image-5.png</property>
+  <property name="ttl">25</property>
+  <property name="aspect_ratio">1</property>
+  <property name="progressive">1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.width">1890</property>
+  <property name="meta.media.height">1063</property>
+  <property name="mlt_service">qimage</property>
+  <property name="kdenlive:clipname"/>
+  <property name="kdenlive:duration">00:00:05,000</property>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">11</property>
+  <property name="kdenlive:file_size">135558</property>
+  <property name="kdenlive:file_hash">d3b754d5b743a6562ff24f75ce7af08c</property>
+  <property name="global_feed">1</property>
+ </producer>
+ <producer title="Anonymous Submission" id="producer1" in="00:00:00,000" out="00:00:05,000">
+  <property name="length">00:00:05,040</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Documents/Renaud/Dorian/Admin/intro_video/lunettes/.all.png</property>
+  <property name="ttl">1</property>
+  <property name="aspect_ratio">1</property>
+  <property name="progressive">1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="mlt_service">qimage</property>
+  <property name="kdenlive:clipname">Clip diaporama</property>
+  <property name="luma_duration">25</property>
+  <property name="fade">0</property>
+  <property name="crop">0</property>
+  <property name="softness">0</property>
+  <property name="loop">0</property>
+  <property name="kdenlive:duration">00:00:05,040</property>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">6</property>
+  <property name="kdenlive:file_hash">dbd36493c5beee754c52786d42271398</property>
+  <property name="global_feed">1</property>
+ </producer>
+ <producer title="Anonymous Submission" id="producer15" in="00:00:00,000" out="00:00:42,560">
+  <property name="length">1065</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Bureau/caribou-odessa_2.mp3</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">audio</property>
+  <property name="meta.media.0.codec.sample_fmt">fltp</property>
+  <property name="meta.media.0.codec.sample_rate">48000</property>
+  <property name="meta.media.0.codec.channels">2</property>
+  <property name="meta.media.0.codec.name">mp3float</property>
+  <property name="meta.media.0.codec.long_name">MP3 (MPEG audio layer 3)</property>
+  <property name="meta.media.0.codec.bit_rate">165931</property>
+  <property name="meta.attr.0.stream.encoder.markup">LAME3.100</property>
+  <property name="meta.attr.Software.markup">Lavf57.56.101</property>
+  <property name="meta.attr.TYER.markup">20100125</property>
+  <property name="meta.attr.date.markup">20100125</property>
+  <property name="meta.attr.title.markup">Caribou - Odessa</property>
+  <property name="meta.attr.artist.markup">TheFoxBen</property>
+  <property name="meta.attr.description.markup">"Odessa", new song from Dan Snaith's great psych-pop project Caribou (formerly Manitoba). His new album, Swim, is set to be released on April 20th, 2010.</property>
+  <property name="meta.attr.comment.markup">"Odessa", new song from Dan Snaith's great psych-pop project Caribou (formerly Manitoba). His new album, Swim, is set to be released on April 20th, 2010.</property>
+  <property name="meta.attr.purl.markup">https://www.youtube.com/watch?v=Yq_tDOFU5tY</property>
+  <property name="seekable">1</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">1</property>
+  <property name="mlt_service">avformat</property>
+  <property name="kdenlive:clipname"/>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">17</property>
+  <property name="kdenlive:file_size">884131</property>
+  <property name="kdenlive:file_hash">72f804f2bd7ac186e2250205471e5ce8</property>
+  <property name="global_feed">1</property>
+ </producer>
+ <playlist id="main_bin">
+  <property name="kdenlive:docproperties.activeTrack">0</property>
+  <property name="kdenlive:docproperties.audioTarget">1</property>
+  <property name="kdenlive:docproperties.decimalPoint">,</property>
+  <property name="kdenlive:docproperties.disablepreview">0</property>
+  <property name="kdenlive:docproperties.documentid">1599722882956</property>
+  <property name="kdenlive:docproperties.enableTimelineZone">0</property>
+  <property name="kdenlive:docproperties.enableexternalproxy">0</property>
+  <property name="kdenlive:docproperties.enableproxy">0</property>
+  <property name="kdenlive:docproperties.externalproxyparams"/>
+  <property name="kdenlive:docproperties.generateimageproxy">0</property>
+  <property name="kdenlive:docproperties.generateproxy">0</property>
+  <property name="kdenlive:docproperties.groups">[
+]
+</property>
+  <property name="kdenlive:docproperties.kdenliveversion">19.12.3</property>
+  <property name="kdenlive:docproperties.position">993</property>
+  <property name="kdenlive:docproperties.previewextension"/>
+  <property name="kdenlive:docproperties.previewparameters"/>
+  <property name="kdenlive:docproperties.profile">atsc_1080p_25</property>
+  <property name="kdenlive:docproperties.proxyextension"/>
+  <property name="kdenlive:docproperties.proxyimageminsize">2000</property>
+  <property name="kdenlive:docproperties.proxyimagesize">800</property>
+  <property name="kdenlive:docproperties.proxyminsize">1000</property>
+  <property name="kdenlive:docproperties.proxyparams"/>
+  <property name="kdenlive:docproperties.renderaudioquality">192</property>
+  <property name="kdenlive:docproperties.rendercategory">Generic (HD for web, mobile devices...)</property>
+  <property name="kdenlive:docproperties.renderendguide">-1</property>
+  <property name="kdenlive:docproperties.renderexportaudio">0</property>
+  <property name="kdenlive:docproperties.renderfield">0</property>
+  <property name="kdenlive:docproperties.renderguide">0</property>
+  <property name="kdenlive:docproperties.renderplay">0</property>
+  <property name="kdenlive:docproperties.renderprofile">MP4 - the dominating format (H264/AAC)</property>
+  <property name="kdenlive:docproperties.renderquality">23</property>
+  <property name="kdenlive:docproperties.renderratio">1</property>
+  <property name="kdenlive:docproperties.renderrescale">0</property>
+  <property name="kdenlive:docproperties.renderrescaleheight">540</property>
+  <property name="kdenlive:docproperties.renderrescalewidth">960</property>
+  <property name="kdenlive:docproperties.renderscanning">0</property>
+  <property name="kdenlive:docproperties.renderspeed">2</property>
+  <property name="kdenlive:docproperties.renderstartguide">-1</property>
+  <property name="kdenlive:docproperties.rendertcoverlay">0</property>
+  <property name="kdenlive:docproperties.rendertctype">0</property>
+  <property name="kdenlive:docproperties.rendertwopass">0</property>
+  <property name="kdenlive:docproperties.renderurl">Sans titre2.mp4</property>
+  <property name="kdenlive:docproperties.renderzone">0</property>
+  <property name="kdenlive:docproperties.scrollPos">0</property>
+  <property name="kdenlive:docproperties.seekOffset">30000</property>
+  <property name="kdenlive:docproperties.version">0.99</property>
+  <property name="kdenlive:docproperties.verticalzoom">1</property>
+  <property name="kdenlive:docproperties.videoTarget">2</property>
+  <property name="kdenlive:docproperties.zonein">0</property>
+  <property name="kdenlive:docproperties.zoneout">1</property>
+  <property name="kdenlive:docproperties.zoom">7</property>
+  <property name="kdenlive:documentnotes"/>
+  <property name="xml_retain">1</property>
+  <entry producer="producer0" in="00:00:00,000" out="00:00:14,280"/>
+  <entry producer="producer2" in="00:00:00,000" out="00:00:15,400"/>
+  <entry producer="producer3" in="00:00:00,000" out="00:03:03,880"/>
+  <entry producer="producer14" in="00:00:00,000" out="00:00:09,240"/>
+  <entry producer="producer4" in="00:00:00,000" out="00:00:05,320"/>
+  <entry producer="producer5" in="00:00:00,000" out="00:00:08,880"/>
+  <entry producer="producer6" in="00:00:00,000" out="00:00:04,960"/>
+  <entry producer="producer7" in="00:00:00,000" out="00:00:09,880"/>
+  <entry producer="producer8" in="00:00:00,000" out="00:00:04,960"/>
+  <entry producer="producer9" in="00:00:00,000" out="00:00:04,960"/>
+  <entry producer="producer10" in="00:00:00,000" out="00:00:04,960"/>
+  <entry producer="producer11" in="00:00:00,000" out="00:00:04,960"/>
+  <entry producer="producer12" in="00:00:00,000" out="00:00:09,240"/>
+  <entry producer="producer13" in="00:00:00,000" out="00:00:04,960"/>
+  <entry producer="producer1" in="00:00:00,000" out="00:00:05,000"/>
+  <entry producer="producer15" in="00:00:00,000" out="00:00:42,560"/>
+ </playlist>
+ <producer id="black_track" in="00:00:00,000" out="00:21:08,120">
+  <property name="length">2147483647</property>
+  <property name="eof">continue</property>
+  <property name="resource">black</property>
+  <property name="aspect_ratio">1</property>
+  <property name="mlt_service">color</property>
+  <property name="mlt_image_format">rgb24a</property>
+  <property name="set.test_audio">0</property>
+ </producer>
+ <producer title="Anonymous Submission" id="producer16" in="00:00:00,000" out="00:00:42,560">
+  <property name="length">1065</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Bureau/caribou-odessa_2.mp3</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">audio</property>
+  <property name="meta.media.0.codec.sample_fmt">fltp</property>
+  <property name="meta.media.0.codec.sample_rate">48000</property>
+  <property name="meta.media.0.codec.channels">2</property>
+  <property name="meta.media.0.codec.name">mp3float</property>
+  <property name="meta.media.0.codec.long_name">MP3 (MPEG audio layer 3)</property>
+  <property name="meta.media.0.codec.bit_rate">165931</property>
+  <property name="meta.attr.0.stream.encoder.markup">LAME3.100</property>
+  <property name="meta.attr.Software.markup">Lavf57.56.101</property>
+  <property name="meta.attr.TYER.markup">20100125</property>
+  <property name="meta.attr.date.markup">20100125</property>
+  <property name="meta.attr.title.markup">Caribou - Odessa</property>
+  <property name="meta.attr.artist.markup">TheFoxBen</property>
+  <property name="meta.attr.description.markup">"Odessa", new song from Dan Snaith's great psych-pop project Caribou (formerly Manitoba). His new album, Swim, is set to be released on April 20th, 2010.</property>
+  <property name="meta.attr.comment.markup">"Odessa", new song from Dan Snaith's great psych-pop project Caribou (formerly Manitoba). His new album, Swim, is set to be released on April 20th, 2010.</property>
+  <property name="meta.attr.purl.markup">https://www.youtube.com/watch?v=Yq_tDOFU5tY</property>
+  <property name="seekable">1</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
+  <property name="kdenlive:clipname"/>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">17</property>
+  <property name="kdenlive:file_size">884131</property>
+  <property name="kdenlive:file_hash">72f804f2bd7ac186e2250205471e5ce8</property>
+  <property name="global_feed">1</property>
+  <property name="xml">was here</property>
+  <property name="set.test_audio">0</property>
+  <property name="set.test_image">1</property>
+ </producer>
+ <playlist id="playlist0">
+  <property name="kdenlive:audio_track">1</property>
+  <entry producer="producer16" in="00:00:00,000" out="00:00:42,560">
+   <property name="kdenlive:id">17</property>
+  </entry>
+  <filter id="filter0">
+   <property name="window">75</property>
+   <property name="max_gain">20dB</property>
+   <property name="mlt_service">volume</property>
+   <property name="internal_added">237</property>
+   <property name="disable">1</property>
+  </filter>
+  <filter id="filter1">
+   <property name="channel">-1</property>
+   <property name="mlt_service">panner</property>
+   <property name="internal_added">237</property>
+   <property name="start">0,5</property>
+   <property name="disable">1</property>
+  </filter>
+ </playlist>
+ <playlist id="playlist1">
+  <property name="kdenlive:audio_track">1</property>
+ </playlist>
+ <tractor id="tractor0" in="00:00:00,000" out="00:00:42,560">
+  <property name="kdenlive:audio_track">1</property>
+  <property name="kdenlive:trackheight">128</property>
+  <property name="kdenlive:collapsed">0</property>
+  <property name="kdenlive:thumbs_format"/>
+  <property name="kdenlive:audio_rec"/>
+  <property name="kdenlive:timeline_active"/>
+  <track hide="video" producer="playlist0"/>
+  <track hide="video" producer="playlist1"/>
+  <filter id="filter2">
+   <property name="iec_scale">0</property>
+   <property name="mlt_service">audiolevel</property>
+  </filter>
+ </tractor>
+ <producer title="Anonymous Submission" id="producer17" in="00:00:00,000" out="00:00:09,240">
+  <property name="length">232</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Documents/Renaud/Dorian/Admin/intro_video/coltrane_intro.mp3</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">audio</property>
+  <property name="meta.media.0.codec.sample_fmt">fltp</property>
+  <property name="meta.media.0.codec.sample_rate">44100</property>
+  <property name="meta.media.0.codec.channels">2</property>
+  <property name="meta.media.0.codec.name">mp3float</property>
+  <property name="meta.media.0.codec.long_name">MP3 (MPEG audio layer 3)</property>
+  <property name="meta.media.0.codec.bit_rate">89951</property>
+  <property name="meta.attr.0.stream.encoder.markup">LAME3.100</property>
+  <property name="meta.attr.Software.markup">Lavf57.56.101</property>
+  <property name="meta.attr.TYER.markup">20180210</property>
+  <property name="meta.attr.date.markup">20180210</property>
+  <property name="meta.attr.title.markup">John Coltrane Blue Train (Music Matters) MONO 2014</property>
+  <property name="meta.attr.description.markup">Music Matters 180g 33 1/3 (MMBLP 1577)  A1 Blue Train A2 Moment's Notice B1 Locomotion B2 I'm Old Fashioned B3 Lazy Bird  Bass  Paul Chambers (3) Design [Cover]  Reid Miles Drums  "Philly" Joe Jones Lacquer Cut By  KG*, RR* (tracks: A1-A2) Liner Notes  Robert Levin (2) Photography By  Francis Wolff Piano  Kenny Drew Producer  Alfred Lion Recorded By  #RudyVanGelder Tenor Saxophone  #JohnColtrane Trombone  Curtis Fuller Trumpet  #LeeMorgan  Jazz uploads: https://www.youtube.com/playlist?list=PLSrXnTVEBgYm8M2xgjuZcgqidbmkwZpzv  If you have the means and desire to contribute to this channel, you can buy me a cup of coffee at:  https://www.buymeacoffee.com/cgoroo</property>
+  <property name="meta.attr.purl.markup">https://www.youtube.com/watch?v=fEqrnR7_yT8</property>
+  <property name="meta.attr.compatible_brands.markup">iso6mp41</property>
+  <property name="meta.attr.artist.markup">cgoroo</property>
+  <property name="meta.attr.minor_version.markup">0</property>
+  <property name="meta.attr.comment.markup">Music Matters 180g 33 1/3 (MMBLP 1577)  A1 Blue Train A2 Moment's Notice B1 Locomotion B2 I'm Old Fashioned B3 Lazy Bird  Bass  Paul Chambers (3) Design [Cover]  Reid Miles Drums  "Philly" Joe Jones Lacquer Cut By  KG*, RR* (tracks: A1-A2) Liner Notes  Robert Levin (2) Photography By  Francis Wolff Piano  Kenny Drew Producer  Alfred Lion Recorded By  #RudyVanGelder Tenor Saxophone  #JohnColtrane Trombone  Curtis Fuller Trumpet  #LeeMorgan  Jazz uploads: https://www.youtube.com/playlist?list=PLSrXnTVEBgYm8M2xgjuZcgqidbmkwZpzv  If you have the means and desire to contribute to this channel, you can buy me a cup of coffee at:  https://www.buymeacoffee.com/cgoroo</property>
+  <property name="meta.attr.major_brand.markup">dash</property>
+  <property name="seekable">1</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
+  <property name="kdenlive:clipname"/>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">5</property>
+  <property name="kdenlive:file_size">106260</property>
+  <property name="kdenlive:file_hash">844b656748168f69319fbf87691ec69b</property>
+  <property name="global_feed">1</property>
+  <property name="xml">was here</property>
+  <property name="set.test_audio">0</property>
+  <property name="set.test_image">1</property>
+ </producer>
+ <playlist id="playlist2">
+  <property name="kdenlive:audio_track">1</property>
+  <blank length="00:00:19,560"/>
+  <entry producer="producer17" in="00:00:00,000" out="00:00:09,240">
+   <property name="kdenlive:id">5</property>
+  </entry>
+  <blank length="00:00:15,000"/>
+  <entry producer="producer17" in="00:00:00,000" out="00:00:09,240">
+   <property name="kdenlive:id">5</property>
+  </entry>
+  <filter id="filter5">
+   <property name="window">75</property>
+   <property name="max_gain">20dB</property>
+   <property name="mlt_service">volume</property>
+   <property name="internal_added">237</property>
+   <property name="disable">1</property>
+  </filter>
+  <filter id="filter6">
+   <property name="channel">-1</property>
+   <property name="mlt_service">panner</property>
+   <property name="internal_added">237</property>
+   <property name="start">0,5</property>
+   <property name="disable">1</property>
+  </filter>
+ </playlist>
+ <playlist id="playlist3">
+  <property name="kdenlive:audio_track">1</property>
+ </playlist>
+ <tractor id="tractor1" in="00:00:00,000" out="00:00:53,080">
+  <property name="kdenlive:audio_track">1</property>
+  <property name="kdenlive:trackheight">128</property>
+  <property name="kdenlive:collapsed">0</property>
+  <property name="kdenlive:thumbs_format"/>
+  <property name="kdenlive:audio_rec"/>
+  <property name="kdenlive:timeline_active">1</property>
+  <track hide="video" producer="playlist2"/>
+  <track hide="video" producer="playlist3"/>
+  <filter id="filter3">
+   <property name="iec_scale">0</property>
+   <property name="mlt_service">audiolevel</property>
+  </filter>
+ </tractor>
+ <playlist id="playlist4">
+  <entry producer="producer2" in="00:00:00,000" out="00:00:11,240">
+   <property name="kdenlive:id">2</property>
+  </entry>
+ </playlist>
+ <playlist id="playlist5"/>
+ <tractor id="tractor2" in="00:00:00,000" out="00:00:11,240">
+  <property name="kdenlive:trackheight">128</property>
+  <property name="kdenlive:collapsed">0</property>
+  <property name="kdenlive:thumbs_format"/>
+  <property name="kdenlive:audio_rec"/>
+  <property name="kdenlive:timeline_active">1</property>
+  <track hide="audio" producer="playlist4"/>
+  <track hide="audio" producer="playlist5"/>
+ </tractor>
+ <producer title="Anonymous Submission" id="producer18" in="00:00:00,000" out="00:00:14,280">
+  <property name="length">358</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Documents/Renaud/Dorian/Admin/Logo/Anim/kawasaki.avi</property>
+  <property name="audio_index">1</property>
+  <property name="video_index">0</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
+  <property name="seekable">1</property>
+  <property name="aspect_ratio">1</property>
+  <property name="kdenlive:clipname"/>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">54</property>
+  <property name="kdenlive:file_size">69213840</property>
+  <property name="kdenlive:file_hash">3fda2a030912e0da0f2ff40176e61b6f</property>
+  <property name="global_feed">1</property>
+  <property name="xml">was here</property>
+  <property name="meta.media.nb_streams">2</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">29,97</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">1</property>
+  <property name="meta.media.0.codec.width">1280</property>
+  <property name="meta.media.0.codec.height">720</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.frame_rate">29,97</property>
+  <property name="meta.media.0.codec.pix_fmt">yuvj420p</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">1</property>
+  <property name="meta.media.0.codec.colorspace">601</property>
+  <property name="meta.media.0.codec.name">mjpeg</property>
+  <property name="meta.media.0.codec.long_name">MJPEG (Motion JPEG)</property>
+  <property name="meta.media.0.codec.bit_rate">38496371</property>
+  <property name="meta.media.1.stream.type">audio</property>
+  <property name="meta.media.1.codec.sample_fmt">fltp</property>
+  <property name="meta.media.1.codec.sample_rate">48000</property>
+  <property name="meta.media.1.codec.channels">2</property>
+  <property name="meta.media.1.codec.name">mp3float</property>
+  <property name="meta.media.1.codec.long_name">MP3 (MPEG audio layer 3)</property>
+  <property name="meta.media.1.codec.bit_rate">256000</property>
+  <property name="meta.attr.encoder.markup">Lavf58.12.100</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="meta.media.frame_rate_num">30000</property>
+  <property name="meta.media.frame_rate_den">1001</property>
+  <property name="meta.media.colorspace">601</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.width">1280</property>
+  <property name="meta.media.height">720</property>
+  <property name="meta.media.color_range">full</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="set.test_audio">1</property>
+  <property name="set.test_image">0</property>
+ </producer>
+ <playlist id="playlist6">
+  <entry producer="producer18" in="00:00:00,000" out="00:00:05,000">
+   <property name="kdenlive:id">54</property>
+   <filter id="filter8">
+    <property name="rotate_center">1</property>
+    <property name="mlt_service">qtblend</property>
+    <property name="kdenlive_id">qtblend</property>
+    <property name="rect">00:00:00,000=0 0 1920 1080 0,2</property>
+    <property name="rotation">00:00:00,000=0</property>
+    <property name="compositing">11</property>
+    <property name="distort">0</property>
+    <property name="kdenlive:collapsed">0</property>
+   </filter>
+   <filter id="filter9" in="00:00:04,360" out="00:00:05,000">
+    <property name="start">1</property>
+    <property name="mlt_service">brightness</property>
+    <property name="kdenlive_id">fade_to_black</property>
+    <property name="end">0</property>
+    <property name="alpha">-1</property>
+    <property name="kdenlive:collapsed">0</property>
+   </filter>
+  </entry>
+  <blank length="00:00:01,040"/>
+  <entry producer="producer4" in="00:00:00,000" out="00:00:04,520">
+   <property name="kdenlive:id">3</property>
+  </entry>
+  <blank length="00:00:00,640"/>
+  <entry producer="producer5" in="00:00:00,000" out="00:00:08,240">
+   <property name="kdenlive:id">7</property>
+  </entry>
+  <entry producer="producer7" in="00:00:00,000" out="00:00:09,240">
+   <property name="kdenlive:id">8</property>
+  </entry>
+  <entry producer="producer8" in="00:00:00,000" out="00:00:04,960">
+   <property name="kdenlive:id">9</property>
+  </entry>
+  <entry producer="producer6" in="00:00:00,000" out="00:00:04,960">
+   <property name="kdenlive:id">10</property>
+  </entry>
+  <entry producer="producer13" in="00:00:00,000" out="00:00:04,960">
+   <property name="kdenlive:id">11</property>
+  </entry>
+  <entry producer="producer12" in="00:00:00,000" out="00:00:09,240">
+   <property name="kdenlive:id">12</property>
+  </entry>
+  <entry producer="producer11" in="00:00:00,000" out="00:00:04,960">
+   <property name="kdenlive:id">13</property>
+  </entry>
+  <entry producer="producer9" in="00:00:00,000" out="00:00:04,960">
+   <property name="kdenlive:id">14</property>
+  </entry>
+  <entry producer="producer10" in="00:00:00,000" out="00:00:04,960">
+   <property name="kdenlive:id">15</property>
+  </entry>
+ </playlist>
+ <playlist id="playlist7"/>
+ <tractor id="tractor3" in="00:00:00,000" out="00:01:08,080">
+  <property name="kdenlive:trackheight">128</property>
+  <property name="kdenlive:collapsed">0</property>
+  <property name="kdenlive:thumbs_format"/>
+  <property name="kdenlive:audio_rec"/>
+  <property name="kdenlive:timeline_active"/>
+  <track hide="audio" producer="playlist6"/>
+  <track hide="audio" producer="playlist7"/>
+ </tractor>
+ <producer title="Anonymous Submission" id="producer19" in="00:00:00,000" out="00:00:05,000">
+  <property name="length">00:00:05,040</property>
+  <property name="eof">pause</property>
+  <property name="resource">/home/renaud/Documents/Renaud/Dorian/Admin/intro_video/lunettes/.all.png</property>
+  <property name="ttl">1</property>
+  <property name="aspect_ratio">1</property>
+  <property name="progressive">1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="mlt_service">qimage</property>
+  <property name="kdenlive:clipname">Clip diaporama</property>
+  <property name="luma_duration">25</property>
+  <property name="fade">0</property>
+  <property name="crop">0</property>
+  <property name="softness">0</property>
+  <property name="loop">0</property>
+  <property name="kdenlive:duration">00:00:05,040</property>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">6</property>
+  <property name="kdenlive:file_hash">dbd36493c5beee754c52786d42271398</property>
+  <property name="global_feed">1</property>
+  <property name="xml">was here</property>
+  <property name="set.test_audio">1</property>
+  <property name="set.test_image">0</property>
+ </producer>
+ <playlist id="playlist8">
+  <entry producer="producer19" in="00:00:00,000" out="00:00:05,000">
+   <property name="kdenlive:id">6</property>
+  </entry>
+ </playlist>
+ <playlist id="playlist9"/>
+ <tractor id="tractor4" in="00:00:00,000" out="00:00:05,000">
+  <property name="kdenlive:trackheight">128</property>
+  <property name="kdenlive:collapsed">0</property>
+  <property name="kdenlive:track_name">V3</property>
+  <property name="kdenlive:thumbs_format"/>
+  <property name="kdenlive:audio_rec"/>
+  <property name="kdenlive:timeline_active">0</property>
+  <track hide="audio" producer="playlist8"/>
+  <track hide="audio" producer="playlist9"/>
+ </tractor>
+ <tractor title="Anonymous Submission" id="tractor5" global_feed="1" in="00:00:00,000" out="00:21:08,120">
+  <track producer="black_track"/>
+  <track producer="tractor0"/>
+  <track producer="tractor1"/>
+  <track producer="tractor2"/>
+  <track producer="tractor3"/>
+  <track producer="tractor4"/>
+  <transition id="transition0" in="00:00:06,080" out="00:00:08,520">
+   <property name="a_track">3</property>
+   <property name="b_track">4</property>
+   <property name="start">0/0:100%x100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="softness">0</property>
+   <property name="luma"/>
+   <property name="luma_invert">0</property>
+   <property name="geometry">0%/0%:100%x100%:0;-1=0%/0%:100%x100%:100</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition1">
+   <property name="a_track">0</property>
+   <property name="b_track">1</property>
+   <property name="mlt_service">mix</property>
+   <property name="kdenlive_id">mix</property>
+   <property name="internal_added">237</property>
+   <property name="always_active">1</property>
+   <property name="sum">1</property>
+  </transition>
+  <transition id="transition2">
+   <property name="a_track">0</property>
+   <property name="b_track">2</property>
+   <property name="mlt_service">mix</property>
+   <property name="kdenlive_id">mix</property>
+   <property name="internal_added">237</property>
+   <property name="always_active">1</property>
+   <property name="sum">1</property>
+  </transition>
+  <transition id="transition3">
+   <property name="a_track">0</property>
+   <property name="b_track">3</property>
+   <property name="compositing">0</property>
+   <property name="distort">0</property>
+   <property name="rotate_center">0</property>
+   <property name="mlt_service">qtblend</property>
+   <property name="kdenlive_id">qtblend</property>
+   <property name="internal_added">237</property>
+   <property name="always_active">1</property>
+  </transition>
+  <transition id="transition4">
+   <property name="a_track">0</property>
+   <property name="b_track">4</property>
+   <property name="compositing">0</property>
+   <property name="distort">0</property>
+   <property name="rotate_center">0</property>
+   <property name="mlt_service">qtblend</property>
+   <property name="kdenlive_id">qtblend</property>
+   <property name="internal_added">237</property>
+   <property name="always_active">1</property>
+  </transition>
+  <transition id="transition5">
+   <property name="a_track">0</property>
+   <property name="b_track">5</property>
+   <property name="compositing">0</property>
+   <property name="distort">0</property>
+   <property name="rotate_center">0</property>
+   <property name="mlt_service">qtblend</property>
+   <property name="kdenlive_id">qtblend</property>
+   <property name="internal_added">237</property>
+   <property name="always_active">1</property>
+  </transition>
+  <filter id="filter12">
+   <property name="window">75</property>
+   <property name="max_gain">20dB</property>
+   <property name="mlt_service">volume</property>
+   <property name="internal_added">237</property>
+   <property name="disable">1</property>
+  </filter>
+  <filter id="filter13">
+   <property name="channel">-1</property>
+   <property name="mlt_service">panner</property>
+   <property name="internal_added">237</property>
+   <property name="start">0,5</property>
+   <property name="disable">1</property>
+  </filter>
+  <filter id="filter4">
+   <property name="iec_scale">0</property>
+   <property name="mlt_service">audiolevel</property>
+  </filter>
+ </tractor>
+</mlt>

@@ -1,0 +1,235 @@
+\input{../../headers/tdheaders.tex}
+
+\section{Tracer un trait}
+
+Le but de ce travail va être de faire tracer un trait \og à main levée\fg\ à Simone afin de vérifier son aptitude à se passer d'une règle.
+
+\begin{figure}[h!]
+\begin{center}
+  \resizebox{0.5\textwidth}{!}{\input{img/vue_bras.pdf_tex}}
+  \caption{\label{fig01} Bras paramétré}
+\end{center}
+\end{figure}
+
+
+\question{Tracer le graphe des liaisons de cette sous-partie de Simone.}
+
+\question{Justifier qu'il s'agit d'un cycle ouvert et déterminer son degré d'hyperstatisme.}
+
+On définit $x$ et $y$ tels que $\overrightarrow{AC}=x\cdot\vec{x}+y\cdot\vec{y}$.
+
+On cherche à tracer la droite $y(x)=c\cdot x+d$ reliant les points $\left(\begin{array}{c}a+b\\0
+\end{array}\right)_R$ et $\left(\begin{array}{c}0\\a+b
+\end{array}\right)_R$.
+
+\question{Déterminer $c$ et $d$ en fonction de $a$ et $b$.} 
+
+\question{Déterminer $x$ et $y$ en fonction de $\alpha$, de $\beta$ et des dimensions du système.} 
+
+\question{Déterminer $x$ et $y$ en fonction de $\theta$ et de $u=\left\|\overrightarrow{AC}\right\|$.} 
+
+\question{Déterminer $u=\left\|\overrightarrow{AC}\right\|$ en fonction de $\theta$ et des dimensions du système.} 
+
+\question{Déterminer $\alpha$ et $\beta$ en fonction de $\theta$, de $u=\left\|\overrightarrow{AC}\right\|$ et des dimensions du système. Et justifier que:
+\begin{center}
+$\alpha=\theta\pm\arccos\left(\dfrac{u^2+a^2-b^2}{2\cdot u\cdot a}\right)$ et $\beta=\theta-\alpha\pm\arccos\left(\dfrac{u^2+b^2-a^2}{2\cdot u\cdot b}\right)$
+\end{center}
+} 
+
+\question{Tester le résultat à l'aide d'un code python.}
+
+\section{Faire des squats}
+
+Le but de ce travail va être de faire faire des \og squat\fg\ à Simone.
+
+\begin{figure}[ht!]
+\begin{minipage}{0.45\linewidth}
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/squat}
+\end{center}
+\caption{\label{fig02} Mouvement de Squat}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/structure_simone.png}
+\end{center}
+\caption{\label{fig03} Structure de Simone}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+  \resizebox{0.4\textwidth}{!}{\input{img/squat_simone.pdf_tex}}
+  \caption{\label{fig04} Bras paramétré}
+\end{center}
+\end{figure}
+
+On notera respectivement $i_g$ et $i_d$ les pièces des jambes gauche et droite. On considérera que les deux pieds font partie de la classe équivalente \textit{sol}.
+
+\question{Tracer le graphe des liaisons de cette sous-partie de Simone.}
+
+\question{Justifier qu'il s'agit d'un cycle fermé et déterminer son degré d'hyperstatisme.}
+
+\question{Proposer une modification d'une liaison pour rendre le système isostatique.}
+
+\clearpage
+
+\ifdef{\public}{\end{document}}{}
+
+\newpage
+
+\pagestyle{correction}\setcounter{section}{0}
+
+\section{Correction}
+
+\subsection{Tracer un trait}
+
+\paragraph{Question 1:} ~\ \\
+
+\begin{figure}[h!]
+\begin{center}
+  \resizebox{0.4\textwidth}{!}{\input{img/graphe_liaison_1.pdf_tex}}
+  \caption{\label{fig05} Graphe de liaison 1}
+\end{center}
+\end{figure}
+
+\paragraph{Question 2:} C'est un cycle ouvert car il n'y a pas de cycle fermé dans le graphe.
+
+\paragraph{Question 3:}
+ 
+$y(0)=d=a+b$, donc $d=a+b$.
+
+$y(a+b)=c\cdot (a+b)+a+b=0$, donc $c=-1$
+
+\paragraph{Question 4:}
+
+$\overrightarrow{AC}=\overrightarrow{AB}+\overrightarrow{BC}$
+
+$\overrightarrow{AC}=a\cdot\vec{x_1}+b\cdot\vec{x_2}$
+
+$\overrightarrow{AC}=(a\cdot cos\alpha+b\cdot cos(\alpha+\beta))\vec{x_0}+(a\cdot sin\alpha+b\cdot sin(\alpha+\beta))\vec{y_0}$
+
+Ainsi:
+$\left\{\begin{array}{l}
+x=a\cdot cos\alpha+b\cdot cos(\alpha+\beta)\\
+y=a\cdot sin\alpha+b\cdot sin(\alpha+\beta)
+\end{array}\right.$
+
+
+\paragraph{Question 5:}
+
+Ainsi:
+$\left\{\begin{array}{l}
+x=u\cdot cos\theta\\
+y=u\cdot sin\theta
+\end{array}\right.$
+
+\paragraph{Question 6:} $u=\dfrac{a+b}{\sqrt{2}\cdot cos\left(\theta-\dfrac{\pi}{4}\right)}$
+
+\begin{figure}[h!]
+\begin{center}
+  \resizebox{0.4\textwidth}{!}{\input{img/construction_u.pdf_tex}}
+  \caption{\label{fig06} Construction pour u}
+\end{center}
+\end{figure}
+
+\paragraph{Question 7:}
+
+$\left\{\begin{array}{l}
+u\cdot cos\theta=a\cdot cos\alpha+b\cdot cos(\alpha+\beta)\\
+u\cdot sin\theta=a\cdot sin\alpha+b\cdot sin(\alpha+\beta)
+\end{array}\right.$
+
+$\left\{\begin{array}{l}
+(b\cdot cos(\alpha+\beta))^2=(u\cdot cos\theta-a\cdot cos\alpha)^2\\
+(b\cdot sin(\alpha+\beta))^2=(u\cdot sin\theta-a\cdot sin\alpha)^2
+\end{array}\right.$
+
+$b^2=(u\cdot cos\theta-a\cdot cos\alpha)^2+(u\cdot sin\theta-a\cdot sin\alpha)^2$
+
+$b^2=(u\cdot cos\theta)^2+(a\cdot cos\alpha)^2-2\cdot u\cdot cos\theta\cdot a\cdot cos\alpha+(u\cdot sin\theta)^2+(a\cdot sin\alpha)^2-2\cdot u\cdot sin\theta\cdot a\cdot sin\alpha$
+
+$2\cdot u\cdot a\cdot \left(sin\theta\cdot sin\alpha+cos\theta\cdot cos\alpha\right)=u^2+a^2-b^2$
+
+$2\cdot u\cdot a\cdot cos(\theta-\alpha)=u^2+a^2-b^2$
+
+$cos(\theta-\alpha)=\dfrac{u^2+a^2-b^2}{2\cdot u\cdot a}$
+
+$\theta-\alpha=\pm\arccos\left((\dfrac{u^2+a^2-b^2}{2\cdot u\cdot a}\right)$
+
+$\alpha=\theta\pm\arccos\left((\dfrac{u^2+a^2-b^2}{2\cdot u\cdot a}\right)$
+
+On montre de même que:
+
+$\left\{\begin{array}{l}
+(a\cdot cos\alpha)^2=(u\cdot cos\theta-b\cdot cos(\alpha+\beta))^2\\
+(a\cdot sin\alpha)^2=(u\cdot sin\theta-b\cdot sin(\alpha+\beta))^2
+\end{array}\right.$
+
+$a^2=(u\cdot cos\theta-b\cdot cos(\alpha+\beta))^2+(u\cdot sin\theta-b\cdot sin(\alpha+\beta))^2$
+
+$a^2=u^2+b^2-2\cdot u\cdot cos\theta\cdot b\cdot cos(\alpha+\beta)-2\cdot u\cdot sin\theta\cdot b\cdot sin(\alpha+\beta)$
+
+$a^2=u^2+b^2-2\cdot u\cdot b\cdot cos(\theta-(\alpha+\beta))$
+
+$cos(\theta-(\alpha+\beta))=\dfrac{u^2+b^2-a^2}{2\cdot u\cdot b}$
+
+
+$\beta=\theta-\alpha\pm\arccos\left(\dfrac{u^2+b^2-a^2}{2\cdot u\cdot b}\right)$
+
+\paragraph{Question 8:}
+
+\begin{minted}[xleftmargin=2em,linenos,firstnumber=1]{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+a=45
+b=65
+
+theta=np.linspace(0,np.pi/2,100)
+u=np.sqrt(2)/2*(a+b)/np.cos(theta-np.pi/4)
+alpha=theta-np.arccos((u**2+a**2-b**2)/(2*u*a))
+beta=theta-alpha+np.arccos((u**2-a**2+b**2)/(2*u*b))
+
+x=a*np.cos(alpha)+b*np.cos(alpha+beta)
+y=a*np.sin(alpha)+b*np.sin(alpha+beta)
+
+plt.plot(x,y)
+plt.show()
+\end{minted}
+
+\subsection{Faire des squats}
+
+\paragraph{Question 1:} ~\ \\
+
+\begin{figure}[h!]
+\begin{center}
+  \resizebox{0.7\textwidth}{!}{\input{img/graphe_liaison_2.pdf_tex}}
+  \caption{\label{fig07} Graphe de liaison 2}
+\end{center}
+\end{figure}
+
+\paragraph{Question 2:} 
+
+\textit{Méthode statique:}
+
+Il y a  6 liaisons pivot, donc $Ns=6\times 5=30$.
+
+$rs=6\cdot (p-1)-m=6\times (6-1)-3=30-3=27$.
+
+$h=3$
+
+\textit{Méthode cinématique:}
+
+Il y a  6 liaisons pivot, donc $Ic=6\times 1=6$.
+
+Il n'y a qu'un cycle, donc $E=6$.
+
+$h = m-Ic+E$
+
+$h = 3-6+6=3$
+
+\paragraph{Question 3:} On pourrait remplacer la liaison pivot d'axe $(A,\vec{z_0})$ par une linéaire annulaire d'axe $(A,\vec{z_0})$.
+
+\end{document}

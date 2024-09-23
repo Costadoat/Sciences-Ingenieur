@@ -1,0 +1,216 @@
+\input{../../headers/khheaders.tex}
+
+\section{Cellule de découpe de vitres}
+
+\begin{figure}[htbp]
+\begin{minipage}[c]{.48\linewidth}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{img/machine_dec_verre.jpg}
+\caption{Machine de découpe de verre}
+\label{fig:image1}
+\end{center}
+
+Un schéma descriptif de la liaison entre l'outil (axe longitudinal) et la table est donné sur la figure \ref{fig:image2}. Une vue en détail est donnée sur la figure \ref{fig:image3}. La liaison globale est donc définie par l'ensemble de ces liaisons élémentaires.
+
+\begin{center}
+\includegraphics[width=0.5\linewidth]{img/Table2.png}
+\caption{Zoom sur la liaison}
+\label{fig:image3}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.48\linewidth}
+L'application concerne l'étude du fonctionnement d'une cellule de découpe de vitres, figure \ref{fig:image1}, pour la confection de doubles vitrages. Les vitres à découper sont placées sur une table de découpe sur laquelle se déplace un outil.
+
+\begin{center}
+\includegraphics[width=0.8\linewidth]{img/Table1.png}
+\caption{Machine de découpe de verre}
+\label{fig:image2}
+\end{center}
+
+Un système d'axes est placé sur chaque paire de galets, vous utiliserez ce repère pour le paramétrage du mécanisme.
+\end{minipage}
+\end{figure}
+
+\paragraph{Question 1:}
+
+Réaliser le graphe des liaisons du mécanisme.
+
+\paragraph{Question 2:}
+
+Déterminer la liaison entre le galet 1 et l'axe longitudinal. Et écrire son torseur.
+
+\paragraph{Question 3:}
+
+Déterminer la liaison entre le galet 1 et la table. Et écrire son torseur.
+
+\paragraph{Question 4:}
+
+Déterminer par le calcul la liaison équivalente entre l'axe longitudinal et la table réalisée par l'intermédiaire du galet.
+
+\paragraph{Question 5:}
+
+Déterminer par le calcul la liaison équivalente entre l'axe longitudinal et la table réalisée par les huit galets.
+
+\paragraph{Question 6:}
+
+Déterminer le degré d'hyperstatisme de la liaison.  
+
+\newpage
+
+~\
+
+\cleardoublepage
+
+\section{Etau à serrage manuel}
+
+\begin{figure}[htbp]
+\begin{minipage}[c]{.6\linewidth}
+Un étau, figure \ref{fig:image4} est un dispositif mécanique qui permet la \og mise en position \fg et le \og maintien en position \fg (serrage) d'une pièce.
+
+Il est composé d'une partie fixe (généralement liée au plan de travail : établi, table de machine-outil), d'une partie mobile, et d'un système de serrage.
+
+C'est souvent par un système vis-écrou que le serrage est effectué : il permet d'appliquer des efforts importants tout en étant irréversible (selon l'angle). Un autre système assez souvent employé est le serrage par excentrique.
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.35\linewidth}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{img/etau.jpg}
+\caption{Etau}
+\label{fig:image4}
+\end{center}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[c]{.3\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{img/etau_img.png}
+\caption{Etau}
+\label{fig:image5}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.69\linewidth}
+A : Étau à agrafe.
+\begin{enumerate}
+ \item Manette de serrage,
+ \item Tête de la vis de serrage,
+ \item Mâchoire mobile (comportant le mors mobile), guidage complet en translation (un seul degré de liberté) sur 4,
+ \item Mâchoire fixe comportant le mors fixe,
+ \item Fixation au plan de travail (ici par \og agrafe \fg, avec vis de pression : liaison complète temporaire).
+\end{enumerate}
+B : Étau de perceuse/fraiseuse
+
+C : Étau manuel (sans fixation sur plan de travail)
+\end{minipage}
+\end{figure}
+
+Le schéma cinémtique, de la figure \ref{fig:image6}, correspond à ce type de mécanisme.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.5\linewidth]{img/schema_cin_etau.png}
+\caption{Schéma cinématique d'un étau}
+\label{fig:image6}
+\end{center}
+\end{figure}
+
+\paragraph{Question 1:}
+
+Réaliser le graphe de liaison du mécanisme.
+
+\paragraph{Question 2:}
+
+Déterminer quelles sont les liaisons mises en place sur ce mécanisme.
+
+\paragraph{Question 3:}
+
+Par un calcul cinématique déterminer le degré hyperstatique et le nombre de mobilités de ce mécanisme.
+
+\cleardoublepage
+
+\section{Joint de cardan}
+
+\begin{figure}[htbp]
+\begin{minipage}[c]{.55\linewidth}
+Cette solution technique (à ne pas confondre avec la suspension par cardan) est utilisée sur les véhicules pour accoupler deux arbres tournants non alignés, ou dont les positions angulaires, l'un par rapport à l'autre, peuvent varier ; par exemple l'axe du volant et le boîtier de direction, surtout dans le cas d'un volant réglable en hauteur par rapport au conducteur.
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.4\linewidth}
+\begin{center}
+\includegraphics[width=0.7\linewidth]{img/cardan-double.jpg}
+\caption{Cardan double}
+\label{fig:image7}
+\end{center}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[c]{.4\linewidth}
+\begin{center}
+\includegraphics[width=0.7\linewidth]{img/cardan.png}
+\caption{Cardan double}
+\label{fig:image8}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.55\linewidth}
+Le joint de cardan permet de transmettre le mouvement de rotation d'un arbre d'entrée à un arbre de sortie non parallèles et concourants. Le joint est constitué de deux moyeux liés aux arbres d'entrée et de sortie et d'un croisillon.
+\end{minipage}
+\end{figure}
+
+\paragraph{Question 1:}
+
+Réaliser un schéma cinématique du mécanisme.
+
+\paragraph{Question 2:}
+
+Tracer le graphe des liaisons du mécanisme constitué d'un bâti, d'un arbre d'entrée, d'un arbre de sortie, et d'un croisillon,
+
+\paragraph{Question 3:}
+
+A partir de calculs cinématiques, évaluer le degré de mobilités en déduire le degré d'hyperstaticité du mécanisme.
+
+\paragraph{Question 4:}
+
+Comment modifier les liaisons pour que le système ne soit pas hyperstatique ?
+
+\newpage
+
+~\
+
+\cleardoublepage
+
+\section{Mécanisme de réglage}
+
+\begin{figure}[htbp]
+\begin{minipage}[c]{.45\linewidth}
+Cette solution technique est utilisée notament pour certains types de crics qui permettent le levage de véhicules grâce à la rotation d'une manivelle autour d'un axe horizontal.
+
+Ainsi, il transforme la rotation de la pièce 2 en une translation de la pièce 5.
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.50\linewidth}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{img/levage.png}
+\caption{Système de levage}
+\label{fig:image9}
+\end{center}
+\end{minipage}
+\end{figure}
+
+\paragraph{Question 1:}
+
+Tracer le graphe des liaisons du mécanisme.
+
+\paragraph{Question 2:}
+
+A partir de calculs cinématiques, évaluer le degré de mobilités en déduire le degré d'hyperstaticité du mécanisme.
+
+\paragraph{Question 3:}
+
+Comment modifier les liaisons pour que le système ne soit pas hyperstatique ?
+
+
+\end{document}

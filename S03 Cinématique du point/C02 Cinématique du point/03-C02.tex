@@ -1,0 +1,336 @@
+\input{../../headers/beamercoursHeadings}
+
+{\frame{
+\frametitle{Introduction}
+
+\begin{savoir}
+Vous êtes capables :
+\begin{itemize}
+ \item de modéliser le comportement cinématique d'un solide par les torseurs. 
+\end{itemize}
+\end{savoir}
+
+\begin{prob}
+Vous devez êtes capables :
+ \begin{itemize}
+ \item de modéliser le comportement cinématique d'un point sans prendre en compte les liaisons,
+ \item de déterminer l'accélération d'un point,
+ \item de tracer des champs de vecteur vitesse et accélération.
+ \end{itemize}
+\end{prob}
+}}
+
+{\frame{
+\frametitle{Dérivation directe ou en coordonnées cartésiennes}
+Soit un vecteur $\overrightarrow{V}$ repéré dans le repère $R(O,\overrightarrow{x},\overrightarrow{y},\overrightarrow{z})$ par $\overrightarrow{V}=x.\overrightarrow{x}+y.\overrightarrow{y}+z.\overrightarrow{z}$. La dérivée temporelle de ce vecteur par rapport au repère $R$ s'écrit : 
+
+\begin{center}
+$\left[\frac{d\overrightarrow{V}}{dt}\right]_R=\frac{dx}{dt}.\overrightarrow{x}+x.\left[\frac{d\overrightarrow{x}}{dt}\right]_R+\frac{dy}{dt}.\overrightarrow{y}+y.\left[\frac{d\overrightarrow{y}}{dt}\right]_R+\frac{dz}{dt}.\overrightarrow{z}+z.\left[\frac{d\overrightarrow{z}}{dt}\right]_R$
+\end{center}
+
+Les vecteurs $\overrightarrow{x}$, $\overrightarrow{y}$, $\overrightarrow{z}$ étant constants au cours du temps dans le repère $R$, leurs dérivées sont nulles, donc : 
+
+\begin{center}
+$\left[\frac{d\overrightarrow{V}}{dt}\right]_R=\frac{dx}{dt}.\overrightarrow{x}+\frac{dy}{dt}.\overrightarrow{y}+\frac{dz}{dt}.\overrightarrow{z}$
+\end{center}
+
+Pour simplifier l'écriture, on note $\frac{du}{dt}=\dot{u}$ donc : 
+
+\begin{center}
+$\left[\frac{d\overrightarrow{V}}{dt}\right]_R=\dot{x}.\overrightarrow{x}+\dot{y}.\overrightarrow{y}+\dot{z}.\overrightarrow{z}$
+\end{center}
+}}
+
+{\frame{
+\frametitle{Dérivation composée - Formule de Bour}
+
+Soit $(\overrightarrow{x_1},\overrightarrow{y_1},\overrightarrow{z_1})$ la base d'un repère $R_1$ mobile par rapport à $R$.
+ 
+On montre mathématiquement qu'il existe un vecteur $\overrightarrow{\Omega_{R_1/R}}$ unique tel que : 
+
+\begin{center}
+$\left[\frac{d\overrightarrow{x_1}}{dt}\right]_R=\overrightarrow{\Omega_{R_1/R}}\wedge\overrightarrow{x_1}$, 
+$\left[\frac{d\overrightarrow{y_1}}{dt}\right]_R=\overrightarrow{\Omega_{R_1/R}}\wedge\overrightarrow{y_1}$, 
+$\left[\frac{d\overrightarrow{z_1}}{dt}\right]_R=\overrightarrow{\Omega_{R_1/R}}\wedge\overrightarrow{z_1}$, 
+\end{center}
+
+\vfill
+
+Pour le cas particulier d'une seule rotation, lorsque $R_1$ est orienté par une seule rotation autour d'un axe de $R$, par exemple une rotation d'angle $\Psi$ autour de $\overrightarrow{z}$ alors :
+
+ \ifdef{\public}{
+\begin{center}
+$\overrightarrow{x_1}=cos\Psi.\overrightarrow{x}+sin\Psi.\overrightarrow{y}$
+$\overrightarrow{y_1}=-sin\Psi.\overrightarrow{x}+cos\Psi.\overrightarrow{y}$
+
+$\left[\frac{d\overrightarrow{x_1}}{dt}\right]_R=-\dot{\Psi}.sin\Psi.\overrightarrow{x}+\dot{\Psi}.cos\Psi.\overrightarrow{y}=\dot{\Psi}.\overrightarrow{y_1}=\dot{\Psi}.\overrightarrow{z}\wedge\overrightarrow{x_1}$
+
+$\left[\frac{d\overrightarrow{y_1}}{dt}\right]_R=-\dot{\Psi}.cos\Psi.\overrightarrow{x}-\dot{\Psi}.sin\Psi.\overrightarrow{y}=-\dot{\Psi}.\overrightarrow{x_1}=\dot{\Psi}.\overrightarrow{z}\wedge\overrightarrow{y_1}$
+\end{center}}{\vspace{3cm}}
+
+Comme $\overrightarrow{\Omega_{R_1/R}}=\dot{\Psi}.\overrightarrow{z}$,
+
+ \ifdef{\public}{
+\begin{center}
+$\left[\frac{d\overrightarrow{x_1}}{dt}\right]_R=\overrightarrow{\Omega_{R_1/R}}\wedge\overrightarrow{x_1}$, 
+$\left[\frac{d\overrightarrow{y_1}}{dt}\right]_R=\overrightarrow{\Omega_{R_1/R}}\wedge\overrightarrow{y_1}$
+\end{center}}{\vspace{1cm}}
+
+}}
+
+{\frame{
+\frametitle{Dérivée temporelle d'un vecteur quelconque}
+
+Soit un vecteur $\overrightarrow{V}$ repéré dans le repère $R_1(O,\overrightarrow{x_1},\overrightarrow{y_1},\overrightarrow{z_1})$ par $\overrightarrow{V}=x.\overrightarrow{x_1}+y.\overrightarrow{y_1}+z.\overrightarrow{z_1}$.
+	
+Le repère $R_1$ est défini par rapport au repère $R$ par son vecteur vitesse de rotation quelconque. 
+La dérivée temporelle de $\overrightarrow{V}$ dans $R_1$ s'écrit : $\left[\frac{d\overrightarrow{V}}{dt}\right]_{R_1}=\dot{x}.\overrightarrow{x_1}+\dot{y}.\overrightarrow{y_1}+\dot{z}.\overrightarrow{z_1}$
+
+\vfill
+
+Si on cherche sa dérivée temporelle par rapport à $R$ : 
+
+ \ifdef{\public}{
+\begin{center}
+$\left[\frac{d\overrightarrow{V}}{dt}\right]_R=\dot{x}.\overrightarrow{x_1}+\dot{y}.\overrightarrow{y_1}+\dot{z}.\overrightarrow{z_1}+x.\left[\frac{d\overrightarrow{x_1}}{dt}\right]_R+
+y.\left[\frac{d\overrightarrow{y_1}}{dt}\right]_R+z.\left[\frac{d\overrightarrow{z_1}}{dt}\right]_R$
+
+$\left[\frac{d\overrightarrow{V}}{dt}\right]_R=\dot{x}.\overrightarrow{x_1}+\dot{y}.\overrightarrow{y_1}+\dot{z}.\overrightarrow{z_1}+x.\overrightarrow{\Omega_{R_1/R}}\wedge\overrightarrow{x_1}+
+y.\overrightarrow{\Omega_{R_1/R}}\wedge\overrightarrow{y_1}+z.\overrightarrow{\Omega_{R_1/R}}\wedge\overrightarrow{z_1}$
+
+$\left[\frac{d\overrightarrow{V}}{dt}\right]_R=\dot{x}.\overrightarrow{x_1}+\dot{y}.\overrightarrow{y_1}+\dot{z}.\overrightarrow{z_1}+\overrightarrow{\Omega_{R_1/R}}\wedge(x.\overrightarrow{x_1}+
+y.\overrightarrow{y_1}+z.\overrightarrow{z_1})$
+\end{center}}{\vspace{3cm}}
+
+Ce qui permet d'arriver à la Formule de Bour :
+
+ \ifdef{\public}{
+\begin{center}
+$\left[\frac{d\overrightarrow{V}}{dt}\right]_R=\left[\frac{d\overrightarrow{V}}{dt}\right]_{R_1}+\overrightarrow{\Omega_{R_1/R}}\wedge\overrightarrow{V}$
+\end{center}}{\vspace{1cm}}
+}}
+
+{\frame{
+\frametitle{Accélération d'un point}
+
+L'\textbf{accélération} d'un point se calcule en dérivant le vecteur vitesse. Ainsi, pour un solide 2 en mouvement par rapport à un solide 1 et P et Q deux points fixes dans 2.
+
+\vfill
+
+Entre ces deux points, la relation génératrice du champ des vecteurs vitesses s'écrit : 
+
+\begin{center}
+$\overrightarrow{V_{B\in 2/1}}=\overrightarrow{V_{A\in 2/1}}+\overrightarrow{\Omega_{2/1}}\wedge \overrightarrow{AB}$
+\end{center}
+
+Par définition du vecteur accélération, le point B étant fixe à chaque instant dans 2 :
+
+\begin{center}
+$\overrightarrow{A_{B\in 2/1}}=\left[\frac{d\overrightarrow{V_{B\in 2/1}}}{dt}\right]_{R_1}$
+\end{center}
+
+Par substitution, on en déduit :
+
+\begin{center}
+$\overrightarrow{A_{A\in 2/1}}=\left[\frac{d\overrightarrow{V_{A\in 2/1}}}{dt}\right]_{R_1}$
+\end{center}
+}}
+
+{\frame{
+\frametitle{Accélération d'un point}
+
+Mathématiquement on montre que : $\left[\frac{d\overrightarrow{\Omega_{2/1}}\wedge\overrightarrow{AB}}{dt}\right]_{R_1}=\left[\frac{d\overrightarrow{\Omega_{2/1}}}{dt}\right]_{R_1}\wedge\overrightarrow{AB}+\overrightarrow{\Omega_{2/1}}\wedge\left[\frac{d\overrightarrow{AB}}{dt}\right]_{R_1}$
+
+\vfill
+
+Au bilan, la relation sur le champ des vecteurs accélérations s'écrit :
+
+ \ifdef{\public}{
+\begin{center}
+$\left[\frac{d\overrightarrow{AB}}{dt}\right]_{R_1}=\overrightarrow{\Omega_{2/1}}\wedge\overrightarrow{AB}$
+
+$\overrightarrow{A_{B\in 2/1}}=\overrightarrow{A_{A\in 2/1}}+\left[\frac{d\overrightarrow{\Omega_{2/1}}}{dt}\right]_{R_1}\wedge\overrightarrow{AB}+\overrightarrow{\Omega_{2/1}}\wedge(\overrightarrow{\Omega_{2/1}}\wedge\overrightarrow{AB})$
+\end{center}}{\vspace{3cm}}
+
+\vfill
+
+En effectuant la multiplication scalaire des deux membres du vecteur $\overrightarrow{AB}$, et en constatant que le terme $\overrightarrow{\Omega_{2/1}}\wedge(\overrightarrow{\Omega_{2/1}}\wedge\overrightarrow{AB}).\overrightarrow{AB}$ est différent de 0, on en déduit:
+
+ \ifdef{\public}{
+\begin{center}
+$\overrightarrow{A_{A\in 2/1}}.\overrightarrow{AB}\neq\overrightarrow{A_{B\in 2/1}}.\overrightarrow{AB}$
+\end{center}}{\vspace{1cm}}
+
+Le champ des vecteurs accélérations \textbf{n'est pas un champ de vecteurs équiprojectif}.
+}}
+
+{\frame{
+\frametitle{Mouvement plan sur plan}
+
+\begin{defi}
+Si un solide $S_1$ associé au repère $R_1(O_1,\overrightarrow{x_1},\overrightarrow{y_1},\overrightarrow{z_1})$ est en mouvement par rapport à un solide $S_0$ associé au repère $R_0(O_0,\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})$ tel que le plan $(O_1,\overrightarrow{x_1},\overrightarrow{y_1})$ reste constamment confondu avec le plan	$(O_0,\overrightarrow{x_0},\overrightarrow{y_0})$, alors le mouvement de $S_1$ par rapport à $S_0$ est un mouvement plan. 
+\end{defi}
+
+La définition précédente implique que : 
+\begin{itemize}
+ \item les vecteurs vitesse des points du solide $S_1$ par rapport à $S_0$ sont dans le plan $(O_0,\overrightarrow{x_0},\overrightarrow{y_0})$:$\forall M\in S_1, \overrightarrow{V_{M\in S_1/S_0}}.\overrightarrow{z_0}=0$,
+ \item le vecteur instantané de rotation de $S_1/S_0$ est colinéaire à la normale au plan $(O_0,\overrightarrow{x_0},\overrightarrow{y_0})$:  $\overrightarrow{\Omega_{S_1/S_0}}\wedge\overrightarrow{z_0}=\overrightarrow{0}$.
+\end{itemize}
+
+Le torseur cinématique du mouvement de S1 par rapport à S0 prend donc la forme simplifiée
+
+\begin{center}
+$\left\{V_{S_1/S_0}\right\}_M=\left\{\begin{array}{cc}0 & v_x \\ 0 & v_y \\ \omega_z & 0 \end{array} \right\}_M$ 
+\end{center}
+}}
+
+{\frame{
+\frametitle{Simplification des torseurs cinématiques}
+
+Si les mouvements des pièces d'un mécanisme peuvent être ramenés à des mouvement plans par rapport au repère générale (repère lié au bâti), les torseurs cinématiques des mouvements relatifs des solides peuvent être simplifiés comme précédemment.
+
+\begin{center}
+\begin{minipage}{0.48\linewidth}
+Le système bielle-manivelle admet une simplification dans le plan $(O,\overrightarrow{x},\overrightarrow{y})$.
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\linewidth}
+ \includegraphics[width=0.7\linewidth]{img/img1}
+\end{minipage}
+\end{center}
+
+En conséquence, le torseur cinématique de la liaison pivot-glissant d'axe $\overrightarrow{x}$ entre les solides 2 et 3 admet le simplification suivante : 
+
+\begin{center}
+$\left\{V_{3/0}\right\}_B=\left\{\begin{array}{cc}\omega_x & v_x \\ 0 & 0 \\ 0 & 0 \end{array} \right\}_B$ devient dans le plan $(O,\overrightarrow{x},\overrightarrow{y})$:
+ \ifdef{\public}{$\left\{V_{3/0}\right\}_B=\left\{\begin{array}{cc} \sim & v_x \\ \sim & 0 \\ 0 & \sim \end{array} \right\}_B$ }{\hfill}
+\end{center}
+
+Ce type de raisonnement se généralise à tous les torseurs des liaisons et permet ainsi de minimiser le nombre d'inconnues cinématiques. Ainsi, il n'y a que 3 degrés de liberté au maximum par liaison dans \textbf{un problème plan}. 
+
+}}
+
+
+{\frame{
+\frametitle{Outils de cinématique graphique}
+
+La cinématique graphique consiste à exploiter les \textbf{propriétés} des \textbf{champs de vecteurs vitesse} par constructions \textbf{graphiques} :
+\begin{itemize}
+ \item \textbf{distribution de vitesse} dans un solide en rotation,
+ \begin{itemize}
+  \item vecteur vitesse perpendiculaire au rayon de la trajectoire,
+  \item vecteur vitesse inscrit dans le triangle des vitesses.
+ \end{itemize}
+ \item \textbf{équiprojectivité} des vecteurs vitesses.
+\end{itemize}
+
+\vfill
+
+Il est donc nécessaire de pouvoir représenter le mécanisme \textbf{dans un plan} qui recevra les constructions graphiques. La cinématique graphique ne peut donc s'appliquer qu'aux \textbf{mécanismes admettant une simplification plane}.
+}}
+
+{\frame{
+\frametitle{Centre instantané de rotation (CIR)}
+
+Soit un solide $S_1$ en mouvement plan par rapport à $S_0$ : 
+Le torseur cinématique du mouvement de $S_1$ par rapport à $S_0$ en un point quelconque $M$ est: 
+
+ \ifdef{\public}{
+\begin{center}
+$\left\{V_{S_1/S_0}\right\}_M=\left\{\begin{array}{cc} \sim & v_x \\ \sim & v_y \\ \omega_z & \sim \end{array} \right\}_M$ 
+\end{center}}{\vspace{1.5cm}}
+
+$I$ est centre instantané de rotation du solide $S_1$ par rapport à $S_0$ si :  \ifdef{\public}{
+$\overrightarrow{V_{I\in S_1/S_0}}=\overrightarrow{0}$}{\hfill}
+
+Remarques : 
+\begin{itemize}
+ \item $I$ est donc un point central du torseur cinématique de $S_1$ par rapport à $S_0$. Le $CIR_{(S1/S0)}$ correspond donc à l'intersection de l'axe central du torseur cinématique de $S_1/S_0$ avec le plan d'évolution du solide $S_1$,
+ \item Le CIR est \og instantané \fg, c'est à dire que, dans le cas général, sa position est attachée à un instant donnée et à une position particulière du mécanisme, 
+ \item Le CIR peut être un point défini en dehors de la limite matérielle du solide $S_1$. 
+\end{itemize}
+}}
+
+{\frame{
+\frametitle{Opérations sur le CIR}
+
+\textbf{Répartition des vecteurs vitesse autour du CIR}
+
+\begin{itemize}
+ \item A un instant t, tout se passe comme si le solide est en rotation pure autour du CIR. 
+ \begin{itemize}
+  \item les vecteurs vitesses des points du solide $S_1$ sont donc orthogonaux au rayon de leur trajectoires,
+  \item ils sont inscrits dans un triangle de vitesse issu du CIR.
+ \end{itemize}
+ \item \textit{Remarque : Si le solide $S_1$ est en liaison pivot par rapport au bâti du mécanisme, son mouvement est une rotation autour du centre de la liaison. Le CIR est alors confondu avec ce point et est fixe au cours du temps.}
+\end{itemize}
+
+\begin{minipage}{0.65\linewidth}
+\textbf{Détermination graphique du CIR}
+
+\begin{itemize}
+ \item Par définition, le vecteur vitesse du point $M$ quelconque du solide $S_1$ par rapport à $S_0$ est orthogonale à la droite passant par le point $M$ et par le CIR de $S_1/S_0$. 
+ \item Si on connait les directions des vitesses de deux points $M$ et $M'$ du solide $S_1$, le CIR de $S_1/S_0$  est à l'intersection des deux perpendiculaires à ces directions passant par $M$ et $M'$.
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+\includegraphics[width=0.9\linewidth]{img/img2}
+\end{minipage}
+}}
+
+
+{\frame{
+\frametitle{Opérations sur le CIR}
+
+\textbf{Détermination graphique des vitesses en utilisant le CIR}
+
+En connaissant la position de $I$, CIR de $S/R$ et la vitesse du point $A$, on détermine la vitesse d'un point $B$ quelconque du solide de la manière suivante : 
+
+\begin{minipage}{0.7\linewidth}
+ \begin{enumerate}
+ \item Tracer $A'$, équidistant de $A$ $(IA=IA')$ et appartenant à $(IB)$,
+ \item Tracer $\overrightarrow{V_{A'\in S_1/S_0}}$ de même norme que $\overrightarrow{V_{A\in S_1/S_0}}$ et orthogonal à $(IB)$,
+ \item Tracer la droite passant par $I$ et par l'extrémité de $\overrightarrow{V_{A'\in S_1/S_0}}$, c'est le triangle des vitesses qui inscrit $\overrightarrow{V_{A\in S_1/S_0}}$,
+ \item Tracer $\overrightarrow{V_{B\in S_1/S_0}}$, orthogonal à $(IB)$ et dont l'extrémité est sur la droite tracée précédemment.
+ \end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}{0.25\linewidth}
+ \includegraphics[width=0.9\linewidth]{img/img3}
+\end{minipage}
+
+\vfill
+
+\textbf{Base et roulante}
+
+\begin{itemize}
+ \item La base du mouvement de $S/R$ est la trajectoire du $CIR$ de $S/R$ dans $R$, 
+ \item La roulante du mouvement de $S/R$ est la trajectoire du $CIR$ de $S/R$ dans le repère lié à $S$,
+ \item La base et la roulante du mouvement de $S/R$ sont à chaque instant tangentes au $CIR$ de $S/R$ et roulent sans glisser l'une sur l'autre en ce point. 
+\end{itemize}
+}}
+
+{\frame{
+\frametitle{Conclusion}
+
+\begin{savoir}
+Vous êtes capables :
+\begin{itemize}
+ \item de modéliser le comportement cinématique d'un point sans prendre en compte les liaisons,
+ \item de déterminer l'accélération d'un point,
+ \item de modéliser le comportement cinématique d'un point graphiquement,
+ \item de tracer des champs de vecteur vitesse et accélération.
+\end{itemize}
+\end{savoir}
+
+\begin{prob}
+Vous devez êtes capables :
+ \begin{itemize}
+ \item de modéliser les actions mécaniques afin de vérifier leur influence sur le mouvement des solides.
+ \end{itemize}
+ Il faudra pour cela commencer par modéliser ces actions sans mouvement (statique) puis avec mouvement (dynamique).
+\end{prob}
+}}
+
+\end{document}

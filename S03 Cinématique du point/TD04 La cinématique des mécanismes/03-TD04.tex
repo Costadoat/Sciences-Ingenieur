@@ -1,0 +1,131 @@
+\input{../../headers/tdheaders.tex}
+
+\section{Activité 1: Détermination de la loi d'entrée/sortie géométrique}
+
+L'objectif de cette partie est de déterminer la loi de fermeture géométrique du système Moby Crea et de la comparer avec celle obtenue par extraction de données expérimentales.
+
+\begin{itemize}
+ \item L'angle de rotation du moteur sera appelé $\theta_m$,
+ \item La distance AC sera appelée $y$.
+\end{itemize}
+
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/moby_cin}
+\end{center}
+
+\paragraph{Question 1:} Déterminer $y$ en fonction de $\theta_m$ et des paramètres géométriques du système, en utilisant la loi de fermeture géométrique. Les dimensions seront mesurées sur le système afin d'effectuer l'application numérique.
+
+\paragraph{Question 2:} Sur le logiciel \textit{Scilab}, faire varier $\theta_m$ de $0$ à $6\pi$ (\texttt{a=(0:0.1:6*\%pi)}).
+
+Puis calculer les valeurs de $y$ (\texttt{t=f(a)}).
+
+Enfin demander au logiciel de tracer la fonction $t=f(a)$ (\texttt{plot2d(a,t)}).
+%
+%\paragraph{Question 3:} Après avoir récupéré le résultat d'une simulation sur le logiciel du Moby Crea traçant la vitesse de rotation du bras en fonction de celle du moteur. Importer ces résultats sur le logiciel Scilab et intégrer numériquement ces courbes, vous proposerez un algorithme afin d'effectuer cette intégrale.
+%
+%L'importation est possible si le fichier a été mis sous la forme:
+%\begin{center}
+%\texttt{0.000  0.000} \\
+%\texttt{0.063  0.063} \\
+%\texttt{0.127  0.127} \\
+%\texttt{0.190  0.189} \\
+%\texttt{0.254  0.251}
+%\end{center}
+%
+%La commande \texttt{[x]=read (fichier ,m ,n [, format])} permet d'intégrer les données sous la forme d'une matrice.
+%
+%\begin{itemize}
+% \item \texttt{fichier} : Chaîne de caractère correspondant au nom du fichier,
+% \item \texttt{x} : matrice, vecteur ou chaîne de caractères,
+% \item \texttt{m} : entier, nombre de ligne à lire, m=-1 permet de lire toutes les lignes du fichier,
+% \item \texttt{n} : entier, nombre de colonnes à lire,
+% \item \texttt{format} : chaîne de caractère au format Fortran (ne pas utiliser).
+%\end{itemize}
+%
+%\paragraph{Question 4:} En utilisant le résultat de l'intégrale de la vitesse de rotation du moteur comme donnée d'entrée, calculer les valeurs de $\theta$ (\texttt{t=f(a)}) et les comparer à celles obtenues numériquement.
+
+\section{Activité 2: Détermination de la loi d'entrée/sortie cinématique}
+
+Cette partie permettra de déterminer la loi d'entrée à imposer au moteur électrique afin de permettre d'obtenir un déplacement souhaité du bras.
+
+\begin{itemize}
+ \item La vitesse de rotation du moteur sera appelée $\omega_m=\dot{\theta_m}$,
+ \item La vitesse de rotation du bras sera appelée $v=\dot{y}$.
+\end{itemize}
+
+\paragraph{Question 1:} Déterminer $\omega_m$ en fonction de $v$ et des paramètres géométriques du système, en utilisant la loi de fermeture cinématique. Les dimensions seront mesurées sur le système afin d'effectuer l'application numérique.
+
+%\subsubsection{Trapèze de vitesse}
+%
+%L'objectif est d'obtenir le profil suivant pour la vitesse de rotation du bras par rapport au bâti.
+%
+%\begin{center}
+% \includegraphics[width=0.6\linewidth]{img/moby_profil}
+%\end{center}
+%
+%\paragraph{Question 2:} En déduire le profil de vitesse à imposer au moteur $\omega_m$. Vous tracerez ce profil en utilisant les commandes suivantes.
+%
+%\begin{itemize}
+% \item Temps total de montée $1s$: \texttt{t1=(0:0.1:1)},
+% \item Temps total de maintient $2s$: \texttt{t2},
+% \item Temps total de descente $1s$: \texttt{t3},
+% \item Montée constante jusqu'à $0.15rad.s^{-1}$: \texttt{v1=k*t1+k0},
+% \item Maintient à $0.15rad.s^{-1}$: \texttt{v2},
+% \item Descente jusqu'à $0rad.s^{-1}$: \texttt{v3},
+% \item temps total $t$: \texttt{t=[t1 t2 t3]},
+% \item Profil complet de $\omega_b$: \texttt{ob=[v1 v2 v3]},
+% \item Tracé du profil de $\omega_b$: \texttt{plot2d=(t,ob)},
+% \item Calcul de $\omega_m$: \texttt{om=f(ob)},
+% \item Tracé du profil de $\omega_m$: \texttt{plot2d=(t,om)}.
+%\end{itemize}
+%
+%Ce profil de vitesse devra être utilisé comme loi d'entrée pour le modèle Soldiworks élaboré lors de l'activité 3.
+
+\section{Activité 3: Modélisation sur un modeleur 3D}
+
+Le logiciel Solidworks va permettre de déterminer les lois d'entrée sortie géométrique et cinématique du système Moby Crea.
+
+Le fichier à ouvrir pour cette étude est le fichier \verb?SW/_Moby-Crea.SLDASM?.
+
+\begin{itemize}
+ \item La vitesse de rotation du moteur sera appelée $\omega_m=\dot{\theta_m}$,
+ \item La vitesse de rotation du bras sera appelée $v=\dot{y}$.
+\end{itemize}
+
+\paragraph{Question 1:} Sur Solidworks, paramétrer le Moby Crea sur le logiciel Meca3d afin de pouvoir simuler son comportement.
+ 
+\begin{itemize}
+ \item Tracer $y=f(\theta_m)$,
+ \item Tracer $v=f(t)$,
+\end{itemize}
+
+%\paragraph{Question 2:} Construire une courbe de la forme du profil de vitesse en trapèze.
+%
+%Avec:
+%\begin{itemize}
+% \item $t_1=1s$,
+% \item $t_2=3s$,
+% \item $t_{total}=5s$,
+% \item ${\omega_b}_{max}=0.15rad.s^{-1}$.
+%\end{itemize}
+%
+%\paragraph{Question 3:} Utiliser cette courbe comme donnée d'entrée pour calculer la vitesse $\omega_m$ en fonction du temps. Comparer ce résultat avec celui de l'activité 2.
+%
+%\paragraph{Question 4:} Construire une courprofbe à partir de la fonction $\omega_m$ calculée lors de l'activité 2. Montrer que cela revient exactement au tracé précédent.
+
+\section{Activité 4: Système acausal}
+
+Cette partie va permettre d'introduire le modèle \og acausal \fg afin de déterminer si celui qui a été mis en place pour le Moby Crea en est un. Un modèle \og acausal \fg est un modèle qui ne possède pas de lien cause à effet. Il revient à des équations implicites sans ordre entre les variables et sans spécification d'entrée et de sortie.
+
+\paragraph{Question 1:} A la vue de la définition précédente, pensez-vous que ce système puisse être modélisé par un modèle \og acausal \fg ?
+
+\paragraph{Question 2:} Vous effectuerez la liaison entre les activités afin de récupérer les résultats de l'activité 2 pour les utiliser sur Solidworks durant l'activité 3.
+
+\paragraph{Question 3:} Vous montrerez l'influence sur les résultat des dimensions géométriques du système afin de déterminer si leur choix dépend des données cinématiques.
+
+\end{document}
+
+\pagestyle{correction}\setcounter{section}{0}
+
+\paragraph{Question 1:}
+\end{document}

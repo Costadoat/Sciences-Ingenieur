@@ -1,0 +1,39 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 02/07/07 by ADMIN
+' *****************************************************************************
+Dim swApp As Object
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long
+Dim Annotation As Object
+Dim Gtol As Object
+Dim DatumTag As Object
+Dim FeatureData As Object
+Dim Feature As Object
+Dim Component As Object
+Sub main()
+
+Set swApp = Application.SldWorks
+
+Set Part = swApp.OpenDoc4 ("C:\Documents and Settings\ADMIN\Bureau\Dessins SolidWorks Sympact\assemblage SYMPACT DIDASTEL.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("assemblage SYMPACT DIDASTEL")
+swApp.ActiveDoc.ActiveView.FrameWidth = 830
+swApp.ActiveDoc.ActiveView.FrameHeight = 602
+boolstatus = Part.Extension.SelectByID("Tete_ero_2-1@assemblage SYMPACT DIDASTEL", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+Part.ClearSelection
+boolstatus = Part.Extension.SelectByID("Assemblage pupitre-1@assemblage SYMPACT DIDASTEL/cavalier_douille_4mm-3@Assemblage pupitre", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+Part.ClearSelection
+swApp.LoadFile2 "C:\Documents and Settings\ADMIN\Bureau\Dessins SolidWorks Sympact\vue1.SLDASM", ""
+Set Part = swApp.ActiveDoc
+Set Part = swApp.OpenDoc4 ("C:\Documents and Settings\ADMIN\Bureau\Dessins SolidWorks Sympact\vue1.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("vue1")
+swApp.ActiveDoc.ActiveView.FrameWidth = 830
+swApp.ActiveDoc.ActiveView.FrameHeight = 602
+boolstatus = Part.Extension.SelectByID("vh_10_45 8-8-2@vue1", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+Part.ClearSelection
+boolstatus = Part.Extension.SelectByID("vh_10_45 8-8-2@vue1", "COMPONENT", 0, 0, 0, False, 0, Nothing)
+Part.ClearSelection
+boolstatus = Part.Extension.SelectByID("vh_10_45 8-8-2@vue1", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+Part.ClearSelection
+boolstatus = Part.Extension.SelectByID("vh_10_45 8-8-2@vue1", "COMPONENT", 0, 0, 0, True, 0, Nothing)
+Part.ClearSelection

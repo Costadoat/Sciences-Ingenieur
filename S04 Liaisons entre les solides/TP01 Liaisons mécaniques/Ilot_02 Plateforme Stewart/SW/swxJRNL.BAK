@@ -1,0 +1,30 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 01/10/05 by marc
+' ******************************************************************************
+
+Dim swApp As Object
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long
+Dim Annotation As Object
+Dim Gtol As Object
+Dim DatumTag As Object
+Dim FeatureData As Object
+Dim Feature As Object
+Dim Component As Object
+Sub main()
+Set swApp = CreateObject ("SldWorks.Application")
+Set Part = swApp.OpenDoc4 ("E:\Marc\TP\stewart\Modele_plateforme+gyro\Ensemble_global.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("Ensemble_global")
+swApp.ActiveDoc.ActiveView.FrameLeft = 0
+swApp.ActiveDoc.ActiveView.FrameTop = 0
+swApp.ActiveDoc.ActiveView.FrameState = 1
+swApp.ActiveDoc.ActiveView.FrameState = 1
+Part.SelectByID "BASE-1@Ensemble_global", "COMPONENT", 0, 0, 0
+swApp.ActiveDoc.ActiveView.FrameState = 1
+swApp.ActiveDoc.ActiveView.FrameState = 1
+swApp.ActiveDoc.ActiveView.FrameState = 1
+swApp.ActiveDoc.ActiveView.FrameState = 1
+Part.ClearSelection
+swApp.ExitApp
+End Sub

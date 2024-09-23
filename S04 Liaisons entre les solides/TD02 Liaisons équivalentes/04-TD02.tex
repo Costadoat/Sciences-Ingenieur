@@ -1,0 +1,289 @@
+\input{../../headers/tdheaders.tex}
+
+\section{Trombone à coulisse}
+
+\begin{figure}[htbp]
+\begin{minipage}{0.49\linewidth}
+\includegraphics[width=0.9\linewidth]{img/Trombone}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\linewidth}
+\includegraphics[width=0.9\linewidth]{img/Trombone_cin}
+\end{minipage}
+\end{figure}
+
+Le \textbf{trombone} est un instrument de musique à vent et à embouchure de la famille des cuivres clairs. Le terme désigne implicitement le \textbf{trombone à coulisse} caractérisé par l'utilisation d'une \textbf{coulisse télescopique}, mais il existe également des modèles de trombone à pistons. Le trombone à coulisse est l'un des rares instruments à vent dont la maîtrise ne nécessite pas l'utilisation individuelle des doigts.
+
+Le trombone est constitué d'un corps (0) et d'une coulisse (1). Le vecteur $\overrightarrow{AB}=e.\overrightarrow{x}$.
+
+\paragraph{Question 1:} Écrire le graphe des liaisons du trombone à coulisse.
+
+\paragraph{Question 2:} Écrire les torseurs cinématiques de chacune des liaisons et les déplacer au même point.
+
+\paragraph{Question 3:} En déduire la liaison équivalente entre le \textbf{corps} du trombone et la \textbf{coulisse}.
+
+\newpage
+
+\section{Robot soudeur}
+
+\begin{figure}[htbp]
+\begin{minipage}{0.4\linewidth}
+\includegraphics[width=0.9\linewidth]{img/robot_soudage}
+\end{minipage}
+\hfill
+\begin{minipage}{0.55\linewidth}
+\includegraphics[width=0.9\linewidth]{img/Robot_cin}
+\end{minipage}
+\end{figure}
+
+Un \textbf{robot industriel} est un système polyariticulé, à l'image d'un bras humain, composé de plusieurs degrés de liberté, permettant de déplacer et d'orienter un outil (organe effecteur) dans un espace de travail donné.
+
+Il existe :
+\begin{itemize}
+ \item des robots de peinture ou de soudure largement utilisés dans l'industrie automobile,
+ \item des robots de montage de dimension souvent plus réduite,
+ \item des robots mobiles destinés à l'inspection souvent associés à de l'intelligence artificielle et capables, dans certains cas, de prendre en compte l'environnement.
+\end{itemize}
+
+Données:
+\begin{itemize}
+ \item $\overrightarrow{OA}=a.\overrightarrow{y_1}+b.\overrightarrow{z_1}$,
+ \item $\overrightarrow{AB}=c.\overrightarrow{y_2}$,
+ \item $\overrightarrow{BC}=d.\overrightarrow{y_3}+e.\overrightarrow{z_3}$.
+\end{itemize}
+
+\paragraph{Question 1:} Écrire le graphe des liaisons du robot soudeur.
+
+\paragraph{Question 2:} Écrire les torseurs cinématiques des liaisons $\left\{V_{1/0}\right\}$ et $\left\{V_{2/1}\right\}$ et les déplacer au point O.
+
+\paragraph{Question 3:} En déduire le torseur et le nombre de mobilité de la liaison équivalente entre la pièce $\textbf{2}$ et le \textbf{bâti}.
+
+\paragraph{Question 4:} Écrire le torseur cinématique de la liaison $\left\{V_{3/2}\right\}$ et le déplacer au point O.
+
+\paragraph{Question 5:} En déduire le torseur et le nombre de mobilité de la liaison équivalente entre la pièce $\textbf{3}$ et le \textbf{bâti}.
+
+\paragraph{Question 6:} Écrire le torseur cinématique de la liaison $\left\{V_{4/3}\right\}$ et le déplacer au point O.
+
+\paragraph{Question 7:} En déduire le torseur et le nombre de mobilité de la liaison équivalente entre la pièce $\textbf{4}$ et le \textbf{bâti}.\\
+
+\paragraph{Question 8:} Conclure quant à l'intérêt d'ajouter des liaisons à une mobilité sur un bras robotisé.
+
+\newpage
+
+\section{Barrière sympact}
+
+La cinématique de la transformation du mouvement de la barrière Sympact est présentée sur le schéma suivant.
+
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/Sympact_cin}
+\end{center}
+
+On donne les éléments géométriques suivants:
+\begin{itemize}
+ \item $\overrightarrow{AB}=-l_1.\overrightarrow{y_0}$,
+ \item $\overrightarrow{AC}=l_2.\overrightarrow{x_1}$,
+ \item $\theta_1=(\overrightarrow{x_0},\overrightarrow{x_1})=(\overrightarrow{y_0},\overrightarrow{y_1})$,
+ \item $\theta_2=(\overrightarrow{x_0},\overrightarrow{x_2})=(\overrightarrow{y_0},\overrightarrow{y_2})$.
+\end{itemize}
+
+\paragraph{Question 1:} Déterminer les torseurs des liaisons suivantes $\left\{V_{1/0}\right\}$, $\left\{V_{2/0}\right\}$ et $\left\{V_{2/1}\right\}$.
+
+\paragraph{Question 2:} Déplacer ces torseurs au point A, dans le repère $R_0$.
+
+\paragraph{Question 3:} Déterminer la liaison équivalente $\left\{Ve_{2/0}\right\}$.
+
+\paragraph{Question 4:} Déterminer le nombre de mobilités du système.
+
+\ifdef{\public}{\end{document}}{}
+
+\newpage
+
+\pagestyle{correction}
+
+\section{Correction}
+
+\subsection{Trombone à coulisse}
+
+\paragraph{Question 1:} Il y a deux liaisons entre le corps \textbf{0} et la coulisse \textbf{1}:
+\begin{itemize}
+ \item Pivot-glissant (A,$\overrightarrow{y}$),
+ \item Pivot-glissant (B,$\overrightarrow{y}$).
+\end{itemize}
+
+\paragraph{Question 2:} ~\ \\
+
+$\left\{V'_{1/0}\right\}=\left\{\begin{array}{c c} 0 & 0\\ \omega'_{10} & V'_{A,10} \\ 0 & 0
+\end{array} \right\}_A$,
+$\left\{V''_{1/0}\right\}=\left\{\begin{array}{c c} 0 & 0\\ \omega''_{10} & V''_{B,10} \\ 0 & 0 \end{array} \right\}_B$
+
+$\overrightarrow{V_{A\in1/0}}=\overrightarrow{V_{B\in1/0}}+\overrightarrow{AB}\wedge \Omega_{1/0}=\begin{array}{c} 0 \\ V''_{B,10} \\ 0 \end{array}+\begin{array}{c} e\\ 0 \\ 0 \end{array} \wedge \begin{array}{c} 0\\ \omega''_{10} \\ 0 \end{array}$
+
+$\left\{V''_{1/0}\right\}=\left\{\begin{array}{c c} 0 & 0\\ \omega''_{10} & V''_{B,10} \\ 0 & e.\omega''_{10} \end{array} \right\}_A$
+
+$\left\{Ve_{1/0}\right\}=\left\{\begin{array}{c c} 0 & 0\\ \omega'_{10} & V'_{A,10} \\ 0 & 0
+\end{array} \right\}_A=\left\{\begin{array}{c c} 0 & 0\\ \omega''_{10} & V''_{B,10} \\ 0 & e.\omega''_{10} \end{array} \right\}_A=\left\{\begin{array}{c c} 0 & 0 \\ 0 & V_{A,10} \\ 0 & 0 \end{array} \right\}_A$
+
+\paragraph{Question 3:} La liaison équivalente est une glissière.
+
+\subsection{Robot soudeur}
+
+\paragraph{Question 1:} Les liaisons sont les suivantes:
+\begin{enumerate}
+ \item Pivot entre 0 et 1 (O,$\overrightarrow{z_0}$),
+ \item Pivot entre 1 et 2 (A,$\overrightarrow{x_1}$),
+ \item Pivot entre 2 et 3 (B,$\overrightarrow{x_2}$),
+ \item Pivot entre 3 et 4 (C,$\overrightarrow{y_3}$),
+ \item Pivot entre 4 et 5 (C,$\overrightarrow{x_4}$).
+\end{enumerate}
+
+\paragraph{Question 2:} ~\ \\
+ 
+$\left\{V_{1/0}\right\}=\left\{\begin{array}{c c} 0 & 0\\ 0 &  \\ \omega_{10} & 0 \end{array} \right\}_{(O,R_0\ ou\ R_1)}$,
+$\left\{V_{2/1}\right\}=\left\{\begin{array}{c c} \omega_{21} & 0\\ 0 & 0 \\ 0 & 0 \end{array} \right\}_{(A,R_1)}$.
+
+$\overrightarrow{V_{O\in2/1}}=\overrightarrow{V_{A\in2/1}}+\overrightarrow{OA}\wedge \Omega_{2/1}=\left(\begin{array}{c} 0 \\ 0 \\ 0 \end{array}\right)+\left(\begin{array}{c} 0 \\ a \\ b \end{array}\right) \wedge \left(\begin{array}{c} \omega_{21} \\ 0 \\ 0 \end{array}\right)$
+
+$\left\{V_{2/1}\right\}=\left\{\begin{array}{c c} \omega_{21} & 0\\ 0 & b.\omega_{21} \\ 0 & -a.\omega_{21} \end{array} \right\}_{(O,R_1)}$
+
+\paragraph{Question 3:} ~\ \\
+
+$\left\{V_{2/0}\right\}=\left\{\begin{array}{c c} \omega_{21} & 0\\ 0 & b.\omega_{21} \\ \omega_{10} & -a.\omega_{21} \end{array} \right\}_{(O,R_1)}$.
+
+Il y a deux mobilités: $\omega_{10}$ et $\omega_{21}$.
+
+\paragraph{Question 4:} ~\ \\
+
+$\left\{V_{3/2}\right\}=\left\{\begin{array}{c c} \omega_{32} & 0\\ 0 & 0 \\ 0 & 0 \end{array} \right\}_{(B,R_1)}=\left\{\begin{array}{c c} \omega_{32} & 0\\ 0 & (b+c.sin\theta_{21}).\omega_{32} \\ 0 & -(a+c.cos\theta_{21}).\omega_{32} \end{array} \right\}_{(O,R_1)}$
+
+\paragraph{Question 5:} ~\ \\
+
+$\left\{V_{3/0}\right\}=\left\{\begin{array}{c c} \omega_{32}+\omega_{21} & 0\\ 0 & b.\omega_{21}+(b+c.sin\theta_{21}).\omega_{32} \\ \omega_{10} & -a.\omega_{21}-(a+c.cos\theta_{21}).\omega_{32} \end{array} \right\}_{(O,R_1)}$
+
+Il y a trois mobilités: $\omega_{10}$, $\omega_{21}$ et $\omega_{32}$.
+
+
+\paragraph{Question 6:} ~\ \\
+
+$\left\{V_{4/3}\right\}=\left\{\begin{array}{c c} 0 & 0\\ \omega_{43} & 0 \\ 0 & 0 \end{array} \right\}_{(C,R_3)}$
+
+$\overrightarrow{OC}=a.\overrightarrow{y_1}+b.\overrightarrow{z_1}+c.\overrightarrow{y_2}+d.\overrightarrow{y_3}+e.\overrightarrow{z_3}=a.\overrightarrow{y_1}+b.\overrightarrow{z_1}+c.\overrightarrow{y_2}+(d.cos \theta_{32}-e.sin \theta_{32}).\overrightarrow{y_2}+(d.sin \theta_{32}+e.cos \theta_{32}).\overrightarrow{z_2}$
+
+$\overrightarrow{OC}=\left[a+c.cos \theta_{21}+d.cos (\theta_{32}+\theta_{21})-e.sin (\theta_{32}+\theta_{21})\right].\overrightarrow{y_1}$\\
+$+\left[b+c.sin \theta_{21}+d.sin (\theta_{32}+\theta_{21})+e.cos (\theta_{32}+\theta_{21})\right].\overrightarrow{z_1}$
+
+$\overrightarrow{\Omega_{4/3}}=\omega_{43}.\overrightarrow{y_3}=\omega_{43}.\left[cos(\theta_{32}+\theta_{21}).\overrightarrow{y_1}+sin(\theta_{32}+\theta_{21}).\overrightarrow{z_1}\right]$
+
+$\overrightarrow{V_{O\in4/3}}=\left[\left[a+c.cos \theta_{21}+d.cos (\theta_{32}+\theta_{21})-e.sin (\theta_{32}+\theta_{21})\right].sin (\theta_{32}+\theta_{21})\right.$\\$\left.-\left[b+c.sin \theta_{21}+d.sin (\theta_{32}+\theta_{21})+e.cos (\theta_{32}+\theta_{21})\right].cos (\theta_{32}+\theta_{21})\right].\omega_{43}.\overrightarrow{x_1}$
+
+En simplifiant, grâce aux formules trigonométriques, on obtient:
+$\overrightarrow{V_{O\in4/3}}=\left[a.sin (\theta_{32}+\theta_{21})-b.cos (\theta_{32}+\theta_{21})+c.sin (\theta_{32})-e\right].\omega_{43}.\overrightarrow{x_1}$
+
+Ce résultat aurait pu être trouvé directement en faisant le maximum de calculs dans le repère $R_3$.
+
+$\overrightarrow{V_{O\in4/3}}=\overrightarrow{OC}\wedge\overrightarrow{\Omega_{4/3}}$
+
+$\overrightarrow{V_{O\in4/3}}=(-a.sin(\theta_{32}+\theta_{21})+b.cos(\theta_{32}+\theta_{21})-c.sin(\theta_{32})+e).\overrightarrow{z_3}\wedge\omega_{4/3}.\overrightarrow{y_3}$
+
+$\overrightarrow{V_{O\in4/3}}=(a.sin(\theta_{32}+\theta_{21})-b.cos(\theta_{32}+\theta_{21})+c.sin(\theta_{32})-e).\omega_{4/3}.\overrightarrow{x_3}$, avec $\overrightarrow{x_3}=\overrightarrow{x_1}$,donc:
+
+$\overrightarrow{V_{O\in4/3}}=(a.sin(\theta_{32}+\theta_{21})-b.cos(\theta_{32}+\theta_{21})+c.sin(\theta_{32})-e).\omega_{4/3}.\overrightarrow{x_1}$.
+
+On retrouve bien le résultat précédent.
+
+
+
+\paragraph{Question 7:} ~\ \\
+
+$\overrightarrow{\Omega_{4/0}}=(\omega_{32}+\omega_{21}).\overrightarrow{x_1}+\omega_{10}.\overrightarrow{z_1}+\omega_{43}.\left[cos(\theta_{32}+\theta_{21}).\overrightarrow{y_1}+sin(\theta_{32}+\theta_{21}).\overrightarrow{z_1}\right]$
+
+$\overrightarrow{V_{O\in4/0}}=\left[\left[a+c.cos \theta_{21}+d.cos (\theta_{32}+\theta_{21})-e.sin (\theta_{32}+\theta_{21})\right].sin (\theta_{32}+\theta_{21})\right.$\\$\left.-\left[b+c.sin \theta_{21}+d.sin (\theta_{32}+\theta_{21})+e.cos (\theta_{32}+\theta_{21})\right].cos (\theta_{32}+\theta_{21})\right].\omega_{43}.\overrightarrow{x_1}$\\$+(b.\omega_{21}+(b+c.sin\theta_{21}).\omega_{32}).\overrightarrow{y_1}-(a.\omega_{21}+(a+c.cos\theta_{21}).\omega_{32}).\overrightarrow{z_1}$
+
+$\left\{V_{4/0}\right\}=\left\{\begin{array}{c} 
+\overrightarrow{\Omega_{4/0}} \\
+\overrightarrow{V_{O\in4/0}}
+\end{array} \right\}_{(O,R_1)}$. Il y a quatre mobilités: $\omega_{10}$, $\omega_{21}$ , $\omega_{32}$ et $\omega_{43}$.
+
+%$\left\{V_{4/0}\right\}=$\\$\left\{\begin{array}{c c} \omega_{32}+\omega_{21} & \left[\left[a+c.cos \theta_{21}+d.cos (\theta_{32}+\theta_{21})-e.sin (\theta_{32}+\theta_{21})\right].sin (\theta_{32}+\theta_{21})\right.- \\ & \left.\left[b+c.sin \theta_{21}+d.sin (\theta_{32}+\theta_{21})+e.cos (\theta_{32}+\theta_{21})\right].cos (\theta_{32}+\theta_{21})\right].\omega_{43}\\ \omega_{43}.cos(\theta_{32}+\theta_{21}) & (b.\omega_{21}+(b+c.sin\theta_{21}).\omega_{32}) \\ \omega_{10}+\omega_{43}.sin(\theta_{32}+\theta_{21}) & -(a.\omega_{21}+(a+c.cos\theta_{21}).\omega_{32}) \end{array} \right\}_{(O,R_1)}$
+
+\paragraph{Question 9:} A chaque liaison ajoutée une mobilité (une équation indépendante) est ajoutée. Celle-ci apparaît car les liaisons ajoutées sont des liaisons pivot (1ddl). Le système doit alors avoir 5 mobilités au total.
+
+\subsection{Barrière Sympact}
+
+\paragraph{Question 1:} ~\ \\
+
+$\left\{V_{1/0}\right\}=\left\{\begin{array}{c c}
+0 & 0 \\ 0 & 0 \\ \omega_{10} & 0 
+\end{array}\right\}_A$,
+$\left\{V_{2/0}\right\}=\left\{\begin{array}{c c}
+0 & 0 \\ 0 & 0 \\ \omega_{20} & 0 
+\end{array}\right\}_B$,
+$\left\{V_{2/1}\right\}=\left\{\begin{array}{c c}
+\omega_{x21} & V_{x21} \\ \omega_{y21} & 0 \\ \omega_{z21} & V_{z21} 
+\end{array}\right\}_{C,R_2}$.
+
+\paragraph{Question 2:} ~\ \\
+
+$\left\{V_{1/0}\right\}=\left\{\begin{array}{c c}
+0 & 0 \\ 0 & 0 \\ \omega_{10} & 0 
+\end{array}\right\}_A$,
+$\left\{V_{2/0}\right\}=\left\{\begin{array}{c c}
+0 & -l_1.\omega_{20} \\ 0 & 0 \\ \omega_{20} & 0 
+\end{array}\right\}_A$.\\
+$\overrightarrow{V_{A\in 2/1}}=\overrightarrow{V_{C\in 2/1}}+\overrightarrow{AC}\wedge \overrightarrow{\Omega_{2/1}}$\\
+$\overrightarrow{V_{A\in 2/1}}=\left(\begin{array}{c}
+V_{x21}.cos(\theta_2) \\ V_{x21}.sin(\theta_2) \\ V_{z21}
+\end{array}\right)+\left(\begin{array}{c}
+l_2.cos(\theta_1) \\ l_2.sin(\theta_1) \\ 0
+\end{array}\right)\wedge \left(\begin{array}{c}
+\omega_{x21}.cos(\theta_2)-\omega_{y21}.sin(\theta_2) \\ \omega_{x21}.sin(\theta_2)+\omega_{y21}.cos(\theta_2) \\ \omega_{z21}
+\end{array}\right)$ \\
+$\overrightarrow{V_{A\in 2/1}}=\left(\begin{array}{c}
+V_{x21}.cos(\theta_2)+l_2.sin(\theta_1).\omega_{z21} \\ V_{x21}.sin(\theta_2)-l_2.cos(\theta_1).\omega_{z21} \\ V_{z21}+l_2.cos(\theta_1).\left(\omega_{x21}.sin(\theta_2)+\omega_{y21}.cos(\theta_2)\right)-l_2.sin(\theta_1).\left(\omega_{x21}.cos(\theta_2)-\omega_{y21}.sin(\theta_2)\right)
+\end{array}\right)$.
+
+\paragraph{Question 3:} ~\ \\ 
+
+$\left\{Ve_{2/0}\right\}=\left\{V_{2/1}\right\}+\left\{V_{1/0}\right\}=\left\{V_{2/0}\right\}$
+
+$\left\{\begin{array}{l}
+\omega e_{x20}=\omega_{x21}.cos(\theta_2)-\omega_{y21}.sin(\theta_2)+0=0 \\
+\omega e_{y20}=\omega_{x21}.sin(\theta_2)+\omega_{y21}.cos(\theta_2)+0=0 \\
+\omega e_{z20}=\omega_{z21}+\omega_{10}=\omega_{20} \\
+Ve_{x20}=V_{x21}.cos(\theta_2)+l_2.sin(\theta_1).\omega_{z21}+0=-l_1.\omega_{20} \\
+Ve_{y20}=V_{x21}.sin(\theta_2)-l_2.cos(\theta_1).\omega_{z21}+0=0 \\
+Ve_{z20}=V_{z21}+l_2.cos(\theta_1).\left(\omega_{x21}.sin(\theta_2)+\omega_{y21}.cos(\theta_2)\right)-l_2.sin(\theta_1).\left(\omega_{x21}.cos(\theta_2)-\omega_{y21}.sin(\theta_2)\right)+0=0 
+\end{array}\right.$
+
+Ainsi, $\omega_{x21}=\omega_{y21}=0$
+
+$\left\{\begin{array}{l}
+\omega e_{x20}=0 \\
+\omega e_{y20}=0 \\
+\omega e_{z20}=\omega_{z21}+\omega_{10}=\omega_{20} \\
+Ve_{x20}=V_{x21}.cos(\theta_2)+l_2.sin(\theta_1).\omega_{z21}+0=-l_1.\omega_{20} \\
+Ve_{y20}=V_{x21}.sin(\theta_2)-l_2.cos(\theta_1).\omega_{z21}+0=0 \\
+Ve_{z20}=0 
+\end{array}\right.$
+
+\paragraph{Question 4:} ~\ \\
+
+$\left\{\begin{array}{l}
+\omega_{x21}.cos(\theta_2)-\omega_{y21}.sin(\theta_2)+0=0 \\
+\omega_{x21}.sin(\theta_2)+\omega_{y21}.cos(\theta_2)+0=0 \\
+\omega_{z21}+\omega_{10}=\omega_{20} \\
+V_{x21}.cos(\theta_2)+l_2.sin(\theta_1).\omega_{z21}+0=-l_1.\omega_{20} \\
+V_{x21}.sin(\theta_2)-l_2.cos(\theta_1).\omega_{z21}+0=0 \\
+V_{z21}+l_2.cos(\theta_1).\left(\omega_{x21}.sin(\theta_2)+\omega_{y21}.cos(\theta_2)\right)-l_2.sin(\theta_1).\left(\omega_{x21}.cos(\theta_2)-\omega_{y21}.sin(\theta_2)\right)+0=0 
+\end{array}\right.$
+
+Étude du système:
+\begin{itemize}
+ \item 7 inconnues cinématiques: $\omega_{10}$, $\omega_{20}$, $\omega_{x21}$, $\omega_{y21}$,$\omega_{z21}$, $V_{x21}$ et $V_{z21}$,
+ \item 6 équations indépendantes.
+\end{itemize}
+
+On en déduit: $m = I_C - Rg(E)=4-3=1$, le système possède 1 mobilité.
+
+De plus, on remarque aussi dans ce cas que: $h=E-Rg(E)=6-6=0$, le modèles est isostatique.
+
+\end{document}

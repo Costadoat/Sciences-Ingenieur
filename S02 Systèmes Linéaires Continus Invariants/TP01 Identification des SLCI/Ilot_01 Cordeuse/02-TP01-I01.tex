@@ -1,0 +1,80 @@
+\input{../../../headers/tpheaders_2.tex}
+
+\prob{Modéliser un Système Linéaire Continu et Invariant} \\
+
+\graphicspath{{../../../img/}}
+\begin{center}
+\def\svgwidth{\columnwidth}
+\input{../../../img/triptyque.pdf_tex}
+\end{center}
+
+La démarche de l’ingénieur permet :
+\begin{itemize}
+ \item De vérifier les performances attendues d’un système, par évaluation de l’écart entre un cahier des charges et les réponses expérimentales (écart 1),
+ \item De proposer et de valider des modèles d’un système à partir d’essais, par évaluation de l’écart entre les performances mesurées et les performances simulées (écart 2),
+ \item De prévoir le comportement à partir de modélisations, par l’évaluation de l’écart entre les performances simulées et les performances attendues du cahier des charges (écart 3).
+\end{itemize}
+
+\documentsressource{Pour ce TP, vous aurez à votre disposition :
+\begin{itemize}
+ \item la \miseenoeuvre du système,
+ \item le \href{https://github.com/Costadoat/Sciences-Ingenieur/raw/master/S02\%20Syst\%C3\%A8mes\%20Lin\%C3\%A9aires\%20Continus\%20Invariants/C01\%20Pr\%C3\%A9sentation\%20des\%20SLCI/02-C01.py}{script python} permettant de tracer la réponse indicielle à une fonction de transfert,
+ \item les diverses informations sur le \urlsysteme.
+\end{itemize}}
+\newpage
+
+\newpage
+
+\section{Fonction de transfert du moteur à courant continu}
+
+On donne la fonction de transfert suivante pour lier la vitesse de rotation et la tension aux bornes d'un moteur à courant continu.
+
+\begin{center}
+$H(p)=\dfrac{\Omega(p)}{U(p)}=\dfrac{\dfrac{K_c}{R\cdot f+K_e\cdot K_c}}{1+\dfrac{R\cdot J+L\cdot f}{R\cdot f+K_e\cdot K_c}.p+\dfrac{L\cdot J}{R\cdot f+K_e\cdot K_c}.p^2}$
+\end{center}
+
+\question{A partir des équations du moteur vues en TD, retrouver cette fonction de transfert.}
+
+\question{A quoi correspondent $L$ et $f$ ?}
+
+\section{Relevé expérimental}
+
+L'objectif de cette première partie est de tracer et d'analyser la réponse à un échelon du système réel.
+
+~\
+
+Pour cet essai, il faudra retirer la corde et lancer le déplacement du charriot en appuyer sur le bouton noir situé sur la cordeuse.
+
+\question{En utilisant le logiciel d'acquisition, tracer la \textbf{tension aux bornes du moteur} et la \textbf{vitesse de rotation du moteur} en fonction du \textbf{temps}.}
+
+\question{Extraire les données numériques du logiciel d'acquisition afin de tracer la courbe sur un tableur (LibreOffice Calc,...). Si besoin cette courbe pourra être traitée pour être exploitable.}
+
+\question{Ajouter sur cette courbe (paint,...) les informations suivantes:}
+\begin{itemize}
+ \item valeur d'entrée,
+ \item la valeur asymptotique de la sortie,
+ \item le temps de réponse.
+\end{itemize}
+
+\question{Uploader cette courbe commentée sur le questionnaire en ligne.}
+
+\section{Réponse temporelle simulée}
+
+\question{Modifier le \href{https://github.com/Costadoat/Sciences-Ingenieur/raw/master/S02\%20Syst\%C3\%A8mes\%20Lin\%C3\%A9aires\%20Continus\%20Invariants/C01\%20Pr\%C3\%A9sentation\%20des\%20SLCI/02-C01.py}{script python} afin qu'il trace la fonction de transfert donnée dans la partie 1.}
+
+\question{Utiliser les valeurs numériques présentes sur la \href{https://www.costadoat.fr/systeme/\systemesnum/}{page du système} et choisir les paramètres manquants et tracer une première version de la réponse temporelle de la sortie.}
+
+\question{Modifier ces paramètres pour que le tracé simulé se rapproche de la réponse temporelle expérimentale.}
+
+\question{Comparer avec le tracé expérimental.}
+
+\question{Ajouter sur cette courbe (paint,...) les informations suivantes:}
+\begin{itemize}
+ \item valeur d'entrée,
+ \item la valeur asymptotique de la sortie,
+ \item le temps de réponse.
+\end{itemize}
+
+\question{Uploader cette courbe commentée sur le questionnaire en ligne.}
+
+\end{document}

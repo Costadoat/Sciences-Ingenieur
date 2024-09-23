@@ -1,0 +1,47 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 01/10/05 by marc
+' ******************************************************************************
+
+Dim swApp As Object
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long
+Dim Annotation As Object
+Dim Gtol As Object
+Dim DatumTag As Object
+Dim FeatureData As Object
+Dim Feature As Object
+Dim Component As Object
+Sub main()
+Set swApp = CreateObject ("SldWorks.Application")
+Set Part = swApp.OpenDoc4 ("E:\Marc\TP\stewart\Modele_plateforme+gyro\corps_verin.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("corps_verin")
+swApp.ActiveDoc.ActiveView.FrameLeft = 0
+swApp.ActiveDoc.ActiveView.FrameTop = 0
+swApp.ActiveDoc.ActiveView.FrameState = 1
+swApp.ActiveDoc.ActiveView.FrameState = 1
+Part.SelectByID "boitier-1@corps_verin", "COMPONENT", 0, 0, 0
+Part.SelectByID "tube_inf-1@corps_verin", "COMPONENT", 0, 0, 0
+Part.SelectByID "tube_sup-1@corps_verin", "COMPONENT", 0, 0, 0
+Part.SelectByID "palier-1@corps_verin", "COMPONENT", 0, 0, 0
+Part.SelectByID "tube_sup-1@corps_verin", "COMPONENT", 0, 0, 0
+Part.HideComponent2
+Part.ClearSelection
+Set Part = Nothing
+swApp.CloseDoc "corps_verin"
+swApp.ActiveDoc.ActiveView.FrameState = 1
+Set Part = swApp.OpenDoc4 ("E:\Marc\TP\stewart\Plateforme.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("Plateforme")
+Part.SelectByID "corps_verin-1@Plateforme", "COMPONENT", 0, 0, 0
+Part.HideComponent2
+Part.ClearSelection
+Part.SelectByID "corps_verin-2@Plateforme", "COMPONENT", 0, 0, 0
+Part.HideComponent2
+Part.ClearSelection
+Part.SelectByID "corps_verin-1@Plateforme", "COMPONENT", 0, 0, 0
+Part.ShowComponent2
+Part.ClearSelection
+Set Part = Nothing
+swApp.CloseDoc "Plateforme"
+swApp.ExitApp
+End Sub

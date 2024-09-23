@@ -1,0 +1,282 @@
+\input{../../headers/tdheaders.tex}
+
+\section{Circuit RL}
+
+\begin{minipage}{0.48\linewidth}
+Le composant principal d'un moteur pas à pas est sa bobine. Celle-ci peut être modélisé par une inductance et une résistance propre. Cela se traduit par un circuit RL.
+
+La mise sous tension d'un circuit RL, a donné le relevé temporel suivant.
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/fig1}
+\end{center}
+\end{minipage}
+
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/01}
+\end{center}
+
+\paragraph{Question 1:} Identifier la fonction de transfert du système en question.
+
+\paragraph{Question 2:} Il est nécessaire d'avoir pour cette application un temps de réponse à 5\% inférieur à 0,06s. Le système respecte-t-il le cahier des charges ?
+
+\newpage
+
+\section{Amortisseur mécanique}
+
+
+\subsection{Premier réglage}
+
+\begin{minipage}{0.58\linewidth}
+La suspension d'une moto est un organe primordial qui permet d'assurer la stabilité du pilote. Il est composé d'un amortisseur et d'un ressort.
+
+L'étude de l'application d'un choc sur une fourche de moto, ayant un réglage 1, a donné les relevés temporel et fréquentiel suivants. L'entrée étant, pour la réponse temporelle, une impulsion en effort de 10N, le graphe suivant affiche le déplacement de la fourche en mètre.
+
+\begin{center}
+ \includegraphics[width=\linewidth]{img/02}
+\end{center}
+
+\end{minipage}\hfill
+\begin{minipage}{0.38\linewidth}
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/fig2}
+\end{center}
+\end{minipage}
+
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/02b}
+\end{center}
+
+\paragraph{Question 1:} Identifier la fonction de transfert du système en question.
+
+\paragraph{Question 2:} Il est nécessaire afin de ne pas subir de chocs trop important d'avoir un déplacement minimal de 13cm, lors d'un choc de 100N sur la roue de la moto. Le système dans son état actuel répond-il à cette exigence ?
+
+\subsection{Deuxième réglage}
+
+Un nouveau réglage est proposé pour l'amortissement de la moto, il est présenté dans les relevés temporel et fréquentiel suivants. Dans ce cas, le relevé temporel est un déplacement en mètre en réponse à un échelon de force de 10N.
+
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/03}
+\end{center}
+
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/03b}
+ \includegraphics[width=0.8\linewidth]{img/03b_zoom}
+\end{center}
+
+\paragraph{Question 3:} Identifier la nouvelle fonction de transfert du système en question. Quel paramètre a été modifié par rapport à la précédente ?
+
+\paragraph{Question 4:} L'exigence de la question 2 est-elle respectée ?
+
+\paragraph{Question 5:} Une autre exigence du système consiste à exiger que la fourche soit revenue à +/- 5 mm de sa position de départ en moins de 1s. Cette exigence est-elle respectée ?
+
+\newpage
+
+\section{Asservissement des transferts thermiques dans un four industriel}
+
+Une centrale nucléaire a pour fonction de produire de l'énergie électrique à partir d'énergie nucléaire.
+
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/fig3}
+\end{center}
+
+Le combustible nucléaire, contenu dans le c\oe ur du réacteur, chauffe un fluide caloriporteur dans le circuit primaire. La pompe primaire fait circuler ce fluide et l'emmène notamment dans les tuyaux du générateur de vapeur, au sein duquel il chauffe un autre fluide caloriporteur qui devient vapeur. Cette vapeur fait tourner une turbine qui génère de l'électricité via un alternateur. La vapeur va ensuite dans un condenseur pour être refroidie.
+
+Les tubes du générateur de vapeur ont donc un rôle crucial dans le fonctionnement d'une centrale nucléaire.
+
+\vfill
+
+\begin{minipage}{0.4\linewidth}
+ \includegraphics[width=0.8\linewidth]{img/fig4}
+\end{minipage}
+\hfill
+\begin{minipage}{0.57\linewidth}
+Pour obtenir des tubes de forme et de constitution moléculaire parfaites, les ingénieurs ont été amenés à imaginer une nouvelle technologie de four industriel permettant de chauffer les alliages de matériaux selon des processus bien définis. Ces fours peuvent fournir des températures de chauffe très précises grâce à un asservissement des transferts thermiques en leur sein.
+\end{minipage}
+
+\vfill
+
+Faire un essai sur les conduites du four réel étant très coûteux, les ingénieurs ont décidé de réaliser leurs essais sur une maquette à échelle réduite, constituée d'un tube de conduite adiabatique, d'une résistance chauffante, d'un ventilateur (tournant à vitesse fixe, et permettant de faire circuler l'air), d'un volet réglable et d'un capteur de température. Ce système peut paraître simpliste au regard de la structure du four industriel, mais il permet de bien comprendre les phénomènes mis en jeu lors des transferts thermiques dans les conduites du four, et de poser les bonnes hypothèses pour les modéliser.
+
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/fig5}
+\end{center}
+
+\subsection{Réponse expérimentale}
+
+Les réponses expérimentales permettent de voir la propagation de la chaleur dans le tube de conduite, depuis l'instant $t=0$ (instant auquel la résistance chauffante et le ventilateur sont mis en marche). L'évolution de la température, au niveau du capteur de température, est représentée sur la figure suivante, la consigne pour cette réponse temporelle est un échelon de 40°.
+
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/04}
+\end{center}
+
+La figure présente l'évolution de la température $\theta_s(t)$, au niveau du capteur de température, après mise en marche de la résistance chauffante et du ventilateur à l'instant $t=0$. La température initiale dans le tube de conduite a été retranchée, ce qui explique la valeur $\theta_s(t)=0$ avant la mise en marche de la résistance de chauffe.
+
+\paragraph{Question 1:} Comment expliquer la réponse jusqu'à t=4s?
+
+\paragraph{Question 2:} Déterminer la fonction de transfert de ce système.
+
+\paragraph{Question 3:} Ce genre de système peut parfois être considéré comme difficile à asservir, expliquer pourquoi.
+
+\paragraph{Question 4:} Donner le temps de réponse $t_{5\%}$. Le cahier des charges exige $t_{5\%}<25s$, cette valeur est-elle respectée ?
+
+\newpage
+
+\subsection{Tracé de diagrammes}
+
+\paragraph{Question 1:} Tracer les diagrammes de Bode de la fonction de transfert $H_1(p)$.
+
+\begin{center}
+$H_1(p)=\frac{10}{1+2.\frac{4}{100}.p+\frac{p^2}{100^2}}$
+\end{center}
+
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/BodeH1}
+\end{center}
+
+\paragraph{Question 2:} Tracer les diagrammes de Bode de la fonction de transfert $H_2(p)$.
+
+\begin{center}
+$H_2(p)=\frac{40}{1+0,01.p+\frac{p^2}{90^2}}$
+\end{center}
+
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/BodeH2}
+\end{center}
+
+\ifdef{\public}{\end{document}}{}
+
+\newpage
+
+\pagestyle{correction}
+
+\section{Correction}
+
+\subsection{Circuit RC}
+
+\paragraph{Question 1:}
+
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/exo_1_cor}
+\end{center}
+
+$H(p)=\dfrac{1}{1+0,01.p}$
+
+\paragraph{Question 2:}
+
+$t_{R,5\%}=0,03s<0,06s$, le système respect ainsi le cahier des charges.
+
+\subsection{Amortisseur mécanique}
+
+\paragraph{Question 1:}
+
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/exo_2_cor}
+\end{center}
+
+\begin{minipage}{0.5\linewidth}
+\begin{itemize}
+ \item $\omega_1=1rad.s^{-1}$ et $\omega_2=30rad.s^{-1}$
+ \item $20.log(K)=-66dB$, donc $K=5.10^{-4}$.
+ \item Donc, $\omega_0=5,5rad.s^{-1}$ et $\xi=2,83$.
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+$H(p)=\dfrac{5.10^{-4}}{(1+p).(1+\dfrac{p}{30})}$
+\end{minipage}
+
+\paragraph{Question 2:}
+
+Pour un effort de $10N$, le déplacement est de $4,5mm$, ce qui signifie que pour 100N, il sera de $4,5cm<13cm$, le système ne respecte pas le cahier des charges.
+
+\paragraph{Question 3:}
+
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/exo_2_2_cor}\\
+ \includegraphics[width=0.8\linewidth]{img/exo_2_2_cor_zoom}
+\end{center}
+
+\begin{minipage}{0.45\linewidth}
+$Q_{dB}=5$ \\
+$Q=10^{\frac{5}{20}}=1,78$\\
+$Q=1,78=\frac{1}{2.z.\sqrt{1-z^2}}$ \\
+$z.\sqrt{1-z^2}=\frac{1}{2*1,78}$ \\
+$z^2-z^4=0,08$ \\
+Soit $X=z^2$ \\
+$X^2-X+0,08=0$
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+$\Delta=1-4*0,08=0,68$ \\
+$x_1=\frac{1+sqrt{0,68}}{2}=0,91$ \\
+$x_2=\frac{1-sqrt{0,68}}{2}=0,09$ \\
+$z_1=0,96$ \\
+$z_2=0,3$
+\end{minipage}
+
+La valeur ne pouvant pas se trouver entre $0,69$ et $1$ car il y a une résonance. Ainsi, $z=0,3$.
+
+\begin{minipage}{0.45\linewidth}
+$\omega_R=\omega_0.\sqrt{1-2.z^2}$ \\
+$1-2.z^2=\left(\frac{\omega_R}{\omega_0}\right)^2$
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+$z=\sqrt{\dfrac{1-\left(\frac{\omega_R}{\omega_0}\right)^2}{2}}$\\
+$z=\sqrt{\dfrac{1-\left(\frac{4,5}{5}\right)^2}{2}}=0,3$
+\end{minipage}
+
+On retrouve la valeur $z=0,3$.
+
+\paragraph{Question 4:}
+
+Dans ce cas, le résultat valide le cahier des charges.
+
+\paragraph{Question 5:}
+
+L'exigence est respectée si l'entrée est inférieure à 10N.
+
+\subsection{Four industriel}
+
+\paragraph{Question 1:}
+
+Le décalage de la réponse est un retard du à la distance entre la résistance et le capteur.
+
+\paragraph{Question 2:}
+
+$H(p)=\frac{1}{1+6*p}.e^{-4.p}$
+
+\paragraph{Question 3:}
+
+Ce genre de système peut être considéré comme difficile à asservir car à cause du retard, les effets des corrections ne sont pas visibles instantanément.
+
+\paragraph{Question 4:}
+
+Le temps de réponse est de 24s, cela respecte le cahier des charges.
+
+\subsection{Tracé de diagrammes}
+
+\paragraph{Question 1:} Tracer les diagrammes de Bode de la fonction de transfert $H_1(p)$.
+
+\begin{center}
+$H_1(p)=\frac{10}{1+2.\frac{4}{100}.p+\frac{p^2}{100^2}}$
+\end{center}
+
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/BodeH1_cor}
+\end{center}
+
+\paragraph{Question 2:} Tracer les diagrammes de Bode de la fonction de transfert $H_2(p)$.
+
+\begin{center}
+$H_2(p)=\frac{40}{1+0,01.p+\frac{p^2}{90^2}}$
+\end{center}
+
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/BodeH2_cor}
+\end{center}
+
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/BodeH3_cor}
+\end{center}
+
+\end{document}

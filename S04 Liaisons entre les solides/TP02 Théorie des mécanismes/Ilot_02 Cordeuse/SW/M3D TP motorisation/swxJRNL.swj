@@ -1,0 +1,22 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 03/07/04 by silvestre
+' ******************************************************************************
+
+Dim swApp As Object
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long
+Dim Annotation As Object
+Dim Gtol As Object
+Dim DatumTag As Object
+Dim FeatureData As Object
+Dim Feature As Object
+Dim Component As Object
+Sub main()
+Set swApp = CreateObject ("SldWorks.Application")
+Set Part = swApp.OpenDoc4 ("I:\Cordeuse\Cordeuse-motorisation\SW\ensemble_pince1.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("ensemble_pince1.SLDASM")
+Set Part = Nothing
+swApp.CloseDoc "ensemble_pince1.SLDASM"
+swApp.ExitApp
+End Sub

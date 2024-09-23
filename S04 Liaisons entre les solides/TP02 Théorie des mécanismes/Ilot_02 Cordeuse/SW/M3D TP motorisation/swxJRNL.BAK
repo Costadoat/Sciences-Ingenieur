@@ -1,0 +1,20 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 05/14/03 by fdidomeni
+' ******************************************************************************
+
+Dim swApp As Object
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long
+Dim Annotation As Object
+Dim Gtol As Object
+Dim DatumTag As Object
+Dim FeatureData As Object
+Dim Feature As Object
+Dim Component As Object
+Sub main()
+Set swApp = CreateObject ("SldWorks.Application")
+Set Part = swApp.OpenDoc4 ("C:\TP fichiers PSI\Cordeuse-motorisation\SW\cordeusemeca-1.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("cordeusemeca-1")
+swApp.ExitApp
+End Sub
