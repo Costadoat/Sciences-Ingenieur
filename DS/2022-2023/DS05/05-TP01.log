@@ -1,0 +1,23 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.8.21)  10 MAR 2023 14:36
+entering extended mode
+ \write18 enabled.
+ %&-line parsing enabled.
+**\def\public{} \input{05-TP01.tex}^^M
+
+! Emergency stop.
+<read *> 
+         
+<*> \def\public{} \input{05-TP01.tex}
+                                     ^^M
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+Here is how much of TeX's memory you used:
+ 18 strings out of 480104
+ 421 string characters out of 5892285
+ 284454 words of memory out of 5000000
+ 18086 multiletter control sequences out of 15000+600000
+ 469259 words of font info for 28 fonts, out of 8000000 for 9000
+ 81 hyphenation exceptions out of 8191
+ 15i,0n,26p,67b,18s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!

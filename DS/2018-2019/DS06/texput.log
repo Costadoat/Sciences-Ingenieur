@@ -1,0 +1,33 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.6.2)  4 JUN 2019 12:43
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**\def\prive{{}} input{DS06_Robot_Sphero.tex}
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 0.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 0.
+! Extra }, or forgotten $.
+<*> \def\prive{{}} input{DS06_Robot_Sphero.tex}
+                                               
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Emergency stop.
+<*> \def\prive{{}} input{DS06_Robot_Sphero.tex}
+                                               
+*** (job aborted, no legal \end found)
+
+ 
+Here is how much of TeX's memory you used:
+ 5 strings out of 494853
+ 135 string characters out of 6178459
+ 46591 words of memory out of 5000000
+ 3440 multiletter control sequences out of 15000+600000
+ 3640 words of font info for 14 fonts, out of 8000000 for 9000
+ 36 hyphenation exceptions out of 8191
+ 17i,1n,12p,61b,58s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!

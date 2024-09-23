@@ -1,0 +1,27 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{\numberline {I}Présentation (20 min)}{2}{section.1}%
+\contentsline {subsection}{\numberline {I.1}Mise en situation}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {I.2}Nécessité d'un retour haptique}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {I.3}Problème posé}{4}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {I.3.1}Démarche de résolution}{4}{subsubsection.1.3.1}%
+\contentsline {section}{\numberline {II}Modélisation du manipulateur maître (50 min)}{4}{section.2}%
+\contentsline {subsection}{\numberline {II.1}Diagramme de blocs internes}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {II.2}Modélisation de l'interface maître}{5}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {II.2.1}Mesure de l'écart entre les performances géométriques souhaitées et simulées}{5}{subsubsection.2.2.1}%
+\contentsline {paragraph}{Objectif:}{5}{section*.7}%
+\contentsline {subsubsection}{\numberline {II.2.2}Mesure de l'écart entre les performances statiques souhaitées et simulées}{7}{subsubsection.2.2.2}%
+\contentsline {paragraph}{Objectif: }{7}{section*.9}%
+\contentsline {subsection}{\numberline {II.3}Modélisation du codeur optique}{7}{subsection.2.3}%
+\contentsline {paragraph}{Objectif :}{7}{section*.11}%
+\contentsline {section}{\numberline {III}Modélisation du manipulateur esclave (60 min)}{9}{section.3}%
+\contentsline {subsection}{\numberline {III.1}Diagramme de blocs internes}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {III.2}Modélisation de l'interface esclave (50 min)}{9}{subsection.3.2}%
+\contentsline {section}{\numberline {IV}Réalisation de la commande de l'esclave (60min)}{11}{section.4}%
+\contentsline {paragraph}{Objectif :}{11}{section*.16}%
+\contentsline {subsection}{\numberline {IV.1}Modélisation de l'environnement}{11}{subsection.4.1}%
+\contentsline {paragraph}{Objectif :}{11}{section*.18}%
+\contentsline {subsection}{\numberline {IV.2}Modélisation et étude des performances du système sans correction}{14}{subsection.4.2}%
+\contentsline {paragraph}{Objectif :}{14}{section*.23}%
+\contentsline {subsection}{\numberline {IV.3}Vérification des exigences sans correction : C(p) = 1}{15}{subsection.4.3}%
+\contentsline {section}{\numberline {V}Conception du Mécanisme de HOEKEN (50 min)}{16}{section.5}%
+\contentsline {section}{\numberline {VI}Document réponse}{17}{section.6}%

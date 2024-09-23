@@ -1,0 +1,21 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{\numberline {I}Performances attendues du sous-système FLIR intégré au système de vision en réalité augmentée}{4}{section.1}%
+\contentsline {paragraph}{Objectif}{4}{section*.3}%
+\contentsline {subsection}{\numberline {I.1}Validation des performances simulées du FLIR}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {I.2}Détermination des performances du FLIR}{4}{subsection.1.2}%
+\contentsline {section}{\numberline {II}Architecture du FLIR et hypothèses de modélisation}{5}{section.2}%
+\contentsline {paragraph}{Objectif}{5}{section*.4}%
+\contentsline {subsection}{\numberline {II.1}Description et validation de l'architecture du FLIR}{5}{subsection.2.1}%
+\contentsline {paragraph}{Objectif}{5}{section*.5}%
+\contentsline {subsection}{\numberline {II.2}Hypothèses simplificatrice}{7}{subsection.2.2}%
+\contentsline {paragraph}{Objectif}{7}{section*.6}%
+\contentsline {subsubsection}{\numberline {II.2.1}Rigidité de la structure à double étage de l'axe motorisé d'élévation et influence des perturbations aérodynamiques}{7}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {II.2.2}Influence du déport de masse lié à la variation de position des optiques}{8}{subsubsection.2.2.2}%
+\contentsline {section}{\numberline {III}Conception de la commande de l'axe motorisé d'élévation à partir des performances attendues et vérification des performances simulées du FLIR}{10}{section.3}%
+\contentsline {paragraph}{Objectif}{10}{section*.7}%
+\contentsline {subsection}{\numberline {III.1}Modélisation de l'asservissement de l'étage fin d'élévation et conception de sa commande}{10}{subsection.3.1}%
+\contentsline {paragraph}{Objectif}{10}{section*.8}%
+\contentsline {subsubsection}{\numberline {III.1.1}Modélisation de l'asservissement de l'étage fin d'élévation}{10}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {III.1.2}Conception de la commande de l'étage fin d'élévation}{12}{subsubsection.3.1.2}%
+\contentsline {section}{\numberline {IV}Conception}{14}{section.4}%
+\contentsline {section}{\numberline {V}Document réponse}{17}{section.5}%

@@ -1,0 +1,12 @@
+\BOOKMARK [1][-]{section.1}{G\351n\351ration des consignes d'orientation des roues avant et arri\350re pour le guidage du robot Bakus}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Changement de variables \(yG2,\) \(yF,yR\)}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Mod\351lisation cin\351matique \351tendue du robot}{section.1}% 3
+\BOOKMARK [3][-]{subsubsection.1.2.1}{Notations et hypoth\350ses}{subsection.1.2}% 4
+\BOOKMARK [3][-]{subsubsection.1.2.2}{Mise en \351quation du mod\350le cin\351matique \351tendu du robot Bakus}{subsection.1.2}% 5
+\BOOKMARK [2][-]{subsection.1.3}{Mesure en estimation des variables du mod\350le cin\351matique \351tendu}{section.1}% 6
+\BOOKMARK [3][-]{subsubsection.1.3.1}{Variables mesur\351es directement par des capteurs d\351di\351s}{subsection.1.3}% 7
+\BOOKMARK [3][-]{subsubsection.1.3.2}{Variables estim\351es par analyse d'images des huit cam\351ras TOF du robot}{subsection.1.3}% 8
+\BOOKMARK [2][-]{subsection.1.4}{G\351n\351ration des consignes d'orientation des roues \(*F,*R\) pour l'asservissement lat\351ral et angulaire du robot enjambeur le long d'un rang de vigne}{section.1}% 9
+\BOOKMARK [3][-]{subsubsection.1.4.1}{Passage du domaine temporel au domaine spatial : txG2}{subsection.1.4}% 10
+\BOOKMARK [1][-]{section.2}{Optimisation \351nerg\351tique du mouvement de retrait d'une lame d\351cavaillonneuse, choix d'un actionneur et conception de sa commande}{}% 11
+\BOOKMARK [2][-]{subsection.2.1}{Mod\351lisation du mouvement des lames, trac\351 num\351rique des relations entre param\350tres g\351om\351triques d'entr\351e et de sortie puis estimation de la puissance \351pargn\351e}{section.2}% 12

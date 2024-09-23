@@ -1,0 +1,17 @@
+\babel@toc {french}{}
+\contentsline {section}{\numberline {I}D\IeC {\'e}couverte du syst\IeC {\`e}me}{2}{section.1}
+\contentsline {subsection}{\numberline {I.1}Mise en situation}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {I.2}Diagramme des cas d'utilisation}{3}{subsection.1.2}
+\contentsline {subsection}{\numberline {I.3}Diagramme de contexte}{3}{subsection.1.3}
+\contentsline {subsection}{\numberline {I.4}Diagramme d'exigences}{4}{subsection.1.4}
+\contentsline {section}{\numberline {II}\IeC {\'E}tude de la fonction : \IeC {\guillemotleft } enrouler ou d\IeC {\'e}rouler l'affiche \IeC {\guillemotright }}{5}{section.2}
+\contentsline {subsection}{\numberline {II.1}D\IeC {\'e}termination de la loi de variation de la vitesse angulaire du rouleau au cours de l'enroulement des affiches}{6}{subsection.2.1}
+\contentsline {section}{\numberline {III}\IeC {\'E}tude de la fonction : \IeC {\guillemotleft } g\IeC {\'e}rer le d\IeC {\'e}filement des affiches \IeC {\guillemotright }}{8}{section.3}
+\contentsline {subsection}{\numberline {III.1}R\IeC {\'e}glage de la temporisation de commande du moteur d'entra\IeC {\^\i }nement}{8}{subsection.3.1}
+\contentsline {section}{\numberline {IV}\IeC {\'E}tude de la fonction : \FB@og tendre l'affiche \fg }{8}{section.4}
+\contentsline {subsection}{\numberline {IV.1}Analyse de la solution 1 (solution \IeC {\`a} un seul moteur) (brevet N\IeC {\textdegree } FR 77 39575 ann\IeC {\'e}e 1977)}{9}{subsection.4.1}
+\contentsline {subsection}{\numberline {IV.2}Analyse de la solution \IeC {\`a} deux motorisations \IeC {\`a} commande altern\IeC {\'e}e.}{10}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {IV.2.1}\IeC {\'E}tude de l'asservissement en couple du moteur \IeC {\`a} courant continu}{12}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {IV.2.2}Mesure du courant image du couple moteur}{15}{subsubsection.4.2.2}
+\contentsline {subsection}{\numberline {IV.3}\IeC {\'E}tude du comportement de la solution actuelle (solution 3)}{16}{subsection.4.3}
+\contentsline {section}{\numberline {V}\IeC {\'E}tude de la fonction : \FB@og guider le rouleau par rapport au ch\IeC {\^a}ssis \fg }{17}{section.5}
