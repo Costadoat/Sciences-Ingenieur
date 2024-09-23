@@ -1,0 +1,525 @@
+\input{../../../headers/tdheaders.tex}
+
+\section{Présentation du système}
+
+\begin{figure}[ht!]
+ \begin{minipage}{0.55\linewidth}
+Le système étudié est une calculatrice de bureau utilisée pour des opérations financières ou comptables.
+
+Le but de ce TP est de modéliser, de simuler et de valider deux solutions technologiques pour la réalisation d'un additionneur:
+\begin{itemize}
+ \item logique câblée (simulée sous Matlab/Simulink),
+ \item logique programmée (simulée sous python)
+\end{itemize}
+ \end{minipage}
+ \hfill
+  \begin{minipage}{0.4\linewidth}
+   \centering\includegraphics[width=0.7\linewidth]{img/calculatrice.png}
+  \end{minipage}
+\end{figure}
+
+Des fichiers sont donnés afin de démarrer d'exercice:
+\begin{itemize}
+ \item Un fichier Simulink : \href{https://raw.githubusercontent.com/Costadoat/Sciences-Ingenieur/master/S07\%20Les\%20syst\%C3\%A8mes\%20\%C3\%A0\%20\%C3\%A9v\%C3\%A8nements\%20discrets/TP01\%20Fonctions\%20combinatoires/Ilot_01\%20Calculatrice\%20de\%20bureau/Code/Calculatrice\_vierge.slx}{Calculatrice vierge.slx},
+ \item Un fichier Python : \href{https://raw.githubusercontent.com/Costadoat/Sciences-Ingenieur/master/S07\%20Les\%20syst\%C3\%A8mes\%20\%C3\%A0\%20\%C3\%A9v\%C3\%A8nements\%20discrets/TP01\%20Fonctions\%20combinatoires/Ilot_01\%20Calculatrice\%20de\%20bureau/Code/Calculatrice\_vierge.py}{Calculatrice vierge.py}.
+
+\end{itemize}
+
+\section{Additionner deux nombres de 1 bit}
+
+\begin{minipage}{0.7\linewidth}
+Nous allons tout d'abord réaliser un additionneur à 1 chiffre binaire. C'est un composant ayant deux entrées logiques (les deux chiffres binaires à additionner) notés $a_0$ et $b_0$.
+\end{minipage}
+\hfill
+\begin{minipage}{0.28\linewidth}
+ \centering\includegraphics[width=0.8\linewidth]{img/figures04.pdf}
+\end{minipage}
+
+La sortie (résultat de l'opération arithmétique d'addition) est un nombre binaire à deux chiffres la somme $s_0$ et la retenue $r_i$ qui réalise l'opération suivante :
+
+$\begin{array}{c c}
+ & b_0 \\
++& a_0 \\
+\hline
+r_1 & s_0
+\end{array}$ qui se traduit par $\begin{array}{c c}
+ & 0 \\
++& 1 \\
+\hline
+0 & 1
+\end{array}$
+
+\question{Etablir la table de vérité de la somme $s_0$ et la retenue $r_1$ en fonction des entrées $b_0$ et $a_0$.}
+
+\begin{center}
+$\begin{array}{|c|c|c|c|}
+\hline
+b_0 & a_0 & s_0 & r_1 \\
+\hline
+0   & 0   &     & \\
+\hline
+0   & 1   &     & \\
+\hline
+1   & 0   &     & \\
+\hline
+1   & 1   &     & \\
+\hline
+\end{array}$
+\end{center}
+
+\question{Etablir les équations logiques de la somme $s_0$ (en utilisant un opérateur logique remarquable) et la retenue $r_1$ en fonction des entrées $b_0$ et $a_0$. Vérifier le résultat à l'aide des logiciels de simulation.}
+
+\section{Additionner deux nombres de n bit}
+
+\question{Etablir la table de vérité de la somme $s_1$ (en utilisant un opérateur logique remarquable) et la retenue $r_2$ en fonction des entrées $b_1$, $a_1$ et $r_1$.}
+
+\begin{center}
+$\begin{array}{|c|c|c|c|c|}
+\hline
+b_1 & a_1 & r_1 & s_1 & r_2 \\
+\hline
+0   & 0 & 0  &  & \\
+\hline
+0   & 0 & 1  &  & \\
+\hline
+0   & 1 & 0  &  & \\
+\hline
+0   & 1 & 1  &  & \\
+\hline
+1   & 0 & 0  &  & \\
+\hline
+1   & 0 & 1  &  & \\
+\hline
+1   & 1 & 0  &  & \\
+\hline
+1   & 1 & 1  &  & \\
+\hline
+\end{array}$
+\end{center}
+
+\question{Établir les équations logiques de la somme $s_1$ et la retenue $r_2$ en fonction des entrées $b_1$, $a_1$ et $r_1$. Vérifier le résultat à l'aide des logiciels de simulation.}
+
+\question{En déduire les équations logiques de la somme $s_i$ au rang $i$ (en utilisant un opérateur logique remarquable) et la retenue $r_{i+i}$ au rang $i+1$ en fonction des entrées $a_i$, $b_i$ et $r_i$ au rang $i$.}
+
+\question{Tracer le schéma de l'ensemble du système de traitement de l'information.}
+
+\question{Compléter le fichier python afin d'obtenir le même fonctionnement en logique programmée.}
+
+\section{Afficher l'information sur un afficheur 7 segments}
+
+Un afficheur \og 7 segments \fg est constitué de 7 diodes électroluminescentes (LEDs) numérotées de 0 à 6. L'objectif de cette partie est de concevoir un adaptateur qui convertit un nombre binaire pour l'afficher sur un afficheur 7 segments.
+
+\begin{minipage}{0.3\linewidth}
+L'adaptateur se présente sous la forme d'un opérateur à 4 entrées binaires $a_3$, $a_2$, $a_1$, $a_0$ et 7 sorties binaires $F_i$ avec $i \in \left[0,6\right]$.
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+ \centering\includegraphics[width=0.8\linewidth]{img/figures02.pdf}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+ \centering\includegraphics[width=0.8\linewidth]{img/figures03.pdf}
+\end{minipage}
+
+\question{Remplir les colonnes $F_i$ de la table de vérité.}
+
+\begin{center}
+$\begin{array}{|c|c|c|c||c|c|c|c|c|c|c||c|c|c|c||c|c|c|c|c|c|c|}
+\hline
+a_3 & a_2 & a_1 & a_0 & F_0 & F_1 & F_2 & F_3 & F_4 & F_5 & F_6 & a_3 & a_2 & a_1 & a_0 & F_0 & F_1 & F_2 & F_3 & F_4 & F_5 & F_6  \\
+\hline
+0 & 0 & 0 & 0 &  &  &  &  &  &  &  & 1 & 0 & 0 & 0 &  &  &  &  &  &  &  \\
+\hline
+0 & 0 & 0 & 1 &  &  &  &  &  &  &  & 1 & 0 & 0 & 1 &  &  &  &  &  &  &  \\
+\hline
+0 & 0 & 1 & 0 &  &  &  &  &  &  &  & 1 & 0 & 1 & 0 &  &  &  &  &  &  &  \\
+\hline
+0 & 0 & 1 & 1 &  &  &  &  &  &  &  & 1 & 0 & 1 & 1 &  &  &  &  &  &  &  \\
+\hline
+0 & 1 & 0 & 0 &  &  &  &  &  &  &  & 1 & 1 & 0 & 0 &  &  &  &  &  &  &  \\
+\hline
+0 & 1 & 0 & 1 &  &  &  &  &  &  &  & 1 & 1 & 0 & 1 &  &  &  &  &  &  &  \\
+\hline
+0 & 1 & 1 & 0 &  &  &  &  &  &  &  & 1 & 1 & 1 & 0 &  &  &  &  &  &  &  \\
+\hline
+0 & 1 & 1 & 1 &  &  &  &  &  &  &  & 1 & 1 & 1 & 1 &  &  &  &  &  &  &  \\
+\hline
+\end{array}$
+\end{center}
+
+\question{Etablir l'équation logique de chaque LED $F_i=f_i(a_3,a_2,a_1,a_0)$ de l'afficheur 7 segments à l'aide d'un tableau de Karnaugh.}
+
+\begin{center}
+$\begin{array}{|c|c|c|c|c|}
+\hline
+F_0 & a_1a_0=00 & a_1a_0=01 & a_1a_0=11 & a_1a_0=10 \\
+\hline
+a_3a_2=00  &    &    &    &    \\
+\hline
+a_3a_2=01  &    &    &    &    \\
+\hline
+a_3a_2=11  &    &    &    &    \\
+\hline
+a_3a_2=10  &    &    &    &    \\
+\hline
+\end{array}$
+\end{center}
+
+\begin{center}
+$\begin{array}{|c|c|c|c|c|}
+\hline
+F_1 & a_1a_0=00 & a_1a_0=01 & a_1a_0=11 & a_1a_0=10 \\
+\hline
+a_3a_2=00  &    &    &    &    \\
+\hline
+a_3a_2=01  &    &    &    &    \\
+\hline
+a_3a_2=11  &    &    &    &    \\
+\hline
+a_3a_2=10  &    &    &    &    \\
+\hline
+\end{array}$
+\end{center}
+
+\begin{center}
+$\begin{array}{|c|c|c|c|c|}
+\hline
+F_2 & a_1a_0=00 & a_1a_0=01 & a_1a_0=11 & a_1a_0=10 \\
+\hline
+a_3a_2=00  &    &    &    &    \\
+\hline
+a_3a_2=01  &    &    &    &    \\
+\hline
+a_3a_2=11  &    &    &    &    \\
+\hline
+a_3a_2=10  &    &    &    &    \\
+\hline
+\end{array}$
+\end{center}
+
+\begin{center}
+$\begin{array}{|c|c|c|c|c|}
+\hline
+F_3 & a_1a_0=00 & a_1a_0=01 & a_1a_0=11 & a_1a_0=10 \\
+\hline
+a_3a_2=00  &    &    &    &    \\
+\hline
+a_3a_2=01  &    &    &    &    \\
+\hline
+a_3a_2=11  &    &    &    &    \\
+\hline
+a_3a_2=10  &    &    &    &    \\
+\hline
+\end{array}$
+\end{center}
+
+\begin{center}
+$\begin{array}{|c|c|c|c|c|}
+\hline
+F_4 & a_1a_0=00 & a_1a_0=01 & a_1a_0=11 & a_1a_0=10 \\
+\hline
+a_3a_2=00  &    &    &    &    \\
+\hline
+a_3a_2=01  &    &    &    &    \\
+\hline
+a_3a_2=11  &    &    &    &    \\
+\hline
+a_3a_2=10  &    &    &    &    \\
+\hline
+\end{array}$
+\end{center}
+
+\begin{center}
+$\begin{array}{|c|c|c|c|c|}
+\hline
+F_5 & a_1a_0=00 & a_1a_0=01 & a_1a_0=11 & a_1a_0=10 \\
+\hline
+a_3a_2=00  &    &    &    &    \\
+\hline
+a_3a_2=01  &    &    &    &    \\
+\hline
+a_3a_2=11  &    &    &    &    \\
+\hline
+a_3a_2=10  &    &    &    &    \\
+\hline
+\end{array}$
+\end{center}
+
+\begin{center}
+$\begin{array}{|c|c|c|c|c|}
+\hline
+F_6 & a_1a_0=00 & a_1a_0=01 & a_1a_0=11 & a_1a_0=10 \\
+\hline
+a_3a_2=00  &    &    &    &    \\
+\hline
+a_3a_2=01  &    &    &    &    \\
+\hline
+a_3a_2=11  &    &    &    &    \\
+\hline
+a_3a_2=10  &    &    &    &    \\
+\hline
+\end{array}$
+\end{center}
+
+\question{Coder à la suite du code python la fonction \verb?f? qui donne la liste $F=[F_0,F_1,F_2,F_3,F_4,F_5,F_6]$ à partir de la liste $a=[a_0,a_1,a_2,a_3]$.}
+
+\clearpage
+
+\ifdef{\public}{\end{document}}{}
+
+\newpage
+\setcounter{num_quest}{0}
+\pagestyle{correction}
+
+\section{Correction}
+
+\question{Etablir la table de vérité de la somme $s_0$ et la retenue $r_1$ en fonction des entrées $b_0$ et $a_0$.}
+
+\begin{center}
+$\begin{array}{|c|c|c|c|}
+\hline
+b_0 & a_0 & s_0 & r_1 \\
+\hline
+0   & 0   &  0  & 0 \\
+\hline
+0   & 1   &  1  & 0 \\
+\hline
+1   & 0   &  1  & 0 \\
+\hline
+1   & 1   &  0  & 1 \\
+\hline
+\end{array}$
+\end{center}
+
+\question{Etablir les équations logiques de la somme $s_0$ (en utilisant un opérateur logique remarquable) et la retenue $r_1$ en fonction des entrées $b_0$ et $a_0$. Vérifier le résultat à l'aide des logiciels de simulation.}
+
+$s_0=a_0\oplus b_0$, $r_1=a_0.b_0$
+
+\question{Etablir la table de vérité de la somme $s_1$ (en utilisant un opérateur logique remarquable) et la retenue $r_2$ en fonction des entrées $b_1$, $a_1$ et $r_1$.}
+
+\begin{center}
+$\begin{array}{|c|c|c|c|c|}
+\hline
+b_1 & a_1 & r_1 & s_1 & r_2 \\
+\hline
+0   & 0 & 0  & 0 & 0 \\
+\hline
+0   & 0 & 1  & 1 & 0 \\
+\hline
+0   & 1 & 0  & 1 & 0 \\
+\hline
+0   & 1 & 1  & 0 & 1 \\
+\hline
+1   & 0 & 0  & 1 & 0 \\
+\hline
+1   & 0 & 1  & 0 & 1 \\
+\hline
+1   & 1 & 0  & 0 & 1 \\
+\hline
+1   & 1 & 1  & 1 & 1 \\
+\hline
+\end{array}$
+\end{center}
+
+\question{Établir les équations logiques de la somme $s_1$ et la retenue $r_2$ en fonction des entrées $b_1$, $a_1$ et $r_1$. Vérifier le résultat à l'aide des logiciels de simulation.}
+
+$s_1=a_1\oplus b_1\oplus r_1$, $r_2=a_1.b_1+b_1.r_1+r_1.a_1$\\
+
+\question{En déduire les équations logiques de la somme $s_i$ au rang $i$ (en utilisant un opérateur logique remarquable) et la retenue $r_{i+i}$ au rang $i+1$ en fonction des entrées $a_i$, $b_i$ et $r_i$ au rang $i$.}
+
+$s_i=a_i\oplus b_i\oplus r_i$, $r_{i+1}=a_i.b_i+b_i.r_i+r_i.a_i$
+
+\question{Tracer le schéma de l'ensemble du système de traitement de l'information.}
+
+\begin{center}
+\includegraphics[width=0.8\linewidth]{img/calculatrice_1}\\
+Décomposition des sous-blocs\\
+\includegraphics[width=0.5\linewidth]{img/calculatrice_2}
+\end{center}
+
+\question{Compléter le fichier python afin d'obtenir le même fonctionnement en logique programmée.}
+
+Le code est disponible \href{https://github.com/Costadoat/S10/raw/master/TP01\%20Fonctions\%20combinatoires/Code/Calculatrice.py}{ici}.
+
+\question{Remplir les colonnes $F_i$ de la table de vérité.}
+
+\begin{center}
+$\begin{array}{|c|c|c|c||c|c|c|c|c|c|c||c|c|c|c||c|c|c|c|c|c|c|}
+\hline
+a_3 & a_2 & a_1 & a_0 & F_0 & F_1 & F_2 & F_3 & F_4 & F_5 & F_6 & a_3 & a_2 & a_1 & a_0 & F_0 & F_1 & F_2 & F_3 & F_4 & F_5 & F_6  \\
+\hline
+0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+\hline
+0 & 0 & 0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 0 & 1 & 1 \\
+\hline
+0 & 0 & 1 & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 1 & 1 & 1 & 0 & 1 & 1 & 1 \\
+\hline
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 \\
+\hline
+0 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 1 & 0 \\
+\hline
+0 & 1 & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 0 & 1 & 0 & 1 & 1 & 1 & 1 & 0 & 1 \\
+\hline
+0 & 1 & 1 & 0 & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 1 & 0 & 0 & 1 & 1 & 1 & 1 \\
+\hline
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 1 & 1 \\
+\hline
+\end{array}$
+\end{center}
+
+\question{Etablir l'équation logique de chaque LED $F_i=f_i(a_3,a_2,a_1,a_0)$ de l'afficheur 7 segments à l'aide d'un tableau de Karnaugh.}
+
+\begin{center}
+$\begin{array}{|c|c|c|c|c|}
+\hline
+F_0 & a_1a_0=00 & a_1a_0=01 & a_1a_0=11 & a_1a_0=10 \\
+\hline
+a_3a_2=00  &  1  &  0  & 1   &  1  \\
+\hline
+a_3a_2=01  &  0  &   1 &  1  &  1  \\
+\hline
+a_3a_2=11  &  1  &  0  &  1  &  1  \\
+\hline
+a_3a_2=10  &  1  & 1   &  0  &  1  \\
+\hline
+\end{array}$
+\end{center}
+
+\begin{center}
+$\begin{array}{|c|c|c|c|c|}
+\hline
+F_1 & a_1a_0=00 & a_1a_0=01 & a_1a_0=11 & a_1a_0=10 \\
+\hline
+a_3a_2=00  & 1   &  1  &  1  &  1  \\
+\hline
+a_3a_2=01  &  1  &  0  & 1   & 0   \\
+\hline
+a_3a_2=11  &   1 & 0   & 1   & 1   \\
+\hline
+a_3a_2=10  &  1  & 1   & 0   & 1   \\
+\hline
+\end{array}$
+\end{center}
+
+\begin{center}
+$\begin{array}{|c|c|c|c|c|}
+\hline
+F_2 & a_1a_0=00 & a_1a_0=01 & a_1a_0=11 & a_1a_0=10 \\
+\hline
+a_3a_2=00  &  1  & 1   & 1   &  0  \\
+\hline
+a_3a_2=01  &  1  &  1  &  1  &  1  \\
+\hline
+a_3a_2=11  &  0  & 1   & 0   &  0  \\
+\hline
+a_3a_2=10  &  1  &  1  &  1  & 1   \\
+\hline
+\end{array}$
+\end{center}
+
+\begin{center}
+$\begin{array}{|c|c|c|c|c|}
+\hline
+F_3 & a_1a_0=00 & a_1a_0=01 & a_1a_0=11 & a_1a_0=10 \\
+\hline
+a_3a_2=00  &  1  &  0  &  1  &   1 \\
+\hline
+a_3a_2=01  &  0  &  1  &  0  &  1  \\
+\hline
+a_3a_2=11  &  1  &  1  &  0  &  1  \\
+\hline
+a_3a_2=10  &  1  & 1   &  1  & 0   \\
+\hline
+\end{array}$
+\end{center}
+
+\begin{center}
+$\begin{array}{|c|c|c|c|c|}
+\hline
+F_4 & a_1a_0=00 & a_1a_0=01 & a_1a_0=11 & a_1a_0=10 \\
+\hline
+a_3a_2=00  &  1  &  0  &  0  &  1  \\
+\hline
+a_3a_2=01  &   0 &  0  &  0  &  1  \\
+\hline
+a_3a_2=11  &  1  &  1  &  1  &  1  \\
+\hline
+a_3a_2=10  & 1   &  0  &  1  & 1   \\
+\hline
+\end{array}$
+\end{center}
+
+\begin{center}
+$\begin{array}{|c|c|c|c|c|}
+\hline
+F_5 & a_1a_0=00 & a_1a_0=01 & a_1a_0=11 & a_1a_0=10 \\
+\hline
+a_3a_2=00  & 1   &  0  &  0  &  0  \\
+\hline
+a_3a_2=01  &  1  &  1  &  0  &  1  \\
+\hline
+a_3a_2=11  &  1  &  0  &  1  &  1  \\
+\hline
+a_3a_2=10  &  1  &  1  & 1   &  1  \\
+\hline
+\end{array}$
+\end{center}
+
+\begin{center}
+$\begin{array}{|c|c|c|c|c|}
+\hline
+F_6 & a_1a_0=00 & a_1a_0=01 & a_1a_0=11 & a_1a_0=10 \\
+\hline
+a_3a_2=00  & 0   &  0  &  1  &  1  \\
+\hline
+a_3a_2=01  &  1  &  1  &  0  & 1   \\
+\hline
+a_3a_2=11  &  0  &  1  &  1  & 1   \\
+\hline
+a_3a_2=10  &  1  &  1  &  1  & 1   \\
+\hline
+\end{array}$
+\end{center}
+
+
+$F_0=\overline{a_3}.a_1+a_2.a_1+\overline{a_2}.\overline{a_0}+a_3.\overline{a_0}+a_3.\overline{a_2}.\overline{a_1}+\overline{a_3}.a_2.a_0$
+
+$F_1=\overline{a_1}.\overline{a_0}+\overline{a_3}.\overline{a_2}+a_2.a_1.a_0+a_3.\overline{a_0}+\overline{a_2}.\overline{a_1}$
+
+$F_2=\overline{a_3}.\overline{a_1}+\overline{a_3}.a_0+\overline{a_1}.a_0+a_3.\overline{a_2}+\overline{a_3}.a_2$
+
+$F_3=a_3.\overline{a_1}+\overline{a_3}.\overline{a_2}.\overline{a_0}+\overline{a_3}.\overline{a_2}.a_1+a_2.\overline{a_1}.a_0+a_2.a_1.\overline{a_0}+a_3.\overline{a_2}.a_0$
+
+$F_4=a_3.a_2+a_1.\overline{a_0}+a_3.a_1+\overline{a_2}.\overline{a_0}$
+
+$F_5=\overline{a_1}.\overline{a_0}+a_3.a_1+a_2.\overline{a_0}+\overline{a_3}.a_2.\overline{a_1}+a_3.\overline{a_2}$
+
+$F_6=a_1.\overline{a_0}+a_3.\overline{a_2}+a_3.a_0+\overline{a_2}.a_1+\overline{a_3}.a_2.\overline{a_1}$
+
+\question{Coder à la suite du code python la fonction \verb?f? qui donne la liste $F=[F_0,F_1,F_2,F_3,F_4,F_5,F_6]$ à partir de la liste $a=[a_0,a_1,a_2,a_3]$.}
+
+Le code est disponible \href{https://github.com/Costadoat/S10/raw/master/TP01\%20Fonctions\%20combinatoires/Code/Calculatrice.py}{ici}.
+
+\begin{verbatim}
+def f(a):
+    fr=[]
+    fr.append(not a[3] and a[1] or a[2] and a[1] or not a[2] and not a[0]
+    		or a[3] and not a[0] or a[3]and not a[2] and not a[1]
+    		or not a[3]and a[2] and a[0])
+    fr.append(not a[1]and not a[0] or not a[3]and not a[2]or a[2]and a[1]and a[0]
+    		or a[3] and not a[0]or not a[2]and not a[1])
+    fr.append(not a[3]and not a[1]or not a[3]and a[0] or not a[1] and a[0]
+    		or a[3] and not a[2] or not a[3]and a[2])
+    fr.append(a[3]and not a[1] or not a[3]and not a[2] and not a[0]
+    		or not a[3]and not a[2]and a[1]or a[2]and not a[1]and a[0]
+    		or a[2]and a[1]and not a[0]or a[3]and not a[2]and a[0])
+    fr.append(a[3]and a[2]or a[1]and not a[0] or a[3]and a[1]
+    		or not a[2]and not a[0])
+    fr.append(not a[1]and not a[0]or a[3]and a[1]or a[2]and not a[0]
+    		or not a[3]and a[2]and not a[1]or a[3]and not a[2])
+    fr.append(a[1]and not a[0]or a[3]and not a[2]or a[3]and a[0]
+    		or not a[2]and a[1]or not a[3]and a[2]and not a[1])
+    return fr
+\end{verbatim}
+    
+\end{document}

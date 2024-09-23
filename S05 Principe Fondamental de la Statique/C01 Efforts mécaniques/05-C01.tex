@@ -1,0 +1,253 @@
+\input{../../headers/beamercoursHeadings}
+
+\section{Introduction}
+
+{\frame{
+\frametitle{Introduction}
+
+\begin{savoir}
+Vous êtes capables :
+\begin{itemize}
+ \item de modéliser le comportement cinématique d'un système.
+\end{itemize}
+\end{savoir}
+
+\begin{prob}
+Vous devez êtes capables :
+\begin{itemize}
+ \item de modéliser une actions mécaniques,
+ \item de déterminer comment ces actions se propagent par les pièces d'un système.
+\end{itemize}
+\end{prob}
+}}
+
+{\frame{
+\frametitle{Modélisation vectorielle}
+
+Une \textbf{action mécaniques} peut être considérée comme un ensemble de forces s'exerçant entre des solides. Chacune de ces forces est modélisable par un vecteur.
+
+\vfill
+
+\begin{minipage}{0.52\linewidth}
+\begin{itemize}
+ \item La force exercée sur le solide $S_1$ par $S_0$ au point A est notée $\overrightarrow{A_{S_1\rightarrow S_0}}$:
+  \begin{itemize}
+   \item l'\textbf{origine} du vecteur est le point du solide où s'applique la force,
+   \item le \textbf{sens} et la direction du vecteur correspondent au sens et à la direction de la force,
+   \item la \textbf{norme} du vecteur correspond à l'intensité, en Newton (N), de la force. 
+  \end{itemize}
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+ \includegraphics[width=\linewidth]{img/Diapositive1}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Modélisation locale}
+
+Il existe deux sortes d'actions mécaniques les actions à \textbf{distance} et  les actions de \textbf{contact}.
+
+Une action mécanique d'un solide 1 sur un solide 2 est dite à \textbf{distance} si elle ne résulte pas d'une liaison mécanique entre 1 et 2. Exemple: actions magnétiques et l'action de la pesanteur.
+
+\begin{minipage}{0.6\linewidth}
+Ex: Action mécanique de pesanteur 
+
+\begin{itemize}
+ \item $\overrightarrow{df_v}=\rho.\overrightarrow{g}.dv$,
+ \item $\rho$ est la masse volumique de la particule ($Kg/m^3$),
+ \item $\overrightarrow{g}$ le vecteur accélération de la pesanteur ($m/s^2$), 
+ \item $dV$ un élément de volume élémentaire ($m^3$). 
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.34\linewidth}
+ \includegraphics[width=0.8\linewidth]{img/Diapositive2}
+\end{minipage}
+
+\begin{minipage}{0.34\linewidth}
+ \includegraphics[width=\linewidth]{img/Diapositive3}
+\end{minipage}
+\hfill
+\begin{minipage}{0.6\linewidth}
+Ex: Pression de contact, un élément de force surfacique est donné par :
+
+\begin{itemize}
+ \item $\overrightarrow{df_s}=P.\overrightarrow{n}.ds$,
+ \item $P$ est la pression de contact ($Pa$),
+ \item $ds$ un élément de surface élémentaire ($m^2$), 
+ \item $\overrightarrow{n}$ la normale extérieure au plan de contact.
+\end{itemize}
+\end{minipage}
+}}
+
+
+{\frame{
+\frametitle{Modélisation globale d'une action mécanique}
+
+\begin{itemize}
+ \item Il est possible d'introduire le torseur, noté $\left\{ T_{\overline{S}\rightarrow S} \right\}$ qui représente l'action mécanique de $\overline{S}$ sur $S$ au point A,
+ \item Le principe est donc de sommer l'ensemble des actions mécaniques
+élémentaires de contact.
+\end{itemize}
+
+Étude d'un cas simplifié, nécessité du moment: $S$ subit 2 actions mécaniques élémentaires $\overrightarrow{df_1}$ et $\overrightarrow{df_2}$ aux points $A_1$ et $A_2$. Ces deux actions mécaniques élémentaires sont opposées : $\overrightarrow{df_1}=-\overrightarrow{df_2}$.
+
+\begin{minipage}{0.7\linewidth}
+\begin{itemize}
+ \item Cas 1: $A_1$ est confondu avec $A_2$, $\Sigma \overrightarrow{df_i}=0$
+L'action mécanique résultante de $S_0$ sur $S_0$ est nulle.
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.25\linewidth}
+ \includegraphics[width=\linewidth]{img/Diapositive4}
+\end{minipage}
+
+}}
+
+{\frame{
+\frametitle{Modélisation globale d'une action mécanique}
+
+Étude d'un cas simplifié, nécessité du moment: $S$ subit 2 actions mécaniques élémentaires $\overrightarrow{df_1}$ et $\overrightarrow{df_2}$ aux points $A_1$ et $A_2$. Ces deux actions mécaniques élémentaires sont opposées : $\overrightarrow{df_1}=-\overrightarrow{df_2}$.
+
+~\ \\
+
+\begin{minipage}{0.7\linewidth}
+\begin{itemize}
+ \item Cas 2: $A_1$ n'est pas confondu avec $A_2$, $\Sigma \overrightarrow{df_i}=0$. L'action mécanique résultante de $\overline{S}$ sur $S$ n'est pas nulle puisque le solide $S$ est susceptible de subir une rotation sous l'effet de ces deux actions mécaniques élémentaires, donc: il faut tenir compte de la position des $A_i$ pour élaborer une action mécanique globale représentant les actions élémentaires.
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.25\linewidth}
+ \includegraphics[width=\linewidth]{img/Diapositive5}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Généralisation}
+
+Si les actions mécaniques locales $\overrightarrow{df_{S_{Ai}}}$ (surfaciques) et $\overrightarrow{df_{V_{A_i}}}$ (volumiques) de $\overline{S}$ sur $S$ sont réparties sur les points $A_i$, on peut définir les éléments de réduction du torseur d'action mécanique de $\overline{S}$ sur $S$ de la façon suivante : 
+
+\begin{center}
+$\left\{T_{\overline{S} \rightarrow S}\right\}=\left\{\begin{array}{c}
+\overrightarrow{R_{\overline{S} \rightarrow S}}=\iiint \overrightarrow{df_{V_{A_i}}} + \iint \overrightarrow{df_{S_{Ai}}} \\
+\overrightarrow{M_{O,\overline{S} \rightarrow S}}=\iiint \overrightarrow{OA_i}\wedge \overrightarrow{df_{V_{A_i}}} + \iint \overrightarrow{OA_i} \wedge \overrightarrow{df_{S_{Ai}}}
+\end{array}\right\}_O$
+\end{center}
+
+Remarque: Même si ce calcul intégral est rarement entrepris, il est important de comprendre ce que représente un torseur d'efforts. 
+Ce torseur peut être écrit en faisant apparaitre ses composantes en projection dans un repère $R$ :
+
+\begin{center}
+$\left\{T_{\overline{S} \rightarrow S}\right\}=\left\{\begin{array}{c c}
+X_{\overline{S} \rightarrow S} & L_{O,\overline{S} \rightarrow S} \\
+Y_{\overline{S} \rightarrow S} & M_{O,\overline{S} \rightarrow S} \\
+Z_{\overline{S} \rightarrow S} & N_{O,\overline{S} \rightarrow S}
+\end{array}\right\}_O$
+\end{center}
+}}
+
+{\frame{
+\frametitle{Résolution analytique}
+
+\begin{defi}
+Un objet est à l'équilibre lorsqu'il a un mouvement rectiligne uniforme (son accélération linéaire et son accélération angulaire sont nulles). \\
+De plus, la somme des forces et la somme des moments des forces au même point exercées sur lui sont nulles :
+\begin{itemize}
+ \item théorème de la résultante statique : $\sum\limits_{i=1}^n \vec{\mathrm{F}}_i = \vec{0}$,
+ \item théorème du moment statique : $\sum\limits_{i=1}^n \vec{\mathrm{M}}_{\mathrm{A}}(\vec{\mathrm{F}}_i) + \sum\limits_{i=1}^n \vec{\mathrm{C}}_i = \vec{0}$.
+\end{itemize}
+\end{defi}
+
+La résolution analytique avec le Principe Fondamental de la Statique se déroule en suivant la séquence suivant:
+\begin{enumerate}
+ \item Isoler un solide,
+ \item Faire le bilan des actions mécaniques associées (de contact et à distance),
+ \item Modéliser ces actions mécaniques sous la forme de torseurs,
+ \item Déplacer tous ces torseurs au même point,
+ \item Écrire le système d'équations issu du P.F.S.
+\end{enumerate}
+}}
+
+{\frame{
+\frametitle{Résolution graphique}
+
+Dans le cas d'un problème plan ou tous les efforts sont modélisables par des glisseurs (moment nul), on peut utiliser une méthode graphique de résolution.
+
+\begin{minipage}{0.7\linewidth}
+Système soumis à 2 glisseurs coplanaires.
+
+Soit un solide $S$ soumis en A et B à 2 glisseurs $\overrightarrow{A_{S_1 \rightarrow S}}$ et $\overrightarrow{B_{S_1 \rightarrow S}}$, par application du théorème de la résultante statique:
+\begin{center}
+$\overrightarrow{A_{S_1 \rightarrow S}}+\overrightarrow{B_{S_1 \rightarrow S}}=\overrightarrow{0}$, donc $\overrightarrow{A_{S_1 \rightarrow S}}=-\overrightarrow{B_{S_1 \rightarrow S}}$
+\end{center}
+ 
+Ces 2 vecteurs sont donc égaux en norme et de sens opposés, par application du théorème du moment statique en A, on a : 
+\begin{center}
+$\overrightarrow{AA} \wedge \overrightarrow{A_{S_1 \rightarrow S}}+\overrightarrow{AB} \wedge \overrightarrow{B_{S_1 \rightarrow S}}=\overrightarrow{0}$, donc $\overrightarrow{AB} \wedge \overrightarrow{B_{S_1 \rightarrow S}}=\overrightarrow{0}$
+\end{center}
+
+$\overrightarrow{B_{S_1 \rightarrow S}}$ est donc colinéaire à $\overrightarrow{AB}$. Donc $\overrightarrow{A_{S_1 \rightarrow S}}$ aussi. 
+
+~\ \\
+
+Les 2 glisseurs ont le même support, \textbf{la droite passant par les 2 points d'application}, ils sont de même norme et de sens opposés.
+
+\end{minipage}\hfill
+\begin{minipage}{0.25\linewidth}
+ \includegraphics[width=\linewidth]{img/Diapositive6} \\
+ \includegraphics[width=\linewidth]{img/Diapositive7}
+\end{minipage}
+
+}}
+
+
+{\frame{
+\frametitle{Résolution graphique}
+
+\begin{minipage}{0.7\linewidth}
+Système soumis à 2 glisseurs coplanaires.\\
+Soit un solide $S$ soumis en A, B et C à 3 glisseurs $\overrightarrow{A_{S_1 \rightarrow S}}$, $\overrightarrow{B_{S_1 \rightarrow S}}$ et $\overrightarrow{C_{S_1 \rightarrow S}}$, par application du théorème de la résultante statique, on a : $\overrightarrow{A_{S_1 \rightarrow S}}+\overrightarrow{B_{S_1 \rightarrow S}}+\overrightarrow{C_{S_1 \rightarrow S}}=\overrightarrow{0}$
+
+Cette somme vectorielle nulle peut être traitée de façon graphique en construisant un triangle appelé le triangle le dynamique fermé. 
+
+Par application du théorème du moment statique en I, on a : 
+
+$\overrightarrow{IA} \wedge \overrightarrow{A_{S_1 \rightarrow S}}+\overrightarrow{IB} \wedge \overrightarrow{B_{S_1 \rightarrow S}}+\overrightarrow{IC} \wedge \overrightarrow{C_{S_1 \rightarrow S}}=\overrightarrow{0}$
+
+Soit I à l'intersection des supports de $\overrightarrow{A_{S_1 \rightarrow S}}$ et $\overrightarrow{B_{S_1 \rightarrow S}}$,
+
+$\overrightarrow{IA} \wedge \overrightarrow{A_{S_1 \rightarrow S}}=\overrightarrow{IB} \wedge \overrightarrow{B_{S_1 \rightarrow S}}=\overrightarrow{0}$.
+
+Ainsi, $\overrightarrow{IC} \wedge \overrightarrow{C_{S_1 \rightarrow S}}=\overrightarrow{0}$, donc I appartient également à la direction de $\overrightarrow{C_{S_1 \rightarrow S}}$.
+
+Les trois glisseurs sont donc concourants en I, leur somme vectorielle est nulle.
+
+\end{minipage}\hfill
+\begin{minipage}{0.25\linewidth}
+ \includegraphics[width=0.9\linewidth]{img/Diapositive9}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Conclusion}
+
+\begin{savoir}
+Vous êtes capables :
+\begin{itemize}
+ \item de modéliser une action mécanique,
+ \item résoudre un problème de statique en utilisant le P.F.S.
+\end{itemize}
+\end{savoir}
+
+\begin{prob}
+Vous devez êtes capables de :
+ \begin{itemize}
+  \item modéliser les actions de contact avec frottements.
+ \end{itemize} 
+\end{prob}
+}}
+
+\end{document}

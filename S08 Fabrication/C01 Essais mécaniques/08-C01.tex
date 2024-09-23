@@ -1,0 +1,489 @@
+\input{../../headers/beamercoursHeadings}
+
+\section{Introduction}
+
+{\frame{
+\frametitle{Introduction}
+
+\begin{savoir}
+Vous êtes capables :
+\begin{itemize}
+ \item de déterminer un cahier des charges.
+\end{itemize}
+\end{savoir}
+
+\begin{prob}
+Vous devez êtes capables :
+\begin{itemize}
+ \item de déterminer les caractéristiques d'un matériaux qui réspondent à un besoin,
+ \item de connaître les moyens de déterminer les caractéristiques d'un matériau.
+\end{itemize}
+\end{prob}
+}}
+
+{\frame{
+\frametitle{Propriétés et définitions}
+
+\textbf{L'élasticité:} Aptitude d'un corps de subir des déformations temporaires sous charge.
+
+\textbf{La ténacité:} Aptitude d'un corps de résister à la déformation ou à la rupture sous un effort continu.
+
+\textbf{La dureté:} Aptitude d'un corps de résister à la pénétration d'un autre corps et de résister à l'usure.
+
+\textbf{La résilience:} Aptitude à subir des efforts brusques ou des chocs sans rupture.
+
+\textbf{L'endurance:} Aptitude d'un corps de subir des efforts variables et répétés en grandeur et direction.
+
+\textbf{La plasticité:} Aptitude d'un corps à la déformation sans tension ni rupture.
+
+\textbf{La ductilité:} Aptitude d'un corps de pouvoir être étiré sous forme de fils minces.
+
+\textbf{La fluidité:} Aptitude d'un corps d'être porté à fusion et de remplir facilement le moule dans lequel il est coulé (pièces de fonderie).
+
+}}
+
+{\frame{
+\frametitle{Propriétés et définitions}
+
+\textbf{Homogénéité:} Un matériau est homogène s'il possède, en tous points, les mêmes propriétés chimiques et physiques. 
+
+\textbf{Isotropie:} Un matériau est isotrope s'il présente les mêmes caractéristiques mécaniques dans toutes les directions de la matière.
+
+\textbf{Contraintes (unités: N/mm2 ou MPa):} Elles caractérisent par des indications chiffrées les efforts de cohésion qui existent entre les grains de matières. Elles peuvent être normales ou de tension, ayant pour symbole $\sigma$ et des contraintes de cisaillement, ayant pour symbole $\tau$.
+
+\textbf{Déformations:} Elles résultent et varient avec les charges  appliquées sur les objets. Elles sont mises en évidence par la variation des dimensions, et peuvent être élastiques ou plastiques.
+Ex: allongement, raccourcissement, fléchissement, torsion, glissement,...
+}}
+
+{\frame{
+\frametitle{Les essais mécaniques}
+
+\begin{itemize}
+ \item Les \textbf{essais mécaniques} sont des \textbf{expériences} dont le but est de caractériser les \textbf{lois de comportements} des matériaux (mécanique des milieux continus).
+ \item La loi de comportement établit une relation entre les \textbf{contraintes} (pression=force/surface) et les \textbf{déformations} (allongement unitaire sans dimensions). 
+\begin{itemize}
+ \item \textit{Remarque: Il ne faut pas confondre une déformation avec un déplacement ou une dilatation.}
+\end{itemize}
+ \item Cependant, la déformation d'une pièce dépend de la forme de la pièce et de la manière dont sont exercés les efforts extérieurs sur cette pièce. Il faut donc normaliser les essais. Des normes définissent donc :
+ \begin{itemize}
+  \item quelle est la \textbf{forme} de la pièce d'essai dont on teste le matériau, on parle alors \textbf{d'éprouvette normalisée}, 
+  \item comment sont exercés les \textbf{efforts} sur l'éprouvette, on parle alors \textbf{d'essai normalisé}.
+ \end{itemize}
+\end{itemize}
+}}
+
+\section{Essai de traction}
+
+{\frame{
+\frametitle{Essai de traction}
+
+Une \textbf{éprouvette} est tenue en deux points. Elle est étirée à vitesse constante, et on relève la force de traction nécessaire en fonction de l'allongement. Ces essais permettent de tracer une courbe dite de traction à partir de laquelle les caractéristiques suivantes peuvent être déduites :
+\begin{itemize}
+ \item la déformation élastique en fonction de la force appliquée d'où on peut déduire, connaissant les dimensions de l'éprouvette, le \textbf{module d'Young},
+ \item la \textbf{limite élastique} souvent notée $Re$, ou bien la limite d'élasticité à $0,2\% Re_{0,2}$
+ \item la \textbf{déformation plastique}
+ \item la \textbf{résistance à la traction} ou tension de rupture souvent notée $R_m$, qui est la contrainte maximale atteinte en cours d'essais.
+ \end{itemize}
+
+\begin{minipage}{0.6\linewidth}
+L'éprouvette peut être un barreau cylindrique (système symétrique)ou plate (étude d'une face). 
+
+Les extrémités de l'éprouvette sont élargies, avec un congé, afin d'être sûr que la déformation plastique et la rupture auront lieu dans la partie centrale de l'éprouvette.
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+\includegraphics[width=0.9\linewidth]{img/img1}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Déroulement de l'essai de traction}
+
+\begin{enumerate}
+ \item Suppression du jeu grâce à une légère pré-charge
+ \item Etirement de l'éprouvette par un déplacement de la travée
+  \begin{itemize}
+   \item Mesures :  effort généré par ce déplacement
+   \item Remarque: le mouvement peut se faire par un système de vis sans fin ou un piston hydraulique, l'effort se mesure par un capteur d'effort.
+  \end{itemize}
+ \item Durant le déplacement de la travée
+  \begin{itemize}
+   \item Calcul: Déformation conventionnelle $\epsilon_c=\frac{\Delta l}{l_0}$ à partir du déplacement et contrainte conventionnelle $\sigma_c=R=\frac{F}{S_0}$ en divisant la force par la section initiale $S_0$ à partir de la force.
+  \end{itemize}
+ \item L'essai s'arrête à la rupture de l'éprouvette.
+\end{enumerate}
+
+Le diagramme ainsi obtenu est appellé \og Diagramme conventionnel \fg.
+
+A partir de ces relevés et en prenant en compte la variation de la section $S$, il est posible de tracer le \og Diagramme rationnel \fg affichant $\sigma_r=\frac{F}{S}=\sigma_c.(1+\epsilon_c)$ en fonction de $\epsilon_r=\int_{L_0}^L\frac{dl}{l}=ln(1+\epsilon_c)$.
+}}
+
+{\frame{
+\frametitle{Caractéristiques de l'essai de traction}
+
+\begin{defi}
+\begin{minipage}{0.7\linewidth}
+\begin{itemize}
+ \item \textbf{Re: limite d'élasticité} ($MPa$),
+ \item Fe: charge à la limite d'élasticité ($N$),
+ \item S0: section initiale ($mm^2$).
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.25
+\linewidth}
+\ifdef{\public}{$Re=\frac{Fe}{S_0}$}{}
+\end{minipage}
+\end{defi}
+
+\begin{defi}
+\begin{minipage}{0.7\linewidth}
+\begin{itemize}
+ \item \textbf{Rm: limite de rupture} ($MPa$),
+ \item Fm: charge à la limite de rupture ($N$),
+ \item S0: section initiale ($mm^2$).
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.25\linewidth}
+\ifdef{\public}{$Rm=\frac{Fm}{S_0}$}{}
+\end{minipage}
+\end{defi}
+
+\begin{defi}
+\begin{minipage}{0.65\linewidth}
+\begin{itemize}
+ \item \textbf{$A\%$: L'allongement pour cent après rupture},
+ \item $Lu$: longueur de l'éprouvette après rupture ($mm$),
+ \item $L_0$: longueur initiale de l'éprouvette ($mm$).
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+\ifdef{\public}{$A\%=\frac{Lu-L_0}{L_0}.100$}{}
+\end{minipage}
+\end{defi}
+}}
+
+
+{\frame{
+\frametitle{Caractéristiques de l'essai de traction}
+
+\begin{defi}
+\begin{minipage}{0.6\linewidth}
+\begin{itemize}
+ \item \textbf{$Z$: coefficient de striction},
+ \item $Su$: section minimale de l'éprouvette après rupture ($mm^2$),
+ \item $S_0$: section initiale de l'éprouvette ($mm^2$).
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.38\linewidth}
+Coefficient: \ifdef{\public}{$Z=\frac{S_0-Su}{S_0}.100$}{} \\ Allongement: \ifdef{\public}{$Zu=\frac{S_0-Su}{S_u}.100$}{}
+\end{minipage}
+\end{defi}
+
+\begin{defi}
+\begin{minipage}{0.7\linewidth}
+\begin{itemize}
+ \item \textbf{$E$: module d'Young},
+ \item $\sigma_c$: contrainte conventionnelle ($MPa$),
+ \item $\epsilon_c$: déformation conventionnelle ($1$).
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.28\linewidth}
+\ifdef{\public}{$\sigma_c=E.\epsilon_c$}{}
+\end{minipage}
+\end{defi}
+}}
+
+{\frame{
+\frametitle{Diagramme conventionnel de traction}
+
+\begin{center}
+\includegraphics[width=0.8\linewidth]{img/img2}
+\end{center}
+}}
+
+{\frame{
+\frametitle{Diagramme conventionnel de traction}
+
+\begin{center}
+\includegraphics[width=0.48\linewidth]{img/img3} \hfill
+\includegraphics[width=0.48\linewidth]{img/img4}
+\end{center}
+}}
+
+{\frame{
+\frametitle{Diagramme conventionnel de traction}
+
+\begin{itemize}
+ \item \textbf{Ductilité}
+ 
+La ductilité est déterminée à partir du comportement durant la striction
+\begin{itemize}
+ \item Si $Z$ est grand ($>0,5$) alors, le matériau est ductile,
+ \item Si $Z$ est faible ($<0,1$) alors, le matériau est semi-fragile,
+ \item Pour les matériaux fragiles, la rupture a lieu dans le domaine élastique
+\end{itemize}
+
+ \item \textbf{Ténacité}
+
+La ténacité peut être définie comme le travail nécessaire  par unité de volume pour provoquer la rupture.
+
+\begin{center}
+$\frac{dW_e}{dv}=\int_0^{\epsilon_r} \sigma.d\epsilon$
+\end{center}
+
+\end{itemize}
+
+\textit{Remarque}: il s'agit de l'aire sous la courbe rationnelle jusqu'au point de rupture.
+
+}}
+
+{\frame{
+\frametitle{Exemple essai de traction}
+
+\begin{center}
+\includegraphics[width=0.8\linewidth]{img/img5}
+\end{center}
+}}
+
+\section{Essai de dureté}
+
+{\frame{
+\frametitle{Essai de dureté}
+
+\begin{itemize}
+ \item La \textbf{dureté} d'un matériau définit la résistance qu'oppose une surface de l'échantillon à la pénétration d'un corps plus dur, par exemple la bille ou la pointe d'un duromètre. Des essais de rebondissement ou de pénétration sont utilisés pour caractériser la dureté des métaux, des matières plastiques et des élastomères.
+ \item Il existe différents types d'essais pour caractériser la dureté. Seuls les essais de pénétration vont être présentés:
+ \begin{enumerate}
+  \item Brinell (NF EN 10003-1 à 3),
+  \item Vickers,
+  \item Rockwell (NF EN 10109-1 à 3).
+ \end{enumerate}
+\end{itemize}
+}}
+
+{\frame{
+\frametitle{Essai de dureté}
+
+\begin{tabular}{|c|c|c|}
+\hline
+Brinell & Vickers & Rockwell \\
+\hline
+\includegraphics[width=3cm]{img/img6} & \includegraphics[width=3cm]{img/img7} &
+\includegraphics[width=3cm]{img/img8} \\
+$d=\frac{d_1+d_2)}{2}$ & $d=\frac{d_1+d_2)}{2}$ &  \\
+$h=\frac{D-\sqrt{D^2-d^2}}{2}$ &  & \\
+$HBS=HBW=\frac{0,102.2.F}{\pi.D.(D-\sqrt{D^2-d^2}}$ & $HV=0,189.\frac{F}{d^2}$ & $HRO=N-\frac{h}{S}$\\
+\hline
+\end{tabular}
+}}
+
+{\frame{
+\frametitle{Essai de dureté}
+
+\begin{tabular}{|c|c|c|}
+\hline
+Brinell & Vickers & Rockwell \\
+\hline
+\includegraphics[width=3cm]{img/img9} & \includegraphics[width=3cm]{img/img10} &
+\includegraphics[width=3cm]{img/img11} \\
+\hline
+\end{tabular}
+}}
+
+\section{Essai de résilience}
+
+{\frame{
+\frametitle{Essai de résilience}
+
+\begin{itemize}
+ \item La connaissance des caractéristiques mécaniques déduites de l'essai de traction peut être insuffisante: des ruptures peuvent être obtenues en dessous de la limite élastique.
+ \item Les paramètres de ténacité déterminés par l'essai de traction n'ont plus de sens lorsque la charge s'applique très rapidement, par \og choc \fg ($t_{charge}<1/100s$),
+ \item La résistance au choc ou résilience est caractérisée par le quotient de l'énergie nécessaire pour rompre l'éprouvette en un seul coup par l'aire de la section rompue.
+\end{itemize}
+
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Eprouvette en U & Eprouvette en V \\
+\hline
+\includegraphics[width=2.5cm]{img/img12} & \includegraphics[width=2.5cm]{img/img13} \\
+\hline
+\end{tabular}
+\end{center}
+}}
+
+{\frame{
+\frametitle{Déroulement de l'essai de résilience}
+
+\begin{minipage}{0.6\linewidth}
+\begin{enumerate}
+ \item Le couteau est écarté de la verticale à une hauteur correspondant à une énergie de départ $W_0=300J$,
+ \item Le couteau est libéré. Dans sa chute, en passant à la verticale, il brise l'éprouvette,
+ \item La mesure de la hauteur à la quelle remonte le pendule permet de calculer l'énergie non absorbée $W_1$,
+ \item L'énergie absorbée est alors $W=W_0-W_1=W=P(h_0-h_1)$
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+\includegraphics[width=3cm]{img/img14} \\
+\includegraphics[width=3cm]{img/img15}
+\end{minipage}
+}}
+
+\section{Essai de fatigue}
+
+{\frame{
+\frametitle{Essai de fatigue}
+
+\begin{itemize}
+ \item Un matériaux métallique soumis à des cycles répétés d'efforts subit des modifications dans ses microstructures.
+ \item Une pièce ou une structure soumise à des contraintes cycliques (millions de cycles) peut rompre sous des sollicitations inférieures à la charge maximale $Rm$ ou bien souvent inférieure à la limite élastique $Re$,
+ \item Un essai supplémentaire doit alors être utilisé, il sa'git de l'essai de fatigue.
+\end{itemize}
+}}
+
+{\frame{
+\frametitle{Déroulement de l'essai de fatigue}
+
+\begin{minipage}{0.6\linewidth}
+\begin{itemize}
+ \item L'essai consiste à soumettre une série d'éprouvettes à des cycles répétitifs de sollicitations.
+ \item Plusieurs types d'essais de fatigues peuvent être distingués selon le type de sollicitation à savoir : 
+ \begin{itemize}
+  \item fatigue en traction-compression,
+  \item fatigue en torsions alternées,
+  \item fatigue en flexion.
+ \end{itemize}
+ \item Généralement les sollicitation sont appliqués d'une façon sinusoïdale en fonction du temps.
+ \item Le nombre de cycles $N$, vaut $Nf$ à la rupture.
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+\includegraphics[width=3cm]{img/img16}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Solicitations de fatigue}
+
+
+\begin{minipage}{0.6\linewidth}
+\begin{itemize}
+ \item $\Delta \sigma=\sigma_{max}-\sigma_{min}$,
+ \item $\sigma_a=\frac{\sigma_{max}-\sigma_{min}}{2}$,
+ \item $\sigma_m=\frac{\sigma_{max}+\sigma_{min}}{2}$,
+ \item $R \sigma=\frac{\sigma_{min}}{\sigma_{max}}$.
+   \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+\includegraphics[width=3cm]{img/img16}
+\end{minipage}
+
+Contraintes:
+\begin{tabular}{|c|c|c|c|}
+\hline
+Alternées symétriques & $R_{\sigma}=-1$ & $\sigma_{max}=-\sigma_{min}$ & $\sigma_{m}=0$ \\
+\hline
+Alternées dissymétriques & $-1<R_{\sigma}<0$ & $\sigma_{max}=-\sigma_{min}$ & $0<\sigma_{m}<\sigma_{a}$ , $\sigma_{min}<0$ \\
+\hline
+Répétés & $R_{\sigma}=0$ & $\sigma_{m}=\sigma_{a}$ & $\sigma_{min}=0$ \\
+\hline
+Ondulées & $R_{\sigma}>0$ & $\sigma_{m}>\sigma_{a}$ & $\sigma_{min}>0$ \\
+\hline
+\end{tabular}
+}}
+
+{\frame{
+\frametitle{Courbe de Wöhler}
+\begin{itemize}
+ \item Elle visualise la tenu d'un matériau pour un mode de sollicitation donné. Elle représente la relation expérimentale entre $\sigma_{max}$ et $Nf$. La courbe de Wöhler correspond à la valeur médiane de $N$ (50\% de survie à une contrainte donnée).
+ \item Courbe de Wöhler d'un acier doux:
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=3cm]{img/img17}
+\end{center}
+}}
+
+\section{Essai de flexion}
+
+{\frame{
+\frametitle{Essai de flexion}
+\begin{itemize}
+ \item L'essai de flexion 3 points décrit dans l'ISO 178 et l'ASTM D 790 représente les méthodes de caractérisation classiques pour les plastiques rigides et semi-rigides.
+ \item Les résultats typiques incluent le Module de Young (module de flexion), la contrainte à l'allongement 3,5\% de même que les contraintes et allongements sur le point d'élasticité et à la rupture de l'éprouvette. 
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=2cm]{img/img18} \hfill
+\includegraphics[width=5cm]{img/img19}
+\end{center}
+
+}}
+
+\section{Essai de torsion}
+
+{\frame{
+\frametitle{Essai de torsion}
+\begin{itemize}
+ \item Il permet de caractériser le comportement d'un matériau soumis à une charge de torsion.
+ \item Les résultats de l'essai de torsion sont utilisés pour tracer une courbe de contrainte/déformation.
+ \item Les propriétés de cisaillement sont souvent déterminées par un essai de torsion.
+\end{itemize}
+
+\begin{minipage}{0.48\linewidth}
+\begin{itemize}
+ \item Caractéristiques
+\begin{itemize}
+ \item $E$: Module d'Young
+ \item $\nu$: Coefficient de Poisson,
+ \item $G$: Module de Cisaillement,
+ \item $K$: Module d'élasticité isostatique.
+\end{itemize}
+\end{itemize}
+\includegraphics[width=5cm]{img/img20}
+\end{minipage}
+ \hfill
+\begin{minipage}{0.48\linewidth}
+\begin{center}
+\begin{tabular}{|c|}
+\hline
+$\tau=G.\gamma(r)$ \\ \hline $\gamma(r)=\frac{r}{L}.\theta$ \\ \hline
+$\nu=\frac{\frac{l_0-l}{l_0}}{\frac{L_0-L}{L_0}}$ \\ \hline $E=2(1+\nu).G$ \\ \hline
+ $K=\frac{1}{3}.\frac{E}{(1-2.\nu)}$ \\ \hline
+\end{tabular}
+\end{center}
+\end{minipage}
+}}
+
+
+
+{\frame{
+\frametitle{Conclusion}
+
+\begin{savoir}
+Vous êtes capables :
+\begin{itemize}
+ \item de caractériser un matériau avec des proprités mécaniques spécifiques,
+ \item de présenter l'organisation d'un essai afin de mettre en évidence ces caractéristiques.
+\end{itemize}
+\end{savoir}
+
+\begin{prob}
+Vous devez êtes capables :
+ \begin{itemize}
+ \item de connaître d'associer aux matériaux les plus classiques ces propriétés.
+ \end{itemize}
+\end{prob}
+}}
+
+
+\end{document}

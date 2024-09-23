@@ -1,0 +1,25 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 05/05/03 by AUBLIN
+' ******************************************************************************
+
+Dim swApp As Object
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long
+Dim Annotation As Object
+Dim Gtol As Object
+Dim DatumTag As Object
+Dim FeatureData As Object
+Dim Feature As Object
+Dim Component As Object
+Sub main()
+Set swApp = CreateObject ("SldWorks.Application")
+Set Part = swApp.OpenDoc4 ("C:\Documents and Settings\AUBLIN\Bureau\Lève-vitre ssw\Moteur SW\Assem accouplement.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("Assem accouplement")
+swApp.ActiveDoc.ActiveView.FrameWidth = 900
+swApp.ActiveDoc.ActiveView.FrameHeight = 560
+Part.Save2 FALSE
+Set Part = Nothing
+swApp.CloseDoc "Assem accouplement"
+swApp.ExitApp
+End Sub

@@ -1,0 +1,116 @@
+\input{../../headers/tdheaders.tex}
+
+\section{Chaise du Maxpid}
+
+\begin{minipage}{0.6\linewidth}
+Cette étude va porter sur l'usinage de la pièce appelée \og Chaise \fg issue de l'assemblage \og Maxpid \fg.
+
+Cahier des charges imposé par l'industriel :
+\begin{itemize}
+ \item Commande de 25 chaises.
+\end{itemize}
+
+\paragraph{Question 1 :} Repérer, à partir du dessin de définition de la chaise brute puis usinée, les surfaces fonctionnelles sur lesquelles il faudra prévoir des usinages.
+
+\end{minipage}
+\hfill
+\begin{minipage}{0.38\linewidth}
+ \centering\includegraphics[width=0.6\linewidth]{img/Chaise.jpg}
+\end{minipage}
+
+~\
+
+L'ordonnancement des phases est défini par le tableau suivant.
+
+\tiny
+
+\begin{table}[!h]
+ \begin{tabular}{|m{0.11\linewidth}|m{0.27\linewidth}|m{0.27\linewidth}|m{0.27\linewidth}|}
+ \hline
+ Phases & Désignation & Machine-outil & Observations \\
+ \hline
+ Phase 0 & CONTRÔLE: Contrôle du brut & Métrologie au marbre & Instruments classiques de métrologie \\
+ \hline
+ Phase 10 & FRAISAGE: Surfaçage de A, centrage, perçage et taraudage des 4 trous M6 & Fraiseuse CN 3 axes verticale & Montage en étau, contrôle \\
+ \hline
+ Phase 20 & FRAISAGE: Surfaçage- dressage de D, E, J, M, N et surfaces planes associées & Fraiseuse CN 3 axes verticale & Montage d'usinage modulaire, contrôle \\
+ \hline
+ Phase 30 & FRAISAGE: Contournement de C et dressage de C', centrage, perçage taraudage et alésage des 3 trous M4 et 12H7 & Fraiseuse 3 axes verticale & Montage d'usinage modulaire, contrôle \\
+ \hline
+ Phase 40 & FRAISAGE: Contournement de B, centrage, perçage taraudage et alésage du trou M4 et 12H7 & Fraiseuse CN 3 axes verticale & Montage d'usinage modulaire plus centreur fixe sur table, contrôle \\
+ \hline
+ Phase 50 & CONTROLE: Contrôle final & Métrologie au marbre & Instruments classiques de de métrologie \\
+ \hline
+ Phase 60 & TRAITEMENT THERMIQUE: Anodisation & Machine de traitement de surface & Incolore \\
+ \hline
+ \end{tabular}
+\end{table}
+
+\normalsize
+
+Repérer d'une couleur différente les surfaces réalisées dans chacune des phases.
+
+\paragraph{Question 2 :} A partir des vidéos de l'usinage des phases 10 et 20, compléter les contrats de
+phase associés.
+
+\paragraph{Question 3 :} Compléter, en vous basant sur ce que vous avez fait dans la question précédente, les contrats de phase associés aux phases 30 et 40.
+
+\includepdf[offset=15 -20]{img/Chaise_usinee.pdf}
+\includepdf[offset=15 -20,pages=1-4]{img/Phases_Chaise.pdf}
+
+
+\section{Vis du Maxpid}
+
+Cette étude va porter sur l'usinage de la \og Vis \fg issue de l'assemblage \og Maxpid \fg.
+
+~\
+
+Cahier des charges imposé par l'industriel :
+\begin{itemize}
+ \item Commande de 10 vis.
+\end{itemize}
+~\
+
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/Vis.jpg}
+\end{center}
+
+~\
+
+L'ordonnancement des phases est défini par le tableau suivant.
+
+\tiny
+
+\begin{table}[!h]
+ \begin{tabular}{|m{0.11\linewidth}|m{0.27\linewidth}|m{0.27\linewidth}|m{0.27\linewidth}|}
+ \hline
+ Phases & Désignation & Machine-outil & Observations \\
+ \hline
+ Phase 0 & CONTRÔLE: Contrôle du brut & Métrologie au marbre & Instruments classiques de métrologie \\
+ \hline
+ Phase 10 & TOURNAGE: Usinage côté surface A: dressage, centrage, perçage et taraudage & Tour CN 2 axes & Montage en l'air en trois mors doux, contrôle \\
+ \hline
+ Phase 20 & TOURNAGE: Usinage côté surface B: réalisation de toutes les surfaces usinées & Tour CN 2 axes verticale & Montage en l'air et mixte en trois mors doux, contrôle \\
+ \hline
+ Phase 30 & RECTIFICATION: Rectification du $\Phi 6g6E$ & Rectifieuse cylindrique & Montage en l'air en trois mors doux, contrôle \\
+ \hline
+ Phase 50 & CONTROLE: Contrôle final & Métrologie au marbre & Instruments classiques de de métrologie et rugosimètre \\
+ \hline
+ \end{tabular}
+\end{table}
+
+\normalsize
+
+\paragraph{Question 1 :} Pourquoi l'opérateur garde t'il l'écrou lors de l'usinage ?
+
+\paragraph{Question 2 :} Repérer, à partir du dessin d'ensemble ci-dessous, les surfaces fonctionnelles du bras
+sur lesquelles il faudra prévoir des usinages.
+
+\paragraph{Question 3 :} A partir du dessin de définition de la pièce usinée, compléter les contrats de phases
+permettant de réaliser la vis à billes.
+
+\includepdf[offset=15 -20]{img/Vis_assemb.pdf}
+\includepdf[offset=15 -20]{img/Vis_usinee.pdf}
+\includepdf[offset=15 -20,pages=1-2]{img/Phases_Vis.pdf}
+
+\end{document}

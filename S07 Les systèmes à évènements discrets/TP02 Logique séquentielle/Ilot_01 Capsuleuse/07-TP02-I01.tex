@@ -1,0 +1,119 @@
+\input{../../../headers/tdheaders.tex}
+
+\section{Définition du système}
+
+\begin{figure}
+ \begin{minipage}{0.55\linewidth}
+Le système proposé s'insère dans une chaîne de conditionnement de produits alimentaires, entre l'unité de remplissage des bocaux et le poste d'étiquetage. Sa fonction principale est la \og fermeture étanche de bocaux préalablement remplis de produits alimentaires \fg.
+ \end{minipage}
+ \hfill
+  \begin{minipage}{0.43\linewidth}
+   \centering\includegraphics[width=0.9\linewidth]{img/Indexa.jpg}
+   \caption{Système capsuleuse bocaux}
+   \label{img1}
+  \end{minipage}
+\end{figure}
+
+Ce système comprend plusieurs parties (cf figure \ref{img2}) : 
+\begin{itemize}
+ \item un convoyeur linéaire d'alimentation des bocaux, 
+ \item un système électromécanique de transfert et d'indexation des bocaux (motoréducteur, mécanisme à Croix de Malte, étoile de transfert), 
+ \item un magasin de stockage des capsules, 
+ \item une partie opérative pneumatique de pose et de vissage des capsules (vérin V1, tête de vissage comprenant les vérins V2 et VR, ventouse et vacuostat). Le vacuostat est une cellule permettant d'assurer la mise en dépression de la ventouse afin d'effectuer la préhension de la capsule. 
+ \item un vérin de serrage des bocaux sous la tête de vissage, 
+ \item un convoyeur linéaire d'évacuation des bocaux, 
+ \item une partie commande par automate programmable TSX17 et un pupitre de commande. 
+\end{itemize}
+
+\begin{figure}
+  \centering\includegraphics[width=0.9\linewidth]{img/Global_indexa.png}
+    \caption{les composants du système}
+  \label{img2}
+\end{figure}
+
+La dépose et le vissage d'une capsule sont assurées par : 
+\begin{itemize}
+ \item trois vérins pneumatiques, deux vérins linéaires \textbf{V1} et \textbf{V2} et un vérin rotatif \textbf{VR}. Le vérin rotatif \textbf{VR} est solidaire de la tige du vérin \textbf{V2} dans le mouvement de translation de celle-ci,
+ \item une ventouse fixée sur le vérin rotatif et reliée à un vacuostat.
+\end{itemize}
+
+
+Sur la figure \ref{img2} et sur les schéma en perspective des figure \ref{img3} et \ref{img4}, les vérins \textbf{V2} et \textbf{VR} sont intégrés dans la tête de vissage. Le vérin de serrage n'est pas représenté sur la photographie de la figure \ref{img2}. 
+
+Dès qu'un bocal est présent sous la tête vissage, il est bloqué par le vérin de serrage. Le lancement du cycle de dépose et de vissage est conditionné par la présence d'un bocal, notée bp, et par le retour de tous les actionneurs à leur position initiale. Le cycle se déroule de la façon suivante : la tige du vérin \textbf{V1} pousse une capsule située dans le magasin de capsules sous la tête de vissage.
+
+La position du capteur de fin de course «tige sortie» est notée v11. 
+\begin{itemize}
+ \item \textbf{V2} descend et entraîne dans son mouvement \textbf{VR} sur lequel est fixée la ventouse. La position du capteur de fin de course \og tige sortie \fg de \textbf{V2} est déterminée par l'arrivée de la ventouse sur la capsule et est notée \textbf{v211}. 
+ \item \textbf{V2} remonte et entraîne dans son mouvement \textbf{VR} qui a saisi la capsule au moyen de la ventouse. La position du capteur \og tige rentrée \fg est notée \textbf{v20}. 
+ \item \textbf{V1} recule, libérant la place sous la tête de vissage, et se repositionne sous le magasin de capsules. La position du capteur \og tige rentrée \fg est notée \textbf{v10}.
+ \item \textbf{V2} descend, en entraînant \textbf{VR}, afin de déposer la capsule sur le bocal. La position du capteur \og tige sortie \fg est notée \textbf{v212}. 
+ \item \textbf{VR} visse la capsule sur le bocal. La position du capteur \textbf{vr1} du vérin rotatif ne doit pas être atteinte avant la fin d'une temporisation lancée en même temps que le mouvement de rotation du vérin \textbf{VR} (fin de temporisation notée \textbf{tpvr}). 
+ \item dès que la dépression au niveau de la ventouse est supprimée le bocal est débloqué et \textbf{V2} remonte en entraînant \textbf{VR} qui tourne alors en sens inverse. L'arrêt de ce mouvement de rotation est donné par un capteur \textbf{vr0}
+\end{itemize}
+
+\begin{figure}
+  \centering\includegraphics[width=0.8\linewidth]{img/Indexa1.png}
+    \caption{Vue partielle}
+  \label{img3}
+\end{figure}
+
+\begin{figure}
+  \centering\includegraphics[width=0.7\linewidth]{img/Indexa2.png}
+    \caption{Système croix de Malte}
+  \label{img4}
+\end{figure}
+
+%\subsection{Encapsulation}
+%
+%\begin{minipage}{0.15\linewidth}
+% \includegraphics[width=0.7\linewidth]{img/Encapsulation1.png}
+%\end{minipage}
+% \hfill
+%\begin{minipage}{0.8\linewidth}
+%Étape encapsulante : Cette notation indique que cette étape contient d'autres étapes dites encapsulées. 
+%\end{minipage}
+%
+%\vspace{1cm}
+%
+%\begin{minipage}{0.15\linewidth}
+% \includegraphics[width=1\linewidth]{img/Encapsulation2.png}
+%\end{minipage}
+% \hfill
+%\begin{minipage}{0.8\linewidth}
+%Représentation graphique d'une encapsulation : Une encapsulation $\sharp$ d'une étape encapsulante $*$ peut être représentée par le grafcet partiel des étapes encapsulées.
+%\end{minipage}
+%
+%\vspace{1cm}
+%
+%\begin{minipage}{0.15\linewidth}
+%{\Large $X*/G\sharp$}
+%\end{minipage}
+% \hfill
+%\begin{minipage}{0.8\linewidth}
+%Désignation globale d'une encapsulation : Une encapsulation $\sharp$ d'une étape encapsulante $*$.
+%\end{minipage}
+
+\paragraph{Question 1:} A partir de vos observations sur le système, compléter le diagramme suivant. Choisir la sortie du vérin V1 afin de bloquer le bocal comme première étape.
+
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/Chronogramme.png}
+\end{center}
+
+\paragraph{Question 2:}
+
+À partir de ce chronogramme, compléter le diagramme décrivant le fonctionnement séquentiel du poste de dépose et de vissage des capsules. On supposera qu'à l'état initial du diagramme, la partie opérative est correctement configurée, et qu'en particulier tous les vérins sont en position \og tige rentrée \fg. L'initialisation de la partie opérative n'est pas demandée dans ce diagramme.
+
+\begin{center}
+ \includegraphics[width=\linewidth]{img/Vissage_couvercle}
+\end{center}
+
+Cette première solution demandée n'attend aucune structure évoluée de hiérarchisation. 
+
+\newpage
+
+\paragraph{Question 3:} Pour chaque étape et chaque transition, déterminer le capteur utilisé.
+
+\reponse[10]
+
+\end{document}

@@ -1,0 +1,362 @@
+\input{../../headers/beamercoursHeadings}
+
+\setcounter{framenumber}{0}
+
+{\frame{
+\frametitle{Introduction}
+
+\begin{savoir}
+Vous êtes capables :
+\begin{itemize}
+ \item De définir et de lire des spécifications sur un dessin de définition.
+\end{itemize}
+\end{savoir}
+
+\begin{prob}
+Vous devez êtes capables :
+\begin{itemize}
+ \item De contrôler ces spécifications sur une pièce fabriquée.
+\end{itemize}
+\end{prob}
+}}
+
+\section{Introduction}
+
+{\frame{
+\frametitle{Inspection d'une spécification portée sur un dessin}
+
+\begin{minipage}{0.65\linewidth}
+\begin{itemize}
+ \item Les étapes :
+\begin{itemize}
+ \item Définir selon la norme (ISO) la spécification à contrôler,
+ \item Mesurer les surfaces par des points,
+ \item Représenter les éléments tolérancés et de références,
+ \item Construire les références spécifiées,
+ \item Vérifier les spécifications par constructions géométriques et calculs de distances et d'angles,
+ \item Estimer les incertitudes sur les caractéristiques.
+\end{itemize}
+\item Difficultés:
+\begin{itemize}
+ \item Limites physiques : accessibilité des surfaces.
+\end{itemize}
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+ \includegraphics[width=0.9\linewidth]{img/Picture1}
+\end{minipage}
+
+ \includegraphics[width=0.25\linewidth]{img/Picture2}\hfill
+ \includegraphics[width=0.25\linewidth]{img/Picture3}\hfill
+ \includegraphics[width=0.25\linewidth]{img/Picture4}
+}}
+
+\section{Mesure MMT}
+
+{\frame{
+\frametitle{Choisir les outils de mesure sur MMT}
+
+ \includegraphics[width=0.9\linewidth]{img/Picture5}
+}}
+
+{\frame{
+\frametitle{Acquérir des coordonnées de points}
+
+\begin{itemize}
+ \item Dans un repère exprimer les coordonnées des points appartenant aux différentes surfaces de la pièce.
+
+\end{itemize}
+ \includegraphics[width=0.9\linewidth]{img/Picture6}
+}}
+
+{\frame{
+\frametitle{Mesure d'un point}
+
+\begin{itemize}
+ \item Les points et les lignes, sont définies par l'intersection d'un élément théorique exact (droite ou plan ) avec la surface portant les points mesurés,
+ 
+ \includegraphics[width=0.9\linewidth]{img/Picture7}
+ 
+ \item Conséquence le déplacement du palpeur doit être contrôlé par la CN de la MMT pour que chaque point de contact avec la surface appartienne au plan de coupe ou à la droite d'intersection,
+ \item La mesure des lignes et des points se trouvent ainsi limitées par les possibilités de \og balançage \fg de la pièce dans le repère de la MMT.
+\end{itemize}
+
+}}
+
+{\frame{
+\frametitle{Qualification d'un palpeur}
+
+\begin{itemize}
+ \item Chaque \og outil-palpeur \fg a un rayon qu'il faut compenser par mesure d'un étalon (cale, bague, sphère).
+ \begin{itemize}
+ \item En mesures unidimensionnelles : par mesure d'une cale étalon de longueur $l_0$,
+\begin{center}
+ \includegraphics[width=0.4\linewidth]{img/Picture8}
+\end{center}
+ \item En mesures planes (bidimensionnelles): par mesure d'une bague étalon de diamètre $d_0$,
+\begin{center}
+ \includegraphics[width=0.4\linewidth]{img/Picture9}
+\end{center}
+ \item En mesures tridimensionnelles : par mesure d'une sphère étalon de diamètre $d_0$.
+\begin{center}
+ \includegraphics[width=0.4\linewidth]{img/Picture10}
+\end{center}
+\end{itemize}
+\end{itemize}
+}}
+
+{\frame{
+\frametitle{Représentation d'un élément géométrique réel}
+
+\begin{itemize}
+ \item Par l'ensemble des points mesurés sur l'élément (Nuage de points),
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/Picture11}
+\end{center}
+ \item Par un élément géométrique théorique associé au nuage de points suivant le critère des moindres carrés et à la demande (option) tangent du côté libre de la matière.
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/Picture12}
+\end{center}
+\end{itemize}
+}}
+
+{\frame{
+\frametitle{Critère des moindres carrés (ou critère de Gauss)}
+
+\begin{itemize}
+ \item L'élément associé est tel que la somme des carrés des distances des points mesurés à l'élément est minimale,
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/Picture13}
+\end{center}
+ \item L'élément associé passe au mieux des points. Il est dans le nuage de points. 
+L'élément retenu pourra être un élément tangent extérieur matière et parallèle à l'élément des moindres carrés.
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/Picture14}
+\end{center}
+\end{itemize}
+}}
+
+{\frame{
+\frametitle{Exemple: Couvercle de l'arbre intermédiaire}
+
+\begin{center}
+ \includegraphics[width=0.65\linewidth]{img/Picture15}
+\end{center}
+}}
+
+{\frame{
+\frametitle{Dessin de définition}
+
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/Picture16}
+\end{center}
+}}
+
+{\frame{
+\frametitle{Contrôle d'une spécification dimensionnelle $\Phi 58$}
+
+\begin{itemize}
+ \item Définition ISO de la spécification,
+ \begin{itemize}
+  \item Toutes les dimensions locales réelles doivent être $58,000 \leq di \leq 58,033$,
+  \item Exigence de l'enveloppe : la surface réelle doit être extérieure a un cylindre de forme parfaite de diamètre au maximum de matière ($\Phi 58,000$),
+ \end{itemize}
+ \item Mesure de la surface réputée cylindrique et modèle géométrique associé mesure en 12 points repartis sur la surface,
+ \begin{itemize}
+  \item modèle associé : cylindre des moindres carres tangent extérieur matière,
+  \item résultat : diamètre $D$ du cylindre associé et défaut de forme $df$ sur les 12 pts,
+ \end{itemize}
+ \item Interprétation du résultat,
+ \begin{itemize}
+  \item Dimensions locales réelles : vérifier si $D \geq 58,000$ et $(D + 2df) \leq 58,033$,
+  \item Exigence de l'enveloppe : vérifier si $D \geq 58,000$,
+ \end{itemize}
+ \item Incertitude sur la mesure de la caractéristique.
+\end{itemize}
+}}
+
+{\frame{
+\frametitle{Contrôle d'une spécification géométrique \includegraphics[height=0.4cm]{img/Picture17}}
+
+\begin{itemize}
+ \item Définition ISO de la spécification
+ \begin{itemize}
+  \item Elément tolérancé : axe reel de l'alesage $\Phi 58$,
+  \item Eléments de référence : surface réputée plane A,
+  \item Référence spécifiée : plan A tangent extérieur matière et critère des moindres carrés,
+  \item Zone de tolérance : Cylindre $\Phi 0,03$ d'axe perpendiculaire au plan de référence spécifié A,
+ \end{itemize}
+ \item Mesure des surfaces et modèles géométriques de la base de données,
+ \begin{itemize}
+  \item Mesure en 12 points repartis sur l'alésage,
+  \begin{itemize}
+   \item Modèle associé : cylindre des moindres carres tangent extérieur matière $CY1$,
+  \end{itemize}
+  \item Mesure en 14 points repartis sur la surface réputée plane,
+ \begin{itemize}
+    \item modèle associé : plan des moindres carres tangent extérieur matière $PL2$.
+ \end{itemize}
+ \end{itemize}
+\end{itemize}
+
+\begin{center}
+ \includegraphics[width=0.4\linewidth]{img/Picture18}
+\end{center}
+}}
+
+{\frame{
+\frametitle{Contrôle d'une spécification géométrique \includegraphics[height=0.4cm]{img/Picture17}}
+
+\begin{itemize}
+\item L'axe réel du cylindre est déterminé par les 2 points extrêmes $PT8$ et $PT9$ délimitant l'axe du cylindre des moindres carrés,
+ \item Etapes du processus
+ \begin{itemize}
+ \item construction du point $PT3$: intersection de la droite $CY1$ et du plan $PL2$,
+ \item construction d'un axe orienté défini par: (une direction : le plan $PL2$, une origine : le point $PT3$, une orientation extérieure a la matière du plan $PL2$),
+ \item construction de deux points $PT4$ et $PT5$ de coordonnées $-5$ et $-35$ (géométrie nominale),
+ \item construction d'un plan $PL6$ passant par le point $PT4$ et parallèle au plan $PL2$,
+ \item construction d'un plan $PL7$ passant par le point $PT5$ et parallèle au plan $PL2$,
+ \item construction du point $PT8$ intersection de $PL6$ et de la droite $CY1$,
+ \item construction du point $PT9$ intersection de $PL7$ et de la droite $CY1$
+\end{itemize}
+\end{itemize}
+
+\begin{center}
+ \includegraphics[width=0.4\linewidth]{img/Picture19}
+\end{center}
+}}
+
+{\frame{
+\frametitle{Contrôle d'une spécification géométrique \includegraphics[height=0.4cm]{img/Picture17}}
+
+\begin{itemize}
+ \item La direction du plan de référence spécifié est déterminée par le plan des moindres carrés,
+ \item L'axe de la zone de tolérance est définie par une droite $DR10$,
+ \begin{itemize}
+  \item construction d'une droite $DR10$ passant par $PT8$ et perpendiculaire au plan $PL2$,  
+ \end{itemize}
+ \item La condition d'appartenance à la zone de tolérance Øt est définie par :
+ \begin{itemize}
+  \item le calcul de la distance d entre le point $PT9$ et la droite $DR10$,
+  \item la condition $d \leq t$.
+ \end{itemize}
+\end{itemize}
+
+\begin{center}
+ \includegraphics[width=0.4\linewidth]{img/Picture20}
+\end{center}
+}}
+
+{\frame{
+\frametitle{Technologies classiques de numérisation 3D}
+
+\begin{itemize}
+ \item Palpeur à déclanchement (contact) \\
+ \begin{center}
+ \includegraphics[height=2cm]{img/Picture21} 
+ \end{center}
+ \item Palpeur laser plan (sans contact) \\
+ \begin{center}
+ \includegraphics[height=3cm]{img/Picture22} 
+ \end{center}
+\end{itemize}
+}}
+
+{\frame{
+\frametitle{Technologies et numérisation 3D grande échelle}
+
+ \includegraphics[width=0.8\linewidth]{img/Picture23}
+}}
+
+\section{Métrologie au marbre}
+
+{\frame{
+\frametitle{La métrologie au marbre: Méthode de mesure par comparaison}
+
+\begin{minipage}[t]{0.45\linewidth}
+\begin{itemize}
+ \item Principe
+  \begin{itemize}
+  \item Contrôler une spécification dimensionnelle sur une pièce en la comparant à un empilement de cales étalon,
+  \end{itemize}
+ \includegraphics[width=0.7\linewidth]{img/Picture24}
+ \item Etalonnage:
+ \begin{itemize}
+  \item Empiler les cales étalons pour atteindre la valeur nominale à mesurer,
+  \item Amener le comparateur sur la pièce, il doit être à mi-course.
+ \end{itemize}
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.45\linewidth}
+\begin{itemize}
+ \item Matériel utilisé:
+ \begin{itemize}
+  \item Un marbre de contrôle,
+  \item Un jeu de cale étalon,
+  \item Un comparateur+ support,
+ \end{itemize}
+ \includegraphics[width=0.7\linewidth]{img/Picture25}
+ \item Procédure de mesure:
+ \begin{itemize}
+  \item Enlever les cales,
+  \item Installer la pièce,
+  \item Relever l'écart par rapport à l'étalonnage en bougeant la pièce.
+ \end{itemize}
+\end{itemize}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Instruments de métrologie au marbre}
+
+\begin{itemize}
+ \item \textbf{Pied à coulisse:} Un pied à coulisse est un instrument de mesure de longueurs composée de deux parties coulissantes l'une sur l'autre : un règle fixe graduée, munie d'une tête comportant une face plate correspondant à la position de référence 0, et un curseur, muni d'une tête présentant une surface plate en opposition avec la référence.
+\end{itemize}
+
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/Picture26} \\
+ \includegraphics[width=0.8\linewidth]{img/Picture27}
+\end{center}
+}}
+
+{\frame{
+\frametitle{Instruments de métrologie au marbre}
+
+\begin{itemize}
+ \item \textbf{Micromètre:} Le micromètre, ou \og palmer \fg, est un appareil de mesure des longueurs. Il est très utilisé en mécanique pour mesurer des épaisseurs, des diamètres de portées cylindriques (micromètre d'extérieur) ou des diamètres de perçage ou d'alésage (micromètre d'intérieur).
+\end{itemize}
+
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/Picture28} \\
+ \includegraphics[width=0.8\linewidth]{img/Picture29}
+\end{center}
+}}
+
+{\frame{
+\frametitle{Instruments de métrologie au marbre}
+
+\begin{itemize}
+ \item \textbf{Comparateur:} Le comparateur est un appareil de mesure de longueur. Il n'indique pas une mesure absolue mais une mesure relative par rapport à un point de référence, \\
+  \includegraphics[width=0.8\linewidth]{img/Picture30}
+ \item \textbf{Cales étalons:} Les cales étalons sont des parallélépipèdes généralement en acier dont la longueur entre deux des faces (appelées mesurandes) est parfaitement connue. Les cales étalons sont utilisées pour étalonner ou régler des appareils de mesure de longueur. \\
+  \includegraphics[width=0.8\linewidth]{img/Picture31}
+\end{itemize}
+}}
+
+{\frame{
+\frametitle{La métrologie}
+
+\begin{savoir}
+Vous devez être capables :
+\begin{itemize}
+ \item de mesurer les défauts d'une pièce,
+ \item de construire un protocole de mesure.
+\end{itemize}
+\end{savoir}
+
+\vfill
+
+}}
+
+
+\end{document}

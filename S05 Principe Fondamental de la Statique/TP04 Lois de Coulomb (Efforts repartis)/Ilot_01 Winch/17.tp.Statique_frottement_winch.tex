@@ -1,0 +1,271 @@
+% Paquets généraux
+\documentclass[a4paper,12pt,titlepage]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%Partie à modifier%%%%%%%%%%%%
+\newcommand{\theme}{Statique, lois de Coulomb}
+\newcommand{\sujet}{Modéliser le comportement statique de systèmes avec frottement}
+\newcommand{\objectifs}{Découverte de l'arc-bouttement\\
+Mise en évidence de l'influence des efforts répartis}
+%Si un seul support 0
+\newcommand{\nbsupport}{0}
+\newcommand{\supportu}{Winch}
+\newcommand{\supportimageu}{img/winch2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[french]{babel}
+\usepackage[gen]{eurosym}
+%\usepackage[dvips]{graphicx}
+\usepackage{fancyhdr}
+\usepackage{pdfpages} 
+\usepackage{multido}
+\usepackage{vmargin}
+%\usepackage{aeguill}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+%\usepackage{xspace}
+\usepackage{varioref}
+\usepackage{tabularx}
+%\usepackage{floatflt}
+\usepackage{graphics}
+%\usepackage{wrapfig}
+\usepackage{textcomp}
+%\usepackage{boxedminipage}
+\definecolor{forestgreen}{rgb}{0.13,0.54,0.13}
+\definecolor{blcr}{rgb}{0.59,0.69,0.84}
+\definecolor{blfr}{rgb}{0.32,0.51,0.75}
+\definecolor{orfr}{rgb}{0.90,0.42,0.15}
+\definecolor{orcr}{rgb}{0.90,0.65,0.50}
+\definecolor{orangef}{rgb}{0.659,0.269,0.072}
+\definecolor{orange}{rgb}{0.58,0.35,0.063}
+\definecolor{orangec}{rgb}{0.43,0.32,0.25}
+\definecolor{rcorrect}{rgb}{0.6,0,0}
+
+% Mise en page
+\pagestyle{fancy}
+
+\setlength{\hoffset}{-18pt}
+
+\setlength{\oddsidemargin}{0pt} 	% Marge gauche sur pages impaire2s
+\setlength{\evensidemargin}{0pt} 	% Marge gauche sur pages paires
+\setlength{\marginparwidth}{00pt} 	% Largeur de note dans la marge
+\setlength{\headwidth}{481pt} 	 	% Largeur de la zone de tête (17cm)
+\setlength{\textwidth}{481pt} 	 	% Largeur de la zone de texte (17cm)
+\setlength{\voffset}{-18pt} 		% Bon pour DOS
+\setlength{\marginparsep}{7pt}	 	% Séparation de la marge
+\setlength{\topmargin}{-30pt} 		% Pas de marge en haut
+\setlength{\headheight}{55pt} 		% Haut de page
+\setlength{\headsep}{20pt} 			% Entre le haut de page et le texte
+\setlength{\footskip}{30pt} 		% Bas de page + séparation
+\setlength{\textheight}{700pt} 		% Hauteur de la zone de texte (25cm)
+\setlength\fboxrule{1 pt}
+\renewcommand{\baselinestretch}{1}
+\setcounter{tocdepth}{1}
+\newcommand{\cadre}[2]
+{\fbox{
+  \begin{minipage}{#1\linewidth}
+   \begin{center}
+    #2\\
+   \end{center}
+  \end{minipage}
+ }
+}
+
+\newcommand{\reponse}[1][4]
+{
+\multido{}{#1}
+{\centering\makebox[0.9\linewidth]{}  \\
+\centering\makebox[0.9\linewidth]{\dotfill} \\
+}}
+
+\newcommand{\titre}[1]
+{\begin{center}
+\cadre{0.8}{\huge #1} 
+\end{center}
+}
+
+% En tête et pied de page
+\lhead{\theme}
+\rhead{\includegraphics[width=2cm]{../../../Admin/Logo_Corbu.PNG}}
+\lfoot{Renaud Costadoat}
+\cfoot{Page \thepage}
+
+\fancypagestyle{correction}{%
+  \fancyhf{}
+  \lhead{\colorbox{rcorrect}{\begin{minipage}{0.65\paperwidth} \textcolor{white}{\textbf{Correction}} \end{minipage}} }
+  \rhead{\includegraphics[width=2cm]{../../../Admin/Logo_Corbu.PNG}}
+  \lfoot{Renaud Costadoat}
+  \rfoot{\colorbox{rcorrect}{\begin{minipage}{0.6\paperwidth} \begin{flushright}\textcolor{white}{\textbf{Correction}}\end{flushright} \end{minipage}} }}
+
+\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+\pagestyle{empty}
+\setlength{\headheight}{0pt}
+\setlength{\footskip}{0pt}
+
+
+\hspace{-2cm}\colorbox{blcr}{\begin{minipage}{0.95\paperwidth}
+\begin{minipage}{0.7\linewidth}
+\vspace{5pt} \large \textbf{CPGE PTSI} \\ \vfill
+Sciences Industrielles pour l'Ingénieur \\ \vfill
+Renaud Costadoat \vspace{5pt}
+\end{minipage}
+ \hfill 
+\begin{minipage}{0.18\linewidth}
+\begin{flushright}
+Lycée le Corbusier\\ \vfill
+\includegraphics[width=2cm]{../../../Admin/Logo_Corbu.PNG}
+\end{flushright}
+\end{minipage}\end{minipage}}
+
+\hspace{-2cm}\colorbox{blfr}{\begin{minipage}{0.95\paperwidth}
+\Large\textcolor{white}{\\\textbf{Compte rendu} \hfill \textbf{\theme} \hfill \textit{Date:} .../.../...... 
+}\end{minipage}} 
+
+\vspace{1cm}
+\begin{center}
+\colorbox{forestgreen}{\begin{minipage}{0.9\linewidth}\textcolor{white}{\large\textit{Thème:} \\ \sujet} \end{minipage}}\\
+\colorbox{orfr}{\begin{minipage}{0.9\linewidth}\large\textit{Objectifs:} \\ \objectifs \end{minipage}} \\
+\colorbox{orcr}{\begin{minipage}{0.9\linewidth}\large\textit{Support:}   \\ \Huge\textsf{\supportu} \\ \begin{center}\includegraphics[width=0.7\linewidth]{\supportimageu}\end{center} \vspace{10pt} \end{minipage}} \\ \vspace{40pt}
+\end{center}
+
+
+
+\colorbox{blcr}{\large\begin{minipage}{0.45\linewidth}Nom:.................................\end{minipage}}
+\colorbox{blcr}{\large\begin{minipage}{0.45\linewidth}Prénom:.................................\end{minipage}}
+
+\colorbox{blcr}{\large\begin{minipage}{0.45\linewidth}Nom:.................................\end{minipage}}
+\colorbox{blcr}{\large\begin{minipage}{0.45\linewidth}Prénom:.................................\end{minipage}}
+
+\colorbox{blcr}{\large\begin{minipage}{0.45\linewidth}Nom:.................................\end{minipage}}
+\colorbox{blcr}{\large\begin{minipage}{0.45\linewidth}Prénom:.................................\end{minipage}}
+
+\newpage
+
+\setlength{\headheight}{55pt}
+\setlength{\footskip}{30pt} 
+\setlength{\textheight}{700pt} 	
+\pagestyle{fancy}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Le Winch}
+
+\subsection{Etude expérimentale}
+
+\paragraph{Question 1:} Remplissez un tableau de mesure suivant le modèle suivant.
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+Nombre de tours & t(N) 1er essai & t(N) 2ème essai & t(N) moyen \\
+\hline
+1 & & & \\
+\hline
+2 & & & \\
+\hline
+3 & & & \\
+\hline
+\end{tabular}
+
+\paragraph{Question 2:} Placez les points expérimentaux de $t$ en fonction de l'angle d'enroulement $\theta$ sur un graphique.
+
+\reponse[3]
+
+\subsection{Modélisation de l'action mécanique de contact entre la corde et le tambour}
+
+\paragraph{Question 3:} Précisez la normale extérieure matière à la Corde au point M. 
+
+\reponse[2]
+
+\paragraph{Question 4:} Donnez l'expression de l'aire élémentaire $dS$ de la surface cylindrique de la Corde au point M en fonction de $R$, de $d\theta$ et de la largeur $l$ de la Corde C.
+
+\reponse[2]
+
+\paragraph{Question 5:} Ecrire l'action mécanique locale du Tambour sur la Corde $(T \rightarrow C)$ au point M en fonction du facteur d'adhérence $f_0$ entre le Tambour et la Corde, des vecteurs de la base locale, de la pression de contact $p(\theta)$. (On utilisera la loi de Coulomb relative à l'adhérence à la limite du glissement).
+
+\reponse[3]
+
+\subsection{Equilibre statique de la corde}
+
+L'équation de résultante du Principe Fondamental de la Statique appliqué à l'élément de corde se traduit par :  
+
+$\overrightarrow{df_{T \rightarrow C}(M)}_M+\overrightarrow{T_{T \rightarrow C}(\theta)}_M+\overrightarrow{T_{T \rightarrow C}(\theta+d \theta)}_M=\overrightarrow{0}$ 
+
+Par projection de l'équation précédente sur la base locale, on en déduit les équations suivantes :
+\begin{itemize}
+ \item sur $\overrightarrow{n(M)}$: $\overrightarrow{df_{T \rightarrow C}(M)}_M.\overrightarrow{n(M)}-(T_{T \rightarrow C}(\theta)+T_{T \rightarrow C}(\theta+d \theta)).sin\left(\frac{d \theta}{2}\right)=0$ 
+ \item sur $\overrightarrow{t(M)}$: $\overrightarrow{df_{T \rightarrow C}(M)}_M.\overrightarrow{t(M)}+(-T_{T \rightarrow C}(\theta)+T_{T \rightarrow C}(\theta+d \theta)).cos\left(\frac{d \theta}{2}\right)=0$ 
+\end{itemize}
+
+\paragraph{Question 6:} Linéarisez les expressions précédentespour $\frac{d \theta}{2} \rightarrow 0$.
+
+\reponse[3]
+
+\paragraph{Question 7:} Montrez que si l'on pose :
+
+$dT_{T \rightarrow C}(\theta)=T_{T \rightarrow C}(\theta+d \theta)-T_{T \rightarrow C}(\theta)$ et $T_{T \rightarrow C}(\theta)=\frac{T_{T \rightarrow C}(\theta+d \theta)+T_{T \rightarrow C}(\theta)}{2}$, on obtient :
+
+\begin{itemize}
+ \item sur $\overrightarrow{n(M)}$: $\overrightarrow{df_{T \rightarrow C}(M)}_M.\overrightarrow{n(M)}=T_{T \rightarrow C}(\theta).d \theta$ 
+ \item sur $\overrightarrow{t(M)}$: $\overrightarrow{df_{T \rightarrow C}(M)}_M.\overrightarrow{t(M)}=-dT_{T \rightarrow C}(\theta)$ 
+\end{itemize}
+
+\reponse[4]
+
+\paragraph{Question 8:} En remplaçant $\overrightarrow{df_{T \rightarrow C}(M)}_M$ par son expression (question 5), montrez que :
+
+\begin{itemize}
+ \item sur $\overrightarrow{n(M)}$: $T_{T \rightarrow C}(\theta)=p(\theta).Rl$,
+ \item sur $\overrightarrow{t(M)}$: $dT_{T \rightarrow C}(\theta)=-p(\theta).f_0.Rld \theta$ 
+\end{itemize}
+
+\reponse[3]
+
+\paragraph{Question 9:} Ecrivez le rapport $\frac{dT_{T \rightarrow C}}{T_{T \rightarrow C}}(\theta)$ et simplifiez son expression.
+
+\reponse[3]
+
+\paragraph{Question 10:} Intégrez le rapport $\frac{dT_{T \rightarrow C}}{T_{T \rightarrow C}}(\theta)$ entre $\theta=0$ et $\theta=\theta_f$.
+
+\reponse[3]
+
+\paragraph{Question 11:} En remplaçant $T_{T \rightarrow C}(0)=T$ et $T_{T \rightarrow C}(\theta_f)=t$, donnez l'expression de $t$ en fonction de $T$.
+
+\reponse[3]
+
+\paragraph{Question 12:} En déduire, à l'aide des résultats de l'étude expérimentale la valeur moyenne du facteur d'adhérence entre la corde et le tambour. 
+
+\reponse[3]
+
+\paragraph{Question 13:} Tracez, avec cette valeur du facteur d'adhérence, la courbe théorique sur le graphique issu de l'expérimentation du Q2. 
+
+\reponse[3]
+
+On souhaite maintenant déterminer le couple transmis par le Tambour 5 à la Corde.
+
+\paragraph{Question 14:} Déterminez le moment élémentaire $\overrightarrow{dM_{O,T \rightarrow C}}(\theta)$ au point O du Tambour sur la Corde en fonction de $T_{T \rightarrow C}(\theta)$ et R, à l'aide des questions 5 et 8.
+
+\reponse[3]
+
+\paragraph{Question 15:} Intégrez le moment élémentaire $\overrightarrow{dM_{O,T \rightarrow C}}(\theta)$ entre $\theta=0$ et $\theta=\theta_f$. En déduire le moment en O : $\overrightarrow{M_{O,T \rightarrow C}}$.
+
+\reponse[3]
+
+\paragraph{Question 16:} Calculez la valeur de la norme de ce moment pour 1, 2 et 3 tours d'enroulement de la corde.
+
+\reponse[3]
+
+\paragraph{Question 16:} Estimez l'intensité de la force exercée par l'utilisateur.
+
+\reponse[3]
+
+
+
+\end{document}

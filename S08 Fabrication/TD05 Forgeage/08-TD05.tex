@@ -1,0 +1,107 @@
+\input{../../headers/tdheaders.tex}
+
+\section{Présentation}
+
+Le vilebrequin est un dispositif mécanique présent notamment sur les moteurs thermiques assurant la transmission de l'effort généré par la combustion du carburant vers la boîte de vitesses. 
+
+En tant qu'élément principal du dispositif bielle-manivelle, il permet la transformation du mouvement linéaire rectiligne non uniforme des pistons en un mouvement continu de rotation.
+
+\begin{figure}[h!]
+%\begin{minipage}{0.41\linewidth}
+%\end{minipage}
+%\hfill
+% \begin{minipage}{0.59\linewidth}
+\centering\includegraphics[width=0.6\linewidth]{img/vilebrequin.jpg}
+\caption{Vilebrequin automobile}
+%\end{minipage}
+\end{figure}
+
+
+\section{Dossier technique}
+
+La pièce dont le dessin de définition est donné en ANNEXE 2 doit être fabriquée suivant la gamme :
+
+\begin{itemize}
+ \item Débit du lopin ($\Phi 25$, L 110 sans la tenue éventuelle) par cisaillage sur presse BLISS.
+ \item Chauffage à 1250\textdegree C par induction sur chauffeuse CELES.
+ \item Décalaminage, estampage ébauche et finition sur l presse « BRET PAFR 32 ».
+ \item Ebavurage sur presse BLISS.
+ \item Grenaillage en parachèvement.
+\end{itemize}
+ 
+La masse du \og Vilebrequin-K1ax \fg (photos en ANNEXE 2) avoisine les 250 grammes.
+
+La surface de la pièce au plan de E joint est de $2200 mm^2$ environ.
+
+~\
+
+La presse \og BRET PAFR 32 \fg (photo en ANNEXE 2) est ici décrite par les données du constructeur \og Caractéristiques S principales \fg (ANNEXE 3), et quelques informations extraites du dossier technique e de la machine :
+\begin{itemize}
+ \item Le moteur électrique entraîne le volant d'inertie de la presse par l'intermédiaire de courroies. Les diamètres des poulies sont :
+ \begin{itemize}
+  \item Rt pour le moteur : Dm = 220 mm,
+  \item pour le volant : Dv =1030 mm.
+ \end{itemize}
+ \item Le volant d'inertie, en acier, est assimilé à un cylindre de dimensions approximatives :
+ \begin{itemize}
+  \item Diamètre : Dv = 1030 mm
+  \item Epaisseur : Ev = 260 mm.
+ \end{itemize}
+ \item Le volant d'inertie entraîne un pignon qui engrène avec la roue dentée de l'embrayage. Le nombre de dents du pignon est de 18 et le nombre de dents de la roue dentée est de 115.
+\end{itemize}
+
+\section{Travail demandé}
+
+\paragraph{Question 1:} Pour combien de pistons est prévu le vilebrequin de la photo? de l'ANNEXE 2?
+
+Quel déphasage existe entre chacun des pistons dans les deux cas?
+
+\paragraph{Question 2:} D'après la géométrie de la pièce, déterminer à partir des documents du sujet le \textbf{pourcentage de bavure.}
+
+En déduire, le \textbf{nombre de chocs} pour estamper que devra subir la pièce avant sa complète transformation.
+
+\paragraph{Question 3:} D'après les données du documents, déterminer le \textbf{caractère} (de complexité ou simplicité) de la pièce étudiée. Déterminer les \textbf{contraintes} exercées \og Sur la pièce \fg et \og Sur le cordon \fg. Pour cela, considérer la température en fin de forgeage proche de 1050°C ; la pièce est chauffée à 1250\textdegree C, mais il y a une forte perte de température due à la petite taille de la pièce.
+
+Déterminer le \textbf{rendement énergétique} global $\rho$ et la valeur $n.\rho$ associée.
+
+\paragraph{Question 4:} A partir de la surface de la pièce, déterminer la force ultime de forgeage exercée par la presse sur la pièce.
+
+\paragraph{Question 5:} A partir des descriptions données, proposer un schéma cinématique de la presse.
+
+Calculer la vitesse de rotation du volant d'inertie en régime établi.
+
+En considérant que la course de la presse est atteinte en un tour du volant d'inertie, déterminer la vitesse de la presse lors de la frappe.
+
+\paragraph{Question 6:} Calculer alors la puissance utile de forgeage de la pièce \og Vilebrequin-K1 \fg.
+
+Le choix du moteur électrique est-il satisfaisant?
+
+\includepdf[pages=6-9]{img/Sujet_metal2.pdf}
+
+\includepdf[pages=10-14,landscape=true]{img/Sujet_metal2.pdf}
+
+\clearpage
+
+\ifdef{\public}{\end{document}}{}
+
+\newpage
+
+\pagestyle{correction}
+
+\section{Correction}
+
+\paragraph{Question 1:} Quatre pistons. Avec un déphasage de $\pi$ 2 à 2.
+
+\paragraph{Question 2:} 30\% à 33\% de bavure. La pièce fait 250g, il faut n=5 chocs.
+
+\paragraph{Question 3:} T=1050°C, la géométrie est semi-complexe/complexe, les contraintes dont de 600MPa sur la pièce et 330MPa sur le cordon.
+
+\paragraph{Question 4:} $\rho=62\%$, et $n.\rho=5,5$, la surface est de $2200mm^2$, donc $F=600x2200=132.10^4$
+  
+\paragraph{Question 5:} $V=250\times 1500\times \dfrac{220}{1030}\times \dfrac{1}{60}=1.3m.s^{-1}$
+
+$P=132\times 10^4\times 1.3=1762kW$
+
+\paragraph{Question 6:} C'est le volant d'inertie qui génère le choc, et non pas le moteur.
+
+\end{document}

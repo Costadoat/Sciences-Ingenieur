@@ -1,0 +1,201 @@
+\input{../../headers/tdheaders.tex}
+
+\section{Assemblage vissé}
+
+\subsection{Présentation}
+
+L'exercice va consister en la mise en place de chaînes de cotes 2D afin de garantir une liste d'exigences géométriques.
+
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/Specifs_num}
+\end{center}
+
+Exigences:
+\begin{itemize}
+ \item un jeu mini de $0,2mm$ entre le galet E et ses pièces voisines A et F
+ 
+ $q'_{mini} = 0,2$ et  $q_{mini} = 0,2$
+ \item un déplacement maxi de $1,2mm$ du plan de symétrie du galet E par rapport a B
+
+ $IT p = 1,2$ 
+ \item un dépassement de $4mm$ mini des 2 têtes de filetage de l'arbre A des écrous G et D
+
+ $j_{mini} = 4$ et $f mini = 4$
+ \item h une longueur des deux filetages de l'arbre A suffisante pour que les écrous G et D soient toujours en prise sur leur filetage
+ 
+ $g mini = 1$
+ $k mini = 1$
+ \item h un serrage entre les pièces A et B
+
+ $h mini = 1$
+ \item h un retrait de $0,5mm$ mini de la tête de l'arbre A par rapport a la pièce B
+
+ $e mini = 0,5$
+\end{itemize}
+
+\newpage
+
+\subsection{Écriture des spécifications}
+
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/Specif2}
+
+\vspace{3cm}
+
+ \includegraphics[width=0.4\linewidth]{img/Specif3.png}
+\end{center}
+
+\newpage
+
+\begin{center}
+ \includegraphics[width=0.4\linewidth]{img/Specif4.png}
+
+\vspace{3cm}
+
+ \includegraphics[width=0.5\linewidth]{img/Specif5.png}
+\end{center}
+
+\newpage
+
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/Specif6.png}
+\end{center}
+
+\vspace{1cm}
+
+\paragraph{Question 1:} Déterminer les chaînes de cotes qui permettent de respecter les exigences établies au-dessus.
+
+\newpage
+
+\section{Moteur}
+
+\subsection{Présentation}
+
+L'étude de ce sujet va porter sur l'assemblage d'un moteur. La méthode suivante permet de définir comment mettre les spécifications à partir de l'assemblage des différentes pièces.
+
+
+\begin{minipage}{0.48\linewidth}
+ \includegraphics[width=0.9\linewidth]{img/Moteur1.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\linewidth}
+ \includegraphics[width=0.9\linewidth]{img/Moteur2.png}
+\end{minipage}
+
+\subsection{Écriture des spécifications sur les pièces}
+
+\begin{center}
+ \includegraphics[width=0.5\linewidth]{img/Moteur3.png}
+\end{center}
+
+\newpage
+
+\begin{center}
+ \includegraphics[width=0.5\linewidth,angle=270]{img/Moteur4.png}
+\end{center}
+
+\paragraph{Question 1:} Définir la mise en position du rotor.
+
+\paragraph{Question 2:} Définir la spécification pour l'assemblage.
+
+\paragraph{Question 3:} Définir la spécification liée aux exigences suivantes
+
+\newpage
+
+\section{Planeur sous-marin}
+
+\subsection{Présentation}
+
+\begin{minipage}{0.55\linewidth}
+Traditionnellement, le milieu océanique est observé à l'aide d'instruments qui sont embarqués sur des navires océanographiques ou sur des flotteurs dérivant.
+
+Le "planeur sous-marin" est une plate-forme très complémentaire des systèmes d'observation existants, particulièrement pour la surveillance de certaines régions clefs de l'océan. 
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+ \centering\includegraphics[width=0.8\linewidth]{img/Planeur.jpg}
+\end{minipage}
+
+\subsection{Performance hydrodynamique}
+
+Les performances de mobilité du planeur (rayon d'action, vitesse, autonomie) sont liées à sa finesse qui doit être maximale. La finesse est la capacité à parcourir une grande distance avec un minimum de variation d'altitude.
+
+Entre autres points, l'avant du planeur est un élément participant de façon importante à cette finesse. Le nez du planeur a ainsi été calculé par les hydrodynamiciens qui ont proposé une forme en « ogive » dont la courbe guide est décrite sur le tracé suivant.
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/Hydro.png}
+\end{center}
+
+La partie avant est réalisée par usinage sur Machine outil à commande numérique dans un alliage résistant au milieu marin traité par anodisation. L'anodisation dure 1 heure dans un sel de bichromate de potassium porté à 98°C. 
+
+L'alliage utilisé est un $AlMg1SiCu$. Ses caractéristiques mécaniques sont les suivantes : $Rm=310MPa$, 
+$E=68,9GPa$, $A\%=17$.
+
+\paragraph{Question 1:} Quelle est la composition de l'alliage proposé ?
+
+\paragraph{Question 2:} Tracer, en positionnant les valeurs caractéristiques, l'allure de la courbe de traction pour cet alliage.
+
+\paragraph{Question 3:} Expliquer les spécifications portées sur le dessin de définition de la figure \ref{plan}.
+
+\paragraph{Question 4:} Proposer une cotation normalisée entre les deux plans B et C qui permette de positionner les deux surfaces (voir figure \ref{plan}, valeur nominale 10 mm, IT = 0,2 mm).
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=\linewidth]{img/Plan_sous_marin.png}
+ \caption{Plan de l'ogive}
+ \label{plan}
+\end{figure}
+
+\newpage
+
+\section{Roue motrice de chariot élévateur}
+
+\begin{minipage}{0.65\linewidth}
+Le chariot élévateur, objet de cette étude, est utilisé pour la manutention et le stockage des
+marchandises dans des entrepôts. Il comporte trois roues : deux situées à l'avant sont dites porteuses et la troisième, située à l'arrière, est à la fois motrice et directrice.
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+\centering \includegraphics[width=0.8\linewidth]{img/XF25}
+\end{minipage}
+
+Une vue en coupe et en perspective de la roue permet de découvrir sa conception intérieure.
+
+\begin{center}
+\includegraphics[width=0.8\linewidth]{img/roue1}
+\end{center}
+
+La vue éclatée permet de distinguer les pièces assemblées pour ce mécanisme.
+
+\begin{center}
+\includegraphics[width=\linewidth]{img/roue2}
+\end{center}
+
+\includepdf{img/axe10cotationGPS}
+
+\includepdf{img/axe10cotationGPS2}
+
+\end{document}
+\clearpage
+
+\ifdef{\public}{\end{document}}{}
+
+\newpage
+
+\pagestyle{correction}
+
+\section{Correction}
+
+\subsection{Assemblage vissé}
+
+\begin{itemize}
+ \item q,q': $A_{9,12}min-E_{10,11}max\geq 0.4$,
+ \item p: $A_{9,12}max-E_{10,11}min\leq 1.2$,
+ \item j: $A_{12,16}min-F_{12,14}max-G_{14,15}max\geq 4$,
+ \item f: $A_{2,8}min-B_{6,8}max-C_{4,6}max-D_{3,4}max\geq 4$,
+ \item g: $C_{4,6}min+B_{6,8}min-A_{5,8}max\gep 1$,
+ \item k: $F_{12,14}min-A_{12,13}max\gep 1$,
+ \item h: $B_{6,8}min-A_{7,8}max\gep 1$,
+ \item e: $B_{1,8}min-A_{2,8}max\gep 0.5$.
+\end{itemize}
+
+
+
+\end{document}

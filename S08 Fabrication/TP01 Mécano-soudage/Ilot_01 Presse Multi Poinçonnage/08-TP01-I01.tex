@@ -1,0 +1,168 @@
+\input{../../../headers/tdheaders.tex}
+
+\section{Fabrication d'un bras mécano-soudé}
+
+\begin{figure}[!h]
+ \begin{minipage}{0.45\linewidth}
+  L'objet de cette étude concerne un Ensemble Mécano Soudé EMS.
+ \end{minipage}
+ \hfill
+ \begin{minipage}{0.20\linewidth}
+  \centering\includegraphics[width=1\linewidth]{img/EMS1.jpg}
+ \end{minipage}
+  \hfill
+ \begin{minipage}{0.32\linewidth}
+  \centering\includegraphics[width=0.8\linewidth]{img/EMS2.jpg}
+ \end{minipage}
+\end{figure}
+
+\subsection{Création de la nomenclature}
+
+\paragraph{Question 1:} Compléter la nomenclature de l'éclaté de ce support.
+
+Le nom de chaque élément sera recherché dans l'arbre de création du modèle 3D.
+
+\begin{table}[!h]
+ \begin{center}
+  \begin{tabularx}{\linewidth}{|l|l|X|}
+  \hline  & & \\ \hline  & & \\ \hline  & & \\ \hline  & & \\  \hline  & & \\ \hline  & & \\ \hline  & & \\ \hline  & & \\   \hline
+  Rep & Nb & Désignation \\
+  \hline
+  \end{tabularx}
+ \end{center}
+\end{table}
+
+\subsection{Analyse de la conception du bras:}
+
+\paragraph{Question 2:} En vue de l'écriture d'un bon de commande des matériaux constituant l'EMS, les observer et préciser les débits (forme et dimensions) en vous aidant des tableaux \ref{tab:tableau1} et \ref{tab:tableau2}.
+
+\begin{table}[!h]
+ \begin{center}
+  \begin{tabularx}{\linewidth}{|X|l|l|l|l|l|l|l|l|l|l|}
+  \hline
+  \textbf{d} & 4 & 5 & 6 & 8 & 10 & 12 & 15 & 20 & 25 & 30 \\
+  \hline
+  \textbf{b} & 20 à 40 & 20 à 100 & \multicolumn{4}{l|}{20 à 150} & \multicolumn{2}{l|}{30 à 150} & \multicolumn{2}{l|}{50 à 80} \\ 
+  \hline
+  \end{tabularx}
+  \begin{tabularx}{\linewidth}{|X|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+  \hline
+  \textbf{largeurs b } & 20 & 25 & 30 & 35 & 40 & 45 & 50 & 60 & 70 & 80 & 90 & 100 & 120 & 150 \\
+  \textbf{normalisées} & & & & & & & & & & & & & & \\
+  \hline
+  \end{tabularx}
+ \end{center}
+ \caption{Plats laminés à chaud}
+ \label{tab:tableau1}
+\end{table}
+
+\begin{figure}[!h]
+ \begin{minipage}{0.69\linewidth}
+ Exemple de désignation: plat 40*15, NF A 45-005
+ \end{minipage}
+ \hfill
+ \begin{minipage}{0.3\linewidth}
+  \centering\includegraphics[width=0.7\linewidth]{img/soudure1.png}
+ \end{minipage}
+\end{figure}
+
+\newpage
+
+\begin{table}[!h]
+ \begin{center}
+  \begin{tabularx}{\linewidth}{|X|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+  \hline
+  \textbf{d} & 4 & 5 & 6 & 8 & 10 & 12 & 14 & 15 & 16 & 18 & 20 & 25 & (26) \\
+  \hline
+  \textbf{e} & \multicolumn{3}{l|}{1} & \multicolumn{2}{l|}{1 à 2,5} & \multicolumn{3}{l|}{1 à 3} & \multicolumn{2}{l|}{1 à 4} & \multicolumn{3}{l|}{1 à 5} \\ 
+  \hline
+  \end{tabularx}
+  \begin{tabularx}{\linewidth}{|X|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+  \hline
+  \textbf{d} & 28 & 30 & 32 & 35 & 38 & 40 & 42 & 45 & 48 & 50 & 55 & 60 & 63 \\
+  \hline
+  \textbf{e} & \multicolumn{4}{l|}{1 à 6} & \multicolumn{2}{l|}{1 à 8} & \multicolumn{4}{l|}{1 à 10} & \multicolumn{3}{l|}{1,5 à 12,5} \\ 
+  \hline
+  \end{tabularx}
+  \begin{tabularx}{\linewidth}{|X|l|l|l|l|l|l|l|l|l|l|l|l|}
+  \hline
+  \textbf{Epaisseurs } & 1 & 1,5 & 2 & 2,5 & 3 & 4 & 5 & 6 & 8 & 10 & 11 & 12,5 \\
+  \textbf{normalisées} & & & & & & & & & & & & \\
+  \hline
+  \end{tabularx}
+ \end{center}
+  \caption{Tubes sans soudure de précision}
+  \label{tab:tableau2}
+\end{table}
+
+\begin{figure}[!h]
+ \begin{minipage}{0.69\linewidth}
+ Exemple de désignation: tube 16-2, NF A 49-310
+ \end{minipage}
+ \hfill
+ \begin{minipage}{0.3\linewidth}
+  \centering\includegraphics[width=0.7\linewidth]{img/soudure2.png}
+ \end{minipage}
+\end{figure}
+
+\subsection{Observer le bras modélisé sous solidworks}
+
+Le modèle SolidWorks est donné dans le fichier bras.zip disponible sur le dépôt GitHub du TP.
+
+\paragraph{Question 4:} Faire l'inventaire des cordons de soudure réalisant les liaisons complètes par soudage des différents composants. Localiser les cordons de soudure sur la page suivante (dessin d'ensemble en projection de l'EMS) par un surlignage au crayon de couleur des liaisons L1, L2, L3,... données sur le graphe des liaisons complètes par soudures des différents composants du bras.
+
+~\
+
+\begin{minipage}{0.45\linewidth}
+ \begin{center}
+  \begin{tabular}{|c|c|c|}
+  \hline
+  Liaison & Cordon & Couleur \\
+  \hline
+  L1 & c11 en U & marron \\
+  \hline
+  L2 & c21 & violet \\
+  \cline{2-3}
+   & c22 & rose \\
+  \hline
+  L3 & c3 en U & jaune \\
+  \hline
+  L4 & c41 & vert \\
+  \cline{2-3}
+  & c42 & bleu foncé \\
+  \hline
+  L4 & c51 & orange \\
+  \cline{2-3}
+  & c52 & bleu clair \\
+  \hline
+  \end{tabular} 
+ \end{center}
+\end{minipage}
+\begin{minipage}{0.45\linewidth}
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/Liaisons}
+\end{center}
+\end{minipage}
+
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/dessin.png}
+\end{center}
+
+\paragraph{Question 4:} Sur l'annexe 1 (dessin d'ensemble 2D de l'EMS), représenter les soudures simplifiées entre les divers éléments.
+
+\paragraph{Question 5:} Sur l'annexe 2 (dessin d'ensemble 2D de l'EMS), représenter les soudures symboliques entre les divers éléments.
+
+%\section{Représentation simplifiée des soudures}
+%
+%Sur l'annexe 1 (dessin d'ensemble 2D de l'EMS), représenter les soudures simplifiées entre les divers éléments, en accord avec la norme.
+%
+%\section{Représentation symbolique des soudures}
+%
+%Sur l'annexe 2 (dessin d'ensemble 2D de l'EMS), représenter les soudures symboliques entre les divers éléments, en accord avec la norme.
+
+\newpage
+
+\includepdf{img/Annexe1.pdf}
+\includepdf{img/Annexe2.pdf}
+
+\end{document}

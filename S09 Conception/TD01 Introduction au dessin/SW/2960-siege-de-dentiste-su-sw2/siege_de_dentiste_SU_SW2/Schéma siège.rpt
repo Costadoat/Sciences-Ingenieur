@@ -1,0 +1,73 @@
+*****************************************************************
+      SolidWorks Corporation - Compte-rendu d'état du Processeur IGES
+*****************************************************************
+=================================================================
+Informations générales
+=================================================================
+Envoi de l'identification du produit système en cours  : Schéma siège.iam
+Réception de l'identification du produit système en cours: Schéma siège.iam
+Nom de fichier                    : No Iges File Name specified
+Envoi du système en cours               : AutoDesk Inventor R9
+Version du préprocesseur         : AutoDesk Inventor Iges Exporter R9
+Date de création du fichier           : 20070317.021333
+Date de création du modèle          : 
+Unités                        : MM
+Echelle de l'espace modèle            : 1
+Auteur                       : No Author specified
+Organisation                 : No Organization specified
+
+
+=================================================================
+Informations sur le traitement des entités
+=================================================================
+ERREUR:   DE#   575, TYPE   104: Un problème a été rencontré en convertissant une coupe conique en bspline.
+ERREUR:   DE#   573, TYPE   141: Problème rencontré dans la conversion de la courbe ajustée.
+ERREUR:   DE#   569, TYPE   143: Problème rencontré dans la boucle de limite.
+ATTENTION: DE#   569, TYPE   143: La création de surface a échouée.
+ERREUR:   DE#   609, TYPE   104: Un problème a été rencontré en convertissant une coupe conique en bspline.
+ERREUR:   DE#   607, TYPE   141: Problème rencontré dans la conversion de la courbe ajustée.
+ERREUR:   DE#   597, TYPE   143: Problème rencontré dans la boucle de limite.
+ATTENTION: DE#   597, TYPE   143: La création de surface a échouée.
+
+
+=================================================================
+Analyse de précision d'un fichier IGES:
+=================================================================
+
+
+=================================================================
+Récapitulatif des entités
+=================================================================
+-----------------------------------------------------------------
+Nom de type                                         Nombre converti
+---- ----                                         ----- ---------
+100  Arc                                            238       238
+104  Conic arc                                       30        30
+110  Line                                           258       258
+116  Point                                           92        92
+120  Surface of revolution                           77        77
+123  Direction                                      184       184
+124  Transformation matrix                           88        88
+126  Rational B-spline curve                         64        64
+128  Rational B-spline surface                        5         5
+141  Boundary                                       320       320
+143  Bounded surface                                174       172
+190  Plane surface entity                            92        92
+308  Subfigure definition                             9         9
+314  Color definition                                 7         7
+408  Singular subfigure instance                      9         9
+_________________________________________________________________
+
+
+=================================================================
+Récapitulatif des résultats
+=================================================================
+Type de fonction SolidWorks                Nombre
+-----------------------                -----
+Fonction(s) volumique(s)                       12
+Fonction(s) surfacique(s)                     1
+Fonction(s) de courbe/d'esquisse                0
+--------------------------------------------
+Heure de début: samedi, mars 17, 2007 02:16:18
+Heure de fin: samedi, mars 17, 2007 02:16:29
+Durée de traitement: 0 days, 00 hours, 00 mins, 11 secs

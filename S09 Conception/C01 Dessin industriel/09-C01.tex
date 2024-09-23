@@ -1,0 +1,310 @@
+\input{../../headers/beamercoursHeadings}
+
+\section{Le dessin technique}
+
+{\frame{
+\frametitle{Dessin technique}
+
+\begin{obj}
+\begin{itemize}
+ \item Le dessin technique ou dessin industriel, est destiné à la communication technique et la conception.
+ \item Il faut connaître un ensemble de règles pour représenter des objets associées à des codes de représentation que l'on doit savoir lire pour comprendre l'architecture et le fonctionnement d'un système.
+\end{itemize}
+\end{obj}
+}}
+
+{\frame{
+\frametitle{Types de dessin technique}
+
+\begin{itemize}
+ \item Le schéma,
+ \item Le dessin d'ensemble: \textit{Systèmes constitués de divers éléments},
+ \item Le dessin de définition: \textit{Représentation d'une pièce}.
+\end{itemize}
+
+\vfill
+
+\begin{minipage}{0.3\linewidth}
+ \centering \includegraphics[width=0.8\linewidth]{img/Image5}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+ \centering \includegraphics[width=0.7\linewidth]{img/Image3}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+ \centering \includegraphics[width=0.7\linewidth]{img/Image4}
+\end{minipage}
+}}
+
+
+{\frame{
+\frametitle{Le cartouche}
+
+Le cartouche contient:
+\begin{itemize}
+ \item Le nom de la pièce ou du mécanisme
+ \item L'échelle, le format, et le symbole de disposition des vues
+ \item Le nom du dessinateur et la date 
+ \item un ensemble de données destinées à l'archivage du document
+\end{itemize}
+
+\vfill
+
+\begin{minipage}{0.9\linewidth}
+ \centering \includegraphics[width=0.9\linewidth]{img/Image6}
+\end{minipage}
+
+}}
+
+{\frame{
+\frametitle{La nomenclature}
+
+La nomenclature est:
+\begin{itemize}
+ \item Liée à un dessin d'ensemble, elle dresse la liste complète de tous les éléments constitutifs du système dessiné,
+ \item Chaque élément est répertorié, numéroté et tous les renseignements nécessaires le concernant sont indiqués.
+\end{itemize}
+
+\vfill
+
+\begin{minipage}{0.27\linewidth}
+ \centering \includegraphics[width=\linewidth]{img/Image7}
+\end{minipage}
+\hfill
+\begin{minipage}{0.27\linewidth}
+ \centering \includegraphics[width=\linewidth]{img/Image8}
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+ \centering \includegraphics[width=\linewidth]{img/Image9}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Les vues projetées}
+
+\begin{minipage}{0.65\linewidth}
+Les vues projetées sont nécessairement deux pour définir les caractéristiques géométriques d'un objet. Le nombre de 
+vues devant être minimal afin d'aider la clarté du dessin, elles sont en général au maximum trois.
+
+La vue de face est celle qui propose la meilleure définition de la pièce. Il est possible de lui associer quelques vues supplémentaires pour effacer toute 
+ambiguïté :
+\begin{itemize}
+ \item Une pièce de révolution peut-être entièrement définie dans une vue axiale,
+ \item Une pièce parallélépipédique nécessitera souvent 3 vues pour être définie en entier.
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+ \centering \includegraphics[width=\linewidth]{img/Image3}
+\end{minipage}
+
+}}
+
+{\frame{
+\frametitle{Les vues particulières}
+
+\begin{itemize}
+ \item La perspective
+Elle donne des informations rapides sur les formes et l'organisation, elle ne permet pas de transmettre efficacement des données géométriques.
+ \item La vue éclatée
+Elle permet de faciliter l'identification, et l'emplacement des composants ainsi que des ordres d'assemblage pour l'atelier
+ \item Les vues partielles
+Elles permettent de représenter un détail à une échelle différente de celle choisie pour le dessin dans son ensemble.
+\end{itemize}
+
+\vfill
+
+\begin{minipage}{0.4\linewidth}
+ \centering \includegraphics[width=\linewidth]{img/Image10}
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+ \centering \includegraphics[width=\linewidth]{img/Image11}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Correspondance des vues}
+
+Il existe deux conventions pour placer les vues en correspondance, la représentation utilisée est indiquée par un cône tronqué placé dans le cartouche:
+\begin{itemize}
+ \item La convention européenne : la vue de dessus est placée sous la vue de face, la vue de droite, à gauche de la vue de face...
+ \item La convention américaine : on place la vue de dessus au-dessus de la vue de face, la vue de gauche à sa gauche...
+\end{itemize}
+
+Règles de position relative des vues
+\begin{itemize}
+ \item Les projections d'un point sur les vues de face, gauche, droite, derrière sont situées sur une même ligne de rappel horizontal.
+ \item Les projections d'un point sur les vues de face, dessus, dessous sont sur une même ligne de rappel vertical.
+\end{itemize}
+
+\vfill
+
+ \centering \includegraphics[width=0.4\linewidth]{img/Image12}
+}}
+
+{\frame{
+\frametitle{Position relative des vues}
+
+\ifdef{\public}{ \centering \includegraphics[width=0.9\linewidth]{img/Image13_cor}}{\centering \includegraphics[width=0.9\linewidth]{img/Image13}}
+}}
+
+{\frame{
+\frametitle{Les types de traits}
+
+\begin{center}
+\begin{tabular}{|cc|c|}
+ \hline
+ Type de trait & & Usages \\
+ \hline
+Continu fort & \includegraphics[width=3cm]{img/continu} & Arrêtes vives, visibles \\
+ \hline
+Interrompu (fin) & \includegraphics[width=3cm]{img/interrompu}& Arrêtes invisibles, pièces cachées \\
+ \hline
+Mixte fin & \includegraphics[width=3cm]{img/mixte}& Axes ou plans de symétrie \\
+ \hline
+Continu fin & \includegraphics[width=3cm]{img/fin} & Arrêtes tangentes \\
+ \hline
+Continu fin à main levée & & Limites de coupe \\
+ & \includegraphics[width=3cm]{img/zigzag} & \\
+ \hline
+\end{tabular}
+\end{center}
+}}
+
+{\frame{
+\frametitle{Variateur Sandivar: Retrouvez les types de traits}
+
+\centering \includegraphics[width=0.85\linewidth]{img/Image14}
+ 
+}}
+
+{\frame{
+\frametitle{La vue en coupe}
+
+Les vues en coupe servent à la définition des formes cachées.
+
+Convention :
+\begin{itemize}
+ \item La pièce centrale (qui n'a rien à cacher) ainsi que les pièces de révolution pleines (axes, vis, billes, écrou, clavettes ) ne sont pas coupées. 
+ \item Les contours et arêtes vives sont en trait fort et la zone de la pièce coupée par le plan est hachurée en traits fins. 
+ \item Les demi coupes sont utilisées pour des pièces symétriques, l'autre moitié est en vue extérieure.
+ \item Les hachures indique le matériau de la pièce.
+\end{itemize}
+
+}}
+
+{\frame{
+\frametitle{Les sections}
+
+\begin{minipage}{0.65\linewidth}
+Les vues en coupe servent à la représentation des parties situées dans le plan de coupe.
+
+Section sortie (Figure 1):
+\begin{itemize}
+ \item dessinée en trait fort pour tous les contours et en trait fin pour les hachures,
+ \item placée dans le prolongement du plan de coupe ou dans le prolongement de l'axe de la pièce,
+ \item les indications de coupes (plans, flèches, lettres) peuvent ne pas être placées s'il n'y a aucune ambiguïté possible.
+\end{itemize}
+
+Section rabattue (Figure 2):
+\begin{itemize}
+ \item rabattue directement sur la vue, dans ce cas elle se trace EN TRAIT FIN. Le plan de coupe et les flèches du sens d'observation sont facultatives.
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+\centering \includegraphics[width=0.85\linewidth]{img/Image15}
+
+\centering \includegraphics[width=0.85\linewidth]{img/Image16}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Les hachures}
+
+\begin{minipage}{0.7\linewidth}
+Elles permettent une meilleure compréhension d'un dessin d'ensemble, et indiquent la nature des matériaux choisis par un motif.
+
+Règles:
+\begin{itemize}
+ \item une même pièce doit avoir le même motif (orientation et fréquence) sur chaque vue,
+ \item chaque pièce doit avoir une hachure différente,
+ \item l'orientation des hachures entre deux pièces conjointes est alternée
+ \item les pièces nervurées vues en coupe ne sont pas hachurées	
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.25\linewidth}
+\centering \includegraphics[width=0.85\linewidth]{img/Image17}
+
+\centering \includegraphics[width=0.85\linewidth]{img/Image18}
+\end{minipage}
+
+\vfill
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+ \hline
+ Acier & Aluminium & Alliage de cuivre & Matière plastique\\
+   \ifdef{\public}{ \centering \includegraphics[width=2cm]{img/Image19}}{\centering \includegraphics[width=2cm]{img/Image19_vide}}
+ & \ifdef{\public}{ \centering \includegraphics[width=2cm]{img/Image20}}{\centering \includegraphics[width=2cm]{img/Image19_vide}}
+ & \ifdef{\public}{ \centering \includegraphics[width=2cm]{img/Image21}}{\centering \includegraphics[width=2cm]{img/Image19_vide}}
+ & \ifdef{\public}{ \includegraphics[width=2cm]{img/Image21}}{\includegraphics[width=2cm]{img/Image19_vide}} \\
+ \hline
+\end{tabular}
+\end{center}
+}}
+
+{\frame{
+\frametitle{Vocabulaire des fonctions techniques}
+
+\begin{minipage}{0.4\linewidth}
+\begin{flushleft}
+\ifdef{\public}{\includegraphics[width=\linewidth]{img/Image25_cor}}{\includegraphics[width=0.6\linewidth]{img/Image25}}
+\end{flushleft}
+\end{minipage}
+\hfill
+\begin{minipage}{0.55\linewidth}
+\centering \includegraphics[width=0.7\linewidth]{img/Image23} \\
+\centering \includegraphics[width=0.7\linewidth]{img/Image24}
+\end{minipage}
+}}
+
+
+{\frame{
+\frametitle{Méthode de lecture de plan}
+
+\begin{enumerate}
+ \item Lire le Titre dans le cartouche
+ \item Identifier l'organisation des vues (correspondance)
+ \item Repérer les axes en traits mixtes (indiquent les directions des mouvements)
+ \item Repérer les éléments standards (Vis, Roulements, engrenages, etc...)
+\end{enumerate}
+
+\centering \includegraphics[width=0.6\linewidth]{img/Image26}
+}}
+
+{\frame{
+\frametitle{La représentation d'un mécanisme}
+
+\begin{savoir}
+\begin{itemize}
+ \item Vous devez être capables de lire le dessin technique d'un système afin d'en déduire le fonctionnement,
+ \item Réaliser le schéma cinématique d'un système à partir de sa représentation sur un dessin technique,
+ \item Représenter un système à l'aide des outils de représentation.
+\end{itemize}
+\end{savoir}
+
+\begin{obj}
+ \begin{itemize}
+  \item Proposer des solutions de conception pour compléter la représentation d'un système,
+  \item Compléter le dessin de définition d'un système en intégrant ces solutions.
+ \end{itemize}
+\end{obj}
+}}
+
+
+\end{document}

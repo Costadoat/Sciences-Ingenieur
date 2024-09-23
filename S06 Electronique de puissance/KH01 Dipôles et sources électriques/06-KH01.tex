@@ -1,0 +1,132 @@
+\input{../../headers/khheaders.tex}
+
+\section{Hacheur série pour porte de garage}
+
+\subsection{Présentation}
+
+\begin{minipage}{0.6\linewidth}
+Le support de cet exercice est une porte automatique de garage collectif dans un immeuble. Le
+synoptique concernant la partie électrique et une vue d'ensemble du dispositif sont donnés ci-dessous.
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\begin{center}
+\includegraphics[width=.9\linewidth]{img/fig01}
+\end{center}
+\end{minipage}
+
+~\
+
+La tension d'alimentation du hacheur série est constante et vaut $V_S = 210 V$. $D$ est une diode idéale sans seuil. $K$ est un interrupteur parfait commandé
+par une tension (voir figure \ref{schema_elec}).
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=.6\linewidth]{img/schema_elec}
+\end{center}
+\caption{\label{schema_elec}Schéma électrique du système}
+\end{figure}
+
+On note $\alpha$ le rapport cyclique de commande de ce hacheur et $T$ la période de fonctionnement:
+\begin{itemize}
+ \item Pour $t\in [0,\alpha\cdot T]$, $K$ est fermé,
+ \item Pour $t\in [\alpha\cdot T, T]$, $K$ est ouvert.
+\end{itemize}
+
+On donne $T = 0,1 ms$.
+
+E proportionnelle à la vitesse de rotation du moteur : $E = kN$ avec $k = 5,25\cdot 10^{-2} V\cdot tr^{-1}\cdot min$.
+
+On suppose que l'intensité $i$ du courant ne s'annule jamais et varie entre les valeurs minimale et maximale $I_m$ et $I_M$.
+
+D'après un exercice du Lycée Jean Zay (Thiers).
+
+\subsection{Travail demandé}
+
+\question{Déterminer l'expression de $i(t)$ en fonction de $V_S$, $E$, $L$ et $I_m$ pour $t\in [0, \alpha\cdot T]$ puis pour $t\in [\alpha\cdot T,T]$ en fonction de $E$, $L$ et $I_M$.}
+
+\question{Représenter les allures de $v_D(t)$ et $i(t)$ sur le document réponse.}
+
+\question{Exprimer la valeur moyenne de la tension $v_D(t)$ en fonction de $\alpha$ et $V_S$. En déduire la relation entre $E$, $\alpha$ et $V_S$.}
+
+\question{Exprimer l'ondulation de courant $\Delta_i=I_M-I_m$ en fonction de $\alpha$, $V_S$, $L$ et $T$.}
+
+\question{Représenter l'allure de $Delta_i$ en fonction de $\alpha$.}
+
+\question{Pour quelle valeur de $\alpha$ l'ondulation de courant est-elle maximale ? Calculer $\Delta_{imax}$.}
+
+\question{Déterminer la valeur de $\alpha$ qui permet de régler la vitesse de rotation à $N=1000tr\cdot min^{-1}$.}
+
+\question{Représenter les allures de $i_D(t)$ et $i_K(t)$ et exprimer leurs valeurs moyennes respectives en fonction de $\alpha$, $I_m$ et $I_M$.}
+
+En réalité, le hacheur n'alimente pas directement le moteur, on intercale comme indiqué sur la figure \ref{schema_elec2} un système de relais piloté par un interrupteur commandé par une tension $V_3$.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=.4\linewidth]{img/schema_elec2}
+\end{center}
+\caption{\label{schema_elec2}Système de relais pilotés}
+\end{figure}
+
+Au repos, lorsque la tension aux bornes de la bobine est nulle, les interrupteurs sont dans la position représentée sur la figure \ref{schema_elec2}. Lorsque la tension aux bornes de la bobine est égale à 12 V, les interrupteurs sont dans l'autre position.
+
+\question{Quelle est l'utilité de ce système de relais ?}
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=.8\linewidth]{img/doc_reponse}
+\end{center}
+\end{figure}
+
+\ifdef{\public}{\end{document}}{}
+
+\newpage ~\ \newpage ~\
+
+
+\pagestyle{correction}\setcounter{section}{0}
+
+\reponse{$t\in[0,\alpha\cdot T]$ $V_s-L\cdot\dfrac{di(t)}{dt}-E=0$
+
+$\dfrac{di(t)}{dt}=\dfrac{V_S-E}{L}$, donc $i(t)=\dfrac{V_S-E}{L}\cdot t+I_m$.
+
+$t\in[\alpha\cdot T,T]$ 
+
+$\dfrac{di(t)}{dt}=-\dfrac{E}{L}$, donc $i(t)=-\dfrac{E}{L}\cdot (t-\alpha\cdot T)+I_M$.}
+
+\reponse{
+\begin{figure}[ht!]
+\begin{center}
+  \def\svgwidth{.6\linewidth}
+  \input{img/doc_reponse2.pdf_tex}\end{center}
+\end{figure}}
+
+\reponse{$<v_D(t)>=\int_0^T\dfrac{v(t)}{T}=\dfrac{\alpha\cdot V_s}{T}=\alpha\cdot V_S$
+
+$<v_D(t)>=<L\cdot\dfrac{di(t)}{dt}>+<E>$
+
+or $<L\cdot\dfrac{di(t)}{dt}>=0$ car $i(t)=i(t+T)$ et $<E>=E$ car vitesse constante, donc $E=\alpha\cdot V_s$.}
+
+\reponse{$\Delta i=I_M-I_m$
+
+On a $i(\alpha T)=\dfrac{V_s-E}{L}\cdot \alpha\cdot T+I_m=I_M$, donc $\Delta i=\dfrac{V_s-E}{L}\cdot \alpha T$.
+
+E $i(T)=-\dfrac{E}{L}\cdot (T-\alpha\cdot T)+I_M=I_m$, donc $\Delta i=\dfrac{E}{L}\cdot (T-\alpha T)$.
+
+Donc $(V_s-E)\cdot \alpha=E\cdot (1-\alpha)$, donc $V_S\cdot \alpha=E$, on retrouve bien l'équation précédente.}
+
+\reponse{Tracé de $\Delta i=f(\alpha)$.}
+
+\reponse{$\Delta i_{max}=\dfrac{V_s-E}{L}\cdot T$ pour $\alpha=1$.}
+
+\reponse{$E=k\cdot N=\alpha\cdot V_s$, donc $\alpha=\dfrac{k\cdot N}{V_s}=\dfrac{5.25\cdot 10^{-2}\cdot 1000}{210}=\dfrac{52.5}{210}\approx 0,25$.}
+
+\reponse{$t\in[0,\alpha\cdot T]$, donc $i_K=i$ et $i_D=0$
+
+$t\in[\alpha\cdot T,T]$, donc $i_K=0$ et $i_D=i$
+
+$<i_K(t)>=(I_M-I_m)\cdot\dfrac{\alpha\cdot T}{2}$
+
+$<i_D(t)>=(I_M-I_m)\cdot\dfrac{T-\alpha\cdot T}{2}$.}
+
+\reponse{Cela permet de changer le sens de rotation.}
+
+\end{document}

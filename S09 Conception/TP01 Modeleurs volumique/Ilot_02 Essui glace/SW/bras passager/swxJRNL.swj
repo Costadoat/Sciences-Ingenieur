@@ -1,0 +1,45 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 07/08/05 by BEAUCHAMP
+' *****************************************************************************
+Dim swApp As Object
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long, longwarnings As Long
+Dim FeatureData As Object
+Dim Feature As Object
+Dim Component As Object
+Sub main()
+
+Set swApp = Application.SldWorks
+
+Set Part = swApp.OpenDoc6 ("C:\Documents and Settings\BEAUCHAMP\Mes documents\eric et nath\version du 06-07-05\essui-glace scenic\bras passager\balai.SLDPRT.SLDASM", 2, 0, "", longstatus, longwarnings)
+Set Part = swApp.ActivateDoc ("balai.SLDPRT")
+swApp.ActiveDoc.ActiveView.FrameLeft = 0
+swApp.ActiveDoc.ActiveView.FrameTop = 0
+swApp.ActiveDoc.ActiveView.FrameState = 1
+swApp.ActiveDoc.ActiveView.FrameState = 1
+boolstatus = Part.Extension.SelectByID("ame caoutchouc-1@balai.SLDPRT", "COMPONENT", 0, 0, 0, False, 0, Nothing)
+Part.ClearSelection2 True
+boolstatus = Part.Extension.SelectByID("ame caoutchouc-1@balai.SLDPRT", "COMPONENT", 0, 0, 0, False, 0, Nothing)
+boolstatus = Part.Extension.SelectByID("ame caoutchouc-1@balai.SLDPRT", "COMPONENT", 0, 0, 0, False, 0, Nothing)
+boolstatus = Part.Extension.SelectByID("ame caoutchouc-1@balai.SLDPRT", "COMPONENT", 0, 0, 0, False, 0, Nothing)
+boolstatus = Part.Extension.SelectByID("ame caoutchouc-1@balai.SLDPRT", "COMPONENT", 0, 0, 0, False, 0, Nothing)
+Part.ViewRotateplusy
+Part.ViewRotateplusy
+Part.ViewRotateplusx
+Part.ViewRotateplusx
+Part.ViewRotateminusy
+Part.ViewRotateminusy
+Part.ViewRotateminusx
+Part.ViewRotateminusx
+Part.ClearSelection2 True
+Set Part = Nothing
+swApp.CloseDoc "balai.SLDPRT"
+Set Part = swApp.OpenDoc6 ("C:\Documents and Settings\BEAUCHAMP\Mes documents\eric et nath\version du 06-07-05\essui-glace scenic\bras passager\balai.SLDPRT.SLDASM", 2, 0, "", longstatus, longwarnings)
+Set Part = swApp.ActivateDoc ("balai.SLDPRT")
+swApp.ActiveDoc.ActiveView.FrameLeft = 0
+swApp.ActiveDoc.ActiveView.FrameTop = 0
+swApp.ActiveDoc.ActiveView.FrameState = 1
+swApp.ActiveDoc.ActiveView.FrameState = 1
+Set Part = Nothing
+swApp.CloseDoc "balai.SLDPRT"

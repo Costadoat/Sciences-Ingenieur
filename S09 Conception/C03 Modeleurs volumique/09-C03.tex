@@ -1,0 +1,265 @@
+\input{../../headers/beamercoursHeadings}
+
+\section{Introduction}
+
+{\frame{
+\frametitle{Introduction}
+
+\begin{savoir}
+Vous êtes capables :
+\begin{itemize}
+ \item de représenter un mécanisme à l'aide d'un schéma cinématique,
+ \item de le paramétrer en associant des repères à chacune des pièces,
+ \item d'utiliser un modèle 3D afin de simuler le comportement d'un système. 
+\end{itemize}
+\end{savoir}
+
+\begin{prob}
+Vous devez êtes capables :
+ \begin{itemize}
+ \item de représenter n'importe quelle géométrie sur un modeleur 3D,
+ \item d'assembler des pièces modélisée en les associant avec des contraintes.
+ \end{itemize}
+\end{prob}
+}}
+
+\section{Génération des volumes}
+
+{\frame{
+\frametitle{Génération des volumes}
+
+\begin{savoir}
+Les surfaces sont générées par l'enveloppe de toutes les positions successives d'une ligne se déplaçant suivant une autre. Celles-ci sont appelés \textbf{génératrices }.
+\end{savoir}
+
+\vfill
+
+\begin{center}
+	\includegraphics[width=0.4\linewidth]{img/Image1.png}
+\end{center}
+
+\vfill
+
+
+A l'image des surfaces, les volumes seront créés par deux génératrices dont l'une sera non plus une ligne, mais un contour.
+}}
+
+{\frame{
+\frametitle{Principaux modes de génération: Extrusion}
+
+Il s'agit d'effectuer des translations successives d'une poli ligne fermée formant un contour, dans une direction perpendiculaire.
+
+\vfill
+
+\begin{center}
+	\includegraphics[width=0.9\linewidth]{img/Image2.png}
+\end{center}
+}}
+
+{\frame{
+\frametitle{Principaux modes de génération: Revolution}
+
+Il s'agit d'effectuer des rotations successives d'une ligne fermée formant un contour, autour d'un axe.
+
+\vfill
+
+\begin{center}
+	\includegraphics[width=0.9\linewidth]{img/Image3.png}
+\end{center}
+}}
+
+{\frame{
+\frametitle{La génération par répétition}
+
+\begin{tabular}{c c c}
+\textbf{Symétrie} & \textbf{Linéaire} & \textbf{Circulaire} \\ \\
+\includegraphics[width=0.3\linewidth]{img/Image4.png} & \includegraphics[width=0.3\linewidth]{img/Image5.png} & \includegraphics[width=0.3\linewidth]{img/Image6.png}
+\end{tabular}
+}}
+
+{\frame{
+\frametitle{Autres modes de génération: Balayage}
+
+Il s'agit d'effectuer des déplacements successifs d'un profil (ligne fermée formant un contour), tout en suivant un chemin bien précis défini par une ligne courbe dans l'espace appelée trajectoire.
+
+\vfill
+
+\begin{center}
+	\includegraphics[width=0.8\linewidth]{img/Image7.png}
+\end{center}
+}}
+
+{\frame{
+\frametitle{Autres modes de génération: Lissage}
+
+Il s'agit de relier des profils différents situés dans deux plans différents : exemple d'un volume permettant de passer d'une section carré à une section	circulaire. Les profils ne sont pas forcément reliés en ligne droite, on peut éventuellement suivre une courbe guide.
+
+\vfill
+
+\begin{center}
+	\includegraphics[width=0.9\linewidth]{img/Image8.png}
+\end{center}
+}}
+
+\section{Association des différents volumes}
+
+{\frame{
+\frametitle{Association des différents volumes}
+
+\begin{minipage}{0.55\linewidth}
+\begin{itemize}
+ \item Le premier volume créé dans l'arbre de création Solidworks s'appelle le \textbf{volume de base}.
+ \item Ce volume s'appuie forcément sur l'un de 3 plans de base de la pièce dont l'intersection est l'origine de la pièce.
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{center}
+	\includegraphics[width=0.9\linewidth]{img/Image9.png}
+\end{center}
+\end{minipage}
+
+\vfill
+
+\begin{itemize}
+ \item Ce volume devra dans la mesure du possible être \textbf{centré sur l'origine} (les visualisations et coupes seront par la suite plus faciles).
+ \item Pour cela réaliser des esquisses symétriques et construire les volumes en extrudant de chaque coté \textbf{(en plan milieu)}.
+\end{itemize}
+}}
+
+{\frame{
+\frametitle{Association des différents volumes}
+
+\begin{minipage}{0.4\linewidth}
+\begin{itemize}
+ \item Les volumes suivants sont :
+	\begin{itemize}
+	 \item soit ajoutés : \textbf{bossage}
+	 \item soit retranchés : \textbf{enlèvement de matière}
+	\end{itemize}
+ \item Paramètres contenus dans:
+	\begin{itemize}
+	 \item le plan d'esquisse SW : \textbf{e}
+	 \item l'esquisse : \textbf{a,b,d}
+	 \item la définition du volume : \textbf{c}
+ 	\end{itemize}
+\end{itemize}
+
+\end{minipage}
+\hfill
+\begin{minipage}{0.55\linewidth}
+\begin{center}
+	\includegraphics[width=\linewidth]{img/Image10.png}
+\end{center}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Arbre de construction d'une pièce}
+
+\begin{minipage}{0.55\linewidth}
+\begin{itemize}
+ \item Il s'agit de définir sous forme de tableau la liste chronologique des volumes constituant la pièce :
+	\begin{itemize}
+	 \item Une ligne par volume.
+	 \item La décomposition correspond directement à l'arbre de création feature manager de Solidworks.
+	 \item La décomposition volumique doit être la plus simple possible, elle peut éventuellement correspondre directement aux opérations de fabrication successives de la pièce.
+	\end{itemize}
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{center}
+	\includegraphics[width=0.3\linewidth]{img/Image11.png} \hfill
+	\includegraphics[width=0.55\linewidth]{img/Image12.png}
+\end{center}
+\end{minipage}
+
+\vfill
+
+\begin{itemize}
+ \item La cotation des esquisses ne devra pas être surabondante, et utilisera au maximum le principe de cotation implicite.
+\end{itemize}
+}}
+
+{\frame{
+\frametitle{Exemple de construction d'un arbre}
+
+\begin{minipage}{0.4\linewidth}
+\begin{itemize}
+ \item Contenu de l'esquisse: 
+ 	\begin{itemize}
+	 \item formes intrinsèques des contours,
+	 \item positions relatives
+	\end{itemize}
+ \item Paramètres volumiques:
+ 	\begin{itemize}
+	 \item type de génération
+	 \item type d'association
+	 \item paramètres de génération
+	 \item fonction technique associé
+	\end{itemize}
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.55\linewidth}
+\begin{center}
+ \ifdef{\public}{\includegraphics[width=0.9\linewidth]{img/Image13}}{\includegraphics[width=0.9\linewidth]{img/Image13_vide}}
+\end{center}
+\end{minipage}
+
+\vfill
+
+\begin{itemize}
+ \item Résultat
+  \begin{itemize}
+   \item représentation du volume intermédiaire obtenu en représentation « Lignes cachées », Supprimées et en noir et blanc,
+   \item repérage de la position du plan d'esquisse suivante
+  \end{itemize}
+\end{itemize}
+}}
+
+{\frame{
+\frametitle{Contraintes}
+
+\begin{itemize}
+ \item Une fois que les pièces ont été mises en forme sur le logiciel, il faut alors les mettre en places les unes par rapport aux autres.
+ \item Cette mise en position s'effectue à l'aide de contraintes: 
+ \begin{itemize}
+ \item Distance,
+ \item Coïncidence,
+ \item Coaxialité,...
+ \end{itemize}
+\end{itemize}
+
+
+\begin{rem}
+ \begin{itemize}
+  \item Il est absolument nécessaire d'effectuer une mise en position isostatique entre les pièces,
+  \item Si le mécanisme est sur-contraint, la simulation du comportement ne pourra pas se faire correctement.
+ \end{itemize}
+\end{rem}
+}}
+
+{\frame{
+\frametitle{Conclusion}
+
+\begin{savoir}
+Vous êtes capables :
+\begin{itemize}
+ \item de représenter n'importe quelle géométrie sur un modeleur 3D,
+ \item d'assembler des pièces modélisée en les associant avec des contraintes.
+\end{itemize}
+\end{savoir}
+
+\begin{prob}
+Vous devez êtes capables d'associer à une géométrie de pièce :
+ \begin{itemize}
+  \item les procédés de mise en forme du brut,
+  \item les opérations d'usinage permettant d'obtenir cette géométrie.
+ \end{itemize} 
+\end{prob}
+}}
+
+
+\end{document}

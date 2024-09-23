@@ -1,0 +1,143 @@
+\input{../../../headers/tpheaders.tex}
+
+\section{Mise en situation}
+
+\begin{figure}[htbp]
+\begin{minipage}[c]{.35\linewidth}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{img/cric-003.png}
+\label{fig:image8}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.6\linewidth}
+ 
+Le cric rouleur étudié est utilisé par les mainteneurs de véhicules automobiles légers afin d'effectuer des opérations de maintenance où il y a nécessité de soulever une partie du véhicule.  
+
+\end{minipage}
+\end{figure}
+
+Ainsi, le système proposé sera utilisé, par exemple, pour soulever une partie du véhicule de manière à démonter successivement chaque roue dans le but d'en échanger les pneumatiques.  
+
+\begin{figure}[htbp]
+ \begin{minipage}[c]{.45\linewidth}
+  \centering\includegraphics[width=0.8\linewidth]{img/cric-004.png}
+ \end{minipage}
+ \hfill
+ \begin{minipage}[c]{.45\linewidth}
+  \centering\includegraphics[width=0.8\linewidth]{img/cric-005.png}
+ \end{minipage}
+\end{figure}
+
+\section{Présentation du système}
+
+\textbf{Levage}
+
+\begin{enumerate}
+ \item Positionner le cric sous le châssis du véhicule en plaçant la sellette sous le bas de caisse. 
+ \item Placer le levier dans la gouge de commande de la pompe. 
+ \item Agir sur le levier par un mouvement alternatif "haut bas" pour actionner la pompe et soulever la sellette par l'intermédiaire du bras et du vérin. 
+\end{enumerate}
+
+~\
+
+\textbf{Abaissement}
+
+\begin{enumerate}
+ \item Placer le levier sur la vis pointeau. 
+ \item Agir sur le levier par un mouvement de rotation afin de desserrer la vis pointeau et de libérer l'huile contenue dans le vérin. 
+ \item Le poids du véhicule suffit pour obtenir la rentrée de tige. Lorsque le véhicule est en appui sur le sol, deux ressorts de rappel positionnent le bras en position initiale. 
+\end{enumerate}
+
+
+Précaution d'utilisation:
+
+\begin{itemize}
+ \item Contrôler la masse du véhicule avant utilisation. (m < 2000 kg) 
+ \item Éviter un maintien en charge prolongé ; placer une chandelle pour soulager le cric dans ce cas d'utilisation. 
+ \item Utiliser le cric sur un sol \og lisse \fg permettant l'auto-positionnement du cric par rapport à la sellette lors du soulèvement. Ce positionnement est facilité lorsque le cric est perpendiculaire au véhicule. 
+ \item Veiller à utiliser le cric sur un sol plan afin que les roues soient toutes en contact. 
+ \item Vérifier le niveau d'huile régulièrement.  
+ \item Caractéristiques techniques : 
+ \begin{itemize}
+  \item Capacité maximale: 2T soit 2 000 Kg,
+  \item Encombrement sans levier: L: 492, H: 135, l: 210,
+  \item Masse totale: 3 kg 500,
+  \item Zone de travail,
+  \item Huile utilisée: SAE 10.
+ \end{itemize}
+\end{itemize}
+
+ 
+Afin de vérifier le dimensionnement des axes d'articulations et des tourillons il faut déterminer les actions mécaniques appliquées sur les articulations du cric. 
+ 
+Hypothèses : 
+\begin{itemize}
+ \item La masse de la charge pour l'étude est de 2 tonnes,
+ \item Toutes les liaisons sont supposées parfaites,
+ \item Le cric admet un plan de symétrie (L'étude se fera sur celui-ci),
+ \item L'action du ressort de rappel est négligée,
+ \item $g=10m.s^{-2}$.
+\end{itemize}
+
+\begin{figure}
+ \begin{minipage}{0.38\linewidth}
+ \centering\includegraphics[width=1\linewidth]{img/cric-014.png}
+ \end{minipage}
+ \hfill
+ \begin{minipage}{0.6\linewidth}
+ \begin{enumerate}
+ \item Effectuer le bilan des actions mécaniques des pièces suivantes : biellette, sellette, vérin et bras de levage. Compléter les phrases de conclusion pour chaque isolement. 
+ \item Compléter les deux théorèmes concernant les solides soumis à des actions mécaniques de type glisseur. 
+ \item Tracer à l'aide du logiciel SolidWorks 
+ \end{enumerate}
+ \end{minipage}
+\end{figure}
+
+\section{Aide pour le logiciel SolidWorks}
+
+
+Après avoir ouvert la \textbf{mise en plan} du système.
+
+\textbf{Ouvrir} la fenêtre Calque dans Affichage/barre d'outils/Calque  \includegraphics[width=2cm]{img/calque.png}.
+
+\textbf{Créer} un nouveau calque.
+
+
+A l'aide des outils d'esquisse, il est possible de réaliser les constructions graphiques (droites, segments, points) sur ce calque.
+
+~\
+
+Il est possible en cliquant sur l'icône correspondant de mettre en relation des éléments graphiques entre eux ou bien avec les 
+
+\textit{Ajouter une relation}
+
+Il existe plusieurs solutions pour mettre en place une relation:
+\begin{itemize}
+ \item lors de l'insertion d'un nouvel élément, le logiciel peut \og comprendre \fg ce que l'on essaye de faire et proposer une relation entre le nouvel élément et l'élément existant, si cette relation vous convient cliquer pour accepter,
+ \item en faisant un clic droit sur un élément, une section \og Relations \fg apparaît, elle permet de définir ces relations.
+\end{itemize}
+
+\textit{Supprimer une relation}
+
+\textbf{Cliquer} sur l'entité (droite, point,) à supprimer, \textbf{sélectionner} la relation voulue dans la fenêtre Relations et \textbf{appuyer} sur la touche Suppr du clavier.
+
+\textit{Ajouter une cote}
+
+Afin de coter:
+\begin{itemize}
+ \item la longueur d'un segment : \textbf{Cliquer} sur l'icône de cotation puis sur le segment,
+ \item la distance d'un segment par rapport à un point : \textbf{Cliquer} sur l'icône de cotation, puis sur le segment, puis sur le point.
+\end{itemize}
+
+~\
+
+\textit{Modifier une cote}
+
+Afin de :
+\begin{itemize}
+ \item modifier une côte : \textbf{Double cliquer} sur la côte et modifier sa valeur dans la fenêtre apparue,
+ \item supprimer une côte : \textbf{Cliquer} sur la côte, puis appuyer sur la touche Suppr du clavier.
+\end{itemize}
+
+\end{document}

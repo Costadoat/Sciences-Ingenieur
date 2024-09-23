@@ -1,0 +1,618 @@
+\input{../../headers/tdheaders.tex}
+
+\section{Étude de chronogrammes}
+
+\paragraph{Question 1:} Déduire du chronogramme la table de vérité de S 
+
+~\
+
+\begin{figure}[!h]
+ \begin{minipage}{0.6\linewidth}
+    \centering\includegraphics[width=1\linewidth]{img/chrono.pdf}
+ \end{minipage}
+ \hfill
+ \begin{minipage}{0.38\linewidth}
+ \begin{center}
+ \begin{tabular}{|c|c|c|c|}
+ \hline
+ a & b & c & S \\
+ \hline
+   &   &   &   \\
+ \hline
+   &   &   &   \\
+ \hline
+   &   &   &   \\
+ \hline
+   &   &   &   \\
+ \hline
+   &   &   &   \\
+ \hline
+   &   &   &   \\
+ \hline
+   &   &   &   \\
+ \hline
+   &   &   &   \\
+ \hline
+ \end{tabular}
+ \end{center}
+ \end{minipage}
+\end{figure}
+
+
+\paragraph{Question 2:} Compléter le tableau de Karnaugh suivant et en déduire une forme simplifiée de $S$.
+
+~\
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+a $\backslash$ bc & 00 & 01 & 11 & 10 \\
+\hline
+0  &    &    &    &    \\
+\hline
+1  &    &    &    & \\
+\hline
+\end{tabular} 
+\end{center}
+
+\section{Système de transmission avec correction d'erreur}
+
+Dans un système de transmission, il est souhaitable d'être capable de détecter et de corriger une erreur. Pour cela, il est possible d'utiliser un \og Code de Hamming\fg.
+
+Pour transmettre les 4 éléments binaires $m_1$, $m_2$, $m_3$, $m_4$ correspondant à un chiffre du système décimal. 3 éléments binaires de contrôle $k_1$, $k_2$, $k_3$ sont ajoutés.
+
+La position relative des éléments binaire est donnée dans le tableau suivant.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+n & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+\hline
+  & $k_1$ & $k_2$ & $m_1$ & $k_3$ & $m_2$ & $m_3$ & $m_4$ \\
+\hline
+\end{tabular} 
+\end{center}
+
+3 tests de parité sont effectués pour détecter l'erreur:
+\begin{itemize}
+ \item test $T_1$ se fait sur les éléments binaires 1 3 5 7,
+ \item test $T_2$ se fait sur les éléments binaires 2 3 6 7,
+ \item test $T_3$ se fait sur les éléments binaires 4 5 6 7.
+\end{itemize}
+
+Le résultat d'un test de parité donne 0 si le nombre de 1 dans la zone considérée est pair.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+N  & $k_1$ & $k_2$ & $m_1$ & $k_3$ & $m_2$ & $m_3$ & $m_4$ \\
+\hline
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+1 & 1 & 1 & 0 & 1 & 0 & 0 & 1 \\
+\hline
+2 & 0 & 1 & 0 & 1 & 0 & 1 & 0 \\
+\hline
+3 & 1 & 0 & 0 & 0 & 0 & 1 & 1 \\
+\hline
+4 & 1 & 0 & 0 & 1 & 1 & 0 & 0 \\
+\hline
+5 & 0 & 1 & 0 & 0 & 1 & 0 & 1 \\
+\hline
+6 & 1 & 1 & 0 & 0 & 1 & 1 & 0 \\
+\hline
+7 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\
+\hline
+8 & 1 & 1 & 1 & 0 & 0 & 0 & 0 \\
+\hline
+9 & 0 & 0 & 1 & 1 & 0 & 0 & 1 \\
+\hline
+\end{tabular} 
+\end{center}
+
+La disposition est choisie de telle façon que le nombre binaire $(T_3T_2T_1)_2$ formé par les résultats des tests $T_1$ à $T_3$ donne la position de l'élément binaire ($k_i$,$m_i$) où se trouve l'erreur.
+
+\paragraph{Question 1:} Effectuer les trois tests sur le résultat suivant.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$k_1$ & $k_2$ & $m_1$ & $k_3$ & $m_2$ & $m_3$ & $m_4$ & $T_1$ & $T_2$ & $T_3$\\
+\hline
+1 & 0 & 0 & 1 & 0 & 0 & 0 & & & \\
+\hline
+\end{tabular} 
+\end{center}
+
+Où se trouve l'erreur, à quelle ligne du tableau initial cet envoi correspond-t-il?
+
+\paragraph{Question 2:} Déterminer les fonctions logiques permettant de produire $k_1$, $k_2$, $k_3$. Montrer qu'un seul type de porte logique est utilisable.
+
+\paragraph{Question 3:} En déduire le schéma du dispositif émetteur de $k_1$.
+
+\paragraph{Question 4:} Proposer les pistes de la réalisation du schéma du dispositif récepteur.
+
+\section{Codeur incrémental}
+
+La mesure de déplacement en rotation d'une vis et de sa vitesse est réalisée grâce à un capteur incrémental 500 points par tour.
+
+Le schéma ci-dessous représente partiellement le disque du capteur incrémental et les 2 cellules photoélectriques CA et CB.
+
+Ce disque comporte une piste où alternent zones opaques (noires sur le schéma) et zones transparentes (blanches que le schéma). Les cellules CA et CB renvoient un signal 0 ou 1 selon qu'elles se trouvent respectivement en face d'une zone opaque ou d'une zone transparente. Les 2 cellules CA et CB sont placées de telle manière que les signaux A et B qu'elles délivrent sont décalés d'un quart de période.
+
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/figure01}
+\end{center}
+
+\paragraph{Question 1:} Donner l'état des signaux binaires A et B respectivement associés à CA et CB pour les zones a, b, c, d, e, f, g.
+
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/figure02}
+\end{center}
+
+\paragraph{Question 2:} Le capteur incrémental utilisé sur la machine délivre 500 points par tour. Combien doit-il y avoir de couples de zones sur la piste du disque?
+
+\paragraph{Question 3:} Le capteur incrémental est monté directement en bout de l'une des vis de déplacement de la traverse dont le pas est de 5 mm. Avec quelle précision peut-on connaître la position de la traverse ?
+
+\paragraph{Question 4:} Une période correspond à l'intervalle T sur le schéma. L'intérêt de décaler les deux signaux d'un quart de période est de pouvoir détecter le sens de rotation du disque. Compte tenu de la forme proposée des signaux et de la position des deux cellules CA et CB, dans quel sens le disque tourne-t-il (sens 1 ou 2, voir schéma du capteur incrémental en haut de page) ? Justifier la réponse. 
+
+\begin{center}
+ \includegraphics[width=0.6\linewidth]{img/figure05}
+\end{center}
+
+\section{Code à barres}
+
+Le laboratoire utilisateur de la machine étudiée, réalise différents essais sur des éprouvettes de matériaux différents, provenant de fournisseurs différents. Pour un matériau, un fournisseur et un type d'essai donnés, on réalise 5 essais. Chaque éprouvette de l'essai est répertoriée par un code à barre composé de caractères alphanumériques propres à l'entreprise. Ce code renseigne sur le fournisseur (1 caractère), le matériau (1 caractère), l'essai (1 caractère) et le numéro de l'éprouvette (1 chiffre {1, 2, 3, 4, 5}).
+
+Le code à barres retenu est le code \og 39 \fg, voir annexe 2. Ce code est constitué pour chaque caractère alphanumérique de 5 barres étroites ou larges et de 4 espaces étroits ou larges. Une barre étroite correspond à la valeur binaire 0, une large à la valeur 1. De même un espace étroit correspond à 0 et un large à 1. On code donc un caractère alphanumérique sur 9 digits (5 barres et 4 espaces) dont 3 sont à 1 et les autres à 0.
+
+Les digits sont regroupés en deux mots, l'un, B, de 5 bits (correspondant aux 5 barres), l'autre, E, de 4 bits (correspondant aux 4 espaces). On associe de plus à chaque caractère alphanumérique un nombre X. Voir annexe 2.
+
+Chaque code est constitué d'un espace, d'un caractère de début, \textbf{des caractères du code proprement dit}, d'un caractère de contrôle et d'un caractère de fin.
+
+Le caractère de contrôle est tel que son nombre X est égal à la somme modulo 43 des nombres X \textbf{des caractères du code proprement dit}.
+
+Pour ce qui suit, on ne tient pas compte des espaces et caractères de début et de fin. Le lecteur de code à barres renvoie pour une éprouvette le code figurant sur la figure ci-dessous.
+
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/figure03}
+\end{center}
+
+\paragraph{Question 1:} Compléter le tableau figurant sur la feuille réponse. Donner pour chaque code à barres et pour le caractère de contrôle les mots B et E. le caractère alphanumérique correspondant et la valeur de X. 
+
+On s'intéresse maintenant au transcodeur permettant de passer pour les numéros d'éprouvette du code "39" au code binaire naturel. 
+Les seuls chiffres utilisés pour le numéro de l'éprouvette sont 1, 2, 3, 4 et 5. 
+
+\paragraph{Question 2:} Combien un mot, en binaire naturel, doit-il comporter de bits pour coder les chiffres de 1 à 5 ? 
+
+On note $B=b_4b_3b_2b_1b_0$, $E=e_3e_2e_1e_0$ et $N=n_nn_{n-1}...n_1n_0$ le mot binaire naturel.
+
+\paragraph{Question 3:} Donner les équations de $n_n$, $n_{n-1}$,...,$n_1$, $n_0$ en fonction des $b_i$ et $e_i$. (Tous les $b_i$ et $e_i$ n'interviennent pas forcément). 
+
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/figure04}
+\end{center}
+
+
+\begin{center}
+Annexe 2 \\
+ \includegraphics[width=0.6\linewidth]{img/figure06}
+\end{center}
+
+\section{Conversion de nombre}
+
+\paragraph{Question 1:}
+
+Convertir, $(010011)_{2}$:
+\begin{itemize}
+ \item en décimal,
+ \item en octal,
+ \item en hexadécimal.
+\end{itemize}
+
+\paragraph{Question 2:}
+
+Convertir le nombre suivant $(145)_{10}$ en binaire.
+
+\paragraph{Question 3:}
+
+Convertir, $(746)_{8}$ en binaire.
+
+\paragraph{Question 4:}
+
+Convertir, $(A35F)_{16}$ en binaire.
+
+\section{Opérations sur les nombres binaires}
+
+\paragraph{Question 1:}
+
+Calculer, $(010110)_{2}+(110100)_{2}$.
+
+~\
+
+\paragraph{Question 2:}
+
+Calculer, $(110100)_{2}-(001010)_{2}$.
+
+~\
+
+\paragraph{Question 3:}
+
+Calculer, $(10010)_{2}*(101)_{2}$.
+
+~\
+
+\paragraph{Question 4:}
+
+Calculer, $\frac{(11110)_{2}}{(110)_{2}}$.
+
+~\
+
+\section{Opérateur OU Exclusif}
+
+\paragraph{Question 1:}
+
+Développer sous la forme canonique $S= a \oplus b \oplus c$.
+
+\paragraph{Question 2:}
+
+Représenter sous la forme d'un tableau de Karnaugh
+
+~\
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+c\textbackslash ab & 00 & 01 & 11 & 10 \\
+\hline
+0  &    &    &    &    \\
+\hline
+1  &    &    &    & \\
+\hline
+\end{tabular} 
+\end{center}
+
+\paragraph{Question 3:}
+
+Déterminer $\overline{S}$.
+
+\clearpage
+
+\ifdef{\public}{\end{document}}{}
+
+\newpage
+
+\pagestyle{correction}
+
+\section{Correction}
+
+\subsection{Étude de chronogramme}
+
+\paragraph{Question 1:}
+
+ \begin{center}
+ \begin{tabular}{|c|c|c|c|}
+ \hline
+ a & b & c & S \\
+ \hline
+ 0  & 0  & 0  & 1 \\
+ \hline
+ 0  & 0  & 1  & 1 \\
+ \hline
+ 0  & 1  & 0  & 0 \\
+ \hline
+ 0  & 1  & 1  & 1 \\
+ \hline
+ 1  & 0  & 0  & 0 \\
+ \hline
+ 1  & 0  & 1  & 0 \\
+ \hline
+ 1  & 1  & 0  & 1 \\
+ \hline
+ 1  & 1  & 1  & 0 \\
+ \hline
+ \end{tabular}
+ \end{center}
+
+\paragraph{Question 2:}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+a $\backslash$ bc & 00 & 01 & 11 & 10 \\
+\hline
+0  & 1 & 1 & 1 & 0 \\
+\hline
+1  & 0 & 0 & 0 & 1 \\
+\hline
+\end{tabular} 
+\end{center}
+
+$S=\overline{a}\cdot\overline{b}+\overline{a}\cdot c+a\cdot b \cdot\overline{c}$
+
+\subsection{Système de transmission}
+
+\paragraph{Question 1:} $(T_3T_2T_1)_2=(101)_2=5$, l'erreur est sur la colonne 5.
+
+\paragraph{Question 2:} ~\
+
+\begin{minipage}{0.45\linewidth}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{$k_1$} \\
+\hline
+$m_1$ $m_2$ $\backslash$ $m_3$ $m_4$ & 00 & 01 & 11 & 10 \\
+\hline
+00  & 0 & \cellcolor{bleuf} 1 & \cellcolor{bleuf} 1 & 0 \\
+\hline
+01  & \cellcolor{bleuf}1 & 0 & 0 &  \cellcolor{bleuf} 1 \\
+\hline
+11  & \cellcolor{bleuf} &  &  & \cellcolor{bleuf} \\
+\hline
+10  & \cellcolor{bleuf} 1 & 0 &  & \cellcolor{bleuf} \\
+\hline
+\end{tabular} 
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+$k_1=m_2.\overline{m_4}+m_1.\overline{m_4}+\overline{m_1}.\overline{m_2}.m_4$
+\end{minipage}
+
+\begin{minipage}{0.45\linewidth}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{$k_2$} \\
+\hline
+$m_1$ $m_2$ $\backslash$ $m_3$ $m_4$ & 00 & 01 & 11 & 10 \\
+\hline
+00  & 0 & \cellcolor{bleuf} 1 & 0 & \cellcolor{bleuf} 1  \\
+\hline
+01  & 0 & \cellcolor{bleuf} 1 & 0 &  \cellcolor{bleuf} 1 \\
+\hline
+11  & \cellcolor{bleuf} &  &  & \cellcolor{bleuf} \\
+\hline
+10  & \cellcolor{bleuf} 1 & 0 &  & \cellcolor{bleuf} \\
+\hline
+\end{tabular} 
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+$k_2=m_3.\overline{m_4}+m_1.\overline{m_4}+\overline{m_1}.\overline{m_3}.m_4$
+\end{minipage}
+
+\begin{minipage}{0.45\linewidth}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{$k_2$} \\
+\hline
+$m_1$ $m_2$ $\backslash$ $m_3$ $m_4$ & 00 & 01 & 11 & 10 \\
+\hline
+00  & 0 & \cellcolor{bleuf} 1 & 0 & \cellcolor{bleuf} 1  \\
+\hline
+01  & 0 & \cellcolor{bleuf} 1 & 0 &  \cellcolor{bleuf} 1 \\
+\hline
+11  & \cellcolor{bleuf} &  & \cellcolor{bleuf} &  \\
+\hline
+10  & \cellcolor{bleuf} 1 & 0 & \cellcolor{bleuf} &  \\
+\hline
+\end{tabular} 
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+$k_2=(m_1 \oplus m_3) \oplus m_4$
+\end{minipage}
+
+\begin{minipage}{0.45\linewidth}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{$k_3$} \\
+\hline
+$m_1$ $m_2$ $\backslash$ $m_3$ $m_4$ & 00 & 01 & 11 & 10 \\
+\hline
+00  & 0 & \cellcolor{bleuf} 1 & 0 & \cellcolor{bleuf} 1 \\
+\hline
+01  & \cellcolor{bleuf}1 & 0 &  \cellcolor{bleuf} 1 & 0 \\
+\hline
+11  & \cellcolor{bleuf}1 &   & \cellcolor{bleuf} &  \\
+\hline
+10  & 0 & \cellcolor{bleuf} 1 &  & \cellcolor{bleuf}  \\
+\hline
+\end{tabular} 
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+$k_3=m_2.\overline{m_3}.\overline{m_4}+.\overline{m_2}.\overline{m_3}.m_4+m_2.m_3.m_4+\overline{m_2}.m_3.\overline{m_4}=(m_2 \oplus m_3) \oplus m_4$
+\end{minipage}
+
+\paragraph{Question 3:}
+
+$k_1=m_2.\overline{m_4}+m_1.\overline{m_4}+\overline{m_1}.\overline{m_2}.m_4$
+
+Donc, $\overline{k_1}=\overline{(m_1+m_2).\overline{m_4}}.\overline{\overline{m_1}.\overline{m_2}.m_4}=\overline{\overline{\overline{m_1}.\overline{m_2}}.\overline{m_4}}.\overline{\overline{m_1}.\overline{m_2}.m_4}$
+
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/nands}
+\end{center}
+
+\paragraph{Question 4:}
+
+$T_i=a\oplus b \oplus c\oplus d$, avec a, b, c et d les éléments entrants en compte dans le calcul du test.
+
+Ensuite, soit $m'_i$, le signal reçu correspondant à l'envoi de $m_i$. On  détermine $m_i$ avec l'équation :
+\begin{itemize}
+ \item $m_1=m'_1\oplus (T_1.T_2.\overline{T_3})$
+ \item $m_2=m'_2\oplus (T_1.\overline{T_2}.T_3)$
+ \item $m_3=m'_3\oplus (\overline{T_1}.T_2.T_3)$
+ \item $m_4=m'_4\oplus (T_1.T_2.T_3)$
+\end{itemize}
+
+\subsection{Codeur incrémental}
+
+\paragraph{Question 1:} Donner l'état des signaux binaires A et B respectivement associés à CA et CB pour les zones a, b, c, d, e, f, g.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+  & a & b & c & d & e & f & g \\
+\hline
+A & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\
+\hline
+B & 0 & 0 & 1 & 1 & 0 & 0 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+
+\paragraph{Question 2:} Le capteur incrémental utilisé sur la machine délivre 500 points par tour. Combien doit-il y avoir de couples de zones sur la piste du disque?
+
+Deux informations par couple blanc/noir par cellule, cela signifie $\frac{500}{4}=125 couples$.
+
+\paragraph{Question 3:} Le capteur incrémental est monté directement en bout de l'une des vis de déplacement de la traverse dont le pas est de 5 mm. Avec quelle précision peut-on connaître la position de la traverse ?
+
+$\frac{5}{500}=0.01mm$
+
+\paragraph{Question 4:} Une période correspond à l'intervalle T sur le schéma. L'intérêt de décaler les deux signaux d'un quart de période est de pouvoir détecter le sens de rotation du disque. Compte tenu de la forme proposée des signaux et de la position des deux cellules CA et CB, dans quel sens le disque tourne-t-il (sens 1 ou 2, voir schéma du capteur incrémental en haut de page) ? Justifier la réponse. 
+
+Il s'agit du sens horaire, sens 2.
+
+\subsection{Code à barres}
+
+\paragraph{Question 1:} Compléter le tableau figurant sur la feuille réponse. Donner pour chaque code à barres, et pour le caractère de contrôle les mots B et E, le caractère alphanumérique correspondant et la valeur de X. 
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+B/E & 10001 & 0010 & 00101 & 0010 & 01001 & 0010 & 00101 & 0100 & 01010 & 1000 \\
+\hline
+Car & \multicolumn{2}{c|}{A} & \multicolumn{2}{c|}{D} & \multicolumn{2}{c|}{B} & \multicolumn{2}{c|}{4} & \multicolumn{2}{c|}{ESP} \\
+\hline
+X & \multicolumn{2}{c|}{10} & \multicolumn{2}{c|}{13} & \multicolumn{2}{c|}{11} & \multicolumn{2}{c|}{4} & \multicolumn{2}{c|}{38} \\
+\hline
+\end{tabular}
+\end{center}
+
+\paragraph{Question 2:} Combien un mot, en binaire naturel, doit-il comporter de bits pour coder les chiffres de 1 à 5 ? 
+
+Il faut 3 bits.
+
+\paragraph{Question 3:} Donner les équations de $n_n$, $n_{n-1}$,...,$n_1$, $n_0$ en fonction des $b_i$ et $e_i$. (Tous les $b_i$ et $e_i$ n'interviennent pas forcément). 
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c||c|c|c|}
+\hline
+ & $b_4$ & $b_3$ & $b_2$ & $b_1$ & $b_0$ & $e_3$ & $e_2$ & $e_1$ & $e_0$ & $n_2$ & $n_1$ & $n_0$ \\
+\hline
+1 & 1 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 1\\
+\hline
+2 & 0 & 1 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 0\\
+\hline
+3 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1\\
+\hline
+4 & 0 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 0 & 1 & 0 & 0\\
+\hline
+5 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+
+$n_0=b_4$, $n_1=b_3$, $n_2=b_2$.
+
+\subsection{Conversion de nombre}
+
+\paragraph{Question 1:}
+
+Convertir, $(010011)_{2}$:
+\begin{itemize}
+ \item en décimal: $19_{10}$,
+ \item en octal: $23_{8}$,
+ \item en hexadécimal: $13_{16}$.
+\end{itemize}
+
+\paragraph{Question 2:}
+
+Convertir le nombre suivant $(145)_{10}$ en binaire.
+
+$(10010001)_{2}$
+
+\paragraph{Question 3:} Convertir, $(746)_{8}$ en binaire.
+
+$(111100110)_{2}$
+
+\paragraph{Question 4:} Convertir, $(A35F)_{16}$ en binaire.
+
+1010001101011111
+
+\subsection{Opérations sur les nombres binaires}
+
+\paragraph{Question 1:}
+
+Calculer, $(010110)_{2}+(110100)_{2}$.
+
+1001010
+
+~\
+
+\paragraph{Question 2:}
+
+Calculer, $(110100)_{2}-(001010)_{2}$.
+
+$(101010)_{2}$
+
+~\
+
+\paragraph{Question 3:}
+
+Calculer, $(10010)_{2}*(101)_{2}$.
+
+$(1011010)_{2}$
+
+~\
+
+\paragraph{Question 4:}
+
+Calculer, $\frac{(11110)_{2}}{(110)_{2}}$.
+
+$(101)_{2}$
+
+~\
+
+\subsection{Opérateur OU Exclusif}
+
+\paragraph{Question 1:}
+
+Développer sous la forme canonique $S= a \oplus b \oplus c$.
+
+$S= a \oplus b \oplus c=(\overline{a}.b+a.\overline{b}) \oplus c$
+
+$S=(a.\overline{b}+\overline{a}.b).\overline{c}+\overline{(a.\overline{b}+\overline{a}.b)}.c$
+
+$S=a.\overline{b}.\overline{c}+\overline{a}.b.\overline{c}+\overline{a}.\overline{b}.c+a.b.c$
+
+
+
+\paragraph{Question 2:}
+
+Représenter sous la forme d'un tableau de Karnaugh
+
+~\
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+a $\backslash$ bc & 00 & 01 & 11 & 10 \\
+\hline
+0  & 0 & 1 & 0 & 1 \\
+\hline
+1  & 1 & 0 & 1 & 0 \\
+\hline
+\end{tabular} 
+\end{center}
+
+\paragraph{Question 3:}
+
+$\overline{S}= \overline{a} \oplus \overline{b} \oplus \overline{c}$
+
+\end{document}

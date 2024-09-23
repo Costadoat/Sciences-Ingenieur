@@ -1,0 +1,24 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 07/14/05 by BEAUCHAMP
+' *****************************************************************************
+Dim swApp As Object
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long, longwarnings As Long
+Dim FeatureData As Object
+Dim Feature As Object
+Dim Component As Object
+Sub main()
+
+Set swApp = Application.SldWorks
+
+Set Part = swApp.OpenDoc6 ("C:\Documents and Settings\BEAUCHAMP\Mes documents\eric et nath\version du 08-07-05\essui-glace scenic\bras conducteur\pied de bras conducteur.SLDPRT", 1, 0, "", longstatus, longwarnings)
+Set Part = swApp.ActivateDoc ("pied de bras conducteur")
+swApp.ActiveDoc.ActiveView.FrameLeft = 0
+swApp.ActiveDoc.ActiveView.FrameTop = 0
+swApp.ActiveDoc.ActiveView.FrameState = 1
+swApp.ActiveDoc.ActiveView.FrameState = 1
+Set Part = Nothing
+swApp.CloseDoc "pied de bras conducteur"
+swApp.ExitApp
+End Sub

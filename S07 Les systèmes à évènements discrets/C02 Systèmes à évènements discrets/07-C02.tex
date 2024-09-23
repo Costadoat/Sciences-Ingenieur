@@ -1,0 +1,227 @@
+\input{../../headers/beamercoursHeadings}
+
+
+\section{Introduction}
+
+{\frame{
+\frametitle{Introduction}
+
+\begin{savoir}
+Vous êtes capables :
+\begin{itemize}
+ \item de caractériser les différents \textbf{cas d'utilisation} d'un produit,
+ \item de décrire la \textbf{séquence} de communication entre un \og acteur \fg du système et le système. 
+\end{itemize}
+\end{savoir}
+
+\begin{prob}
+Vous devez êtes capables :
+\begin{itemize}
+ \item de déduire le comportement séquentiel d'un système à partir des diagrammes dédiés,
+ \item de connaître les moyens de mise en \oe uvre de cette programmation.
+\end{itemize}
+\end{prob}
+}}
+
+{\frame{
+\frametitle{Rappels}
+  \begin{figure}[!h]
+    \begin{minipage}{0.5\linewidth}
+      \begin{center}
+	\includegraphics[width=0.6\linewidth]{img/Use_case}
+	\caption{Diagramme des Cas d'Utilisation}
+      \end{center}
+      \begin{itemize}
+	\item Il existe au moins un diagramme de séquence pour chaque cas d'utilisation,
+	\item Il montre les interactions entre différents éléments d'un point de vue séquentiel (ordre chronologique),
+	\item Les messages peuvent être échangés entre l'acteur et le système mais aussi entre éléments du système.
+      \end{itemize}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.45\linewidth}
+    Un \textbf{cas d'utilisation} peut être vu comme un \textbf{scénario} durant lequel il existe une \textbf{interaction} entre un acteur et le système.
+    
+    Ils s'échangent des \textbf{ordres} ou des \textbf{informations}. 
+    \begin{center}
+      \includegraphics[width=0.6\linewidth]{img/Sequence}
+      \caption{Diagramme de Séquence}
+    \end{center}
+  \end{minipage}
+\end{figure}
+}}
+
+
+{\frame{
+\frametitle{États d'un système}
+
+\begin{minipage}{0.6\linewidth}
+Un Système à Événements Discrets (ou Machine à États Finis) lors d'une phase de vie et en fonction de ses interactions passe par différents \textbf{états}.
+\end{minipage}
+\hfill
+\begin{minipage}{0.35\linewidth}
+  \includegraphics[width=0.7\linewidth]{img/festo}
+\end{minipage}
+
+
+\begin{defi}
+Un ÉTAT représente une \textbf{situation} d'un bloc. Il peut alors exécuter une ou plusieurs \textbf{activités} ou bien attendre un certain \textbf{événement}.
+\end{defi}
+
+Un bloc passe par une \textbf{succession} d'états durant son existence. Ce sont des \textbf{événements extérieurs} qui lui permettent de passer d'un état à un autre.
+
+
+\begin{defi}
+Un ÉVÉNEMENT est une \textbf{occurrence} indépendante du système. Il apparaît à un \textbf{endroit} et à un \textbf{moment} donné. Un événement peut porter des paramètres qui matérialisent le \textbf{flot d'information} ou de \textbf{données} reçu par l'élément.
+\end{defi}
+}}
+
+{\frame{
+\frametitle{Le changement d'état}
+
+Le passage d'un état à un autre pour un système s'appelle une \textbf{transition}.
+
+\begin{defi}
+Une TRANSITION décrit la possibilité de changement d'état d'un système. Elle est définie par un événement
+déclencheur, une condition de garde,...
+\end{defi}
+
+En effet, lorsqu'un élément extérieur intervient, selon les conditions du système, l'état du système est amené à changer.
+
+\begin{defi}
+Une CONDITION (ou condition de garde) est une expression booléenne qui doit être vraie lorsque l'événement arrive pour que la transition soit déclenchée. Plusieurs transitions avec le même événement doivent avoir des conditions de garde différentes afin d'empêcher des ambiguïté sur le changement d'état.
+\end{defi}
+}}
+
+\section{Diagramme d'état}
+
+{\frame{
+\frametitle{Le diagramme d'état}
+
+Exemple de diagramme d'état de la "\textbf{Cordeuse}"
+
+\vfill
+
+\begin{minipage}{0.45\linewidth}
+Durant cette phase de vie, le système passe par 4 états:
+\begin{itemize}
+ \item Initialisation,
+ \item Paramétrage,
+ \item Asservissement,
+ \item Retour charriot.
+\end{itemize}
+
+Les transitions entre ces états ne sont caractérisées que par des événement.
+
+Le système ne peut être que dans un état à la fois.
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\linewidth}
+  \includegraphics[width=\linewidth]{img/etat}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Représentation du diagramme}
+
+Le diagramme d'état, en plus des états du système possède deux pseudo-états :
+\begin{itemize}
+\item  l'état initial \includegraphics[width=0.4cm]{img/Initial}: création d'une instance,
+\item l'état final \includegraphics[width=0.4cm]{img/Final}: destruction de l'instance. Il peut y en avoir plusieurs.
+\end{itemize}
+
+~\
+
+\begin{minipage}{0.45\linewidth}
+Il est aussi possible de regrouper plusieurs sous-états en un seul état composite (ou super-état).
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\linewidth}
+ \centering \includegraphics[width=0.6\linewidth]{img/Composite}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Processus d'activités}
+
+\begin{minipage}{0.6\linewidth}
+Les ACTIVITÉS effectuées par un système suivent un processus. A chaque activité correspond une ACTION, elle a un début et une fin, la fin d'une activité entraîne le début de la suivante. Un flot de contrôle circule alors entre les deux, il permet de contrôler le résultat d'une action.
+\end{minipage}
+\hfill
+\begin{minipage}{0.35\linewidth}
+  \includegraphics[width=0.7\linewidth]{img/poste}
+\end{minipage}
+
+\begin{defi}
+Une ACTION est une unité fondamentale de spécification \textbf{comportementale}. Elle représente un traitement ou une transformation. Les actions sont contenues dans les \textbf{activités}, qui fournissent leur contexte.
+\end{defi}
+
+\begin{defi}
+Un FLOT est un contrôle qui indique la séquence d'exécution des d'activités. Ce sont de simples flèches reliant deux n\oe uds.
+\end{defi}
+}}
+
+\section{Diagramme d'activité}
+
+{\frame{
+\frametitle{Le diagramme d'activité}
+
+\begin{minipage}{0.55\linewidth}
+Exemple de diagramme d'activité de la "\textbf{Cordeuse}"
+
+~\
+
+Un système exerce des activités lorsqu'il est dans un état, ici \includegraphics[width=1.5cm]{img/retour}.
+
+~\
+
+Une activité commence lorsque la précédente se termine, ce qui décrit bien un processus. Ici, plusieurs activités sont réalisées en même temps.
+\end{minipage}
+\hfill
+\begin{minipage}{0.35\linewidth}
+  \includegraphics[width=\linewidth]{img/retour_2}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Représentation du diagramme}
+
+Comme dans le diagramme d'état, en plus des états du système possède deux pseudo-états :
+\begin{itemize}
+\item  l'état initial \includegraphics[width=0.4cm]{img/Initial}: création d'une instance,
+\item l'état final \includegraphics[width=0.4cm]{img/Final}: destruction de l'instance. Il peut y en avoir plusieurs.
+\end{itemize}
+
+\begin{minipage}{0.6\linewidth}
+\begin{defi}
+Une DECISION permet, dans un diagramme d'activités, de présentant un choix dynamique entre plusieurs
+conditions exclusives. Elle est représentée par un losange qui possède
+un arc entrant et plusieurs arcs sortants.
+\end{defi}
+\end{minipage}
+\hfill
+\begin{minipage}{0.35\linewidth}
+  \includegraphics[width=\linewidth]{img/activite}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Conclusion}
+
+\begin{savoir}
+Vous êtes capables :
+\begin{itemize}
+ \item de déterminer l'état d'un système en fonction d'événements,
+ \item de déterminer le comportement séquentiel dynamique d'un système.
+\end{itemize}
+\end{savoir}
+
+\begin{prob}
+Vous devez êtes capables :
+ \begin{itemize}
+ \item de modéliser un Système dont l'évolution est continue.
+ \end{itemize}
+\end{prob}
+}}
+
+
+\end{document}

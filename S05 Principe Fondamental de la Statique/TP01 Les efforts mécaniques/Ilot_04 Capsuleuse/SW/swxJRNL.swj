@@ -1,0 +1,30 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 01/17/05 by hiolle
+' *****************************************************************************
+Dim swApp As Object
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long
+Dim Annotation As Object
+Dim Gtol As Object
+Dim DatumTag As Object
+Dim FeatureData As Object
+Dim Feature As Object
+Dim Component As Object
+Sub main()
+
+Set swApp = Application.SldWorks
+
+Set Part = swApp.OpenDoc4 ("C:\Documents and Settings\Jean-Pierre\Bureau\Jean-Pierre\Spé TSI\JP\TP Dynamique\Dynamique-Capsuleuse\Capsuleuse-SW\capsuleuse.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("capsuleuse")
+swApp.ActiveDoc.ActiveView.FrameLeft = 0
+swApp.ActiveDoc.ActiveView.FrameTop = 0
+swApp.ActiveDoc.ActiveView.FrameState = 1
+swApp.ActiveDoc.ActiveView.FrameState = 1
+' MSGBOX
+' Certains des modèles référencés dans ce document ont été modifiés. Ils doivent être enregistrés lorsque le document est enregistré.
+' 		Enregistrer le document et les modèles référencés maintenant ?
+
+swApp.ActiveDoc.ActiveView.FrameState = 1
+swApp.ExitApp
+End Sub

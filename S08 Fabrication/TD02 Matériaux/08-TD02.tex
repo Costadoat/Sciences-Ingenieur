@@ -1,0 +1,127 @@
+\input{../../headers/tdheaders.tex}
+
+\section{Serrage par dilatation}
+
+On souhaite assembler 2 pièces 1 et 2. La pièce 1 à un diamètre de 40,05mm et la pièce 2 de 40,01mm. 
+
+\begin{figure}[!h]
+  \centering\includegraphics[width=0.7\linewidth]{img/assemblage.png}
+  \caption{Serrage par dilatation}
+  \label{img:image1}
+\end{figure}
+
+\paragraph{Question 1 :} Calculez le serrage radial $S_{(20\degree C)}$ à 20°C. Il s'agit de la différence de rayon des éléments à assembler.
+
+\paragraph{Question 2 :} Que devient ce serrage $S_{(120\degree C)}$ à température de fonctionnement (120°C )? On supposera que la pièce ne se dilate que localement autour du trou et que le calcul revient à déterminer le diamètre de l'alésage de la pièce 2 en considérant une \og dilatation négative \fg.
+ 
+\section{Calcul de masse}
+
+\begin{figure}[!h]
+ \begin{minipage}{0.6\linewidth}
+
+\paragraph{Question 1 :} Déterminer la masse de la bielle représentée ci-contre (dont la géométrie a été simplifiée). 
+ 
+Matériau : 25CrMo4-1. 
+ \end{minipage}
+\hfill
+ \begin{minipage}{0.35\linewidth}
+  \centering\includegraphics[width=0.7\linewidth]{img/piece1.png}
+  \caption{Pièce étudiée}
+  \label{img:image2}
+ \end{minipage}
+\end{figure}
+ 
+On propose décomposition de la figure \ref{img:image2} en volumes élémentaires avec les dimensions suivantes (L=100mm, e=10mm, R=20mm, r=18 mm, d=5 mm).
+
+\begin{figure}[!h] 
+  \centering\includegraphics[width=0.7\linewidth]{img/bool.png}
+  \caption{Décomposition en volumes élémentaires}
+  \label{img:image3}
+\end{figure}
+
+\newpage
+
+\section{Rame d'aviron}
+ 
+L'objectif de l'étude est de concevoir une rame d'aviron. 
+ 
+\begin{figure}[!h]
+ \begin{minipage}{0.49\linewidth}
+  \centering\includegraphics[width=0.7\linewidth]{img/rame_pvc.jpg}
+  \caption{Rame en PVC}
+  \label{img:image4}
+ \end{minipage}
+\hfill
+ \begin{minipage}{0.49\linewidth}
+   \centering\includegraphics[width=0.7\linewidth]{img/rame_bois.jpg}
+  \caption{Rame en bois}
+  \label{img:image5}
+ \end{minipage}
+\end{figure}
+ 
+\paragraph{Question 1 :} Etablir l'ensemble des critères et les niveaux associés que doit respecter une rame d'aviron. 
+
+\paragraph{Question 2 :} Afin de déterminer le choix d'un matériau, il sera considéré que cet aviron est susceptible d'être utilisé dans de l'eau de mer ou bien dans de l'eau douce. La rame devra avoir une  masse de 200g, pour un volume $V=2.25.10-4 m^3$. Sa limite d'élasticité sera de $70 MPa$ et son module d'Young de $100 MPa$. 
+ 
+Proposer un matériau en utilisant les abaques suivants. Dessiner l'allure de la courbe de traction du matériau en question. 
+
+\begin{figure}[!h] 
+  \centering\includegraphics[width=0.7\linewidth]{img/ab1.png}
+  \caption{Environnement}
+  \label{img:image6}
+\end{figure}
+
+\begin{figure}[!h] 
+  \centering\includegraphics[width=0.65\linewidth]{img/ab2.png}
+  \caption{Résistance/Densité}
+  \label{img:image7}
+\end{figure}
+
+\begin{figure}[!h] 
+  \centering\includegraphics[width=0.6\linewidth]{img/ab3.png}
+  \caption{Tenacité/Résistance}
+  \label{img:image8}
+\end{figure}
+
+\begin{figure}[!ht] 
+  \centering\includegraphics[width=0.65\linewidth]{img/ab4.png}
+  \caption{Module d'Young/Densité}
+  \label{img:image9}
+\end{figure}
+
+\ifdef{\public}{\end{document}}{}
+
+\cleardoublepage
+
+\pagestyle{correction}
+
+\newpage
+
+\section{Correction}
+
+\subsection{Serrage par dilatation}
+
+\paragraph{Question 1:} $S_{(20\degree C)}=\frac{40,05-40,01}{2}=0,02$
+
+\paragraph{Question 2:} $D_{1(120\degree C)}=D_{1(20\degree C)}.(1+\alpha.(T-T_0))=40,05.(1+12.10^{-6}.100)=40,098$
+
+$D_{2(120\degree C)}=D_{2(20\degree C)}.(1-\alpha.(T-T_0))=40,01.(1-23.10^{-6}.100)=39,918$
+
+$S_{(120\degree C)}=\frac{40,098-39,918}{2}=0,09$
+
+\subsection{Calcul de masse}
+
+$V=1,22.10^{-5}m^3$, $\rho=7800kg.m^{-3}$ donc $m=95g$.
+
+\subsection{Rame d'aviron}
+
+\begin{center} 
+	\includegraphics[width=0.65\linewidth]{img/ab2_cor}
+	\includegraphics[width=0.65\linewidth]{img/ab3_cor}
+	\includegraphics[width=0.7\linewidth]{img/ab4_cor}
+\end{center}
+
+Une rame en frêne taillée parallèlement aux fibres fait l'affaire. Il faut prévoir un traitement de surface (vernis) pour garantir la résistance à l'eau.
+
+
+\end{document}

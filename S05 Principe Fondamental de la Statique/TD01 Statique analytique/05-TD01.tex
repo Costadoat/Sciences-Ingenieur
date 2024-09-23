@@ -1,0 +1,785 @@
+\input{../../headers/tdheaders.tex}
+
+\section{Colleuse de lamelle}
+
+\subsection{Présentation}
+
+\begin{figure}[!h]
+  \begin{minipage}{0.35\linewidth}
+  \centering\includegraphics[width=0.8\linewidth]{img/colleuse.png}
+  \caption{Colleuse}
+  \label{img1}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.60\linewidth}
+  Le groupe TECH-INTER commercialise du matériel de laboratoire d'histopathologie. Cette spécialité médicale consiste à découper des tissus d'organes en fine épaisseur ($4-5 \mu m$). Ces tissus sont ensuite collés sur des lames de verres de 2 mm d'épaisseur puis colorés chimiquement dans un automate. Pour certains tissus, il est nécessaire de coller sur les tissus colorés une lamelle de verre de 0,3 mm d'épaisseur afin de les protéger (photo 3 document 2). Cette dernière opération est très délicate à effectuer manuellement et très longue, une étude pouvant comporter plusieurs centaines de lames.
+
+  L'appareil appelé « Colleuse de lamelle » automatise ce procédé, figure \ref{img1}.
+\end{minipage}
+\end{figure}
+
+\subsection{Analyse statique de l'élévateur de rack}
+
+Le schéma cinématique, figure 6 document 6) représente le système d'élévateur de rack. Un moteur non représenté exerce sur l'axe 10 un couple moteur Cm inconnu, ce dernier entraîne par un système vis-écrou comportant un pas à droite, le support de rack 11 qui supporte une charge P connue. Les poids sont négligés. Le système est considéré comme spatial.
+
+Le mouvement étant très lent, on peut supposer que l'ensemble est à l'équilibre par rapport au repère galiléen R0 . Le but est de valider le couple moteur choisi par le constructeur.
+
+Le couple moteur nominal en charge est égal à 1 N.m. pour une charge P = 100N.
+
+Les liaisons sont supposées parfaites.
+
+Les torseurs couple moteur et charge sont les suivants :
+
+\begin{figure}[!h]
+  \begin{minipage}{0.35\linewidth}
+  \begin{math}
+  \left\{F_{mot \rightarrow 10}\right\}=\left\{
+  \begin{array}{c c}
+  0 & 0 \\
+  0 & C_m \\
+  0 & 0
+  \end{array}\right\}_{(O,R_0)}
+  \end{math}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.60\linewidth}
+  \begin{math}
+  \left\{F_{charge \rightarrow 11}\right\}=\left\{
+  \begin{array}{c c}
+  0 & 0 \\
+  -P & 0 \\
+  0 & 0
+  \end{array}\right\}_{(O,R_0)}
+  \end{math}
+\end{minipage}
+\end{figure}
+
+\paragraph{Question 1:} A partir du schéma cinématique de la figure \ref{img2}, établir le graphe de liaison du mécanisme.
+
+\paragraph{Question 2:} Identifier et écrire le torseur statique de chaque liaison.
+
+Donner une équation supplémentaire en fonction des caractéristiques du torseur pour la liaison hélicoïdale, faisant intervenir le pas p du filetage.
+
+\paragraph{Question 3:} Écrire les torseurs statiques $\left\{T'_{0 \rightarrow 11}\right\}_B$ et $\left\{T''_{0 \rightarrow 11}\right\}_C$ au point O, indiquer les calculs des moments.
+
+\paragraph{Question 4:} Isoler le solide 10. Faire le Bilan des Actions Mécaniques et déterminer les 6 équations d'équilibre du solide 10 (moments au point O).
+
+\paragraph{Question 5:} Isoler le solide 11. Faire le Bilan des Actions Mécaniques et déterminer les 6 équations d'équilibre du solide 11 (moments au point O).
+
+\paragraph{Question 6:} Déterminer le couple moteur Cm en fonction de la charge P et du pas p.
+
+A.N. : calculer $C_m$ pour $p = 6,28 mm$ (pour un tour) et $P = 100 N$. Conclure.
+
+\begin{figure}[!h]
+  \centering\includegraphics[width=0.6\linewidth]{img/colleuse_cin.png}
+  \caption{Schéma cinématique}
+  \label{img2}
+\end{figure}
+
+\newpage
+
+\section{Démarreur D6RA}
+
+\subsection{Présentation}
+Un moteur thermique doit être entraîné en rotation afin de lui faire atteindre son cycle de fonctionnement, c'est le rôle du démarreur.
+
+Pour atteindre son cycle d'auto-fonctionnement, un moteur thermique doit être entraîné à :
+\begin{itemize}
+ \item $100 tr.min^{-1}$ environ pour un moteur essence,
+ \item $400 tr.min^{-1}$ environ pour un moteur diesel.
+\end{itemize}
+
+Le démarreur est fixé sur le carter moteur, il entraîne une couronne dentée liée au vilebrequin.
+
+\begin{figure}[!h]
+  \centering\includegraphics[width=0.6\linewidth]{img/demarreur.jpg}
+  \caption{Démarreur}
+  \label{img3}
+\end{figure}
+
+\subsection{Vérification de la tenue du palier 2}
+
+Le démarreur D6RA n'a pas cessé d'évoluer depuis sa première version. La dernière évolution de ce modèle est le D6RA-100. Ce modèle, le plus puissant de la série, est destiné aux moteurs diesel de moyenne cylindrée. Le couple maximum sur l'arbre secondaire est alors de $C_{max} = 120 N.m$. Ce couple, plus important que sur le précédent modèle, engendre une augmentation de la pression de contact exercée par l'arbre 4 sur les paliers 2 et 24.
+
+Afin de vérifier la tenue du palier 2, on demande de déterminer les torseurs d'actions mécaniques appliqués au système matériel $\left\{12+4\right(\}$.
+
+\newpage
+
+Les torseurs représentant les actions mécaniques appliquées au système matériel {12+4} sont les suivants :
+
+\begin{figure}[!h]
+  \begin{minipage}{0.48\linewidth}
+  \begin{math}
+  \left\{T_{64 \rightarrow \left\{12+4\right\}}\right\}=\left\{
+  \begin{array}{c c}
+  0 & -120 \\
+  0 & 0 \\
+  0 & 0
+  \end{array}\right\}_{I,(\overrightarrow{x},\overrightarrow{y},\overrightarrow{z})}
+  \end{math}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\linewidth}
+  \begin{math}
+  \left\{T_{1 \rightarrow \left\{12+4\right\}}\right\}=\left\{
+  \begin{array}{c c}
+  X_I & 0 \\
+  Y_I & 0 \\
+  Z_I & 0
+  \end{array}\right\}_{I,(\overrightarrow{x},\overrightarrow{y},\overrightarrow{z})}
+  \end{math}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+\begin{math}
+  \left\{T_{1 \rightarrow \left\{12+4\right\}}\right\}=\left\{
+  \begin{array}{c c}
+  0 & 0 \\
+  Y_G & 0 \\
+  Z_G & 0
+  \end{array}\right\}_{G,(\overrightarrow{x},\overrightarrow{y},\overrightarrow{z})}
+\end{math}
+\end{figure}
+
+$\left\{T_{moteur \rightarrow \left\{12+4\right\}}\right\}_{(H,(\overrightarrow{x},\overrightarrow{y},\overrightarrow{z}))}$ torseur modélisant les actions mécaniques exercées par la couronne dentée du moteur sur le lanceur.
+
+\paragraph{Question 1:} L'angle de pression de l'engrenage couronne moteur/$\left\{12+4\right\}$ est $\alpha=20$\textdegree.
+Représenter, par un torseur, les actions mécaniques de la couronne du moteur sur $\left\{12+4\right\}$.
+Écrire les composantes de ce torseur dans $(H,(\overrightarrow{x},\overrightarrow{y},\overrightarrow{z}))$.
+
+\paragraph{Question 2:} Énoncer le Principe Fondamental de la Statique sur le système matériel $\left\{12+4\right\}$. Déterminer les actions mécaniques des liaisons en G et en I.
+
+\paragraph{Question 3:} Calculer la norme de l'effort radial dans le palier au point I. Les paliers sont dimensionnés pour supporter un effort maxi de 8KN. Justifier du choix de ces paliers. Ces mêmes paliers pourraient-ils être utilisés pour la liaison en G ?
+
+\newpage
+
+\includepdf[landscape,pages=8]{img/Demarreur.pdf}
+\includepdf[pages=9]{img/Demarreur.pdf}
+%\includepdf{img/Dr1.pdf}
+\includepdf{img/Dr2.pdf}
+
+\newpage
+
+\section{Siège de dentiste}
+
+Le système étudié sera celui d'une chaise de dentiste dont la hauteur de la chaise est réglable afin de permettre une meilleure accessibilité. Le schéma cinématique du système de levée est donné à la figure \ref{chaise_cin}.
+
+\begin{figure}[!h]
+ \begin{minipage}{0.45\linewidth}
+ \centering\includegraphics[height=50mm]{img/siege.png}
+ \end{minipage}
+ \hfill
+ \begin{minipage}{0.45\linewidth}
+ \centering\includegraphics[height=50mm]{img/siege_zoom.png}
+ \end{minipage}
+ \caption{Chaise de dentiste}
+\end{figure}
+
+\begin{figure}[!h]
+ \begin{minipage}{0.55\linewidth}
+ \centering\includegraphics[width=\linewidth]{img/chaise_cin.pdf}
+ \end{minipage}
+ \hfill
+ \begin{minipage}{0.48\linewidth}
+\small Hypothèses simplificatrices et données : 
+ \begin{itemize}
+  \item Le point G matérialise la position de la charge que représente l'ensemble $\text{fauteuil + patient}$,
+  \item Cette charge sera : $\overrightarrow{P_5}$, avec $\|\overrightarrow{P_5}\|=3000N$,
+  \item Le poids des pièces est négligé devant les autres actions en présence,
+  \item Le plan $(\overrightarrow{x},\overrightarrow{y})$ est plan de symétrie pour l'étude,
+  \item Les liaisons entre les solides sont parfaites.
+ \end{itemize}
+ \end{minipage}
+ \label{chaise_cin}
+ \caption{Hypothèses et données}
+\end{figure}
+
+\normalsize
+
+Les dimensions sont les suivantes:
+
+\begin{itemize}
+ \item $\overrightarrow{HC}=\overrightarrow{CE}=260.\overrightarrow{x}+100.\overrightarrow{y}$,
+ \item $\overrightarrow{KC}=\overrightarrow{CD}=260.\overrightarrow{x}-100.\overrightarrow{y}$,
+ \item $\overrightarrow{GE}=260.\overrightarrow{x}-50.\overrightarrow{y}$,
+ \item $\overrightarrow{AB}=l.\overrightarrow{x_6}$,
+ \item $\overrightarrow{CB}=50.\overrightarrow{x}-50.\overrightarrow{y}$,
+ \item $(\overrightarrow{x},\overrightarrow{x_6})=\alpha=100\degree$,
+ \item $p=4mm$
+ \item Toute autre donnée qui sera jugée nécessaire pourra être ajoutée.
+\end{itemize}
+
+\paragraph{Question 1:} Représenter le graphe des liaisons de ce système.
+
+\paragraph{Question 2:} Exprimer les torseurs des actions mécaniques de chacune des liaisons ainsi que ceux correspondants au poids du patient et au couple moteur.
+
+\paragraph{Question 3:} Proposer un modèle permettant de déterminer l'action de la chaine de solides \{6,7,8\} sur 3.
+ 
+\paragraph{Question 4:} Isoler la pièce 5, et déterminer les équations liées à l'isolement de cette pièce.
+
+\paragraph{Question 5:} Isoler la pièce 4, et déterminer les équations liées à l'isolement de cette pièce.
+
+\paragraph{Question 6:} Isoler la pièce 3, et déterminer les équations liées à l'isolement de cette pièce.
+
+\paragraph{Question 7:} En déduire le couple du moteur qui permet de supporter le poids du patient.
+
+Un logiciel de simulation informatique nous a permis d'obtenir les 2 courbes de la figure \ref{releves}.
+
+\begin{figure}[!h]
+ \begin{minipage}{0.45\linewidth}
+ \centering\includegraphics[width=0.9\linewidth]{img/courbe1.png}
+ \end{minipage}
+ \hfill
+ \begin{minipage}{0.45\linewidth}
+ \centering\includegraphics[width=0.9\linewidth]{img/courbe2.png}
+ \end{minipage}
+ \caption{Relevés du logiciel}
+ \label{releves}
+\end{figure}
+
+\paragraph{Question 8:} Déterminez la valeur maximale de l'effort transmis par la charge à l'écrou : $\|\overrightarrow{B_{3\rightarrow E}}\|$.
+
+\paragraph{Question 9:} Déduisez-en l'altitude du point K correspondant à l'effort maximum.
+
+\newpage
+
+\section{Robot Robuglass}
+
+\subsection{Étude du fonctionnement global du système}
+
+\begin{figure}[!h]
+ \begin{minipage}{0.45\linewidth}
+La société ROBOSOFT a développé le robot Robuglass, figure \ref{robuglass}, devant assurer de manière automatique l'entretien de la pyramide du Louvre sans nécessiter l'intervention (difficile et périlleuse) des opérateurs directement sur l'édifice.
+ \end{minipage}
+ \hfill
+ \begin{minipage}{0.45\linewidth}
+ \centering\includegraphics[width=0.9\linewidth]{img/robuglass.jpg}
+ \end{minipage}
+ \caption{Robot Robuglass}
+ \label{robuglass}
+\end{figure}
+
+
+Le robot ROBUGLASS se compose de 4 sous ensembles distincts: 
+\begin{itemize}
+ \item le porteur: qui constitue le robot qui se déplace sur la surface vitrée,
+ \item le chariot ombilical : qui supporte les 2 pompes à vide,
+ \item le poste de contrôle : qui permet à l'opérateur de commander le porteur,
+ \item le véhicule atelier : qui permet le rangement du porteur, de l'outillage et du chariot 
+ombilical.
+\end{itemize}
+
+\subsection{Objectif: Vérification du critère de contact}
+ 
+Pour un nettoyage efficace il est nécessaire de réguler l'effort d'application de la brosse sur la vitre. Un actionneur de type vérin électrique permet de mettre l'outil contenant la brosse en position haute ou basse et d'appliquer la brosse sur la surface vitrée avec l'effort requis.
+
+L'effort maximum développé par le vérin est de 130 N. 
+
+
+
+\begin{figure}[!h]
+ \begin{minipage}{0.4\linewidth}
+ \centering\includegraphics[width=\linewidth]{img/robuglass_cin.png}
+ \end{minipage}
+ \hfill
+ \begin{minipage}{0.3\linewidth}
+  \small
+  \begin{itemize}
+   \item $\overrightarrow{AB}=\lambda.\overrightarrow{Y_1}$,
+   \item $\overrightarrow{AC}=a.\overrightarrow{Y_p}-b.\overrightarrow{Z_p}$,
+   \item $\overrightarrow{CB}=c.\overrightarrow{Y_3}+d.\overrightarrow{Z_3}$,
+   \item $\overrightarrow{CD}=e.\overrightarrow{Y_3}-f.\overrightarrow{Z_3}$,
+   \item $\overrightarrow{ID}=r_4.\overrightarrow{Z_p}$,
+   \item $\theta_1=\left(\overrightarrow{Y_p},\overrightarrow{Y_1}\right)=15\degree$,
+   \item $\theta_3=\left(\overrightarrow{Y_p},\overrightarrow{Y_3}\right)=30\degree$,
+   \end{itemize}
+ \end{minipage}
+  \hfill
+ \begin{minipage}{0.25\linewidth}
+  \begin{itemize}
+   \item $a=360mm$,
+   \item $b=120mm$,
+   \item $c=40mm$,
+   \item $d=130mm$,
+   \item $e=120mm$,
+   \item $f=50mm$,
+   \item $r_4=30mm$.
+   \end{itemize}
+ \end{minipage}
+ \caption{Schéma cinématique du Robot Robuglass}
+ \label{robuglass_cin}
+\end{figure}
+
+On rappelle: $cos15\degree=0.96$, $sin15\degree=0.26$, $cos30\degree=\frac{\sqrt{3}}{2}$, $sin30\degree=\frac{1}{2}$.
+ 
+Le vérin (voir Annexe 3, figure 4) est modélisé par le corps 1 et la tige 2 respectivement en liaison pivot d'axe $(A,\overrightarrow{X_p})$ et $(B,\overrightarrow{X_p})$ avec le porteur 5 (considéré comme fixe par rapport à la surface vitrée 0), et le support d'outil 3. Ce dernier est en liaison pivot d'axe $(C,\overrightarrow{X_p})$ avec le porteur. La brosse 4 est en liaison pivot d'axe $(D,\overrightarrow{X_p})$ avec le support d'outil 3. Le point de contact entre la brosse 4 et la surface vitrée fixe 0 est noté I (Document Réponse B9). 
+
+L'objectif est de déterminer l'effort développé par le vérin. On négligera les effets du poids sur l'ensemble des pièces de l'outil. On notera les actions mécaniques d'un solide $i$ sur un solide $j$ : $\overrightarrow{F_{i\rightarrow j}}$. L'action  $\overrightarrow{F_{5\rightarrow 4}}$ appliquée au point I est donnée par: $\overrightarrow{F_{5\rightarrow 4}}=-20.\overrightarrow{Y_p}+100.\overrightarrow{Z_p}$. Le problème peut être résolu sous les hypothèses de statique plane. 
+ 
+\paragraph{Question 1:} Isoler l'ensemble $\left\{1,2\right\}$, établir les 3 équations qui lient les composantes des torseurs statiques.
+
+\paragraph{Question 2:} Isoler l'ensemble $\left\{3,4\right\}$, établir les 3 équations qui lient les composantes des torseurs statiques.
+ 
+\paragraph{Question 3:} En déduire l'action $\overrightarrow{F_{3\rightarrow 2}}$ et donc l'effort dans le vérin. Cette valeur est-elle compatible avec le vérin utilisé.
+
+\ifdef{\public}{\end{document}}{}
+
+\clearpage
+
+\newpage
+
+\section{Correction}
+
+\subsection{Colleuse de lamelle}
+
+\paragraph{Question 2:} 
+
+$\left\{T_{0\rightarrow 10}\right\}=\left\{
+\begin{array}{cc}
+X_{010} & L_{010} \\
+Y_{010} & 0 \\
+Z_{010} & N_{010}
+\end{array}
+\right\}_{O,R_0}$
+
+$\left\{T_{10\rightarrow 11}\right\}=\left\{
+\begin{array}{cc}
+X_{1011} & L_{1011} \\
+Y_{1011} & M_{1011} \\
+Z_{1011} & N_{1011}
+\end{array}
+\right\}_{O,R_0}$, avec $M_{1011}=\frac{P}{2.\pi}.Y_{1011}$
+
+$\left\{T'_{0\rightarrow 11}\right\}=\left\{
+\begin{array}{cc}
+X'_{011} & L'_{011} \\
+0 & 0 \\
+Z'_{011} & N'_{011}
+\end{array}
+\right\}_{B,R_0}=\left\{
+\begin{array}{cc}
+X'_{011} & L'_{011}+\mu.Z'_{011} \\
+0 & a.Z'_{011} \\
+Z'_{011} & N'_{011}-\mu.X'_{011}
+\end{array}
+\right\}_{O,R_0}$
+
+$\left\{T''_{0\rightarrow 11}\right\}=\left\{
+\begin{array}{cc}
+X''_{011} & L''_{011}+\mu.Z''_{011} \\
+0 & -a.Z''_{011} \\
+Z''_{011} & N''_{011}-\mu.X''_{011}
+\end{array}
+\right\}_{O,R_0}$
+
+
+\paragraph{Question 3:}
+
+Isoler 10.
+
+$\left\{\begin{array}{l}
+X_{010}-X_{1011}=0 \\
+Y_{010}-Y_{1011}=0 \\
+Z_{010}-Z_{1011}=0 \\
+L_{010}-L_{1011}=0 \\
+0-M_{010}+C_m=0  \\
+N_{010}-N_{1011}=0 \\
+\end{array}\right.$
+
+\paragraph{Question 4:}
+
+Isoler 11.
+
+$\left\{\begin{array}{l}
+X'_{011}+X''_{011}+X_{1011}=0 \\
+Y_{1011}-P=0 \\
+Z'_{011}+Z''_{011}+Z_{1011}=0 \\
+L'_{011}+\mu.Z'_{011}+L''_{011}+\mu.Z''_{011}+L_{1011}=0 \\
+a.Z'_{011}-a.Z''_{011}0+M_{010}=0  \\
+-\mu.X'_{011}-\mu.X''_{011}+N_{010}=0
+\end{array}\right.$
+
+\paragraph{Question 5:}
+
+$Cm=\frac{p}{2.\pi}.P=0,1N.m$
+
+Le couple nominal est donc suffisant.
+
+\subsection{Démarreur D6RA}
+
+\paragraph{Question 1:}
+
+$\left\{T_{mot\rightarrow 12+4}\right\}=\left\{
+\begin{array}{cc}
+0 & 0 \\
+sin\alpha.\|\overrightarrow{H_{mot\rightarrow 12+4}}\| & 0 \\
+-cos\alpha.\|\overrightarrow{H_{mot\rightarrow 12+4}}\| & 0
+\end{array}
+\right\}_{H,R}$
+
+\paragraph{Question 2:}
+
+$\left\{T_{mot\rightarrow 12+4}\right\}=\left\{
+\begin{array}{cc}
+0 & FH.cos\alpha.\|\overrightarrow{H_{mot\rightarrow 12+4}}\| \\
+sin\alpha.\|\overrightarrow{H_{mot\rightarrow 12+4}}\| & 0 \\
+-cos\alpha.\|\overrightarrow{H_{mot\rightarrow 12+4}}\| & 0
+\end{array}
+\right\}_{F,R}$
+
+$\left\{T_{1\rightarrow 12+4}\right\}=\left\{
+\begin{array}{cc}
+X_I & 0 \\
+Y_I & -FI.Z_I \\
+Z_I & FI.Y_I
+\end{array}
+\right\}_{F,R}$
+
+$\left\{T_{1\rightarrow 12+4}\right\}=\left\{
+\begin{array}{cc}
+0 & 0 \\
+Y_G & FG.Z_G \\
+Z_G & -FG.Y_G
+\end{array}
+\right\}_{F,R}$
+
+$\left\{T_{mot\rightarrow 12+4}\right\}=\left\{
+\begin{array}{cc}
+0 & -120 \\
+0 & 0 \\
+0 & 0
+\end{array}
+\right\}_{F,R}$
+
+
+$\left\{
+\begin{array}{l}
+X_I=0 \\
+sin\alpha.\|\overrightarrow{H_{mot\rightarrow 12+4}}\|+Y_I+Y_G=0 \\
+-cos\alpha.\|\overrightarrow{H_{mot\rightarrow 12+4}}\|+Z_I+Z_G=0 \\
+FH.cos\alpha.\|\overrightarrow{H_{mot\rightarrow 12+4}}\|-120=0 \\
+-FI.Z_I+FG.Z_G=0 \\
+FI.Y_I-FG.Y_G=0
+\end{array}
+\right.$
+
+Donc, $H=\frac{120}{FH.cos\alpha}\approx11605N$
+
+$\left\{\begin{array}{l}
+Z_I=\frac{FG}{FI}.Z_G \\
+Y_I=\frac{FG}{FI}.Y_G \\
+sin\alpha.\|\overrightarrow{H_{mot\rightarrow 12+4}}\|+(\frac{FG}{FI}+1).Y_G=0 \\
+-cos\alpha.\|\overrightarrow{H_{mot\rightarrow 12+4}}\|+(\frac{FG}{FI}+1).Z_G=0 \\
+Y_G=-\frac{sin\alpha.\|\overrightarrow{H_{mot\rightarrow 12+4}}\|}{(\frac{FG}{FI}+1)}\approx-\frac{0,34.11605}{(\frac{25}{65}+1)}\approx-2849N\\
+Z_G=\frac{cos\alpha.\|\overrightarrow{H_{mot\rightarrow 12+4}}\|}{(\frac{FG}{FI}+1)}\approx\frac{0,94.11605}{(\frac{25}{65}+1)}\approx 7878N\\
+Y_I=-Y_G-sin\alpha.\frac{120}{FH.cos\alpha}\approx -1100N \\
+Z_I=-Z_G+\frac{120}{FH}\approx 3030N
+\end{array}\right.$
+
+\paragraph{Question 3:}
+
+La norme en I est donc $\sqrt{Y_I^2+Z_I^2}=\sqrt{1100^2+3030^2}\approx 3200N$, les paliers sont donc bien dimensionnés.
+
+La norme en G est donc $\sqrt{Y_G^2+Z_G^2}=\sqrt{2849^2+7878^2}\approx 8400N$
+ils ne conviendraient pas pour cette liaison.
+
+\subsection{Siège de dentiste}
+
+\paragraph{Question 2:}
+
+$\left\{T_{1\rightarrow 3}\right\}=\left\{
+\begin{array}{cc}
+X_{13} & \sim \\
+Y_{13} & \sim \\
+\sim & 0
+\end{array}
+\right\}_{D,R}$
+
+$\left\{T_{1\rightarrow 4}\right\}=\left\{
+\begin{array}{cc}
+0 & \sim \\
+Y_{14} & \sim \\
+\sim & 0
+\end{array}
+\right\}_{H,R}$
+
+$\left\{T_{3\rightarrow 5}\right\}=\left\{
+\begin{array}{cc}
+0 & \sim \\
+Y_{35} & \sim \\
+\sim & 0
+\end{array}
+\right\}_{K,R}$
+
+$\left\{T_{4\rightarrow 5}\right\}=\left\{
+\begin{array}{cc}
+X_{45} & \sim \\
+Y_{45} & \sim \\
+\sim & 0
+\end{array}
+\right\}_{E,R}$
+
+$\left\{T_{P\rightarrow 5}\right\}=\left\{
+\begin{array}{cc}
+0 & \sim \\
+-P & \sim \\
+\sim & 0
+\end{array}
+\right\}_{G,R}$
+
+$\left\{T_{3\rightarrow 4}\right\}=\left\{
+\begin{array}{cc}
+X_{34} & \sim \\
+Y_{34} & \sim \\
+\sim & 0
+\end{array}
+\right\}_{C,R}$
+
+\paragraph{Question 3:}
+
+La chaine de solides peut être considérée comme un vérin électrique. La norme de l'effort est $\frac{C_m.2.\pi}{p}$ et sa direction est $\overrightarrow{x_6}$.
+
+$\left\{T_{verin \rightarrow 3}\right\}=\left\{
+\begin{array}{cc}
+\frac{C_m.2.\pi}{p} & \sim \\
+0 & \sim \\
+\sim & 0
+\end{array}
+\right\}_{B,R_6}$
+
+
+\paragraph{Question 4:}
+
+Isoler 5
+
+$\left\{T_{3\rightarrow 5}\right\}=\left\{
+\begin{array}{cc}
+0 & \sim \\
+Y_{35} & \sim \\
+\sim & -260.Y_{35}
+\end{array}
+\right\}_{G,R}$
+
+$\left\{T_{4\rightarrow 5}\right\}=\left\{
+\begin{array}{cc}
+X_{45} & \sim \\
+Y_{45} & \sim \\
+\sim & 260.Y_{45}+50.X_{45}
+\end{array}
+\right\}_{G,R}$
+
+$\left\{\begin{array}{l}
+X_{45}=0 \\
+Y_{35}+Y_{45}-P=0 \\
+260.Y_{45}+50.X_{45}-260.Y_{35}=0
+\end{array}\right.$
+
+Donc, $\left\{\begin{array}{l}
+X_{45}=0 \\
+Y_{35}=Y_{45}=\frac{P}{2}
+\end{array}\right.$
+
+\paragraph{Question 5:}
+
+Isoler 4
+
+En prenant en compte les résultats précédents.
+
+$\left\{T_{4\rightarrow 5}\right\}=\left\{
+\begin{array}{cc}
+0 & \sim \\
+\frac{P}{2} & \sim \\
+\sim & 130.P
+\end{array}
+\right\}_{C,R}$
+
+$\left\{T_{1\rightarrow 4}\right\}=\left\{
+\begin{array}{cc}
+0 & \sim \\
+Y_{14} & \sim \\
+\sim & -260.Y_{14}
+\end{array}
+\right\}_{C,R}$
+
+$\left\{\begin{array}{l}
+X_{34}=0 \\
+Y_{34}-\frac{P}{2}+Y_{14}=0 \\
+-130.P-260.Y_{14}=0
+\end{array}\right.$
+
+Donc, $\left\{\begin{array}{l}
+X_{34}=0 \\
+Y_{14}=-\frac{P}{2} \\
+Y_{34}=P
+\end{array}\right.$
+
+\paragraph{Question 6:}
+
+Isoler 3
+
+En prenant en compte les résultats précédents.
+
+$\left\{T_{5\rightarrow 3}\right\}=\left\{
+\begin{array}{cc}
+0 & \sim \\
+-\frac{P}{2} & \sim \\
+\sim & 130.P
+\end{array}
+\right\}_{C,R}$
+
+$\left\{T_{1\rightarrow 3}\right\}=\left\{
+\begin{array}{cc}
+X_{13} & \sim \\
+Y_{13} & \sim \\
+\sim & 260.Y_{13}+100.X_{13}
+\end{array}
+\right\}_{C,R}$
+
+$\left\{T_{verin \rightarrow 3}\right\}=\left\{
+\begin{array}{cc}
+\frac{Cm.2.\pi}{p} & \sim \\
+0 & \sim \\
+\sim & 0
+\end{array}
+\right\}_{B,R_6}=\left\{
+\begin{array}{cc}
+\frac{Cm.2.\pi}{p}.cos\alpha & \sim \\
+\frac{Cm.2.\pi}{p}.sin\alpha & \sim \\
+\sim & 0
+\end{array}
+\right\}_{B,R}$
+
+$\left\{T_{verin \rightarrow 3}\right\}=\left\{
+\begin{array}{cc}
+\frac{Cm.2.\pi}{p}.cos\alpha & \sim \\
+\frac{Cm.2.\pi}{p}.sin\alpha & \sim \\
+\sim & (50.cos\alpha+50.sin\alpha).\frac{Cm.2.\pi}{p}
+\end{array}
+\right\}_{C,R}$
+
+$\left\{T_{4\rightarrow 3}\right\}=\left\{
+\begin{array}{cc}
+0 & \sim \\
+-P & \sim \\
+\sim & 0
+\end{array}
+\right\}_{C,R}$
+
+$\left\{\begin{array}{l}
+X_{13}+\frac{C_m.2.\pi.cos\alpha}{p}=0 \\
+Y_{13}-\frac{P}{2}+\frac{C_m.2.\pi.qin\alpha}{p}-P=0 \\
+130.P+260.Y_{13}+100.X_{13}+(50.cos\alpha+50.sin\alpha).\frac{C_m.2.\pi}{p}=0
+\end{array}\right.$
+
+$520.P=(210.sin\alpha+50.cos\alpha).\frac{C_m.2.\pi}{p}$
+
+$C_m=\frac{p}{2.\pi}.\frac{520}{210.sin\alpha+50.cos\alpha}.P$
+
+$C_m\approx 5N.m$
+
+\subsection{Robot Robuglass}
+
+\paragraph{Question 1:}
+
+Isoler 1 et 2
+
+$\left\{T_{5\rightarrow 1}\right\}=\left\{
+\begin{array}{cc}
+\sim & 0 \\
+Y_{51} & \sim \\
+Z_{51} & \sim
+\end{array}
+\right\}_{A,R_1}$
+
+$\left\{T_{3\rightarrow 2}\right\}=\left\{
+\begin{array}{cc}
+\sim & 0 \\
+Y_{32} & \sim \\
+Z_{32} & \sim
+\end{array}
+\right\}_{B,R_1}=\left\{
+\begin{array}{cc}
+\sim & \lambda.Z_{32} \\
+Y_{32} & \sim \\
+Z_{32} & \sim
+\end{array}
+\right\}_{A,R_1}$
+
+Donc,
+
+$\left\{\begin{array}{l}
+Y_{51}+Y_{32}=0 \\
+Z_{51}+Z_{32}=0
+\end{array}\right.$, ainsi $\left\{\begin{array}{l}
+Y_{51}=-Y_{32}=F_{verin} \\
+Z_{51}=Z_{32}=0
+\end{array}\right.$
+
+\paragraph{Question 2:}
+
+Isoler 3 et 4
+
+En prenant en compte les résultats précédents.
+
+$\left\{T_{2\rightarrow 3}\right\}=\left\{
+\begin{array}{cc}
+\sim & 0 \\
+F_{verin} & \sim \\
+0 & \sim
+\end{array}
+\right\}_{B,R_1}=\left\{
+\begin{array}{cc}
+\sim & 0 \\
+cos\theta_1.F_{verin}  & \sim \\
+sin\theta_1.F_{verin}  & \sim
+\end{array}
+\right\}_{B,R_p}=\left\{
+\begin{array}{cc}
+\sim & X \\
+cos\theta_1.F_{verin} & \sim \\
+sin\theta_1.F_{verin} & \sim
+\end{array}
+\right\}_{C,R_p}$
+
+avec $X=-\left[c.sin(\theta_3-\theta_1)+d.cos(\theta_3-\theta_1)\right].F_{verin}$
+
+$\left\{T_{5\rightarrow 3}\right\}=\left\{
+\begin{array}{cc}
+\sim & 0 \\
+Y_{53} & \sim \\
+Z_{53} & \sim
+\end{array}
+\right\}_{C,R_p}$
+
+$\left\{T_{5\rightarrow 4}\right\}=\left\{
+\begin{array}{cc}
+\sim & 0 \\
+-20 & \sim \\
+100 & \sim
+\end{array}
+\right\}_{I,R_p}=\left\{
+\begin{array}{cc}
+\sim & Y \\
+-20 & \sim \\
+100 & \sim
+\end{array}
+\right\}_{C,R_p}$
+
+avec $Y=(100.e-20.f).cos\theta_3+(100.f+20.e).sin\theta_3-20.r_4$
+
+Donc,
+
+$\left\{\begin{array}{l}
+Y_{53}-20+cos\theta_1.F_{verin}=0 \\
+Z_{53}+100+sin\theta_1.F_{verin}=0 \\
+X+Y=0
+\end{array}\right.$
+
+Donc, $F_{verin}=\frac{(100.e-20.f).cos\theta_3+(100.f+20.e).sin\theta_3-20.r_4}{c.sin(\theta_3-\theta_1)+d.cos(\theta_3-\theta_1)}$
+
+$F_{verin}=\frac{(100.120-20.50).cos30\degree+(100.50+20.120).sin30\degree-20.30}{40.sin15\degree+130.cos15\degree}$
+
+$F_{verin}=92,89N$
+
+\end{document}

@@ -1,0 +1,26 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 07/20/05 by Les Bourgeais
+' *****************************************************************************
+Dim swApp As Object
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long, longwarnings As Long
+Dim FeatureData As Object
+Dim Feature As Object
+Dim Component As Object
+Sub main()
+
+Set swApp = Application.SldWorks
+
+Set Part = swApp.OpenDoc6 ("C:\version 17-07-05 bis\essui-glace scenic\bati\bati.SLDASM", 2, 0, "", longstatus, longwarnings)
+Set Part = swApp.ActivateDoc ("bati")
+swApp.ActiveDoc.ActiveView.FrameLeft = 0
+swApp.ActiveDoc.ActiveView.FrameTop = 0
+swApp.ActiveDoc.ActiveView.FrameState = 1
+swApp.ActiveDoc.ActiveView.FrameState = 1
+swApp.ActiveDoc.ActiveView.FrameState = 1
+Part.Save2 FALSE
+Set Part = Nothing
+swApp.CloseDoc "bati"
+swApp.ExitApp
+End Sub

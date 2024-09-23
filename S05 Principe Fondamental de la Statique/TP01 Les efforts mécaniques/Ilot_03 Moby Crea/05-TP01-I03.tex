@@ -1,0 +1,96 @@
+\newcommand{\entree}{poids du bébé $P$}
+\newcommand{\delentree}{du \entree}
+\newcommand{\lentree}{le \entree}
+\newcommand{\sortie}{couple moteur $C_m$}
+\newcommand{\delasortie}{du \sortie}
+\newcommand{\lasortie}{le \entree}
+\newcommand{\correction}{
+\begin{center}
+ \includegraphics[width=0.2\linewidth]{img/schema_cin}
+\end{center}
+
+$\left\{T_{P\rightarrow 3}\right\}=\left\{\begin{array}{cc}
+0 & 0 \\
+-P & 0 \\
+0 & 0
+\end{array}\right\}_{C,R_0}$
+
+$\left\{T_{C_m\rightarrow 1}\right\}=\left\{\begin{array}{cc}
+0 & 0 \\
+0 & 0 \\
+0 & C_m
+\end{array}\right\}_{A,R_0}$
+
+$\left\{T_{0\rightarrow 1}\right\}=\left\{\begin{array}{cc}
+X_{01} & L_{01} \\
+Y_{01} & M_{01} \\
+Z_{01} & 0
+\end{array}\right\}_{A,R_0}$
+
+$\left\{T_{1\rightarrow 2}\right\}=\left\{\begin{array}{cc}
+X_{12} & L_{12} \\
+Y_{12} & M_{12} \\
+Z_{12} & 0
+\end{array}\right\}_{B,R_0}=\left\{\begin{array}{cc}
+X_{12} & L_{12}+l_1.sin\theta_1.Z_{12} \\
+Y_{12} & M_{12}-l_1.cos\theta_1.Z_{12} \\
+Z_{12} & l_1.(cos\theta_1.Y_{12}-sin\theta_1.X_{12})
+\end{array}\right\}_{A,R_0}$
+
+$\left\{T_{2\rightarrow 3}\right\}=\left\{\begin{array}{cc}
+X_{23} & L_{23} \\
+Y_{23} & M_{23} \\
+Z_{23} & 0
+\end{array}\right\}_{C,R_0}=\left\{\begin{array}{cc}
+X_{23} & L_{23}+l(t).Z_{23} \\
+Y_{23} & M_{23} \\
+Z_{23} & -l(t).X_{23}
+\end{array}\right\}_{A,R_0}$
+
+$\left\{T_{0\rightarrow 3}\right\}=\left\{\begin{array}{cc}
+X_{03} & L_{03} \\
+0 & M_{03} \\
+Z_{03} & N_{03}
+\end{array}\right\}_{A,R_0}$
+
+Isoler 1
+
+$\left\{\begin{array}{l}
+X_{01}-X_{12}=0 \\
+Y_{01}-Y_{12}=0 \\
+Z_{01}-Z_{12}=0 \\
+L_{01}-L_{12}-l_1.sin\theta_1.Z_{12}=0 \\
+M_{01}-M_{12}+l_1.cos\theta_1.Z_{12}=0 \\
+-l_1.(cos\theta_1.Y_{12}-sin\theta_1.X_{12})+C_m=0
+\end{array}\right.$
+
+Isoler 2
+
+$\left\{\begin{array}{l}
+X_{12}-X_{23}=0 \\
+Y_{12}-Y_{23}=0 \\
+Z_{12}-Z_{23}=0 \\
+L_{12}+l_1.sin\theta_1.Z_{12}-L_{23}-l(t).Z_{23}=0 \\
+M_{12}-l_1.cos\theta_1.Z_{12}-M_{23}=0 \\
+l_1.(cos\theta_1.Y_{12}-sin\theta_1.X_{12})+l(t).X_{23}=0
+\end{array}\right.$
+
+Isoler 3
+
+$\left\{\begin{array}{l}
+X_{23}+X_{03}=0 \\
+Y_{23}-P=0 \\
+Z_{23}+Z_{03}=0 \\
+L_{23}+l(t).Z_{23}+L_{03}=0 \\
+M_{23}+M_{03}=0 \\
+N_{03}-l(t).X_{23}=0
+\end{array}\right.$
+
+~\ \\
+$C_m=-l(t).X_{23}=-l(t).X_{12}$
+
+$Y_{23}=P=Y_{12}$
+
+$C_m=\frac{l_1.l(t).cos\theta_1}{l(t)-l_1.sin\theta_1}.P$
+}
+

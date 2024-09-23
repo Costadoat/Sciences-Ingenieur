@@ -1,0 +1,116 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 05/05/03 by AUBLIN
+' ******************************************************************************
+
+Dim swApp As Object
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long
+Dim Annotation As Object
+Dim Gtol As Object
+Dim DatumTag As Object
+Dim FeatureData As Object
+Dim Feature As Object
+Dim Component As Object
+Sub main()
+Set swApp = CreateObject ("SldWorks.Application")
+Set Part = swApp.OpenDoc4 ("C:\Documents and Settings\AUBLIN\Bureau\Lève-vitre ssw\Moteur SW\Moteur conducteur.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.OpenDoc4 ("C:\Documents and Settings\AUBLIN\Bureau\Lève-vitre ssw\Moteur SW\Corps.SLDPRT", 1, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("Corps")
+swApp.ActiveDoc.ActiveView.FrameLeft = 0
+swApp.ActiveDoc.ActiveView.FrameTop = 0
+swApp.ActiveDoc.ActiveView.FrameState = 2
+Set Part = swApp.ActivateDoc ("Moteur conducteur")
+swApp.ActiveDoc.ActiveView.FrameWidth = 900
+swApp.ActiveDoc.ActiveView.FrameHeight = 560
+swApp.LoadFile2 "C:\Documents and Settings\AUBLIN\Bureau\Lève-vitre ssw\Moteur SW\Moteur passager.SLDASM", ""
+Set Part = swApp.ActiveDoc
+Set Part = swApp.OpenDoc4 ("C:\Documents and Settings\AUBLIN\Bureau\Lève-vitre ssw\Moteur SW\Moteur passager.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("Moteur passager")
+swApp.ActiveDoc.ActiveView.FrameWidth = 900
+swApp.ActiveDoc.ActiveView.FrameHeight = 560
+Set Part = swApp.ActivateDoc ("Moteur conducteur")
+Part.ShowNamedView2 "*Face", 1
+Part.ShowNamedView2 "*Isométrique", 7
+Set Part = swApp.ActivateDoc ("Moteur passager")
+Set Part = swApp.ActivateDoc ("Moteur conducteur")
+Part.ShowNamedView2 "*Face", 1
+Set Part = swApp.ActivateDoc ("Moteur passager")
+Part.ShowNamedView2 "*Face", 1
+swApp.LoadFile2 "C:\Documents and Settings\AUBLIN\Bureau\Lève-vitre ssw\Plans et nomenclature\ensemble moto réducteur DT5.SLDDRW", ""
+Set Part = swApp.ActiveDoc
+Set Part = swApp.OpenDoc4 ("C:\Documents and Settings\AUBLIN\Bureau\Lève-vitre ssw\Plans et nomenclature\ensemble moto réducteur DT5.SLDDRW", 3, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("ensemble moto réducteur DT5 - Feuille1")
+Part.EditSketch
+swApp.ActiveDoc.ActiveView.FrameWidth = 869
+swApp.ActiveDoc.ActiveView.FrameHeight = 560
+swApp.LoadFile2 "C:\Documents and Settings\AUBLIN\Bureau\Lève-vitre ssw\Moteur SW\bout.SLDPRT", ""
+Set Part = swApp.ActiveDoc
+Set Part = swApp.OpenDoc4 ("C:\Documents and Settings\AUBLIN\Bureau\Lève-vitre ssw\Moteur SW\bout.SLDPRT", 1, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("bout")
+' MSGBOX
+' C:\Documents and Settings\AUBLIN\Bureau\Lève-vitre ssw\Moteur SW\bout.SLDPRT est référencé par d'autres documents ouverts.  "Enregistrer sous" replacera ces références avec le nouveau nom. Sélectionnez "Enregistrer copie sous" dans la boîte de dialogue "Enregistrer sous" si vous souhaitez garder les références existantes.
+
+swApp.LoadFile2 "C:\Documents and Settings\AUBLIN\Bureau\Lève-vitre ssw\Lève vitre SW\lève-vitre.SLDASM", ""
+Set Part = swApp.ActiveDoc
+Set Part = swApp.OpenDoc4 ("C:\Documents and Settings\AUBLIN\Bureau\Lève-vitre ssw\Lève vitre SW\lève-vitre.SLDASM", 2, 0, "", longstatus)
+swApp.LoadFile2 "C:\Documents and Settings\AUBLIN\Bureau\Lève-vitre ssw\Lève vitre SW\demi bras secondaire base.SLDPRT", ""
+Set Part = swApp.ActiveDoc
+Set Part = swApp.OpenDoc4 ("C:\Documents and Settings\AUBLIN\Bureau\Lève-vitre ssw\Lève vitre SW\demi bras secondaire base.SLDPRT", 1, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("demi bras secondaire base")
+swApp.ActiveDoc.ActiveView.FrameLeft = 0
+swApp.ActiveDoc.ActiveView.FrameTop = 0
+swApp.ActiveDoc.ActiveView.FrameState = 2
+Set Part = swApp.ActivateDoc ("lève-vitre")
+swApp.ActiveDoc.ActiveView.FrameWidth = 900
+swApp.ActiveDoc.ActiveView.FrameHeight = 560
+swApp.LoadFile2 "C:\Documents and Settings\AUBLIN\Bureau\Lève-vitre ssw\Plans et nomenclature\plan ensemble DT1.SLDDRW", ""
+Set Part = swApp.ActiveDoc
+Set Part = swApp.OpenDoc4 ("C:\Documents and Settings\AUBLIN\Bureau\Lève-vitre ssw\Plans et nomenclature\plan ensemble DT1.SLDDRW", 3, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("plan ensemble DT1 - Feuille2")
+swApp.ActiveDoc.ActiveView.FrameWidth = 869
+swApp.ActiveDoc.ActiveView.FrameHeight = 560
+Set Part = swApp.ActivateDoc ("bout")
+' MSGBOX
+' C:\Documents and Settings\AUBLIN\Bureau\Lève-vitre ssw\Moteur SW\bout.SLDPRT est référencé par d'autres documents ouverts.  "Enregistrer sous" replacera ces références avec le nouveau nom. Sélectionnez "Enregistrer copie sous" dans la boîte de dialogue "Enregistrer sous" si vous souhaitez garder les références existantes.
+
+Part.SaveAs2 "C:\Documents and Settings\AUBLIN\Bureau\Lève-vitre ssw\Moteur SW\butée axiale.SLDPRT", 0, FALSE, FALSE
+Set Part = Nothing
+swApp.CloseDoc "butée axiale"
+Set Part = swApp.ActivateDoc ("plan ensemble DT1 - Feuille2")
+Part.EditSketch
+Part.EditSketch
+Set Part = swApp.ActivateDoc ("Moteur conducteur")
+Part.Save2 FALSE
+Set Part = swApp.ActivateDoc ("Moteur passager")
+Part.Save2 FALSE
+Set Part = swApp.ActivateDoc ("ensemble moto réducteur DT5 - Feuille1")
+Part.Save2 FALSE
+Set Part = Nothing
+swApp.CloseDoc "ensemble moto réducteur DT5 - Feuille1"
+Set Part = swApp.ActivateDoc ("Moteur passager")
+Set Part = swApp.ActivateDoc ("plan ensemble DT1 - Feuille2")
+' MSGBOX
+' Certains des modèles référencées dans ce document ont été modifiés. Ils doivent être enregistrés lorsque le document est enregistré.
+' 		Enregistrer le document et les modèles référencés maintenant ?
+
+Part.Save2 FALSE
+Set Part = Nothing
+swApp.CloseDoc "plan ensemble DT1 - Feuille2"
+Set Part = swApp.ActivateDoc ("Moteur passager")
+Set Part = Nothing
+swApp.CloseDoc "Moteur passager"
+Set Part = swApp.ActivateDoc ("Moteur conducteur")
+Set Part = Nothing
+swApp.CloseDoc "Moteur conducteur"
+Set Part = swApp.ActivateDoc ("lève-vitre")
+Set Part = Nothing
+swApp.CloseDoc "lève-vitre"
+Set Part = swApp.ActivateDoc ("demi bras secondaire base")
+Set Part = Nothing
+swApp.CloseDoc "demi bras secondaire base"
+Set Part = swApp.ActivateDoc ("Corps")
+Set Part = Nothing
+swApp.CloseDoc "Corps"
+swApp.ExitApp
+End Sub

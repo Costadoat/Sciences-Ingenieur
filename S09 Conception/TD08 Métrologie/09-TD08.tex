@@ -1,0 +1,105 @@
+\input{../../headers/tdheaders.tex}
+
+\section{Corps de raboteuse}
+\begin{minipage}{0.6\linewidth}
+Une raboteuse est une machine-outil des métiers du bois. Elle sert à usiner une pièce de bois, préalablement dressée à l'aide d'une dégauchisseuse, pour l'amener à l'épaisseur et à la largeur désirées par enlèvements successifs de matière.
+\end{minipage}
+ \hfill
+\begin{minipage}{0.35\linewidth}
+ \centering\includegraphics[width=0.9\linewidth]{img/Fig1}
+\end{minipage}
+
+~\
+
+\begin{minipage}{0.35\linewidth}
+ \centering\includegraphics[width=0.9\linewidth]{img/Fig2}
+\end{minipage}
+ \hfill
+\begin{minipage}{0.6\linewidth}
+Le profondeur de la passe prise par la raboteuse correspond à l'enfoncement du fer dans le bois. Afin de garantir la stabilité de la raboteuse, le talon est situé sur un plan parallèle à celui du nez et juste en dessous.
+
+Cette étude va traiter de la position relative des surface du corps qui permettent ce bon fonctionnement.
+\end{minipage}
+
+\subsection{1 Analyse des spécifications}
+
+Dans cette partie, il s'agit de préciser le modèle défini par le dessin industriel. On restreint le problème à l'étude des surfaces 1 et 2.
+
+\paragraph{Question 1 :} Définir le modèle géométrique nominal, notamment en donnant la nature des surfaces
+fonctionnelles et en explicitant bien les paramètres de situation relative des deux surfaces.
+
+\paragraph{Question 2 :} Expliciter selon les normes, chacune des spécifications faisant l'objet de l'étude.
+
+\paragraph{Question 3 :} Expliciter fonctionnellement le rôle de chacune de ces spécifications.
+
+
+\subsection{Technique traditionnelle de contrôle}
+
+On étudiera dans cette partie le positionnement de la pièce afin de la contrôler. On possède dans un premier temps trois vérins à vis afin de positionner la pièce.
+
+
+\paragraph{Question 4 :} Pourquoi cette installation est-elle préférable à celle qui consisterait simplement à
+faire reposer la pièce directement sur le marbre?
+
+\paragraph{Question 5 :} Quelles précautions prenez-vous ? Les justifier.
+
+\paragraph{Question 6 :} Où positionnez-vous les vérins sur la pièce ? Justifier.
+
+\newpage
+
+Pour la spécification de parallélisme et de localisation, la surface 1 est prise en référence. En
+conséquence, on adopte la méthode suivante :
+
+\begin{enumerate}
+ \item A l'aide des vérins et d'un ensemble comparateur et porte comparateur, placer trois
+points ($A_1$, $A_2$, $A_3$) de la surface 1 à une même altitude par rapport au marbre,
+ \item Déplacer la touche du comparateur sur la surface 1 et relever les valeurs mini et maxi
+observées soit ($h_{mini}$, $h_{maxi}$),
+ \item Mettre à zéro l'indication du comparateur à l'altitude des points ($A_1$, $A_2$, $A_3$). Déplacer la
+touche du comparateur sur la surface 2 et relever les valeurs mini et maxi observées soit ($H_{mini}$, $H_{maxi}$).
+\end{enumerate}
+
+\paragraph{Question 7 :} Comment vérifier la spécification de planéité?
+
+\paragraph{Question 8 :} Comment vérifier la spécification de parallélisme?
+
+\paragraph{Question 9 :} Comment vérifier la spécification de position?
+
+\subsection{Mesure à l'aide d'une MMT}
+
+On envisage de relever la position {x, y, z} de quelques points caractéristiques de la surface 4 (points des extrémités, bosses, creux,...)
+
+\paragraph{Question 10 :} Proposer un ensemble de points caractéristiques.
+
+\paragraph{Question 11 :} Proposer un ensemble de points caractéristiques sur la surface 1.
+
+\paragraph{Question 12 :} Quel type de surface doit être associé à cette surface et quels sont les critères d'association (dans la norme ISO pour la spécification, dans les logiciels des MMT)
+
+A partir de la référence spécifiée construite plus haut, il est possible de construire la zone de tolérance.
+
+\paragraph{Question 13 :} Construire la zone de tolérance éléments par éléments.
+
+\paragraph{Question 14 :} Donner le critère mathématique de validité de la surface :
+\begin{itemize}
+ \item pour la spécification de forme,
+ \item pour la spécification d'orientation,
+ \item pour la spécification de position.
+\end{itemize}
+
+L'exploration de l'intégralité de la surface 1 avec le comparateur permet de dire si le défaut de forme ne dépasse pas la valeur spécifiée.
+
+\subsection{Comparaison des deux méthode de contrôle}
+
+Confronter la mise en place des deux méthode de contrôle de la géométrie.
+
+\paragraph{Question 15 :} Donner les avantages et les inconvénients de chacune d'elles.
+
+\newpage
+
+\centering\includegraphics[width=0.9\linewidth]{img/Fig3}
+
+~\
+
+\centering\includegraphics[width=0.9\linewidth]{img/Fig4}
+
+\end{document}

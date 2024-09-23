@@ -1,0 +1,312 @@
+\input{../../headers/tdheaders.tex}
+
+\section{Borne de calage}
+
+\subsection{Création d'une esquisse}
+
+\begin{minipage}{0.6\linewidth}
+Croquis de la pièce, appelée "Corps", en perspective avec les cotes principales.
+\end{minipage}
+\hfill
+\begin{minipage}{0.35\linewidth}
+\begin{center}
+ \includegraphics[width=4cm]{img/001_4}
+\end{center}
+\end{minipage}
+
+\begin{minipage}{0.75\linewidth}
+\begin{itemize}
+ \item Créez un nouveau fichier pièce
+  \begin{itemize}
+  \item Enregistrez votre travail sous : "Borne de calage/Corps"
+  \end{itemize}
+ \item Créer un volume de base
+  \begin{itemize}
+  \item Ouvrir une esquisse,
+  \item Tracer l'esquisse du volume de base,
+  \item Réalisez le contour fermé suivant en plaçant le premier point sur l'origine.
+  \end{itemize} 
+ \item Coter l'esquisse
+  \begin{itemize}
+  \item Cotez l'esquisse avec l'outil cotation largeur 68 mm, hauteur 74 mm.
+  \end{itemize}
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.23\linewidth}
+\includegraphics[width=0.9\linewidth]{img/002_5}
+\end{minipage}
+
+\subsection{Création d'un volume}
+
+\begin{minipage}{0.75\linewidth}
+\begin{itemize}
+ \item Créer le bossage extrusion
+  \begin{itemize}
+  \item Sélectionnez la fonction volumique base/bossage extrudé,
+  \item Dans la fenêtre de la fonction volumique base/bossage extrudé,
+    \begin{itemize}
+    \item Réglez la condition d'extrusion sur plan milieu
+    \item Réglez la longueur d'extrusion à la valeur de 68 mm
+    \item Validez
+    \end{itemize}
+  \end{itemize}
+ \item Après avoir validez vous pouvez renommer la fonction volumique dont l'ancien nom devient bleu. (s'il n'est pas bleu vous pouvez le sélectionner en double-cliquant lentement sur l'ancien nom)
+ \item Nommez la fonction volumique : "Volume de base".
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.23\linewidth}
+\includegraphics[width=0.9\linewidth]{img/003_3} \\ \vfill
+\includegraphics[width=0.9\linewidth]{img/004_3} \\ \vfill
+\includegraphics[width=0.9\linewidth]{img/005}
+\end{minipage}
+
+\subsection{Création d'une rainure}
+
+\textbf{Esquisse}
+
+~\
+
+\begin{minipage}{0.75\linewidth}
+\begin{itemize}
+ \item Orienter l'esquisse face à vous, pour cela choisissez l'icône "Normal à",
+ \item Choisir l'icône esquisse,
+ \item Tracer un rectangle correspondant à la rainure souhaitée à l'aide de l'outil,
+ \item Coter l'esquisse avec l'outil cotation largeur 51mm, hauteur 21 mm,
+ \item Coter en position la rainure, horizontalement et verticalement.
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.23\linewidth}
+\includegraphics[width=0.9\linewidth]{img/008}
+\end{minipage}
+
+\textbf{Volume}
+
+~\
+
+\begin{minipage}{0.75\linewidth}
+\begin{itemize}
+ \item Sélectionnez la fonction volumique enlèvement matière extrudé
+ \item Dans la fenêtre de la fonction :
+ \begin{itemize}
+ \item Régler la condition d'enlèvement sur A travers tout
+ \item Valider
+ \end{itemize}
+ \item Nommez la fonction volumique : rainure.
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.23\linewidth}
+\includegraphics[width=0.9\linewidth]{img/009}
+\end{minipage}
+
+\subsection{Création d'un chanfrein}
+
+\begin{minipage}{0.75\linewidth}
+\begin{itemize}
+ \item Orienter la vue comme ci-contre,
+ \item Ouvrir la fonction volumique chanfrein,
+ \item Sélectionner les deux arêtes en avant de l'image suivante,
+ \item Créer des plans inclinés
+ \item Réglez les paramètres de chanfrein :
+ \begin{itemize}
+  \item distance-distance
+  \item valeur 1 = 20
+  \item valeur 2 = 44
+ \end{itemize}
+ \item Nommer la fonction : chanfreins latéraux 1.
+ \item Sélectionner l'arête arrière,
+ \item Créer le « chanfrein » et régler les paramètres de chanfrein :
+ \begin{itemize}
+  \item distance-angle,
+  \item distance = 24,
+  \item angle = 45°.
+ \end{itemize}
+ \item Nommer la fonction: "Chanfrein arrière".  
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.23\linewidth}
+\includegraphics[width=0.7\linewidth]{img/011} \\ \vfill
+\includegraphics[width=0.7\linewidth]{img/013} \\ \vfill
+\includegraphics[width=0.7\linewidth]{img/014}
+\end{minipage}
+
+\subsection{Création d'un trou}
+
+\begin{minipage}{0.75\linewidth}
+\begin{itemize}
+ \item Sélectionnez la face supérieure du modèle qui devient verte,
+ \item Créer le trou par assistance pour le perçage
+ \begin{itemize}
+  \item Sélectionnez la fonction volumique,
+  \item Choisissez l'onglet données précédentes,
+  \item Type de perçage : simple,
+  \item Diamètre : 20,
+  \item Pour la profondeur, choisir "Condition de fin": "A travers tout",
+  \item Cliquez sur suivant puis Terminer.
+ \end{itemize}
+ \item Nommer la fonction : "trou débouchant".
+ \item Positionner le trou,
+ \begin{itemize}
+  \item Orienter la vue comme ci-contre en choisissant l'icône vue de dessus,
+  \item Double cliquer sur la fonction volumique trou débouchant que vous venez de renommer,
+  \item Cliquer sur "Éditer l'esquisse",
+  \item Créez une ligne de construction passant par les points milieux,
+  \item Glissez le centre du cercle sur la ligne de construction puis lâchez,
+  \item Cotez la position du trou débouchant.
+ \end{itemize}
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.23\linewidth}
+\includegraphics[width=0.7\linewidth]{img/012} \\ \vfill
+\includegraphics[width=0.7\linewidth]{img/018}
+\end{minipage}
+
+\subsection{Création d'un trou lamé}
+
+\textbf{Créer un trou lamé débouchant}
+
+~\
+
+\begin{minipage}{0.75\linewidth}
+\begin{itemize}
+ \item Sélectionner la surface,
+ \item Orientez la vue comme ci-contre,
+ \item Sélectionnez la face avant du modèle qui devient verte,
+ \item Sélectionnez la fonction volumique,
+ \item Choisissez l'onglet données précédentes,
+ \item Type de perçage : chambrage (lamage),
+ \begin{itemize}
+  \item Diamètre perçage: 5,
+  \item Ne pas compléter la profondeur,
+  \item Diamètre chambrage : 12,
+  \item Profondeur : 1,
+  \item Cliquez sur suivant puis Terminer,
+  \item Condition de fin : Jusqu'à la prochaine surface.
+ \end{itemize}
+ \item Nommer la fonction volumique : trou lamé
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.23\linewidth}
+\includegraphics[width=0.9\linewidth]{img/020} \\ \vfill
+\includegraphics[width=0.9\linewidth]{img/021}
+\end{minipage}
+
+\subsection{Création d'un trou lamé}
+
+\textbf{Positionner un trou lamé débouchant}
+
+~\
+
+\begin{minipage}{0.75\linewidth}
+\begin{itemize}
+ \item Orienter la vue comme ci-contre,
+ \item Double cliquer sur la fonction volumique trou lamé,
+ \item Cliquer sur "Éditer l'esquisse",
+  \begin{itemize}
+  \item Créer une ligne de construction passant par l'axe du trou,
+  \item Glisser le centre du cercle sur la ligne de construction puis lâchez,
+  \item Coter la position du trou lamé : 13 mm.
+ \end{itemize}
+ \item Sélectionner l'arête
+ \begin{itemize}
+  \item Orientez la vue comme ci-contre,
+  \item Sélectionnez l'arête du trou qui devient verte
+ \end{itemize}
+ \item Créer le taraudage par «la représentation de filetage »
+ \begin{itemize}
+  \item Sélectionnez la fonction volumique,
+  \item Représentation de filetage,
+  \item Entrez la valeur du taraudage : 6,
+  \item Indiquez la condition de fin : A travers tout,
+  \item Validez : ok
+ \end{itemize}
+ \item Enregistrer votre travail.
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.23\linewidth}
+\includegraphics[width=0.9\linewidth]{img/022} \\ \vfill
+\includegraphics[width=0.9\linewidth]{img/023}
+\end{minipage}
+
+\subsection{Modélisation de l'axe}
+
+\begin{minipage}{0.4\linewidth}
+A partir de l'esquisse suivante.
+\end{minipage}
+\hfill
+\begin{minipage}{0.58\linewidth}
+\includegraphics[width=0.9\linewidth]{img/025}
+\end{minipage}
+
+\begin{minipage}{0.3\linewidth}
+\includegraphics[width=0.9\linewidth]{img/024}
+\end{minipage}
+\hfill
+\begin{minipage}{0.68\linewidth}
+Modéliser la pièce suivante. Prendre toutes les décisions nécessaires si les informations permettant la modélisation ne sont pas complètes.
+\end{minipage}
+
+\subsection{Modélisation de l'écrou}
+
+\begin{minipage}{0.4\linewidth}
+A partir de l'esquisse suivante.
+\end{minipage}
+\hfill
+\begin{minipage}{0.58\linewidth}
+\includegraphics[width=0.8\linewidth]{img/029}
+\end{minipage}
+
+\begin{minipage}{0.3\linewidth}
+\includegraphics[width=0.7\linewidth]{img/026}
+\end{minipage}
+\hfill
+\begin{minipage}{0.68\linewidth}
+Modéliser la pièce suivante. Prendre toutes les décisions nécessaires si les informations permettant la modélisation ne sont pas complètes.
+\end{minipage}
+
+\subsection{Modélisation de la vis}
+
+\begin{minipage}{0.4\linewidth}
+A partir de l'esquisse suivante.
+\end{minipage}
+\hfill
+\begin{minipage}{0.58\linewidth}
+\includegraphics[width=0.9\linewidth]{img/028}
+\end{minipage}
+
+\begin{minipage}{0.3\linewidth}
+\includegraphics[width=0.8\linewidth]{img/027}
+\end{minipage}
+\hfill
+\begin{minipage}{0.68\linewidth}
+Modéliser la pièce suivante. Prendre toutes les décisions nécessaires si les informations permettant la modélisation ne sont pas complètes.
+\end{minipage}
+
+\subsection{Mise en mouvement}
+
+A l'aide de l'onglet Meca3D, mettre en place des liaisons sur le système et montrer une mise en mouvement.
+
+\newpage
+
+\section{Cavalier}
+
+Un cavalier est une pièce constituée d'un clou et d'une arche en plastique permettant de guider des câbles.
+
+\begin{minipage}{0.4\linewidth}
+ \includegraphics[width=0.9\linewidth]{img/cavalier1}
+\end{minipage}\hfill
+\begin{minipage}{0.55\linewidth}
+ \includegraphics[width=0.9\linewidth]{img/cavalier2}
+\end{minipage}
+
+\paragraph{Question 1:} Réaliser l'arbre de construction de l'arche du cavalier.
+
+\end{document}
+

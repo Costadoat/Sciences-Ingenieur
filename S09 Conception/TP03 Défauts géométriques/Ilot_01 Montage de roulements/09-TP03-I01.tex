@@ -1,0 +1,274 @@
+\input{../../../headers/tdheaders.tex}
+
+\section{Présentation}
+
+\subsection{La modélisation du système}
+
+\begin{itemize}
+ \item Afin de mettre en évidence l'influence des écarts géométriques et de leur contrôle, le système de la cordeuse va être utilisé et plus précisément, la partie liaison glissière.
+ \item Dans un premier temps, une solution alternative afin de réaliser une liaison glissière va être utilisée. Cette solution consiste à mettre en place deux liaisons pivots glissants parallèles afin de définir une liaison glissière.
+ \item Il a déjà été montré que la liaison équivalente à deux liaisons pivot-glissants est une liaison glissière. La justification par les torseurs cinématique est la suivante:
+\end{itemize}
+
+\begin{eqnarray}
+& \left\{T_{1/2}\right\}=\left\{\begin{array}{c c}
+0 & 0 \\
+0 & 0 \\
+\omega_{z12} & V_{z12,O_{1}}
+\end{array}\right\}_{O_{1}}=
+\left\{\begin{array}{c c}
+0 & 0 \\
+0 & 0 \\
+\omega_{z12} & V_{z12,O_{1}}
+\end{array}+\left(\begin{array}{c}
+L \\
+0 \\
+0
+\end{array}\right)\wedge
+\left(
+\begin{array}{c}
+0 \\
+0 \\
+\omega_{z12}
+\end{array}\right)\right\}_{O_{2}} \nonumber
+\end{eqnarray}
+
+\begin{eqnarray}
+& \left\{T_{1/2}\right\}=\left\{\begin{array}{c c}
+0 & 0 \\
+0 & - L \times \omega_{z12} \\
+\omega_{z12} & V_{z12,O_{1}}
+\end{array}\right\}_{O_{2}}=
+\left\{T'_{1/2}\right\}=\left\{\begin{array}{c c}
+0 & 0 \\
+0 & 0 \\
+\omega'_{z12} & V'_{z12,O_{1}}
+\end{array}\right\}_{O_{2}} \nonumber
+\end{eqnarray}
+
+\begin{itemize}
+ \item Donc, $\omega_{z12}=\omega_{z12}=0$ et $V_{z12,O_{1}}=V'_{z12,O_{1}}$, ce qui montre bien que la \textbf{rotation a été supprimée} et que la translation est toujours libre. La liaison est bien une \textbf{liaison glissière}.
+ \item Le choix de la conception d'une liaison glissière peut provenir de problèmes d'encombrement, de répartition des efforts,etc... Ils ne sont pas pour autant équivalents du point de vue des variations géométriques.
+ \item La construction d'une liaison glissière à partir de liaisons pivot-glissant est génératrice \textbf{d'hyperstatisme} ce qui mène à des problèmes de \textbf{montabilité}.
+ \item Il a déjà été vu que pour résoudre la montabilité d'un système hyperstatique, la précision de la fabrication peut être une solution.
+ \item \textit{Il en existe d'autres, quelles sont-elles?}
+\end{itemize}
+
+\subsection{La modélisation des défauts}
+
+L'objectif de ce TP va être de mettre en évidence les \textbf{défauts} qui seraient susceptibles d'empêcher le montage de la liaison. Pour cela nous allons utiliser un modèle permettant de \textbf{modéliser} l'influence de certains types de défauts: les \textbf{torseurs de petits déplacements} appliqués dans le cadre de petits écarts.
+
+\vspace{1cm}
+
+Ce torseur est complété de la façon suivante,:
+\begin{itemize}
+ \item la colonne de \textbf{gauche} modélise les déplacements en \textbf{rotation},
+ \item la colonne de \textbf{droite} les déplacements en \textbf{translation}.
+\end{itemize}
+
+De plus:
+\begin{itemize}
+ \item une lettre \textbf{MAJUSCULE} présente un \textbf{grand} déplacement,
+ \item une lettre \textbf{minuscule} présente un \textbf{petit} déplacement.
+\end{itemize}
+
+Un déplacement est défini comme grand lorsqu'il ne change pas la nature de la surface (rotation d'un cylindre autour de son axe).
+
+Le torseur suivant en est un exemple:
+\begin{eqnarray}
+& \left\{T_{1/2}\right\}=\left\{\begin{array}{c c}
+\alpha_{1/2} & u_{1/2,O_{1}} \\
+\beta_{1/2} & v_{1/2,O_{1}} \\
+\Gamma_{1/2} & W_{1/2,O_{1}}
+\end{array}\right\}_{O_{1}}
+\end{eqnarray}
+
+\section{Application à l'étude}
+
+Après cette modélisation des défauts, il est alors possible de modéliser les liaisons qui constituent la liaison glissière présentée à la figure \ref{meca_hyp}.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=0.8\linewidth]{img/Fig1.png}
+\caption{Solution hyperstatique pour une liaison glissière}
+\label{meca_hyp}
+\end{center}
+\end{figure}
+
+Cette liaison est conçue en mettant en vis à vis deux paires de cylindres. On appelera:
+\begin{itemize}
+ \item $1a$, le cylindre appartenant à la pièce $1$ au point $O_1$,
+ \item $1b$, le cylindre appartenant à la pièce $1$ au point $O_2$,
+ \item $2a$, le cylindre appartenant à la pièce $2$ au point $O_1$,
+ \item $2b$, le cylindre appartenant à la pièce $2$ au point $O_2$.
+\end{itemize}
+
+Ainsi, $1a$ est en contact avec $2a$ et $1b$ est en contact avec $2b$.
+
+Il est alors possible de définir la position relative des deux pièces en écrivant deux équations:
+\begin{eqnarray}
+& & \left\{T_{1/2}\right\}=\left\{T_{1/1a}\right\}+ \left\{T_{1a/2a}\right\}+\left\{T_{2a/2}\right\} \nonumber \\
+& & \left\{T'_{1/2}\right\}=\left\{T_{1/1b}\right\}+ \left\{T_{1b/2b}\right\}+\left\{T_{2b/2}\right\}, avec \nonumber \\
+& & \left\{T_{1/2}\right\}+\left\{T'_{2/1}\right\}=\left\{0\right\}
+\end{eqnarray}
+
+Les torseurs $\left\{T_{1/1a}\right\}$, $\left\{T_{2a/2}\right\}$, $\left\{T_{1/1b}\right\}$ et $\left\{T_{2b/2}\right\}$ correspondent aux défauts géométriques des surfaces par rapport à la pièce.
+
+Les torseurs $\left\{T_{1a/2a}\right\}$ et $\left\{T_{1b/2b}\right\}$ correspondent aux jeux entre les pièces dans les liaisons en $O_1$ et $O_2$.
+
+\section{Les écarts géométriques}
+
+Afin de mettre en évidence l'influence des écarts géométriques et de leur contrôle, le système de la cordeuse va être utilisé et plus précisément, la partie liaison glissière.
+
+\subsection{La modélisation des défauts}
+
+\paragraph{Question 1:} Quels sont les grands déplacements qui ne modifie pas cette surface ?
+
+\reponse[2]
+
+\paragraph{Question 2:} Qu'en déduire quant à la nature de la surface ?
+
+\reponse[2]
+
+\paragraph{Question 3:} Écrire les torseurs des écarts concernant les surfaces en $O_1$ et en $O_2$ de la pièce 1 puis de la pièce 2.
+
+\begin{minipage}{0.48\linewidth}
+\begin{eqnarray}
+& \left\{T_{1/1a}\right\}=\left\{\begin{array}{m{2cm} c}
+ &  \\
+ &  \\
+ & 
+\end{array}\right\}_{O_{1}}
+\end{eqnarray}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\linewidth}
+\begin{eqnarray}
+& \left\{T_{2a/2}\right\}=\left\{\begin{array}{m{2cm} c}
+ &  \\
+ &  \\
+ & 
+\end{array}\right\}_{O_{1}}
+\end{eqnarray}
+\end{minipage}
+
+\begin{minipage}{0.48\linewidth}
+\begin{eqnarray}
+& \left\{T_{1/1b}\right\}=\left\{\begin{array}{m{2cm} c}
+ &  \\
+ &  \\
+ & 
+\end{array}\right\}_{O_{2}}
+\end{eqnarray}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\linewidth}
+\begin{eqnarray}
+& \left\{T_{2b/2}\right\}=\left\{\begin{array}{m{2cm} c}
+ &  \\
+ &  \\
+ & 
+\end{array}\right\}_{O_{2}}
+\end{eqnarray}
+\end{minipage}
+
+Pour le moments, le jeu entre les surfaces des deux pièces sera considéré comme nul, ainsi $\left\{T_{1a/2a}\right\}=\left\{0\right\}$ et $\left\{T_{1b/2b}\right\}=\left\{0\right\}$
+
+\paragraph{Question 4:} Calculer les torseurs $\left\{T_{1/2}\right\}_{O_1}$ et $\left\{T'_{1/2}\right\}_{O_2}$. Les déplacer au même point ($O_2$) et écrire les équations scalaires liées au système suivant: $\left\{T_{1/2}\right\}+\left\{T'_{2/1}\right\}=\left\{0\right\}$.
+
+\newpage
+
+\paragraph{Question 5:} Lister les \textbf{grands} déplacements qui s'écrivent en fonction de \textbf{grands} déplacements.
+
+\reponse[4]
+
+\paragraph{Question 6:} Ceux-ci sont normalement toujours des degrés de liberté dans la liaison équivalente, est-ce vrai ?
+
+\reponse[2]
+
+\paragraph{Question 7:} Lister les \textbf{grands} déplacements qui ne s'écrivent qu'en fonction de \textbf{petits} déplacements.
+
+\reponse[4]
+
+Ceux-ci sont normalement bloqués par la liaison équivalente.
+
+\paragraph{Question 8:} Lister les \textbf{petits} déplacements qui ne s'écrivent qu'en fonction de \textbf{petits} déplacements.
+
+\reponse[4]
+
+Ces équations génèrent des contraintes géométriques. Afin de pouvoir spécifier les défauts, essayer de regrouper les variables par pièce. Par exemple, au lieu d'écrire: $x_{1/1a}+x_{1b/1}$, écrire plutôt $x_{1b/1a}$.
+
+\paragraph{Question 9:} Quels sont les défauts qui apparaissent sur vos équations. Est-ce logique ?
+
+\reponse[2]
+
+Normalement, les défauts qui devraient alors apparaître sont ceux représentés sur la figure \ref{degres_hyp}.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=0.8\linewidth]{img/Fig2.png}
+\caption{Degrés d'hyperstatisme de la solution}
+\label{degres_hyp}
+\end{center}
+\end{figure}
+
+\paragraph{Question 10:} Vos résultats sont-ils compatibles avec ceux présentés sur la figure \ref{degres_hyp} ?
+
+\reponse[2]
+
+\subsection{Conclusion}
+
+Nous avons vu dans cet exemple que des degrés d'hyperstatisme dans un système généraient des contraintes à prendre en compte concernant les défauts géométriques.
+
+Nous savons que la solution qui a été choisie dans le cadre de la cordeuse consiste à rendre le système isostatique, ce qui a pour effet de faire disparaître ces problèmes.
+
+Nous aurions pu tout aussi bien ajouter du jeu dans la conception afin de garantir la montabilité. Ceci aurait eu pour effet mathématiquement de rendre non nuls les torseurs $\left\{T_{1a/2a}\right\}$ et $\left\{T_{1b/2b}\right\}$
+
+\newpage
+
+\section{Les jeux}
+
+\begin{minipage}{0.48\linewidth}
+Dans cette partie, nous allons étudier l'influence des jeux dans la montabilité des systèmes.
+
+Nous allons pour cela utiliser les montages de roulements à rouleaux disponibles dans le labo de sciences industrielles.
+
+Ceux-ci sont constitués de deux liaisons en parallèle entre un arbre \textbf{1} et un alésage \textbf{2}.
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+ \includegraphics[width=0.8\linewidth]{img/Fig3.png}
+\end{minipage}
+
+\subsection{Modélisation des défauts et des jeux}
+
+\paragraph{Question 11:} Modéliser cinématiquement cet assemblage et le paramétrer (Points, liaisons, repères). Afin de simplifier l'étude, la bague extérieure du roulement sera liée à l'alésage et la bague intérieure sera liée à l'arbre.
+
+Définir les surfaces de contact.
+
+\paragraph{Question 12:} Modéliser les torseurs d'\textbf{écarts} de ces surfaces ainsi que les torseurs de \textbf{jeu}.
+
+\reponse[8]
+
+\paragraph{Question 13:} Définir les torseurs des positions relatives des pièces et résoudre le système qui lie ces torseurs.
+
+\reponse[8]
+
+\subsection{Comment les jeux compensent les défauts}
+
+\paragraph{Question 14:} Déterminer quelles composantes des torseurs de jeu doivent être non-nulles afin de compenser les défauts géométriques des pièces.
+
+\reponse[4]
+
+\paragraph{Question 15:} Cette conclusion vous paraît-elle logique et correspond-t-elle à la réalité?
+
+\reponse[2]
+
+\subsection{Conclusion}
+
+Ce TP a donc permis dans un premier temps de déterminer les défauts géométriques des pièces ainsi que leur influence. Il a ensuite permis de montrer que les jeux permettaient de compenser ces problèmes.
+
+Cependant, les jeux peuvent générer des problèmes de leur côté (vibrations, ...) il ne faut donc pas en abuser, c'est pour cela que les défauts géométriques ainsi que les jeux devront être limités, c'est ce que nous feront plus tard dans le cours de spécifications.
+
+
+\end{document}

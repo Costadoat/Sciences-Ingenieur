@@ -1,0 +1,213 @@
+\input{../../headers/beamercoursHeadings}
+
+\section{Écarts géométriques}
+
+\setcounter{framenumber}{0}
+
+{\frame{
+\frametitle{Introduction}
+
+\begin{savoir}
+Vous êtes capables :
+\begin{itemize}
+ \item De définir le modèle nominal d'une pièce ou d'un assemblage,
+ \item D'analyser un cahier des charges afin de déterminer les exigences sur une pièce.
+\end{itemize}
+\end{savoir}
+
+\begin{prob}
+Vous devez êtes capables :
+\begin{itemize}
+ \item De déterminer les défauts acceptables d'une pièce,
+ \item De déterminer l'influence de ces défauts sur un assemblage.
+\end{itemize}
+\end{prob}
+}}
+
+{\frame{
+\frametitle{Écarts géométriques: le Jeu}
+
+\begin{defi}
+Le \textbf{jeu} correspond à un espace entre des \textbf{surfaces en contact}. Il permet le mouvement mais provoque des \textbf{variations de position} relative entre ces surfaces.
+\end{defi}
+
+\textbf{Modèle} : Géométrie nominale idéale définie par le dessin d'ensemble de la solution technologique : cela définit la position idéale de l'axe.
+
+\begin{minipage}{0.48\linewidth}
+ \centering \includegraphics[width=0.5\linewidth]{img/Picture01}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+ \centering \includegraphics[width=0.3\linewidth]{img/Picture02}
+\end{minipage}
+
+\textbf{Réel} : La réalisation comporte un jeu fonctionnel radial qui permet le mouvement de rotation. Ce jeu conduit a des petits mouvements possibles non souhaités.
+
+ \centering \includegraphics[width=0.5\linewidth]{img/Picture03}
+}}
+
+{\frame{
+\frametitle{Écarts géométriques: les écarts}
+
+\begin{defi}
+Les \textbf{écarts} de forme et des dimensions intrinsèques des surfaces provoquent des variations de position relative entre les surfaces de contact d'une même pièce.
+\end{defi}
+
+\begin{minipage}{0.4\linewidth}
+\textbf{Modèle} : Géométrie nominale idéale de l'alésage.
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+ \centering	\includegraphics[width=0.5\linewidth]{img/Picture04}
+\end{minipage}
+
+\begin{minipage}{0.4\linewidth}
+\textbf{Réel} : La géométrie comporte des écarts de forme et de dimension par rapport au réel.
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+ \centering	\includegraphics[width=0.5\linewidth]{img/Picture05}
+\end{minipage}
+
+Les écarts peuvent être répartis en plusieurs classes:
+\begin{itemize}
+ \item écarts géométriques (orientation, position, forme, état de surface,...),
+ \item dimensions intrinsèques.
+\end{itemize}
+}}
+
+{\frame{
+\frametitle{Les torseurs de petits déplacements}
+
+\begin{minipage}{0.6\linewidth}
+\begin{rem}
+Les \textbf{torseurs de petits déplacements} sont utilisés afin de déterminer la \textbf{position relative} de deux solides en fonction des \textit{écarts géométriques} entre leurs \textit{surfaces de contact}. Les grands déplacements sont écrits en majuscule.
+\end{rem}
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+ \includegraphics[width=0.8\linewidth]{img/Diag01}
+\end{minipage}
+
+\vspace{0.5cm}
+
+\begin{minipage}{0.48\linewidth}
+\begin{center}
+Il existe donc un torseur jeu
+
+$\left\{J_{iaja}\right\}=\left\{\begin{array}{c c}
+\theta x_{iaja} & dx_{iaja} \\
+\theta y_{iaja} & dy_{iaja} \\ \theta z_{iaja} & dz_{iaja} \end{array}\right\}_{O_1}$
+
+\includegraphics[height=1.5cm]{img/Diag03}
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+\begin{center}
+Il existe donc un torseur d'écart
+
+$\left\{J_{iai}\right\}=\left\{\begin{array}{c c}
+\theta x_{iai} & dx_{iai} \\
+\theta y_{iai} & dy_{iai} \\ \theta z_{iai} & dz_{iai} \end{array}\right\}_{O_2}$
+
+\includegraphics[height=1.5cm]{img/Diag02}
+\end{center}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Les torseurs de petits déplacements}
+
+Dans l'exemple de cet assemblage, la position relative des pièces 1 et 2 peut alors être écrite comme la somme des torseurs précédents.
+
+~\
+
+\begin{wrapfigure}[1]{r}{5cm}
+\vspace{-7mm}
+\centering \includegraphics[width=\linewidth]{img/verin_2}
+\end{wrapfigure}
+$\left\{J_{21}\right\}=\left\{J_{22a}\right\}+\left\{J_{2a1a}\right\}+\left\{J_{1a1}\right\}$
+$\left\{J_{21}\right\}=\left\{J_{22b}\right\}+\left\{J_{2b1b}\right\}+\left\{J_{1b1}\right\}$
+
+$\left\{J_{22a}\right\}=\left\{\begin{array}{c c}
+\Theta x_{22a} & Dx_{22a} \\
+\theta y_{22a} & dy_{22a} \\
+\theta z_{22a} & dz_{22a}\end{array}\right\}_{O_a}$
+
+$\left\{\begin{array}{l}
+\Theta x_{22a}+\Theta x_{2a1a}+\Theta x_{1a1}=\Theta x_{22b}+\Theta x_{2b1b}+\Theta x_{1b1} \\
+\theta y_{22a}+\theta y_{2a1a}+\theta y_{1a1}=\theta y_{22b}+\theta y_{2b1b}+\theta y_{1b1} \\
+\theta z_{22a}+\theta z_{2a1a}+\theta z_{1a1}=\theta z_{22b}+\theta z_{2b1b}+\theta z_{1b1} \\
+Dx_{22a}+Dx_{2a1a}+Dx_{1a1}=Dx_{22b}+Dx_{2b1b}+Dx_{1b1} \\
+dy_{22a}+dy_{2a1a}+dy_{1a1}=dy_{22b}-e.\theta z_{22b}+dy_{2b1b}-e.\theta z_{2b1b}+dy_{1b1}-e.\theta z_{1b1} \\
+dz_{22a}+dz_{2a1a}+dz_{1a1}=dz_{22b}+e.\theta y_{22b}+dz_{2b1b}+e.\theta y_{2b1b}+dz_{1b1}+e.\theta y_{1b1}
+\end{array}\right.$
+
+}}
+
+{\frame{
+\frametitle{Analyse des équations}
+
+Une partie des équations ne contient que des variables de \textbf{Grands Déplacements}.
+
+$\left\{\begin{array}{l}
+\Theta x_{22a}+\Theta x_{2a1a}+\Theta x_{1a1}=\Theta x_{22b}+\Theta x_{2b1b}+\Theta x_{1b1} \\
+Dx_{22a}+Dx_{2a1a}+Dx_{1a1}=Dx_{22b}+Dx_{2b1b}+Dx_{1b1}
+\end{array}\right.$
+
+Une partie des équations ne contient que des variables de \textbf{Petits Déplacements}.
+
+$\left\{\begin{array}{l}
+\theta y_{22a}+\theta y_{2a1a}+\theta y_{1a1}=\theta y_{22b}+\theta y_{2b1b}+\theta y_{1b1} \\
+\theta z_{22a}+\theta z_{2a1a}+\theta z_{1a1}=\theta z_{22b}+\theta z_{2b1b}+\theta z_{1b1} \\
+dy_{22a}+dy_{2a1a}+dy_{1a1}=dy_{22b}-e.\theta z_{22b}+dy_{2b1b}-e.\theta z_{2b1b}+dy_{1b1}-e.\theta z_{1b1} \\
+dz_{22a}+dz_{2a1a}+dz_{1a1}=dz_{22b}+e.\theta y_{22b}+dz_{2b1b}+e.\theta y_{2b1b}+dz_{1b1}+e.\theta y_{1b1}
+\end{array}\right.$
+
+Ces dernières permettent de définir des spécifications entre les surfaces en séparant les écarts et les jeux.
+
+$\left\{\begin{array}{l}
+\theta y_{2a1a}-\theta y_{2b1b}=-\theta y_{22a}-\theta y_{1a1}+\theta y_{22b}+\theta y_{1b1} \\
+\theta z_{2a1a}-\theta z_{2b1b}=-\theta z_{22a}-\theta z_{1a1}+\theta z_{22b}+\theta z_{1b1} \\
+dy_{2a1a}-dy_{2b1b}+e.\theta z_{2b1b}=-dy_{22a}-dy_{1a1}+dy_{22b}-e.\theta z_{22b}+dy_{1b1}-e.\theta z_{1b1} \\
+dz_{2a1a}-dz_{2b1b}-e.\theta y_{2b1b}=-dz_{22a}-dz_{1a1}+dz_{22b}+e.\theta y_{22b}+dz_{1b1}+e.\theta y_{1b1}
+\end{array}\right.$
+}}
+
+{\frame{
+\frametitle{La spécification}
+
+Afin de limiter les jeux ($\theta y_{2a1a}-\theta y_{2b1b}\leq \theta yj_{lim}$), il est nécessaire de limiter les écarts.
+
+$\left\{\begin{array}{l}
+-\theta y_{22a}-\theta y_{1a1}+\theta y_{22b}+\theta y_{1b1} \leq \theta y_{lim} \\
+-\theta z_{22a}-\theta z_{1a1}+\theta z_{22b}+\theta z_{1b1} \leq \theta z_{lim} \\
+-dy_{22a}-dy_{1a1}+dy_{22b}-e.\theta z_{22b}+dy_{1b1}-e.\theta z_{1b1} \leq d y_{lim} \\
+-dz_{22a}-dz_{1a1}+dz_{22b}+e.\theta y_{22b}+dz_{1b1}+e.\theta y_{1b1} \leq d z_{lim}
+\end{array}\right.$
+
+Cela revient à imposer une spécification de parallélisme entre les deux surfaces et une spécification de position entre les deux (distance nulle).
+
+\centering \includegraphics[width=0.4\linewidth]{img/piece}
+}}
+
+{\frame{
+\frametitle{Les défauts géométriques}
+
+\begin{savoir}
+Vous devez être capables :
+\begin{itemize}
+ \item de déterminer les défauts potentiels d'une pièce,
+ \item de modéliser l'impact de ces défauts à l'aide de torseurs de petits déplacements.
+\end{itemize}
+\end{savoir}
+
+\begin{prob}
+
+Il est nécessaire d'utiliser d'autres formes de représentation d'un mécanisme.
+\begin{itemize}
+ \item \textit{Problème: Comment limiter les défauts géométriques ?}
+ \item \textbf{Perspectives}: Déterminer les spécifications géométriques sur une pièce.
+\end{itemize}
+\end{prob}
+
+}}
+
+
+\end{document}

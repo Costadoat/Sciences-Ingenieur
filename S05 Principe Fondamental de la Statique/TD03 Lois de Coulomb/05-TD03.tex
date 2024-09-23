@@ -1,0 +1,299 @@
+\input{../../headers/tdheaders.tex}
+
+\section{Mandrin à serrage pneumatique}
+
+\begin{figure}[!h]
+  \begin{minipage}{0.35\linewidth}
+  \centering\includegraphics[width=0.7\linewidth]{img/mandrin}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.60\linewidth}
+Le mandrin est un système mécanique fixée au bout de l'arbre d'une machine des mors vers le centre pour un serrage extérieur de la pièce, ou vers l'extérieur pour un serrage intérieur de la pièce. 
+
+Le système étudié est un mandrin expansif (serrage par l'intérieur) à commande pneumatique. 
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+  \begin{minipage}{0.48\linewidth}
+  \centering\includegraphics[width=.9\linewidth]{img/mandrin_cin.png}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\linewidth}
+Cette partie va consister à déterminer les efforts qui s'exercent sur la pièce 5 dans l'étude afin de vérifier la donnée fournie par le fabricant du mandrin qui donne une action de serrage de 2000N sous une pression de fonctionnement de 6 bars. \\
+$\overrightarrow{O_0A_i}=e.\overrightarrow{Y_i}$ et $\alpha=30\degree$.
+ \end{minipage}
+\end{figure}
+
+Pour simplifier le problème, on fera les hypothèses suivantes : 
+\begin{itemize}
+ \item Le poids des pièces sera négligé devant les actions mécaniques de liaisons. 
+ \item Pas de frottement au niveau des contacts des liaisons au sein du mandrin. 
+ \item Répartition uniforme des pressions de contact entre les différents solides et la pression du fluide sur la face du piston. Le piston est représenté à la fin du sujet.
+\end{itemize}
+
+\paragraph{Question 1:} Déterminer le torseur $\left\{T_f\right\}$ d'action du fluide sur le piston 4 au point $O_0$ dans la base $(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})$.
+
+Pour l'application numérique, soit D le diamètre extérieur du piston et d le diamètre intérieur du piston : D = 157 mm, d = 45mm. 
+
+~\
+
+\textbf{Modélisation de l'action mécanique des 3 mors sur le piston 4}
+
+~\
+
+  \begin{minipage}{0.35\linewidth}
+  \centering\includegraphics[height=4cm]{img/param_man_2_2.png}
+  \end{minipage}  \hfill
+  \begin{minipage}{0.6\linewidth}
+	\paragraph{Question 2:} Écrire le torseur d'actions mécaniques du mors i sur le piston 4 en $O_0$ dans la base $R_i$.\\
+	Rappel: $\overrightarrow{O_0A_i}=e.\overrightarrow{Y_i}$.
+  \end{minipage}
+
+\newpage
+
+Paramétrage des repères lies aux mors 1, 2, et 3 
+
+\begin{figure}[!h]
+  \begin{minipage}{0.48\linewidth}
+  \centering\includegraphics[height=4cm]{img/param_man_1.png}
+  \end{minipage}
+  \begin{minipage}{0.48\linewidth}
+  \centering\includegraphics[height=4cm]{img/param_man_2_1.png}
+  \end{minipage}  \hfill
+\end{figure}
+
+On donne (ci-dessus) le paramétrage des 3 repères lies au mors 1,2 et 3. On supposera que les actions mécaniques des 3 mors sur le piston 4 sont identiques. 
+
+\paragraph{Question 3:} Montrer que le torseur des actions mécaniques de l'ensemble des 3 mors sur le piston 4 au point O0 et dans la base $(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})$, en fonction des composantes du torseur d'action du mors 1 sur le piston 4 est de la forme : 
+
+$\left\{T_{\sum Mors \rightarrow S_4}\right\}=\left\{
+  \begin{array}{c c}
+  X_{\sum Mors \rightarrow S_4} & L_{\sum Mors \rightarrow S_4} \\
+  0 & 0 \\
+  0 & 0
+  \end{array}\right\}_{O,R_0}$
+
+\paragraph{Question 4:} Donner les valeurs de $X_{\sum Mors \rightarrow S_4}$ et $L_{\sum Mors \rightarrow S_4}$
+
+~\
+
+\textbf{Détermination de l'action du corps 0 sur le piston 4}
+
+\paragraph{Question 5:} Écrire le torseur d'action mécanique de liaison entre le corps du mandrin 0 et le piston 4 en $O_0$ dans la base $(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})$. 
+ 
+\paragraph{Question 6:} Écrire les 6 équations scalaires traduisant l'équilibre du piston 4. 
+
+\paragraph{Question 7:} En déduire l'action du corps 0 sur le piston 4 et commenter le résultat. 
+
+\paragraph{Question 8:} Déterminer la valeur de $M_{14}$ et l'expression de $X_{14}$ fonction de $X_f$ et de $\alpha$.
+
+~\
+
+\textbf{Détermination de l'action de serrage de la pièce 5 sur le mors 1}
+
+\paragraph{Question 9:} Écrire le torseur d'action mécanique de liaison entre le corps 0 et le mors 1 en $O_0$ dans la base $(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})$. 
+
+On donne le torseur d'action mécanique de la pièce 5 sur le mors 1 au point de contact P. Les composantes $X_{51}$ et  $Z_{51}$ sont des actions tangentielles dues à la présence de frottements (de coefficient de frottement $f=0.3$).
+
+$\left\{T_{5 \rightarrow 1}\right\}=\left\{
+  \begin{array}{c c}
+  X_{51} & 0 \\
+  Y_{51} & 0 \\
+  Z_{51} & 0
+  \end{array}\right\}_{P,R_1}$, avec $\overrightarrow{O_0P}=R.\overrightarrow{Y_1}$.
+
+\paragraph{Question 10:} Écrire les 6 équations scalaires traduisant l'équilibre du mors 1. 
+
+\paragraph{Question 11:} Déterminer $Y_{51}$ en fonction de $X_f$ et $\alpha$. 
+
+\paragraph{Question 12:} Compte tenu des hypothèses, commenter le résultat obtenu et vérifier la capacité de serrage du mandrin.
+
+\paragraph{Question 13:} En déduire la valeur de la composante $Z_{5 \rightarrow 1}$. Déterminer alors la valeur du couple sur $\overrightarrow{x}$ transmis par le mandrin. Le diamètre de serrage est $R=10mm$.
+
+\begin{figure}[!h]
+  \begin{minipage}{0.48\linewidth}
+  \centering\includegraphics[width=.9\linewidth]{img/mandrin_dessin_1}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\linewidth}
+  \centering\includegraphics[width=.9\linewidth]{img/mandrin_dessin_2}
+ \end{minipage}
+\end{figure}
+
+\newpage
+
+\section{Serre joint}
+
+\begin{figure}[!h]
+  \begin{minipage}{0.35\linewidth}
+  \centering\includegraphics[width=\linewidth]{img/serre-joint}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.60\linewidth}
+Un serre-joint est un outil de maçon ou de menuisier. Il permet de serrer et de maintenir différentes pièces en contact entre elles.
+
+Le serre-joint utilisé en maçonnerie est constitué de deux pièces métalliques, la plus courte coulissant sur la partie plus longue de l'autre pour s'adapter à l'épaisseur à soumettre à la contrainte. Il est employé dans la réalisation de coffrage. 
+  \end{minipage}
+\end{figure}
+
+Dans son fonctionnement, la partie mobile (voir le DR) doit s'arc-bouter sur la colonne de la partie fixe. En d'autres termes, le phénomène d'arc-boutement bloque la partie mobile sur la partie fixe, bien qu'il y ait une liaison glissière entre les deux. L'arc-boutement dépend du coefficient de frottement au niveau des  points de contact entre parties fixe et mobile mais aussi de la distance d'écartement entre l'axe du guidage et la direction de la force de serrage (distance notée L sur le DR).  
+
+~\
+
+\textbf{Données:}
+
+\begin{itemize}
+ \item Coefficient de frottement : $f_A=f_B=0,3$,
+ \item Force de serrage en C : $\|\overrightarrow{C_{2 \rightarrow 1}}\|=300N$,
+ \item Les contacts en A et B se font avec frottement.
+\end{itemize}
+
+~\
+
+\textbf{Vérification de l'arc-boutement}
+
+L'ensemble étant à l'équilibre, les lois de la statique sont applicables. Sur le DR1, on isole la partie mobile qui est soumise à trois forces en A, B et C.  
+
+~\
+
+\paragraph{Question 1:} Tracez les cônes de frottement en A et B. 
+
+\paragraph{Question 2:} En se plaçant à l'équilibre strict en A déterminez graphiquement la droite d'action en B.
+
+\paragraph{Question 3:} Conclure si l'équilibre est effectif ou non (justifiez vous).  
+ 
+\newpage
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.8\linewidth]{img/serre-joint_graph.png}
+\end{figure}
+
+\ifdef{\public}{\end{document}}{}
+
+\newpage
+
+\section{Correction}
+
+\subsection{Mandrin à serrage pneumatique}
+
+\paragraph{Question 1:}
+
+$X_f=P.S=6.0,1.\pi.\frac{157^2-45^2}{4}=10661$
+
+\paragraph{Question 2:}
+
+$\left\{T_{i\rightarrow 4}\right\}=\left\{\begin{array}{cc}
+X_{i4} & 0 \\ 0 & M_{i4} \\  0 & N_{i4}
+\end{array}\right\}_{A_i,R'_i}=\left\{\begin{array}{cc}
+cos\alpha.X_{i4} & -sin\alpha.M_{i4} \\ sin\alpha.X_{i4} & cos\alpha.M_{i4} \\  0 & N_{i4}
+\end{array}\right\}_{A_i,R_i}$
+
+$\left\{T_{i\rightarrow 4}\right\}=\left\{\begin{array}{cc}
+cos\alpha.X_{i4} & -sin\alpha.M_{i4} \\ sin\alpha.X_{i4} & cos\alpha.M_{i4} \\  0 & N_{i4}-e.cos\alpha.X_{i4}
+\end{array}\right\}_{O_0,R_i}$
+
+\paragraph{Question 3:}
+
+$\left\{T_{i\rightarrow 4}\right\}=\left\{\begin{array}{cc}
+cos\alpha.X_{i4} & -sin\alpha.M_{i4} \\ sin\alpha.X_{i4}.cos\beta_i & cos\alpha.M_{i4}.cos\beta_i-(N_{i4}-e.cos\alpha.X_{i4}).sin\beta_i \\ sin\alpha.X_{i4}.sin\beta_i & cos\alpha.M_{i4}.sin\beta_i+(N_{i4}-e.cos\alpha.X_{i4}).cos\beta_i
+\end{array}\right\}_{O_0,R_0}$
+
+Or, $\left\{\begin{array}{l}
+X_{14}=X_{24}=X_{34}=X_{i4} \\
+M_{14}=M_{24}=M_{34}=M_{i4} \\
+cos0+cos\frac{2.\pi}{3}+cos\frac{4.\pi}{3}=0 \\
+sin0+sin\frac{2.\pi}{3}+sin\frac{4.\pi}{3}=0
+\end{array}\right.$
+
+Donc, 
+
+$\left\{T_{\sum Mors \rightarrow S_4}\right\}=\left\{
+  \begin{array}{c c}
+  X_{\sum Mors \rightarrow S_4} & L_{\sum Mors \rightarrow S_4} \\
+  0 & 0 \\
+  0 & 0
+  \end{array}\right\}_{O,R_0}$
+
+\paragraph{Question 4:}
+
+Or, $\left\{\begin{array}{l}
+X_{\sum Mors \rightarrow S_4}=3.cos\alpha.X_{i4} \\
+L_{\sum Mors \rightarrow S_4}=-3.sin\alpha.M_{i4}
+\end{array}\right.$
+
+\paragraph{Question 5:}
+
+$\left\{T_{0\rightarrow 4}\right\}=\left\{\begin{array}{cc}
+0 & 0 \\ Y_{04} & M_{04} \\ Z_{04} & N_{04}
+\end{array}\right\}_{O_0,R_0}$
+
+\paragraph{Question 6:}
+
+$\left\{\begin{array}{l}
+X_f+3.cos\alpha.X_{i4}=0 \\
+Y_{04}=0 \\
+Z_{04}=0 \\
+-3.sin\alpha.M_{i4}=0 \\
+M_{04}=0 \\
+N_{04}=0 \\
+\end{array}\right.$
+
+\paragraph{Question 7:}
+
+$\left\{T_{0\rightarrow 4}\right\}=\left\{0\right\}$
+
+\paragraph{Question 8:}
+
+$\left\{\begin{array}{l}
+X_{14}=-\frac{X_f}{3.cos\alpha} \\
+M_{14}=0
+\end{array}\right.$
+
+\paragraph{Question 9:}
+
+$\left\{T_{0\rightarrow 1}\right\}=\left\{\begin{array}{cc}
+X_{01} & L_{01} \\ 0 & M_{01} \\ Z_{01} & N_{01}
+\end{array}\right\}_{O_0,R_0}$
+
+$\left\{T_{4\rightarrow 1}\right\}=\left\{\begin{array}{cc}
+-X_{14}.cos\alpha & 0 \\ -X_{14}.sin\alpha & 0 \\ 0 & -N_{14}+e.cos\alpha.X_{14}
+\end{array}\right\}_{O_0,R_0}$
+
+$\left\{T_{5\rightarrow 1}\right\}=\left\{\begin{array}{cc}
+X_{51} & R.Z_{51} \\ Y_{51} & 0 \\ Z_{51} & -R.X_{51}
+\end{array}\right\}_{O_0,R_0}$
+
+\paragraph{Question 10:}
+
+$\left\{\begin{array}{l}
+X_{01}-X_{14}.cos\alpha+X_{51}=0 \\
+-X_{14}.sin\alpha+Y_{51}=0 \\
+Z_{01}+Z_{51}=0 \\
+L_{01}+R.Z_{51}=0 \\
+M_{01}=0 \\
+N_{01}-N_{14}+e.cos\alpha.X_{14}-R.X_{51}=0
+\end{array}\right.$
+
+\paragraph{Question 11:}
+
+$Y_{51}=-\dfrac{tan 30}{3}.10661\approx -2051N\approx -205dN$
+
+\paragraph{Question 12:}
+
+$|Y_{5\rightarrow 1}|=2051N>2000N$
+
+\paragraph{Question 13:}
+
+$Z_{51}<f.Y_{51}$
+
+$C_{s}<3.Z_{51max}.R$
+
+$C_{s}<3.0,3.2000.10.10^{-3}=18N.m$
+
+\subsection{Serre joint}
+
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/graph_cor}
+\end{center}
+\end{document}

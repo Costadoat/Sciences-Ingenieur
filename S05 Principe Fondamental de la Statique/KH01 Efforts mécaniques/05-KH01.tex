@@ -1,0 +1,207 @@
+\input{../../headers/khheaders.tex}
+
+\section{Barrière automatique}
+
+\subsection{Le produit barrière automatique et son marché}
+
+\begin{figure}[!h]
+ \begin{minipage}{0.3\linewidth}
+  \centering\includegraphics[width=1\linewidth]{img/barriere.jpg}
+ \end{minipage}
+ \hfill
+ \begin{minipage}{0.69\linewidth}
+L'évolution croissante du marché automobile mondial, les besoins grandissant de sécurité des biens et personnes font que l'usage de moyens temporaires d'accès conditionnels à des zones accessibles à des véhicules automobiles est des plus répandu.
+
+La solution la plus courante pour répondre à ce besoin est l'utilisation d'une barrière animée d'un mouvement de rotation autour d'un axe horizontal, parallèle à la route.
+ \end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering\includegraphics[width=0.7\linewidth]{img/barriere_cin.png}
+\end{figure}
+
+$\overrightarrow{DC}=-100\overrightarrow{x}+50 \overrightarrow{y}$, $\overrightarrow{FD}=100.\overrightarrow{z}$, $\overrightarrow{HF}=250.\overrightarrow{z}$, $\overrightarrow{HI}=-100.\overrightarrow{z}$, $\overrightarrow{IJ}=3000.\overrightarrow{x}$.
+
+Action de la tête de bielle 12 sur S au point C :
+$\left\{T_{12 \rightarrow S}\right\}=\left\{\begin{array}{c c}
+5 & 0 \\
+-17.5 & 0 \\
+0 & 0
+\end{array}\right\}_{C,R}$
+
+Action de l'utilisateur U sur S au point J :
+$\left\{T_{U \rightarrow S}\right\}=\left\{\begin{array}{c c}
+0 & 0 \\
+-0.5 & 0 \\
+0 & 0
+\end{array}\right\}_{J,R}$
+
+\subsection{Détermination des actions de liaisons}
+
+\textbf{Données :}
+Sur la figure est représentée la modélisation de l'ensemble des pièces $S = \left\{1, 2, 5, 11\right\}$ dans la position étudiée, la modélisation de ses guidages, ainsi que les efforts auxquels il est soumis.
+
+\textbf{Hypothèses :}
+La position étudiée correspond à une barrière en porte à faux de 3 m, en position horizontale, et à l'extrémité de laquelle un utilisateur U exerce un effort vertical vers le bas de 500 N (selon le cahier des charges).
+
+\begin{itemize}
+ \item Toutes les liaisons sont parfaites,
+ \item Les actions du ou des ressorts 8 sont négligées,
+ \item Les masses des différentes pièces sont négligées,
+ \item Les solides sont indéformables.
+\end{itemize}
+
+\newpage
+
+\textbf{Notations :}
+
+Les différentes expressions vectorielles seront toujours exprimées dans le repère $R : \left(H,\overrightarrow{x},\overrightarrow{y},\overrightarrow{z}\right)$.
+
+Le torseur des actions mécaniques du solide i sur le solide j, exprimé au point M dans le repère
+$\left\{T_{i \rightarrow j}\right\}=\left\{\begin{array}{c c}
+X_{i \rightarrow j} & L_{i \rightarrow j} \\
+Y_{i \rightarrow j} & M_{i \rightarrow j} \\
+Z_{i \rightarrow j} & N_{i \rightarrow j}
+\end{array}\right\}_{M,R}$
+
+\paragraph{Question 1:} Donner les expressions particulières des torseurs des actions mécaniques aux points F et H, des paliers 4 et 6, sur S.
+
+\paragraph{Question 2:} Calculer les valeurs des actions mécaniques au point H, de 12 sur S, et de U sur S.
+
+\paragraph{Question 3:} Déterminer les valeurs des actions mécaniques aux points F et H, des paliers 4 et 6, sur S.
+
+\newpage
+
+\section{Manipulateur auto-équilibré}
+
+\subsection{Présentation générale}
+
+\begin{figure}[!h]
+ \begin{minipage}{0.3\linewidth}
+  \centering\includegraphics[width=1\linewidth]{img/bras_manipulateur.jpg}
+ \end{minipage}
+ \hfill
+ \begin{minipage}{0.69\linewidth}
+Les entreprises industrielles travaillent constamment à l'amélioration de la productivité et de la rentabilité. Sur des opérations de manutention, positionnement, montage, à faible cadence, l'automatisation à outrance et les cellules robotisées ne sont pas rentables...
+
+Les systèmes d'aide à la manutention sont un compromis intéressant.Le sujet a pour thème l'étude du poste de dépose du joint liquide sur le collecteur d'échappement du moteur.
+
+En effet l'employeur maintient une activité humaine (conservation d'emploi) tout en limitant la pénibilité donc en améliorant les conditions de travail, pour des coûts d'investissement modestes.
+ \end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering\includegraphics[width=0.6\linewidth]{img/bras_manip_cin.png}
+\end{figure}
+
+La tête du bras manipulateur est articulée autour d'un axe vertical par rapport à la colonne fixée au sol. Cette liaison pivot au point A permet à l'utilisateur, lors du déplacement de sa charge, de desservir un volume limité par deux surfaces cylindriques coaxiales.
+
+Pour réaliser cette liaison pivot en limitant l'encombrement et la complexité des pièces adjacentes, le constructeur s'est orienté vers une couronne d'orientation. Les questions qui suivent permettront de choisir cette couronne d'orientation et de définir son implantation.
+
+\textbf{Données :}
+\begin{itemize}
+ \item $(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})$ base liée à la colonne donc ici le bâti,
+ \item $(\overrightarrow{x},\overrightarrow{y},\overrightarrow{z})$ base liée à la tête du bras.
+\end{itemize}
+
+\textbf{Hypothèse :}
+
+Les poids du bras et de la tête sont négligés. Ainsi, les seuls efforts à prendre en compte sont:
+\begin{itemize}
+ \item le poids de la charge $(\overrightarrow{P}=-M.g.\overrightarrow{y})$,
+ \item l'effort dans l'actionneur $(\overrightarrow{Fv}=Fv.\overrightarrow{y}=-k.M.g.\overrightarrow{y})$, en D.
+\end{itemize}
+
+\newpage
+
+\paragraph{Question 1:} Exprimer le torseur des actions mécaniques de la tête sur le bras, développées dans la liaison pivot au point B, dans la base $(\overrightarrow{x},\overrightarrow{y},\overrightarrow{z})$ exprimé en B. Calculer les composantes.
+
+\paragraph{Question 2:} Exprimer le torseur des actions mécaniques de la colonne support sur la tête, développées dans la liaison pivot au point A, dans la base $(\overrightarrow{x},\overrightarrow{y},\overrightarrow{z})$ exprimé en A. Calculer les composantes.
+
+\paragraph{Question 2:} Déterminer la valeur de la variable $k$ en fonction des paramètres géométriques du système.
+
+\newpage
+
+\section{Étude géométrique machine de dépose joint liquide}
+
+\subsection{Mise en situation}
+
+La société John Deere conçoit et fabrique du matériel agricole. L'usine, située dans le Loiret, est chargée de la fabrication et du montage des moteurs Diesel de 3, 4, ou 6 cylindres.
+Les photos de la figure \ref{fig:image1} montrent la chaîne d'assemblage des moteurs, ceux-ci étant maintenus sur des balancelles.
+La pièce qui a pour fonction principale de collecter les gaz d'échappement issus des cylindres pour les envoyer vers le pot d'échappement s'appelle le collecteur d'échappement.
+Le sujet a pour thème l'étude du poste de dépose du joint liquide sur le collecteur d'échappement du moteur.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.6\linewidth]{img/Image2.png}
+\caption{Chaîne de fabrication}
+\label{fig:image1}
+\end{center}
+\end{figure}
+
+\subsection{Analyse statique du manipulateur}
+
+L'opérateur utilise le manipulateur pour prendre le collecteur sur le convoyeur.
+
+Il remonte ensuite le collecteur jusqu'à une position où lui-même est debout. Il pourra ainsi plus facilement faire tourner le collecteur pour le placer sur la machine de dépose de joint liquide.
+
+On se place dans cette position stabilisée où le vérin d'équilibrage compense les actions dues au poids du collecteur, juste avant que l'ouvrier ne fasse pivoter le collecteur. Cette position particulière du manipulateur est telle que les bras 2 et 3 soient horizontaux.
+
+\textbf{Hypothèses :} Système simplifié.
+\begin{itemize}
+ \item Les bras 2 et 3 sont horizontaux. Le vérin 4-6 est vertical.
+ \item Les liaisons sont parfaites.
+ \item Les poids des différents bras sont négligeables devant celui du collecteur 10.
+ \item L'ensemble du manipulateur est en équilibre, et l'opérateur n'agit pas sur le volant de man\oe uvre.
+ \item Le collecteur a un centre de gravité placé au point P. On notera $\overrightarrow{P_{10}}$ le poids du collecteur 10. On prendra : $\overrightarrow{g}=10m.s^{-2}$ .
+ \item Le problème est plan, dans le plan $(\overrightarrow{x_1},\overrightarrow{y_1})$ de la figure du document 10. Le torseur des actions mécaniques en M d'une pièce i sur une pièce j en projection dans le repère $(\overrightarrow{x_1},\overrightarrow{y_1},\overrightarrow{z_1})$ sera noté $\left\{T_{i \rightarrow j}\right\}=\left\{\begin{array}{c c}
+X_{i \rightarrow j} & - \\
+Y_{i \rightarrow j} & - \\
+- & N_{i \rightarrow j}
+\end{array}\right\}_{M,R}$
+\end{itemize}
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.6\linewidth]{img/depo_joint_cin.png}
+\end{center}
+\end{figure}
+
+\paragraph{Question 1:} Isoler le solide $\left\{3\right\}$ et déterminer les 3 équations qui lient les composantes des torseurs statiques.
+
+\paragraph{Question 2:} Isoler les solides $\left\{5,7,8,10\right\}$ et déterminer les 3 équations qui lient les composantes des torseurs statiques.
+
+\paragraph{Question 3:} Isoler les solides $\left\{4,6\right\}$ et déterminer les 3 équations qui lient les composantes des torseurs statiques.
+
+\paragraph{Question 4:} Isoler les solides $\left\{2\right\}$ et déterminer les 3 équations qui lient les composantes des torseurs statiques.
+
+Une étude expérimentale a donné le torseur :
+
+$\left\{A_{1 \rightarrow 2}\right\}=\left\{\begin{array}{c c}
+X_{1 \rightarrow 2} & - \\
+Y_{1 \rightarrow 2} & - \\
+- & 0
+\end{array}\right\}_{A,\overrightarrow{x_1},\overrightarrow{y_1},\overrightarrow{z_1}}$
+
+Les relevés donnent : $\overrightarrow{R_{1 \rightarrow 2}}=X_{1 \rightarrow 2}.\overrightarrow{x_1}+Y_{1 \rightarrow 2}.\overrightarrow{y_1}$ avec $X_{1 \rightarrow 2}= -1070 N$ et $Y_{1 \rightarrow 2} = -320 N$
+
+\paragraph{Question 5:} Déterminer par le calcul le torseur des actions de 4 sur 2 au point H noté $\left\{H_{4 \rightarrow 2}\right\}$ en fonction des longueurs a, b et de $Y_{1 \rightarrow 2}$.
+
+\end{document}
+
+\newpage
+
+\section{Funiculaire de Montmartre}
+
+\begin{minipage}{0.4\linewidth}
+ \centering\includegraphics[width=0.7\linewidth]{img/Montmartre.jpg}
+\end{minipage}
+\hfill
+\begin{minipage}{0.57\linewidth}
+Un funiculaire est une remontée mécanique équipée de véhicules circulant sur des rails en pente et dont la traction est assurée par un câble.
+
+Il se compose de deux rames reliées par un câble. Le poids du train descendant compense une partie du poids du train montant, cela permet de minimiser l'énergie à fournir par la traction.
+\end{minipage}
+
+
+\end{document}

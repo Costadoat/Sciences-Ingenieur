@@ -1,0 +1,159 @@
+\input{../../../headers/tpheaders.tex}
+
+\begin{minipage}{0.55\linewidth}
+Le winch est un équipement fixé sur le pont ou les mats des voiliers. Il permet d'agir sur les drisses et les écoutes (cordages permettant de hisser une voile) fixées aux angles des voiles. Il intervient principalement au niveau du réglage de la voilure
+ \end{minipage}
+ \hfill
+  \begin{minipage}{0.4\linewidth}
+   \centering\includegraphics[width=0.7\linewidth]{img/winch.jpg}
+  \end{minipage}
+ 
+\section{Activité 1: Modélisation}
+
+\subsection{Action mécanique de contact entre la corde et le tambour}
+
+\begin{minipage}{0.45\linewidth}
+Soit une longueur élémentaire de corde $Rd\theta$ en contact avec le Tambour 5 entourant un point M de la zone de contact corde-tambour.
+
+L'étude s'effectue à la limite du glissement.
+ \end{minipage}
+ \hfill
+  \begin{minipage}{0.53\linewidth}
+   \centering\includegraphics[width=\linewidth]{img/corde_tambour.png}
+  \end{minipage}
+
+\begin{center}
+	\includegraphics[width=0.7\linewidth]{img/winch_param.png}
+\end{center}
+
+ \begin{minipage}{0.45\linewidth}
+L'élément de corde précédent est soumis :
+\begin{itemize}
+ \item à la force élémentaire : $\overrightarrow{df_{T \rightarrow C}(M)}_M$  
+ \item à la force élémentaire du brin tendu sur C :  $\overrightarrow{T_{T \rightarrow C}(\theta+d \theta)}_M$  
+ \item à la force élémentaire du brin mou sur C : $\overrightarrow{T_{T \rightarrow C}(\theta)}_M$  
+\end{itemize}
+ \end{minipage}
+ \hfill
+  \begin{minipage}{0.53\linewidth}
+  \centering\includegraphics[width=0.7\linewidth]{img/winch_param2.png}
+  \end{minipage}
+
+
+\paragraph{Question 1:} Précisez la normale extérieure matière à la Corde au point M. 
+
+\paragraph{Question 2:} Donnez l'expression de l'aire élémentaire $dS$ de la surface cylindrique de la Corde au point M en fonction de $R$, de $d\theta$ et de la largeur $l$ de la Corde C.
+
+\paragraph{Question 3:} Écrire l'action mécanique locale du Tambour sur la Corde $(T \rightarrow C)$ au point M en fonction du facteur d'adhérence $f_0$ entre le Tambour et la Corde, des vecteurs de la base locale, de la pression de contact $p(\theta)$. (On utilisera la loi de Coulomb relative à l'adhérence à la limite du glissement).
+
+\subsection{Équilibre statique de la corde}
+
+L'équation de résultante du Principe Fondamental de la Statique appliqué à l'élément de corde se traduit par :  
+
+$\overrightarrow{df_{T \rightarrow C}(M)}_M+\overrightarrow{T_{T \rightarrow C}(\theta)}_M+\overrightarrow{T_{T \rightarrow C}(\theta+d \theta)}_M=\overrightarrow{0}$ 
+
+Par projection de l'équation précédente sur la base locale, on en déduit les équations suivantes :
+\begin{itemize}
+ \item sur $\overrightarrow{n(M)}$: $\overrightarrow{df_{T \rightarrow C}(M)}_M.\overrightarrow{n(M)}-(T_{T \rightarrow C}(\theta)+T_{T \rightarrow C}(\theta+d \theta)).sin\left(\frac{d \theta}{2}\right)=0$ 
+ \item sur $\overrightarrow{t(M)}$: $\overrightarrow{df_{T \rightarrow C}(M)}_M.\overrightarrow{t(M)}+(-T_{T \rightarrow C}(\theta)+T_{T \rightarrow C}(\theta+d \theta)).cos\left(\frac{d \theta}{2}\right)=0$ 
+\end{itemize}
+
+\paragraph{Question 4:} Linéarisez les expressions précédentes pour $\frac{d \theta}{2} \rightarrow 0$.
+
+\paragraph{Question 5:} Montrez que si l'on pose :
+
+$dT_{T \rightarrow C}(\theta)=T_{T \rightarrow C}(\theta+d \theta)-T_{T \rightarrow C}(\theta)$ et $T_{T \rightarrow C}(\theta)=\frac{T_{T \rightarrow C}(\theta+d \theta)+T_{T \rightarrow C}(\theta)}{2}$, on obtient :
+
+\begin{itemize}
+ \item sur $\overrightarrow{n(M)}$: $\overrightarrow{df_{T \rightarrow C}(M)}_M.\overrightarrow{n(M)}=T_{T \rightarrow C}(\theta).d \theta$ 
+ \item sur $\overrightarrow{t(M)}$: $\overrightarrow{df_{T \rightarrow C}(M)}_M.\overrightarrow{t(M)}=-dT_{T \rightarrow C}(\theta)$ 
+\end{itemize}
+
+\paragraph{Question 6:} En remplaçant $\overrightarrow{df_{T \rightarrow C}(M)}_M$ par son expression (question 5), montrez que :
+
+\begin{itemize}
+ \item sur $\overrightarrow{n(M)}$: $T_{T \rightarrow C}(\theta)=p(\theta).Rl$,
+ \item sur $\overrightarrow{t(M)}$: $dT_{T \rightarrow C}(\theta)=-p(\theta).f_0.Rld \theta$ 
+\end{itemize}
+
+
+
+\paragraph{Question 7:} Écrivez le rapport $\frac{dT_{T \rightarrow C}}{T_{T \rightarrow C}}(\theta)$ et simplifiez son expression.
+
+
+
+\paragraph{Question 8:} Intégrez le rapport $\frac{dT_{T \rightarrow C}}{T_{T \rightarrow C}}(\theta)$ entre $\theta=0$ et $\theta=\theta_f$.
+
+
+
+\paragraph{Question 9:} En remplaçant $T_{T \rightarrow C}(0)=T$ et $T_{T \rightarrow C}(\theta_f)=t$, donnez l'expression de $t$ en fonction de $T$.
+
+
+
+\paragraph{Question 10:} En déduire, à l'aide des résultats de l'étude expérimentale la valeur moyenne du facteur d'adhérence entre la corde et le tambour. 
+
+
+
+\paragraph{Question 11:} Tracez, avec cette valeur du facteur d'adhérence, la courbe théorique sur le graphique issu de l'expérimentation du Q2. 
+
+
+
+On souhaite maintenant déterminer le couple transmis par le Tambour 5 à la Corde.
+
+\paragraph{Question 12:} Déterminez le moment élémentaire $\overrightarrow{dM_{O,T \rightarrow C}}(\theta)$ au point O du Tambour sur la Corde en fonction de $T_{T \rightarrow C}(\theta)$ et R, à l'aide des questions 5 et 8.
+
+
+
+\paragraph{Question 13:} Intégrez le moment élémentaire $\overrightarrow{dM_{O,T \rightarrow C}}(\theta)$ entre $\theta=0$ et $\theta=\theta_f$. En déduire le moment en O : $\overrightarrow{M_{O,T \rightarrow C}}$.
+
+
+
+\paragraph{Question 14:} Calculez la valeur de la norme de ce moment pour 1, 2 et 3 tours d'enroulement de la corde.
+
+
+
+\paragraph{Question 15:} Estimez l'intensité de la force exercée par l'utilisateur.
+
+
+
+\cleardoublepage
+
+\section{Activité 2: Étude expérimentale}
+
+ \begin{minipage}{0.45\linewidth}
+Soit le montage expérimental suivant.
+
+Soit $t$ l'effort dans le brin mou et $T$ l'effort dans le brin tendu. La corde est immobile par rapport au tambour (adhérence).
+ \end{minipage}
+ \hfill
+  \begin{minipage}{0.53\linewidth}
+   \centering\includegraphics[width=0.9\linewidth]{img/winch_exp.png}
+  \end{minipage}
+
+\begin{enumerate}
+ \item Enrouler la corde autour du tambour (1, 2 ou 3 tours),
+ \item Suspendre la charge et les masses d'équilibrage pour que l'ensemble soit en équilibre,
+ \item Diminuez progressivement l'effort $t$ (en enlevant des masses d'équilibrage) et relever la valeur pour laquelle l'adhérence n'existe plus.
+\end{enumerate}
+
+\paragraph{Question 1:} Remplissez le tableau de mesure suivant:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Nombre de tours & t(N) 1er essai & t(N) 2ème essai & t(N) moyen \\
+\hline
+1 & & & \\
+\hline
+2 & & & \\
+\hline
+3 & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\paragraph{Question 2:} Placez les points expérimentaux de $t$ en fonction de l'angle d'enroulement $\theta$ sur un graphique.
+
+
+
+\end{document}

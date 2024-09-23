@@ -1,0 +1,137 @@
+\input{../../headers/beamercoursHeadings}
+
+\section{Introduction}
+
+{\frame{
+\frametitle{Introduction}
+
+\begin{savoir}
+Vous êtes capables :
+\begin{itemize}
+ \item de modéliser une action mécanique,
+ \item résoudre un problème de statique en utilisant le P.F.S.
+\end{itemize}
+\end{savoir}
+
+\begin{prob}
+Vous devez êtes capables :
+\begin{itemize}
+  \item modéliser les actions de contact avec frottements.
+\end{itemize}
+\end{prob}
+}}
+
+{\frame{
+\frametitle{Lois de Coulomb}
+
+Les lois de Charles de \textbf{Coulomb} permettent de modéliser une action mécanique locale de contact entre deux solides en tenant compte du frottement entre les matériaux en contact.
+
+\vfill
+
+\begin{center}
+ \includegraphics[width=0.5\linewidth]{img/surface_frottement}
+\end{center}
+}}
+
+{\frame{
+\frametitle{Inclinaison de la résultante des efforts de contact}
+
+\begin{itemize}
+ \item Le phénomène de frottement apparait lorsque l'on essaye d'induire un glissement relatif entre les deux solides parallèlement au plan de contact,
+ \item En considérant la déformation des solides au niveau de leur zone de contact, on constate que la déformation et la répartition des actions élémentaires de contact sont dissymétriques,
+ \item Il en résulte que la résultante des actions mécaniques de contact est inclinée par rapport à la normale au plan de contact théorique. 
+\end{itemize}
+
+\begin{minipage}{0.5\linewidth}
+Remarques : 
+\begin{itemize}
+ \item La résultante s'incline dans le sens opposé au mouvement relatif des deux solides. Le frottement s'oppose au mouvement relatif 
+des solides en contact,
+ \item Il n'est pas nécessaire qu'il y ait une vitesse relative pour que la résultante s'incline.
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+ \includegraphics[width=\linewidth]{img/Diapositive10}
+\end{minipage}
+}}
+
+{\frame{
+\frametitle{Modèle de Coulomb}
+
+\textbf{Coefficient de frottement}
+
+\begin{minipage}{0.5\linewidth}
+Dans le modèle proposé par Coulomb, on décompose les actions mécaniques de contact en:
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+ \includegraphics[width=\linewidth]{img/Diapositive11}
+\end{minipage}
+\begin{itemize}
+ \item une composante normale $p.ds.\overrightarrow{n}$ où $p$ est la pression de contact qui règne sur l'élément de surface $ds$ et $\overrightarrow{n}$ la normale à $ds$,
+ \item une composante tangentielle $q.ds.\overrightarrow{t}$ où $q$ est la densité tangentielle surfacique d'effort, proportionnelle à $p$,
+ \item $p$ et $q$ sont reliés par : $q=f.p$ où $f$ est le coefficient de frottement. 
+\end{itemize}
+}}
+
+{\frame{
+\frametitle{Cône de frottement}
+
+\begin{minipage}{0.5\linewidth}
+On défini également l'angle $\varphi$ tel que $tan \varphi=f=\dfrac{q}{p}$. 
+Le \textbf{cône de frottement}, dans un contact ponctuel, est alors le cône de demi-angle $\varphi$ dont le sommet est au point de contact et dont l'axe est la normale au contact.
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+ \includegraphics[width=\linewidth]{img/Diapositive12}
+\end{minipage}
+\begin{itemize}
+ \item \textbf{Cas du glissement}: Dans le cas où $\overrightarrow{V_{S/\overline{S}}}\neq \overrightarrow{0}$ (cas du glissement), la résultante des actions mécaniques de contact $\overrightarrow{R_{\overline{S}}\rightarrow S}$ se situe alors sur le cône de frottement et est inclinée dans la direction opposée à $\overrightarrow{V_{S/\overline{S}}}$,
+ \item \textbf{Cas du non-glissement (adhérence)}
+Dans ce cas $\overrightarrow{V_{S/\overline{S}}}=\overrightarrow{0}$. $\overrightarrow{R_{\overline{S}}\rightarrow S}$ est alors à l'intérieur du cône d'adhérence dont le demi-angle est $\varphi'$, légèrement supérieur à $\varphi$. Sa position exacte dans le cône est déterminée en fonction des conditions d'équilibre du solide.
+\end{itemize}
+}}
+
+{\frame{
+\frametitle{Données numériques}
+
+\begin{tabular}{|c|c|c|}
+\hline
+Matériaux en contact & Coefficient de frottement f & Coefficient d'adhérence f' \\
+\hline
+Acier/Acier & 0,1-0,2 & 0,15-0,25 \\
+\hline
+Acier/Bronze & 0,12-0,2 & 0,15-0,2 \\
+\hline
+Acier/Ferrodo & 0,2-0,35 & 0,3-0,4 \\
+\hline
+Acier/PTFE & 0,02-0,08 & 0,1-0,15 \\
+\hline
+Pneu/Route & 0,3-0,6 & 0,6-1,2 \\
+\hline
+\end{tabular}
+
+}}
+
+
+{\frame{
+\frametitle{Conclusion}
+
+\begin{savoir}
+Vous êtes capables :
+\begin{itemize}
+  \item modéliser les actions de contact avec frottements.
+\end{itemize}
+\end{savoir}
+
+\begin{prob}
+Vous devez êtes capables :
+ \begin{itemize}
+  \item d'intégrer l'étude des mouvements à l'étude précédente afin de prendre en compte le Principe Fondamental de la Dynamique,
+  \item de prendre en compte la déformation des pièces due à ces efforts.
+ \end{itemize} 
+\end{prob}
+}}
+
+\end{document}

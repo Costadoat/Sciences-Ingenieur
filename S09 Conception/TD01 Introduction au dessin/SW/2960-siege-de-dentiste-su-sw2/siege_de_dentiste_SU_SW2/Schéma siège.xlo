@@ -1,0 +1,76 @@
+Title: IGES Export Journal (Autodesk Inventor)
+==============================================================================
+Translating To:     E:\Lycée\03- Thèmes et TP\Siège de dentiste\Schéma
+SolidWorks\Schéma siège.igs
+
+==============================================================================
+
+Translation phase:
+
+==============================================================================
+Start Section:
+
+
+Global Section:
+
+Parameter Delimiter:      ,
+Record Delimiter:         ;
+Sending Product ID:       Schéma siège.iam
+File Name:                No Iges File Name specified
+System ID:                AutoDesk Inventor R9
+Preprocessor Version:     AutoDesk Inventor Iges Exporter R9
+Size of Integer:          32
+Sgl. Precision Mag:       38
+Sgl. Precision Sig:       6
+Dbl. Precision Mag:       99
+Dbl. Precision Sig:       15
+Receiving Product ID:     Schéma siège.iam
+Model Space Scale:        1.000000e+000
+Unit Flag:                2
+Unit String:              MM
+# of Line Weights:        1
+Maximum Line Width:       8.000000e-002
+Creation Date:            03/17/2007 02:13:33
+Minimum Resolution:       1.000000e-002
+Maximum Coordinate:       1.000000e+004
+Author:                   No Author specified
+Organization:             No Organization specified
+IGES Version Number:      11  (IGES 5.3)
+Drafting Standard:        0
+Protocol Description:     No Application Protocol specified
+Model Create/Modify Date: Not Specified
+
+Entity Summary:
+
+ Type     Form    Description                                            Count
+------------------------------------------------------------------------------
+  100        0    Circular Arc                                             238
+  104        1    Ellipse                                                   30
+  110        0    Line                                                     258
+  116        0    Point                                                     92
+  120        0    Surface of Revolution                                     77
+  123        0    Direction                                                184
+  124        0    Transformation Matrix                                     88
+  126        0    Rational B-Spline Curve (General)                         64
+  128        0    Rational B-Spline Surface (General)                        5
+  141        0    Boundary Entity                                          320
+  143        0    Bounded Surface                                          174
+  190        1    Plane Surface (parameterized)                             92
+  308        0    Subfigure Definition                                       9
+  314        0    Color Definition                                           7
+  408        0    Subfigure Instance                                         9
+------------------------------------------------------------------------------
+                                                               Total      1647
+==============================================================================
+
+==============================================================================
+Error Summary:
+
+No errors.
+
+Elapsed Time:
+
+Processor: 00:00:00
+Clock:     00:00:01
+==============================================================================
+
