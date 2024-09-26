@@ -129,20 +129,21 @@ $H(p)=\dfrac{S(p)}{E(p)}=\sum\limits_{i=1}^n H_i(p)$
 
 
 {\frame{
-\frametitle{FTBO et FTBF}
+\frametitle{Le système asservi}
 
-
-Dans la suite, on considère le système asservi pour lequel la Perturbation est supposée nulle.
+\begin{defi}
+Un \textbf{système asservi}, ou un asservissement, est un système capable d'élaborer de manière autonome sa grandeur de commande à partir d'une valeur de consigne et d'une mesure de la réponse avec un capteur.
+\end{defi}
 
 \begin{center}
  \includegraphics[width=0.4\linewidth]{img/fig10}
 \end{center}
 
 \begin{itemize}
- \item $E(p)$ est la grandeur d'entrée dans le domaine de Laplace,
- \item $S(p)$ celle de sortie,
- \item $M(p)$ est l'image de la sortie S(p) par la chaîne d'acquisition,
- \item $\epsilon(p)$ celle de la sortie du comparateur.
+ \item $E(p)$ est la grandeur de \textbf{Consigne},
+ \item $S(p)$ celle de \textbf{Sortie},
+ \item $M(p)$ est le \textbf{Mesurande} (image) de la sortie par la chaîne d'acquisition,
+ \item $\epsilon(p)$ est l’\textbf{Écart} à la sortie du comparateur, qui permet d'établir la \textbf{Commande}.
 \end{itemize}
 }}
 
