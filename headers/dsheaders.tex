@@ -318,8 +318,10 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 \fancypagestyle{docreponse}{%
   \fancyhf{}
-  \lhead{Nom: ........................ Prénom: ........................}
-  \rhead{\sujet}
+  \fancyhead[LO]{NOM Prénom: .............................}
+  \rhead{\includegraphics[width=2cm]{../../../img/logo}\hspace{2pt}}
+  \ifdef{\auteurdeux}{\lfoot{\auteurun,\ \auteurdeux}}{\lfoot{\auteurun}}
+  \rfoot{\nom}
   \lfoot{Document réponse}
   \cfoot{Page \thepage}
    }
