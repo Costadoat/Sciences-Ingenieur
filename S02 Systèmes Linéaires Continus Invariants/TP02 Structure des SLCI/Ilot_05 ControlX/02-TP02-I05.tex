@@ -1,13 +1,11 @@
-\input{../../headers/tpheaders_2.tex}
-\input{"\dossierilot/\sequence-\type\num-I\ilotstr.tex"}
-
+\input{../../../headers/tpheaders_2.tex}
 
 \prob{Modéliser la structure d'un Système Linéaire Continu et Invariant} \\
 
-\graphicspath{{../../img/}}
+\graphicspath{{../../../img/}}
 \begin{center}
 \def\svgwidth{\columnwidth}
-\input{"../../img/triptyque.pdf_tex"}
+\input{../../../img/triptyque.pdf_tex}
 \end{center}
 
 La démarche de l’ingénieur permet :
@@ -32,43 +30,26 @@ La démarche de l’ingénieur permet :
 
 L'objectif de ce TP est de modéliser le système par le schéma blocs suivant.
 
-\graphicspath{{"../../Systemes/\systemes/"}}
+\graphicspath{{"../../../Systemes/\systemes/"}}
 
 \begin{center}
 \def\svgwidth{\columnwidth}
-\input{"../../Systemes/\systemes/\schemabloc.pdf_tex"}
+\input{"../../../Systemes/\systemes/\systemes_schema_bloc.pdf_tex"}
 \end{center}
 
 L'objectif de cette première partie va être de déterminer les fonctions de transfert manquantes dans la description de ce système.
 
 ~\
 
-\question{Déterminer si c'est possible à quels sous-systèmes \dusysteme les blocs vides correspondent.}
+Les deux questions suivantes nécessite de copier/coller l'image du schéma-bloc sur un logiciel de présentation afin de pouvoir l'annoter.
 
-Les grandeurs suivantes circulent en entrée ou en sortie de certains blocs du schéma:
-\begin{itemize}
- \lesgrandeurs
-\end{itemize}
-\textbf{Les deux questions suivantes sont parmi les plus complexes et les plus importantes du TP.} Pour y répondre, il faudra fouiller dans le logiciel de pilotage du système, proposer des mesures à réaliser sur le système,... et proposer à votre enseignant des idées sur la démarche à suivre.
+\question{Déterminer à quels sous-systèmes chaque bloc peut être associé et l'indiquer en encadrant des sous parties du schéma.}
 
-\question{Placer ces grandeurs sur le schéma bloc.}
-
-\question{Déterminer les relations temporelles qui existent entre ces grandeurs.}
-
-\question{En déduire les fonctions de transfert qui correspondent aux blocs vides.}
-
-
-\section{Détermienr les fonctions de transfert globales du système.}
-
-L'objectif de cette partie est de déterminer le comportement du système en analysant sa structure.
+\question{Associer à chaque lien entre deux blocs la grandeur qui le traverse et l'indiquer sur le schéma.}
 
 ~\
 
-\question{Déterminer la FTBO du système $FTBO(p)$.}
-
-\question{Déterminer la FTBF du système $FTBF(p)$.}
-
-\question{Déterminer le gain de la FTBF, le temps de réponse à 5\%, et les constantes du système ($\tau$, $\xi$ et $\omega_0$) et l'écart statique.}
+La figure ainsi obtenue devra être chargée sur le questionnaire en ligne.
 
 \section{Simulation du comportement du modèle}
 
@@ -76,25 +57,20 @@ Le logiciel \textbf{Scilab} permet de tracer la réponse temporelle d'une foncti
 
 Pour cela, il suffit de lancer le logiciel et d'aller dans le module \textbf{Xcos}.
 
-Dans le dossier \textbf{CPGE} du navigateur de palettes, vous trouverez, par exemple:
-\begin{itemize}
- \item une \textit{entrée}: STEP\_FUNCTION,
- \item un \textit{Opérateur linéaire}: CLR, vous modifierez sa fonction de transfert afin d'obtenir ce que vous souhaitez observer,
- \item une \textit{sortie}: SCOPE,
- \item un \textit{outil d'analyse}: REP\_TEMP.
-\end{itemize}
-
-Faire glisser ces blocs sur une page vierge du module xcos et cliquer sur la flèche permettant de lancer la simulation.
-
+Le schéma-bloc édité sur Scilab peut être récupéré sur la \href{https://www.costadoat.fr/systeme/\systemesnum}{page du système}.
 \question{Effectuer le tracé du schéma bloc du système sur Scilab.}
 
 \question{Tracer les réponses temporelles obtenues durant les activités précédentes afin de vérifier le modèle choisi.}
 
+\question{Associer le second ordre le plus proche de la réponse obtenue.}
+
 \section{Relevé expérimentaux du comportement du système.}
 
-\question{Tracer les réponses temporelles de \lentree et de \lasortie.}
+\question{Tracer les réponses temporelles de l'entrée et de la sortie.}
 
 \question{Comparer ces résultats avec les tracés issus de la simulation.}
+
+\question{Associer le second ordre le plus proche de la réponse obtenue.}
 
 \ifdef{\public}{\end{document}}{}
 
@@ -102,6 +78,7 @@ Faire glisser ces blocs sur une page vierge du module xcos et cliquer sur la fl�
 
 \pagestyle{correction}\setcounter{section}{0}
 
-\lacorrection
+%\lacorrection
 
 \end{document}
+

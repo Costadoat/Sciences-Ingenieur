@@ -155,6 +155,8 @@
 
     \cleardoublepage
 
+	\def\public
+
     \ifdef{\public}{\pagestyle{docreponse}}{\pagestyle{correction}}
 
     \ifdef{\public}{
@@ -165,7 +167,21 @@
             \draw (2.5,0) rectangle (16,2);
             \draw (4.5,1.7) node {\large Commentaires:};
         \end{tikzpicture}
-    }
+        \ifdefined\competences
+	      ~\ \\ ~\ \\
+	      \centering
+		  \foreach \competence in \competences
+		  {
+			\fbox{\begin{tikzpicture} 
+			\draw (0,0) circle[radius=0.5];
+		    \node at (0.5,0) [anchor=west] {\competence};
+   	     \end{tikzpicture}
+   	    	}
+   	    }
+	   	\fi
+	   	 ~\ \\
+	}
+
     ~\ \\
 }
 
