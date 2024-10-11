@@ -123,7 +123,7 @@ Nous nous intéressons maintenant à la boucle d'asservissement en vitesse d'ent
 \paragraph{Question 2 :} En supposant toujours que $C_P(t)$ est nul, déterminer littéralement la fonction de transfert en boucle ouverte : $G_2(p)=\frac{M_V(p)}{\epsilon_V(p)}$	
 
 \paragraph{Question 3 :} Déterminer $\epsilon_V(p)$ en fonction de $C_V(p)$ et $G_2(p)$. Puis en déduire l'écart statique
-$ \displaystyle \epsilon_{Vs}=\epsilon_V(+\infty)=\lim_{t\rightarrow + \infty}\epsilon_V(t)$ pour $C_V(p)$ un échelon unitaire. Déterminer $K_a$ pour que l'écart statique soit nul lorsque $\Omega_c(p)=\Omega_R(p)$. Faire une application numérique pour $\epsilon_{Vs}$ dans le cas où $C_V(t)$ est un échelon unitaire.
+$ \displaystyle \epsilon_{Vs}=\epsilon_V(+\infty)=\lim_{t\rightarrow + \infty}.\epsilon_V(t)$ pour $C_V(p)$ un échelon unitaire. Déterminer $K_a$ pour que l'écart statique soit nul lorsque $\Omega_c(p)=\Omega_R(p)$. Faire une application numérique pour $\epsilon_{Vs}$ dans le cas où $C_V(t)$ est un échelon unitaire.
 
 \paragraph{Question 4 :} En supposant toujours que $C_P(t)$ est nul, en déduire littéralement la fonction de transfert en boucle fermée : $H_2(p)=\frac{\Omega_M(p)}{\Omega_c(p)}$	
 
@@ -734,7 +734,7 @@ $G_2(p)=\dfrac{K.K_v.K_1}{(1+\tau_1.p).(1+\tau.p)}$
 
 $\epsilon_v(p)=\dfrac{C_v(p)}{1+G_2(p)}$
 
-$\epsilon_{vs}=\lim\limits_{p \rightarrow 0} p.\epsilon_v(p)=\lim\limits_{p \rightarrow 0} p.\dfrac{C_v(p)}{1+G_2(p)}=\lim\limits_{p \rightarrow 0} \dfrac{1}{1+G_2(p)}=\dfrac{1}{1+K.K_v.K_1}=\dfrac{1}{1+200.0,01.\dfrac{60}{2.\pi}.1,66}=\dfrac{1}{33}=\epsilon_{vs}\simeq0,03$
+$\epsilon_{vs}=\lim\limits_{p \rightarrow 0} p.\epsilon_v(p)=\lim\limits_{p \rightarrow 0} p.\dfrac{C_v(p)}{1+G_2(p)}=\lim\limits_{p \rightarrow 0} \dfrac{1}{1+G_2(p)}=\dfrac{1}{1+K.K_v.K_1}=\dfrac{1}{1+200.0,01.1,66}=\dfrac{1}{4,3}=\epsilon_{vs}\simeq0,23$
 
 $\epsilon_v(p)=\Omega_c.K_a-\Omega_m.K_v=\Omega_c.K_a-\Omega_m.\frac{\Omega_R}{\rho}.K_v=0$, si $\Omega_c=\Omega_R$, donc $K_a=\frac{K_v}{\rho}$.
 
