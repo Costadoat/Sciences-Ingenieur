@@ -12,9 +12,9 @@ Soit le schéma-bloc à retour unitaire de la figure \ref{fig17}, avec $G_1(p)=\
 \label{fig17}
 \end{figure}
 
-\question{A partir du schéma-bloc à retour unitaire de la figure \ref{fig17}, déterminer l'expression de la fonction boucle fermée $\left.H_{BF}(p)=\frac{\Omega_S(p)}{\Omega_C(p)}\right|_{C_{re}(p)=0}$, sous la forme canonique, en fonction de $cv$, $\tau_e$, $\tau_{em}$, $K$ et les paramètres du moteur. Indiquer la classe et l'ordre de ces 2 fonctions de transfert.}
-
 \question{A partir du schéma-bloc à retour unitaire de la figure \ref{fig17}, déterminer l'expression de la fonction de transfert en boucle ouverte $\left.H_{BO}(p)=\frac{\Omega_S(p)}{\varepsilon_V(p)}\right|_{C_{re}(p)=0}$, sous la forme canonique,  en fonction de $cv$, $\tau_e$, $\tau_{em}$, $K$ et les paramètres du moteur. Indiquer la classe et l'ordre de ces 2 fonctions de transfert.}
+
+\question{A partir du schéma-bloc à retour unitaire de la figure \ref{fig17}, déterminer l'expression de la fonction de transfert en boucle fermée $\left.H_{BF}(p)=\frac{\Omega_S(p)}{\Omega_C(p)}\right|_{C_{re}(p)=0}$, sous la forme canonique, en fonction de $cv$, $\tau_e$, $\tau_{em}$, $K$ et les paramètres du moteur. Indiquer la classe et l'ordre de ces 2 fonctions de transfert.}
 
 \question{\textbf{(Facultative)} A partir du schéma-bloc à retour unitaire de la figure \ref{fig17}, déterminer l'expression de la fonction de transfert en boucle ouverte $\left.H_2(p)=\frac{\Omega_S(p)}{C_{re}(p)}\right|_{\Omega_C(p)=0}$, sous la forme canonique,  en fonction de $cv$, $\tau_e$, $\tau_{em}$, $K$ et les paramètres du moteur. Indiquer la classe et l'ordre de ces 2 fonctions de transfert.}
 
@@ -23,6 +23,8 @@ Soit le schéma-bloc à retour unitaire de la figure \ref{fig17}, avec $G_1(p)=\
 \reponse{8}{}{$H_{BO}(p)=cv\cdot\dfrac{K}{K_R}\cdot G_1(p)\cdot G_2(p)\cdot K_R=cv\cdot\dfrac{K}{K_R}\cdot \dfrac{k_c}{R}\cdot\dfrac{1}{1+\tau_e\cdot p}\cdot \dfrac{R}{k_c}\cdot\dfrac{1}{1+\tau_{em}\cdot p}\cdot K_R$
 
 $H_{BO}(p)=\dfrac{cv\cdot K}{(1+\tau_e\cdot p)\cdot(1+\tau_{em}\cdot p)}$
+
+~\
 
 Fonction d'ordre 2 et de classe 0.}
 
@@ -35,10 +37,34 @@ $H_{BF}(p)=\dfrac{cv\cdot K\cdot \dfrac{1}{1+\tau_e\cdot p}\cdot\dfrac{1}{1+\tau
 
 $H_{BF}(p)=\dfrac{cv\cdot K}{(1+\tau_e\cdot p)\cdot(1+\tau_{em}\cdot p)+{cv\cdot K}}$
 
+$H_{BF}(p)=\dfrac{\dfrac{cv\cdot K}{1+cv\cdot K}}{1+\dfrac{\tau_e+\tau_{em}}{1+cv\cdot K}\cdot p+\dfrac{\tau_e\cdot\tau_{em}}{1+cv\cdot K}\cdot p^2}$
+
+~\
+
 Fonction d'ordre 2 et de classe 0.
 }
 
 
+\reponse{8}{}{
+$\epsilon_V(p)=-\Omega_S(p)$
 
+$C_m(p)=C_V(p)\cdot \dfrac{K}{K_R}\cdot G_1(p)\cdot \epsilon_V(p)$
+
+$\Omega_S(p)=G_2(p)\cdot K_R\cdot (C_m(p)-C_{re}(p))$
+
+$\Omega_S(p)=G_2(p)\cdot K_R\cdot (-C_V(p)\cdot \dfrac{K}{K_R}\cdot G_1(p)\cdot \Omega_S(p)-C_{re}(p))$
+
+$\Omega_S(p)\cdot\left(1+G_2(p)\cdot K_R\cdot C_V(p)\cdot \dfrac{K}{K_R}\cdot G_1(p)\right)=-G_2(p)\cdot K_R\cdot C_{re}(p)$
+
+$\dfrac{\Omega_S(p)}{C_{re}(p)}=\dfrac{-G_2(p)\cdot K_R}{1+G_2(p)\cdot K_R\cdot C_V(p)\cdot \dfrac{K}{K_R}\cdot G_1(p)}$
+
+$\dfrac{\Omega_S(p)}{C_{re}(p)}=\dfrac{-\dfrac{R}{k_c}\cdot\dfrac{1}{1+\tau_{em}\cdot p}\cdot K_R}{1+\dfrac{R}{k_c}\cdot\dfrac{1}{1+\tau_{em}\cdot p}\cdot K_R\cdot cv\cdot \dfrac{K}{K_R}\cdot \dfrac{k_c}{R}\cdot\dfrac{1}{1+\tau_e\cdot p}}$
+
+$\dfrac{\Omega_S(p)}{C_{re}(p)}=\dfrac{-\dfrac{R}{k_c}\cdot(1+\tau_e\cdot p)\cdot K_R}{(1+\tau_e\cdot p)\cdot (1+\tau_{em}\cdot p)+\dfrac{R}{k_c}\cdot K_R\cdot cv\cdot \dfrac{K}{K_R}\cdot \dfrac{k_c}{R}}$
+
+$\dfrac{\Omega_S(p)}{C_{re}(p)}=\dfrac{-\dfrac{R}{k_c}\cdot(1+\tau_e\cdot p)\cdot K_R}{(1+\tau_e\cdot p)\cdot (1+\tau_{em}\cdot p)+K\cdot cv}=\dfrac{-\dfrac{R\cdot(1+\tau_e\cdot p)\cdot K_R}{k_c\cdot (1+K\cdot cv)}}{1+\dfrac{\tau_e+\tau_{em}}{1+K\cdot cv}\cdot p+ \dfrac{\tau_e\cdot\tau_{em}}{1+K\cdot cv}\cdot p^2}$
+
+
+}
 
 \end{document}
