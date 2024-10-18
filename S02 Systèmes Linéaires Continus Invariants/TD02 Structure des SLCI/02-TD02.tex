@@ -143,6 +143,53 @@ $ \displaystyle \epsilon_{Vs}=\epsilon_V(+\infty)=\lim_{t\rightarrow + \infty}.\
 
 \section{Diravi}
 
+
+\begin{figure}[!h]
+\begin{minipage}{0.45\linewidth}
+Le but de cette étude de MODELISER le comportement d'un actionneur et de son pré-actionneur à l'aide d'un
+modèle de connaissance.
+
+L'actionneur étudié est un vérin d'assistance hydraulique.
+
+C'est un constituant du système de direction assistée DIRAVI équipant les véhicules Citroën XM.
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\linewidth}
+ \centering\includegraphics[width=0.7\linewidth]{img/diravi1.jpg}
+  \caption{Véhicule équipé de la Diravi}
+ \label{diravi1}
+\end{minipage}
+\end{figure}
+
+Cet actionneur sera caractérisé par sa fonction de transfert et par une étude temporelle par sa réponse indicielle. 
+La démarche utilisée met en place un modèle de connaissance.
+
+En plus du classique système mécanique de direction (volant, colonne de direction, pignon, crémaillère?), l'ensemble d'assistance est constitué :
+\begin{itemize}
+ \item D'un vérin d'assistance, commandant la crémaillère de direction et donc le pivotement des roues,
+ \item D'un groupe hydraulique (pompe hydraulique entraînée par un motoréducteur, réservoir d'huile, accumulateur de pression et conjoncteur-disjoncteur) gérant le débit et la pression du fluide,
+ \item D'un bloc de commande que l'on peut diviser en deux sous-ensembles,
+ \begin{itemize}
+ \item Un comparateur qui permet de piloter le système hydraulique de braquage des roues en fonction de la position du volant,
+ \item Un système came-poussoir qui exerce un couple de rappel, variable en fonction de la position du volant.
+\end{itemize}
+ \item D'un régulateur centrifuge, qui permet de faire varier le couple de rappel au neutre du volant en fonction de la vitesse du véhicule.
+\end{itemize}
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.7\linewidth]{img/diravi2.png}
+ \caption{Composants de la diravi}
+ \label{diravi2}
+\end{figure}
+
+Une description simplifiée du circuit hydraulique est donnée ci-dessous.
+
+\begin{figure}[!h]
+ \centering\includegraphics[width=0.7\linewidth]{img/diravi3.png}
+ \caption{Circuit hydraulique}
+ \label{diravi3}
+\end{figure}
+
 L'objectif est de compléter le schéma bloc de la Diravi. En effet, lors de la précédente étude du système Diravi, un certain nombre d'équation dans le domaine de Laplace ont été mises en évidence. L'angle $\alpha_{volant}$ doit être exprimé en radian.
 
 \begin{minipage}{0.49\linewidth}
