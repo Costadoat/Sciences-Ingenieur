@@ -1,0 +1,55 @@
+\input{../../../headers/dcheaders.tex}
+
+\section{FTBF}
+
+Soit le schéma-bloc de la figure \ref{fig01}.
+
+\begin{figure}[!ht]
+ \begin{center} 
+	\begin{tikzpicture}
+	\sbEntree{E}
+	\sbComp{comp}{E}
+	\sbRelier[$E(p)$]{E}{comp}
+	\sbBloc{reg}{$14$}{comp}
+	\sbRelier[$\varepsilon (p)$]{comp}{reg}
+	\sbBloc{sys}{$\dfrac{1}{1+6\cdot p}$}{reg}
+	\sbRelier[u]{reg}{sys}
+	\sbSortie{S}{sys}
+	\sbRelier[$S(p)$]{sys}{S}
+	\sbDecaleNoeudy[4]{S}{U}
+	\sbBlocr{cap}{$8$}{U}
+	\sbRelieryx{sys-S}{cap}
+	\sbRelierxy[M(p)]{cap}{comp}
+	\end{tikzpicture}
+ \end{center}
+ \caption{\label{fig01} Schéma bloc}
+\end{figure}
+
+\question{A partir du schéma-bloc de la figure \ref{fig01}, déterminer l'expression de la fonction de transfert en boucle fermée $H_{BF}(p)=\frac{S(p)}{E(p)}$, sous la forme canonique. Donner sa classe et son ordre. Il faudra exprimer les \textbf{valeurs numériques arrondies au dixième} de toutes les valeurs.}
+
+\section{Réponse harmonique}
+
+\question{Tracer la forme asymptotique des diagrammes de Bode de cette fonction de transfert sur le document réponse.}
+
+\finsujet
+
+\reponse{7}{}{$H_{BF}(p)=\dfrac{14\cdot \dfrac{1}{1+6\cdot p}}{1+8\cdot 14\cdot \dfrac{1}{1+6\cdot p}}=\dfrac{14}{1+6\cdot p +8\cdot 14}=\dfrac{14}{113+6\cdot p}=\dfrac{\dfrac{14}{113}}{1+\dfrac{6}{113}\cdot p}=\dfrac{0.12}{1+0.05\cdot p}$
+
+~\
+
+Fonction d'ordre 1 et de classe 0.}
+
+\reponse{0}{
+\begin{center}
+\def\svgwidth{.9\linewidth}
+   \input{img/DC06.pdf_tex}
+\end{center}
+}{
+\begin{center}
+\def\svgwidth{.9\linewidth}
+   \input{img/DC06_cor.pdf_tex}
+\end{center}
+}
+
+
+\end{document}
