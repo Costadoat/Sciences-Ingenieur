@@ -763,7 +763,7 @@ L'analyse fréquentielle d'un système a donné le tracé suivant.
 L'analyse fréquentielle d'un système a donné le tracé suivant.
 
 \begin{center}
- \includegraphics[width=0.8\linewidth]{img/Bode3}
+ \includegraphics[width=0.8\linewidth]{img/Bode4}
 \end{center} 
 
 \paragraph{Question 1:} Tracer les asymptotes à cette courbe.
@@ -777,7 +777,7 @@ L'analyse fréquentielle d'un système a donné le tracé suivant.
 L'analyse fréquentielle d'un système a donné le tracé suivant.
 
 \begin{center}
- \includegraphics[width=0.8\linewidth]{img/Bode4}
+ \includegraphics[width=0.8\linewidth]{img/Bode3}
 \end{center} 
 
 \paragraph{Question 1:} Tracer les asymptotes à cette courbe.
@@ -834,7 +834,7 @@ La fonction de transfert est donc $H(p)=\dfrac{4}{1+2*p}$.
 
 \newpage
 
-\section{Identification fréquentielle 3}
+\section{Identification fréquentielle 4}
 
 L'analyse fréquentielle d'un système a donné le tracé suivant.
 
@@ -850,17 +850,17 @@ La tangente à l'infini est de $-40dB/dec$, il s'agit donc d'un second ordre.
 
 La tangente au départ vaut environ $6$, donc $20*log(K)=6$, donc $K\simeq 2$.
 
-La valeur maximale est environ $32$, $20*log(Q)+20*log(K)=32$, donc $20*log(Q)=26$, avec $Q=\dfrac{1}{2.z.\sqrt{1-z^2}}$.
+Il y a deux cassures, cela signifie que $m>1$.
 
-$2.z.\sqrt{1-z^2}=10^{-1.3}$, donc $z\simeq 0.025$.
+Les deux cassures sont $\omega_1=10^0=1 rad.s^{-1}$ et $\omega_2=10^2=100 rad.s^{-1}$.
 
-La pulsation de coupure est $\omega_r=0.5rad.s^{-1}$, avec $\omega_r=\omega_0.\sqrt{1-2.z^2}$, on a ainsi $\omega_0=0.5rad.s^{-1}$.
+On a donc $\omega_0=\sqrt{\omega_1*\omega_2}=10rad.s^{-1}$ et $z=\dfrac{\omega_0.(\omega_1+\omega_2)}{2.\omega_1.\omega_2}\simeq 5$
 
-La fonction de transfert est donc $H(p)=\dfrac{2}{1+0.1*p+4*p^2}$.
+La fonction de transfert est donc $H(p)=\dfrac{2}{1+p+0.01*p^2}$.
 
 \newpage
 
-\section{Identification fréquentielle 4}
+\section{Identification fréquentielle 3}
 
 L'analyse fréquentielle d'un système a donné le tracé suivant.
 
@@ -876,12 +876,12 @@ La tangente à l'infini est de $-40dB/dec$, il s'agit donc d'un second ordre.
 
 La tangente au départ vaut environ $6$, donc $20*log(K)=6$, donc $K\simeq 2$.
 
-Il y a deux cassures, cela signifie que $m>1$.
+La valeur maximale est environ $32$, $20*log(Q)+20*log(K)=32$, donc $20*log(Q)=26$, avec $Q=\dfrac{1}{2.z.\sqrt{1-z^2}}$.
 
-Les deux cassures sont $\omega_1=10^0=1 rad.s^{-1}$ et $\omega_2=10^2=100 rad.s^{-1}$.
+$2.z.\sqrt{1-z^2}=10^{-1.3}$, donc $z\simeq 0.025$.
 
-On a donc $\omega_0=\sqrt{\omega_1*\omega_2}=10rad.s^{-1}$ et $z=\dfrac{\omega_0.(\omega_1+\omega_2)}{2.\omega_1.\omega_2}\simeq 5$
+La pulsation de coupure est $\omega_r=0.5rad.s^{-1}$, avec $\omega_r=\omega_0.\sqrt{1-2.z^2}$, on a ainsi $\omega_0=0.5rad.s^{-1}$.
 
-La fonction de transfert est donc $H(p)=\dfrac{2}{1+p+0.01*p^2}$.
+La fonction de transfert est donc $H(p)=\dfrac{2}{1+0.1*p+4*p^2}$.
 
 \end{document}

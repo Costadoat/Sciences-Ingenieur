@@ -1,0 +1,74 @@
+\input{../../../headers/dcheaders.tex}
+
+\section{Identification}
+
+Soit $s(t)$ la réponse temporelle à une entrée en échelon $e(t)=12$ tracée à la  figure \ref{fig01}. On sait que la fonction de transfert $H(p)=\dfrac{S(p)}{E(p)}=\dfrac{K}{1+\dfrac{2\xi}{\omega_0}\cdot p+\dfrac{p^2}{\omega_0^2}}$.
+
+\begin{figure}[!ht]
+ \begin{center} 
+   \input{img/Figure_1.pdf_tex}
+ \end{center}
+ \caption{\label{fig01} Réponse temporelle}
+\end{figure}
+
+\question{En s'aidant du tracé de la figure \ref{fig01} et des tracés en annexe \ref{fig02} et \ref{fig03}, montrer que $K=2$, $\xi=0.5$ et $\omega_0=100rad\cdot s^{-1}$.}
+
+\section{Réponse harmonique}
+
+\question{Tracer la forme asymptotique des diagrammes de Bode de cette fonction de transfert sur le document réponse. On donne $log(2)=0.3$.}
+
+\question{Déterminer la valeur de la résonance $H(j\omega)_{max}$.}
+
+\begin{figure}[!ht]
+ \begin{center} 
+   \def\svgwidth{.8\textwidth}
+   \input{img/Figure_2.pdf_tex}
+ \caption{\label{fig02} Tracé Annexe 1 : $100e^{\dfrac{\xi\pi}{\sqrt{1-\xi^2}}}$ en fonction de $\xi$}
+   \def\svgwidth{.8\textwidth}
+   \input{img/Figure_3.pdf_tex}
+ \caption{\label{fig03} Tracé Annexe 2 : $100e^{\dfrac{\xi\pi}{\sqrt{1-2\xi^2}}}$ en fonction de $\xi$}
+ \end{center}
+\end{figure}
+\finsujet
+
+\reponse{5}{}{
+
+La valeur à l'infini $s\left(+\infty\right)=24=K\cdot E_0=K\times 12$, donc $K=2$.
+
+$D\%=\dfrac{28-24}{24}=\dfrac{4}{24}=\dfrac{1}{6}=16\%$.D'après la figure \ref{fig02}, pour $D\%\approx16$, on a $\xi=0.5$.
+
+On sait que $T_max=\dfrac{T_p}{2}=\dfrac{\pi}{\omega_0\sqrt{1-\xi^2}}$, on lit que $T_p=0.035s$
+
+Donc, $\omega_0=\dfrac{\pi}{T_p\sqrt{1-\xi^2}}$
+
+$\omega_0=\dfrac{\pi}{0.035\sqrt{1-0.5^2}}=\dfrac{\pi}{0.035\sqrt{0.75}}=\dfrac{\pi}{0.0035\times 6\sqrt{2}}=\dfrac{1}{0.007\sqrt{2}}=\dfrac{1000}{1.4\times 7}\approx 100rad\cdot s^{-1}$
+
+}
+
+\reponse{0}{
+\begin{center}
+\def\svgwidth{.8\linewidth}
+   \input{img/Figure_4.pdf_tex}
+\end{center}
+}{
+\begin{center}
+\def\svgwidth{.8\linewidth}
+   \input{img/Figure_4_c.pdf_tex}
+\end{center}
+}
+
+\reponse{2}{}{
+
+$\left|\dfrac{H(j\omega)_{max}}{H(0)}\right|=\dfrac{1}{2\xi\sqrt{1-\xi^2}}$
+
+$\left|\dfrac{H(j\omega)_{max}}{H(0)}\right|=\dfrac{1}{\sqrt{0.75}}=\dfrac{10}{6\sqrt{2}}=\dfrac{10}{6\times 1.4}=\dfrac{10}{8.4}\approx 1.2$
+
+$H(j\omega)_{max}=1.2\times 2=2.4$
+
+$20log(H(j\omega)_{max})=20log(2.4)=7.6$ (on le retrouve sur le tracé).
+}
+
+
+
+
+\end{document}
