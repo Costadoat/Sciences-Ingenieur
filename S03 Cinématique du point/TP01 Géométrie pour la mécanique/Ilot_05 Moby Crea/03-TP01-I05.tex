@@ -1,12 +1,11 @@
-\input{../../headers/tpheaders_2.tex}
-\input{"\dossierilot/\sequence-\type\num-I\ilotstr.tex"}
+\input{../../../headers/tpheaders_2.tex}
 
 \prob{Modéliser la loi d'entrée/sortie géométrique d'un système} \\
 
-\graphicspath{{../../img/}}
+\graphicspath{{../../../img/}}
 \begin{center}
 \def\svgwidth{\columnwidth}
-\input{"../../img/triptyque.pdf_tex"}
+\input{"../../../img/triptyque.pdf_tex"}
 \end{center}
 
 La démarche de l’ingénieur permet :
@@ -30,23 +29,23 @@ La démarche de l’ingénieur permet :
 
 Des données sur le système sont disponibles ici: \urlsysteme.
 
-\question{\questionun}
+\question{Écrire les vecteurs $\overrightarrow{•}ightarrow{AB}$, $\overrightarrow{AC}$ et $\overrightarrow{BC}$ dans les bases respectives $B_5(\overrightarrow{x_5},\overrightarrow{y_5},\overrightarrow{z_5})$, $B_0(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})$ et $B_6(\overrightarrow{x_6},\overrightarrow{y_6},\overrightarrow{z_6})$. On mesurera $\|\overrightarrow{AB}\|$ et $\|\overrightarrow{BC}\|$ directement sur le système et on prendra $\|\overrightarrow{AC}\|=l(t)$ variable.}
 
 \question{Donner la relation qui existe entre ces vecteurs.}
 
-\question{Projeter cette relation dans la base $B_0(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})$ afin d'obtenir deux équations scalaires. On fera apparaître \resultatscalaire}
+\question{Projeter cette relation dans la base $B_0(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})$ afin d'obtenir deux équations scalaires. On fera apparaître les angles $\theta_m$ et $\theta_6=(\overrightarrow{x_0},\overrightarrow{x_6})$.}
 
-\question{A partir de ces équations, déterminer la relation \relation.}
+\question{A partir de ces équations, déterminer la relation $l(t)=f(\theta_m)$.}
 
 \section{Vérification par la simulation}
 
-\question{Simuler le modèle Simulink (version 2016a) sans le modifier, vérifier les données affichées.}
+\question{Simuler le modèle Simulink sans le modifier, vérifier les données affichées.}
 
 \question{Éditer le modèle en recopiant la formule de la première partie dans le bloc fonction et comparer les résultats des deux modèles.}
 
 \section{Vérification expérimentale}
 
-\question{Filmer le mouvement \dusysteme dans la même vue que celle du schéma cinématique.}
+\question{Filmer le mouvement de la capsuleuse dans la même vue que celle du schéma cinématique.}
 
 \question{A l'aide du logiciel Tracking repérer les trajectoires des points du schéma cinématique et valider les résultats précédents.}
 

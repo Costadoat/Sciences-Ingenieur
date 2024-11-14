@@ -1,6 +1,90 @@
-\newcommand{\systeme}{barrière}
-\newcommand{\lesysteme}{la \systeme}
-\newcommand{\dusysteme}{de la \systeme}
-\newcommand{\questionun}{Écrire les vecteurs $\overrightarrow{AB}$, $\overrightarrow{AC}$ et $\overrightarrow{BC}$ dans les bases respectives $B_0(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})$, $B_1(\overrightarrow{x_1},\overrightarrow{y_1},\overrightarrow{z_1})$ et $B_2(\overrightarrow{x_2},\overrightarrow{y_2},\overrightarrow{z_2})$. On mesurera $\|\overrightarrow{AB}\|$ et $\|\overrightarrow{BC}\|$ directement sur le système et on prendra $\|\overrightarrow{AC}\|=l(t)$ variable.}
-\newcommand{\resultatscalaire}{les angles $\theta_1$ et $\theta_2$.}
-\newcommand{\relation}{$\theta_2=f(\theta_1)$}
+\input{../../../headers/tpheaders_2.tex}
+
+\prob{Modéliser la loi d'entrée/sortie géométrique d'un système} \\
+
+\graphicspath{{../../../img/}}
+\begin{center}
+\def\svgwidth{\columnwidth}
+\input{"../../../img/triptyque.pdf_tex"}
+\end{center}
+
+La démarche de l’ingénieur permet :
+\begin{itemize}
+ \item De vérifier les performances attendues d’un système, par évaluation de l’écart entre un cahier des charges et les réponses expérimentales (écart 1),
+ \item De proposer et de valider des modèles d’un système à partir d’essais, par évaluation de l’écart entre les performances mesurées et les performances simulées (écart 2),
+ \item De prévoir le comportement à partir de modélisations, par l’évaluation de l’écart entre les performances simulées et les performances attendues du cahier des charges (écart 3).
+\end{itemize}
+
+\documentsressource{Pour ce TP, vous aurez à votre disposition les documents suivants:
+\begin{itemize}
+ \item La \miseenoeuvre\ du système,
+ \item de la procédure d'utilisation de Simscape disponible à la page \pageref{proceduresimscape},
+ \item Les divers documents des \urlsysteme.
+\end{itemize}}
+
+
+\newpage
+
+\section{Modélisation géométrique} 
+
+Des données sur le système sont disponibles ici: \urlsysteme.
+
+\question{Écrire les vecteurs $\overrightarrow{AB}$, $\overrightarrow{AC}$ et $\overrightarrow{BC}$ dans les bases respectives $B_0(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})$, $B_1(\overrightarrow{x_1},\overrightarrow{y_1},\overrightarrow{z_1})$ et $B_2(\overrightarrow{x_2},\overrightarrow{y_2},\overrightarrow{z_2})$. On mesurera $\|\overrightarrow{AB}\|$ et $\|\overrightarrow{BC}\|$ directement sur le système et on prendra $\|\overrightarrow{AC}\|=l(t)$ variable.}
+
+\question{Donner la relation qui existe entre ces vecteurs.}
+
+\question{Projeter cette relation dans la base $B_0(\overrightarrow{x_0},\overrightarrow{y_0},\overrightarrow{z_0})$ afin d'obtenir deux équations scalaires. On fera apparaître les angles $\theta_1$ et $\theta_2$.}
+
+\question{A partir de ces équations, déterminer la relation $\theta_2=f(\theta_1)$.}
+
+\section{Vérification par la simulation}
+
+\question{Simuler le modèle Simulink sans le modifier, vérifier les données affichées.}
+
+\question{Éditer le modèle en recopiant la formule de la première partie dans le bloc fonction et comparer les résultats des deux modèles.}
+
+\section{Vérification expérimentale}
+
+\question{Filmer le mouvement de la barrière dans la même vue que celle du schéma cinématique.}
+
+\question{A l'aide du logiciel Tracking repérer les trajectoires des points du schéma cinématique et valider les résultats précédents.}
+
+\newpage
+
+\proceduresimscape
+
+\ifdef{\public}{\end{document}}
+
+\newpage
+
+\pagestyle{correction}
+
+\section{Correction}
+
+\cor{$\overrightarrow{AB}=a\cdot\overrightarrow{y_0}$, $\overrightarrow{AC}=l(t)\cdot\overrightarrow{x_1}$ et $\overrightarrow{BC}=b\cdot\overrightarrow{x_2}$, avec a=112mm et b=81mm.}
+
+\cor{$\overrightarrow{AC}=\overrightarrow{AB}+\overrightarrow{BC}$.}
+
+\cor{\begin{eqnarray}
+l(t)\cdot cos\theta_1=b\cdot cos\theta_2\\ 
+l(t)\cdot sin\theta_1=a+b\cdot sin\theta_2
+\end{eqnarray}}
+
+\cor{\begin{eqnarray}
+tan\theta_1=\frac{a+b\cdot sin\theta_2}{b\cdot cos\theta_2}
+\end{eqnarray}}
+
+\cor{\begin{eqnarray}
+\theta_1=arctan\left(\frac{a+b\cdot sin\theta_2}{b\cdot cos\theta_2}\right)
+\end{eqnarray}}
+
+\cor{\begin{eqnarray}
+b\cdot sin\theta_1\cdot cos\theta_2=a\cdot cos\theta_1+b\cdot sin\theta_2\cdot cos\theta_1 \nonumber \\
+b\cdot \left(sin\theta_1\cdot cos\theta_2-sin\theta_2\cdot cos\theta_1\right)=a\cdot cos\theta_1 \nonumber \\
+b\cdot sin\left(\theta_1-\theta_2\right)=a\cdot cos\theta_1 \nonumber \\
+\theta_1-\theta_2=arcsin\left(\frac{a}{b}\cdot cos\theta_1\right) \nonumber \\
+\theta_2=\theta_1-arcsin\left(\frac{a}{b}\cdot cos\theta_1\right)
+\end{eqnarray}}
+
+
+\end{document}
