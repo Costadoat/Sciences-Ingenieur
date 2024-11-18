@@ -1,10 +1,70 @@
-\newcommand{\entree}{poids de la lisse $P$}
-\newcommand{\delentree}{du \entree}
-\newcommand{\lentree}{le \entree}
-\newcommand{\sortie}{couple moteur $C_m$}
-\newcommand{\delasortie}{du \sortie}
-\newcommand{\lasortie}{le \entree}
-\newcommand{\correction}{
+\input{../../../headers/tpheaders_2.tex}
+
+\prob{Modéliser la loi de transmission mécanique d'un système} \\
+
+\graphicspath{{../../../img/}}
+\begin{center}
+\def\svgwidth{\columnwidth}
+\input{"../../../img/triptyque.pdf_tex"}
+\end{center}
+
+La démarche de l’ingénieur permet :
+\begin{itemize}
+ \item De vérifier les performances attendues d’un système, par évaluation de l’écart entre un cahier des charges et les réponses expérimentales (écart 1),
+ \item De proposer et de valider des modèles d’un système à partir d’essais, par évaluation de l’écart entre les performances mesurées et les performances simulées (écart 2),
+ \item De prévoir le comportement à partir de modélisations, par l’évaluation de l’écart entre les performances simulées et les performances attendues du cahier des charges (écart 3).
+\end{itemize}
+
+\documentsressource{Pour ce TP, vous aurez à votre disposition les documents suivants:
+\begin{itemize}
+ \item La \miseenoeuvre\ du système,
+ \item de la procédure d'utilisation de Simscape disponible à la page \pageref{proceduresimscape},
+ \item Les divers documents des \urlsysteme.
+\end{itemize}}
+
+\newpage
+
+\section{Détermination de la loi de transmission des actions mécaniques}
+
+L'objectif de cette partie est de déterminer les équations liant les actions mécaniques du système \systemes\ et de les comparer avec celles obtenues par simulation Matlab/Simscape.
+
+On aura ainsi:
+\begin{itemize}
+ \item poids de la lisse $P$,
+ \item couple moteur $C_m$.
+\end{itemize}
+
+\questioncomp{mod}{Écrire les torseurs d'action mécanique de chacune des liaisons ainsi que des actions mécaniques extérieures.}
+
+\questioncomp{mod}{Isoler les solides}
+
+
+\questioncomp{mod}{Déterminer le couple moteur $C_m$\ en fonction du poids de la lisse $P$\ et des paramètres géométriques du système, en utilisant l. Les dimensions seront mesurées sur le système afin d'effectuer l'application numérique.}
+
+\questioncomp{res}{Compléter le modèle Simscape avec ces équation comme sur la procédure \pageref{proceduresimscape} et vérifier que les résultats correspondent.}
+
+~\
+
+\section{Vérification à l'aide de relevé expérimentaux}
+
+Proposer un protocole expérimental afin d'obtenir le tracé précédent.
+
+\questioncomp{exp}{Expliquer en quelques lignes le protocole expérimental mis en \oe uvre.}
+
+\questioncomp{exp}{Mettre en \oe uvre ce protocole expérimental pour certaines positions du système.}
+
+\questioncomp{exp}{Déterminer les écarts (et leurs origines) entre les résultats des la simulation et ceux issus de la partie expérimentale.}
+ 
+\proceduresimscape
+
+\ifdef{\public}{\end{document}}{}
+
+\clearpage
+
+\newpage
+
+\section{Correction}
+
 \begin{center}
  \includegraphics[width=0.6\linewidth]{img/Barriere_cin}
 \end{center}
@@ -87,5 +147,5 @@ $(l.cos(\alpha+\theta_1)-L.cos\theta_1).P-l.cos(\alpha+\theta_1).(P-cos(\alpha+\
 $\frac{L}{l}.P.cos\theta_1=\frac{C_m}{R.cos(\theta_1-\theta_2+\alpha)}$
 
 Donc $C_m=R.cos(\theta_1-\theta_2+\alpha).\frac{L}{l}.P.cos\theta_1$
-}
 
+\end{document}

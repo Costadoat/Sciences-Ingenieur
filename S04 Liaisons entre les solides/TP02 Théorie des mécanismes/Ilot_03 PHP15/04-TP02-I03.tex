@@ -1,5 +1,98 @@
-\newcommand{\systeme}{Maxpid}
-\newcommand{\lesysteme}{le \systeme}
-\newcommand{\dusysteme}{du \systeme}
-\newcommand{\ausysteme}{au \systeme}
-\newcommand{\lesdeuxpieces}{un engrenage et le corps}
+\input{../../../headers/tpheaders_2.tex}
+
+\prob{La problématique de l'hyperstatisme dans un système} \\
+
+\graphicspath{{../../../img/}}
+\begin{center}
+\def\svgwidth{\columnwidth}
+\input{"../../../img/triptyque.pdf_tex"}
+\end{center}
+
+La démarche de l’ingénieur permet :
+\begin{itemize}
+ \item De vérifier les performances attendues d’un système, par évaluation de l’écart entre un cahier des charges et les réponses expérimentales (écart 1),
+ \item De proposer et de valider des modèles d’un système à partir d’essais, par évaluation de l’écart entre les performances mesurées et les performances simulées (écart 2),
+ \item De prévoir le comportement à partir de modélisations, par l’évaluation de l’écart entre les performances simulées et les performances attendues du cahier des charges (écart 3).
+\end{itemize}
+
+\documentsressource{Pour ce TP, vous aurez à votre disposition les documents suivants:
+\begin{itemize}
+ \item La \miseenoeuvre\ du système,
+ \item \aidemecatroisd,
+ \item Les divers documents des \urlsysteme.
+\end{itemize}}
+
+
+\newpage
+
+\section{Analyser les sources d'hyperstatisme}
+
+Vous pourrez utiliser le travail effectué par les groupes précédents concernant ce système. La première étude va traiter des liaisons globales du mécanisme.
+
+\question{A partir du graphe de liaison, compter le nombre de cycle indépendants.}
+
+\question{Pour chaque cycle, déterminer: }
+ \begin{itemize}
+  \item le nombre de pièces,
+  \item le nombre de mobilités,
+  \item le nombre d'inconnues de liaison
+\end{itemize}
+
+\question{Calculer le degré d'hyperstatisme du système.}
+
+La suite de l'étude va permettre de déterminer l'hyperstatisme qui apparaît entre les liaisons élémentaires.
+
+\question{Pour chaque liaison, déterminer:}
+ \begin{itemize}
+  \item le nombre de mobilités,
+  \item le nombre d'inconnues de liaison
+\end{itemize}
+
+\question{Calculer le degré d'hyperstatisme de chacune des liaisons équivalentes.}
+
+\section{Modélisation d'une liaison équivalente}
+
+\question{Déterminer le torseur de la liaison équivalente entre un engrenage et le corps par deux décompositions de vitesse différentes.}
+
+\question{Déterminer alors le degré d'hyperstatisme ainsi que les mobilités du système. Ce résultat est à comparer avec le précédent.}
+
+\section{Validation des solutions techniques du système}
+
+Répondre aux questions suivantes sur la conception du système en s'appuyant sur le système réel.
+
+\question{A partir du mécanisme réel, proposer un protocole de mesure afin de déterminer le jeu dans une liaison. Appliquer cette méthode sur une liaison et écrire alors ce jeu sous la forme d'un torseur les déplacements autorisés par ce jeu.}
+
+ex:
+$\left\{P_{1/2}\right\}=\left\{ \begin{array}{cc} r_x & j_x \\ r_y & j_y \\ r_z & j_z \end{array}\right\}_{P}$
+
+Où:
+\begin{itemize}
+ \item $r_i$ représente un petit angle autorisé par le jeu (en degré),
+ \item $j_i$ représente un petit déplacement autorisé par le jeu (en mm). 
+\end{itemize}
+
+\question{Montrer ce jeu sur une vidéo que vous présenterez.}
+
+\question{Proposer un procédé de fabrication pour les \textbf{surfaces fonctionnelles} du système. Vous vous aiderez pour cela des documents de la bibliothèque.}
+
+\section{Respect du cahier des charges}
+
+Afin que l'assemblage d'un mécanisme possédant des degrés d'hyperstatisme soit possible, il est nécessaire de trouver des solutions techniques, comme cela a été vu précédemment.
+
+\question{Vous classerez parmi les suivantes les principales exigences liées au système, vous les présenterez sous la forme d'un diagramme des exigences SysMl.}
+
+\begin{itemize}
+ \item rigidité (le système doit supporter de gros efforts),
+ \item mobilité (le système doit pouvoir se déplacer dans beaucoup de directions),
+ \item le système n'accepte que très peu de jeu (si c'est le cas, vous préciserez la raison).
+\end{itemize}
+
+\question{Effectuer une synthèse du travail précédent afin de montrer les solutions qui ont été utilisées afin de résoudre les problématiques liées à l'hyperstatisme.}
+
+
+\end{document}
+
+\pagestyle{correction}\setcounter{section}{0}
+
+\paragraph{Question 1:}
+\end{document}
