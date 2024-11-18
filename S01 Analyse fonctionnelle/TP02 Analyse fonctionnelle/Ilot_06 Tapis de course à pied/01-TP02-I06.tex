@@ -1,5 +1,157 @@
-\newcommand{\systeme}{tapis de course à pied}
-\newcommand{\dusysteme}{du \systeme}
-\newcommand{\Lesysteme}{Le \systeme}
-\newcommand{\lesysteme}{le \systeme}
-\newcommand{\feminin}{}
+\input{../../../headers/tpheaders_2.tex}
+
+\prob{Analyser le fonctionnement d'un système} \\
+
+\graphicspath{{../../../img/}}
+\begin{center}
+\def\svgwidth{\columnwidth}
+\input{"../../../img/triptyque.pdf_tex"}
+\end{center}
+
+La démarche de l’ingénieur permet :
+\begin{itemize}
+ \item De vérifier les performances attendues d’un système, par évaluation de l’écart entre un cahier des charges et les réponses expérimentales (écart 1),
+ \item De proposer et de valider des modèles d’un système à partir d’essais, par évaluation de l’écart entre les performances mesurées et les performances simulées (écart 2),
+ \item De prévoir le comportement à partir de modélisations, par l’évaluation de l’écart entre les performances simulées et les performances attendues du cahier des charges (écart 3).
+\end{itemize}
+
+\documentsressource{Pour ce TP, vous aurez à votre disposition les documents suivants:
+\begin{itemize}
+ \item La \miseenoeuvre\ du système,
+ \item Les divers documents des \urlsysteme.
+\end{itemize}}
+
+\newpage
+
+\section{Analyse et mise en \oe uvre d'un système} 
+
+Remarque: Les réponses aux questions suivantes devront, à chaque fois que c'est possible, être mises sous la forme de diagramme SysMl.
+
+\subsection{Déterminer la fonction globale du système} 
+
+Étudier le fonctionnement du tapis de course en étudiant les ressources disponibles sur sa page (\urlsysteme).
+
+\question{Donnerez la ou les principale(s) fonction(s) du tapis de course. De ces fonctions découlent des exigences, en proposer au moins trois. A ces exigences devront être associés des niveaux qui permettent de les classer par ordre d'importance.}
+
+\question{A quel(s) acteur(s) ce système rend-il service ? Comment celui-ci(ceux-ci) se rend(ent)-il(s) compte du service rendu ?}
+
+\subsection{Montrer que le tapis de course répond au cahier des charges}
+
+\question{Mettre en \oe uvre le tapis de course et l'utiliser pour sa principale fonction.}
+
+\question{Déterminer un protocole expérimental pour chaque exigence du diagramme d'exigences afin de valider qu'elle est respectée.}
+
+\subsection{Éléments du Milieu Extérieur}
+
+Lors de la phase de vie du tapis de course correspondant à son \og utilisation \fg,
+
+\question{Où se trouve le système (local, atelier, salle de sport,...)}.
+
+\question{A quels éléments extérieurs liés à l'environnement le tapis de course est-il confronté lors de la phase de vie \og utilisation \fg ? Ces éléments ont-ils été pris en compte lors de l'étude de la conception du tapis de course ? Comment ?}
+
+\question{A quelles sources d'énergie le tapis de course doit-elle être connecté afin de fonctionner correctement ?}
+
+\question{Proposez des solutions qui d'après vous ont été appliqués au système afin d'assurer la sécurité des utilisateur et de l'installation.}
+
+\question{En considérant l'îlot comme étant tout ce qui se trouve sur la table (en dehors de vos affaires) quels sont les éléments qui ne font pas partie du tapis de course réel (tel qu'on pourrait le trouver hors d'une salle de TP)  ? Celui-ci fonctionnerait-il sans leur présence ?}
+
+\section{Composants du système}
+
+Le tapis de course est constitué de plusieurs sous-systèmes qui participent à la réalisation des actions attendues.
+
+\question{Donner le nom d'un certain nombre de ces sous-systèmes. Pour chacun de ces sous-systèmes, vous préciserez s'ils sont ou non obligatoires pour le bon fonctionnement du tapis de course ou s'ils sont facultatifs.}
+
+\question{Ces blocs devront ensuite être classés, si possible, dans une des familles suivantes:}
+\begin{itemize}
+ \item système de calcul,
+ \item capteur,
+ \item effecteur (moteur, vérin,...),
+ \item système mécanique,
+ \item carter/protection,
+ \item système de communication,
+ \item alimentation,
+ \item ...
+\end{itemize}
+
+\subsection{Flux traversants}
+
+Les blocs qui ont été trouvés précédemment sont reliés entre eux par des flux :
+\begin{itemize}
+ \item d'énergie,
+ \item de matière,
+ \item d'information
+\end{itemize}
+
+\question{Donner l'ensemble des flux qui entrent dans le tapis de course et ceux qui en sortent. Ces flux devront être classés selon les trois catégories décrites précédemment.}
+
+Chaque flux entrant/sortant transite pour entrer/sortir du système par un port.
+
+\question{Donner pour chaque flux le port par lequel il transite. Ces ports sont-ils unidirectionnel ou bien servent-ils à faire à la fois entrée et sortir un flux ?}
+
+\question{Les flux énergétiques doivent être classés en fonction du type d'énergie qui transite:}
+\begin{itemize}
+ \item électrique,
+ \item mécanique de translation,
+ \item mécanique de rotation,
+ \item thermique,
+ \item ...
+\end{itemize}
+
+\section{Mise en \oe uvre du système}
+
+%Mettre en \oe uvre le système en suivant la procédure disponible \miseenoeuvre et effectuer une mesure.
+
+Mettre en \oe uvre le système en suivant la procédure disponible (DEMANDER A L'ENSEIGNANT) et effectuer une mesure.
+
+\question{Décrire succinctement (mais précisément) les opérations à effectuer par l'utilisateur durant cette mise en \oe uvre ainsi que les messages que le système envoie à l'utilisateur.}
+
+\question{Décrire succinctement (mais précisément) le comportement du système. Donner notamment:}
+\begin{itemize}
+ \item l'état initial,
+ \item l'état final,
+ \item les actions effectuées par le système,
+ \item ...
+\end{itemize}
+
+\subsection{Déterminer de l'état du système}
+
+La partie qui pilote le tapis de course doit connaître son état afin d'agir en conséquence. 
+
+\question{Donner l'ensemble des éléments qui permettent à la partie commande de récupérer des informations sur l'état du tapis de course.}
+
+\question{Pour chacun de ces éléments, vous donnerez le type d'information qu'il est capable de capter/détecter.}
+
+\subsection{Chaînes d'énergie et d'information}
+
+Comme tout système automatisé, le système peut être décrit sous la forme de chaînes d'information et d'énergie.
+
+\question{En utilisant les résultats des autres activités, vous compléterez les chaînes d'énergie et d'information fournies dans le document de présentation.}
+
+Le tapis de course a été conçue en répondant aux exigences issues d'un cahier des charges, rédigé par le concepteur en collaboration avec le client. Le concepteur a ensuite dû trouver des solutions techniques afin de répondre aux exigences 
+
+\question{En utilisant les résultats des activités précédentes, trouver les solutions techniques qui ont permis de répondre aux exigences du cahier des charges.}
+
+\section{Synthèse du travail de groupe}
+
+\question{Préparer une présentation (10 min) à partir du document de présentation complété pendant le TP. Répartir le temps de parole entre les intervenant et veiller à faire respecter (cordialement) ce temps de parole. Il est recommandé de ne pas lire de fiche pendant la présentation et de s'appuyer sur le \og Document ressources \fg établit durant la séance. Ce document pourra être complété comme vous le souhaitez.}
+
+~\
+
+La présentation doit se dérouler de la manière suivante:
+\begin{itemize}
+ \item Introduction,
+ \begin{itemize}
+ \item Présentation du système,
+ \item Présentation du travail des membres du groupe.
+ \end{itemize}
+ \item Passage des membres du groupe
+ \item Conclusion,
+ \begin{itemize}
+ \item Conclusion sur le travail effectué,
+ \item Conclusion sur l'intérêt du système.
+ \end{itemize}
+\end{itemize}
+
+
+
+\end{document}
