@@ -1,6 +1,6 @@
 % Paquets généraux
 \documentclass[a4paper,12pt,titlepage,twoside]{article}
-\usepackage[utf8]{inputenc}
+\usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
 \usepackage{textgreek}
@@ -9,11 +9,13 @@
 \usepackage{fancyhdr}
 \usepackage{pdfpages}
 \usepackage{multido}
+\PassOptionsToPackage{obeyspaces}{url}
 \usepackage{hyperref}
 \usepackage{numprint}
 \nplpadding{2}
 \usepackage{pstricks}
 %\usepackage{aeguill}
+\usepackage{listings}
 
 \input{intro.tex}
 
@@ -25,8 +27,7 @@
 \newcommand{\auteurdeux}{Françoise Puig}
 \newcommand{\auteurs}{Costadoat - Puig}
 \newcommand{\institute}{Lycée Dorian}
-\newcommand{\scriptpython}{\href{https://raw.githubusercontent.com/Costadoat/S\sequence/master/\type\num\space\nom/Ilot_\twodigits{\ilot} \systemes/\sequence-\type\num-I\twodigits{\ilot}.py}{script python }}
-
+\newcommand{\competensequestion}{}
 \usepackage{color}
 \usepackage{xcolor}
 \usepackage{colortbl}
@@ -95,6 +96,8 @@
 \definecolor{success}{RGB}{92,184,92}
 \definecolor{warning}{RGB}{240,173,78}
 \definecolor{danger}{RGB}{217,83,79}
+\definecolor{darkWhite}{rgb}{0.94,0.94,0.94}
+
 \hypersetup{                    % parametrage des hyperliens
     colorlinks=true,                % colorise les liens
     breaklinks=true,                % permet les retours à la ligne pour les liens trop longs
@@ -102,6 +105,73 @@
     linkcolor= orange,                % couleur des liens internes aux documents (index, figures, tableaux, equations,...)
     citecolor= forestgreen                % couleur des liens vers les references bibliographiques
     }
+
+
+\lstset{
+  aboveskip=3mm,
+  belowskip=-2mm,
+  backgroundcolor=\color{darkWhite},
+  basicstyle=\footnotesize,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  commentstyle=\color{red},
+  deletekeywords={...},
+  escapeinside={\%*}{*)},
+  extendedchars=true,
+  framexleftmargin=16pt,
+  framextopmargin=3pt,
+  framexbottommargin=6pt,
+  frame=tb,
+  keepspaces=true,
+  keywordstyle=\color{blue},
+  language=C,
+  literate=
+  {²}{{\textsuperscript{2}}}1
+  {⁴}{{\textsuperscript{4}}}1
+  {⁶}{{\textsuperscript{6}}}1
+  {⁸}{{\textsuperscript{8}}}1
+  {€}{{\euro{}}}1
+  {é}{{\'e}}1
+  {è}{{\`{e}}}1
+  {ê}{{\^{e}}}1
+  {ë}{{\¨{e}}}1
+  {É}{{\'{E}}}1
+  {Ê}{{\^{E}}}1
+  {û}{{\^{u}}}1
+  {ù}{{\`{u}}}1
+  {â}{{\^{a}}}1
+  {à}{{\`{a}}}1
+  {á}{{\'{a}}}1
+  {ã}{{\~{a}}}1
+  {Á}{{\'{A}}}1
+  {Â}{{\^{A}}}1
+  {Ã}{{\~{A}}}1
+  {ç}{{\c{c}}}1
+  {Ç}{{\c{C}}}1
+  {õ}{{\~{o}}}1
+  {ó}{{\'{o}}}1
+  {ô}{{\^{o}}}1
+  {Õ}{{\~{O}}}1
+  {Ó}{{\'{O}}}1
+  {Ô}{{\^{O}}}1
+  {î}{{\^{i}}}1
+  {Î}{{\^{I}}}1
+  {í}{{\'{i}}}1
+  {Í}{{\~{Í}}}1,
+  morekeywords={*,...},
+  numbers=left,
+  numbersep=10pt,
+  numberstyle=\tiny\color{black},
+  rulecolor=\color{black},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  stepnumber=1,
+  stringstyle=\color{gray},
+  tabsize=4,
+  title=\lstname,
+}
 
 % Mise en page
 \pagestyle{fancy}
@@ -138,9 +208,27 @@
 \newcounter{num_cor} \setcounter{num_cor}{0}
 
 \newcommand{\question}[1]{\refstepcounter{num_quest}\par
-~\ \\ \parbox[t][][t]{0.15\linewidth}{\textbf{Question \arabic{num_quest}}}\parbox[t][][t]{0.93\linewidth}{#1}\par
+~\ \\ \parbox[t][][t]{0.15\linewidth}{\textbf{Question \arabic{num_quest}}}\parbox[t][][t]{0.85\linewidth}{#1}\par
 }
 
+\newcommand{\questioncomp}[2]{
+\ifthenelse{\equal{#1}{ana}}{\renewcommand{\competensequestion}{\textcolor{analyserf}{Analyser}}}{
+\ifthenelse{\equal{#1}{mod}}{\renewcommand{\competensequestion}{\textcolor{modeliserf}{Modéliser}}}{
+\ifthenelse{\equal{#1}{res}}{\renewcommand{\competensequestion}{\textcolor{resoudref}{Résoudre}}}{
+\ifthenelse{\equal{#1}{exp}}{\renewcommand{\competensequestion}{\textcolor{experimenterf}{Expérimenter}}}{
+\ifthenelse{\equal{#1}{con}}{\renewcommand{\competensequestion}{\textcolor{concevoirf}{Concevoir}}}{
+\ifthenelse{\equal{#1}{rea}}{\renewcommand{\competensequestion}{\textcolor{realiserf}{Réaliser}}}{
+\ifthenelse{\equal{#1}{com}}{\renewcommand{\competensequestion}{\textcolor{communiquerf}{Communiquer}}}{
+}}}}}}}
+\refstepcounter{num_quest}\par
+~\ \\ \parbox[t][][t]{0.18\linewidth}{\textbf{Question \arabic{num_quest}}\\ \competensequestion}\parbox[t][][t]{0.8\linewidth}{#2}\par
+}
+
+\newcommand{\urlgithub}[1]{https://raw.githubusercontent.com/Costadoat/Sciences-Ingenieur/master/}
+
+\newcommand{\dossiergithub}[1]{\urlgithub/S\sequence\%20\nomsequence/\type\num\%20\nom/}
+
+\newcommand{\urlsysteme}{\href{https://www.costadoat.fr/systeme/\systemesnum}{système}}
 
 \newcommand{\reponse}[1]
 {\refstepcounter{num_rep}
@@ -292,11 +380,35 @@
 \end{tikzpicture}%
 }
 
+
+\newcommand{\documentsressource}[2]{%
+\tikzstyle{titlebox}=[rounded corners=10,inner sep=10pt,inner ysep=10pt,fill=bleuc]%
+%\tikzstyle{title}=[]%
+%
+\bigskip\noindent\begin{tikzpicture}
+\node[titlebox] (box){%
+\begin{minipage}{0.94\textwidth}
+\begin{minipage}{0.15\linewidth}
+\includegraphics[width=0.8\linewidth]{../../../img/user-manual}
+\end{minipage}
+\begin{minipage}{0.8\linewidth}
+\textbf{\textcolor{bleuf}{#1}}
+\end{minipage}
+\end{minipage}
+};
+%\draw[color=blue] (box.north west)--(box.north east);
+%\node[title] at (box.north west) {\textcolor{white}{\textbf{Problématique}}};
+\end{tikzpicture}%
+}
+
 %Procédures logiciels
 
 \newcommand{\proceduresimscape}{
+
+\newpage
+
 \begin{center}
- \huge{Utilisation de Matlab Simscape} \label{proceduresimscape}
+ \huge{Utilisation de Matlab Simscape}
 \end{center}
 
 La procédure suivante explique comment utiliser Matlab afin de simuler un modèle Simscape.
@@ -307,11 +419,11 @@ Ce modèle a été construit à partir des pièces, assemblages et contraintes d
 
 Procédure :
 \begin{itemize}
- \item Dézipper l'archive à télécharger ici \matlabsimscape,
+ \item Dézipper l'archive à télécharger \matlabsimscape,
  \item Lancer Matlab \includegraphics[width=80pt]{../../../img/matlabsimscape/matlab}
  \item Depuis Matlab, naviguer \includegraphics[width=80pt]{../../../img/matlabsimscape/matlab_01} dans le dossier dézippé jusqu'au dossier contenant les fichiers \og .slx \fg\ et \og Simscape \fg,\\
   \begin{center}
-  \includegraphics[width=0.4\linewidth]{../../../img/matlabsimscape/matlab_02}
+  \includegraphics[width=0.3\linewidth]{../../../img/matlabsimscape/matlab_02}
   \end{center}
  \item Faire un clic-droit sur le dossier \og Simscape \fg\ et cliquer sur \og Add to Path \fg,\\
   \begin{center}
@@ -321,16 +433,17 @@ Procédure :
   \begin{center}
   \includegraphics[width=0.4\linewidth]{../../../img/matlabsimscape/matlab_04}
   \end{center}
- \item Afin d'exporter des données, il est nécessaire d'insérer un bloc \textbf{To File} disponible dans la section \textif{Sinks} et de le connecter à la donnée à extaire,
- \item Cela a por effet de créer un fichier \textit{.mat}, qui peut être convertit en fichier \textit{.csv} en utilisant les commandes suivantes:
- \begin{itemize}
-  \item FileData = load('nom_du_fichier.mat');
-  \item csvwrite('nom_du_fichier.csv', FileData.ans);
- \end{itemize}
-\end{itemize}
+ \item Afin d'exporter des données, il est nécessaire d'insérer un bloc \textbf{To File} disponible dans la section \textit{Sinks} et de le connecter à la donnée à extraire,
+ \item Double-cliquer dessus afin de modifier le paramètre \textit{Save format} en \textbf{Array}. Cela a pour effet de créer un fichier \textit{fichier.mat},
+ \item Celui-ci peut être convertit en fichier \textit{fichier.csv} en utilisant les commandes suivantes:
+ \texttt{FileData = load('fichier.mat');} \\
+ \texttt{csvwrite('fichier.csv', FileData.ans);}
+ \end{itemize}	
+
+\label{proceduresimscape}
 }
 
-
+\newcommand{\aidemecatroisd}{Une ressource permettant la prise en main du logiciel Meca3d est disponible \href{https://atemi.pagesperso-orange.fr/downloads/Meca3d/exemples/v18.0/Sinusmatic_v18.zip}{ici}}
 
 
 
@@ -413,12 +526,12 @@ keepaspectratio]{../../../img/fond4}%
 \AddToShipoutPicture*{\BackgroundPic}
 
 \ifdef{\auteurdeux}{\begin{tabular}{>{\columncolor{gray!00}}m{.33\linewidth} m{.27\linewidth} >{\columncolor{gray!00}}m{.3\linewidth}}
-Séquence \sequence \ - \type \num \ - Îlot \numprint{\ilot} &  \multirow{3}{*}{\hspace{1cm}\includegraphics[height=1.5cm]{../../../img/logo}} &  \begin{flushright} \multirow{4}{*}{\hspace{1cm}\includegraphics[height=4cm]{img/qrcode}}\end{flushright}\\
+Séquence \sequence \ - \type \num \ - Îlot \numprint{\ilot} &  \multirow{3}{*}{\hspace{1cm}\includegraphics[height=1.5cm]{../../../img/logo}} &  \begin{flushright} \multirow{4}{*}{\hspace{1cm}\includegraphics[height=4cm]{"img/qrcode"}}\end{flushright}\\
  \textbf{\institute} \\
  \auteurun\\
  \auteurdeux
 \end{tabular}}{\begin{tabular}{>{\columncolor{gray!00}}m{.3\linewidth} m{.3\linewidth} >{\columncolor{gray!00}}m{.3\linewidth}}
-Séquence \sequence \ - \type \num \ - Îlot \numprint{\ilot}  &  \multirow{3}{*}{\hspace{1cm}\includegraphics[height=1.5cm]{../../../img/logo}} &  \begin{flushright} \multirow{4}{*}{\hspace{1cm}\includegraphics[height=4cm]{img/qrcode}}\end{flushright}\\
+Séquence \sequence \ - \type \num \ - Îlot \numprint{\ilot}  &  \multirow{3}{*}{\hspace{1cm}\includegraphics[height=1.5cm]{../../../img/logo}} &  \begin{flushright} \multirow{4}{*}{\hspace{1cm}\includegraphics[height=4cm]{"img/qrcode"}}\end{flushright}\\
  \textbf{\institute} \\
  \auteurun
 \end{tabular}}
