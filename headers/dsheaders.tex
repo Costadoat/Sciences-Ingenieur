@@ -29,6 +29,7 @@
 \usepackage[locale = FR]{siunitx}
 \usepackage{caption}
 \newcommand{\institute}{Lycée Dorian}
+\usepackage{calc}
 
 \usepackage{listings}
 \usepackage{fancyvrb}
@@ -223,22 +224,45 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 \ifdef{\public}{#3 \ifthenelse{#2>0}{~\ \\ 	\feuilleDR{#2}}}{#4}
 }}
 
-\newcommand{\cor}
-{\refstepcounter{num_cor}
-\noindent
-\rule{\linewidth}{.5pt}
-\textbf{Question \arabic{num_cor}:} \\
-}
+%\makeatletter
+%\newcommand\modulo[2]{
+%    \newcounter{lastpagesujet}
+%	\setcounter{lastpagesujet}{#1}
+%    \divide\value{lastpagesujet} by #2
+%    \multiply\value{lastpagesujet} by #2
+%    \multiply\value{lastpagesujet} by -1
+%    \advance\value{lastpagesujet} by #1\relax
+%    \addtocounter{lastpagesujet}{#1}
+%    \addtocounter{lastpagesujet}{-1}
+%    }
+%\makeatother
 
-\newcommand{\finsujet}
+\makeatletter
+\newcommand\modulo[2]{
+    \newcounter{lastpagesujet}
+	\setcounter{lastpagesujet}{#1}
+    \divide\value{lastpagesujet} by #2
+    \multiply\value{lastpagesujet} by #2
+    \advance\value{lastpagesujet} by #2
+    \advance\value{lastpagesujet} by 1\relax
+    }
+\makeatother
+
+\newcommand{\finsujet}[1]
 {
     \begin{center}
     \Large{FIN}
     \end{center}
-
-    \cleardoublepage
-
-    \ifdef{\public}{\pagestyle{docreponse}}{\pagestyle{correction}}
+    
+    \ifthenelse{\equal{#1}{public}}{\def\public{}}{}
+	
+	\newpage
+	
+    \ifdef{\public}{
+    	\modulo{\value{page}}{4}
+		\whiledo{\value{page}<\value{lastpagesujet}}{~\ \newpage}
+        \pagestyle{docreponse}
+	}{\pagestyle{correction}}
 
     \ifdef{\public}{
         \begin{tikzpicture} 
@@ -251,7 +275,6 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
     }
     ~\ \\
 }
-
 
 %\newcommand{\repcarre}[2]
 %{
