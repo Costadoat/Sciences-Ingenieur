@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.5.14)  26 MAY 2024 20:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.5.14)  29 NOV 2024 14:25
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1535,8 +1535,8 @@ Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@dima=\skip140
 \bigstrutjot=\dimen360
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 97.
-Package hyperref Info: Option `breaklinks' set `true' on input line 97.
+Package hyperref Info: Option `colorlinks' set `true' on input line 98.
+Package hyperref Info: Option `breaklinks' set `true' on input line 98.
 \c@num_quest=\count427
 \c@num_rep=\count428
 \c@num_cor=\count429
@@ -1544,7 +1544,7 @@ runsystem(command -v pygmentize && touch DS03_prive.aex)...executed.
 
 runsystem(rm DS03_prive.aex)...executed.
 
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 34
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 39
 2.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
@@ -1559,54 +1559,54 @@ LaTeX Warning: Label `q29' multiply defined.
 )
 \openout1 = `DS03_prive.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/ntxsfmi/m/it on input line 342.
+LaTeX Font Info:    Checking defaults for OML/ntxsfmi/m/it on input line 392.
 LaTeX Font Info:    Trying to load font information for OML+ntxsfmi on input li
-ne 342.
+ne 392.
  (/usr/share/texlive/texmf-dist/tex/latex/newtxsf/omlntxsfmi.fd
 File: omlntxsfmi.fd 2014/11/16 Fontinst v1.933 font definitions for OML/ntxsfmi
 .
 )
-LaTeX Font Info:    ... okay on input line 342.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 342.
-LaTeX Font Info:    ... okay on input line 342.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 342.
-LaTeX Font Info:    ... okay on input line 342.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 342.
-LaTeX Font Info:    ... okay on input line 342.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 342.
-LaTeX Font Info:    ... okay on input line 342.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 342.
-LaTeX Font Info:    ... okay on input line 342.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 342.
+LaTeX Font Info:    ... okay on input line 392.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 392.
+LaTeX Font Info:    ... okay on input line 392.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 392.
+LaTeX Font Info:    ... okay on input line 392.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 392.
+LaTeX Font Info:    ... okay on input line 392.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 392.
+LaTeX Font Info:    ... okay on input line 392.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 392.
+LaTeX Font Info:    ... okay on input line 392.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 392.
 LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 
-342.
+392.
 
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 342.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 342.
-LaTeX Font Info:    ... okay on input line 342.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 342.
-LaTeX Font Info:    ... okay on input line 342.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 342.
+LaTeX Font Info:    ... okay on input line 392.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 392.
+LaTeX Font Info:    ... okay on input line 392.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 392.
+LaTeX Font Info:    ... okay on input line 392.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 392.
 LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line
- 342.
+ 392.
 
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 342.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 342.
-LaTeX Font Info:    ... okay on input line 342.
-LaTeX Info: Redefining \degres on input line 342.
+LaTeX Font Info:    ... okay on input line 392.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 392.
+LaTeX Font Info:    ... okay on input line 392.
+LaTeX Info: Redefining \degres on input line 392.
 Package french.ldf Info: Setting StandardItemizeEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 342.
+(french.ldf)             reported on input line 392.
 Package french.ldf Info: Setting StandardEnumerateEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 342.
-LaTeX Info: Redefining \up on input line 342.
+(french.ldf)             reported on input line 392.
+LaTeX Info: Redefining \up on input line 392.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -1648,7 +1648,7 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
-Package hyperref Info: Link coloring ON on input line 342.
+Package hyperref Info: Link coloring ON on input line 392.
 
 (./DS03_prive.out) (./DS03_prive.out)
 \@outlinefile=\write6
@@ -1661,29 +1661,29 @@ File: translations-basic-dictionary-french.trsl (french translation file `trans
 lations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `french'. on input line 342.
+or `french'. on input line 392.
 \c@lstlisting=\count436
-LaTeX Info: Command `\dddot' is already robust on input line 342.
-LaTeX Info: Command `\ddddot' is already robust on input line 342.
+LaTeX Info: Command `\dddot' is already robust on input line 392.
+LaTeX Info: Command `\ddddot' is already robust on input line 392.
 \symgns@font=\mathgroup11
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
-(Font)                  TS1/phv/m/n --> TS1/phv/b/n on input line 342.
-Package gensymb Info: Math companion symbols declared on input line 342.
-LaTeX Info: Redefining \degree on input line 342.
-LaTeX Info: Redefining \celsius on input line 342.
+(Font)                  TS1/phv/m/n --> TS1/phv/b/n on input line 392.
+Package gensymb Info: Math companion symbols declared on input line 392.
+LaTeX Info: Redefining \degree on input line 392.
+LaTeX Info: Redefining \celsius on input line 392.
 Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
-erthousand on input line 342.
-LaTeX Info: Redefining \ohm on input line 342.
-Package gensymb Info: Using \textohm for \ohm on input line 342.
-LaTeX Info: Redefining \micro on input line 342.
-Package gensymb Info: Using \textmu for \micro on input line 342.
+erthousand on input line 392.
+LaTeX Info: Redefining \ohm on input line 392.
+Package gensymb Info: Using \textohm for \ohm on input line 392.
+LaTeX Info: Redefining \micro on input line 392.
+Package gensymb Info: Using \textmu for \micro on input line 392.
 <../../../img/logo.png, id=27, 835.12pt x 542.025pt>
 File: ../../../img/logo.png Graphic file (type png)
 <use ../../../img/logo.png>
-Package pdftex.def Info: ../../../img/logo.png  used on input line 348.
+Package pdftex.def Info: ../../../img/logo.png  used on input line 398.
 (pdftex.def)             Requested size: 56.9055pt x 36.92833pt.
 
-Overfull \hbox (17.72237pt too wide) in paragraph at lines 350--351
+Overfull \hbox (17.72237pt too wide) in paragraph at lines 400--401
 []\T1/phv/m/n/29.86 DS 03- Sys-tème de télé-échographie 
  []
 
@@ -1694,7 +1694,7 @@ Overfull \hbox (17.72237pt too wide) in paragraph at lines 350--351
 <../../../img/fond3.pdf, id=34, 597.49223pt x 845.01697pt>
 File: ../../../img/fond3.pdf Graphic file (type pdf)
 <use ../../../img/fond3.pdf>
-Package pdftex.def Info: ../../../img/fond3.pdf  used on input line 373.
+Package pdftex.def Info: ../../../img/fond3.pdf  used on input line 423.
 (pdftex.def)             Requested size: 597.51811pt x 845.05359pt.
  [1
 
@@ -1979,11 +1979,11 @@ Package pdftex.def Info: ../../../img/fond4.pdf  used on input line 425.
  [16 <./img/exigences.png>]
 File: ../../../img/logo.png Graphic file (type png)
 <use ../../../img/logo.png>
-Package pdftex.def Info: ../../../img/logo.png  used on input line 480.
+Package pdftex.def Info: ../../../img/logo.png  used on input line 503.
 (pdftex.def)             Requested size: 56.9055pt x 36.92833pt.
 File: ../../../img/fond4.pdf Graphic file (type pdf)
 <use ../../../img/fond4.pdf>
-Package pdftex.def Info: ../../../img/fond4.pdf  used on input line 480.
+Package pdftex.def Info: ../../../img/fond4.pdf  used on input line 503.
 (pdftex.def)             Requested size: 585.064pt x 845.09245pt.
  [17
 
@@ -2003,63 +2003,72 @@ File: img/DR01_cor.png Graphic file (type png)
 Package pdftex.def Info: img/DR01_cor.png  used on input line 525.
 (pdftex.def)             Requested size: 432.89706pt x 138.698pt.
 
-Underfull \vbox (badness 2512) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: ../../../img/logo.png Graphic file (type png)
 <use ../../../img/logo.png>
-Package pdftex.def Info: ../../../img/logo.png  used on input line 525.
+Package pdftex.def Info: ../../../img/logo.png  used on input line 558.
 (pdftex.def)             Requested size: 56.9055pt x 36.92833pt.
 File: ../../../img/fond4.pdf Graphic file (type pdf)
 <use ../../../img/fond4.pdf>
-Package pdftex.def Info: ../../../img/fond4.pdf  used on input line 525.
+Package pdftex.def Info: ../../../img/fond4.pdf  used on input line 558.
 (pdftex.def)             Requested size: 585.064pt x 845.09245pt.
- [18]
+ [18 <./img/DR01_cor.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 File: ../../../img/logo.png Graphic file (type png)
 <use ../../../img/logo.png>
-Package pdftex.def Info: ../../../img/logo.png  used on input line 570.
+Package pdftex.def Info: ../../../img/logo.png  used on input line 573.
 (pdftex.def)             Requested size: 56.9055pt x 36.92833pt.
 File: ../../../img/fond4.pdf Graphic file (type pdf)
 <use ../../../img/fond4.pdf>
-Package pdftex.def Info: ../../../img/fond4.pdf  used on input line 570.
+Package pdftex.def Info: ../../../img/fond4.pdf  used on input line 573.
 (pdftex.def)             Requested size: 585.064pt x 845.09245pt.
-
-[19 <./img/DR01_cor.png>]
+ [19]
 Underfull \hbox (badness 10000) in paragraph at lines 594--594
 
  []
 
-<img/DR02_cor.png, id=325, 2544.50626pt x 815.29594pt>
+<img/DR02_cor.png, id=324, 2544.50626pt x 815.29594pt>
 File: img/DR02_cor.png Graphic file (type png)
 <use img/DR02_cor.png>
 Package pdftex.def Info: img/DR02_cor.png  used on input line 594.
 (pdftex.def)             Requested size: 432.89706pt x 138.698pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 File: ../../../img/logo.png Graphic file (type png)
 <use ../../../img/logo.png>
-Package pdftex.def Info: ../../../img/logo.png  used on input line 613.
+Package pdftex.def Info: ../../../img/logo.png  used on input line 628.
 (pdftex.def)             Requested size: 56.9055pt x 36.92833pt.
 File: ../../../img/fond4.pdf Graphic file (type pdf)
 <use ../../../img/fond4.pdf>
-Package pdftex.def Info: ../../../img/fond4.pdf  used on input line 613.
+Package pdftex.def Info: ../../../img/fond4.pdf  used on input line 628.
 (pdftex.def)             Requested size: 585.064pt x 845.09245pt.
-[20 <./img/DR02_cor.png>]
+ [20 <./img/DR02_cor.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 File: ../../../img/logo.png Graphic file (type png)
 <use ../../../img/logo.png>
-Package pdftex.def Info: ../../../img/logo.png  used on input line 648.
+Package pdftex.def Info: ../../../img/logo.png  used on input line 664.
 (pdftex.def)             Requested size: 56.9055pt x 36.92833pt.
 File: ../../../img/fond4.pdf Graphic file (type pdf)
 <use ../../../img/fond4.pdf>
-Package pdftex.def Info: ../../../img/fond4.pdf  used on input line 648.
+Package pdftex.def Info: ../../../img/fond4.pdf  used on input line 664.
 (pdftex.def)             Requested size: 585.064pt x 845.09245pt.
  [21]
 Underfull \hbox (badness 10000) in paragraph at lines 678--678
 
  []
 
-<img/DR03_cor.png, id=346, 743.77875pt x 409.53pt>
+<img/DR03_cor.png, id=345, 743.77875pt x 409.53pt>
 File: img/DR03_cor.png Graphic file (type png)
 <use img/DR03_cor.png>
 Package pdftex.def Info: img/DR03_cor.png  used on input line 678.
 (pdftex.def)             Requested size: 432.89706pt x 238.35866pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 File: ../../../img/logo.png Graphic file (type png)
 <use ../../../img/logo.png>
 Package pdftex.def Info: ../../../img/logo.png  used on input line 689.
@@ -2068,26 +2077,16 @@ File: ../../../img/fond4.pdf Graphic file (type pdf)
 <use ../../../img/fond4.pdf>
 Package pdftex.def Info: ../../../img/fond4.pdf  used on input line 689.
 (pdftex.def)             Requested size: 585.064pt x 845.09245pt.
-[22 <./img/DR03_cor.png>]
+ [22]
 Underfull \hbox (badness 10000) in paragraph at lines 689--689
 
  []
 
-<img/DR04_cor.png, id=356, 490.08093pt x 384.6872pt>
+<img/DR04_cor.png, id=354, 490.08093pt x 384.6872pt>
 File: img/DR04_cor.png Graphic file (type png)
 <use img/DR04_cor.png>
 Package pdftex.def Info: img/DR04_cor.png  used on input line 689.
 (pdftex.def)             Requested size: 384.80147pt x 302.05641pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 698--698
-
- []
-
-<img/DR05_cor.pdf, id=358, 597.50786pt x 845.04686pt>
-File: img/DR05_cor.pdf Graphic file (type pdf)
-<use img/DR05_cor.pdf>
-Package pdftex.def Info: img/DR05_cor.pdf  used on input line 698.
-(pdftex.def)             Requested size: 456.94853pt x 646.25244pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -2099,7 +2098,19 @@ File: ../../../img/fond4.pdf Graphic file (type pdf)
 <use ../../../img/fond4.pdf>
 Package pdftex.def Info: ../../../img/fond4.pdf  used on input line 698.
 (pdftex.def)             Requested size: 585.064pt x 845.09245pt.
- [23 <./img/DR04_cor.png>]
+ [23 <./img/DR03_cor.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 698--698
+
+ []
+
+<img/DR05_cor.pdf, id=362, 597.50786pt x 845.04686pt>
+File: img/DR05_cor.pdf Graphic file (type pdf)
+<use img/DR05_cor.pdf>
+Package pdftex.def Info: img/DR05_cor.pdf  used on input line 698.
+(pdftex.def)             Requested size: 456.94853pt x 646.25244pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 File: ../../../img/logo.png Graphic file (type png)
 <use ../../../img/logo.png>
 Package pdftex.def Info: ../../../img/logo.png  used on input line 700.
@@ -2108,7 +2119,16 @@ File: ../../../img/fond4.pdf Graphic file (type pdf)
 <use ../../../img/fond4.pdf>
 Package pdftex.def Info: ../../../img/fond4.pdf  used on input line 700.
 (pdftex.def)             Requested size: 585.064pt x 845.09245pt.
- [24 <./img/DR05_cor.pdf>] (./DS03_prive.aux)
+ [24 <./img/DR04_cor.png>]
+File: ../../../img/logo.png Graphic file (type png)
+<use ../../../img/logo.png>
+Package pdftex.def Info: ../../../img/logo.png  used on input line 700.
+(pdftex.def)             Requested size: 56.9055pt x 36.92833pt.
+File: ../../../img/fond4.pdf Graphic file (type pdf)
+<use ../../../img/fond4.pdf>
+Package pdftex.def Info: ../../../img/fond4.pdf  used on input line 700.
+(pdftex.def)             Requested size: 585.064pt x 845.09245pt.
+ [25 <./img/DR05_cor.pdf>] (./DS03_prive.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -2121,22 +2141,22 @@ Package rerunfilecheck Info: File `DS03_prive.out' has not changed.
 (rerunfilecheck)             Checksum: ECFEF61A36F575F07228C706AF22186E;935.
  ) 
 Here is how much of TeX's memory you used:
- 58956 strings out of 475486
- 1359956 string characters out of 5775616
- 2107506 words of memory out of 5000000
- 80059 multiletter control sequences out of 15000+600000
+ 58958 strings out of 475486
+ 1359974 string characters out of 5775616
+ 2114957 words of memory out of 5000000
+ 80060 multiletter control sequences out of 15000+600000
  605457 words of font info for 102 fonts, out of 8000000 for 9000
  395 hyphenation exceptions out of 8191
- 108i,16n,107p,5165b,1054s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,18n,107p,5165b,980s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
 c/newtxsf/zsfmia-reg.pfb>
-Output written on DS03_prive.pdf (24 pages, 5232533 bytes).
+Output written on DS03_prive.pdf (25 pages, 5233077 bytes).
 PDF statistics:
- 439 PDF objects out of 1000 (max. 8388607)
- 342 compressed objects within 4 object streams
- 143 named destinations out of 1000 (max. 500000)
+ 444 PDF objects out of 1000 (max. 8388607)
+ 346 compressed objects within 4 object streams
+ 144 named destinations out of 1000 (max. 500000)
  183 words of extra memory for PDF output out of 10000 (max. 10000000)
 
