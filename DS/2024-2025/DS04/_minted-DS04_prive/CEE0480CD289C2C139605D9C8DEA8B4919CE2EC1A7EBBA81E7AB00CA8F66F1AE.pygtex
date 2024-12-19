@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{conflit2}\PYG{p}{(}\PYG{n}{R1}\PYG{p}{,}\PYG{n}{R2}\PYG{p}{):}
+	\PYG{k}{if} \PYG{n}{R1}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZgt{}=} \PYG{n}{R2}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o+ow}{and} \PYG{n}{R2}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{+}\PYG{n}{R2}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{o}{\PYGZgt{}}\PYG{n}{R1}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]:}
+		\PYG{k}{return} \PYG{k+kc}{True}
+	\PYG{k}{elif} \PYG{n}{R1}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZlt{}}\PYG{n}{R2}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o+ow}{and} \PYG{n}{R1}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{+}\PYG{n}{R1}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{o}{\PYGZgt{}}\PYG{n}{R2}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]:}
+		\PYG{k}{return} \PYG{k+kc}{True}
+	\PYG{k}{else}\PYG{p}{:}
+	    \PYG{k}{return} \PYG{k+kc}{False}
+\end{Verbatim}

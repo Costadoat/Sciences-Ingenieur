@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{ind\PYGZus{}max}\PYG{p}{(}\PYG{n}{liste}\PYG{p}{):}
+	\PYG{n}{indice}\PYG{o}{=}\PYG{l+m+mi}{0}
+	\PYG{n}{val\PYGZus{}max}\PYG{o}{=}\PYG{n}{liste}\PYG{p}{[}\PYG{n}{indice}\PYG{p}{]}
+	\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{liste}\PYG{p}{)):}
+		\PYG{k}{if} \PYG{n}{liste}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZgt{}} \PYG{n}{val\PYGZus{}max}\PYG{p}{:}
+		\PYG{n}{indice}\PYG{o}{=}\PYG{n}{i}
+		\PYG{n}{val\PYGZus{}max} \PYG{o}{=}\PYG{n}{liste}\PYG{p}{[}\PYG{n}{indice}\PYG{p}{]}
+	\PYG{k}{return} \PYG{n}{indice}
+\end{Verbatim}

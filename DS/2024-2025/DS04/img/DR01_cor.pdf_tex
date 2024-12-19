@@ -1,0 +1,75 @@
+%% Creator: Inkscape 1.2.2 (b0a8486541, 2022-12-01), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'img/DR01_cor.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr 10 pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1821.75bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.35117332)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{img/DR01_cor.pdf}}%
+    \put(0.27776841,0.2919538){\color[rgb]{0.85098039,0,0}\makebox(0,0)[t]{\lineheight{1}\smash{\begin{tabular}[t]{c}Centrale \\ inertielle\end{tabular}}}}%
+    \put(0.27745258,0.18744544){\color[rgb]{0.85098039,0,0}\makebox(0,0)[t]{\lineheight{1}\smash{\begin{tabular}[t]{c}Potentiomètre \\ angulaire\end{tabular}}}}%
+    \put(0.65773057,0.23608349){\color[rgb]{0.85098039,0,0}\makebox(0,0)[t]{\lineheight{1}\smash{\begin{tabular}[t]{c}Carte de\\contrôle\end{tabular}}}}%
+    \put(0.08153807,0.04918911){\color[rgb]{0.85098039,0,0}\makebox(0,0)[t]{\lineheight{1}\smash{\begin{tabular}[t]{c}Batterie\end{tabular}}}}%
+    \put(0.2879157,0.06483125){\color[rgb]{0.85098039,0,0}\makebox(0,0)[t]{\lineheight{1}\smash{\begin{tabular}[t]{c}Carte de\\puissance\end{tabular}}}}%
+    \put(0.49145141,0.04918911){\color[rgb]{0.85098039,0,0}\makebox(0,0)[t]{\lineheight{1}\smash{\begin{tabular}[t]{c}Moteur\end{tabular}}}}%
+    \put(0.70273863,0.06291217){\color[rgb]{0.85098039,0,0}\makebox(0,0)[t]{\lineheight{1}\smash{\begin{tabular}[t]{c}Transmission\\directe\end{tabular}}}}%
+    \put(0.90768037,0.10769843){\color[rgb]{0.85098039,0,0}\makebox(0,0)[t]{\lineheight{1}\smash{\begin{tabular}[t]{c}Roue sans\\moyeu\end{tabular}}}}%
+    \put(0.92526623,0.16771137){\color[rgb]{0.85098039,0,0}\makebox(0,0)[t]{\lineheight{1}\smash{\begin{tabular}[t]{c}M\end{tabular}}}}%
+    \put(0.92526623,0.03581738){\color[rgb]{0.85098039,0,0}\makebox(0,0)[t]{\lineheight{1}\smash{\begin{tabular}[t]{c}M\end{tabular}}}}%
+    \put(0.46952062,0.30423992){\color[rgb]{0.85098039,0,0}\makebox(0,0)[t]{\lineheight{1}\smash{\begin{tabular}[t]{c}I\end{tabular}}}}%
+    \put(0.46952062,0.19990447){\color[rgb]{0.85098039,0,0}\makebox(0,0)[t]{\lineheight{1}\smash{\begin{tabular}[t]{c}I\end{tabular}}}}%
+    \put(0.52439904,0.14814225){\color[rgb]{0.85098039,0,0}\makebox(0,0)[t]{\lineheight{1}\smash{\begin{tabular}[t]{c}I\end{tabular}}}}%
+    \put(0.18487004,0.07440605){\color[rgb]{0.85098039,0,0}\makebox(0,0)[t]{\lineheight{1}\smash{\begin{tabular}[t]{c}E\end{tabular}}}}%
+    \put(0.39316878,0.07440605){\color[rgb]{0.85098039,0,0}\makebox(0,0)[t]{\lineheight{1}\smash{\begin{tabular}[t]{c}E\end{tabular}}}}%
+    \put(0.59946725,0.07440605){\color[rgb]{0.85098039,0,0}\makebox(0,0)[t]{\lineheight{1}\smash{\begin{tabular}[t]{c}E\end{tabular}}}}%
+    \put(0.78821881,0.07440605){\color[rgb]{0.85098039,0,0}\makebox(0,0)[t]{\lineheight{1}\smash{\begin{tabular}[t]{c}E\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

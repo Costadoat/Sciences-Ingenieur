@@ -224,6 +224,21 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 \ifdef{\public}{#3 \ifthenelse{#2>0}{~\ \\ 	\feuilleDR{#2}}}{#4}
 }}
 
+\newboolean{printdr}
+\newboolean{printcor}
+\setboolean{printdr}{false}
+\setboolean{printcor}{false}
+
+\newcommand{\reponseinfo}[2][1]
+{\noindent
+\rule{\linewidth}{.5pt}\\
+\textbf{Question\ifthenelse{#1>1}{s}{} \multido{}{#1}{%
+\refstepcounter{num_rep}\ref{q\the\value{num_rep}} }:} ~\ \\
+\ifdef{\public}{\parbox{\textwidth}{\ifthenelse{#2>0}{~\ \\ 	\feuilleDR{#2}}}
+\setboolean{printdr}{true}\setboolean{printcor}{false}}
+{\setboolean{printdr}{false}\setboolean{printcor}{true}}
+}
+
 %\makeatletter
 %\newcommand\modulo[2]{
 %    \newcounter{lastpagesujet}
@@ -354,7 +369,9 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
   \lhead{\colorbox{danger}{\begin{minipage}{0.65\paperwidth} \textcolor{white}{\textbf{Correction}} \end{minipage}} }
   \rhead{\includegraphics[width=2cm]{../../../img/logo}}
   \lfoot{Renaud Costadoat, Françoise Puig}
-  \rfoot{\colorbox{danger}{\begin{minipage}{0.4\paperwidth} \begin{flushright}\textcolor{white}{\textbf{Correction}}\end{flushright} \end{minipage}} }}
+  \rfoot{\colorbox{danger}{\begin{minipage}{0.3\paperwidth} \begin{flushright}\textcolor{white}{\textbf{Correction}}\end{flushright} \end{minipage}} }
+  \cfoot{Page \thepage}
+}
 
 \fancypagestyle{correctioninfo}{%
   \fancyhf{}

@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{sans\PYGZus{}conflitL}\PYG{p}{(}\PYG{n}{R1}\PYG{p}{,}\PYG{n}{L}\PYG{p}{):}
+	\PYG{k}{for} \PYG{n}{reservation} \PYG{o+ow}{in} \PYG{n}{L}\PYG{p}{:}
+		\PYG{k}{if} \PYG{n}{conflit2}\PYG{p}{(}\PYG{n}{R1}\PYG{p}{,}\PYG{n}{reservation}\PYG{p}{):}
+			\PYG{k}{return} \PYG{k+kc}{False}
+	\PYG{k}{return} \PYG{k+kc}{True}
+\end{Verbatim}

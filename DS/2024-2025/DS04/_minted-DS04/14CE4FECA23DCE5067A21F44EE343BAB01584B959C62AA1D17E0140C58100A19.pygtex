@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\PYGZbs{}\PYG{n}{reponseinfo}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{3}\PYG{p}{\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}}\PYGZbs{}\PYG{n}{begin}\PYG{p}{\PYGZob{}}\PYG{n}{minted}\PYG{p}{\PYGZcb{}[}\PYG{n}{linenos}\PYG{p}{]\PYGZob{}}\PYG{n}{python}\PYG{p}{\PYGZcb{}}\PYG{k}{def} \PYG{n+nf}{sans\PYGZus{}conflitL}\PYG{p}{(}\PYG{n}{R1}\PYG{p}{,}\PYG{n}{L}\PYG{p}{):}
+	\PYG{k}{for} \PYG{n}{reservation} \PYG{o+ow}{in} \PYG{n}{L}\PYG{p}{:}
+		\PYG{k}{if} \PYG{n}{conflit2}\PYG{p}{(}\PYG{n}{R1}\PYG{p}{,}\PYG{n}{reservation}\PYG{p}{):}
+			\PYG{k}{return} \PYG{k+kc}{False}
+	\PYG{k}{return} \PYG{k+kc}{True}
+\end{Verbatim}
