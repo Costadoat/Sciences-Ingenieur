@@ -20,7 +20,7 @@ p=5.
 t=np.arange(0,10,dt)
 
 l2=0.
-omega76=40.
+omega76=-40.
 
 l2_vec=[]
 theta3_vec=[]
@@ -36,10 +36,11 @@ for i in range(len(t)):
     l2+=dt*V51
     
     l2_vec.append(l2)
-    theta3_vec.append(theta3)
+    theta3_vec.append(theta3*180/np.pi)
     theta6_vec.append(theta6)
     omega31_vec.append(omega31)
     V51_vec.append(V51)
     
     
-plt.plot(t,theta6_vec)
+plt.plot(t,theta3_vec)
+plt.show()
