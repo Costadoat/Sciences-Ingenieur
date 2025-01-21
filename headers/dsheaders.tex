@@ -239,19 +239,6 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 {\setboolean{printdr}{false}\setboolean{printcor}{true}}
 }
 
-%\makeatletter
-%\newcommand\modulo[2]{
-%    \newcounter{lastpagesujet}
-%	\setcounter{lastpagesujet}{#1}
-%    \divide\value{lastpagesujet} by #2
-%    \multiply\value{lastpagesujet} by #2
-%    \multiply\value{lastpagesujet} by -1
-%    \advance\value{lastpagesujet} by #1\relax
-%    \addtocounter{lastpagesujet}{#1}
-%    \addtocounter{lastpagesujet}{-1}
-%    }
-%\makeatother
-
 \makeatletter
 \newcommand\modulo[2]{
     \newcounter{lastpagesujet}
@@ -268,13 +255,17 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
     \begin{center}
     \Large{FIN}
     \end{center}
-    
+        
     \ifthenelse{\equal{#1}{public}}{\def\public{}}{}
-	
+
 	\newpage
-	
+
+}
+
+\newcommand{\debutcor}
+{	
     \ifdef{\public}{
-    	\modulo{\value{page}}{4}
+    	\modulo{\value{page}-1}{4}
 		\whiledo{\value{page}<\value{lastpagesujet}}{~\ \newpage}
         \pagestyle{docreponse}
 	}{\pagestyle{correction}}

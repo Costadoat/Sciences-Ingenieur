@@ -148,15 +148,30 @@
 \end{center}
 }
 
-\newcommand{\finsujet}
+\makeatletter
+\newcommand\modulo[2]{
+    \newcounter{lastpagesujet}
+	\setcounter{lastpagesujet}{#1}
+    \divide\value{lastpagesujet} by #2
+    \multiply\value{lastpagesujet} by #2\relax
+    }
+\makeatother
+
+\newcommand{\finsujet}[1]
 {
     \begin{center}
     \Large{FIN}
     \end{center}
+    
+    \ifthenelse{\equal{#1}{public}}{\def\public{}}{}
 
-    \cleardoublepage
-
-    \ifdef{\public}{\pagestyle{docreponse}}{\pagestyle{correction}}
+	\newpage
+	
+    \ifdef{\public}{
+    	\modulo{\value{page}}{2}
+		\whiledo{\value{page}<\value{lastpagesujet}}{~\ \newpage}
+        \pagestyle{docreponse}
+	}{\pagestyle{correction}}
 
     \ifdef{\public}{
         \begin{tikzpicture} 
@@ -166,21 +181,7 @@
             \draw (2.5,0) rectangle (16,2);
             \draw (4.5,1.7) node {\large Commentaires:};
         \end{tikzpicture}
-        \ifdefined\competences
-	      ~\ \\ ~\ \\
-	      \centering
-		  \foreach \competence in \competences
-		  {
-			\fbox{\begin{tikzpicture} 
-			\draw (0,0) circle[radius=0.5];
-		    \node at (0.5,0) [anchor=west] {\competence};
-   	     \end{tikzpicture}
-   	    	}
-   	    }
-	   	\fi
-	   	 ~\ \\
-	}
-
+    }
     ~\ \\
 }
 
