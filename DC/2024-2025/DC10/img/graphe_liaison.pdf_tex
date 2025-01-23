@@ -54,7 +54,7 @@
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{img/graphe_liaison.pdf}}%
-    \put(0.53526278,0.48079261){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Hélicoïdale(C,$\vec{y_0}$)\end{tabular}}}}%
+    \put(0.53526278,0.48079261){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Hélicoïdale(O,$\vec{y_0}$)\end{tabular}}}}%
     \put(0.48254414,0.32664214){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}PG(B,$\vec{y_0}$)\end{tabular}}}}%
     \put(0.79968172,0.39503744){\color[rgb]{0.00392157,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}11\end{tabular}}}}%
     \put(0.50359649,0.0905129){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}0\end{tabular}}}}%

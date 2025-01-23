@@ -508,8 +508,8 @@ Le torseur d'actions mécaniques peut s'écrire ainsi :
 \end{center}
 
 
-Les composantes $X_i$, $Y_i$, $Z_i$, $L_i$, $M_i$, $N_i$ non nulles sont les \textbf{inconnues statiques} de la liaison $l_i$.
-
+Les composantes $X_i$, $Y_i$, $Z_i$, $L_i$, $M_i$, $N_i$ non nulles sont les \textbf{inconnues statiques} de  $l_i$.
+la liaison
 $n_{si}$ est le nombre d'inconnues statiques indépendantes.
 }}
 
@@ -606,7 +606,7 @@ D'où,
 
 Donc,
   \begin{math}
-	L_i.\alpha_i+M_i.\beta_i+N_i.\gamma_i+X_i.u_i+Y_i.v_i+Z_i.w_i=0
+	L_i.\omega_xi+M_i.\omega_yi+N_i.\omega_zi+X_i.V_xi+V_yi.v_i+V_zi.w_i=0
   \end{math}
 
 Ainsi, $n_{ci}+n_{si}=6$
@@ -616,7 +616,7 @@ Pour une liaison pivot: $n_{si}=5$
 \begin{center}
   \begin{math}
 	\left\{T_{i(S_2\rightarrow S_1)}\right\}=\left\{ \begin{array}{cc} X_i & 0 \\ Y_i & M_i \\ Z_i & N_i \end{array}\right\}_O
-	\left\{V_{i(S_2/S_1)}\right\}=\left\{ \begin{array}{cc} \alpha_i & 0 \\ 0 & 0 \\ 0 & 0 \end{array}\right\}_O
+	\left\{V_{i(S_2/S_1)}\right\}=\left\{ \begin{array}{cc} \omega_xi & 0 \\ 0 & 0 \\ 0 & 0 \end{array}\right\}_O
   \end{math}
 \end{center}
 }}
