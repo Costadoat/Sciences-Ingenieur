@@ -1,0 +1,228 @@
+\input{../../../headers/dsheaders.tex}
+
+\section{Exercice de cours}
+
+\question{Écrire une relation de champs de vecteurs vitesse (Varignon), dans le mouvement de 1/0, entre les points A et B.}
+
+\question{Écrire le torseur d’une liaison pivot d’axe (A,$\overrightarrow{x}$) en ligne et en colonne dans la base $(\overrightarrow{x},\overrightarrow{y},\overrightarrow{z})$.}
+
+\begin{figure}[ht!]
+\begin{minipage}{0.5\linewidth}
+\includegraphics[width=.8\linewidth]{img/graphe_liaison.png}
+\caption{\label{graphe_liaison}Graphe de liaisons}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+Soit le graphe des liaisons suivant :
+\begin{itemize}
+ \item $L_1$: encastrement,
+ \item $L_2$: pivot d’axe $(E, \overrightarrow{z})$,
+ \item $L_3$: pivot d’axe $(D, \overrightarrow{z})$,
+ \item $L_4$: pivot d’axe $(F, \overrightarrow{z})$,
+ \item $L_5$: pivot d’axe $(C, \overrightarrow{z})$,
+ \item $L_6$: pivot d’axe $(B, \overrightarrow{z})$,
+ \item $L_7$: pivot d’axe $(G, \overrightarrow{z})$,
+ \item $L_8$: pivot d’axe $(H, \overrightarrow{z})$.
+\end{itemize}
+\end{minipage}
+\end{figure}
+
+\question{À l’aide de compositions des vitesses, écrire de 2 façons différentes $\overrightarrow{V_{C\in 3/1}}$.}
+
+
+\question{À l’aide de compositions des vitesses de rotation, écrire de 2 façons différentes 
+$\overrightarrow{\Omega_{3/1}}$.}
+
+\question{À l’aide de compositions des torseurs, écrire de 2 façons différentes 
+$\left\{ V_{3/1} \right\}$.}
+
+\newpage
+
+\section{La scie sauteuse}
+
+On étudie ici une scie sauteuse dont le dessin de définition est donné dans le document réponse.
+
+Le graphe de liaison et le schéma cinématique sont donnés sur les figures \ref{scie_liaisons} et \ref{scie_cin}.
+
+\begin{figure}[ht!]
+\begin{minipage}{0.45\linewidth}
+   \def\svgwidth{\linewidth}
+   \input{img/scie_liaisons.pdf_tex}
+\caption{\label{scie_liaisons}Graphe de liaisons}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+   \def\svgwidth{0.75\linewidth}
+   \input{img/scie_cin.pdf_tex}
+\caption{\label{scie_cin}Schéma cinématique}
+\end{minipage}
+\end{figure}
+
+Avec:
+\begin{itemize}
+ \item $\overrightarrow{AB}=-a\cdot\vec{x}+b\cdot\vec{y_1}$,
+ \item $\overrightarrow{AC}=-c\cdot\vec{x}-d\cdot\vec{y}$,
+ \item $\theta_1=(\vec{y},\vec{y_1})=(\vec{z},\vec{z_1})$,
+ \item la vitesse de rotation de 1 par rapport à 0 est de $300\ tr\cdot min^{-1}$,
+ \item les dimensions du mécanisme sont à mesurer sur le dessin d'ensemble.
+\end{itemize}
+
+\question{Colorier le dessin d'ensemble du document réponse pour faire apparaître les classes d'équivalence du mécanisme.}
+
+\question{Déterminer le degré d'hyperstatisme du mécanisme à l'aide de la formule utilisant le nombre d'inconnues statiques du mécanisme.}
+
+\question{Écrire les torseurs de toutes les liaisons du mécanisme en leur point d'application dans la base $R(\vec{x},\vec{y},\vec{z})$.}
+
+\question{Écrire tous ces torseurs au point A dans la base $R(\vec{x},\vec{y},\vec{z})$.}
+
+\question{Écrire le système d'équations issu de la fermeture cinématique du système.}
+
+\question{Valider la valeur du degré d'hyperstatisme déterminé précédemment.}
+
+\question{Déterminer l'expression des normes des vitesses de translation dans les liaisons $3/0$ et $3/2$ en fonction de $\omega_{x,10}$. Faire l'application numérique pour obtenir leurs valeurs maximales en $m\cdot s^{-1}$.}
+
+\question{Les pièces 3 et 8 sont des coussinets en bronze, dont la vitesse de glissement maximale conseillée est $0.5\ m\cdot s^{-1}$. Leur utilisation est-elle compatible avec les résultats précédents ?}
+
+\newpage
+
+\section{Motoreducteur}
+
+On s'intéresse maintenant au motoréducteur donc les vues éclatées et écorchées sont présentées sur les figures \ref{fig11} et \ref{fig12}. La nomenclature est fournie en fin de sujet et un plan à compléter est fourni en document réponse.
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.75\linewidth]{img/eclate}
+  \caption{\label{fig11}Vue éclatée du motoréducteur}
+  \includegraphics[width=0.75\linewidth]{img/ecorche}
+  \caption{\label{fig12}Vue écorchée du motoréducteur}
+  \end{center}
+\end{figure}
+
+\newpage
+
+\question{A quoi correspond la pièce 6 ?}
+
+\question{Donner le rapport de réduction du réducteur présent dans ce motoréducteur.}
+
+\question{Colorier les classes d'équivalence du mécanisme (ne pas colorier à l'intérieur des ZONE 1 et ZONE 2).}
+
+\question{Compléter la ZONE 1 en concevant une solution pour l'assemblage du pignon 10 avec le rotor 7. Vous pourrez utiliser la nomenclature afin de déterminer les pièces manquantes.}
+
+\question{Compléter la ZONE 2 en concevant une solution pour l'assemblage du couvercle 3 sur le carter réducteur 2. Vous pourrez utiliser la nomenclature afin de déterminer les pièces manquantes.}
+
+\finsujet
+
+% Annexes
+\includepdf[offset=15 -20]{img/nomenclature.pdf}
+
+\debutcor
+
+\reponse{4}{}{$\overrightarrow{V_{B\in 1/0}}=\overrightarrow{V_{A\in 1/0}}+\overrightarrow{BA}\wedge\overrightarrow{\Omega_{1/0}}$}
+
+\reponse{4}{}{
+$\left\{V\right\}=\left\{\begin{array}{cc}
+\omega_x & 0\\0 & 0\\0&0
+\end{array}
+\right\}_A$}
+
+\reponse{4}{}{$\overrightarrow{V_{C \in 3/1}}=\overrightarrow{V_{C\in 3/9}}+\overrightarrow{V_{C\in 9/8}}+\overrightarrow{V_{C \in 8/7}}+\overrightarrow{V_{C \in 7/1}}$
+
+$\overrightarrow{V_{C \in 3/1}}=\overrightarrow{V_{C \in 3/9}}+\overrightarrow{V_{C \in 9/8}}+\overrightarrow{V_{C\in 8/10}}+\overrightarrow{V_{C \in 10/6}}+\overrightarrow{V_{C \in 6/1}}$}
+
+\reponse{4}{}{$\overrightarrow{\Omega_{3/1}}=\overrightarrow{\Omega_{3/9}}+\overrightarrow{\Omega_{9/8}}+
+\overrightarrow{\Omega_{8/7}}+\overrightarrow{\Omega_{7/1}}$
+
+$\overrightarrow{\Omega_{3/1}}=\overrightarrow{\Omega_{3/9}}+\overrightarrow{\Omega_{9/8}}+
+\overrightarrow{\Omega_{8/10}}+\overrightarrow{\Omega_{10/6}}+\overrightarrow{\Omega_{6/1}}$}
+
+\reponse{4}{}{$\left\{V_{3/1}\right\}=\left\{V_{3/9}\right\}+\left\{V_{9/8}\right\}+
+\left\{V_{8/7}\right\}+\left\{V_{7/1}\right\}$
+
+$\left\{V_{3/1}\right\}=\left\{V_{3/9}\right\}+\left\{V_{9/8}\right\}+
+\left\{V_{8/10}\right\}+\left\{V_{10/6}\right\}+\left\{V_{6/1}\right\}$}
+
+\reponse{4}{\begin{center}
+	\includegraphics[width=0.8\linewidth]{img/scie_vierge.png}
+\end{center}}{\begin{center}
+   \def\svgwidth{0.8\linewidth}
+   \input{img/scie_cor.pdf_tex}
+\end{center}}
+
+
+\reponse{4}{}{$N_s=4+5+5+5=19$
+
+$r_s=6\cdot(p-1)-m=6(4-1)-1=17$
+
+$h=N_s-r_s=2$}
+
+\reponse{4}{}{$\left\{V_{1/0}\right\}=\left\{\begin{array}{cc}
+\omega_{x,10} & 0\\0 & 0\\0&0
+\end{array}
+\right\}_A$
+
+$\left\{V_{2/1}\right\}=\left\{\begin{array}{cc}
+\omega_{x,21} & 0\\0 & 0\\0&0
+\end{array}
+\right\}_B$
+
+$\left\{V_{3/2}\right\}=\left\{\begin{array}{cc}
+0 & 0\\0 & 0\\0&V_{z,32}
+\end{array}
+\right\}_A$
+
+$\left\{V_{3/0}\right\}=\left\{\begin{array}{cc}
+0 & 0\\\omega_{y,30} & V_{y,30}\\0&0
+\end{array}
+\right\}_C$}
+
+\reponse{4}{}{$\overrightarrow{V_{A\in 2/1}}=\overrightarrow{V_{B\in 2/1}}+\overrightarrow{AB}\wedge\overrightarrow{\Omega_{2/1}}=(-a\cdot\vec{x}+b\cdot\vec{y_1})\wedge\omega_{x,21}\cdot\vec{x}=-b\cdot\omega_{x,21}\cdot\vec{z_1}$
+
+$\overrightarrow{V_{A\in 2/1}}=-b\cdot\omega_{x,21}\cdot (-sin\theta_1\cdot\vec{y}+cos\theta_1\cdot\vec{z})$
+
+$\left\{V_{2/1}\right\}=\left\{\begin{array}{cc}
+\omega_{x,21} & 0\\0 & b\cdot\omega_{x,21}\cdot sin\theta_1\\0&-b\cdot\omega_{x,21}\cdot cos\theta_1
+\end{array}
+\right\}_A$
+
+$\overrightarrow{V_{A\in 3/0}}=\overrightarrow{V_{C\in 3/0}}+\overrightarrow{AC}\wedge\overrightarrow{\Omega_{3/0}}=V_{y,30}\cdot\vec{y}+(-c\cdot\vec{x}-d\cdot\vec{y})\wedge\omega_{y,30}\cdot\vec{y}$
+
+$\overrightarrow{V_{A\in 3/0}}=V_{y,30}\cdot\vec{y}-c\cdot\omega_{y,30}\cdot\vec{z}$
+
+$\left\{V_{3/0}\right\}=\left\{\begin{array}{cc}
+0 & 0\\\omega_{y,30} & V_{y,30}\\0&-c\cdot\omega_{y,30}
+\end{array}
+\right\}_A$}
+
+\reponse{4}{}{$\left\{\begin{array}{l}
+0=\omega_{x,21}+\omega_{x,10}\\
+\omega_{y,30}=0\\
+0=0+0\\
+0=0+0\\
+V_{y,30}=b\cdot\omega_{x,21}\cdot sin\theta_1\\
+-c\cdot\omega_{y,30}=-b\cdot\omega_{x,21}\cdot cos\theta_1+V_{z,32}
+\end{array}\right.$}
+
+\reponse{4}{}{Il y a deux équations de la forme $0=0$, les autres sont indépendantes, donc $h=2$.}
+
+\reponse{4}{}{$V_{y,30}=b\cdot\omega_{x,21}\cdot sin\theta_1=-b\cdot\omega_{x,10}\cdot sin\theta_1$
+
+$V_{z,32}=b\cdot\omega_{x,21}\cdot cos\theta_1=-b\cdot\omega_{x,10}\cdot cos\theta_1$
+
+$\omega_{x,10}=300\ tr\cdot min^{-1}=\dfrac{300\cdot 2\pi}{60}\ rad\cdot s^{-1}=10\cdot\pi\ rad\cdot s^{-1}=30 \ rad\cdot s^{-1}$
+
+On mesure : $b=6\ mm=6\cdot 10^{-3}\ m$
+
+$V_{y,30max}=-b\cdot\omega_{x,10}=6\cdot 10^{-3}\cdot 30=0.18\ m\cdot s^{-1}$
+
+$V_{z,32max}=-b\cdot\omega_{x,10}=6\cdot 10^{-3}\cdot 30=0.18\ m\cdot s^{-1}$}
+
+\reponse{4}{}{Oui car $0.18<0.5\ m\cdot s^{-1}$.}
+
+\reponse{4}{}{Il est indiqué que c'est un ventilateur dans la nomenclature.}
+
+\reponse{4}{}{$\dfrac{Z_{10}\cdot Z_8}{Z_{11}\cdot Z_{12}}=\dfrac{27\cdot 11}{45\cdot 67}\approx \dfrac{1}{5\cdot 2}\approx 0.1$
+}
+
+\ifdef{\public}{\includepdf[angle=90,offset=-20 -20]{img/Motoreducteur}}{\includepdf[angle=90,offset=-20 -20]{img/Motoreducteur_classes_equivalence.pdf}}
+\ifdef{\public}{}{\includepdf[angle=90,offset=15 -20]{img/Motoreducteur_cor.pdf}}
+
+
+\end{document}
