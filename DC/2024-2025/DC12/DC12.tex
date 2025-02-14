@@ -1,0 +1,288 @@
+\input{../../../headers/dcheaders.tex}
+
+\section{Lève vitre électrique}
+
+\subsection{Présentation du système}
+
+\begin{minipage}{0.48\linewidth}
+ \centering\includegraphics[width=0.5\linewidth]{img/leve_vitre_auto}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\linewidth}
+Les vitres électriques sont mises en mouvement grâce à un moteur électrique en rotation. C'est le système que nous étudions ici qui permet de transformer ce mouvement de rotation en translation de la vitre.
+\end{minipage}
+
+\section{Etude de la vitesse du déplacement de la vitre}
+
+
+\begin{minipage}{0.38\linewidth}
+Le mouvement d'entrée est la rotation de $1$ par rapport à $0$, un moteur génère un couple $C_m$ qui permet de compenser le poids $P$ de la vitre, comme indiquée sur la figure ci-contre.
+
+Données géométriques:
+\begin{itemize}
+ \item $\overrightarrow{AE}=L.\overrightarrow{x_1}$,
+ \item $\overrightarrow{AB}=L.cos(\theta_1).\overrightarrow{x_0}$,
+ \item $\overrightarrow{AD}=L.sin(\theta_1).\overrightarrow{y_0}$,
+ \item $\overrightarrow{AC}=\dfrac{L}{2}.\overrightarrow{x_1}$,
+ \item $\overrightarrow{DG}=\dfrac{L}{2}.cos(\theta_1).\overrightarrow{x_0}+e.\overrightarrow{y_0}$,
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.58\linewidth}
+ \centering\includegraphics[width=0.9\linewidth]{img/leve_vitre}
+\end{minipage}
+
+~\
+
+Les liaisons aux points A, C et D sont des liaisons pivots et celles en B et E sont des liaisons ponctuelles.
+
+On donne les torseurs des actions extérieures suivantes:\\
+\begin{center}
+$\left\{T_{P\rightarrow 3}\right\}=\left\{\begin{array}{cc}
+0&0\\
+-P&0\\
+0&0
+\end{array}\right\}_{G,R_0}$
+$\left\{T_{C_m\rightarrow 1}\right\}=\left\{\begin{array}{cc}
+0&0\\
+0&0\\
+0&C_m
+\end{array}\right\}_{A,R_0}$
+\end{center}
+
+\question{Dessiner le graphe de liaison de ce système.}
+
+\question{Donner les torseurs d'actions mécaniques suivants:
+\begin{itemize}
+ \item $\left\{T_{0\rightarrow 1}\right\}$ de la liaison entre la pièce $1$ et le bâti $0$ en $A$,
+ \item $\left\{T_{1\rightarrow 2}\right\}$ de la liaison entre la pièce $2$ et la pièce $1$ en $C$,
+ \item $\left\{T_{0\rightarrow 2}\right\}$ de la liaison entre la pièce $2$ et le bâti $0$ en $B$,
+ \item $\left\{T_{2\rightarrow 3}\right\}$ de la liaison entre la pièce $3$ et la pièce $2$ en $D$,
+ \item $\left\{T_{1\rightarrow 3}\right\}$ de la liaison entre la pièce $3$ et la pièce $1$ en $E$.
+\end{itemize} 
+}
+
+\question{Déterminer le système d'équations issu de l'isolement de la pièce 3. Il faudra pour cela écrire les torseurs concernés au point D.}
+
+\question{Déterminer le système d'équations issu de l'isolement de la pièce 2. Il faudra pour cela écrire les torseurs concernés au point C.}
+
+\question{Déterminer le système d'équations issu de l'isolement de la pièce 1. Il faudra pour cela écrire les torseurs concernés au point A.}
+
+\question{En déduire l'expression du couple moteur $C_m$ en fonction du poids de la vitre $P$ et des paramètres géométriques du système.}
+
+Rappels:
+
+On notera le torseur cinématique du solide i par rapport au solide j exprimé au point M par :
+
+\begin{center}
+\begin{math}
+\left\{T_{i\rightarrow j}\right\}=\left\{
+\begin{array}{cc}
+X_{ij} & L_{ij} \\
+Y_{ij} & M_{ij} \\
+Z_{ij} & N_{ij}
+\end{array}
+\right\}_{X,R_P}
+\end{math}, avec $R_P=(\overrightarrow{X_P},\overrightarrow{Y_P},\overrightarrow{Z_P})$
+\end{center}
+
+\finsujet
+
+\reponse{6}{}{
+\begin{center}
+\def\svgwidth{.6\linewidth}
+\input{img/graphe_liaison.pdf_tex}
+\end{center}
+}
+
+\reponse{6}{}{
+$\left\{T_{0\rightarrow 1}\right\}=\left\{
+\begin{array}{cc}
+X_{01} & L_{01} \\
+Y_{01} & M_{01} \\
+Z_{01} & 0
+\end{array}
+\right\}_{A,R_0}$
+$\left\{T_{1\rightarrow 2}\right\}=\left\{
+\begin{array}{cc}
+X_{12} & L_{12} \\
+Y_{12} & M_{12} \\
+Z_{12} & 0
+\end{array}
+\right\}_{C,R_0}$
+$\left\{T_{0\rightarrow 2}\right\}=\left\{
+\begin{array}{cc}
+0 & 0 \\
+Y_{02} & 0 \\
+0 & 0
+\end{array}
+\right\}_{B,R_0}$\\
+$\left\{T_{2\rightarrow 3}\right\}=\left\{
+\begin{array}{cc}
+X_{23} & L_{23} \\
+Y_{23} & M_{23} \\
+Z_{23} & 0
+\end{array}
+\right\}_{D,R_0}$
+$\left\{T_{1\rightarrow 3}\right\}=\left\{
+\begin{array}{cc}
+0 & 0 \\
+Y_{13} & 0 \\
+0 & 0
+\end{array}
+\right\}_{E,R_0}$
+}
+
+
+\reponse{6}{}{
+$\left\{T_{2\rightarrow 3}\right\}=\left\{
+\begin{array}{cc}
+X_{23} & L_{23} \\
+Y_{23} & M_{23} \\
+Z_{23} & 0
+\end{array}
+\right\}_{D,R_0}$
+$\left\{T_{1\rightarrow 3}\right\}=\left\{
+\begin{array}{cc}
+0 & 0 \\
+Y_{13} & 0 \\
+0 & 0
+\end{array}
+\right\}_{E,R_0}=\left\{
+\begin{array}{cc}
+0 & 0 \\
+Y_{13} & 0 \\
+0 & L\cdot\cos(\theta_1)\cdot Y_{13}
+\end{array}
+\right\}_{D,R_0}$\\
+$\left\{T_{P\rightarrow 3}\right\}=\left\{\begin{array}{cc}
+0&0\\
+-P&0\\
+0&0
+\end{array}\right\}_{G,R_0}=\left\{\begin{array}{cc}
+0&0\\
+-P&0\\
+0&-\dfrac{L}{2}\cdot\cos(\theta_1)\cdot P
+\end{array}\right\}_{D,R_0}$
+
+Donc:\\
+$\left\{\begin{array}{l}
+X_{23}+0+0=0\\
+Y_{23}+Y_{13}-P=0\\
+Z_{23}+0+0=0\\
+L_{23}+0+0=0\\
+M_{23}+0+0=0\\
+0+L\cdot\cos(\theta_1)\cdot Y_{13}-\dfrac{L}{2}\cdot\cos(\theta_1)\cdot P=0\\
+\end{array}\right.$
+}
+
+
+
+\reponse{6}{}{
+$\left\{T_{3\rightarrow 2}\right\}=\left\{
+\begin{array}{cc}
+0 & 0 \\
+-Y_{23} & 0 \\
+0 & 0
+\end{array}
+\right\}_{D,R_0}=\left\{
+\begin{array}{cc}
+0 & 0 \\
+-Y_{23} & 0 \\
+0 & \dfrac{L}{2}\cdot\cos(\theta_1)\cdot Y_{23}
+\end{array}
+\right\}_{C,R_0}$\\
+$\left\{T_{1\rightarrow 2}\right\}=\left\{
+\begin{array}{cc}
+X_{12} & L_{12} \\
+Y_{12} & M_{12} \\
+Z_{12} & 0
+\end{array}
+\right\}_{C,R_0}$
+$\left\{T_{0\rightarrow 2}\right\}=\left\{
+\begin{array}{cc}
+0 & 0 \\
+Y_{02} & 0 \\
+0 & 0
+\end{array}
+\right\}_{B,R_0}=\left\{
+\begin{array}{cc}
+0 & 0 \\
+Y_{02} & 0 \\
+0 & \dfrac{L}{2}\cdot\cos(\theta_1)\cdot Y_{02}
+\end{array}
+\right\}_{C,R_0}$
+
+Donc:\\
+$\left\{\begin{array}{l}
+X_{12}+0+0=0\\
+Y_{12}-Y_{23}+Y_{02}=0\\
+Z_{12}+0+0=0\\
+L_{12}+0+0=0\\
+M_{12}+0+0=0\\
+0+\dfrac{L}{2}\cdot\cos(\theta_1)\cdot Y_{23}+\dfrac{L}{2}\cdot\cos(\theta_1)\cdot Y_{02}=0\\
+\end{array}\right.$
+}
+
+
+\reponse{6}{}{
+$\left\{T_{0\rightarrow 1}\right\}=\left\{
+\begin{array}{cc}
+X_{01} & L_{01} \\
+Y_{01} & M_{01} \\
+Z_{01} & 0
+\end{array}
+\right\}_{A,R_0}$
+$\left\{T_{2\rightarrow 1}\right\}=\left\{
+\begin{array}{cc}
+0 & 0 \\
+-Y_{12} & 0 \\
+0 & 0
+\end{array}
+\right\}_{C,R_0}=\left\{
+\begin{array}{cc}
+0 & 0 \\
+-Y_{12} & 0 \\
+0 & -\dfrac{L}{2}\cdot\cos(\theta_1)\cdot Y_{12}
+\end{array}
+\right\}_{A,R_0}$\\
+$\left\{T_{3\rightarrow 1}\right\}=\left\{
+\begin{array}{cc}
+0 & 0 \\
+-Y_{13} & 0 \\
+0 & 0
+\end{array}
+\right\}_{E,R_0}=\left\{
+\begin{array}{cc}
+0 & 0 \\
+-Y_{13} & 0 \\
+0 & -L\cdot\cos(\theta_1)\cdot Y_{13}
+\end{array}
+\right\}_{A,R_0}$
+$\left\{T_{C_m\rightarrow 1}\right\}=\left\{\begin{array}{cc}
+0&0\\
+0&0\\
+0&C_m
+\end{array}\right\}_{A,R_0}$
+
+Donc:\\
+$\left\{\begin{array}{l}
+X_{01}+0+0=0\\
+Y_{01}-Y_{12}-Y_{13}=0\\
+Z_{01}+0+0=0\\
+L_{01}+0+0=0\\
+M_{01}+0+0=0\\
+0-\dfrac{L}{2}\cdot\cos(\theta_1)\cdot Y_{12}-L\cdot\cos(\theta_1)\cdot Y_{13}+C_m=0\\
+\end{array}\right.$
+}
+
+
+\reponse{6}{}{
+$Y_{13}=\dfrac{P}{2}$\\
+$Y_{23}=-Y_{13}+P=\dfrac{P}{2}$\\
+$Y_{02}=-Y_{23}$\\
+$Y_{12}=Y_{23}-Y_{02}=2\cdot Y_{23}=P$\\
+$C_m=\dfrac{L}{2}\cdot\cos(\theta_1)\cdot P+L\cdot\cos(\theta_1)\cdot \dfrac{P}{2}=L\cdot\cos(\theta_1)\cdot P$
+}
+
+\end{document}
