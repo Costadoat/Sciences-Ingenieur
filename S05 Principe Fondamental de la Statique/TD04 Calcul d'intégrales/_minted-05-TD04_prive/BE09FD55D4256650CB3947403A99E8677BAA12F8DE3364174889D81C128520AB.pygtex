@@ -1,0 +1,26 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\PYG{k}{def} \PYG{n+nf}{lireFichier}\PYG{p}{(}\PYG{n}{fichier}\PYG{p}{):}
+    \PYG{n}{lignes} \PYG{o}{=} \PYG{p}{[}\PYG{n}{line} \PYG{k}{for} \PYG{n}{line} \PYG{o+ow}{in} \PYG{n+nb}{open}\PYG{p}{(}\PYG{n}{fichier}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}r\PYGZsq{}}\PYG{p}{)]}
+    \PYG{n}{result}\PYG{o}{=}\PYG{p}{[]}
+    \PYG{k}{for} \PYG{n}{element} \PYG{o+ow}{in} \PYG{n}{lignes}\PYG{p}{:}
+        \PYG{n}{temps}\PYG{p}{,}\PYG{n}{pace} \PYG{o}{=} \PYG{n+nb}{map}\PYG{p}{(}\PYG{n+nb}{float}\PYG{p}{,}\PYG{n}{element}\PYG{o}{.}\PYG{n}{split}\PYG{p}{())}
+        \PYG{n}{result}\PYG{o}{.}\PYG{n}{append}\PYG{p}{((}\PYG{n}{temps}\PYG{p}{,}\PYG{n}{pace}\PYG{p}{))}
+    \PYG{k}{return} \PYG{n}{result}
+
+\PYG{k}{def} \PYG{n+nf}{convertms}\PYG{p}{(}\PYG{n}{v}\PYG{p}{):}
+    \PYG{k}{return} \PYG{n}{v}\PYG{o}{/}\PYG{l+m+mf}{3.6}
+
+\PYG{n}{vitesse} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{asarray}\PYG{p}{(}\PYG{n}{lireFichier}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Course.txt\PYGZdq{}}\PYG{p}{))}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{vitesse}\PYG{p}{[:,}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{n}{vitesse}\PYG{p}{[:,}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{l+s+s2}{\PYGZdq{}bo\PYGZhy{}\PYGZdq{}}\PYG{p}{)}
+
+\PYG{n}{pos}\PYG{o}{=}\PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{vitesse}\PYG{p}{[:,}\PYG{l+m+mi}{0}\PYG{p}{]))}
+
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{vitesse}\PYG{p}{[:,}\PYG{l+m+mi}{0}\PYG{p}{])}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{):}
+    \PYG{n}{pos}\PYG{p}{[}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{n}{pos}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+} \PYG{n}{convertms}\PYG{p}{(}\PYG{n}{vitesse}\PYG{p}{[}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{])}\PYG{o}{*}\PYG{p}{(}\PYG{n}{vitesse}\PYG{p}{[}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{vitesse}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{])}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{pos}\PYG{p}{[}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{vitesse}\PYG{p}{[:,}\PYG{l+m+mi}{0}\PYG{p}{])}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{/}\PYG{l+m+mf}{1000.}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{vitesse}\PYG{p}{[:,}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{n}{vitesse}\PYG{p}{[:,}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{l+s+s2}{\PYGZdq{}bo\PYGZhy{}\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{vitesse}\PYG{p}{[:,}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{n}{position}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}r\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

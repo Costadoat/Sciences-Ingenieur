@@ -15,8 +15,8 @@ Les disques de freinage sont utilisés sur les véhicules automobiles mais aussi
 
 Le cas suivant présente un disque en contact avec une plaquette dont les caractéristiques sont les suivantes:
 \begin{itemize}
- \item Rayon intérieur : $R_{int}=\SI{10}{\centi\meter}$,
- \item Rayon extérieur : $R_{ext}=\SI{15}{\centi\meter}$,
+ \item Rayon intérieur : $R_{int}=10cm$,
+ \item Rayon extérieur : $R_{ext}=15cm$,
  \item Angle de la plaquette : $\theta=\dfrac{\pi}{2}\ \mathrm{rad}$,
  \item Le coefficient de frottement avec le disque est $f=0,3$.
 \end{itemize}
@@ -65,7 +65,7 @@ Le couple de freinage est généré par l'ensemble de ces surfaces élémentaire
 
 Remarque: Attention, il y a une plaquette de frein de chaque côté du disque.
 
-Dans un premier temps, la pression sera considérée constante sur toute la surface du disque : $P_0=\SI{0,05}{\mega\pascal}$. Faire le calcul pour $Nt=Nr=100$ et $Nt=Nr=1000$.
+Dans un premier temps, la pression sera considérée constante sur toute la surface du disque : $P_0=0,05Pa$. Faire le calcul pour $Nt=Nr=100$ et $Nt=Nr=1000$.
 
 \paragraph{Question 4:} Déterminer le couple de freinage généré par ce frein à disque.
 
@@ -73,7 +73,7 @@ Dans un premier temps, la pression sera considérée constante sur toute la surf
 
 ~\
 
-Dans la suite, la pression ne sera plus constante mais liée au rayon du point central de la surface par une formule de la forme : $P=a.r+b$, sachant que sur le rayon intérieur, la pression sera égale à \SI{80}{\percent} de $P_0$ et sur le rayon extérieur \SI{120}{\percent} de $P_0$.
+Dans la suite, la pression ne sera plus constante mais liée au rayon du point central de la surface par une formule de la forme : $P=a.r+b$, sachant que sur le rayon intérieur, la pression sera égale à 80\% de $P_0$ et sur le rayon extérieur 120\% de $P_0$.
 
 \paragraph{Question 6:} Déterminer la pression $P$ en fonction de $r$ et en déduire le couple de freinage généré par ce frein à disque.
 
@@ -81,12 +81,12 @@ Dans la suite, la pression ne sera plus constante mais liée au rayon du point c
 
 Un coureur fait un exercice de course fractionné. C'est à dire qu'il va tenter de courir à une vitesse de :
 \begin{enumerate}
- \item $\SI{9}{\kilo\meter\per\hour}$ pendant trois minutes,
- \item $\SI{14}{\kilo\meter\per\hour}$ pendant trois minutes,
- \item $\SI{9}{\kilo\meter\per\hour}$ pendant trois minutes,
- \item $\SI{14}{\kilo\meter\per\hour}$ pendant trois minutes,
- \item $\SI{9}{\kilo\meter\per\hour}$ pendant trois minutes,
- \item $\SI{14}{\kilo\meter\per\hour}$ pendant trois minutes.
+ \item $9km\cdot h^{-1}$ pendant trois minutes,
+ \item $14km\cdot h^{-1}$ pendant trois minutes,
+ \item $9km\cdot h^{-1}$ pendant trois minutes,
+ \item $14km\cdot h^{-1}$ pendant trois minutes,
+ \item $9km\cdot h^{-1}$ pendant trois minutes,
+ \item $14km\cdot h^{-1}$ pendant trois minutes.
 \end{enumerate}
 
 Le fichier \texttt{Course.txt} renvoie en première colonne le temps à partir du départ de la course et la deuxième colonne la vitesse.
@@ -95,7 +95,7 @@ Rappel : La fonction \verb? np.array=asarray(liste) ? de la bibliothèque Numpy 
 
 \paragraph{Question 1:} Tracer la vitesse du coureur en fonction du temps. 
 
-\paragraph{Question 2:} Calculer le vecteur \verb? position ? qui définie la distance parcourue par le coureur à chaque instant. Déterminer la distance parcourue à la fin de l'entrainement.
+\paragraph{Question 2:} Calculer le vecteur \verb? position ? qui définie la distance parcourue par le coureur à chaque instant. Déterminer la distance parcourue à la fin de l’entraînement.
 
 \paragraph{Question 3:} Tracer le vecteur \verb? position ?. L'allure de la courbe vous paraît-elle cohérente ?
 
@@ -119,7 +119,7 @@ $(\overrightarrow{OM}\wedge \overrightarrow{dF_t}).\overrightarrow{z}=\left[(R1+
 
 \paragraph{Question 4:} 
 
-\begin{verbatimtab}[3]
+\begin{minted}[]{python}
 
 theta=np.pi/2.
 R2=0.15
@@ -145,7 +145,7 @@ print(C1)
 
 C2=-2*theta*fr*P*(R2**3-R1**3)/3.
 print(C2)
-\end{verbatimtab}
+\end{minted}
 
 
 
@@ -153,7 +153,7 @@ print(C2)
 
 \paragraph{Question 6:} 
 
-\begin{verbatimtab}[3]
+\begin{minted}[]{python}
 
 theta=np.pi/2.
 R2=0.15
@@ -177,13 +177,13 @@ for i in range(Nr):
          C1=C1-2*F*(R1+dr*(i+1/2.))  
     
 print(C1)
-\end{verbatimtab}
+\end{minted}
 
 \subsection{La course du coureur}
 
 \paragraph{Question 1, 2 et 3:}
 
-\begin{verbatimtab}[3]
+\begin{minted}[]{python}
 
 def lireFichier(fichier):
     lignes = [line for line in open(fichier,'r')]
@@ -208,7 +208,7 @@ print(pos[len(vitesse[:,0])-1]/1000.)
 
 plt.plot(vitesse[:,0],vitesse[:,1],"bo-")
 plt.plot(vitesse[:,0],position,"r")
-\end{verbatimtab}
+\end{minted}
 
 \paragraph{Question 3:} L'allure de la courbe paraît cohérente car les différentes vitesses de course se retrouvent sur la pente de la position.
 
