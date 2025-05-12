@@ -128,42 +128,43 @@ a\cdot\overline{b}\cdot\overline{c}+a\cdot b\cdot \overline{c}+
 \begin{minipage}{0.47\linewidth}
 \centering\begin{circuitikz}[scale=0.8]
 \ctikzset{bipoles/length=0.6cm}
-\draw[color=bleuf] (2,3) node[nigbt, scale=0.5] (npn) {}
+\draw[color=bleuf, dashed] (2,3) node[nigbt, scale=0.5] (npn) {}
  (npn.base) node[anchor=east] {}
  (npn.collector) node[anchor=south] {}
  (npn.emitter) node[anchor=north] {};
  \node[color=bleuf,anchor=east] at (2,3) {$K_1$};
- \draw[color=bleuf, dashed] (2,1) node[nigbt, scale=0.5] (npn2) {}
+ \draw[color=bleuf] (2,1) node[nigbt, scale=0.5] (npn2) {}
  (npn2.base) node[anchor=east] {}
  (npn2.collector) node[anchor=south] {}
  (npn2.emitter) node[anchor=north] {};
  \node[color=bleuf,anchor=east] at (2,1) {$K_2$};
- \draw[color=bleuf, dashed] (7,3) node[nigbt, scale=0.5] (npn3) {}
+ \draw[color=bleuf] (7,3) node[nigbt, scale=0.5] (npn3) {}
  (npn3.base) node[anchor=east] {}
  (npn3.collector) node[anchor=south] {}
  (npn3.emitter) node[anchor=north] {};
  \node[color=bleuf,anchor=east] at (7,3) {$K_3$};
- \draw[color=bleuf] (7,1) node[nigbt, scale=0.5] (npn4) {}
+ \draw[color=bleuf, dashed] (7,1) node[nigbt, scale=0.5] (npn4) {}
  (npn4.base) node[anchor=east] {}
  (npn4.collector) node[anchor=south] {}
  (npn4.emitter) node[anchor=north] {};
  \node[color=bleuf,anchor=east] at (7,1) {$K_4$};
- \draw[color=bleuf, dashed] (8,0) -- (7,0);
- \draw[color=bleuf] (7,0) -- (0,0)  to[V=$U_{in}$] (0,4) -- (2,4);
- \draw[color=bleuf, dashed] (2,4) -- (8,4) ;
- \draw[color=bleuf, dashed] (2,0) -- (npn2.emitter)  (npn2.collector) -- (2,2);
- \draw[color=bleuf] (2,2) -- (npn.emitter) (npn.collector) -- (2,4);
- \draw[color=bleuf] (7,0) -- (npn4.emitter)  (npn4.collector) -- (7,2) ;
- \draw[color=bleuf, dashed] (7,2) -- (npn3.emitter) (npn3.collector) -- (7,4);
+ \draw[color=bleuf, dashed] (8,0) -- (2,0);
+ \draw[color=bleuf] (2,0) -- (0,0)  to[V=$U_{in}$] (0,4) -- (2,4);
+ \draw[color=bleuf] (2,4) -- (7,4) ;
+ \draw[color=bleuf, dashed] (7,4) -- (8,4) ;
+ \draw[color=bleuf] (2,0) -- (npn2.emitter)  (npn2.collector) -- (2,2);
+ \draw[color=bleuf, dashed] (2,2) -- (npn.emitter) (npn.collector) -- (2,4);
+ \draw[color=bleuf, dashed] (7,0) -- (npn4.emitter)  (npn4.collector) -- (7,2) ;
+ \draw[color=bleuf] (7,2) -- (npn3.emitter) (npn3.collector) -- (7,4);
  \draw[color=bleuf, dashed] (3,0) to[Do] (3,2) ;
  \draw[color=bleuf, dashed] (3,2) to[Do] (3,4) ;
  \draw[color=bleuf, dashed] (8,0) to[Do] (8,2) ;
  \draw[color=bleuf, dashed] (8,2) to[Do] (8,4) ;
-  \draw[color=bleuf] (2,2) -- (3,2) ;
- \draw[color=bleuf] (3,2) to[sV, color=bleuf, name=M1, V=$\overrightarrow{U_{mot}}$, *-,i>=$i$ ] (7,2) ;
+ \draw[color=bleuf] (2,2) -- (3,2) ;
+ \draw[color=bleuf] (3,2) to[sV, color=bleuf, name=M1, V=$\overrightarrow{U_{mot}}$, i=$i$ ] (7,2) ;
  \mymotor{M1}{0}
  \draw[color=bleuf, dashed] (7,2) -- (8,2) ;
- \node (K) at (4,-0.5){$K_1$ et $K_4$};
+ \node (K) at (4,-0.5){$K_2$ et $K_3$};
 \end{circuitikz}
 \end{minipage}\hfill
 \begin{minipage}{0.47\linewidth}
@@ -174,7 +175,7 @@ a\cdot\overline{b}\cdot\overline{c}+a\cdot b\cdot \overline{c}+
  (npn.collector) node[anchor=south] {}
  (npn.emitter) node[anchor=north] {};
  \node[color=bleuf,anchor=east] at (2,3) {$K_1$};
- \draw[color=bleuf, dashed] (2,1) node[nigbt, scale=0.5] (npn2) {}
+ \draw[color=bleuf] (2,1) node[nigbt, scale=0.5] (npn2) {}
  (npn2.base) node[anchor=east] {}
  (npn2.collector) node[anchor=south] {}
  (npn2.emitter) node[anchor=north] {};
@@ -184,7 +185,7 @@ a\cdot\overline{b}\cdot\overline{c}+a\cdot b\cdot \overline{c}+
  (npn3.collector) node[anchor=south] {}
  (npn3.emitter) node[anchor=north] {};
  \node[color=bleuf,anchor=east] at (7,3) {$K_3$};
- \draw[color=bleuf] (7,1) node[nigbt, scale=0.5] (npn4) {}
+ \draw[color=bleuf, dashed] (7,1) node[nigbt, scale=0.5] (npn4) {}
  (npn4.base) node[anchor=east] {}
  (npn4.collector) node[anchor=south] {}
  (npn4.emitter) node[anchor=north] {};
@@ -192,23 +193,22 @@ a\cdot\overline{b}\cdot\overline{c}+a\cdot b\cdot \overline{c}+
  \draw[color=bleuf, dashed] (8,0) -- (7,0);
  \draw[color=bleuf, dashed] (7,0) -- (0,0)  to[V=$U_{in}$] (0,4) -- (2,4);
  \draw[color=bleuf, dashed] (2,4) -- (8,4) ;
- \draw[color=bleuf, dashed] (2,0) -- (npn2.emitter)  (npn2.collector) -- (2,2);
+ \draw[color=bleuf] (2,0) -- (npn2.emitter)  (npn2.collector) -- (2,2);
  \draw[color=bleuf, dashed] (2,2) -- (npn.emitter) (npn.collector) -- (2,4);
- \draw[color=bleuf] (7,0) -- (npn4.emitter)  (npn4.collector) -- (7,2) ;
+ \draw[color=bleuf, dashed] (7,0) -- (npn4.emitter)  (npn4.collector) -- (7,2) ;
  \draw[color=bleuf, dashed] (7,2) -- (npn3.emitter) (npn3.collector) -- (7,4);
- \draw[color=bleuf] (3,0) to[Do] (3,2) ;
+ \draw[color=bleuf, dashed] (3,0) to[Do] (3,2) ;
  \draw[color=bleuf, dashed] (3,2) to[Do] (3,4) ;
- \draw[color=bleuf, dashed] (8,0) to[Do] (8,2) ;
+ \draw[color=bleuf] (8,0) to[Do] (8,2) ;
  \draw[color=bleuf, dashed] (8,2) to[Do] (8,4) ;
- \draw[color=bleuf, dashed] (2,2) -- (3,2) ;
- \draw[color=bleuf] (3,2) to[sV, color=bleuf, name=M1, V=$\overrightarrow{U_{mot}}$, i>=$i$ ] (7,2) ;
+ \draw[color=bleuf] (2,2) -- (3,2) ;
+ \draw[color=bleuf] (3,2) to[sV, color=bleuf, name=M1, V=$\overrightarrow{U_{mot}}$, i=$i$ ] (7,2) ;
  \mymotor{M1}{0}
- \draw[color=bleuf, dashed] (7,2) -- (8,2) ;
- \draw[color=bleuf] (7,0) -- (3,0) ;
- \node (K) at (4,-0.5){$K_4$};
+ \draw[color=bleuf] (7,2) -- (8,2) ;
+ \draw[color=bleuf] (8,0) -- (2,0) ;
+ \node (K) at (4,-0.5){$K_2$};
 \end{circuitikz}
 \end{minipage}}
-
 
 \reponse{1}{\begin{minipage}{0.47\linewidth}
 \centering\begin{circuitikz}[scale=0.8]
@@ -293,43 +293,42 @@ a\cdot\overline{b}\cdot\overline{c}+a\cdot b\cdot \overline{c}+
 \begin{minipage}{0.47\linewidth}
 \centering\begin{circuitikz}[scale=0.8]
 \ctikzset{bipoles/length=0.6cm}
-\draw[color=bleuf, dashed] (2,3) node[nigbt, scale=0.5] (npn) {}
+\draw[color=bleuf] (2,3) node[nigbt, scale=0.5] (npn) {}
  (npn.base) node[anchor=east] {}
  (npn.collector) node[anchor=south] {}
  (npn.emitter) node[anchor=north] {};
  \node[color=bleuf,anchor=east] at (2,3) {$K_1$};
- \draw[color=bleuf] (2,1) node[nigbt, scale=0.5] (npn2) {}
+ \draw[color=bleuf, dashed] (2,1) node[nigbt, scale=0.5] (npn2) {}
  (npn2.base) node[anchor=east] {}
  (npn2.collector) node[anchor=south] {}
  (npn2.emitter) node[anchor=north] {};
  \node[color=bleuf,anchor=east] at (2,1) {$K_2$};
- \draw[color=bleuf] (7,3) node[nigbt, scale=0.5] (npn3) {}
+ \draw[color=bleuf, dashed] (7,3) node[nigbt, scale=0.5] (npn3) {}
  (npn3.base) node[anchor=east] {}
  (npn3.collector) node[anchor=south] {}
  (npn3.emitter) node[anchor=north] {};
  \node[color=bleuf,anchor=east] at (7,3) {$K_3$};
- \draw[color=bleuf, dashed] (7,1) node[nigbt, scale=0.5] (npn4) {}
+ \draw[color=bleuf] (7,1) node[nigbt, scale=0.5] (npn4) {}
  (npn4.base) node[anchor=east] {}
  (npn4.collector) node[anchor=south] {}
  (npn4.emitter) node[anchor=north] {};
  \node[color=bleuf,anchor=east] at (7,1) {$K_4$};
- \draw[color=bleuf, dashed] (8,0) -- (2,0);
- \draw[color=bleuf] (2,0) -- (0,0)  to[V=$U_{in}$] (0,4) -- (2,4);
- \draw[color=bleuf] (2,4) -- (7,4) ;
- \draw[color=bleuf, dashed] (7,4) -- (8,4) ;
- \draw[color=bleuf] (2,0) -- (npn2.emitter)  (npn2.collector) -- (2,2);
- \draw[color=bleuf, dashed] (2,2) -- (npn.emitter) (npn.collector) -- (2,4);
- \draw[color=bleuf, dashed] (7,0) -- (npn4.emitter)  (npn4.collector) -- (7,2) ;
- \draw[color=bleuf] (7,2) -- (npn3.emitter) (npn3.collector) -- (7,4);
+ \draw[color=bleuf, dashed] (8,0) -- (7,0);
+ \draw[color=bleuf] (7,0) -- (0,0)  to[V=$U_{in}$] (0,4) -- (2,4);
+ \draw[color=bleuf, dashed] (2,4) -- (8,4) ;
+ \draw[color=bleuf, dashed] (2,0) -- (npn2.emitter)  (npn2.collector) -- (2,2);
+ \draw[color=bleuf] (2,2) -- (npn.emitter) (npn.collector) -- (2,4);
+ \draw[color=bleuf] (7,0) -- (npn4.emitter)  (npn4.collector) -- (7,2) ;
+ \draw[color=bleuf, dashed] (7,2) -- (npn3.emitter) (npn3.collector) -- (7,4);
  \draw[color=bleuf, dashed] (3,0) to[Do] (3,2) ;
  \draw[color=bleuf, dashed] (3,2) to[Do] (3,4) ;
  \draw[color=bleuf, dashed] (8,0) to[Do] (8,2) ;
  \draw[color=bleuf, dashed] (8,2) to[Do] (8,4) ;
- \draw[color=bleuf, dashed] (2,2) -- (3,2) ;
- \draw[color=bleuf] (3,2) to[sV, color=bleuf, name=M1, V=$\overrightarrow{U_{mot}}$, i=$i$ ] (7,2) ;
+  \draw[color=bleuf] (2,2) -- (3,2) ;
+ \draw[color=bleuf] (3,2) to[sV, color=bleuf, name=M1, V=$\overrightarrow{U_{mot}}$, *-,i>=$i$ ] (7,2) ;
  \mymotor{M1}{0}
  \draw[color=bleuf, dashed] (7,2) -- (8,2) ;
- \node (K) at (4,-0.5){$K_2$ et $K_3$};
+ \node (K) at (4,-0.5){$K_1$ et $K_4$};
 \end{circuitikz}
 \end{minipage}\hfill
 \begin{minipage}{0.47\linewidth}
@@ -340,7 +339,7 @@ a\cdot\overline{b}\cdot\overline{c}+a\cdot b\cdot \overline{c}+
  (npn.collector) node[anchor=south] {}
  (npn.emitter) node[anchor=north] {};
  \node[color=bleuf,anchor=east] at (2,3) {$K_1$};
- \draw[color=bleuf] (2,1) node[nigbt, scale=0.5] (npn2) {}
+ \draw[color=bleuf, dashed] (2,1) node[nigbt, scale=0.5] (npn2) {}
  (npn2.base) node[anchor=east] {}
  (npn2.collector) node[anchor=south] {}
  (npn2.emitter) node[anchor=north] {};
@@ -350,7 +349,7 @@ a\cdot\overline{b}\cdot\overline{c}+a\cdot b\cdot \overline{c}+
  (npn3.collector) node[anchor=south] {}
  (npn3.emitter) node[anchor=north] {};
  \node[color=bleuf,anchor=east] at (7,3) {$K_3$};
- \draw[color=bleuf, dashed] (7,1) node[nigbt, scale=0.5] (npn4) {}
+ \draw[color=bleuf] (7,1) node[nigbt, scale=0.5] (npn4) {}
  (npn4.base) node[anchor=east] {}
  (npn4.collector) node[anchor=south] {}
  (npn4.emitter) node[anchor=north] {};
@@ -358,20 +357,20 @@ a\cdot\overline{b}\cdot\overline{c}+a\cdot b\cdot \overline{c}+
  \draw[color=bleuf, dashed] (8,0) -- (7,0);
  \draw[color=bleuf, dashed] (7,0) -- (0,0)  to[V=$U_{in}$] (0,4) -- (2,4);
  \draw[color=bleuf, dashed] (2,4) -- (8,4) ;
- \draw[color=bleuf] (2,0) -- (npn2.emitter)  (npn2.collector) -- (2,2);
+ \draw[color=bleuf, dashed] (2,0) -- (npn2.emitter)  (npn2.collector) -- (2,2);
  \draw[color=bleuf, dashed] (2,2) -- (npn.emitter) (npn.collector) -- (2,4);
- \draw[color=bleuf, dashed] (7,0) -- (npn4.emitter)  (npn4.collector) -- (7,2) ;
+ \draw[color=bleuf] (7,0) -- (npn4.emitter)  (npn4.collector) -- (7,2) ;
  \draw[color=bleuf, dashed] (7,2) -- (npn3.emitter) (npn3.collector) -- (7,4);
- \draw[color=bleuf, dashed] (3,0) to[Do] (3,2) ;
+ \draw[color=bleuf] (3,0) to[Do] (3,2) ;
  \draw[color=bleuf, dashed] (3,2) to[Do] (3,4) ;
- \draw[color=bleuf] (8,0) to[Do] (8,2) ;
+ \draw[color=bleuf, dashed] (8,0) to[Do] (8,2) ;
  \draw[color=bleuf, dashed] (8,2) to[Do] (8,4) ;
- \draw[color=bleuf] (2,2) -- (3,2) ;
- \draw[color=bleuf] (3,2) to[sV, color=bleuf, name=M1, V=$\overrightarrow{U_{mot}}$, i=$i$ ] (7,2) ;
+ \draw[color=bleuf, dashed] (2,2) -- (3,2) ;
+ \draw[color=bleuf] (3,2) to[sV, color=bleuf, name=M1, V=$\overrightarrow{U_{mot}}$, i>=$i$ ] (7,2) ;
  \mymotor{M1}{0}
- \draw[color=bleuf] (7,2) -- (8,2) ;
- \draw[color=bleuf] (8,0) -- (2,0) ;
- \node (K) at (4,-0.5){$K_2$};
+ \draw[color=bleuf, dashed] (7,2) -- (8,2) ;
+ \draw[color=bleuf] (7,0) -- (3,0) ;
+ \node (K) at (4,-0.5){$K_4$};
 \end{circuitikz}
 \end{minipage}}
 
