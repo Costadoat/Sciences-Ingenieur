@@ -263,8 +263,6 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 \newcommand{\debutcor}
 {	
     \ifdef{\public}{
-    	\modulo{\value{page}-1}{4}
-		\whiledo{\value{page}<\value{lastpagesujet}}{~\ \newpage}
         \pagestyle{docreponse}
 	}{\pagestyle{correction}}
 
