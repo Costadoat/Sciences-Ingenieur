@@ -1,0 +1,944 @@
+\input{../../../headers/dsheaders.tex}
+
+\section{Présentation du système}
+
+\subsection{Contexte}
+
+Ce concept a été inventé au Canada en 2008, et s'est étendu à toute l'Amérique du Nord avant de traverser l'Atlantique pour proposer un cinéma dynamique avec une quantité d'effets spéciaux et spatiaux. Le fauteuil dynamique de cinéma est principalement destiné à l'industrie du divertissement et de la simulation.
+
+Pour ressentir au mieux ces sensations, la technologie permet désormais de ressentir dans son fauteuil les différents mouvements, par de fortes vibrations et accélérations. Ce système repose sur la post-synchronisation des films. Comme pour un doublage ou un sous-titrage, les mouvements du film sont transmis au fauteuil.
+
+Si la plate-forme à six degrés de liberté s'est imposée dans le cas des simulateurs de vols, elle ne répond pas aux exigences plus étendues des fauteuils dynamiques. Des solutions spécifiques à un environnement de simulation aussi réaliste que possible nécessitent le recours à un système de restitution des mouvements. Le système étudié est une évolution en cours d'étude des fauteuils dynamiques actuellement commercialisés, qui s'inspire des sièges dynamiques utilisés pour l'entraînement des pilotes d'avion de chasse (voir figure \ref{fig1}).
+
+\begin{figure}[!ht]
+\begin{minipage}{0.35\linewidth}
+ \centering\includegraphics[width=0.8\linewidth]{img/img01a}
+\end{minipage}\hfill
+\begin{minipage}{0.55\linewidth}
+ \centering\includegraphics[width=1\linewidth]{img/img01b}
+\end{minipage}
+
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/img01c}
+\end{center}
+\caption{Modèles de sièges}
+\label{fig1}
+\end{figure}
+
+\subsection{Mise en situation}
+
+Le siège dynamique est constitué :
+\begin{itemize}
+ \item du dosseret (voir figure \ref{fig2}) qui permet d'agir directement sur la tête du spectateur afin d'amplifier la sensation d'accélération (via l'oreille interne). Le point de contact entre le dosseret et la tête du spectateur est matérialisé par le point D,
+ \item de l'assise du siège (voir figure \ref{fig3}) qui permet d'obtenir un mouvement de tangage et un mouvement de roulis du spectateur.
+\end{itemize}
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/img02}
+\end{center}
+\caption{Dosseret}
+\label{fig2}
+\end{figure}
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/img03}
+\end{center}
+\caption{Assise du siège}
+\label{fig3}
+\end{figure}
+
+Les trois motorisations (une pour le dosseret et deux pour l'assise) sont composées chacune d'un moteur à courant continu à aimants permanents et d'un réducteur de vitesse. Chaque moteur est alimenté par un variateur de vitesse dont la structure de puissance est un hacheur. Un capteur de courant interne au variateur est utilisé par ce accouplée à l'axe de chaque moteur est utilisée par le variateur correspondant pour réaliser un asservissement de vitesse. Un codeur incrémental accouplé aussi sur l'axe de chaque moteur est utilisé par une carte à base de microcontrôleur pour réaliser un asservissement de position, une sortie analogique de cette carte étant reliée à l'entrée de consigne du variateur de vitesse.
+
+\subsection{Étude proposée}
+
+Les accélérations procurées aux spectateurs sont un élément fondamental qui conditionne la conception et la réalisation de ce fauteuil dynamique de cinéma. Les solutions technologiques retenues répondent à cet objectif. Elles ne sont pas toutes abordées dans ce sujet. Quelques unes de celles retenues pour le fauteuil dynamique de cinéma sont étudiées pour valider les solutions choisies par les concepteurs vis-à-vis des performances attendues listées par le cahier des charges. Dans cette optique, il est proposé au candidat les trois études suivantes :
+\begin{itemize}
+ \item modélisation, validation et optimisation de certains constituants associés à l'exigence fonctionnelle \og amplifier la sensation d'accélération \fg,
+ \item validation de l'architecture de la chaine fonctionnelle réalisant l'exigence fonctionnelle \og incliner le spectateur suivant l'axe de tangage et de roulis \fg,
+ \item synthèse globale de l'étude proposée.
+\end{itemize}
+
+\section{Exigence fonctionnelle \og amplifier la sensation d'accélération \fg}
+
+\paragraph{Objectif} Proposer un modèle de comportement des éléments réalisant l'exigence fonctionnelle \og amplifier la sensation d'accélération »\fg puis valider les performances attendues listées par le cahier des charges (figure \ref{fig4}).
+
+\begin{figure}[!ht]
+\begin{tabular}{|p{3cm}|p{8cm}|p{5cm}|}
+\hline
+\textbf{Exigence} & \textbf{Critères d'appréciation} & \textbf{Niveau} \\
+\hline
+\multirow{3}{2cm}{Amplifier la sensation d'accélération} & Précision statique de la boucle d'asservissement de position:
+\begin{itemize}
+ \item Erreur statique de position,
+ \item Erreur statique de trainage,
+ \item Erreur statique d'accélération.
+\end{itemize}
+& \par ~\ \par ~\ \par <1\% \par <1\% \par <1\% \par \\
+\cline{2-3}
+& Rapidité pour un échelon de consigne d'accélération:
+\begin{itemize}
+ \item Temps de montée de 0 à 100\% de la consigne 
+ \item Dépassement	
+\end{itemize}
+& \par ~\ \par ~\ \par ~\ \par <5ms \par <20\% \\
+\cline{2-3}
+& Accélération maximale du point D de la tête du spectateur situé à 85 mm au-dessus de l'axe de rotation du dosseret & $6m.s^{-2} < a_{max} < 7m.s^{-2}$ \\
+\hline
+\end{tabular}
+\caption{Extrait du cahier des charges associé à l'exigence fonctionnelle \og Amplifier la sensation d'accélération \fg\ réalisée par le dosseret}
+\label{fig4}
+\end{figure}
+
+\newpage
+
+\subsection{Notations et hypothèses}
+
+Le schéma multi physique modélisant l'asservissement de position du dosseret est fourni (figure \ref{fig5}).
+Le schéma-bloc retenu pour la modélisation de l'asservissement de position du dosseret est fourni (figure \ref{fig6}).
+
+\begin{tabular}{|p{2.5cm}|p{7cm}|p{2cm}|p{2cm}|}
+\hline
+ & \textbf{Description} & \textbf{Variable temporelle} & \textbf{Unité} \\
+\hline
+$\theta_{Cd}(p)$ & consigne de position du dosseret	& $\theta_{Cd}(t)$ & rad \\
+\hline
+$\theta_{C}(p)$ & consigne de position de l'axe moteur & $\theta_{C}(t)$ & rad \\
+\hline
+$\theta(p)$ & position de l'axe moteur & $\theta(t)$ & rad \\
+\hline
+$\theta_{r}(p)$ & position de l'axe de sortie du réducteur & $\theta_{r}(t)$ & rad \\
+\hline
+$\theta_{d}(p)$ & position du dosseret & $\theta_{d}(t)$ & rad \\
+\hline
+$N_{Codeur}(p)$ & valeur numérique issue du comptage incrémental & $N_{Codeur}(t)$ & 	 \\
+\hline
+$r$ & rapport de transmission du réducteur & &  \\
+\hline
+$K_{c}$ & gain du mécanisme  de la transformation de mouvement du dosseret & &  \\
+\hline
+\end{tabular}
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=\linewidth]{img/img05}
+\end{center}
+\caption{Schéma multi-physique  de l'asservissement du dosseret}
+\label{fig5}
+\end{figure}
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=\linewidth]{img/img06}
+\end{center}
+\caption{Schéma-bloc de l'asservissement du dosseret}
+\label{fig6}
+\end{figure}
+
+\clearpage
+
+\begin{tabular}{|p{2cm}|p{9cm}|p{2cm}|p{2cm}|}
+\hline
+ & \textbf{Description} & \textbf{Variable temporelle} & \textbf{Unité} \\ \hline
+$c$ & gain du codeur incrémental & & $rad^{-1}$ \\ \hline
+$a$ & gain proportionnel du correcteur de l'asservissement de position & & $V$ \\ \hline
+$U_{C\Omega}(p)$ & image de la consigne de vitesse de l'axe moteur & $u_{C\Omega}(t)$ & $V$ \\ \hline
+$\Omega(p)$ & vitesse de l'axe moteur & $\Omega(t)$ & $rad.s^{-1}$ \\ \hline
+$C_{\Omega}(p)$ & correcteur de l'asservissement de vitesse	& &  \\ \hline
+$I_C(p)$ & image de la consigne de courant & $i_C(t)$	& $V$ \\ \hline
+$C_I(p)$ & correcteur de l'asservissement de courant & & \\ \hline
+$h$ & gain du hacheur & & \\ \hline
+$K_{rI}$ & gain du capteur de courant & &  \\ \hline
+$U(p)$ & tension d'alimentation du moteur & $u(t)$ & $V$ \\ \hline
+$E(p)$ & force électromotrice du moteur	& $e(t)$ & $V$ \\ \hline
+$I(p)$ & courant dans l'induit  du moteur & $i(t)$ & $A$ \\ \hline
+$C_M(p)$ & couple moteur & $c_M(t)$ & $N.m$ \\ \hline
+$C_R(p)$ & couple résistant perturbateur & $c_R(t)$ & $N.m$ \\ \hline
+$L$ & inductance du circuit d'induit du moteur & & \\ \hline
+$R$ & résistance du circuit d'induit du moteur & & \\ \hline
+$K_{\Omega}$ & gain de la génératrice tachymétrique	& & $V.s.rad^{-1}$ \\ \hline
+$K$ & gain de la constante de couple ou de la constante de force électromotrice	& &  \\ \hline
+$J$ & moment d'inertie  de l'ensemble  en mouvement, ramené  au  niveau  de l'axe moteur & &  \\ \hline
+$f$ & coefficient de frottements visqueux équivalent pour l'ensemble en mouvement & &  \\ \hline
+\end{tabular}
+
+~\
+
+Données: \\
+\begin{itemize}
+ \item $K = 0,115 N.m.A^{-1}(V.s.rad^{-1})$
+ \item $R = 1 \Omega$
+ \item $L = 1,1mH$
+ \item $k_{rI}= 0,5 V. A^{-1}$
+ \item $h = 6$
+ \item $r = 1/50$
+ \item $f = 4.10^{-4} N.m.s.rad^{-1}$
+ \item $J=0,16.10^{-3} kg.m^2$
+ \item Correcteur de courant $C_I(p)=k_2.\left(1+\dfrac{1}{T_2.p}\right)$, avec $k_2 = 5$ et $T_2=0,3ms$,
+ \item Correcteur de vitesse $C_{\Omega}(p)=k_1.\left(1+\dfrac{1}{T_1.p}\right)$, avec $k_1=20$.
+\end{itemize}
+
+\newpage
+
+Hypothèses: \\
+\begin{itemize}
+ \item La période d'échantillonnage est suffisamment faible pour être négligeable devant la dynamique globale du système et les différentes variables sont donc toutes considérées comme des fonctions continues du temps,
+ \item Le temps de réponse du hacheur est considéré négligeable dans l'étude,
+ \item Les conditions de Heaviside sont vérifiées.
+\end{itemize}
+
+\subsection{Comportement cinématique du mécanisme de transformation de mouvement du dosseret}
+
+\paragraph{Objectif} Valider la linéarité du comportement du mécanisme de transformation de mouvement du dosseret (figure \ref{fig7}) en établissant la loi de comportement cinématique.
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/img07}
+\end{center}
+\caption{Mécanisme de transformation de mouvement du dosseret}
+\label{fig7}
+\end{figure}
+
+Le modèle cinématique de la transformation de mouvement du dosseret est fourni figure \ref{fig8}.
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.65\linewidth]{img/img08}
+\end{center}
+\caption{Modèle cinématique de la transformation de mouvement du dosseret}
+\label{fig8}
+\end{figure}
+
+\question{À l'aide d'une fermeture géométrique, exprimer littéralement l'angle $\theta_d$ en fonction de l'angle $\theta_r$. Mettre l'expression sous la forme :
+\begin{center}
+$cos\theta_d.(E+F.cos\theta_r)+sin\theta_d.(G+F.sin\theta_r)=H+(I.cos\theta_r+J.sin\theta_r)$
+\end{center}}
+
+\newpage
+
+Une simulation numérique a permis d'obtenir le tracé représenté sur la figure \ref{fig9}. Afin d'obtenir un modèle linéaire de la caractéristique $\theta_d=f(\theta_r)$, l'étude se fait autour de son point de fonctionnement statique pour de petites variations.
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/img09}
+\end{center}
+\caption{Représentation de l'équation de fermeture géométrique}
+\label{fig9}
+\end{figure}
+
+\question{Déterminer par linéarisation autour du point de fonctionnement $\theta_r=0\text{°}$, la valeur numérique du gain dynamique $K_C$ de la transformation de mouvement du dosseret.}
+
+
+\subsection{Comportement du codeur incrémental et de la génératrice tachymétrique}
+
+\paragraph{Objectif} Établir un modèle de comportement du codeur incrémental et de la génératrice tachymétrique.
+
+Le moteur AXEM a pour référence F12M4. Il est alimenté par une carte variateur de vitesse RTS 10-20-60 (PARVEX) alimentée sous $60V DC$ et pouvant délivrer $20A$ pendant $2s$, avec un courant nominal de $10A$.
+
+Ce dernier comprend les boucles d'asservissement de vitesse et de courant. Sur l'arbre moteur sont montés une génératrice tachymétrique et un codeur incrémental $250 points.tour^{-1}$. Le comptage incrémental est effectué sur le front montant d'une des deux voies. La génératrice tachymétrique est raccordée à l'entrée de retour vitesse du variateur. Un réglage par potentiomètre présent dans le variateur est effectué pour obtenir une tension de $5V$ au niveau du comparateur de l'asservissement de vitesse lorsque la fréquence de rotation du moteur est égale à $3000tr.min^{-1}$.
+
+\question{En tenant compte des informations précédentes, calculer la valeur numérique de $c$ et de $K_{\Omega}$ (figure \ref{fig6}).}
+
+\textit{Commentaire: Vous ferez attention aux unités données dans le tableau \ref{fig4}.}
+
+\subsection{Comportement de l'ensemble variateur et moteur du dosseret}
+
+\paragraph{Objectif} Valider un modèle simplifié de l'asservissement de position de l'axe moteur afin d'analyser les paramètres influant sur la précision et proposer une amélioration du système.
+
+~\
+
+Pour cela, il faut :
+\begin{itemize}
+ \item établir un modèle simplifié de l'asservissement de courant,
+ \item établir un modèle simplifié de l'asservissement de vitesse,
+ \item analyser la précision de l'asservissement de position.
+\end{itemize}
+
+\subsubsection{Modélisation de l'asservissement du courant}
+
+L'étude suivante consiste à vérifier la validité de la simplification du modèle de la boucle d'asservissement du courant de la figure \ref{fig10} par le modèle de la figure \ref{fig11}.
+
+~\
+
+Pour le modèle de la figure \ref{fig10} lorsque $C_R(p)=0$, la fonction de transfert s'écrit :
+
+\begin{center}
+$\dfrac{\Omega(p)}{I_C(p)}=\dfrac{Kk_2hT_2p+Kk_2h}{T_2LJp^3+(T_2(Lf+RJ)+k_2hk_{rI}T_2 J)p^2+(T_2(Rf+K^2)+k_2hk_{rI}(T_2f+J))p+k_2hk_{rI}f}$
+\end{center}
+
+À l'aide d'un logiciel de simulation, une comparaison du comportement de la vitesse en sortie des deux modèles a été effectuée (figure \ref{fig12}) et ce pour un échelon unitaire de consigne de courant appliqué en entrée.
+
+\newpage
+
+\question{Pour chacun des deux modèles (initial et simplifié), quelle est la valeur finale de $\Omega(t)$ lorsque $i_c(t)$ est un échelon unitaire ? À l'aide de ces résultats et des relevés issus de la simulation dans le régime transitoire, conclure quant à la validité de la simplification du modèle sachant que chaque sollicitation du dosseret a une durée d'environ $30 ms$.}
+
+\textit{Commentaire: Attention, on ne demande que la valeur finale}
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/img10}
+\end{center}
+\caption{Modèle initial de la boucle d'asservissement de courant}
+\label{fig10}
+\end{figure}
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.5\linewidth]{img/img11}
+\end{center}
+\caption{Modèle simplifié de la boucle d'asservissement de courant}
+\label{fig11}
+\end{figure}
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/img12}
+\end{center}
+\caption{Tracés}
+\label{fig12}
+\end{figure}
+
+\subsubsection{Modélisation de l'asservissement de vitesse}
+
+L'étude suivante consiste à obtenir un modèle simplifié de la boucle d'asservissement de vitesse (figure \ref{fig13}) au regard des réglages effectués et de l'influence d'une perturbation de type échelon sur le dosseret. En effet, vu la courte durée des sollicitations, la perturbation sur le dosseret, dont l'origine peut être une action du spectateur sur ses muscles cervicaux, peut être modélisée par un échelon.
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/img13}
+\end{center}
+\caption{Modèle de la boucle d'asservissement de vitesse}
+\label{fig13}
+\end{figure}
+
+\question{Exprimer la fonction de transfert de la boucle de vitesse $H_{\Omega}(p)=\dfrac{\Omega(p)}{U_{C\Omega}(p)}$, lorsque $C_R(p)=0$. Rappel : $C_{\Omega}(p)=k_1.\left(1+\dfrac{1}{T_1. p}\right)$}
+
+\question{$T_1$ étant égal à $\dfrac{J}{f}$, montrer alors que la fonction de transfert en boucle fermée peut se mettre sous la forme $\dfrac{b}{\tau\cdot p+1}$. Calculer les valeurs numériques des termes $b$ et $\tau$.}
+
+\question{En déduire, à l'aide de la figure \ref{fig13}, $\dfrac{\theta(p)}{C_R(p)}$ lorsque $\theta_C(p)=0$. Calculer ensuite la valeur finale de $\theta(t)$ lorsque $c_R(t)$ est un échelon unitaire. Conclure quant à l'action, en régime permanent, du correcteur proportionnel et intégral sur les effets d'une perturbation $c_R(t)$ de type échelon.}
+
+\textit{Commentaire: Il faudra pour cela déplacer le sommateur de $C_R(p)$, si vous avez oublié la méthode il est possible de la retrouver en transformant un extrait du schéma bloc en équations.}
+
+\subsubsection{Modélisation de la boucle d'asservissement de position}
+
+Après toutes les simplifications précédentes, est obtenu le modèle de la figure \ref{fig14} où seul le comportement en réponse à la consigne $\theta_C$ est abordé.
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/img14}
+\end{center}
+\caption{Modèle simplifié de la boucle d'asservissement de position}
+\label{fig14}
+\end{figure}
+
+\newpage
+
+\question{Exprimer la fonction de transfert $\dfrac{\theta(p)}{\theta_C(p)}$. Déterminer ensuite la valeur numérique de $a$ pour avoir un facteur d'amortissement égal à 0,7. Justifier le choix de ce facteur d'amortissement. (Pour ce calcul et les calculs suivants prendre $b=63rad.s^{-1}.V^{-1}$, $\tau=2,2ms$, $c=40rad^{-1}$).}
+
+\subsubsection{Analyse de la précision du système}
+
+Un aspect important pour la simulation sensorielle du siège dynamique est la capacité du système à reproduire fidèlement la consigne de position issue du programme de simulation sensorielle du siège dynamique. Dans un premier temps, l'étude se limite à la précision statique en utilisant le modèle défini à la figure \ref{fig14}. L'erreur représente la différence entre l'entrée $\theta_C(t)$ et la sortie $\theta(t)$ et est définie par la variable $\mu(t)=\theta_C(t)-\theta(t)$.
+
+La précision statique du système est définie par les trois paramètres suivants :
+\begin{itemize}
+ \item $\mu_p=\lim\limits_{t \rightarrow +\infty} \mu(t)$, suite à une entrée de type échelon unité ($\theta_C(t)=u(t)$,$\theta_C(p)=\dfrac{1}{p}$) appelé \textbf{erreur de position},
+ \item $\mu_v=\lim\limits_{t \rightarrow +\infty} \mu(t)$, suite à une entrée de type rampe ($\theta_C(t)=t.u(t)$,$\theta_C(p)=\dfrac{1}{p^2}$) appelé \textbf{erreur de traînage} ;
+ \item $\mu_a=\lim\limits_{t \rightarrow +\infty} \mu(t)$, suite à une entrée de type accélération ($\theta_C(t)=\dfrac{t^2.u(t)}{2}$,$\theta_C(p)=\dfrac{1}{p^3}$) appelé \textbf{erreur en accélération}.
+\end{itemize}
+
+\question{Exprimer dans un premier temps $\mu(p)$ en fonction de $\theta_C(p)$, puis déterminer de façon littérale et numérique l'erreur de position $\mu_p$, l'erreur de traînage $\mu_v$ et l'erreur en accélération $\mu_a$. Conclure quant à la précision statique du système suite aux différentes consignes $\theta_C(p)$ de type échelon, rampe et accélération.}
+
+\newpage
+
+\subsection{Validation de la performance simulée en accélération du dosseret}
+
+\paragraph{Objectif} Valider la performance simulée en accélération au regard du cahier des charges fonctionnel.
+
+Grâce à la modélisation de la chaîne fonctionnelle réalisée précédemment, un logiciel de simulation permet d'obtenir la courbe de la vitesse angulaire maximale $\dot{\theta}_d$ (figure \ref{fig15}) ainsi que celle de l'accélération angulaire maximale $\ddot{\theta}_d$ (figure \ref{fig15}) du dosseret. Ces deux courbes sont tracées sur une durée de $30ms$ lors du démarrage du moteur (au-delà de ce temps le moteur atteint sa vitesse nominale).
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.9\linewidth]{img/img15}
+\end{center}
+\caption{Vitesse et accélération angulaires en fonction du temps}
+\label{fig15}
+\end{figure}
+
+\question{Déterminer, à partir du paramétrage donné figure \ref{fig8}, l'expression littérale au point D (représentant le point de contact avec la tête du spectateur) du vecteur accélération $\overrightarrow{\Gamma}_{D\in dosseret/chassis}$. Calculer numériquement la norme de ce vecteur accélération au point D correspondant à la valeur maximale de $\ddot{\theta}_d$.}
+
+\question{Conclure quant au respect du nombre de $g$ du cahier des charges (figure \ref{fig4}) vis-à-vis des accélérations simulées produites par le dosseret du siège dynamique de cinéma.}
+
+\subsubsection{Optimisation des performances du dosseret}
+
+La figure \ref{fig16} représente la structure d'une correction par anticipation qui permet d'améliorer la précision statique du système
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/img16}
+\end{center}
+\caption{Structure avec anticipation}
+\label{fig16}
+\end{figure}
+
+\question{Déterminer l'erreur de position $\mu_p$ puis l'erreur de traînage $\mu_v$. Conclure sur l'erreur de position au regard du cahier des charges.}
+
+\question{D'après l'erreur de traînage $\mu_v$ déterminée à la question précédente, calculer la valeur numérique de $d$ qui permet d'annuler cette erreur de traînage. En prenant en compte la valeur numérique de $d$ et de $b$, déterminer l'expression de l'erreur en accélération $\mu_a$. Calculer ensuite sa valeur numérique et conclure au regard du cahier des charges.}
+
+Un aspect important pour la simulation sensorielle du siège dynamique est la capacité du système à reproduire rapidement les consignes d'accélération. À l'aide d'une simulation, la variable accélération $\ddot{\theta}_d$ possède les deux comportements donnés figure \ref{fig17} pour la période transitoire, et ce lorsque la consigne vaut $\theta_{Cd}(t)=\dfrac{t^2}{2}.u(t)$.
+
+\begin{figure}[!ht]
+\begin{center}
+ \includegraphics[width=0.8\linewidth]{img/img17}
+\end{center}
+\caption{Accélération du dosseret avec et sans anticipation}
+\label{fig17}
+\end{figure}
+
+\question{Conclure quant au respect du cahier des charges vis-à-vis des accélérations produites par le dosseret du siège dynamique de cinéma.}
+
+\section{Exigence fonctionnelle : « Incliner le spectateur suivant l'axe de tangage et de roulis »}
+
+\paragraph{Objectif} Valider le choix de conception permettant de transmettre l'énergie mécanique à l'assise du siège.
+
+\subsection{Commande en simultanée des deux moteurs de l'assise du siège}
+
+\paragraph{Objectif} Valider le choix de conception pour la réalisation de la commande simultanée des deux moteurs de l'assise du siège.
+
+En mode simultané (figure \ref{fig19}), les consignes de vitesse de chaque variateur sont issues d'un calculateur numérique : $a$, $d$ et $c$ sont identiques. En revanche, le réglage du retour vitesse des cartes variateur est effectué à l'aide d'un potentiomètre et celui-ci peut ne pas avoir été réglé avec précision. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{img/img19}
+\caption{\label{fig19}Commande simultanée des deux moteurs}
+\end{figure}
+
+En imposant le réglage du retour vitesse de la motorisation 1 à 5 V pour 3000 tr·min$^{-1}$ et celui de la motorisation 2 à 5,5 V pour 3000 tr·min$^{-1}$, les calculs donnent $b_1 = 62,8 rad\cdot s^{-1}\cdot V^{-1}$ et $b_2 = 57,1 rad\cdot s^{-1}\cdot V^{-1}$.
+
+Les inerties au niveau de chaque moteur, supérieures à celle au niveau du moteur de dosseret, peuvent fluctuer en fonction de la position du spectateur. En tenant compte d'une variation d'inertie de 10\%, les calculs donnent $\tau_1 = \frac{1}{366} \text{ s}$ et $\tau_2 = \frac{1}{447} \text{ s}$.
+
+On prendra $a = 0,09 V$, $c = 40 rad^{-1}$ et $d = 0,016 V\cdot rad^{-1}\cdot s$.
+
+\question{En réutilisant les calculs effectués aux questions \ref{q12} et \ref{q13} et en tenant compte des différences de réglage de retour vitesse et des différences d'inertie entre les deux motorisations, exprimer la valeur finale de $\theta_1(t) - \theta_2(t)$ lorsque la consigne $\theta_C(t)$ est respectivement égale à $u(t)$, $t\cdot u(t)$ puis $\frac{t^2}{2}\cdot u(t)$, $u(t)$ étant la fonction échelon unité.}
+
+La figure \ref{fig20} représente le résultat d'une simulation de $\theta_1(t) - \theta_2(t)$ pour une consigne $\theta_{C}(t) = \frac{t^2}{2}\cdot u(t)$.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{img/img20}
+\caption{\label{fig20}$\theta_1 - \theta_2$ en fonction du temps}
+\end{figure}
+
+\question{Conclure quant à l'erreur en accélération lors de la commande simultanée.}
+
+\subsection{Association variateur de vitesse – moteur de l'assise du siège}
+
+\paragraph{Objectif}
+Valider le choix du moteur au regard des formes d'ondes issues du variateur de vitesse. Pour cela, une analyse des formes d'ondes du variateur permet de quantifier le facteur de forme, paramètre influant sur l'échauffement du moteur.
+
+Le schéma structurel du variateur de vitesse est représenté figure \ref{fig21} :
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{img/img21}
+\caption{\label{fig21}Schéma structurel du variateur de vitesse}
+\end{figure}
+
+Lors du fonctionnement dans le quadrant 1 du plan vitesse en fonction du couple, la commande des transistors est faite selon la séquence donnée figure \ref{fig22} où $T = \frac{1}{f} = \frac{1}{17000} s$
+est la période de découpage et $\alpha \in [0, 1]$ le rapport cyclique.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{img/img22}
+\caption{\label{fig22}Commande des transistors}
+\end{figure}
+
+La constante de temps du circuit d'induit du moteur ((inductance du moteur + $L_S$) / résistance du circuit d'induit) étant élevée devant la période de découpage, on peut négliger $Ri(t)$ devant $L\frac{di}{dt}$.
+
+\newpage
+
+Le schéma équivalent en sortie du hacheur est représenté figure \ref{fig23} où $E$ est la force électromotrice du moteur, considérée constante pour les trois questions suivantes, $L$ est la somme de l'inductance du moteur et de l'inductance de lissage $L_S$.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\textwidth]{img/img23}
+\caption{\label{fig23}Schéma équivalent}
+\end{figure}
+
+\question{Représenter les chronogrammes de $u(t)$ et de $i(t)$ en supposant $0 < I_m \leq i(t) \leq I_M$ et en prenant $\alpha = 0,5$. Indiquer sur le chronogramme les composants par lesquels passe effectivement le courant.}
+
+L'ondulation de courant est définie par $\Delta i = (I_M - I_m)/2$.
+
+\question{Exprimer $\Delta i_{\max}$, la valeur maximale de l'ondulation du courant. Pour cela, exprimer successivement :
+\begin{itemize}
+\item $i(t)$ pour $0 \leq t < \alpha T$ en fonction de $V$, $L$, $I_m$, $E$ et $t$ ;
+\item $\Delta i$ en fonction de $V$, $E$, $L$, $\alpha$ et $T$ ;
+\item $E$ en fonction de $\alpha$ et $V$ sachant que $i(t)$ est périodique ;
+\item $\Delta i$ en fonction de $V$, $L$, $\alpha$ et $f$ ;
+\item $\Delta i_{\max}$ en fonction de $V$, $L$ et $f$.
+\end{itemize}}
+
+Le calcul précédent montre que cette ondulation est maximale pour $\alpha = 0{,}5$. Le constructeur du variateur recommande la mise en série d'une inductance de 1 mH, ce qui conduit à une ondulation de courant $\Delta i_{\max}$ de 0,4 A. Celui du moteur recommande d'avoir un facteur de forme $F$ (valeur efficace / valeur moyenne) inférieur à 1,02 pour éviter de déclasser le moteur.
+
+\question{Exprimer $I_{\text{eff}}$, la valeur efficace de $i(t)$, en fonction de $I$, la valeur moyenne du courant $i(t)$ et de l'ondulation de courant $\Delta i_{\max}$. Calculer ensuite $F$ pour $I = 7{,}7$ A. Conclure quant à la nécessité éventuelle de déclassement du moteur.}
+
+\subsection{Commande des variateurs de vitesse de l'assise du siège}
+
+\paragraph{Objectif} Établir l'interface entre les consignes d'accélération issues du logiciel de simulation sensorielle du siège dynamique et les variateurs de vitesse.
+
+Pour chaque axe, la consigne venant du logiciel de simulation du siège dynamique n'est pas une consigne de position comme cela est représenté dans le schéma-bloc de la chaîne fonctionnelle de la figure \ref{fig6}. La consigne est une accélération $\gamma_{u_c}$, le logiciel effectuant les opérations mathématiques nécessaires pour tenir compte de la non linéarité des chaînes cinématiques.
+
+Un système à base de microcontrôleur récupère cette consigne à travers une liaison série et élabore, sur une de ses sorties analogiques, une tension $V_{\text{out}}$, image de la consigne de vitesse adéquate pour le variateur de vitesse.
+
+Le convertisseur numérique analogique (CNA) 12 bits du microcontrôleur délivre une tension :
+$$V_{\text{out}} = \frac{V_{\text{ref}}\cdot N_{u_c\Omega}}{4096}\ avec\ V_{\text{ref}} = 3V$$.
+
+~\
+
+L'entrée consigne du variateur de vitesse doit être comprise entre $-10$ V et $+10$ V et doit être égale à 0 V pour $N_{u_c\Omega} = 2^{11}$. Une carte électronique interface est réalisée figure \ref{fig24}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{img/img24}
+\caption{\label{fig24}Commande en accélération}
+\end{figure}
+
+
+\question{Déterminer les valeurs numériques de $V_{\text{offset}}$ et de $A$.}
+
+~\
+
+À l'accélération maximale $\gamma_{\max}$ correspond une accélération $\left(\frac{d^2\theta}{dt^2}\right)_{\max}$ du moteur. La commande est réalisée figure \ref{fig25} avec :
+$$e = \frac{\left(\frac{d^2\theta}{dt^2}\right)_{\max}}{\gamma_{\max}}$$
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{img/img25}
+\caption{\label{fig25}Commande en accélération}
+\end{figure}
+
+Une fonction \texttt{Acquérir\_consigne()} récupère la consigne $\gamma_C$ par le biais d'une liaison série du microcontrôleur. Une fonction \texttt{Acquérir\_codeur()} délivre la variable de type entier $N_{\text{codeur}}$. Les variables $\gamma_C$, $\Omega_C$, $\theta_C$ et $U_{C\Omega}$ ainsi que les constantes $a$, $c$, $d$ et $e$ sont de type réel.
+
+$T_e$ est définie comme la période d'échantillonnage qui est aussi la période du pas de calcul. La variable $U_{C\Omega}$ devra être bornée à $[-10 \text{ V}, +10 \text{ V}]$. Pour les calculs, $N_{codeur}$ sera convertie en variable de type réel $N_{codeur\ reel}$, ainsi que $T_e$ qui sera convertie en variable de type réel $T_{e\ reel}$.
+
+Les calculs utilisent aussi une variable de type réel $N_{C\Omega\ reel}$ qui est convertie à la fin en variable de type entier $N_{C\Omega}$.
+
+\question{Quel lien y-a-t-il entre $N_{C\Omega\ reel}$ et $U_{C\Omega}$ ?}
+
+~\
+
+Une fonction dédiée du microcontrôleur permet d'acquérir la durée de fonctionnement en $\mu$s de ce dernier depuis sa mise en service : \texttt{Acquérir\_temps\_courant()}. Deux variables sont définies : \texttt{temps\_courant} et \texttt{temps\_précédent}.
+
+Pour obtenir une période d'échantillonnage $T_e$ fixe, indépendante du nombre d'instructions, on commence par une boucle d'attente tant que \texttt{(temps\_courant - temps\_precedent) < T\_e}.
+
+\question{Compléter sur le document réponse, à l'aide notamment de la figure \ref{fig25}, l'algorithme \texttt{COMMANDE\_VARIATEUR} correspondant à la commande du variateur de vitesse d'un moteur.}
+
+~\
+
+La variable \texttt{temps\_courant} repasse par 0, quand le compteur interne de temps écoulé du microcontrôleur atteint sa valeur maximale \texttt{max\_tc}, ce qui conduit au blocage de la boucle, d'où du système.
+
+\question{Compléter l'algorithme donné sur le document réponse qui permet de remédier au problème précédemment évoqué. À cet effet une nouvelle variable \texttt{duree} est définie.}
+
+\subsection{Synthèse globale de l'étude}
+
+\question{Identifier dans les calculs effectués, l'élément qui apparaît le plus déterminant dans la performance en terme d'accélération. Identifier ensuite le bloc du schéma multi physique de la figure \ref{fig5} dans lequel la valeur de cet élément doit être renseignée.}
+
+\newpage
+
+\section{Conception du montage d'une roue de charriot}
+
+\subsection{Fabrication de l'arbre}
+
+Des spécifications ont été mises en place sur le mécanisme afin de garantir le bon fonctionnement du système.
+
+\question{Donner la signification des spécifications suivantes en complétant les tableaux GPS donnés en document réponse.}
+
+~\
+
+\begin{minipage}{0.45\linewidth}
+\centering\includegraphics[width=2.5cm]{img/specif1}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+\centering\includegraphics[width=2.5cm]{img/specif2}
+\end{minipage} ~\ \\
+
+\subsection{Fabrication du chapeau}
+
+Le chapeau suivant permet de bloquer les roulements à bille. ~\ \\
+
+\begin{center}
+ \includegraphics[width=5cm]{img/specif3}
+\end{center}\hfill
+
+\question{Comment est réalisée la mise en position du chapeau sur le système ? (centrage court, centrage long, nature des surfaces: point, droite, plan, cercle, cone, sphère,...).}
+
+\question{Proposer une solution de spécification des surfaces indiquées \og Surfaces à spécifier \fg\ à partir des références. Cette spécification doit être réalisée sur le document réponse.}
+
+\subsection{Montage de roulements}
+ 
+Le montage d'une roue de charriot est à concevoir dans la suite. Le montage à mettre en place est un montage en X.
+
+Contraintes:\\
+\begin{itemize}
+ \item Le serrage axial doit être réglable,
+ \item Le système doit être démontable,
+ \item Des roulements à rouleaux doivent être utilisés.
+\end{itemize}
+
+\question{Compléter les zones 1a et 1b, en intégrant les deux roulements à mettre en place.}
+
+~\
+
+Dans la zone 1a, le roulement est placé entre les pièces 9 et 2, il faut prévoir une étanchéité dynamique de ce côté, pour empêcher le lubrifiant présent à l'intérieur de la pièce 2 de s'échapper par la gauche.
+
+Dans la zone 1b, le roulement est placé entre les pièces 9 et 6, la fermeture par un chapeau permet de conserver le lubrifiant à l'intérieur de la pièce 2 de ce côté.
+
+Vous mettrez en place les ajustements nécessaires au montage.
+
+\subsection{Fixation de la roue}
+
+La fixation de la roue s'effectue par la mise en place d'un écrou à encoches.
+
+\question{Mettre en place l'écrou et la rondelle à encoches dans la zone 2 du dessin.}
+
+\finsujet
+
+\includepdf[page=20,scale=0.9,angle=90]{Ressource/Sujet_BTS.pdf}
+
+\debutcor
+
+\reponse{10}{}{La fermeture géométrique de la boucle OABC conduit à :
+$$\overrightarrow{OA} + \overrightarrow{AB} + \overrightarrow{BC} + \overrightarrow{CO} = \vec{0}$$
+
+$$e \cdot \vec{x}_2 + l \cdot \vec{y}_3 +d \cdot \vec{x}_4 - a \cdot \vec{x}_1 - b \cdot \vec{y}_1 = \vec{0}$$
+
+En posant $\theta_3 = (\vec{y}_1$, $\vec{y}_3)$, on obtient en projection dans la base 1 les deux équations scalaires :
+\begin{align}
+l\cdot sin\theta_3 &= e \cos\theta_r + d \cos\theta_d - a \\
+-l\cdot cos\theta_3 &= e \sin\theta_r + d \sin\theta_d - b
+\end{align}
+
+En effectuant $(1)^2 + (2)^2$ pour éliminer $\theta_3$ on obtient :
+$$l^2 = (e \cos\theta_r + d \cos\theta_d - a)^2 + (e \sin\theta_r + d \sin\theta_d - b)^2$$
+
+Après développement et regroupement des termes, on obtient :
+$$cos\theta_d\cdot (2\cdot a\cdot d+2\cdot e\cdot d\cdot cos\theta_r)+sin\theta_d\cdot (2\cdot b\cdot d-2\cdot e\cdot d\cdot sin\theta_r)=a^2+b^2+e^2+d^2-l^2-2\cdot a\cdot e\cdot cos\theta_r-2\cdot e\cdot b\cdot sin\theta_r$$
+}
+
+\reponse{3}{}{Le coefficient directeur donne la valeur de :
+$$K_c=\frac{-20}{50} = -0.4$$}
+
+\reponse{3}{}{\textbf{Codeur :} 250 points par tour $\Rightarrow$ $c = \frac{N_{codeur}}{\theta}= \frac{250}{2\pi} = 39.8 rad^{-1}$
+
+\textbf{Tachy :} 5V pour 3000tr/min $\Rightarrow$ $K_\Omega = \frac{U_\Omega}{\Omega} = \frac{5}{3000 \times \frac{2\pi}{60}} = \frac{5}{314.16} = 1.6 \times 10^{-2} V\cdot rad^{-1}\cdot s$}
+
+\reponse{5}{}{\textbf{Modèle initial :} $H_I(p) = \frac{\Omega(p)}{I_C(p)}$ avec $I_C(p) = \frac{1}{p}$
+
+Théorème de la valeur finale :
+$$\Omega(\infty) = \lim_{p \to 0} p \cdot \Omega(p) = \frac{K \cdot k_2 \cdot h}{k_2 \cdot h \cdot k_{ri} \cdot f} = \frac{K}{k_{ri} \cdot f}$$
+
+\textbf{Modèle simplifié :} $H_I(p) = \frac{\Omega(p)}{I_c(p)} = \frac{K}{k_{ri}}\cdot \frac{1}{J\cdot p+f}$ avec $I_C(p) = \frac{1}{p}$
+
+Théorème de la valeur finale :
+$$\Omega(\infty)= \lim_{p \to 0} p \cdot \Omega(p) = \frac{K}{k_{ri} \cdot f}$$}
+
+\reponse{5}{}{$$H_\Omega(p) = \frac{C_\Omega(p) \cdot \frac{K}{k_{ri}} \cdot \frac{1}{J p + f}}{1 + K_\Omega \cdot C_\Omega(p) \cdot \frac{K}{K_{ri}} \cdot \frac{1}{J p + f}}$$
+
+En remplaçant $C_\Omega(p)$ par son expression, il vient après calculs :
+$$H_\Omega(p) = \frac{\frac{1}{K_\Omega}}{1 + \frac{K_{ri} \cdot f}{k_1 \cdot K \cdot K_\Omega} \cdot T_1 \cdot p \cdot \frac{\frac{J}{f} p + 1}{T_1 \cdot p + 1}} = \frac{\frac{1}{K_\Omega} (1 + T_1 \cdot p)}{1 + \left(1 + \frac{K_{ri} \cdot f}{k_1 \cdot K \cdot K_\Omega}\right) \cdot T_1 \cdot p + \frac{K_{ri} \cdot J \cdot T_1}{k_1 \cdot K \cdot K_\Omega} \cdot p^2}$$}
+
+
+\reponse{5}{}{On donne $T_1 = \frac{J}{f}$, en remplaçant dans l'expression trouvée précédemment on obtient :
+$$H_\Omega(p) =  \frac{\frac{1}{K_\Omega}}{1 + \frac{K_{ri}}{k_1 \cdot K \cdot K_\Omega} \cdot J \cdot p}$$
+
+Donc par identification on trouve :
+$$b = \frac{1}{K_\Omega} = 20 \pi = 62.8 rad\cdot s^{-1}\cdot V^{-1}$$
+$$\tau = \frac{K_{ri}}{k_1 \cdot K \cdot K_\Omega} \cdot J = 2.17 \cdot 10^{-3}s$$}
+
+\reponse{5}{}{On effectue une transformation de schéma en déplaçant le comparateur de $C_r(p)$.
+
+\begin{center}
+\includegraphics[width=0.7\linewidth]{img/dr7_cor}
+\end{center}
+
+D'où la nouvelle structure de schéma bloc :
+$$\frac{\theta(p)}{C_R(p)} = \frac{1}{C_\Omega(p)\cdot \frac{K}{K_{ri}}} \cdot \frac{H_\Omega(p) \cdot \frac{1}{p}}{1 + c \cdot a \cdot H_\Omega(p) \cdot \frac{1}{p}} = \frac{K_{ri} \cdot T_1 \cdot p}{K \cdot k_1 \cdot (1 + T_1 \cdot p)} \cdot \frac{\frac{b}{1+\tau p}\frac{1}{p}}{1 + \frac{b}{1 + \tau p} \cdot \frac{1}{p}}$$
+
+L'application du théorème de la valeur finale pour une entrée de type échelon donne :
+$$\theta(\infty) = \lim_{p \to 0} p \cdot \theta(p) = 0$$
+
+Ce résultat était prévisible car le correcteur PI est placé avant la perturbation.}
+
+\reponse{5}{}{Calcul de la fonction de transfert $\frac{\theta(p)}{\theta_C(p)}$ :
+$$\frac{\theta(p)}{\theta_C(p)} = c\cdot \frac{\frac{a\cdot b}{1 + \tau\cdot p}\cdot \frac{1}{p}}{1 + \frac{a\cdot b \cdot c}{1+\tau p}\cdot \frac{1}{p}} = \frac{1}{1 + \frac{1}{a\cdot b\cdot c} \cdot p + \frac{\tau}{a\cdot b\cdot c} \cdot p^2}$$
+
+On peut exprimer le coefficient d'amortissement $\xi$ à partir des paramètres a, b, c et $\tau$ :
+$$\xi = \frac{1}{2\sqrt{\tau \cdot a \cdot b \cdot c}} = 0.7$$
+
+Compte tenu des valeurs numériques fournies, on obtient $a = 9.2 \cdot 10^{-2} V$.
+
+Cette valeur du coefficient d'amortissement permet d'avoir le meilleur temps de réponse à 5\% si on accepte le dépassement transitoire.}
+
+\reponse{5}{}{$$\mu(p) = \theta_C(p) - \theta(p) = (1 - H_{\theta}(p)) \cdot \theta_C(p)$$
+
+En posant $H_{\theta}(p) = \frac{H_{BO}(p)}{1+H_{BO}(p)}$ avec $H_{BO}(p) = \frac{a\cdot b\cdot c}{p(1+\tau p)}$ :
+
+\textbf{Écart pour une consigne de type échelon :}
+$$\mu_p(\infty) = \lim_{p \to 0} p \cdot \mu(p) = 0$$
+
+\textbf{Écart pour une consigne de type rampe :}
+$$\mu_v(\infty) = \lim_{p \to 0} p \cdot \mu(p) = \frac{1}{a\cdot b\cdot c} = 4.31 \times 10^{-3} rad$$
+
+\textbf{Écart pour une consigne de type accélération :}
+$$\mu_a(\infty) = \lim_{p \to 0} p \cdot \mu(p) = \infty$$}
+
+
+\reponse{5}{}{On suppose que le solide 4 est le dosseret.
+
+Calcul de $\vec{V}_{D \in 4/1}$ :
+$$\vec{V}_{D \in 4/1} = -q \cdot \dot{\theta}'_d \cdot \vec{x}'_4 = -q \cdot \dot{\theta}_d \cdot \vec{x}'_4$$
+
+En posant $\theta'_d = \theta_d + \alpha$, avec $\alpha = \frac{\pi}{2} - arccos\left(\frac{q}{d}\right)$
+
+Calcul de $\vec{\Gamma}_{D \in 4/1}$ :
+$$\vec{\Gamma}_{D \in 4/1} = -q \cdot \ddot{\theta}_d \cdot \vec{x}'_4 - q \cdot \dot{\theta}_d^2 \cdot \vec{y}'_4$$
+En utilisant les graphiques, on peut déterminer la norme du vecteur accélération :
+$$\|\vec{\Gamma}_{D \in 4/1}\| = \sqrt{(q \cdot \ddot{\theta}_d)^2 + (q \cdot \dot{\theta}_d^2)^2} = 6.73 m\cdot s^{-2}$$}
+
+
+\reponse{5}{}{Le cahier des charges impose une exigence maximale en accélération :
+$$0.6g < a_{max} < 0.7g$$
+
+L'accélération maximale déterminée à la question précédente respecte donc l'exigence du cahier des charges.}
+
+\reponse{10}{}{On note l'erreur en position $\varepsilon(t) = \theta_C(t) - \theta(t)$.
+
+D'où en intégrant le bloc c dans la chaîne directe :
+$$\mu(p) = \theta_C(p) - \theta(p) = \theta_C(p) - \left(c\cdot a \cdot \frac{b}{\tau\cdot p + 1} \cdot \frac{1}{p} \cdot \mu(p)+d\cdot p \cdot \frac{b}{\tau p + 1} \cdot \frac{1}{p} \cdot \theta_C(p)\right)$$
+
+$$\mu(p) = \frac{(\tau p + 1 - db) \cdot p}{(\tau p + 1)\cdot p + abc} \cdot \theta_C(p)$$
+
+On en déduit les erreurs de position et de vitesse :
+
+\textbf{Erreur pour une consigne de type échelon :} $\theta_c(p) = \frac{1}{p}$
+$$\mu_p(\infty) = \lim_{p \to 0} p \cdot \mu(p) = 0$$
+
+\textbf{Erreur pour une consigne de type rampe :} $\theta_c(p) = \frac{1}{p^2}$
+$$\mu_v(\infty) = \lim_{p \to 0} p \cdot \mu(p) = \frac{1-db}{abc}$$
+
+L'erreur de position est donc compatible avec le cahier des charges car inférieure à 1\%.}
+
+\reponse{7}{}{On veut :
+$$\mu_v(\infty) = \lim_{p \to 0} p \cdot \mu(p) = \frac{1-db}{abc} = 0$$
+
+D'où : $d  = \frac{1}{b} = 0.016$
+
+\textbf{Calcul de l'erreur en accélération}
+
+\textbf{Erreur pour une consigne de type accélération :} $\theta_c(p) = \frac{1}{p^3}$
+$$\mu_a(\infty) = \lim_{p \to 0} p \cdot \mu(p) = \lim_{p \to 0} p \cdot \frac{(\tau p + 1 - db) \cdot p}{(\tau p + 1)\cdot p + abc} \cdot \frac{1}{p^3}$$
+
+En prenant le résultat issu de la question précédente, on a $1 - db = 0$, donc :
+$$\mu_a(\infty) = \lim_{p \to 0} p \cdot {\tau p \cdot p}{(\tau p + 1)\cdot p + abc} \cdot \frac{1}{p^3} = \frac{\tau}{abc} = 9.5 \cdot 10^{-6} rad$$}
+
+\reponse{3}{}{Si on place les gabarits de la réponse attendue à partir des données du cahier des charges, on remarque que seule la réponse avec anticipation est conforme aux exigences.}
+
+\reponse{12}{}{D'après les résultats de la question 12, on a pour un axe :
+$$\mu(p) = \frac{(\tau p + 1 - db) \cdot p}{(\tau p + 1)\cdot p + abc} \cdot \theta_C(p)$$
+
+\begin{itemize}
+\item Pour une entrée de type échelon, l'erreur en position est nulle donc : $$\theta_1 = \theta_2 = \theta_c$$ d'où $$\theta_1(\infty) - \theta_2(\infty) = 0rad$$
+
+\item Pour une entrée de type rampe, l'erreur est donnée par :
+$$\mu_v(\infty) = \lim_{p \to 0} p \cdot \mu(p) = c{1-d}{ab} = \theta_c(\infty) - \theta(\infty)$$
+$$\mu_{v1}(\infty) = \theta_c(\infty) - \theta(\infty)$$
+$$\mu_{v2}(\infty) = \theta_c(\infty) - \theta(\infty)$$
+
+On en déduit donc que :
+$$\theta_1(\infty) - \theta_2(\infty) = \frac{1-db_2}{a b_2 c} - \frac{1-db_1}{a b_1 c} = \frac{b_1-b_2}{ab_1 b_2 c} = 4.4 \times 10^{-4}  rad$$
+
+\item Pour une entrée de type accélération :
+$$\frac{\theta_i(p)}{\theta_C(p)} = (dp+ac)\cdot \frac{b_i}{(T_i p+1)\cdot p +a b_i c}$$
+
+D'où : $$\theta_1(p) - \theta_2(p) = (dp+ac)\cdot \left(\frac{b_1}{(T_1 p+1)\cdot p +a b_1 c}-\frac{b_2}{(T_2 p+1)\cdot p +a b_2 c}\right)\cdot \theta_C(p)$$
+
+L'application du théorème de la valeur finale donne :
+$$\theta_1(\infty) - \theta_2(\infty) = \lim_{p \to 0} p \cdot (dp+ac)\cdot \left(\frac{b_1}{(T_1 p+1)\cdot p +a b_1 c}-\frac{b_2}{(T_2 p+1)\cdot p +a b_2 c}\right)\cdot \frac{1}{p^3} = +\infty$$
+\end{itemize}}
+
+\reponse{4}{}{L'écart statique en accélération vaut au plus $10^{-3}$ rad pour une consigne de 1 rad donc <1\% de l'exigence du cahier des charges sur la plage de temps d'utilisation (0-30ms).}
+
+\reponse{8}{}{\begin{center}
+\includegraphics[width=0.9\linewidth]{img/dr17_cor}
+\end{center}}
+
+\reponse{5}{}{De 0 à $\alpha T$ : $V = E +L\cdot\frac{di(t)}{dt} \to i(t) = \frac{V-E}{L} \cdot t + I_m$
+
+De $\alpha T$ à T : $0 = E +L\cdot\frac{di(t)}{dt} \to i(t) = -\frac{E}{L} \cdot (t-\alpha T) + I_M$
+
+Pour t= $\alpha T$, on tire $I_M = i(\alpha T) = \frac{V-E}{L} \cdot \alpha T + I_m$ donc $\Delta I = \frac{V-E}{2\cdot L}\alpha T$
+
+\textbf{Expression de la Fem :}
+$\langle u \rangle = \langle L \cdot \frac{di(t)}{dt} \rangle +E$ or $\langle L \cdot \frac{di(t)}{dt} \rangle = 0$ car i(t) est périodique.
+
+Donc $\langle u \rangle = E = \alpha \cdot V$
+
+\textbf{Expression de $\Delta i_{max}$ :}
+$\Delta i = \frac{V-E}{2\cdot L} \cdot \alpha T = \frac{V(1-\alpha)\alpha}{2\cdot L\cdot f}$ or $\alpha(1-\alpha)$ est maxi pour $\alpha = 0.5$
+
+Donc :
+$\Delta i_{max} = \frac{V}{8 \cdot L \cdot f}$}
+
+\reponse{5}{}{Pour $\alpha = 0.5$, la pente est la même au signe près de 0 à $\alpha T$ et de $\alpha T$ à T :
+
+$I_{eff}^2 = \frac{1}{T} \int_0^T i^2(t)dt = \frac{2}{T} \int_0^{T/2} i^2(t)dt$ or de 0 à $\alpha T$, $i(t) = I_m + \frac{I_M-I_m}{\frac{T}{2}} \cdot t$
+
+Donc :
+$I_{eff}^2 = \frac{2}{T} \left[I_m^2 \cdot t + 2I_m \cdot \frac{I_M-I_m}{\frac{T}{2}} \cdot \frac{t^2}{2} + \left(\frac{I_M-I_m}{\frac{T}{2}}\right)^2 \cdot \frac{t^3}{3}\right]_0^{T/2}= I_m^2 + I_m(I_M-I_m) + \frac{(I_M-I_m)^2}{3}$
+
+Or $I_m = I + \frac{\Delta i_{max}}{2}$ et $I_M = I + \Delta i_{max}$
+
+Après simplification, il reste :
+$I_{eff} = \sqrt{I^2 + \frac{(\Delta i_{max})^2}{3}}$
+
+Le facteur de forme vaut :
+$F = \frac{I_{eff}}{I} = \frac{\sqrt{7.7^2 + \frac{0.4^2}{3}}}{7.7} \approx 1 < 1.02$
+
+Le moteur ne sera donc pas déclassé.}
+
+\reponse{2}{}{Pour $N_{C\Omega} = 2^{11}$, $V_{out} = \frac{3 \cdot 2^{11}}{4096} = 1.5V$. Il faut donc un $V_{offset} = 1.5V$
+
+On veut que lorsque $N_{C\Omega} = 2^{12} - 1 = 4095$ alors $V_{C\Omega} = 10V$ soit $\left(\frac{4095*3}{4096} - 1.5\right) \times A = 10$
+
+On en déduit $A = 6.67$}
+
+\reponse{3}{}{On a $N_{C\Omega\text{réel}} = \left(\frac{U_{C\Omega}}{A} + 1.5\right) \cdot \frac{4096}{3}$}
+
+\reponse{0}{
+\textbf{Algorithme COMMANDE\_VARIATEUR}
+\begin{algorithmic}
+\State $................................ : entier$ \Comment{Déclarations des variables}
+\State $\gamma_C, \Omega_C, \theta_C, N_{codeur\ reel}, U_{C\Omega}, N_{C\Omega\ reel}, T_{c\ reel} : reel$
+\State $temps\_courant \gets 0 : entier\ long$
+\State $temps\_precedent \gets 0 : entier\ long$
+\State $a \gets ................................$
+\State $c \gets 40 : reel$
+\State $d \gets ................................$
+\State $e \gets 1667 : reel$
+\State $T_e \gets 100 : entier long$
+\State $\Omega_C \gets 0$ \Comment{Début programme principal}
+\State $\theta_C \gets 0$
+\State $\gamma_C \gets Acquerir\_consigne()$
+\While{$True$}
+	\State $temps\_courant \gets Acquerir\_temps\_courant()$
+	\While{................................}
+		\State ................................
+	\EndWhile
+	\State ................................
+	\State $N_{codeur} \gets Acquerir\_codeur()$
+	\State $T_{e\ reel} \gets convertir\_en\_reel(Te)$		
+	\State ................................
+	\State $\Omega_C \gets \Omega_C + (\gamma_C * e * T_{e\ reel} * 10^{-6})$
+	\State $\theta_C \gets ................................$ 
+	\State $UC\Omega \gets a * ((c*\theta_C ) - ................................$
+	\State $NC\Omega_{reel} \gets ................................$
+	\State $NC\Omega \gets ................................$
+	\If{$N\Omega C > 4095 $}
+		\State ................................
+	\EndIf
+	\If{$N\Omega C < 0 $}
+		\State ................................
+	\EndIf
+	\State $CNA \gets NC\Omega$
+\EndWhile\Comment{Fin programme principal}
+\end{algorithmic}}{
+\textbf{Algorithme COMMANDE\_VARIATEUR}
+\begin{algorithmic}
+\State $N_{C\Omega}, N_{codeur} : entier$ \Comment{Déclarations des variables}
+\State $\gamma_C, \Omega_C, \theta_C, N_{codeur\ reel}, U_{C\Omega}, N_{C\Omega\ reel}, T_{c\ reel} : reel$
+\State $temps\_courant \gets 0 : entier\ long$
+\State $temps\_precedent \gets 0 : entier\ long$
+\State $a \gets 0.09 : reel$
+\State $c \gets 40 : reel$
+\State $d \gets 0.016 : reel$
+\State $e \gets 1667 : reel$
+\State $T_e \gets 100 : entier long$
+\State $\Omega_C \gets 0$ \Comment{Début programme principal}
+\State $\theta_C \gets 0$
+\State $\gamma_C \gets Acquerir\_consigne()$
+\While{$True$}
+	\State $temps\_courant \gets Acquerir\_temps\_courant()$
+	\While{$temps\_courant - temps\_precedent < T_e$}
+		\State $temps\_courant \gets Acquerir\_temps\_courant()$
+	\EndWhile
+	\State $temps\_precedent \gets temps\_courant$
+	\State $N_{codeur} \gets Acquerir\_codeur()$
+	\State $T_{e\ reel} \gets convertir\_en\_reel(Te)$		
+	\State $N_{codeur\ reel} \gets convertir\_en\_reel(N_{codeur})$
+	\State $\Omega_C \gets \Omega_C + (\gamma_C * e * T_{e\ reel} * 10^{-6})$
+	\State $\theta_C \gets \theta_C + (\Omega_C*T_{e\ reel}*10^{-6}$ 
+	\State $UC\Omega \gets a * ((c*\theta_C ) - N_{codeur\ reel}+\Omega_c *d)$
+	\State $NC\Omega_{reel} \gets (4096/3)*(1.5+U_{C\Omega}/6.67)$
+	\State $NC\Omega \gets convertir\_en\_entier(NC\Omega_{reel})$
+	\If{$N\Omega C > 4095 $}
+		\State $N\Omega C \gets 4095$
+	\EndIf
+	\If{$N\Omega C < 0 $}
+		\State $N\Omega C \gets 0$
+	\EndIf
+	\State $CNA \gets NC\Omega$
+\EndWhile\Comment{Fin programme principal}
+\end{algorithmic}}
+
+\reponse{0}{
+\begin{algorithmic}
+\State $temps\_courant \gets Acquerir\_temps\_courant()$
+\State $duree \gets (temps\_courant - temps\_precedent)$
+\While{$duree < T_e$}
+	\State $temps\_courant \gets Acquerir\_temps\_courant()$
+	\State $duree \gets (temps\_courant - temps\_precedent)$
+	\If{$duree < 0$}
+		\State ....................................................
+	\EndIf
+\EndWhile
+\State $temps\_precedent \gets temps\_courant()$
+\end{algorithmic}}{
+\begin{algorithmic}
+\State $temps\_courant \gets Acquerir\_temps\_courant()$
+\State $duree \gets (temps\_courant - temps\_precedent)$
+\While{$duree < T_e$}
+	\State $temps\_courant \gets Acquerir\_temps\_courant()$
+	\State $duree \gets (temps\_courant - temps\_precedent)$
+	\If{$duree < 0$}
+		\State $duree \gets max\_tc- temps\_precedent+temps\_courant$
+	\EndIf
+\EndWhile
+\State $temps\_precedent \gets temps\_courant()$
+\end{algorithmic}}
+
+\reponse{5}{}{L'accélération dépend du couple que le moteur peut fournir et de l'inertie à entraîner. Or le couple d'une MCC est proportionnel au courant tel que $C_{em} = K \cdot I$. Il faut donc pouvoir asservir le courant. Le bloc concerné est \og le correcteur boucle de courant \fg.
+
+Pour l'inertie, elle pourra être fixée dans les propriétés de l'inertie du moteur.}
+
+\reponse{0}{\begin{center}
+\includegraphics[width=0.9\linewidth]{img/doc_rep2.pdf}
+\includegraphics[width=0.9\linewidth]{img/doc_rep2.pdf}
+\includegraphics[width=0.9\linewidth]{img/doc_rep2.pdf}
+\end{center}}{\begin{center}
+\includegraphics[width=0.9\linewidth]{img/doc_rep2.pdf}
+\includegraphics[width=0.9\linewidth]{img/doc_rep2.pdf}
+\includegraphics[width=0.9\linewidth]{img/doc_rep2.pdf}
+\end{center}}
+
+\reponse{3}{}{La mise en position est un centrage court, la surface prépondérante est le plan appelé \og Référence primaire \fg, la seconde est le cylindre appelé \og Référence secondaire \fg.}
+
+\reponse{0}{\begin{center}
+\includegraphics[width=0.9\linewidth]{img/doc_rep3.pdf}
+\end{center}}{\begin{center}
+\includegraphics[width=0.9\linewidth]{img/doc_rep3.pdf}
+\end{center}}
+
+\reponse[2]{0}{\includegraphics[width=0.9\linewidth]{img/dessin_vide.pdf}}{\includegraphics[width=0.9\linewidth]{img/dessin_cor.pdf}}
+
+
+\end{document}
+
