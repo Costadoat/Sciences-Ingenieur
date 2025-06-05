@@ -241,6 +241,11 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 {\setboolean{printdr}{false}\setboolean{printcor}{true}}
 }
 
+\newcommand\sautpage[1]{
+\multido{}{#1}{~\ \newpage}
+}
+
+
 \makeatletter
 \newcommand\modulo[2]{
     \newcounter{lastpagesujet}
@@ -268,16 +273,22 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
         \pagestyle{docreponse}
 	}{\pagestyle{correction}}
 
+
     \ifdef{\public}{
+    \begin{center}
         \begin{tikzpicture} 
             \draw (0,0) rectangle (2,2);
             \draw (0,0) -- (2,2);
             \draw (1.5,0.5) node {\large 20};
-            \draw (2.5,0) rectangle (16,2);
-            \draw (4.5,1.7) node {\large Commentaires:};
+            \draw (2,0) rectangle (17,2);
+            \draw (4,1.7) node {\large Commentaires:};
+            \draw (0,2) rectangle (8.5,3);
+            \draw (8.5,2) rectangle (17,3);
+            \draw (1,2.5) node {\large NOM:};
+            \draw (9.7,2.5) node {\large Prénom:};
         \end{tikzpicture}
+    \end{center}
     }
-    ~\ \\
 }
 
 %\newcommand{\repcarre}[2]
@@ -345,7 +356,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 \fancypagestyle{docreponse}{%
   \fancyhf{}
-  \fancyhead[LO]{NOM Prénom: .............................}
+%  \fancyhead[LO]{NOM Prénom: .............................}
   \rhead{\includegraphics[width=2cm]{../../../img/logo}\hspace{2pt}}
   \ifdef{\auteurdeux}{\lfoot{\auteurun,\ \auteurdeux}}{\lfoot{\auteurun}}
   \rfoot{\nom}

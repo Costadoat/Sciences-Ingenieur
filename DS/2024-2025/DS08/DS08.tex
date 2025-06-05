@@ -600,10 +600,12 @@ La fixation de la roue s'effectue par la mise en place d'un écrou à encoches.
 
 \question{Mettre en place l'écrou et la rondelle à encoches dans la zone 2 du dessin.}
 
+%\finsujet{public}
 \finsujet
 
 \includepdf[page=20,scale=0.9,angle=90]{Ressource/Sujet_BTS.pdf}
 
+\sautpage{1}
 \debutcor
 
 \reponse{10}{}{La fermeture géométrique de la boucle OABC conduit à :
@@ -634,12 +636,20 @@ $$K_c=\frac{-20}{50} = -0.4$$}
 \reponse{5}{}{\textbf{Modèle initial :} $H_I(p) = \frac{\Omega(p)}{I_C(p)}$ avec $I_C(p) = \frac{1}{p}$
 
 Théorème de la valeur finale :
-$$\Omega(\infty) = \lim_{p \to 0} p \cdot \Omega(p) = \frac{K \cdot k_2 \cdot h}{k_2 \cdot h \cdot k_{ri} \cdot f} = \frac{K}{k_{ri} \cdot f}$$
+$$\Omega(\infty) = \lim_{p \to 0} p \cdot \Omega(p) = \frac{K \cdot k_2 \cdot h}{k_2 \cdot h \cdot k_{ri} \cdot f} = \frac{K}{k_{ri} \cdot f}= \frac{0.115}{0.5 \cdot 4\cdot 10^{-4}}= \frac{1150}{2}=575rad\cdot s^{-1}$$
 
 \textbf{Modèle simplifié :} $H_I(p) = \frac{\Omega(p)}{I_c(p)} = \frac{K}{k_{ri}}\cdot \frac{1}{J\cdot p+f}$ avec $I_C(p) = \frac{1}{p}$
 
 Théorème de la valeur finale :
-$$\Omega(\infty)= \lim_{p \to 0} p \cdot \Omega(p) = \frac{K}{k_{ri} \cdot f}$$}
+$$\Omega(\infty)= \lim_{p \to 0} p \cdot \Omega(p) = \frac{K}{k_{ri} \cdot f}$$
+
+Sur la figure \ref{fig12}, on voir que l'écart relatif est de :
+\begin{itemize}
+ \item $\dfrac{0.03}{3}=1\%$ à t=1ms,
+ \item $\dfrac{0.09}{40}=0.2\%$ à t=30ms
+\end{itemize}
+
+L'écart maximal est donc de 1\%.}
 
 \reponse{5}{}{$$H_\Omega(p) = \frac{C_\Omega(p) \cdot \frac{K}{k_{ri}} \cdot \frac{1}{J p + f}}{1 + K_\Omega \cdot C_\Omega(p) \cdot \frac{K}{K_{ri}} \cdot \frac{1}{J p + f}}$$
 
@@ -740,7 +750,7 @@ $$\mu_a(\infty) = \lim_{p \to 0} p \cdot \mu(p) = \lim_{p \to 0} p \cdot \frac{(
 En prenant le résultat issu de la question précédente, on a $1 - db = 0$, donc :
 $$\mu_a(\infty) = \lim_{p \to 0} p \cdot {\tau p \cdot p}{(\tau p + 1)\cdot p + abc} \cdot \frac{1}{p^3} = \frac{\tau}{abc} = 9.5 \cdot 10^{-6} rad$$}
 
-\reponse{3}{}{Si on place les gabarits de la réponse attendue à partir des données du cahier des charges, on remarque que seule la réponse avec anticipation est conforme aux exigences.}
+\reponse{3}{}{Si on place les gabarits de la réponse attendue à partir des données du cahier des charges, on remarque que seule la réponse avec anticipation est conforme aux exigences. L'autre ne respecte pas les <5ms.}
 
 \reponse{12}{}{D'après les résultats de la question 12, on a pour un axe :
 $$\mu(p) = \frac{(\tau p + 1 - db) \cdot p}{(\tau p + 1)\cdot p + abc} \cdot \theta_C(p)$$
@@ -875,7 +885,7 @@ On en déduit $A = 6.67$}
 	\State $T_{e\ reel} \gets convertir\_en\_reel(Te)$		
 	\State $N_{codeur\ reel} \gets convertir\_en\_reel(N_{codeur})$
 	\State $\Omega_C \gets \Omega_C + (\gamma_C * e * T_{e\ reel} * 10^{-6})$
-	\State $\theta_C \gets \theta_C + (\Omega_C*T_{e\ reel}*10^{-6}$ 
+	\State $\theta_C \gets \theta_C + (\Omega_C*T_{e\ reel}*10^{-6})$ 
 	\State $UC\Omega \gets a * ((c*\theta_C ) - N_{codeur\ reel}+\Omega_c *d)$
 	\State $NC\Omega_{reel} \gets (4096/3)*(1.5+U_{C\Omega}/6.67)$
 	\State $NC\Omega \gets convertir\_en\_entier(NC\Omega_{reel})$
@@ -924,9 +934,9 @@ Pour l'inertie, elle pourra être fixée dans les propriétés de l'inertie du m
 \includegraphics[width=0.9\linewidth]{img/doc_rep2.pdf}
 \includegraphics[width=0.9\linewidth]{img/doc_rep2.pdf}
 \end{center}}{\begin{center}
-\includegraphics[width=0.9\linewidth]{img/doc_rep2.pdf}
-\includegraphics[width=0.9\linewidth]{img/doc_rep2.pdf}
-\includegraphics[width=0.9\linewidth]{img/doc_rep2.pdf}
+\includegraphics[width=0.9\linewidth]{img/doc_rep2_cor_1.pdf}
+\includegraphics[width=0.9\linewidth]{img/doc_rep2_cor_2.pdf}
+\includegraphics[width=0.9\linewidth]{img/doc_rep2_cor_3.pdf}
 \end{center}}
 
 \reponse{3}{}{La mise en position est un centrage court, la surface prépondérante est le plan appelé \og Référence primaire \fg, la seconde est le cylindre appelé \og Référence secondaire \fg.}
@@ -934,7 +944,7 @@ Pour l'inertie, elle pourra être fixée dans les propriétés de l'inertie du m
 \reponse{0}{\begin{center}
 \includegraphics[width=0.9\linewidth]{img/doc_rep3.pdf}
 \end{center}}{\begin{center}
-\includegraphics[width=0.9\linewidth]{img/doc_rep3.pdf}
+\includegraphics[width=0.9\linewidth]{img/doc_rep3_cor.pdf}
 \end{center}}
 
 \reponse[2]{0}{\includegraphics[width=0.9\linewidth]{img/dessin_vide.pdf}}{\includegraphics[width=0.9\linewidth]{img/dessin_cor.pdf}}
