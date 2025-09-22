@@ -1,0 +1,71 @@
+\input{../../../headers/dcheaders.tex}
+
+\section{Le moteur à courant continu}
+
+Soient les équations différentielles du moteur à courant continu suivantes:
+\begin{eqnarray}
+u(t)=R.i(t)+L\cdot\frac{d i(t)}{dt}+e(t)\\
+e(t)=K_e\cdot\omega(t)\\
+C_m(t)=K_c\cdot i(t)\\
+C_m(t)=J\cdot\frac{d\omega(t)}{dt}
+\end{eqnarray}
+
+Avec :
+\begin{itemize}
+ \item $R$ en $\Omega\equiv V\cdot A^{-1}$,
+ \item $L$ en $H\equiv V\cdot A^{-1}\cdot s$,
+ \item $K_e$ en $V\cdot rad^{-1}\cdot s$,
+ \item $K_c$ en $N\cdot m \cdot A^{-1}$,
+ \item $J$ en $kg \cdot m^2$,
+\end{itemize}
+
+\question{Écrire ces équations dans le domaine de Laplace.}
+
+\question{Écrire une équation liant $\Omega(p)$ et $U(p)$ avec les constantes des équations précédentes.}
+
+\question{Écrire la fonction de transfert $H(p)=\frac{\Omega(p)}{U(p)}$ sous la forme canonique, donner son ordre et sa classe.}
+
+~\
+
+On donne les formes classiques des fonctions de transfert du premier et du second ordre:
+\begin{center}
+$H(p)=\dfrac{K}{1+\tau\cdot p}$ et $H(p)=\dfrac{K}{1+\dfrac{2\cdot \xi}{\omega_0}\cdot p+\dfrac{p^2}{\omega_0^2}}$
+\end{center}
+
+\question{Déterminer ($K$,$\tau$) ou ($K$,$\xi$,$\omega_0$) en fonction du modèle qui paraît le plus adapté et des constantes du système d'équation.}
+
+\question{Déterminer et justifier les unités de ces valeurs caractéristiques à partir de celles des constantes du système d'équation.}
+
+\finsujet
+
+\reponse{4}{}{\begin{eqnarray}
+U(p)=R\cdot I(p)+L\cdot p\cdot I(p)+E(p)\\
+E(p)=K_e\cdot \Omega(p)\\
+C_m(p)=K_c\cdot I(p)\\
+C_m(p)=J\cdot p\cdot \Omega(p)
+\end{eqnarray}}
+
+\reponse{4}{}{$U(p)=(R+L\cdot p)\cdot \dfrac{J\cdot p\cdot \Omega(p)}{K_c}+K_e\cdot \Omega(p)$
+
+$U(p)=\left((R+L\cdot p)\cdot \dfrac{J\cdot p}{K_c}+K_e\right)\cdot \Omega(p)$
+}
+
+\reponse{4}{}{
+$H(p)=\frac{\Omega(p)}{U(p)}=\dfrac{1}{(R+L\cdot p)\cdot \dfrac{J\cdot p}{K_c}+K_e}=\dfrac{\dfrac{1}{K_e}}{1+\dfrac{R\cdot J}{K_e\cdot K_c}\cdot p+\dfrac{L\cdot J}{K_e\cdot K_c}\cdot p^2}$. Fonction d'ordre 2 et de classe 0.}
+
+
+\reponse{5}{}{
+$K=\frac{1}{K_e}$
+
+$\omega_0=\sqrt{\dfrac{K_e\cdot K_c}{L\cdot J}}$
+
+$\xi=\sqrt{\dfrac{K_e\cdot K_c}{L\cdot J}}\cdot\dfrac{R\cdot J}{2\cdot K_e\cdot K_c}=\dfrac{R\cdot \sqrt{J}}{2\sqrt{\cdot K_e\cdot K_c\cdot L}}$}
+
+\reponse{5}{}{
+$[K]=rad\cdot s^{-1}\cdot V^{-1}$
+
+$[\omega_0]=\sqrt{\dfrac{V\cdot rad^{-1}\cdot s\cdot N\cdot m \cdot A^{-1}}{V\cdot A^{-1}\cdot s\cdot kg \cdot m^2}}=\sqrt{\dfrac{V\cdot rad^{-1}\cdot s\cdot kg\cdot m\cdot s^{-2}\cdot m \cdot A^{-1}}{V\cdot A^{-1}\cdot s\cdot kg \cdot m^2}}=s^{-1}$
+
+$[\xi]=\dfrac{V\cdot A^{-1}\cdot \sqrt{kg \cdot m^2}}{\sqrt{\cdot V\cdot rad^{-1}\cdot s\cdot N\cdot m \cdot A^{-1}\cdot V\cdot A^{-1}\cdot s}}=\dfrac{V\cdot A^{-1}\cdot \sqrt{kg \cdot m^2}}{\sqrt{\cdot V\cdot rad^{-1}\cdot s\cdot kg\cdot m\cdot s^{-2}\cdot m \cdot A^{-1}\cdot V\cdot A^{-1}\cdot s}}=1$}
+
+\end{document}
