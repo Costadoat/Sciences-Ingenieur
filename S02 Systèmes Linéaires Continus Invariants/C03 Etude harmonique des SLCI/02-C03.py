@@ -5,12 +5,12 @@ from pylab import angle, semilogx
 from matplotlib.widgets import TextBox
 
 # Paramétrage de la fonction de transfert
-K=1
+K=10
 w0=100
-xi=1
+xi=0.1
 
 def H(w,w0,xi,K):
-    return K/(1+2*xi*1j*w/w0-w**2/w0**2)
+    return K/(1j*w*(1+2*xi*1j*w/w0-w**2/w0**2))
 
 fig=figure('Diagrammes Bode')
 # Calcul des valeurs de l'abscisse
