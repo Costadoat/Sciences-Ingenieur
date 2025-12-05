@@ -1,6 +1,6 @@
 \input{../../headers/khheaders.tex}
 
-\section{Hacheur série pour porte de garage}
+\section{Porte de garage}
 
 \subsection{Présentation}
 
@@ -77,12 +77,299 @@ Au repos, lorsque la tension aux bornes de la bobine est nulle, les interrupteur
 \end{center}
 \end{figure}
 
+\clearpage
+
+\setcounter{num_quest}{0}
+
+\section{Buggy radicommandé}
+
+\subsection{Présentation}
+
+\subsubsection{La société : TEAM ASSOCIATED}
+
+\begin{figure}[!ht]
+\begin{minipage}[t]{0.65\linewidth}
+La société TEAM ASSOCIATED est spécialisée depuis 1965 dans la conception, la fabrication et la vente de modèles réduits radiocommandés (figure \ref{fig01}). Les modèles peuvent prendre différentes formes (avions, voitures, etc.) et différentes échelles (du 1/18 au 1/8).
+
+Les ingénieurs de la société, souvent aussi compétiteurs, apportent leur expertise afin de produire des modèles de plus en plus performants.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}
+\vspace{-10pt}
+\centering\includegraphics[width=.9\linewidth]{img/fig01}
+\caption{\label{fig01}Produits de la société Team Associated}
+\end{minipage}
+\end{figure}
+
+\vspace{-30pt}
+
+\subsubsection*{Le système étudié : buggy 1/10 radiocommandé}
+
+Le système d'étude choisi est un buggy de compétition à l'échelle 1/10. Sa référence est RC10 B6.3D (figure \ref{fig02}). Il s'agit d'un buggy à deux roues motrices, propulsé par les roues arrière par le biais d'un moteur brushless. Sa longueur est de 460 mm.
+
+Ce buggy est utilisé lors de compétitions nationales et internationales sur des pistes spécifiques (figure \ref{fig03}) où les compétiteurs doivent faire le plus de tours possibles sur une durée de 5 minutes. Cette piste possède différents revêtements (terre, moquette, pavés, etc.) ainsi que plusieurs sauts et bosses.
+
+La maniabilité du buggy et sa tenue de route sont des critères de performance essentiels pour les compétiteurs.
+
+\begin{figure}[!ht]
+\begin{minipage}{.5\linewidth}
+\vspace{0pt}
+\centering\includegraphics[width=.7\linewidth]{img/fig02}
+\caption{\label{fig02}Buggy RC10 B6.3D}
+\end{minipage}
+\hfill
+\begin{minipage}{.5\linewidth}
+\vspace{0pt}
+\centering\includegraphics[width=.8\linewidth]{img/fig03}
+\caption{\label{fig03}Piste de course de buggy}
+\end{minipage}
+\end{figure}
+
+L'\textbf{annexe 1 }présente les principaux composants de la voiture.
+
+L'\textbf{annexe 2 }présente plusieurs diagrammes SysML détaillant la constitution et les exigences liées à la voiture.
+
+~\
+
+Le sujet portera sur l'étude de la direction, de la propulsion et de l'équilibre de la voiture lors d'un saut.
+
+\newpage
+
+\section{Exigence 3 : mettre en mouvement la voiture}
+
+\subsection{Objectif}
+
+L'objectif de cette partie est d'analyser les différentes parties du train arrière permettant de propulser la voiture.
+
+\subsection{Étude de la motorisation}
+
+La motorisation de la voiture est assurée par un moteur brushless (figure \ref{fig12}) dont les caractéristiques sont les suivantes :
+\begin{itemize}
+\item résistance entre phases : $R_p = 0,025$ $\Omega$ ;
+\item courant à vide : $I_0 = 4$ A ;
+\item puissance maximale : $P_{max} = 240$ W ;
+\item courant à la puissance maximale : $I_{max} = 60$ A ;
+\item constante de vitesse : $K_v = 3\,600$ tr·min$^{-1}$·V$^{-1}$.
+\end{itemize}
+
+L'alimentation électrique du système est assurée par une batterie LiPo (figure \ref{fig13}). Ses caractéristiques sont 7,6 V, 4 400 mAh.
+
+\begin{figure}[!ht]
+\begin{minipage}{.5\linewidth}
+\vspace{0pt}
+\centering\includegraphics[width=.6\linewidth]{img/fig12}
+\caption{\label{fig12}Moteur utilisé}
+\end{minipage}
+\hfill
+\begin{minipage}{.5\linewidth}
+\vspace{0pt}
+\centering\includegraphics[width=.7\linewidth]{img/fig13}
+\caption{\label{fig13}Batterie utilisée dans le buggy}
+\end{minipage}
+\end{figure}
+
+\question{Déterminer la valeur numérique de la tension nominale $U_{nom}$ de cette batterie, ainsi que l'énergie stockée $E_{bat}$.}
+
+\question{Déterminer la durée d'utilisation $T_{Pmax}$ en minute de la batterie lorsque le moteur est utilisé à sa puissance maximale. L'exigence 5 (figure \ref{fig37}, annexe 2) est elle vérifiée ?} ~\
+
+L'optimisation des performances du buggy passe par la minimisation des pertes énergétiques. Une première recherche consiste à évaluer les pertes Joule de la batterie. Sa résistance interne $r_i$ ainsi que son courant de court-circuit $I_{CC}$ vont être déterminés. Pour cela, plusieurs résistances de charge sont branchées en parallèle. Celles-ci sont alimentées par la batterie. Un voltmètre mesure la tension aux bornes de la batterie. Un ampèremètre mesure le courant consommé par les résistances de charge.
+
+\question{Réaliser un schéma électrique montrant les composants et instruments de mesure décrits dans l'expérience ci-dessus. Deux résistances de charge sont utilisées.} ~\
+
+L'évolution de la tension de la batterie en fonction du courant consommé par un nombre variable de résistances de charge est visible sur la figure \ref{fig14}.
+
+\begin{figure}[!ht]
+\centering\includegraphics[width=.6\linewidth]{img/fig14}
+\caption{\label{fig14}Caractéristique tension/courant de la batterie}
+\end{figure}
+
+\question{À partir de la figure \ref{fig14}, déterminer la résistance interne $r_i$ de la batterie ainsi que son courant de court-circuit $I_{CC}$.}
+
+\question{En déduire la puissance dissipée par effet Joule par la batterie, notée $P_{JB}$, lorsque le moteur est utilisé à sa puissance maximale.}
+
+\question{Lorsque le moteur est utilisé à sa puissance maximale, déterminer sa puissance absorbée, notée $P_{AM}$, sa puissance dissipée par effet Joule, notée $P_{JM}$, ainsi que son rendement, noté $\eta_M$.} ~\
+
+Le schéma électrique de la figure \ref{fig15} représente la partie puissance du système de motorisation. La batterie est symbolisée par un générateur de tension idéal. La tension à ses bornes est $U_{nom}$, la tension nominale de la batterie.
+
+\begin{figure}[!ht]
+\begin{minipage}{.5\linewidth}
+\vspace{0pt}
+\centering\includegraphics[width=.8\linewidth]{img/fig15}
+\caption{\label{fig15}Schéma électrique de la motorisation}
+\end{minipage}
+\hfill
+\begin{minipage}{.5\linewidth}
+\vspace{0pt}
+\centering\includegraphics[width=.7\linewidth]{img/fig16}
+\caption{\label{fig16}Chronogramme de commutation des interrupteurs électroniques}
+\end{minipage}
+\end{figure}
+
+Le variateur est représenté par les six interrupteurs commandés $K_1$ à $K_6$.
+
+Le moteur brushless est représenté avec ses trois phases A, B et C. Les tensions entre phases $u_{AB}$, $u_{BC}$ et $u_{CA}$ sont représentées sur le schéma.
+
+L'ordre de commutation des interrupteurs commandés sur une période est donné sur le chronogramme de la figure \ref{fig16}.
+
+L'état logique 1 indique que l'interrupteur est fermé. L'état logique 0 indique que l'interrupteur est ouvert.
+
+\question{Compléter le tableau suivant en indiquant, pour chaque phase de fonctionnement du variateur, les potentiels $v_A$, $v_B$ et $v_C$ associés aux points A, B et C respectivement. On indiquera « libre » si le potentiel n'est pas imposé.}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Phase & $v_A$ & $v_B$ & $v_C$\\
+\hline
+1 & \hspace{2cm} & \hspace{2cm} & \hspace{2cm} \\
+\hline
+2 & \hspace{2cm} & \hspace{2cm} & \hspace{2cm} \\
+\hline
+3 & \hspace{2cm} & \hspace{2cm} & \hspace{2cm} \\
+\hline
+4 & \hspace{2cm} & \hspace{2cm} & \hspace{2cm} \\
+\hline
+5 & \hspace{2cm} & \hspace{2cm} & \hspace{2cm} \\
+\hline
+6 & \hspace{2cm} & \hspace{2cm} & \hspace{2cm} \\
+\hline
+\end{tabular}
+\end{center}
+
+\question{Compléter sur le chronogramme de la figure \ref{figdrelec} l'évolution des tensions $u_{AB}$, $u_{BC}$ et $u_{CA}$. On fixera la tension à 0 si un potentiel est laissé à l'état libre sur une phase de fonctionnement.}
+
+\begin{figure}[!ht]
+\centering\includegraphics[width=.7\linewidth]{img/drelec}
+\caption{\label{figdrelec}Chronogramme à compléter}
+\end{figure}
+
+\newpage
+
+Le moteur brushless possède une paire de pôles.
+
+\question{Calculer la valeur numérique de la fréquence de commutation des interrupteurs électroniques, notée $f_{com}$ lorsque le moteur tourne à une vitesse $N_{mot} = 27\,000$ tr·min$^{-1}$. Quelle technologie d'interrupteur peut remplir ce rôle ?}
+
+La commande par commutation, étudiée précédemment, implique à chaque instant :
+\begin{itemize}
+\item une phase reliée à la tension d'alimentation de la batterie ;
+\item une phase reliée à la masse ;
+\item une phase non reliée ;
+\item les trois phases sont reliées à un point N, neutre, tel que $i_A + i_B + i_C = 0$.
+\end{itemize}
+
+\begin{figure}[!ht]
+\begin{minipage}{.5\linewidth}
+\vspace{0pt}
+\centering\includegraphics[width=.8\linewidth]{img/fig17}
+\caption{\label{fig17}Modèle électrique du moteur bruhsless}
+\end{minipage}
+\hfill
+\begin{minipage}{.5\linewidth}
+\vspace{0pt}
+\centering\includegraphics[width=.4\linewidth]{img/fig18}
+\caption{\label{fig18}Modèle électrique du moteur bruhsless équivalent}
+\end{minipage}
+\end{figure}
+
+En considérant l'instant où l'angle du moteur est compris entre 300 et 360°, la phase A est reliée à la borne positive de la batterie, la phase B est reliée à la borne négative et la phase C est non reliée, il est possible de déduire le modèle électrique du moteur brushless de la figure \ref{fig17}. La tension aux bornes de la batterie est notée $U_{nom}$. $v_A$, $v_B$ et $v_C$ représentent les potentiels aux phases A, B et C respectivement. $i$ représente le courant débité par la batterie.
+
+Le schéma électrique se réduit alors à un circuit équivalent où les phases A et B sont reliées en série (figure \ref{fig18}).
+
+Les grandeurs suivantes sont utilisées :
+\begin{itemize}
+\item R, résistance de phase ;
+\item L, inductance de phase ;
+\item $e_i$ ($i \in \{A,B,C\}$), force contre-électromotrice générée par le mouvement de l'aimant du rotor.
+\end{itemize}
+
+\question{Écrire la loi des mailles et la loi des nœuds en N du circuit.}
+
+On appelle $k_i$ ($i \in \{A,B,C\}$) les constantes de vitesses des phases A, B, C.
+
+\question{Donner une relation liant la force contre-électromotrice $e_i$ à la constante de vitesse $k_i$ et à la pulsation de rotation du rotor $\omega$.}
+
+~\
+
+La figure \ref{fig19} donne l'évolution des constantes de vitesse ($k_i \in \{-k; +k\}$) lors de la rotation du moteur.
+
+\begin{figure}[!ht]
+\centering\includegraphics[width=.8\linewidth]{img/fig19}
+\caption{\label{fig19}Constantes de vitesse en fonction de l’angle du rotor}
+\end{figure}
+
+\question{En déduire alors l'équation électrique reliant $U_{nom}$, R, L, i, k et $\omega$.}
+
+~\
+
+Le rotor du moteur est soumis aux couples magnétiques générés par les bobinages, au couple résistant extérieur et au couple de frottement visqueux. Le couple de frottement sec sera négligé devant les autres couples.
+
+En isolant le rotor et en appliquant le principe fondamental de la dynamique, l'équation mécanique du moteur peut s'écrire :
+$J \frac{d\omega}{dt} = C_A + C_B + C_C - C_r - f\omega,$
+
+avec :
+\begin{itemize}
+\item J, l'inertie de la transmission ramenée sur l'arbre moteur ;
+\item $C_i$ ($i \in \{A,B,C\}$), les couples magnétiques générés par les bobinages ;
+\item $C_r$, le couple résistant en sortie de moteur ;
+\item f, le coefficient de frottement visqueux ;
+\item $\omega$, la pulsation de rotation du rotor.
+\end{itemize}
+
+Les couples magnétiques se déduisent de l'intensité parcourant chaque bobine par la constante de couple $k_i^t$ qui est égale à la constante de vitesse $k_i$, tel que $k_i^t = k_i$. Ainsi $C_i = k_i i_i$.
+
+\question{Déterminer le couple magnétique global $C_m$ dans la phase de fonctionnement étudiée.}
+
+\question{En déduire alors l'équation mécanique reliant J, $C_r$, f, i, k et $\omega$.}
+
+\question{Compléter le schéma bloc modélisant le moteur brushless commandé par commutation.}
+
+L'étude a montré que l'ensemble \{variateur + moteur\} se comportait comme un moteur à courant continu disposant d'une vitesse élevée et d'un couple important. Les performances de la voiture sont donc améliorées et permettent de garantir une autonomie importante comme demandé dans le cahier des charges.
+
+\clearpage
+
+\section*{ANNEXE 1 - Principaux composants de la voiture}
+
+\begin{figure}[!ht]
+\centering\includegraphics[width=.8\linewidth]{img/fig33}
+\caption{\label{fig33}Buggy RC10 B6.3D avec annotations}
+\end{figure}
+
+\clearpage
+
+\section*{ANNEXE 2 - Diagrammes SysML}
+
+\begin{figure}[!ht]
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{0pt}
+\centering\includegraphics[width=.8\linewidth]{img/fig34}
+\caption{\label{fig34}Diagramme des cas d'utilisation}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{0pt}
+\centering\includegraphics[width=.8\linewidth]{img/fig35}
+\caption{\label{fig35}Diagramme de contexte}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering\includegraphics[width=.8\linewidth]{img/fig36}
+\caption{\label{fig36}Diagramme de définition de bloc}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering\includegraphics[width=1.3\linewidth,angle=90]{img/fig37}
+\caption{\label{fig37}Diagramme partiel des exigences}
+\end{figure}
+
+\clearpage
+
 \ifdef{\public}{\end{document}}{}
 
 \newpage ~\ \newpage ~\
 
-
 \pagestyle{correction}\setcounter{section}{0}
+
+\section{Correction}
+
+\subsection{Porte de garage}
 
 \reponse{$t\in[0,\alpha\cdot T]$ $V_s-L\cdot\dfrac{di(t)}{dt}-E=0$
 
@@ -128,5 +415,115 @@ $<i_K(t)>=(I_M-I_m)\cdot\dfrac{\alpha\cdot T}{2}$
 $<i_D(t)>=(I_M-I_m)\cdot\dfrac{T-\alpha\cdot T}{2}$.}
 
 \reponse{Cela permet de changer le sens de rotation.}
+
+\subsection{Buggy radiocommandé}
+
+\setcounter{num_rep}{0}
+
+\reponse{4}{}{On a $U_{nom} = 7,6$ V et $E_{bat} = C_{bat} \cdot U_{nom} \approx 33$ Wh.}
+
+\reponse{4}{}{Sous le courant $I_{max}$, la batterie est utilisable pendant :
+\[
+T_{P_{max}} = \frac{C_{bat}}{I_{max}} = \frac{4,4 \text{ Ah} \cdot 60 \text{ min/h}}{60 \text{ A}} = 4,4 \text{ min}
+\]
+
+L'exigence 5, qui impose à la voiture de rouler pendant 5 min en utilisant la puissance maximale du moteur, n'est donc pas vérifiée : $T_{P_{max}} < 5$ min.}
+
+\reponse{4}{}{
+\begin{center}
+   \def\svgwidth{.6\linewidth}
+   \input{img/schema_elec_buggy.pdf_tex}
+\end{center}
+
+}
+
+\reponse{4}{}{La batterie ayant une résistance interne, la tension qu'elle peut fournir est de la forme $U = U_0 - r_i \cdot I$.
+
+On mesure sur la figure \ref{fig14} :
+\[
+U_0 = 8,65 \text{ V} \qquad r_i = -\frac{\Delta U}{\Delta I} = -\frac{8,65 - 7,92}{0 - 25,5} \approx \frac{0,73}{100/4} = 30 \text{ m}\Omega
+\]
+
+En court circuit, $U = 0$ et $I = I_{CC}$. On en déduit donc :
+\[
+I_{CC} = \frac{U_0}{r_i} \approx \frac{9}{0,03} = 300 \text{ A}
+\]}
+
+\reponse{4}{}{\[
+P_{JB} = r_i I_{max}^2 = 0,03 \cdot 60^2 = 108 \text{ W}
+\]}
+
+\reponse{4}{}{Nous supposerons que les pertes dans l'onduleur sont négligeables. On a alors :
+\[
+P_{AM} = P_{bat} - P_{JB} = 60 \times 7,6 - 108 = 348 \text{ W}
+\]
+
+On en déduit le rendement :
+\[
+\eta_M = \frac{P_{max}}{P_{AM}} = \frac{240}{348} \approx \frac{250}{350} \approx 70\%
+\]}
+
+\reponse{4}{}{\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Phase & $v_A$ & $v_B$ & $v_C$\\
+\hline
+1 & $U_{nom}$ & Libre & 0\\
+2 & $U_{nom}$ & 0 & Libre\\
+3 & Libre & 0 & $U_{nom}$\\
+4 & 0 & Libre & $U_{nom}$\\
+5 & 0 & $U_{nom}$ & Libre\\
+6 & Libre & $U_{nom}$ & 0\\
+\hline
+\end{tabular}
+\end{center}}
+
+\reponse{4}{}{
+\centering\includegraphics[width=.7\linewidth]{img/drelec_cor}
+}
+
+\reponse{4}{}{Les moteurs brushless sont des machines synchrones. On a donc :
+\[
+N_{mot} = \frac{60 \cdot f_{com}}{p} \Leftrightarrow f_{com} = \frac{p \cdot N_{mot}}{60} = 450 \text{ Hz}
+\]
+
+Au vu de la faible fréquence et de la faible puissance, des \textbf{MOSFET} ou des \textbf{IGBT} pourraient être utilisés.}
+
+\reponse{4}{}{\[
+U_{nom} = 2Ri + 2L\frac{di}{dt} + e_A - e_B
+\]
+\[
+i = i_A = -i_B
+\]}
+
+\reponse{4}{}{\[
+e_i = k_i\omega
+\]}
+
+\reponse{4}{}{Lorsque l'angle du moteur est compris entre 300° et 360°, on constate que $k_A = +k$ et $k_B = -k$. En réutilisant les équations des deux questions précédentes, on obtient donc :
+\[
+U_{nom} = 2Ri + 2L\frac{di}{dt} + k_A\omega - k_B\omega
+\]
+\[
+\Leftrightarrow U_{nom} = 2Ri + 2L\frac{di}{dt} + 2k\omega
+\]}
+
+\reponse{4}{}{Dans la phase de fonctionnement étudiée, on a :
+\[
+C_m = C_A + C_B + C_C = k_Ai_A + k_Bi_B + k_Ci_C = ki + (-k)(-i) + 0 = 2ki
+\]}
+
+\reponse{4}{}{D'après l'équation du principe fondamental de la dynamique, on a donc :
+\[
+J\frac{d\omega}{dt} = 2ki - C_r - f\omega
+\]}
+
+\reponse{4}{}{En passant les équations précédentes dans le domaine de Laplace, en supposant les conditions initiales nulles, on obtient :
+\begin{align*}
+\frac{E(p)}{\omega(p)} &= 2k \quad \text{(question 29)}\\
+\frac{I(p)}{U(p) - E(p)} &= \frac{1}{2} \cdot \frac{1}{R + Lp} \quad \text{(question 29)}\\
+\frac{C_m(p)}{I(p)} &= 2k \quad \text{(question 30)}\\
+\frac{\omega(p)}{C_m(p) - C_r(p)} &= \frac{1}{f + Jp} \quad \text{(question 31)}
+\end{align*}}
 
 \end{document}

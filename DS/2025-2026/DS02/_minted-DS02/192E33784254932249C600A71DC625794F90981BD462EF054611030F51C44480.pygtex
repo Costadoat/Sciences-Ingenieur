@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{numpy} \PYG{k+kn}{import} \PYG{n}{sin}\PYG{p}{,} \PYG{n}{cos}\PYG{p}{,} \PYG{n}{pi}\PYG{p}{,} \PYG{n}{linspace}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib.pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+
+\PYG{k}{def} \PYG{n+nf}{f}\PYG{p}{(}\PYG{n}{thetaR}\PYG{p}{):}
+    \PYG{n}{tR}\PYG{o}{=}\PYG{n}{radian}\PYG{p}{(}\PYG{n}{thetaR}\PYG{p}{)}
+    \PYG{n}{a} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{30}\PYG{o}{*}\PYG{n}{pi}\PYG{o}{/}\PYG{l+m+mi}{180}   \PYG{c+c1}{\PYGZsh{} radian}
+    \PYG{n}{L} \PYG{o}{=} \PYG{l+m+mi}{30}              \PYG{c+c1}{\PYGZsh{} mm}
+    \PYG{n}{M} \PYG{o}{=} \PYG{l+m+mi}{100}             \PYG{c+c1}{\PYGZsh{} mm}
+    \PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{7}               \PYG{c+c1}{\PYGZsh{} mm}
+    \PYG{n}{P} \PYG{o}{=} \PYG{l+m+mi}{88}              \PYG{c+c1}{\PYGZsh{} mm}
+    \PYG{n}{Qx} \PYG{o}{=} \PYG{l+m+mi}{12}             \PYG{c+c1}{\PYGZsh{} mm}
+    \PYG{n}{Qy} \PYG{o}{=} \PYG{l+m+mi}{30}             \PYG{c+c1}{\PYGZsh{} mm}
+    \PYG{n}{result}\PYG{o}{=}\PYG{n}{P}\PYG{o}{**}\PYG{l+m+mi}{2}
+    \PYG{n}{result}\PYG{o}{+=\PYGZhy{}}\PYG{p}{(}\PYG{n}{M} \PYG{o}{+} \PYG{n}{Qy}\PYG{o}{*}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{tR}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{n}{Qx}\PYG{o}{*}\PYG{n}{cos}\PYG{p}{(}\PYG{n}{tR}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{n}{L}\PYG{o}{*}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{a}\PYG{p}{))}\PYG{o}{**}\PYG{l+m+mi}{2}
+    \PYG{n}{result}\PYG{o}{+=}\PYG{p}{(}\PYG{n}{N}\PYG{o}{\PYGZhy{}}\PYG{n}{Qy}\PYG{o}{*}\PYG{n}{cos}\PYG{p}{(}\PYG{n}{tR}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{n}{Qx}\PYG{o}{*}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{tR}\PYG{p}{)}\PYG{o}{+}\PYG{n}{L}\PYG{o}{*}\PYG{n}{cos}\PYG{p}{(}\PYG{n}{a}\PYG{p}{))}\PYG{o}{**}\PYG{l+m+mi}{2}
+    \PYG{k}{return} \PYG{n}{result}
+    		
+
+\PYG{k}{def} \PYG{n+nf}{radian}\PYG{p}{(}\PYG{n}{deg}\PYG{p}{):}
+    \PYG{k}{return} \PYG{n}{deg}\PYG{o}{*}\PYG{n}{pi}\PYG{o}{/}\PYG{l+m+mi}{180}
+
+\PYG{n}{thetaR}\PYG{o}{=}\PYG{n}{linspace}\PYG{p}{(}\PYG{l+m+mi}{20}\PYG{p}{,}\PYG{l+m+mi}{30}\PYG{p}{,}\PYG{l+m+mi}{100}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{thetaR}\PYG{p}{,}\PYG{n}{f}\PYG{p}{(}\PYG{n}{thetaR}\PYG{p}{))}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{()}
+\end{Verbatim}

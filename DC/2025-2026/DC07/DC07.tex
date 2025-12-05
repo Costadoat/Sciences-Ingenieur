@@ -1,0 +1,64 @@
+\input{../../../headers/dcheaders.tex}
+
+\section{Présentation}
+
+\subsection{Présentation du système}
+
+\begin{minipage}{0.48\linewidth}
+ \centering\includegraphics[width=0.7\linewidth]{img/leve_vitre_auto}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\linewidth}
+Les vitres électriques sont mises en mouvement grâce à un moteur électrique en rotation. C'est le système que nous étudions ici qui permet de transformer ce mouvement de rotation en translation de la vitre.
+\end{minipage}
+
+\section{Etude de la vitesse du déplacement de la vitre}
+
+Le mouvement d'entrée est la rotation de $1$ par rapport à $0$ dont le paramétrage est l'angle $\theta_1$ indiqué sur la figure \ref{fig01}. Le système est conçu de telle sorte que ADBE est un rectangle et C le point d'intersection de ses diagonales. On donne : $\overrightarrow{AE}=L.\overrightarrow{x_1}$.
+
+
+\begin{figure}[ht!]
+\begin{center}
+ \includegraphics[width=0.7\linewidth]{img/leve_vitre}
+\end{center}
+\caption{\label{fig01} Schéma cinématique du lève vitre}
+\end{figure}
+
+\question{Dessiner la figure de changement de base du repère $B_1$ vers $B_0$.}
+
+\question{Écrire $\overrightarrow{x_1}$, $\overrightarrow{y_1}$ et $\overrightarrow{z_1}$ dans la base $B_0$.}
+
+\question{Écrire $\overrightarrow{AB}$ et $\overrightarrow{EB}$ dans la base $B_0$.}
+
+\question{Écrire $\overrightarrow{CE}$ dans la base $B_0$.}
+
+\question{Déterminer $\theta_1$ tel que $\left\|\overrightarrow{AB}\right\|=\left\|\overrightarrow{BE}\right\|$.}
+
+\finsujet
+
+\reponse{8}{}{\begin{center}
+\def\svgwidth{0.4\textwidth}
+   \input{img/figurebase.pdf_tex}
+\end{center}
+}
+
+\reponse{8}{}{$\left\{
+\begin{array}{l}
+\overrightarrow{x_1}=cos\theta_1\overrightarrow{x_0}+sin\theta_1\overrightarrow{y_0}\\
+\overrightarrow{y_1}=-sin\theta_1\overrightarrow{x_0}+cos\theta_1\overrightarrow{y_0}\\
+\overrightarrow{z_1}=\overrightarrow{z_0}
+\end{array}\right.$}
+
+\reponse{8}{}{$\left\{
+\begin{array}{l}
+\overrightarrow{AB}=Lcos\theta_1\overrightarrow{x_0}\\
+\overrightarrow{EB}=-Lsin\theta_1\overrightarrow{y_0}
+\end{array}\right.$}
+
+\reponse{6}{}{$\overrightarrow{CE}=\dfrac{L}{2}\cdot\left(cos\theta_1\overrightarrow{x_0}+sin\theta_1\overrightarrow{y_0}\right)$}
+
+\reponse{5}{}{$Lcos\theta_1=Lsin\theta_1\Leftrightarrow\theta_1=\dfrac{\pi}{4}$}
+
+
+
+\end{document}
