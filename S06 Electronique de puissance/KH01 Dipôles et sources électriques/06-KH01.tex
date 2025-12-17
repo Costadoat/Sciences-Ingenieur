@@ -420,16 +420,16 @@ $<i_D(t)>=(I_M-I_m)\cdot\dfrac{T-\alpha\cdot T}{2}$.}
 
 \setcounter{num_rep}{0}
 
-\reponse{4}{}{On a $U_{nom} = 7,6$ V et $E_{bat} = C_{bat} \cdot U_{nom} \approx 33$ Wh.}
+\reponse{On a $U_{nom} = 7,6$ V et $E_{bat} = C_{bat} \cdot U_{nom} \approx 33$ Wh.}
 
-\reponse{4}{}{Sous le courant $I_{max}$, la batterie est utilisable pendant :
+\reponse{Sous le courant $I_{max}$, la batterie est utilisable pendant :
 \[
 T_{P_{max}} = \frac{C_{bat}}{I_{max}} = \frac{4,4 \text{ Ah} \cdot 60 \text{ min/h}}{60 \text{ A}} = 4,4 \text{ min}
 \]
 
 L'exigence 5, qui impose à la voiture de rouler pendant 5 min en utilisant la puissance maximale du moteur, n'est donc pas vérifiée : $T_{P_{max}} < 5$ min.}
 
-\reponse{4}{}{
+\reponse{
 \begin{center}
    \def\svgwidth{.6\linewidth}
    \input{img/schema_elec_buggy.pdf_tex}
@@ -437,7 +437,7 @@ L'exigence 5, qui impose à la voiture de rouler pendant 5 min en utilisant la p
 
 }
 
-\reponse{4}{}{La batterie ayant une résistance interne, la tension qu'elle peut fournir est de la forme $U = U_0 - r_i \cdot I$.
+\reponse{La batterie ayant une résistance interne, la tension qu'elle peut fournir est de la forme $U = U_0 - r_i \cdot I$.
 
 On mesure sur la figure \ref{fig14} :
 \[
@@ -449,11 +449,11 @@ En court circuit, $U = 0$ et $I = I_{CC}$. On en déduit donc :
 I_{CC} = \frac{U_0}{r_i} \approx \frac{9}{0,03} = 300 \text{ A}
 \]}
 
-\reponse{4}{}{\[
+\reponse{\[
 P_{JB} = r_i I_{max}^2 = 0,03 \cdot 60^2 = 108 \text{ W}
 \]}
 
-\reponse{4}{}{Nous supposerons que les pertes dans l'onduleur sont négligeables. On a alors :
+\reponse{Nous supposerons que les pertes dans l'onduleur sont négligeables. On a alors :
 \[
 P_{AM} = P_{bat} - P_{JB} = 60 \times 7,6 - 108 = 348 \text{ W}
 \]
@@ -463,7 +463,7 @@ On en déduit le rendement :
 \eta_M = \frac{P_{max}}{P_{AM}} = \frac{240}{348} \approx \frac{250}{350} \approx 70\%
 \]}
 
-\reponse{4}{}{\begin{center}
+\reponse{\begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
 Phase & $v_A$ & $v_B$ & $v_C$\\
@@ -478,29 +478,29 @@ Phase & $v_A$ & $v_B$ & $v_C$\\
 \end{tabular}
 \end{center}}
 
-\reponse{4}{}{
+\reponse{
 \centering\includegraphics[width=.7\linewidth]{img/drelec_cor}
 }
 
-\reponse{4}{}{Les moteurs brushless sont des machines synchrones. On a donc :
+\reponse{Les moteurs brushless sont des machines synchrones. On a donc :
 \[
 N_{mot} = \frac{60 \cdot f_{com}}{p} \Leftrightarrow f_{com} = \frac{p \cdot N_{mot}}{60} = 450 \text{ Hz}
 \]
 
 Au vu de la faible fréquence et de la faible puissance, des \textbf{MOSFET} ou des \textbf{IGBT} pourraient être utilisés.}
 
-\reponse{4}{}{\[
+\reponse{\[
 U_{nom} = 2Ri + 2L\frac{di}{dt} + e_A - e_B
 \]
 \[
 i = i_A = -i_B
 \]}
 
-\reponse{4}{}{\[
+\reponse{\[
 e_i = k_i\omega
 \]}
 
-\reponse{4}{}{Lorsque l'angle du moteur est compris entre 300° et 360°, on constate que $k_A = +k$ et $k_B = -k$. En réutilisant les équations des deux questions précédentes, on obtient donc :
+\reponse{Lorsque l'angle du moteur est compris entre 300° et 360°, on constate que $k_A = +k$ et $k_B = -k$. En réutilisant les équations des deux questions précédentes, on obtient donc :
 \[
 U_{nom} = 2Ri + 2L\frac{di}{dt} + k_A\omega - k_B\omega
 \]
@@ -508,17 +508,17 @@ U_{nom} = 2Ri + 2L\frac{di}{dt} + k_A\omega - k_B\omega
 \Leftrightarrow U_{nom} = 2Ri + 2L\frac{di}{dt} + 2k\omega
 \]}
 
-\reponse{4}{}{Dans la phase de fonctionnement étudiée, on a :
+\reponse{Dans la phase de fonctionnement étudiée, on a :
 \[
 C_m = C_A + C_B + C_C = k_Ai_A + k_Bi_B + k_Ci_C = ki + (-k)(-i) + 0 = 2ki
 \]}
 
-\reponse{4}{}{D'après l'équation du principe fondamental de la dynamique, on a donc :
+\reponse{D'après l'équation du principe fondamental de la dynamique, on a donc :
 \[
 J\frac{d\omega}{dt} = 2ki - C_r - f\omega
 \]}
 
-\reponse{4}{}{En passant les équations précédentes dans le domaine de Laplace, en supposant les conditions initiales nulles, on obtient :
+\reponse{En passant les équations précédentes dans le domaine de Laplace, en supposant les conditions initiales nulles, on obtient :
 \begin{align*}
 \frac{E(p)}{\omega(p)} &= 2k \quad \text{(question 29)}\\
 \frac{I(p)}{U(p) - E(p)} &= \frac{1}{2} \cdot \frac{1}{R + Lp} \quad \text{(question 29)}\\
