@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{N}\PYG{o}{=}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{ax}\PYG{p}{)}
+\PYG{n}{axf}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{*}\PYG{n}{N}
+\PYG{n}{axf}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{=} \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+\PYG{n}{Te} \PYG{o}{=} \PYG{l+m+mf}{0.01}
+\PYG{n}{tau} \PYG{o}{=} \PYG{l+m+mi}{5}\PYG{o}{*}\PYG{n}{Te}
+\PYG{n}{A}\PYG{o}{=}
+\end{Verbatim}

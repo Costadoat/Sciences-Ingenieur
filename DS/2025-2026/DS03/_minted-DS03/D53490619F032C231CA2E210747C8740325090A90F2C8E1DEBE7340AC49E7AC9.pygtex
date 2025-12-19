@@ -1,0 +1,367 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\PYG{x}{\PYGZbs{}end\PYGZob{}document\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}textbf\PYGZob{}Question 6\PYGZcb{} En utilisant la méthode des rectangles et la variable \PYGZdl{}N\PYGZdl{}, écrire un script permettant de définir le vecteur \PYGZbs{}texttt\PYGZob{}vxf\PYGZcb{} des vitesses filtrée selon \PYGZdl{}\PYGZbs{}vec\PYGZob{}X\PYGZcb{}\PYGZdl{} à partir du vecteur \PYGZbs{}texttt\PYGZob{}axf\PYGZcb{}.}
+
+\PYG{x}{On utilise ici la méthode des rectangles à gauche. On suppose de plus des conditions initiales nulles.}
+
+\PYG{x}{\PYGZbs{}begin\PYGZob{}lstlisting\PYGZcb{}}
+\PYG{x}{N=axf.shape[0]}
+\PYG{x}{Vxf=np.zeros(N)}
+\PYG{x}{for i in range(1,N):}
+\PYG{x}{    Vxf[i] = Vxf[i\PYGZhy{}1] + Te*axf[i]}
+\PYG{x}{\PYGZbs{}end\PYGZob{}lstlisting\PYGZcb{}\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}}
+\PYG{x}{\PYGZbs{}centering}
+\PYG{x}{\PYGZbs{}includegraphics[width=0.8\PYGZbs{}textwidth]\PYGZob{}img/cor07\PYGZcb{}}
+
+\PYG{x}{Pour l\PYGZsq{}accélération maximale, on estime la valeur moyenne autour du bruit de mesure non filtré. On trouve :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}a\PYGZus{}\PYGZob{}xf,\PYGZbs{}max\PYGZcb{} \PYGZbs{}simeq 2\PYGZti{}\PYGZbs{}text\PYGZob{}m\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}text\PYGZob{}s\PYGZcb{}\PYGZca{}\PYGZob{}\PYGZhy{}2\PYGZcb{}\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{Pour la vitesse maximale, on cherche à quantifier la tangente du point d\PYGZsq{}inflexion de la position, correspondant au maximum de vitesse de l\PYGZsq{}axe \PYGZdl{}\PYGZbs{}vec\PYGZob{}X\PYGZcb{}\PYGZdl{}. On trouve ainsi :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}v\PYGZus{}\PYGZob{}xf,\PYGZbs{}max\PYGZcb{} \PYGZbs{}simeq 2\PYGZti{}\PYGZbs{}text\PYGZob{}m\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}text\PYGZob{}s\PYGZcb{}\PYGZca{}\PYGZob{}\PYGZhy{}1\PYGZcb{}\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{On a ainsi dans les deux cas \PYGZdl{}a\PYGZus{}\PYGZob{}xf,max\PYGZcb{} \PYGZbs{}leq 2\PYGZti{}\PYGZbs{}text\PYGZob{}m\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}text\PYGZob{}s\PYGZcb{}\PYGZca{}\PYGZob{}\PYGZhy{}2\PYGZcb{}\PYGZdl{} et \PYGZdl{}v\PYGZus{}\PYGZob{}xf,max\PYGZcb{} \PYGZbs{}leq 2\PYGZob{},\PYGZcb{}5\PYGZti{}\PYGZbs{}text\PYGZob{}m\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}text\PYGZob{}s\PYGZcb{}\PYGZca{}\PYGZob{}\PYGZhy{}1\PYGZcb{}\PYGZdl{}. Les mesures sont donc en accord avec les spécifications données pour l\PYGZsq{}axe \PYGZdl{}\PYGZbs{}vec\PYGZob{}X\PYGZcb{}\PYGZdl{}.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}Tracer les allures des évolutions temporelles de l\PYGZsq{}accélération \PYGZdl{}a\PYGZus{}x(t)\PYGZdl{} et du déplacement \PYGZdl{}x(t)\PYGZdl{} en précisant les valeurs caractéristiques en fonction de \PYGZdl{}t\PYGZus{}1\PYGZdl{}, \PYGZdl{}t\PYGZus{}2\PYGZdl{} et \PYGZdl{}v\PYGZus{}1\PYGZdl{}.}
+
+\PYG{x}{\PYGZbs{}centering}
+\PYG{x}{   \PYGZbs{}def\PYGZbs{}svgwidth\PYGZob{}.7\PYGZbs{}linewidth\PYGZcb{}}
+\PYG{x}{   \PYGZbs{}input\PYGZob{}img/trace.pdf\PYGZus{}tex\PYGZcb{}}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}Après avoir déterminé \PYGZdl{}v\PYGZus{}1\PYGZdl{} en fonction de \PYGZdl{}a\PYGZus{}\PYGZob{}\PYGZbs{}max\PYGZcb{}\PYGZdl{} et \PYGZdl{}t\PYGZus{}1\PYGZdl{}, déterminer le temps \PYGZdl{}t\PYGZus{}2\PYGZdl{} permettant d\PYGZsq{}effectuer 2,7 m selon \PYGZdl{}\PYGZbs{}vec\PYGZob{}X\PYGZcb{}\PYGZdl{} avec ce profil des vitesses.}
+
+\PYG{x}{D\PYGZsq{}après la question précédente, on peut poser \PYGZdl{}a\PYGZus{}1 = a\PYGZus{}\PYGZob{}\PYGZbs{}max\PYGZcb{} = \PYGZbs{}dfrac\PYGZob{}v\PYGZus{}1\PYGZcb{}\PYGZob{}t\PYGZus{}1\PYGZcb{} \PYGZbs{}Longrightarrow v\PYGZus{}1 = a\PYGZus{}\PYGZob{}\PYGZbs{}max\PYGZcb{} \PYGZbs{}cdot t\PYGZus{}1\PYGZdl{}}
+
+\PYG{x}{On a \PYGZdl{}x(t\PYGZus{}2) = x\PYGZus{}\PYGZob{}20\PYGZcb{} = 2\PYGZob{},\PYGZcb{}7\PYGZdl{} m. Or pour \PYGZdl{}t \PYGZbs{}in [t\PYGZus{}1, t\PYGZus{}2]\PYGZdl{} :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}x(t) = \PYGZbs{}frac\PYGZob{}v\PYGZus{}1 \PYGZbs{}cdot t\PYGZus{}1\PYGZcb{}\PYGZob{}2\PYGZcb{} + v\PYGZus{}1 \PYGZbs{}cdot (t \PYGZhy{} t\PYGZus{}1) \PYGZhy{} \PYGZbs{}frac\PYGZob{}v\PYGZus{}1\PYGZcb{}\PYGZob{}2 \PYGZbs{}cdot t\PYGZus{}1\PYGZcb{}(t \PYGZhy{} t\PYGZus{}1)\PYGZca{}2\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{Soit :}
+
+\PYG{x}{\PYGZbs{}newpage}
+
+\PYG{x}{\PYGZdl{}\PYGZdl{}x\PYGZus{}\PYGZob{}20\PYGZcb{} = \PYGZbs{}frac\PYGZob{}v\PYGZus{}1 \PYGZbs{}cdot t\PYGZus{}1\PYGZcb{}\PYGZob{}2\PYGZcb{} + v\PYGZus{}1 \PYGZbs{}cdot (t\PYGZus{}2 \PYGZhy{} t\PYGZus{}1) \PYGZhy{} \PYGZbs{}frac\PYGZob{}v\PYGZus{}1\PYGZcb{}\PYGZob{}2 \PYGZbs{}cdot t\PYGZus{}1\PYGZcb{}(t\PYGZus{}2 \PYGZhy{} t\PYGZus{}1)\PYGZca{}2\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{Le profil étant symétrique, on a \PYGZdl{}t\PYGZus{}2 = 2t\PYGZus{}1\PYGZdl{} soit \PYGZdl{}x\PYGZus{}\PYGZob{}20\PYGZcb{} = \PYGZbs{}dfrac\PYGZob{}v\PYGZus{}1 \PYGZbs{}cdot t\PYGZus{}1\PYGZcb{}\PYGZob{}2\PYGZcb{} + v\PYGZus{}1 t\PYGZus{}1 \PYGZhy{} \PYGZbs{}dfrac\PYGZob{}v\PYGZus{}1 \PYGZbs{}cdot t\PYGZus{}1\PYGZcb{}\PYGZob{}2\PYGZcb{}\PYGZdl{}. D\PYGZsq{}où :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}x\PYGZus{}\PYGZob{}20\PYGZcb{} = v\PYGZus{}1 \PYGZbs{}cdot t\PYGZus{}1 = a\PYGZus{}\PYGZob{}\PYGZbs{}max\PYGZcb{} \PYGZbs{}cdot t\PYGZus{}1\PYGZca{}2 \PYGZbs{}Longrightarrow t\PYGZus{}2 = 2\PYGZbs{}sqrt\PYGZob{}\PYGZbs{}frac\PYGZob{}x\PYGZus{}\PYGZob{}20\PYGZcb{}\PYGZcb{}\PYGZob{}a\PYGZus{}\PYGZob{}\PYGZbs{}max\PYGZcb{}\PYGZcb{}\PYGZcb{}\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{\PYGZbs{}textbf\PYGZob{}Application numérique :\PYGZcb{} \PYGZdl{}t\PYGZus{}2 \PYGZbs{}simeq 2\PYGZob{},\PYGZcb{}3\PYGZdl{} s.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}Donner l\PYGZsq{}expression de la loi des mailles liant les variables \PYGZdl{}\PYGZbs{}overline\PYGZob{}V\PYGZcb{}\PYGZdl{}, \PYGZdl{}\PYGZbs{}overline\PYGZob{}E\PYGZcb{}\PYGZdl{}, \PYGZdl{}\PYGZbs{}overline\PYGZob{}I\PYGZus{}s\PYGZcb{}\PYGZdl{} et les paramètres \PYGZdl{}R\PYGZdl{} et \PYGZdl{}L\PYGZdl{}.}
+
+\PYG{x}{D\PYGZsq{}après la loi des mailles : \PYGZdl{}\PYGZbs{}overline\PYGZob{}V\PYGZcb{} = R \PYGZbs{}cdot \PYGZbs{}overline\PYGZob{}I\PYGZus{}s\PYGZcb{} + j \PYGZbs{}cdot L \PYGZbs{}cdot \PYGZbs{}omega \PYGZbs{}cdot \PYGZbs{}overline\PYGZob{}I\PYGZus{}s\PYGZcb{} + \PYGZbs{}overline\PYGZob{}E\PYGZcb{}\PYGZdl{}.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}Donner l\PYGZsq{}expression de la puissance électromagnétique \PYGZdl{}P\PYGZus{}\PYGZob{}em\PYGZcb{}\PYGZdl{} développée par la machine synchrone en fonction des variables \PYGZdl{}E\PYGZdl{}, \PYGZdl{}I\PYGZus{}s\PYGZdl{} et \PYGZdl{}\PYGZbs{}psi\PYGZdl{}.}
+
+\PYG{x}{D\PYGZsq{}après le diagramme de Fresnel donné :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}P\PYGZus{}\PYGZob{}em\PYGZcb{} = 3 \PYGZbs{}cdot E \PYGZbs{}cdot I\PYGZus{}s \PYGZbs{}cdot \PYGZbs{}cos\PYGZbs{}psi\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{\PYGZbs{}textbf\PYGZob{}Question 12\PYGZcb{} Montrer que, dans ce cas, l\PYGZsq{}expression du couple électromagnétique \PYGZdl{}C\PYGZus{}\PYGZob{}em\PYGZcb{}\PYGZdl{} est de la même forme que sur une machine à courant continu. Déterminer la valeur de la constante de couple \PYGZdl{}K\PYGZdl{} en précisant l\PYGZsq{}unité.}
+
+\PYG{x}{Par équivalence : \PYGZdl{}P\PYGZus{}\PYGZob{}em\PYGZcb{} = 3 \PYGZbs{}cdot E \PYGZbs{}cdot I\PYGZus{}s \PYGZbs{}cdot \PYGZbs{}cos\PYGZbs{}psi = C\PYGZus{}\PYGZob{}em\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}Omega \PYGZbs{}Longrightarrow C\PYGZus{}\PYGZob{}em\PYGZcb{} = \PYGZbs{}dfrac\PYGZob{}3 \PYGZbs{}cdot E \PYGZbs{}cdot I\PYGZus{}s\PYGZcb{}\PYGZob{}\PYGZbs{}Omega\PYGZcb{}\PYGZbs{}cos\PYGZbs{}psi\PYGZdl{}}
+
+\PYG{x}{Soit \PYGZdl{}E\PYGZus{}\PYGZob{}pp\PYGZcb{}\PYGZdl{} la force électromotrice phase/phase. Alors : \PYGZdl{}E\PYGZus{}\PYGZob{}pp\PYGZcb{} = K\PYGZus{}e \PYGZbs{}cdot \PYGZbs{}Omega\PYGZdl{} avec \PYGZdl{}K\PYGZus{}e = 0\PYGZob{},\PYGZcb{}54\PYGZdl{} V\PYGZdl{}\PYGZbs{}cdot\PYGZdl{}s\PYGZdl{}\PYGZbs{}cdot\PYGZdl{}rad\PYGZdl{}\PYGZca{}\PYGZob{}\PYGZhy{}1\PYGZcb{}\PYGZdl{}.}
+
+\PYG{x}{Or, d\PYGZsq{}après le schéma équivalent pour une phase donné, \PYGZdl{}E\PYGZdl{} correspond à la force électromotrice phase/neutre. Le montage étant en étoile :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}E\PYGZus{}\PYGZob{}pp\PYGZcb{} = \PYGZbs{}sqrt\PYGZob{}3\PYGZcb{} \PYGZbs{}cdot E \PYGZbs{}Longrightarrow E = \PYGZbs{}frac\PYGZob{}E\PYGZus{}\PYGZob{}pp\PYGZcb{}\PYGZcb{}\PYGZob{}\PYGZbs{}sqrt\PYGZob{}3\PYGZcb{}\PYGZcb{} = \PYGZbs{}frac\PYGZob{}K\PYGZus{}e\PYGZcb{}\PYGZob{}\PYGZbs{}sqrt\PYGZob{}3\PYGZcb{}\PYGZcb{}\PYGZbs{}Omega\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{D\PYGZsq{}où \PYGZdl{}C\PYGZus{}\PYGZob{}em\PYGZcb{} = \PYGZbs{}dfrac\PYGZob{}3 \PYGZbs{}cdot K\PYGZus{}e\PYGZcb{}\PYGZob{}\PYGZbs{}sqrt\PYGZob{}3\PYGZcb{}\PYGZcb{}I\PYGZus{}s\PYGZbs{}cos\PYGZbs{}psi\PYGZdl{}. Or \PYGZdl{}\PYGZbs{}psi = 0°\PYGZdl{} ou \PYGZdl{}180°\PYGZdl{} alors \PYGZdl{}\PYGZbs{}cos\PYGZbs{}psi = \PYGZbs{}pm 1\PYGZdl{} soit :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}|C\PYGZus{}\PYGZob{}em\PYGZcb{}| = \PYGZbs{}frac\PYGZob{}3 \PYGZbs{}cdot K\PYGZus{}e\PYGZcb{}\PYGZob{}\PYGZbs{}sqrt\PYGZob{}3\PYGZcb{}\PYGZcb{}I\PYGZus{}s \PYGZbs{}Longrightarrow |C\PYGZus{}\PYGZob{}em\PYGZcb{}| = K \PYGZbs{}cdot I\PYGZus{}s \PYGZbs{}text\PYGZob{} avec \PYGZcb{} K = \PYGZbs{}frac\PYGZob{}3 \PYGZbs{}cdot K\PYGZus{}e\PYGZcb{}\PYGZob{}\PYGZbs{}sqrt\PYGZob{}3\PYGZcb{}\PYGZcb{} \PYGZbs{}text\PYGZob{} en Wb\PYGZcb{}\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{On se retrouve donc bien avec la même forme que pour une machine à courant continu.}
+
+\PYG{x}{\PYGZbs{}textbf\PYGZob{}Application numérique :\PYGZcb{} \PYGZdl{}K \PYGZbs{}simeq 0\PYGZob{},\PYGZcb{}94\PYGZdl{} Wb\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}Déterminer la valeur de la tension du courant nominal de la machine à courant continu équivalente permettant d\PYGZsq{}obtenir le même couple nominal que la machine synchrone.}
+
+\PYG{x}{Soit \PYGZdl{}C = 3\PYGZob{},\PYGZcb{}93\PYGZdl{} N\PYGZdl{}\PYGZbs{}cdot\PYGZdl{}m le couple à vitesse nominal. Pour que la machine à courant continu équivalente ait le même couple nominal on doit avoir :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}C = K \PYGZbs{}cdot I \PYGZbs{}Longrightarrow I = \PYGZbs{}frac\PYGZob{}C\PYGZcb{}\PYGZob{}K\PYGZcb{}\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{\PYGZbs{}textbf\PYGZob{}Application numérique :\PYGZcb{} \PYGZdl{}I \PYGZbs{}simeq 4\PYGZob{},\PYGZcb{}4\PYGZdl{} A\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}Calculer la valeur de la résistance d\PYGZsq{}induit \PYGZdl{}r\PYGZdl{} permettant d\PYGZsq{}obtenir les mêmes pertes joules que la machine synchrone.}
+
+\PYG{x}{Les pertes Joules de la machine synchrone valent \PYGZdl{}P\PYGZus{}J = 3 \PYGZbs{}cdot R \PYGZbs{}cdot I\PYGZus{}s\PYGZca{}2 = r \PYGZbs{}cdot I\PYGZca{}2 \PYGZbs{}Longrightarrow r = \PYGZbs{}dfrac\PYGZob{}3 \PYGZbs{}cdot I\PYGZus{}s\PYGZca{}2\PYGZcb{}\PYGZob{}I\PYGZca{}2\PYGZcb{}R\PYGZdl{}}
+
+\PYG{x}{Soit \PYGZdl{}R\PYGZus{}\PYGZob{}pp\PYGZcb{}\PYGZdl{} la résistance phase/phase mesurée. Le couplage des phases étant en étoile, on a alors}
+\PYG{x}{\PYGZdl{}\PYGZdl{}R\PYGZus{}\PYGZob{}pp\PYGZcb{} = 2R = 5\PYGZob{},\PYGZcb{}96\PYGZti{}\PYGZbs{}Omega\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{Donc \PYGZdl{}r = \PYGZbs{}dfrac\PYGZob{}3 \PYGZbs{}cdot I\PYGZus{}s\PYGZca{}2\PYGZcb{}\PYGZob{}2 \PYGZbs{}cdot I\PYGZca{}2\PYGZcb{}R\PYGZus{}\PYGZob{}pp\PYGZcb{}\PYGZdl{}}
+
+\PYG{x}{\PYGZbs{}textbf\PYGZob{}Application numérique :\PYGZcb{} \PYGZdl{}r \PYGZbs{}simeq 8\PYGZob{},\PYGZcb{}1\PYGZti{}\PYGZbs{}Omega\PYGZdl{}.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}En valeur continue, par la loi des mailles :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}U\PYGZus{}N = r \PYGZbs{}cdot I + E\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{Or \PYGZdl{}E = K \PYGZbs{}cdot \PYGZbs{}omega\PYGZus{}m = K\PYGZbs{}dfrac\PYGZob{}2\PYGZbs{}pi N\PYGZus{}m\PYGZcb{}\PYGZob{}60\PYGZcb{}\PYGZdl{} avec \PYGZdl{}N\PYGZus{}m = 3000\PYGZdl{} tr/min.}
+
+\PYG{x}{Soit \PYGZdl{}U\PYGZus{}N = r \PYGZbs{}cdot I + \PYGZbs{}dfrac\PYGZob{}2\PYGZbs{}pi K\PYGZcb{}\PYGZob{}60\PYGZcb{} \PYGZbs{}cdot N\PYGZus{}m\PYGZdl{}}
+
+\PYG{x}{\PYGZbs{}textbf\PYGZob{}Application numérique :\PYGZcb{} \PYGZdl{}U\PYGZus{}N \PYGZbs{}simeq 305\PYGZob{},\PYGZcb{}2\PYGZdl{} V en prenant l\PYGZsq{}intensité nominale calculée à la question 13.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}Graphiquement, on a un courant de démarrage d\PYGZsq{}environ 35 A. Cet ordre de grandeur est cohérent car si on considère le modèle causal à l\PYGZsq{}instant initial de l\PYGZsq{}échelon, on a pour \PYGZdl{}\PYGZbs{}omega(t) = 0\PYGZdl{}}
+\PYG{x}{\PYGZdl{}\PYGZdl{}i = \PYGZbs{}frac\PYGZob{}u\PYGZcb{}\PYGZob{}r\PYGZcb{}\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{Soit \PYGZdl{}i = 40\PYGZdl{} A.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}Pour \PYGZdl{}C\PYGZus{}r = 0\PYGZdl{} et en supposant des conditions initiales nulles, on a en remontant le modèle causal :}
+
+\PYG{x}{\PYGZbs{}begin\PYGZob{}align*\PYGZcb{}}
+\PYG{x}{\PYGZbs{}Omega\PYGZus{}m(p) \PYGZam{}= \PYGZbs{}frac\PYGZob{}K\PYGZcb{}\PYGZob{}r \PYGZbs{}cdot J \PYGZbs{}cdot p\PYGZcb{}\PYGZbs{}left(U(p) \PYGZhy{} K \PYGZbs{}cdot \PYGZbs{}Omega\PYGZus{}m(p)\PYGZbs{}right)\PYGZbs{}\PYGZbs{}}
+\PYG{x}{\PYGZbs{}Longrightarrow \PYGZbs{}left(1 + \PYGZbs{}frac\PYGZob{}K\PYGZca{}2\PYGZcb{}\PYGZob{}r \PYGZbs{}cdot J \PYGZbs{}cdot p\PYGZcb{}\PYGZbs{}right)\PYGZbs{}Omega\PYGZus{}m(p) \PYGZam{}= \PYGZbs{}frac\PYGZob{}K\PYGZcb{}\PYGZob{}r \PYGZbs{}cdot J \PYGZbs{}cdot p\PYGZcb{}U(p)\PYGZbs{}\PYGZbs{}}
+\PYG{x}{\PYGZbs{}Longrightarrow \PYGZbs{}Omega\PYGZus{}m(p) \PYGZam{}= \PYGZbs{}frac\PYGZob{}K\PYGZcb{}\PYGZob{}K\PYGZca{}2 + r \PYGZbs{}cdot J \PYGZbs{}cdot p\PYGZcb{}U(p)}
+\PYG{x}{\PYGZbs{}end\PYGZob{}align*\PYGZcb{}}
+
+\PYG{x}{Donc}
+\PYG{x}{\PYGZdl{}\PYGZdl{}\PYGZbs{}frac\PYGZob{}\PYGZbs{}Omega\PYGZus{}m(p)\PYGZcb{}\PYGZob{}U(p)\PYGZcb{}\PYGZbs{}Big|\PYGZus{}\PYGZob{}C\PYGZus{}r=0\PYGZcb{} = \PYGZbs{}frac\PYGZob{}1\PYGZcb{}\PYGZob{}K\PYGZcb{}\PYGZbs{}frac\PYGZob{}1\PYGZcb{}\PYGZob{}1 + \PYGZbs{}frac\PYGZob{}J \PYGZbs{}cdot r\PYGZcb{}\PYGZob{}K\PYGZca{}2\PYGZcb{}p\PYGZcb{}\PYGZdl{}\PYGZdl{}\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}D\PYGZsq{}après la question précédente, la fonction de transfert du moteur est du premier ordre de la forme :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}\PYGZbs{}frac\PYGZob{}\PYGZbs{}Omega\PYGZus{}m(p)\PYGZcb{}\PYGZob{}U(p)\PYGZcb{}\PYGZbs{}Big|\PYGZus{}\PYGZob{}C\PYGZus{}r=0\PYGZcb{} = \PYGZbs{}frac\PYGZob{}K\PYGZus{}m\PYGZcb{}\PYGZob{}1 + \PYGZbs{}tau\PYGZus{}m \PYGZbs{}cdot p\PYGZcb{}\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{Avec \PYGZdl{}\PYGZbs{}tau\PYGZus{}m = \PYGZbs{}dfrac\PYGZob{}K\PYGZca{}2\PYGZcb{}\PYGZob{}rJ\PYGZcb{} \PYGZbs{}Longrightarrow J = \PYGZbs{}dfrac\PYGZob{}K\PYGZca{}2\PYGZcb{}\PYGZob{}r\PYGZcb{}\PYGZbs{}tau\PYGZus{}m\PYGZdl{}}
+
+\PYG{x}{Par la méthode de la tangente à l\PYGZsq{}origine sur la figure 13, on trouve \PYGZdl{}\PYGZbs{}tau\PYGZus{}m \PYGZbs{}simeq 22\PYGZob{},\PYGZcb{}7\PYGZdl{} ms. Soit}
+\PYG{x}{\PYGZdl{}\PYGZdl{}J \PYGZbs{}simeq 2\PYGZob{},\PYGZcb{}3 \PYGZbs{}times 10\PYGZca{}\PYGZob{}\PYGZhy{}3\PYGZcb{}\PYGZti{}\PYGZbs{}text\PYGZob{}kg\PYGZcb{}\PYGZbs{}cdot\PYGZbs{}text\PYGZob{}m\PYGZcb{}\PYGZca{}2 \PYGZgt{} I\PYGZus{}\PYGZob{}11\PYGZcb{}\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{Cette valeur est cohérente car on retrouve la valeur de l\PYGZsq{}inertie du rotor 11.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}On pose \PYGZdl{}\PYGZbs{}Sigma = \PYGZbs{}\PYGZob{}10, 13, 30, 31, 20\PYGZbs{}\PYGZcb{}\PYGZdl{}. On isole l\PYGZsq{}ensemble \PYGZdl{}E = \PYGZbs{}\PYGZob{}\PYGZbs{}Sigma + 12 + 11\PYGZbs{}\PYGZcb{}\PYGZdl{} :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}E\PYGZus{}c(E/0) = E\PYGZus{}c(\PYGZbs{}Sigma/0) + E\PYGZus{}c(12/0) + E\PYGZus{}c(11/0)\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{On ne prend pas en compte les poulies, galets et courroies car leurs masses et inerties sont négligées.}
+
+\PYG{x}{\PYGZbs{}begin\PYGZob{}itemize\PYGZcb{}}
+\PYG{x}{\PYGZbs{}item L\PYGZsq{}ensemble \PYGZdl{}\PYGZbs{}Sigma\PYGZdl{} est en translation rectiligne de direction \PYGZdl{}\PYGZbs{}vec\PYGZob{}X\PYGZcb{}\PYGZdl{} soit :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}E\PYGZus{}c(\PYGZbs{}Sigma/0) = \PYGZbs{}frac\PYGZob{}1\PYGZcb{}\PYGZob{}2\PYGZcb{}m\PYGZus{}\PYGZob{}\PYGZbs{}Sigma\PYGZcb{} \PYGZbs{}cdot V\PYGZus{}x\PYGZca{}2\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{Avec \PYGZdl{}m\PYGZus{}\PYGZob{}\PYGZbs{}Sigma\PYGZcb{} = m\PYGZus{}\PYGZob{}10\PYGZcb{} + m\PYGZus{}\PYGZob{}20\PYGZcb{} + m\PYGZus{}\PYGZob{}13\PYGZcb{} + m\PYGZus{}\PYGZob{}30\PYGZcb{}\PYGZdl{} et \PYGZdl{}V\PYGZus{}x = \PYGZbs{}rho\PYGZus{}x \PYGZbs{}omega\PYGZus{}\PYGZob{}11\PYGZcb{}\PYGZdl{}}
+
+\PYG{x}{Soit \PYGZdl{}E\PYGZus{}c(\PYGZbs{}Sigma/0) = \PYGZbs{}dfrac\PYGZob{}1\PYGZcb{}\PYGZob{}2\PYGZcb{}(m\PYGZus{}\PYGZob{}10\PYGZcb{} + m\PYGZus{}\PYGZob{}20\PYGZcb{} + m\PYGZus{}\PYGZob{}13\PYGZcb{} + m\PYGZus{}\PYGZob{}30\PYGZcb{}) \PYGZbs{}cdot \PYGZbs{}rho\PYGZus{}x\PYGZca{}2 \PYGZbs{}cdot \PYGZbs{}omega\PYGZus{}\PYGZob{}11\PYGZcb{}\PYGZca{}2\PYGZdl{}}
+
+\PYG{x}{\PYGZbs{}item \PYGZdl{}E\PYGZus{}c(12/0) = \PYGZbs{}dfrac\PYGZob{}1\PYGZcb{}\PYGZob{}2\PYGZcb{}m\PYGZus{}\PYGZob{}12\PYGZcb{}\PYGZbs{}|\PYGZbs{}vec\PYGZob{}V\PYGZcb{}\PYGZus{}\PYGZob{}C\PYGZbs{}in 12/0\PYGZcb{}\PYGZbs{}|\PYGZca{}2 + \PYGZbs{}dfrac\PYGZob{}1\PYGZcb{}\PYGZob{}2\PYGZcb{}I\PYGZus{}\PYGZob{}12\PYGZcb{}\PYGZbs{}|\PYGZbs{}vec\PYGZob{}\PYGZbs{}Omega\PYGZcb{}\PYGZus{}\PYGZob{}12/0\PYGZcb{}\PYGZbs{}|\PYGZca{}2\PYGZdl{} (axe \PYGZdl{}(C,\PYGZbs{}vec\PYGZob{}Z\PYGZcb{})\PYGZdl{} équilibré)}
+
+\PYG{x}{Par composition des vecteurs vitesses et taux de rotation :}
+\PYG{x}{\PYGZbs{}begin\PYGZob{}align*\PYGZcb{}}
+\PYG{x}{\PYGZbs{}vec\PYGZob{}\PYGZbs{}Omega\PYGZcb{}\PYGZus{}\PYGZob{}12/0\PYGZcb{} \PYGZam{}= \PYGZbs{}vec\PYGZob{}\PYGZbs{}Omega\PYGZcb{}\PYGZus{}\PYGZob{}12/10\PYGZcb{} + \PYGZbs{}vec\PYGZob{}\PYGZbs{}Omega\PYGZcb{}\PYGZus{}\PYGZob{}10/0\PYGZcb{} = \PYGZbs{}omega\PYGZus{}\PYGZob{}12\PYGZcb{}\PYGZbs{}vec\PYGZob{}Z\PYGZcb{} = \PYGZbs{}rho\PYGZus{}1 \PYGZbs{}cdot \PYGZbs{}omega\PYGZus{}\PYGZob{}11\PYGZcb{}\PYGZbs{}vec\PYGZob{}Z\PYGZcb{}\PYGZbs{}\PYGZbs{}}
+\PYG{x}{\PYGZbs{}vec\PYGZob{}V\PYGZcb{}\PYGZus{}\PYGZob{}C\PYGZbs{}in 12/0\PYGZcb{} \PYGZam{}= \PYGZbs{}vec\PYGZob{}V\PYGZcb{}\PYGZus{}\PYGZob{}C\PYGZbs{}in 12/10\PYGZcb{} + \PYGZbs{}vec\PYGZob{}V\PYGZcb{}\PYGZus{}\PYGZob{}C\PYGZbs{}in 10/0\PYGZcb{} = V\PYGZus{}x\PYGZbs{}vec\PYGZob{}X\PYGZcb{} = \PYGZbs{}rho\PYGZus{}x \PYGZbs{}cdot \PYGZbs{}omega\PYGZus{}\PYGZob{}11\PYGZcb{}\PYGZbs{}vec\PYGZob{}X\PYGZcb{}}
+\PYG{x}{\PYGZbs{}end\PYGZob{}align*\PYGZcb{}}
+
+\PYG{x}{Alors \PYGZdl{}E\PYGZus{}c(12/0) = \PYGZbs{}dfrac\PYGZob{}1\PYGZcb{}\PYGZob{}2\PYGZcb{}m\PYGZus{}\PYGZob{}12\PYGZcb{} \PYGZbs{}cdot V\PYGZus{}x\PYGZca{}2 + \PYGZbs{}dfrac\PYGZob{}1\PYGZcb{}\PYGZob{}2\PYGZcb{}I\PYGZus{}\PYGZob{}12\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}omega\PYGZus{}\PYGZob{}12\PYGZcb{}\PYGZca{}2 = \PYGZbs{}dfrac\PYGZob{}1\PYGZcb{}\PYGZob{}2\PYGZcb{}(m\PYGZus{}\PYGZob{}12\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}rho\PYGZus{}x\PYGZca{}2 + I\PYGZus{}\PYGZob{}12\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}rho\PYGZus{}1\PYGZca{}2) \PYGZbs{}cdot \PYGZbs{}omega\PYGZus{}\PYGZob{}11\PYGZcb{}\PYGZca{}2\PYGZdl{}}
+
+\PYG{x}{\PYGZbs{}item \PYGZdl{}E\PYGZus{}c(11/0) = \PYGZbs{}dfrac\PYGZob{}1\PYGZcb{}\PYGZob{}2\PYGZcb{}m\PYGZus{}\PYGZob{}11\PYGZcb{}\PYGZbs{}|\PYGZbs{}vec\PYGZob{}V\PYGZcb{}\PYGZus{}\PYGZob{}B\PYGZbs{}in 11/0\PYGZcb{}\PYGZbs{}|\PYGZca{}2 + \PYGZbs{}dfrac\PYGZob{}1\PYGZcb{}\PYGZob{}2\PYGZcb{}I\PYGZus{}\PYGZob{}11\PYGZcb{}\PYGZbs{}|\PYGZbs{}vec\PYGZob{}\PYGZbs{}Omega\PYGZcb{}\PYGZus{}\PYGZob{}11/0\PYGZcb{}\PYGZbs{}|\PYGZca{}2\PYGZdl{}}
+
+\PYG{x}{Par composition des vecteurs vitesses et taux de rotation :}
+\PYG{x}{\PYGZbs{}end\PYGZob{}itemize\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}newpage}
+
+\PYG{x}{\PYGZbs{}begin\PYGZob{}align*\PYGZcb{}}
+\PYG{x}{\PYGZbs{}vec\PYGZob{}\PYGZbs{}Omega\PYGZcb{}\PYGZus{}\PYGZob{}11/0\PYGZcb{} \PYGZam{}= \PYGZbs{}vec\PYGZob{}\PYGZbs{}Omega\PYGZcb{}\PYGZus{}\PYGZob{}11/10\PYGZcb{} + \PYGZbs{}vec\PYGZob{}\PYGZbs{}Omega\PYGZcb{}\PYGZus{}\PYGZob{}10/0\PYGZcb{} = \PYGZbs{}omega\PYGZus{}\PYGZob{}11\PYGZcb{}\PYGZbs{}vec\PYGZob{}Z\PYGZcb{}\PYGZbs{}\PYGZbs{}}
+\PYG{x}{\PYGZbs{}vec\PYGZob{}V\PYGZcb{}\PYGZus{}\PYGZob{}B\PYGZbs{}in 11/0\PYGZcb{} \PYGZam{}= \PYGZbs{}vec\PYGZob{}V\PYGZcb{}\PYGZus{}\PYGZob{}B\PYGZbs{}in 11/10\PYGZcb{} + \PYGZbs{}vec\PYGZob{}V\PYGZcb{}\PYGZus{}\PYGZob{}B\PYGZbs{}in 10/0\PYGZcb{} = V\PYGZus{}x\PYGZbs{}vec\PYGZob{}X\PYGZcb{} = \PYGZbs{}rho\PYGZus{}x\PYGZbs{}omega\PYGZus{}\PYGZob{}11\PYGZcb{}\PYGZbs{}vec\PYGZob{}X\PYGZcb{}}
+\PYG{x}{\PYGZbs{}end\PYGZob{}align*\PYGZcb{}}
+
+\PYG{x}{Soit \PYGZdl{}E\PYGZus{}c(11/0) = \PYGZbs{}dfrac\PYGZob{}1\PYGZcb{}\PYGZob{}2\PYGZcb{}m\PYGZus{}\PYGZob{}11\PYGZcb{} \PYGZbs{}cdot V\PYGZus{}x\PYGZca{}2 + \PYGZbs{}dfrac\PYGZob{}1\PYGZcb{}\PYGZob{}2\PYGZcb{}I\PYGZus{}\PYGZob{}11\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}omega\PYGZus{}\PYGZob{}11\PYGZcb{}\PYGZca{}2 = \PYGZbs{}dfrac\PYGZob{}1\PYGZcb{}\PYGZob{}2\PYGZcb{}(m\PYGZus{}\PYGZob{}11\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}rho\PYGZus{}x\PYGZca{}2 + I\PYGZus{}\PYGZob{}11\PYGZcb{}) \PYGZbs{}cdot \PYGZbs{}omega\PYGZus{}\PYGZob{}11\PYGZcb{}\PYGZca{}2\PYGZdl{}}
+
+\PYG{x}{Alors}
+\PYG{x}{\PYGZdl{}\PYGZdl{}E\PYGZus{}c(E/0) = \PYGZbs{}frac\PYGZob{}1\PYGZcb{}\PYGZob{}2\PYGZcb{}\PYGZbs{}left[(m\PYGZus{}\PYGZob{}10\PYGZcb{} + m\PYGZus{}\PYGZob{}11\PYGZcb{} + m\PYGZus{}\PYGZob{}12\PYGZcb{} + m\PYGZus{}\PYGZob{}13\PYGZcb{} + m\PYGZus{}\PYGZob{}20\PYGZcb{} + m\PYGZus{}\PYGZob{}30\PYGZcb{}) \PYGZbs{}cdot \PYGZbs{}rho\PYGZus{}x\PYGZca{}2 + I\PYGZus{}\PYGZob{}12\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}rho\PYGZus{}1\PYGZca{}2 + I\PYGZus{}\PYGZob{}11\PYGZcb{}\PYGZbs{}right] \PYGZbs{}cdot \PYGZbs{}omega\PYGZus{}\PYGZob{}11\PYGZcb{}\PYGZca{}2\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{Donc on a bien \PYGZdl{}E\PYGZus{}c(E/0) = \PYGZbs{}dfrac\PYGZob{}1\PYGZcb{}\PYGZob{}2\PYGZcb{}J\PYGZus{}\PYGZob{}1eq\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}omega\PYGZus{}\PYGZob{}11\PYGZcb{}\PYGZca{}2\PYGZdl{} avec}
+\PYG{x}{\PYGZdl{}\PYGZdl{}J\PYGZus{}\PYGZob{}1eq\PYGZcb{} = (m\PYGZus{}\PYGZob{}10\PYGZcb{} + m\PYGZus{}\PYGZob{}11\PYGZcb{} + m\PYGZus{}\PYGZob{}12\PYGZcb{} + m\PYGZus{}\PYGZob{}13\PYGZcb{} + m\PYGZus{}\PYGZob{}20\PYGZcb{} + m\PYGZus{}\PYGZob{}30\PYGZcb{}) \PYGZbs{}cdot \PYGZbs{}rho\PYGZus{}x\PYGZca{}2 + I\PYGZus{}\PYGZob{}12\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}rho\PYGZus{}1\PYGZca{}2 + I\PYGZus{}\PYGZob{}11\PYGZcb{}\PYGZdl{}\PYGZdl{}\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}On isole \PYGZdl{}E\PYGZdl{} :}
+
+\PYG{x}{BAME : \PYGZdl{}\PYGZbs{}\PYGZob{}\PYGZbs{}mathcal\PYGZob{}T\PYGZcb{}\PYGZus{}\PYGZob{}\PYGZbs{}text\PYGZob{}mot\PYGZcb{}\PYGZbs{}to 1\PYGZcb{}\PYGZbs{}\PYGZcb{} = \PYGZbs{}left\PYGZbs{}\PYGZob{}\PYGZbs{}begin\PYGZob{}array\PYGZcb{}\PYGZob{}c\PYGZcb{}\PYGZbs{}vec\PYGZob{}0\PYGZcb{}\PYGZbs{}\PYGZbs{} C\PYGZus{}m\PYGZbs{}vec\PYGZob{}Z\PYGZcb{}\PYGZbs{}end\PYGZob{}array\PYGZcb{}\PYGZbs{}right\PYGZbs{}\PYGZcb{}\PYGZus{}\PYGZhy{}\PYGZdl{}}
+
+\PYG{x}{Puissances extérieures :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}P\PYGZus{}\PYGZob{}\PYGZbs{}text\PYGZob{}mot\PYGZcb{}\PYGZbs{}to 11/0\PYGZcb{} = \PYGZbs{}\PYGZob{}\PYGZbs{}mathcal\PYGZob{}V\PYGZcb{}\PYGZus{}\PYGZob{}11/0\PYGZcb{}\PYGZbs{}\PYGZcb{} \PYGZbs{}otimes \PYGZbs{}\PYGZob{}\PYGZbs{}mathcal\PYGZob{}T\PYGZcb{}\PYGZus{}\PYGZob{}\PYGZbs{}text\PYGZob{}mot\PYGZcb{}\PYGZbs{}to 11\PYGZcb{}\PYGZbs{}\PYGZcb{} = \PYGZbs{}left\PYGZbs{}\PYGZob{}\PYGZbs{}begin\PYGZob{}array\PYGZcb{}\PYGZob{}c\PYGZcb{}\PYGZbs{}omega\PYGZus{}\PYGZob{}11\PYGZcb{}\PYGZbs{}vec\PYGZob{}Z\PYGZcb{}\PYGZbs{}\PYGZbs{} v\PYGZus{}x\PYGZbs{}vec\PYGZob{}X\PYGZcb{}\PYGZbs{}end\PYGZob{}array\PYGZcb{}\PYGZbs{}right\PYGZbs{}\PYGZcb{}\PYGZus{}B \PYGZbs{}otimes \PYGZbs{}left\PYGZbs{}\PYGZob{}\PYGZbs{}begin\PYGZob{}array\PYGZcb{}\PYGZob{}c\PYGZcb{}\PYGZbs{}vec\PYGZob{}0\PYGZcb{}\PYGZbs{}\PYGZbs{} C\PYGZus{}m\PYGZbs{}vec\PYGZob{}Z\PYGZcb{}\PYGZbs{}end\PYGZob{}array\PYGZcb{}\PYGZbs{}right\PYGZbs{}\PYGZcb{}\PYGZus{}\PYGZhy{} = C\PYGZus{}m \PYGZbs{}cdot \PYGZbs{}omega\PYGZus{}\PYGZob{}11\PYGZcb{}\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{Les liaisons étant parfaites, les puissances des inter\PYGZhy{}efforts sont nulles}
+
+\PYG{x}{En appliquant le TEC :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}\PYGZbs{}frac\PYGZob{}dE\PYGZus{}c(E/0)\PYGZcb{}\PYGZob{}dt\PYGZcb{} = P\PYGZus{}\PYGZob{}\PYGZbs{}text\PYGZob{}mot\PYGZcb{}\PYGZbs{}to 11/0\PYGZcb{} \PYGZbs{}Longrightarrow J\PYGZus{}\PYGZob{}1eq\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}dot\PYGZob{}\PYGZbs{}omega\PYGZcb{}\PYGZus{}\PYGZob{}11\PYGZcb{} = C\PYGZus{}m\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{Or \PYGZdl{}\PYGZbs{}dot\PYGZob{}\PYGZbs{}omega\PYGZcb{}\PYGZus{}\PYGZob{}11\PYGZcb{} = \PYGZbs{}dfrac\PYGZob{}\PYGZbs{}dot\PYGZob{}v\PYGZcb{}\PYGZus{}x\PYGZcb{}\PYGZob{}\PYGZbs{}rho\PYGZus{}x\PYGZcb{} = \PYGZbs{}dfrac\PYGZob{}a\PYGZus{}\PYGZob{}\PYGZbs{}max\PYGZcb{}\PYGZcb{}\PYGZob{}\PYGZbs{}rho\PYGZus{}x\PYGZcb{}\PYGZdl{}}
+
+\PYG{x}{Donc}
+\PYG{x}{\PYGZdl{}\PYGZdl{}C\PYGZus{}m = \PYGZbs{}frac\PYGZob{}J\PYGZus{}\PYGZob{}1eq\PYGZcb{}\PYGZcb{}\PYGZob{}\PYGZbs{}rho\PYGZus{}x\PYGZcb{} \PYGZbs{}cdot a\PYGZus{}\PYGZob{}\PYGZbs{}max\PYGZcb{}\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{\PYGZbs{}textbf\PYGZob{}Application numérique :\PYGZcb{} \PYGZdl{}C\PYGZus{}m \PYGZbs{}simeq 1\PYGZob{},\PYGZcb{}6\PYGZdl{} N\PYGZdl{}\PYGZbs{}cdot\PYGZdl{}m}
+
+\PYG{x}{On a ainsi \PYGZdl{}C\PYGZus{}m \PYGZlt{} 3\PYGZob{},\PYGZcb{}93\PYGZdl{} N\PYGZdl{}\PYGZbs{}cdot\PYGZdl{}m. Le moteur choisi est donc bon sans considérer les pertes, voire surdimensionné car on est deux fois plus faible que le couple nominal.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}}
+\PYG{x}{\PYGZbs{}centering}
+\PYG{x}{\PYGZbs{}includegraphics[width=0.8\PYGZbs{}textwidth]\PYGZob{}img/dr21\PYGZcb{}}
+\PYG{x}{\PYGZcb{}\PYGZob{}En assimilant le couple à sa valeur approchée, tracer sur la figure B du document réponse, l\PYGZsq{}allure de la puissance délivrée par le moteur. Déduire de ce relevé la nécessité d\PYGZsq{}un module de dissipation au niveau des variateurs des machines synchrones (figure 9).}
+
+\PYG{x}{\PYGZbs{}centering}
+\PYG{x}{\PYGZbs{}includegraphics[width=0.8\PYGZbs{}textwidth]\PYGZob{}img/dr21\PYGZus{}cor\PYGZcb{}}
+
+\PYG{x}{Dans le cas des freinages, le moteur passe en génératrice (puissance négative). Il est donc nécessaire de dissiper cette puissance à l\PYGZsq{}aide d\PYGZsq{}un module de dissipation.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}En considérant que le cycle précédant se reproduise en permanence, estimer la puissance crête et la puissance moyenne que doit présenter la résistance de dissipation. Le constructeur du variateur préconise une résistance de 39 \PYGZdl{}\PYGZbs{}Omega\PYGZdl{} (référence R90W39R) de puissance nominale 90 W et de puissance crête de 3 kW. Valider la référence préconisée.}
+
+\PYG{x}{D\PYGZsq{}après le tracé, la puissance crête vaut lors du freinage \PYGZdl{}P\PYGZus{}\PYGZob{}cr\PYGZcb{} \PYGZbs{}simeq 220\PYGZdl{} W (la puissance crête correspondant au maximum de puissance atteint lors de la phase de freinage).}
+
+\PYG{x}{Pour la puissance moyenne, au vu des allures de la puissance :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}P\PYGZus{}\PYGZob{}moy\PYGZcb{} \PYGZbs{}simeq 293 \PYGZbs{}times \PYGZbs{}frac\PYGZob{}1\PYGZob{},\PYGZcb{}2\PYGZcb{}\PYGZob{}2\PYGZcb{} \PYGZhy{} 183 \PYGZbs{}times \PYGZbs{}frac\PYGZob{}1\PYGZob{},\PYGZcb{}2\PYGZcb{}\PYGZob{}2\PYGZcb{} = (293 \PYGZhy{} 183) \PYGZbs{}times 0\PYGZob{},\PYGZcb{}6\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{Donc \PYGZdl{}P\PYGZus{}\PYGZob{}moy\PYGZcb{} \PYGZbs{}simeq 66\PYGZdl{} W}
+
+\PYG{x}{On a alors 3 kW \PYGZdl{}\PYGZgt{} 220\PYGZdl{} W et 90 W \PYGZdl{}\PYGZgt{} 66\PYGZdl{} W. Donc la résistance préconisée conviendra. D\PYGZsq{}autant plus que les frottements et autres pertes iront dans le même sens de dissipation.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}Identifier les différentes boucles présentes dans la structure de la figure 16. Déterminer sur quelle grandeur mécanique agit le bloc de limitation de courant.}
+
+\PYG{x}{On a trois boucles :}
+\PYG{x}{\PYGZbs{}begin\PYGZob{}itemize\PYGZcb{}}
+\PYG{x}{\PYGZbs{}item une boucle de courant ;}
+\PYG{x}{\PYGZbs{}item une boucle de vitesse ;}
+\PYG{x}{\PYGZbs{}item une boucle de position.}
+\PYG{x}{\PYGZbs{}end\PYGZob{}itemize\PYGZcb{}}
+
+\PYG{x}{Le bloc de limitation de courant va agir sur le couple en sortie du moteur.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}Le deuxième relevé présente une allure non\PYGZhy{}linéaire (saturation) par rapport au premier relevé dont l\PYGZsq{}allure semble linéaire.}
+
+\PYG{x}{Cette non\PYGZhy{}linéarité est due au bloc de limitation du courant qui induit cette saturation.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}D\PYGZsq{}après le premier relevé de la figure 17, on a à régime permanent pour une consigne \PYGZdl{}N\PYGZus{}c = 300\PYGZdl{} tr\PYGZdl{}\PYGZbs{}cdot\PYGZdl{}min\PYGZdl{}\PYGZca{}\PYGZob{}\PYGZhy{}1\PYGZcb{}\PYGZdl{} :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}N\PYGZus{}\PYGZob{}m,\PYGZbs{}infty\PYGZcb{} = 300\PYGZti{}\PYGZbs{}text\PYGZob{}tr\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}text\PYGZob{}min\PYGZcb{}\PYGZca{}\PYGZob{}\PYGZhy{}1\PYGZcb{}\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{On a donc \PYGZdl{}K = \PYGZbs{}dfrac\PYGZob{}N\PYGZus{}\PYGZob{}m,\PYGZbs{}infty\PYGZcb{}\PYGZcb{}\PYGZob{}N\PYGZus{}c\PYGZcb{} = \PYGZbs{}dfrac\PYGZob{}\PYGZbs{}omega\PYGZus{}\PYGZob{}m,\PYGZbs{}infty\PYGZcb{}\PYGZcb{}\PYGZob{}\PYGZbs{}omega\PYGZus{}c\PYGZcb{} = 1\PYGZdl{}.}
+
+\PYG{x}{A l\PYGZsq{}aide de 3 méthodes, on peut identifier la constante de temps \PYGZdl{}\PYGZbs{}tau\PYGZdl{} :}
+\PYG{x}{\PYGZbs{}begin\PYGZob{}itemize\PYGZcb{}}
+\PYG{x}{\PYGZbs{}item à l\PYGZsq{}aide du temps de réponse à 5\PYGZbs{}\PYGZpc{} : \PYGZdl{}t\PYGZus{}\PYGZob{}5\PYGZbs{}\PYGZpc{}\PYGZcb{} \PYGZbs{}simeq 70\PYGZdl{} ms \PYGZdl{}\PYGZbs{}Longrightarrow \PYGZbs{}tau = \PYGZbs{}dfrac\PYGZob{}t\PYGZus{}\PYGZob{}5\PYGZbs{}\PYGZpc{}\PYGZcb{}\PYGZcb{}\PYGZob{}3\PYGZcb{} \PYGZbs{}simeq 23\PYGZob{},\PYGZcb{}3\PYGZdl{} ms ;}
+\PYG{x}{\PYGZbs{}item à l\PYGZsq{}aide de la tangente à l\PYGZsq{}origine : \PYGZdl{}\PYGZbs{}tau \PYGZbs{}simeq 26\PYGZob{},\PYGZcb{}6\PYGZdl{} ms ;}
+\PYG{x}{\PYGZbs{}item sur la réponse à 63\PYGZbs{}\PYGZpc{} de celle en régime permanent : \PYGZdl{}\PYGZbs{}tau \PYGZbs{}simeq 20\PYGZdl{} ms.}
+\PYG{x}{\PYGZbs{}end\PYGZob{}itemize\PYGZcb{}}
+
+\PYG{x}{En prenant la moyenne : \PYGZdl{}\PYGZbs{}tau \PYGZbs{}simeq 23\PYGZob{},\PYGZcb{}3\PYGZdl{} ms\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}D\PYGZsq{}après le tableau 3, le codeur délivre 10\PYGZti{}000 points par tour soit :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}K\PYGZus{}\PYGZob{}\PYGZbs{}text\PYGZob{}cod\PYGZcb{}\PYGZcb{} = \PYGZbs{}frac\PYGZob{}10000\PYGZcb{}\PYGZob{}2\PYGZbs{}pi\PYGZcb{} \PYGZbs{}simeq 1592\PYGZti{}\PYGZbs{}text\PYGZob{}points\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}text\PYGZob{}rad\PYGZcb{}\PYGZca{}\PYGZob{}\PYGZhy{}1\PYGZcb{}\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{Pour assurer un bon asservissement, on doit avoir un écart \PYGZdl{}\PYGZbs{}varepsilon(p) = X\PYGZus{}c(p) \PYGZhy{} X(p) = 0\PYGZdl{} lorsque \PYGZdl{}X\PYGZus{}c(p) = X(p)\PYGZdl{} soit}
+
+\PYG{x}{\PYGZdl{}\PYGZdl{}\PYGZbs{}varepsilon(p) = A \PYGZbs{}cdot X\PYGZus{}c(p) \PYGZhy{} K\PYGZus{}\PYGZob{}\PYGZbs{}text\PYGZob{}cod\PYGZcb{}\PYGZcb{} \PYGZbs{}cdot \PYGZbs{}frac\PYGZob{}X(p)\PYGZcb{}\PYGZob{}\PYGZbs{}rho\PYGZus{}x\PYGZcb{} = 0 \PYGZbs{}text\PYGZob{} pour \PYGZcb{} X\PYGZus{}c(p) = X(p)\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{\PYGZdl{}\PYGZdl{}\PYGZbs{}Longrightarrow A = \PYGZbs{}frac\PYGZob{}K\PYGZus{}\PYGZob{}\PYGZbs{}text\PYGZob{}cod\PYGZcb{}\PYGZcb{}\PYGZcb{}\PYGZob{}\PYGZbs{}rho\PYGZus{}x\PYGZcb{}\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{\PYGZbs{}textbf\PYGZob{}Application numérique :\PYGZcb{} \PYGZdl{}A \PYGZbs{}simeq 1\PYGZob{},\PYGZcb{}6 \PYGZbs{}times 10\PYGZca{}5\PYGZdl{} points\PYGZdl{}\PYGZbs{}cdot\PYGZdl{}m\PYGZdl{}\PYGZca{}\PYGZob{}\PYGZhy{}1\PYGZcb{}\PYGZdl{}\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}La résolution du codeur vaut}
+
+\PYG{x}{\PYGZbs{}newpage}
+
+\PYG{x}{\PYGZdl{}\PYGZdl{}\PYGZbs{}Delta\PYGZbs{}theta = \PYGZbs{}frac\PYGZob{}1\PYGZcb{}\PYGZob{}K\PYGZus{}\PYGZob{}\PYGZbs{}text\PYGZob{}cod\PYGZcb{}\PYGZcb{}\PYGZcb{} \PYGZbs{}Longrightarrow \PYGZbs{}Delta\PYGZbs{}theta \PYGZbs{}simeq 6\PYGZob{},\PYGZcb{}3 \PYGZbs{}times 10\PYGZca{}\PYGZob{}\PYGZhy{}4\PYGZcb{}\PYGZti{}\PYGZbs{}text\PYGZob{}rad\PYGZcb{}\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{Ce codeur permettra donc de voir un déplacement :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}\PYGZbs{}Delta x = \PYGZbs{}rho\PYGZus{}x \PYGZbs{}cdot \PYGZbs{}Delta\PYGZbs{}theta\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{Soit \PYGZdl{}\PYGZbs{}Delta x \PYGZbs{}simeq 6\PYGZob{},\PYGZcb{}3\PYGZti{}\PYGZbs{}mu\PYGZdl{}m \PYGZdl{}\PYGZlt{} 0\PYGZob{},\PYGZcb{}5\PYGZdl{} mm. Cette résolution est donc bien compatible avec les exigences de précision demandée.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}D\PYGZsq{}après le schéma\PYGZhy{}bloc : \PYGZdl{}\PYGZbs{}text\PYGZob{}FTBO\PYGZcb{}(p) = C(p) \PYGZbs{}cdot H(p) \PYGZbs{}cdot \PYGZbs{}dfrac\PYGZob{}1\PYGZcb{}\PYGZob{}p\PYGZcb{} \PYGZbs{}cdot K\PYGZus{}\PYGZob{}\PYGZbs{}text\PYGZob{}cod\PYGZcb{}\PYGZcb{}\PYGZdl{}}
+
+\PYG{x}{Donc}
+\PYG{x}{\PYGZdl{}\PYGZdl{}\PYGZbs{}text\PYGZob{}FTBO\PYGZcb{}(p) = \PYGZbs{}frac\PYGZob{}K\PYGZus{}p \PYGZbs{}cdot K\PYGZus{}\PYGZob{}\PYGZbs{}text\PYGZob{}cod\PYGZcb{}\PYGZcb{}\PYGZcb{}\PYGZob{}p \PYGZbs{}cdot (1 + \PYGZbs{}tau \PYGZbs{}cdot p)\PYGZcb{}\PYGZdl{}\PYGZdl{}\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}Le tableau des exigences exige une marge de phase \PYGZdl{}M\PYGZus{}\PYGZob{}\PYGZbs{}varphi\PYGZcb{} \PYGZbs{}geq 45°\PYGZdl{}. Pour respecter cette exigence, on va se placer à la marge limite c\PYGZsq{}est\PYGZhy{}à\PYGZhy{}dire \PYGZdl{}M\PYGZus{}\PYGZob{}\PYGZbs{}varphi\PYGZcb{} = 45°\PYGZdl{}.}
+
+\PYG{x}{Pour garantir une marge de phase de 45°, il faut donc d\PYGZsq{}après la figure C, baisser la courbe de gain de 27,5 dB soit :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}20 \PYGZbs{}cdot \PYGZbs{}log K\PYGZus{}p \PYGZbs{}simeq \PYGZhy{}27\PYGZob{},\PYGZcb{}5 \PYGZbs{}Longrightarrow K\PYGZus{}p \PYGZbs{}simeq 10\PYGZca{}\PYGZob{}\PYGZhy{}\PYGZbs{}frac\PYGZob{}27\PYGZob{},\PYGZcb{}5\PYGZcb{}\PYGZob{}20\PYGZcb{}\PYGZcb{} \PYGZbs{}simeq 4\PYGZob{},\PYGZcb{}2 \PYGZbs{}times 10\PYGZca{}\PYGZob{}\PYGZhy{}2\PYGZcb{}\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{\PYGZbs{}textbf\PYGZob{}Remarque :\PYGZcb{} la valeur donnée pour \PYGZdl{}K\PYGZus{}1\PYGZdl{} correspond à un réglage de \PYGZdl{}M\PYGZus{}\PYGZob{}\PYGZbs{}varphi\PYGZcb{}\PYGZdl{} à 90°.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}Par le théorème de la valeur finale :}
+\PYG{x}{\PYGZbs{}begin\PYGZob{}align*\PYGZcb{}}
+\PYG{x}{\PYGZbs{}Delta x\PYGZus{}v \PYGZam{}= \PYGZbs{}lim\PYGZus{}\PYGZob{}p\PYGZbs{}to 0\PYGZcb{}p \PYGZbs{}cdot \PYGZbs{}mu(p)\PYGZbs{}\PYGZbs{}}
+\PYG{x}{\PYGZam{}= \PYGZbs{}lim\PYGZus{}\PYGZob{}p\PYGZbs{}to 0\PYGZcb{}p \PYGZbs{}cdot (X\PYGZus{}c(p) \PYGZhy{} X(p))}
+\PYG{x}{\PYGZbs{}end\PYGZob{}align*\PYGZcb{}}
+
+\PYG{x}{Or \PYGZdl{}X(p) = \PYGZbs{}text\PYGZob{}FTBF\PYGZcb{}(p) \PYGZbs{}cdot X\PYGZus{}c(p)\PYGZdl{} avec}
+\PYG{x}{\PYGZdl{}\PYGZdl{}\PYGZbs{}text\PYGZob{}FTBF\PYGZcb{}(p) = \PYGZbs{}frac\PYGZob{}\PYGZbs{}frac\PYGZob{}K\PYGZus{}1\PYGZcb{}\PYGZob{}p \PYGZbs{}cdot (1 + \PYGZbs{}tau \PYGZbs{}cdot p)\PYGZcb{}\PYGZcb{}\PYGZob{}1 + \PYGZbs{}frac\PYGZob{}K\PYGZus{}1\PYGZcb{}\PYGZob{}p \PYGZbs{}cdot (1 + \PYGZbs{}tau \PYGZbs{}cdot p)\PYGZcb{}\PYGZcb{} = \PYGZbs{}frac\PYGZob{}K\PYGZus{}1\PYGZcb{}\PYGZob{}K\PYGZus{}1 + p + \PYGZbs{}tau \PYGZbs{}cdot p\PYGZca{}2\PYGZcb{}\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{Soit}
+\PYG{x}{\PYGZbs{}begin\PYGZob{}align*\PYGZcb{}}
+\PYG{x}{\PYGZbs{}Delta x\PYGZus{}v \PYGZam{}= \PYGZbs{}lim\PYGZus{}\PYGZob{}p\PYGZbs{}to 0\PYGZcb{}\PYGZbs{}left(1 \PYGZhy{} \PYGZbs{}text\PYGZob{}FTBF\PYGZcb{}(p)\PYGZbs{}right) \PYGZbs{}cdot \PYGZbs{}frac\PYGZob{}V\PYGZus{}x\PYGZcb{}\PYGZob{}p\PYGZcb{}\PYGZbs{}\PYGZbs{}}
+\PYG{x}{\PYGZam{}= \PYGZbs{}lim\PYGZus{}\PYGZob{}p\PYGZbs{}to 0\PYGZcb{}\PYGZbs{}frac\PYGZob{}1 + \PYGZbs{}tau \PYGZbs{}cdot p\PYGZcb{}\PYGZob{}K\PYGZus{}1 + p + \PYGZbs{}tau \PYGZbs{}cdot p\PYGZca{}2\PYGZcb{} \PYGZbs{}cdot V\PYGZus{}x}
+\PYG{x}{\PYGZbs{}end\PYGZob{}align*\PYGZcb{}}
+
+\PYG{x}{Donc}
+\PYG{x}{\PYGZdl{}\PYGZdl{}\PYGZbs{}Delta x\PYGZus{}v = \PYGZbs{}frac\PYGZob{}V\PYGZus{}x\PYGZcb{}\PYGZob{}K\PYGZus{}1\PYGZcb{}\PYGZdl{}\PYGZdl{}\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}On a d\PYGZsq{}après la question précédente \PYGZdl{}\PYGZbs{}Delta x\PYGZus{}v \PYGZbs{}simeq 36\PYGZdl{} mm \PYGZdl{}\PYGZlt{} 50\PYGZdl{} mm.}
+
+\PYG{x}{Ainsi, le système est capable de suivre les lois d\PYGZsq{}évolution de position en translation, en prenant en compte les exigences du tableau de la figure 2.}
+
+\PYG{x}{Sur l\PYGZsq{}erreur statique, cette dernière sera nulle car la \PYGZdl{}\PYGZbs{}text\PYGZob{}FTBO\PYGZcb{}(p)\PYGZdl{} est de classe 1. Ces résultats respectent l\PYGZsq{}exigence de précision sur l\PYGZsq{}erreur pour une consigne en échelon.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}Choix de calcul :}
+\PYG{x}{\PYGZbs{}begin\PYGZob{}itemize\PYGZcb{}}
+\PYG{x}{\PYGZbs{}item état E3 : pour les états composites « Positionnement boîtes » et « Alignement boîtes sur rangée », on prend le temps le plus long ;}
+\PYG{x}{\PYGZbs{}item état E4 : pour l\PYGZsq{}entraînement du tapis, la durée n\PYGZsq{}étant pas indiquée on prend un temps nul.}
+\PYG{x}{\PYGZbs{}end\PYGZob{}itemize\PYGZcb{}\PYGZcb{}}
+
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}}
+\PYG{x}{\PYGZbs{}begin\PYGZob{}table\PYGZcb{}[h]}
+\PYG{x}{\PYGZbs{}centering}
+\PYG{x}{\PYGZbs{}begin\PYGZob{}tabular\PYGZcb{}\PYGZob{}|c|c|c|c|c|c|c|c|c|c|\PYGZcb{}}
+\PYG{x}{\PYGZbs{}hline}
+\PYG{x}{\PYGZbs{}textbf\PYGZob{}Etat\PYGZcb{} \PYGZam{} E1 \PYGZam{} E2 \PYGZam{} E3 \PYGZam{} E1 \PYGZam{} E2 \PYGZam{} E1 \PYGZam{} E2 \PYGZam{} E1 \PYGZam{} E4 \PYGZbs{}\PYGZbs{}}
+\PYG{x}{\PYGZbs{}hline}
+\PYG{x}{\PYGZbs{}textbf\PYGZob{}position\PYGZcb{} \PYGZam{} \PYGZbs{}begin\PYGZob{}tabular\PYGZcb{}\PYGZob{}c\PYGZcb{}délivrance\PYGZbs{}\PYGZbs{}\PYGZdl{}\PYGZbs{}to\PYGZdl{} pos1\PYGZbs{}end\PYGZob{}tabular\PYGZcb{} \PYGZam{} pos1 \PYGZam{} pos1 \PYGZam{} \PYGZbs{}begin\PYGZob{}tabular\PYGZcb{}\PYGZob{}c\PYGZcb{}pos1\PYGZbs{}\PYGZbs{}\PYGZdl{}\PYGZbs{}to\PYGZdl{} pos2\PYGZbs{}end\PYGZob{}tabular\PYGZcb{} \PYGZam{} pos2 \PYGZam{} \PYGZbs{}begin\PYGZob{}tabular\PYGZcb{}\PYGZob{}c\PYGZcb{}pos2\PYGZbs{}\PYGZbs{}\PYGZdl{}\PYGZbs{}to\PYGZdl{} pos3\PYGZbs{}end\PYGZob{}tabular\PYGZcb{} \PYGZam{} pos3 \PYGZam{} \PYGZbs{}begin\PYGZob{}tabular\PYGZcb{}\PYGZob{}c\PYGZcb{}pos3 \PYGZdl{}\PYGZbs{}to\PYGZdl{}\PYGZbs{}\PYGZbs{}délivrance\PYGZbs{}end\PYGZob{}tabular\PYGZcb{} \PYGZam{} délivrance \PYGZbs{}\PYGZbs{}}
+\PYG{x}{\PYGZbs{}hline}
+\PYG{x}{\PYGZbs{}textbf\PYGZob{}i\PYGZcb{} \PYGZam{} 1 \PYGZam{} 1 \PYGZam{} 1 \PYGZam{} 2 \PYGZam{} 2 \PYGZam{} 3 \PYGZam{} 3 \PYGZam{} 4 \PYGZam{} 4 \PYGZbs{}\PYGZbs{}}
+\PYG{x}{\PYGZbs{}hline}
+\PYG{x}{\PYGZbs{}textbf\PYGZob{}Durée (s)\PYGZcb{} \PYGZam{} 2 \PYGZam{} 4,5 \PYGZam{} 4 \PYGZam{} 1,4 \PYGZam{} 4,5 \PYGZam{} 2,5 \PYGZam{} 4,5 \PYGZam{} 2 \PYGZam{} 3 \PYGZbs{}\PYGZbs{}}
+\PYG{x}{\PYGZbs{}hline}
+\PYG{x}{\PYGZbs{}end\PYGZob{}tabular\PYGZcb{}}
+\PYG{x}{\PYGZbs{}end\PYGZob{}table\PYGZcb{}\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}Soit pour la tête EUCLID3D un temps de délivrance :}
+\PYG{x}{\PYGZdl{}\PYGZdl{}\PYGZbs{}Delta t\PYGZus{}\PYGZob{}\PYGZbs{}text\PYGZob{}délivrance\PYGZcb{}\PYGZcb{} = 2 + 4\PYGZob{},\PYGZcb{}5 + 4 + 1\PYGZob{},\PYGZcb{}4 + 4\PYGZob{},\PYGZcb{}5 + 2\PYGZob{},\PYGZcb{}5 + 4\PYGZob{},\PYGZcb{}5 + 2 + 3 \PYGZbs{}Longrightarrow \PYGZbs{}Delta t\PYGZus{}\PYGZob{}\PYGZbs{}text\PYGZob{}délivrance\PYGZcb{}\PYGZcb{} = 28\PYGZob{},\PYGZcb{}4\PYGZti{}\PYGZbs{}text\PYGZob{}s\PYGZcb{}\PYGZdl{}\PYGZdl{}}
+
+\PYG{x}{Soit un gain de temps de \PYGZdl{}34\PYGZob{},\PYGZcb{}8 \PYGZhy{} 28\PYGZob{},\PYGZcb{}4 = 6\PYGZob{},\PYGZcb{}4\PYGZdl{} s par rapport à la tête SLIM.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}}
+\PYG{x}{\PYGZbs{}centering}
+\PYG{x}{\PYGZbs{}includegraphics[width=0.9\PYGZbs{}textwidth]\PYGZob{}img/dr35.png\PYGZcb{}}
+\PYG{x}{\PYGZcb{}\PYGZob{}Il faut de l\PYGZsq{}énergie pour mettre en mouvement le robot que ce soit pour avancer et reculer selon l\PYGZsq{}axe X et selon l\PYGZsq{}axe Z, sachant qu\PYGZsq{}il n\PYGZsq{}y a pas de recharge ou de récupération d\PYGZsq{}énergie lors des décélérations.}
+
+\PYG{x}{\PYGZbs{}centering}
+\PYG{x}{\PYGZbs{}includegraphics[width=0.9\PYGZbs{}textwidth]\PYGZob{}img/dr35\PYGZus{}cor.png\PYGZcb{}}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}A la fin de la simulation pour la tête EUCLID3D, le robot a consommé environ 1300 J, contre environ 1943 J pour la tête SLIM.}
+
+\PYG{x}{L\PYGZsq{}utilisation de la tête EUCLID3D permet donc un gain énergétique de 643 J par rapport à la tête SLIM.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}L\PYGZsq{}amplitude du mouvement de l\PYGZsq{}axe Thêta est d\PYGZsq{}environ de \PYGZdl{}\PYGZbs{}pi\PYGZdl{} radians, soit une rotation de 180°. Cette amplitude observée est cohérente car les magasins A et B sont face\PYGZhy{}à\PYGZhy{}face d\PYGZsq{}après la figure 1.}
+
+\PYG{x}{Sur les courbes, on trouve une vitesse maximale de l\PYGZsq{}axe Thêta d\PYGZsq{}environ 1,75 rad\PYGZdl{}\PYGZbs{}cdot\PYGZdl{}s\PYGZdl{}\PYGZca{}\PYGZob{}\PYGZhy{}1\PYGZcb{}\PYGZdl{} soit environ 100°\PYGZdl{}\PYGZbs{}cdot\PYGZdl{}s\PYGZdl{}\PYGZca{}\PYGZob{}\PYGZhy{}1\PYGZcb{}\PYGZdl{}. Ce qui respecte donc l\PYGZsq{}exigence de vitesse maximale selon cet axe.}
+
+\PYG{x}{Pour l\PYGZsq{}accélération angulaire, en approximant une montée de vitesse linéaire, on obtient une accélération d\PYGZsq{}environ \PYGZdl{}\PYGZbs{}dfrac\PYGZob{}1\PYGZob{},\PYGZcb{}75\PYGZcb{}\PYGZob{}0\PYGZob{},\PYGZcb{}25\PYGZcb{} = 7\PYGZdl{} rad\PYGZdl{}\PYGZbs{}cdot\PYGZdl{}s\PYGZdl{}\PYGZca{}\PYGZob{}\PYGZhy{}2\PYGZcb{}\PYGZdl{} soit 401°\PYGZdl{}\PYGZbs{}cdot\PYGZdl{}s\PYGZdl{}\PYGZca{}\PYGZob{}\PYGZhy{}2\PYGZcb{}\PYGZdl{}. Cette accélération respecte aussi les exigences cinématiques.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}Pour obtenir l\PYGZsq{}équation (III.1), on isole le solide 30 et on applique le théorème du moment dynamique en F et projeté selon \PYGZdl{}\PYGZbs{}vec\PYGZob{}Z\PYGZcb{}\PYGZdl{}.}
+
+\PYG{x}{\PYGZbs{}textbf\PYGZob{}Remarque :\PYGZcb{} Pour obtenir l\PYGZsq{}équation (III.2), on isole l\PYGZsq{}ensemble de solides \PYGZbs{}\PYGZob{}10, 11, 12, 13, 20, 30, 31\PYGZbs{}\PYGZcb{} et on applique le théorème de l\PYGZsq{}énergie cinétique.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}}
+\PYG{x}{\PYGZbs{}centering}
+\PYG{x}{   \PYGZbs{}def\PYGZbs{}svgwidth\PYGZob{}0.8\PYGZbs{}linewidth\PYGZcb{}}
+\PYG{x}{   \PYGZbs{}input\PYGZob{}img/dr39.pdf\PYGZus{}tex\PYGZcb{}}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}reponse\PYGZob{}4\PYGZcb{}\PYGZob{}\PYGZcb{}\PYGZob{}Conclure quant à l\PYGZsq{}influence du couplage entre les deux axes sur les performances du robot Sintesi pour satisfaire les exigences de positionnement de l\PYGZsq{}axe Thêta et proposer une solution permettant de limiter la valeur de \PYGZdl{}R\PYGZus{}\PYGZob{}30\PYGZcb{}\PYGZdl{} lors de la conception.}
+
+\PYG{x}{Du fait du couplage, on ne respecte pas l\PYGZsq{}exigence de dépassement minimal de 1° sur l\PYGZsq{}axe Thêta pour \PYGZdl{}R\PYGZus{}\PYGZob{}30\PYGZcb{} = 20\PYGZdl{} cm. Ce couplage a donc une influence non\PYGZhy{}négligeable sur les performances du robot Sintesi.}
+
+\PYG{x}{Pour limiter la valeur de \PYGZdl{}R\PYGZus{}\PYGZob{}30\PYGZcb{}\PYGZdl{} lors de la conception, il serait possible de modifier la répartition de masse du bâti pour positionner le centre d\PYGZsq{}inertie \PYGZdl{}G\PYGZus{}\PYGZob{}30\PYGZcb{}\PYGZdl{} le plus proche possible de l\PYGZsq{}axe Thêta, ou de prévoir un emplacement pour des masselottes marquées afin de contrôler la position de \PYGZdl{}G\PYGZus{}\PYGZob{}30\PYGZcb{}\PYGZdl{} dans le cas de maintenances.\PYGZcb{}}
+
+\PYG{x}{\PYGZbs{}end\PYGZob{}document\PYGZcb{}}
+\end{Verbatim}

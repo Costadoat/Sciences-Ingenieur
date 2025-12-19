@@ -1,0 +1,73 @@
+%% Creator: Inkscape 1.2.2 (b0a8486541, 2022-12-01), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'img/trace_vierge.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{509.44347141bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,1.51692734)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{img/trace_vierge.pdf}}%
+    \put(0.09104248,1.47405555){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$a_x(t)$\end{tabular}}}}%
+    \put(0.99085473,1.20593115){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$t$\end{tabular}}}}%
+    \put(0.45547795,1.21072643){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$t_1$\end{tabular}}}}%
+    \put(0.83404431,1.2107259){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$t_2$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{img/trace_vierge.pdf}}%
+    \put(0.09139153,0.98098738){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$v_x(t)$\end{tabular}}}}%
+    \put(0.07612681,0.51746835){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$x(t)$\end{tabular}}}}%
+    \put(0.99120385,0.58625792){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$t$\end{tabular}}}}%
+    \put(0.45478179,0.58854758){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$t_1$\end{tabular}}}}%
+    \put(0.8333481,0.58854707){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$t_2$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{img/trace_vierge.pdf}}%
+    \put(0.99225087,0.12401087){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$t$\end{tabular}}}}%
+    \put(0.45582886,0.12630053){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$t_1$\end{tabular}}}}%
+    \put(0.83439521,0.12630002){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$t_2$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{img/trace_vierge.pdf}}%
+  \end{picture}%
+\endgroup%

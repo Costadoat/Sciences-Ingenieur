@@ -1,0 +1,80 @@
+%% Creator: Inkscape 1.2.2 (b0a8486541, 2022-12-01), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'img/trace.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{532.87592484bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,1.45022263)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{img/trace.pdf}}%
+    \put(0.13101258,1.40923608){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$a_x(t)$\end{tabular}}}}%
+    \put(0.99125688,1.15290206){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$t$\end{tabular}}}}%
+    \put(0.47942253,1.15748648){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$t_1$\end{tabular}}}}%
+    \put(0.84134197,1.15748597){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$t_2$\end{tabular}}}}%
+    \put(0.03295968,1.33202358){\color[rgb]{1,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$a_1$\end{tabular}}}}%
+    \put(0.02927611,1.07326661){\color[rgb]{1,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$a_2$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{img/trace.pdf}}%
+    \put(0.13134628,0.93784986){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$v_x(t)$\end{tabular}}}}%
+    \put(0.11675281,0.49471342){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$x(t)$\end{tabular}}}}%
+    \put(0.99159065,0.56047807){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$t$\end{tabular}}}}%
+    \put(0.03361942,0.8602624){\color[rgb]{0,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$v_1$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{img/trace.pdf}}%
+    \put(0.47875698,0.56266705){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$t_1$\end{tabular}}}}%
+    \put(0.84067638,0.56266656){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$t_2$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{img/trace.pdf}}%
+    \put(0.99259163,0.11855767){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$t$\end{tabular}}}}%
+    \put(0.03008704,0.42505621){\color[rgb]{0,0.70588235,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$x_2$\end{tabular}}}}%
+    \put(0.03377061,0.29061058){\color[rgb]{0,0.70588235,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$x_1$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{img/trace.pdf}}%
+    \put(0.479758,0.12074665){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$t_1$\end{tabular}}}}%
+    \put(0.84167744,0.12074616){\color[rgb]{0.47843137,0,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$t_2$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{img/trace.pdf}}%
+  \end{picture}%
+\endgroup%
