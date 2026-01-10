@@ -1,0 +1,74 @@
+%% Creator: Inkscape 1.2.2 (b0a8486541, 2022-12-01), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'img/graphe_liaison.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{491.6860617bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.4449226)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{img/Orthobloc/graphe_liaisons.pdf}}%
+    \put(0.83888869,0.27925998){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{img/Orthobloc/graphe_liaisons.pdf}}%
+    \put(0.08962909,0.23666295){\color[rgb]{0.87058824,0.51764706,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}41\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{img/Orthobloc/graphe_liaisons.pdf}}%
+    \put(0.33558984,0.39041085){\color[rgb]{0.6745098,0,0.87058824}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}31\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{img/Orthobloc/graphe_liaisons.pdf}}%
+    \put(0.47573746,0.15964428){\color[rgb]{0,0.18823529,0.87058824}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}43\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{img/Orthobloc/graphe_liaisons.pdf}}%
+    \put(0.72923909,0.02587034){\color[rgb]{1,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}42\end{tabular}}}}%
+    \put(0.52653185,0.38337018){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Pivot (A,$\overrightarrow{z_0}$)\end{tabular}}}}%
+    \put(0.67337877,0.17469961){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Pivot (B,$\overrightarrow{x_0}$)\end{tabular}}}}%
+    \put(0.89524042,0.11655747){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Pivot (C,$\overrightarrow{x_0}$)\end{tabular}}}}%
+    \put(0.39919943,0.29234302){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Pivot (B,$\overrightarrow{z_0}$)\end{tabular}}}}%
+    \put(0.18266819,0.15771699){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Engrenage conique\end{tabular}}}}%
+    \put(0.14151331,0.38214646){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Engrenage droit\end{tabular}}}}%
+    \put(0.46555595,0.06115836){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Engrenage droit\end{tabular}}}}%
+  \end{picture}%
+\endgroup%
