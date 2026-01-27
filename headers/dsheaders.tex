@@ -268,7 +268,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 }
 
 \newcommand\sautpage[1]{
-\multido{}{#1}{~\ \newpage}
+\ifdef{\public}{\multido{}{#1}{~\ \newpage}}
 }
 
 
@@ -314,6 +314,24 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
             \draw (9.7,2.5) node {\large Prénom:};
         \end{tikzpicture}
     \end{center}
+    }
+}
+
+\newcommand{\ecrirenom}
+{	
+
+    \ifdef{\public}{
+    \newpage
+    
+    \begin{center}
+        \begin{tikzpicture} 
+            \draw (0,0) rectangle (8.5,1);
+            \draw (8.5,0) rectangle (17,1);
+            \draw (1,0.5) node {\large NOM:};
+            \draw (9.7,0.5) node {\large Prénom:};
+        \end{tikzpicture}
+    \end{center}
+    
     }
 }
 
