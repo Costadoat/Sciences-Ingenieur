@@ -50,6 +50,8 @@
 \usepackage{gensymb}
 \usepackage[european]{circuitikz}
 \usetikzlibrary{babel}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
 \usepackage{ifthen}
 \usepackage{cancel}
 \usepackage{etoolbox}
@@ -210,6 +212,7 @@
 \newcommand{\question}[1]{\refstepcounter{num_quest}\par
 ~\ \\ \parbox[t][][t]{0.15\linewidth}{\textbf{Question \arabic{num_quest}}}\parbox[t][][t]{0.85\linewidth}{#1}\par
 }
+
 
 \newcommand{\questioncomp}[2]{
 \ifthenelse{\equal{#1}{ana}}{\renewcommand{\competensequestion}{\textcolor{analyserf}{Analyser}}}{

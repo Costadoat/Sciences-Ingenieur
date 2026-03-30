@@ -49,6 +49,7 @@
 \usepackage{varioref}
 \usepackage{tabularx}
 %\usepackage{floatflt}
+\usepackage{float}
 \usepackage{graphics}
 \usepackage{wrapfig}
 \usepackage{textcomp}
@@ -196,6 +197,21 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 \newcommand{\question}[1]{\refstepcounter{num_quest}\par
 ~\ \\ \textbf{Question \arabic{num_quest} : }#1\label{q\the\value{num_quest}}\par
+}
+\usepackage{caption}
+\usepackage{newfloat}
+\DeclareFloatingEnvironment[
+  fileext=lor,
+  listname={Liste des documents réponse},
+  name=DR,
+  placement=htbp,
+]{reponsedoc}
+
+% Style du caption : comme figure, sans trait
+\captionsetup[reponsedoc]{
+  position=bottom,    % titre en bas
+  labelfont=bf,       % "Réponse 1" en gras (comme Figure 1)
+  skip=6pt
 }
 
 \newcommand{\posetafigure}[3]{
