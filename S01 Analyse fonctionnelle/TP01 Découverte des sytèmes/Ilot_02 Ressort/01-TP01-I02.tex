@@ -1,0 +1,108 @@
+\input{../../../headers/tpheaders.tex}
+
+\prob{Déterminer les caractéristiques d'un ressort.} 
+
+\legendeniveaux
+
+\section{Modèle du ressort élastique} 
+
+Dans un premier temps, on considérera que le ressort utilisé dans cette expérience peut être modélisé comme un ressort élastique pur. 
+
+\paragraph{Question 1:} Déterminer la raideur pure d'un ressort qui nécessite un effort de traction $F$ pour s'allonger d'une longueur $\Delta L$. On rappelle que la raideur d'un ressort s'exprime en $N.m^{-1}$.
+
+\mathspure{Dans l'équation $F=K.\Delta L$, isolez $K$ en fonction de $F$ et $\Delta L$.}
+
+\aide{la loi de Hooke relie la force exercée par un ressort élastique pur à son allongement par $F=K.\Delta L$. Isolez $K$ dans cette relation et vérifiez que l'unité obtenue est bien homogène à des $N.m^{-1}$.}
+
+Une masse $m_1$ est suspendue à un ressort de raideur $K$, sa longueur mesurée est $L_1$. Une masse $m_2$ est suspendue à ce ressort (en remplacement de la précédente), sa longueur est maintenant $L_2$.
+
+\paragraph{Question 2:} Déterminer la raideur de ce ressort en fonction de $L_1$, $L_2$, $m_1$ et $m_2$. Prendre toutes les hypothèses nécessaire à la mise en équation du problème. Est-ce que cela vous paraît raisonnable de prendre ces hypothèses ?
+
+\mathspure{Soit le système à deux équations et deux inconnues $a$ et $b$ : $\begin{cases} y_1=a.x_1+b \\ y_2=a.x_2+b \end{cases}$. En soustrayant la deuxième équation à la première, l'inconnue $b$ disparaît. \textbf{Écrivez} l'équation obtenue après cette soustraction, puis \textbf{isolez} $a$ en fonction de $x_1$, $x_2$, $y_1$ et $y_2$.}
+
+\aide{appliquez le principe fondamental de la statique (somme des forces nulle à l'équilibre) à chacune des deux masses. Vous obtenez un système de deux équations à deux inconnues : $K$ et $L_0$ (la longueur à vide du ressort, c'est-à-dire sans masse suspendue). Soustrayez les deux équations pour éliminer $L_0$ et isoler $K$.}
+
+\bonus{à partir du système précédent, exprimez également $L_0$ en fonction de $L_1$, $L_2$, $m_1$ et $m_2$. Que représente physiquement cette grandeur, et comment pourriez-vous la vérifier expérimentalement de façon indépendante ?}
+
+\section{Vérification de la raideur pure d'un ressort}
+
+Il faudra pour la suite mettre en place un protocole de mesure permettant la répétabilité des mesures, il faut donc au préalable effectuer une installation propre et stable du matériel fournis. Il faudra aussi donner la liste et les caractéristiques (sensibilité, plage de mesure,...) du matériel de mesure utilisé.
+
+\paragraph{Question 3:} Suspendre une masse $m_1$ à un ressort et mesurer sa longueur.
+
+\paragraph{Question 4:} Suspendre une masse $m_2$ à un ressort et mesurer sa longueur.
+
+\paragraph{Question 5:} Suspendre une masse $m_3$ à un ressort et mesurer sa longueur.
+
+\subsection{Déterminer le comportement élastique d'un ressort}
+
+\paragraph{Question 6:} A l'aide des résultats expérimentaux et des résultats de la question 2, déterminer la raideur $K$ du ressort.
+
+\mathspure{Un élève mesure trois fois la même grandeur et trouve $5{,}1$ ; $5{,}4$ et $4{,}9$. Calculez la moyenne de ces trois valeurs (rappel : moyenne = somme des valeurs divisée par le nombre de valeurs).}
+
+\aide{avec trois mesures $(m_1,L_1)$, $(m_2,L_2)$ et $(m_3,L_3)$, vous pouvez appliquer la formule de la question 2 à chaque couple de mesures possible (soit 3 valeurs de $K$), puis calculer la moyenne de ces valeurs. Quel est l'intérêt de moyenner plusieurs mesures plutôt que de n'en garder qu'une seule ?}
+
+\section{Modèle du ressort élastique/amortisseur}  
+
+Le modèle du ressort va maintenant évoluer afin de prendre en compte le coefficient d'amortissement du ressort. Pour cela, un fichier python  
+\href{https://github.com/Costadoat/Sciences-Ingenieur/raw/master/S01\%20Analyse\%20fonctionnelle/TP01\%20Mod\%C3\%A9lisation\%20lin\%C3\%A9aire/Ilot_02\%20Ressort/modele_ressort_dyn.py}{\texttt{modele\_ressort\_dyn.py}} doit être ouvert avec le logiciel Spyder. Il permet de tracer le comportement d'un ressort amorti en fonction des paramètres suivants:
+\begin{itemize}
+ \item la durée de la mesure ($s$),
+ \item la raideur du ressort ($N.m^{-1}$),
+ \item la masse suspendue ($kg$),
+ \item le coefficient d'amortissement ($N.m^{-1}.s$).
+\end{itemize}
+
+\paragraph{Question 7:} Définir l'influence de chacun de ces paramètres sur la courbe tracée.
+
+\mathspure{Une fonction $f(t)$ est dite périodique de période $T$ si $f(t+T)=f(t)$ pour tout $t$. Sachant que $f$ a une période $T=4\,s$ et que $f(1)=3$, que vaut $f(5)$ ? Que vaut $f(9)$ ?}
+
+\aide{sur une courbe oscillante amortie, on appelle \textbf{pseudo-période} la durée entre deux passages successifs par un même état (par exemple deux maximums consécutifs), et \textbf{amplitude} l'écart entre la position et sa valeur d'équilibre. Repérez ces deux grandeurs sur les courbes tracées par le script python.}
+
+\bonus{l'équation différentielle du mouvement de la masse $m$ s'écrit $m.\ddot{x}(t)+f.\dot{x}(t)+K.x(t)=0$, où $f$ est le coefficient d'amortissement. En vous appuyant sur votre cours de mathématiques sur les équations différentielles du second ordre, exprimez le discriminant de l'équation caractéristique associée en fonction de $m$, $f$ et $K$, et donnez la condition sur ce discriminant pour observer un régime pseudo-périodique (oscillant amorti).}
+
+\subsection{Mesure de la trajectoire amortie du ressort}
+
+\paragraph{Question 8:} Filmer le mouvement du ressort après avoir lâché la masse (le ressort doit être en position de repos au départ).
+
+\paragraph{Question 9:} Utiliser un logiciel de traitement pour déterminer la position de la masse en fonction du temps.
+
+\subsection{Identifier le coefficient d'amortissement du ressort}
+
+\paragraph{Question 10:} A partir des relevés expérimentaux et du programme python \\ \href{https://github.com/Costadoat/Sciences-Ingenieur/raw/master/S01\%20Analyse\%20fonctionnelle/TP01\%20Mesures\%20physiques/Ilot_02\%20Ressort/modele_ressort_dyn.py}{\texttt{modele\_ressort\_dyn.py}}, déterminer le coeffcient d'amortissement du ressort.
+
+\aide{la démarche consiste à faire varier le coefficient d'amortissement dans le script python jusqu'à ce que la courbe simulée se superpose au mieux à votre courbe expérimentale (méthode dite "par recalage" ou "au jugé"). Vous connaissez déjà $K$ (question 6) et $m$ (masse suspendue), il ne reste donc qu'un seul paramètre inconnu à ajuster.}
+
+\clearpage
+
+\ifdef{\public}{\end{document}}{}
+
+\newpage
+
+\pagestyle{correction}
+
+\section{Correction}
+
+\paragraph{Question 1:}
+
+\corniveau{\textbf{\textcolor{success}{[M] Maths pures :}} en divisant les deux membres de $F=K.\Delta L$ par $\Delta L$, on obtient $K=\dfrac{F}{\Delta L}$.}
+
+\paragraph{Question 2:} 
+
+$K=\frac{(m_1-m_2).g}{L_1-L_2}$, l'accélération de pesanteur est choisie égale à $9.81m.s^{-2}$.
+
+\corniveau{\textbf{\textcolor{success}{[M] Maths pures :}} en soustrayant les deux équations, $y_1-y_2=a.(x_1-x_2)$ (le terme $b$ disparaît), soit $a=\dfrac{y_1-y_2}{x_1-x_2}$.}
+
+\corniveau{\textbf{\textcolor{orange}{[++] Bonus :}} à l'équilibre, $m_1.g=K.(L_1-L_0)$ et $m_2.g=K.(L_2-L_0)$. En substituant l'expression de $K$ trouvée ci-dessus dans l'une des deux équations et en isolant $L_0$, on obtient $L_0=\dfrac{m_1.L_2-m_2.L_1}{m_1-m_2}$. Cette grandeur représente la longueur du ressort à vide (sans masse suspendue) ; elle peut être vérifiée expérimentalement en mesurant directement la longueur du ressort au repos, sans aucune masse accrochée.}
+
+\paragraph{Question 6:}
+
+\corniveau{\textbf{\textcolor{success}{[M] Maths pures :}} moyenne $=\dfrac{5{,}1+5{,}4+4{,}9}{3}=\dfrac{15{,}4}{3}\approx 5{,}13$.}
+
+\paragraph{Question 7:}
+
+\corniveau{\textbf{\textcolor{success}{[M] Maths pures :}} $f(5)=f(1+4)=f(1)=3$ et $f(9)=f(1+2\times 4)=f(1)=3$ : la fonction reprend la même valeur à chaque intervalle de $4\,s$.}
+
+\corniveau{\textbf{\textcolor{orange}{[++] Bonus :}} l'équation caractéristique associée à $m.\ddot{x}(t)+f.\dot{x}(t)+K.x(t)=0$ est $m.r^2+f.r+K=0$, de discriminant $\Delta=f^2-4.m.K$. Le régime est pseudo-périodique (oscillant amorti) lorsque $\Delta<0$, c'est-à-dire lorsque l'amortissement $f$ est suffisamment faible devant $m$ et $K$.}
+
+\end{document}

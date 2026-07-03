@@ -446,7 +446,79 @@ Procédure :
 \label{proceduresimscape}
 }
 
+% Boîte d'exercice de maths pures, totalement décontextualisée du SI,
+% pour les élèves n'ayant jamais fait de SI. S'utilise en complément
+% de \aide (qui, elle, suppose déjà le contexte SI connu).
+% Usage: \mathspure{texte}
+\newcommand{\mathspure}[1]{%
+\medskip\noindent\begin{tikzpicture}
+\node[rounded corners=8,inner sep=8pt,fill=success!12,draw=success,line width=0.8pt] (box){%
+\begin{minipage}{0.92\linewidth}
+\textbf{\textcolor{success}{[M] Maths pures}} \\
+\small #1
+\end{minipage}
+};
+\end{tikzpicture}\medskip
+}
+
 \newcommand{\aidemecatroisd}{Une ressource permettant la prise en main du logiciel Meca3d est disponible \href{https://atemi.pagesperso-orange.fr/downloads/Meca3d/exemples/v18.0/Sinusmatic_v18.zip}{ici}}
+
+% ------------------------------------------------------------------
+% Blocs de différenciation par niveau (aides facultatives / bonus)
+% ------------------------------------------------------------------
+
+% Boîte de rappel / aide méthodologique facultative, destinée aux
+% élèves qui ont besoin d'un coup de pouce. Usage: \aide{texte}
+\newcommand{\aide}[1]{%
+\medskip\noindent\begin{tikzpicture}
+\node[rounded corners=8,inner sep=8pt,fill=info!12,draw=info,line width=0.8pt] (box){%
+\begin{minipage}{0.92\linewidth}
+\textbf{\textcolor{info}{[+] Aide / rappel}} \\
+\small #1
+\end{minipage}
+};
+\end{tikzpicture}\medskip
+}
+
+% Boîte de question bonus / approfondissement, facultative, destinée
+% aux élèves les plus à l'aise. Usage: \bonus{texte}
+\newcommand{\bonus}[1]{%
+\medskip\noindent\begin{tikzpicture}
+\node[rounded corners=8,inner sep=8pt,fill=warning!18,draw=warning,line width=0.8pt] (box){%
+\begin{minipage}{0.92\linewidth}
+\textbf{\textcolor{orange}{[++] Bonus / approfondissement}} \\
+\small #1
+\end{minipage}
+};
+\end{tikzpicture}\medskip
+}
+
+% Boîte de corrigé associée à une aide ou un bonus (fond neutre gris),
+% à utiliser dans la partie \pagestyle{correction}. Usage: \corniveau{texte}
+\newcommand{\corniveau}[1]{%
+\medskip\noindent\begin{tikzpicture}
+\node[rounded corners=8,inner sep=8pt,fill=gris25!15,draw=gris25,line width=0.8pt] (box){%
+\begin{minipage}{0.92\linewidth}
+\small #1
+\end{minipage}
+};
+\end{tikzpicture}\medskip
+}
+
+% Légende à placer en tête de TP pour expliquer la convention [+] / [++]
+% aux élèves. Usage: \legendeniveaux
+\newcommand{\legendeniveaux}{%
+\medskip\noindent\begin{tikzpicture}
+\node[rounded corners=8,inner sep=8pt,fill=gris25!10,draw=gris25,line width=0.6pt] (box){%
+\begin{minipage}{0.92\linewidth}
+\footnotesize
+\textbf{\textcolor{success}{[M] Maths pures}} : exercice de maths décontextualisé, pour s'entraîner sur le geste mathématique seul avant de l'appliquer au problème (utile si vous n'avez jamais fait de SI). \\
+\textbf{\textcolor{info}{[+] Aide / rappel}} : rappel de cours ou méthode facultative, à utiliser si besoin (les élèves à l'aise peuvent l'ignorer). \\
+\textbf{\textcolor{orange}{[++] Bonus}} : question d'approfondissement facultative, à traiter une fois le reste du sujet terminé.
+\end{minipage}
+};
+\end{tikzpicture}\medskip
+}
 
 
 

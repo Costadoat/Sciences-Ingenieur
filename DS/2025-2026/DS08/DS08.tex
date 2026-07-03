@@ -645,20 +645,33 @@ $$-y(t)\cdot\overrightarrow{y_1} + l\cdot\overrightarrow{x_4} + (-a\cdot\overrig
 }
 
 \reponse{4}{}{
-$$\overrightarrow{x_4} = \cos\alpha_g\cdot\overrightarrow{x_1} - \sin\alpha_g\cdot\overrightarrow{y_1}$$
+$$\overrightarrow{x_4} = \cos\alpha_4\cdot\overrightarrow{x_1} + \sin\alpha_4\cdot\overrightarrow{y_1}$$
 $$\overrightarrow{y_g} = -\sin\alpha_g\cdot\overrightarrow{x_1} + \cos\alpha_g\cdot\overrightarrow{y_1}$$
 
 \textbf{Projection sur $\overrightarrow{x_1}$ :}
-$$l\cdot\cos\alpha_g + a\cdot\sin\alpha_g - e = 0$$
+$$l\cdot\cos\alpha_4 + a\cdot\sin\alpha_g - e = 0$$
 
 \textbf{Projection sur $\overrightarrow{y_1}$ :}
-$$-y(t) - l\cdot\sin\alpha_g - a\cdot\cos\alpha_g + \frac{d}{2} = 0$$
+$$-y(t) + l\cdot\sin\alpha_4 - a\cdot\cos\alpha_g + \frac{d}{2} = 0$$
 }
 
 
 \reponse{3}{}{
-D'après la projection sur $\overrightarrow{y_1}$ :
-$$\boxed{y(t) = \frac{d}{2} - l\sin\alpha_g(t) - a\cos\alpha_g(t)}$$
+
+En utilisant $cos\alpha_4^2+sin\alpha_4^2=1$, on obtient
+
+$$l\cdot\cos\alpha_4 = e - a\cdot\sin\alpha_g$$
+
+$$l\cdot\sin\alpha_4 = a\cdot\cos\alpha_g - \frac{d}{2} +y(t)$$
+
+$$l^2= (e - a\cdot\sin\alpha_g)^2+(a\cdot\cos\alpha_g - \frac{d}{2} +y(t))^2$$
+
+$$(a\cdot\cos\alpha_g - \frac{d}{2} +y(t))^2=l^2-(e - a\cdot\sin\alpha_g)^2$$
+
+$$a\cdot\cos\alpha_g - \frac{d}{2} +y(t)=\sqrt{l^2-(e - a\cdot\sin\alpha_g)^2}$$
+
+$$y(t)=\sqrt{l^2-(e-a\cdot\sin\alpha_g)^2}+\frac{d}{2}-a\cdot cos\alpha_g$$
+
 }
 
 \reponse{4}{}{
@@ -738,7 +751,7 @@ Le rôle du différentiel est de permettre aux roues de tourner à des vitesses 
 \reponse{5}{}{
 $45km\cdot h^{-1}=45\times \dfrac{1000}{60}m\cdot min^{-1}$
 
-$6694tr\cdot min^{-1}=6694\times  2\times pi rad\cdot min^{-1}$
+$6694tr\cdot min^{-1}=6694\times  2\times \pi\ rad\cdot min^{-1}$
 
 $r=\dfrac{45000}{60\times 6694\times  2\times  pi}\approx\dfrac{7500}{60\times 6694}\approx\dfrac{75}{60\times 67}\approx\dfrac{75\times  3}{60\times 200}\approx\dfrac{75}{4000}\approx\dfrac{15}{800}\approx 0,02$
 
