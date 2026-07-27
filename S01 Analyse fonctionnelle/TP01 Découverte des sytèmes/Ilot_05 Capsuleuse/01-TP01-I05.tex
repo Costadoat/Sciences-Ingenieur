@@ -1,0 +1,214 @@
+\input{../../../headers/tpheaders.tex}
+
+
+\prob{Modéliser les caractéristiques d'un moteur à courant continu.} 
+
+\\
+
+\legendeniveaux
+
+\\
+
+\section{Modèle du moteur électrique à courant continu}
+
+\begin{eqnarray}
+u_m(t)=L_m.\frac{di(t)}{dt}+R_m.i(t)+e(t) \\
+e(t)=K_e.\omega_m(t) \\
+J.\frac{d\omega_m(t)}{dt}=C_m(t)-C_r(t) \\
+C_m(t)=K_m.i(t)
+\end{eqnarray}
+
+Données:
+\begin{itemize}
+ \item $u_m(t)$: tension aux bornes du moteur ($V$),
+ \item $i(t)$: intensité du courant dans le moteur ($A$),
+ \item $e(t)$: force électromotrice ($V$),
+ \item $\omega_m(t)$: vitesse de rotation du moteur ($rad.s^{-1}$),
+ \item $C_m(t)$: couple moteur ($N.m$),
+ \item $C_r(t)$: couple résistant ($N.m$),
+ \item $L_m$: inductance de la bobine du moteur ($H$),
+ \item $R_m$: résistance électrique interne au moteur ($\Omega$),
+ \item $K_e$: constante électrique du moteur ($V.rad^{-1}.s$),
+ \item $J$: inertie du moteur ($kg.m^2$),
+ \item $K_m$: constante de couple du moteur ($N.m.A^{-1}$).
+\end{itemize}
+
+~\
+
+En général, on suppose $K_e=K_m$ pour une MCC.
+
+\paragraph{Question 1:} D'après les équations (1) à (4), \textbf{écrire} une équation liant uniquement $u_m(t)$, $\omega_m(t)$ et $C_m(t)$.
+
+\mathspure{Soit les équations $y=3.x+2$ et $z=5.y-1$. Exprimez $z$ uniquement en fonction de $x$ (sans $y$). Méthode : remplacez $y$ par son expression dans la deuxième équation.}
+
+\aide{partez de l'équation (4) pour exprimer $i(t)$ en fonction de $C_m(t)$. Injectez cette expression dans l'équation (2) pour obtenir $e(t)$ en fonction de $C_m(t)$, puis injectez les deux résultats dans l'équation (1). Vous devez obtenir une équation où seuls apparaissent $u_m(t)$, $C_m(t)$ (et ses dérivées) et $\omega_m(t)$.}
+
+\paragraph{Question 2:} Quelles sont les \textbf{hypothèses} à poser afin de mettre cette équation sous la forme $u_m(t)=K.\omega_m(t)$. Est-ce que cela vous paraît raisonnable de prendre ces hypothèses ?
+
+\mathspure{Soit $f(t)=7$ (une fonction constante au cours du temps). Que vaut $\dfrac{df(t)}{dt}$ ? Plus généralement, que vaut la dérivée par rapport au temps d'une grandeur qui ne varie pas au cours du temps ?}
+
+\aide{un système est en \textbf{régime établi} (ou permanent) lorsque toutes ses grandeurs sont constantes au cours du temps. Que valent alors les dérivées première et seconde de $\omega_m(t)$ par rapport au temps ?}
+
+\bonus{en passant en transformée de Laplace (conditions initiales nulles, sans les hypothèses de régime établi), \textbf{écrire} la fonction de transfert $\dfrac{\Omega_m(p)}{U_m(p)}$ du moteur. Quel est l'ordre de ce système ? Que devient cette fonction de transfert lorsque $p\rightarrow 0$ ? Retrouvez-vous le résultat de la question 2 ?}
+
+\paragraph{Question 3:} En supposant que l'on arrive à mesurer le courant qui traverse le moteur, que devient-il alors possible d'\textbf{estimer} ?
+
+\newpage
+
+\section{Mesure des valeurs caractéristiques du moteur} 
+
+\paragraph{Question 4:} \textbf{Déterminer} un protocole afin de mesurer la tension aux bornes du moteur. Donner la liste du matériel utilisé et ses caractéristiques (sensibilité, plage de mesure...).
+
+\paragraph{Question 5:} \textbf{Déterminer} un protocole afin de mesurer la vitesse de rotation du moteur à l'aide du tachymètre. Donner les caractéristiques du matériel (sensibilité, plage de mesure...).
+
+\paragraph{Question 6:} \textbf{Mettre en \oe uvre} ce protocole pour des tensions allant de 0V à 12V. Écrire les valeurs mesurés dans le script python à télécharger 
+\href{https://github.com/Costadoat/Sciences-Ingenieur/raw/master/S01\%20\nomsequence/TP01\%20Mod\%C3\%A9lisation\%20lin\%C3\%A9aire/Ilot_01\%20Moteur\%20\%C3\%A0\%20courant\%20continu/01-TP01-I01.py}{ici} 
+et l'utiliser afin de tracer la courbe $\omega_m(t)=f(u_m(t))$. Conclure quant à l'allure de ce tracé, quel modèle peut-on appliquer à ce phénomène ?
+
+\mathspure{Une droite passe par les points $(2,4)$ et $(5,13)$. Calculez son coefficient directeur $a$ (pente), défini par $a=\dfrac{y_2-y_1}{x_2-x_1}$. Sachant que l'équation de la droite s'écrit $y=a.x+b$, calculez ensuite $b$ en remplaçant $x$, $y$ et $a$ par leurs valeurs dans l'un des deux points.}
+
+\aide{une fonction affine s'écrit $y=a.x+b$. Sur votre tracé, $a$ correspond à la pente de la droite et $b$ à son ordonnée à l'origine. Comment calculeriez-vous $a$ "à la main" à partir de deux points quelconques $(x_1,y_1)$ et $(x_2,y_2)$ de la courbe ? Faites l'application numérique avec deux points de votre tracé pour vérifier la cohérence avec le résultat donné par le script python.}
+
+\bonus{en reprenant l'expression de la fonction de coût $MSE(\theta)$ donnée en annexe, retrouvez par le calcul (en annulant la dérivée partielle) la formule de l'équation normale $\hat{\Theta}=(X^TX)^{-1}X^Ty$ dans le cas d'un modèle à un seul paramètre $y=\theta_1.x$.}
+
+\paragraph{Question 7:} \textbf{Refaire} la mesure précédente en mesurant aussi le courant qui traverse le moteur.
+
+\paragraph{Question 8:} \textbf{Proposer} et \textbf{mettre en \oe uvre} un protocole permettant de mesurer la résistance interne du moteur. Donner la liste du matériel utilisé et ses caractéristiques (sensibilité, plage de mesure...).
+
+\mathspure{Dans l'équation $y=a.x$, isolez $a$ en fonction de $x$ et $y$ (rappel : on divise les deux membres de l'égalité par la même quantité, ici $x$).}
+
+\aide{la loi d'Ohm $u=R.i$ relie une tension et un courant à travers une résistance. Dans quelles conditions (régime établi ou non) l'équation (1) du modèle se ramène-t-elle à une loi d'Ohm entre $u_m(t)$ et $i(t)$ ?}
+
+\section{Vérification des modèles et analyse des résultats}
+
+\paragraph{Question 9:} À partir des résultats précédents, \textbf{déterminer} le couple résistant $C_r(t)$ pour le moteur libre. \textbf{Proposer} une solution permettant d'augmenter ce couple, \textbf{prédire} le comportement du système.
+
+\mathspure{Sachant que $C=K.i$, calculez $C$ pour $K=0{,}05$ et $i=2{,}3$. N'oubliez pas de préciser l'unité du résultat à partir des unités de $K$ et $i$.}
+
+\aide{d'après la question 3, en régime établi, $C_r(t)=K_e.i(t)$. Il vous suffit donc de reprendre la mesure de $i(t)$ à vide obtenue précédemment et la valeur de $K_e$ déterminée à la question 6 pour faire l'application numérique.}
+
+\subsection{Vérifier expérimentalement un modèle théorique}
+
+\paragraph{Question 10:} \textbf{Mettre en \oe uvre} ce nouveau protocole et \textbf{conclure} quant à la validité de la prédiction de la question 9.
+
+\subsection{Déterminer la valeur de $L_m$}
+
+\paragraph{Question 11:} \textbf{Proposer} sans les mettre en \oe uvre des protocoles permettant de déterminer la valeur de $L_m$.
+
+\section{Synthèse du TP}
+
+\paragraph{Question 12:} \textbf{Conclure} quant au modèle obtenu pour ce moteur à courant continu, \textbf{réaliser} une synthèse de ce TP présentant votre démarche pour répondre à la problématique.
+
+\section{Annexes}
+
+\subsection{Régression linéaire}
+
+A partir d'un ensemble de couples de valeurs $(x_i,y_i)$, le but de la régression linéaire et la prédiction d'un modèle linéaire: \\
+\begin{center}
+$\hat{y}=\theta_0+\theta_1\cdot x_1+\theta_2\cdot x_2+...+\theta_n\cdot x_n$ \\
+$\hat{y}=X \Theta$
+\end{center}
+
+Ainsi, il faut trouver l'ensemble des $\theta_i$ qui minimisent l'écart (RMSE Root Mean Square Error ou critère des moindres carrés) entre $y=[y_0, y_1,...,y_n]$ et $\hat{y}$. Pour la suite, on utilisera la MSE car le min de la RMSE est aussi celui de la MSE.
+
+Il existe alors 2 solutions l'équation normale et la descente de gradient.
+
+\paragraph{Équation normale} ~\ \\
+
+Il existe une solution analytique pour trouver la valeur de $\Theta$ qui minimise l'écart.
+\begin{center}
+$\hat{\Theta}=(X^TX)^{-1}X^Yy$
+\end{center}
+
+Fonction python
+\begin{lstlisting}
+def regression_lineaire_eq_normale(x,y):
+    X_b = np.array([[xi] for xi in x])
+    theta_best = np.linalg.inv(X_b.T.dot(X_b)).dot(X_b.T).dot(y)
+    return theta_best
+\end{lstlisting}
+
+\paragraph{Descente de gradient} ~\ \\
+
+La descente de gradient est un algorithme d'optimisation très général, capable de trouver des solutions optimales à un grand nombre de problèmes. 
+
+L'idée générale de la descente de gradient est de corriger petit à petit les paramètres dans le but de minimiser une fonction de coût.
+
+L'algorithme suit la pente de la descente de la fonction MSE vers le bas pour la minimiser.
+
+Dans le cas où il y aurait plusieurs variables il faudrait les normaliser afin que l'impact de leur variation soit identique, ce n'est pas le cas pour notre étude.
+
+La descente de gradient consiste à calculer la dérivée partielle (cf cours de math)
+\begin{center}
+$\dfrac{\partial}{\partial \theta_j}MSE(\theta)=\dfrac{2}{m}\sum\limits_{i=1}^m (\Theta^T x^{(i)}-y^{(i)})x_j^{(i)}$
+\end{center}
+
+On prendra en entrée:
+\begin{itemize}
+ \item $\eta$: le taux d'apprentissage qui correspond à la taille des pas que l'on effectue dans la descente (plus $\eta$ est grand, plus vite on converge, mais cela peut générer de l'instabilité),
+ \item le nombre d'itérations
+\end{itemize}
+
+Fonction python
+\begin{lstlisting}
+def regression_lineaire_descente_gradient(x,y):
+    X_b = np.c_[np.ones((len(x), 1)), x]
+    eta = 0.1 # taux d'apprentissage (vitesse à laquelle on suit la pente)
+    n_iterations = 1000 # tester plusieurs valeurs
+    m = 2 # nombre de paramètres
+    theta = np.random.randn(2,1)    # initialisation aléatoire de la solution
+    for iteration in range(n_iterations):
+        gradients = 2/m * X_b.T.dot(X_b.dot(theta) - y)
+        theta = theta - eta * gradients
+    return theta
+\end{lstlisting}
+
+\ifdef{\public}{\end{document}}{}
+
+\clearpage
+
+\newpage
+
+\pagestyle{correction}
+
+\section{Correction}
+
+\paragraph{Question 1:} D'après les équations (1) à (4), \textbf{écrire} une équation liant $u_m(t)$, $\omega_m(t)$ et $C_m(t)$.
+
+$u_m(t)=\frac{L_m}{K_m}.\frac{dC_m(t)}{dt}+\frac{R_m}{K_m}.C_m(t)+K_e.\omega_m(t)$
+
+$u_m(t)=\frac{L_m.J}{K_m}.\frac{d^2\omega_m(t)}{dt^2}+\frac{R_m.J}{K_m}.\frac{d\omega_m(t)}{dt}+K_e.\omega_m(t)$
+
+\corniveau{\textbf{\textcolor{success}{[M] Maths pures :}} en remplaçant $y$ par $3.x+2$ dans $z=5.y-1$, on obtient $z=5.(3.x+2)-1=15.x+10-1=15.x+9$.}
+
+\paragraph{Question 2:} Quelles sont les \textbf{hypothèses} à prendre afin de mettre cette équation sous la forme $u_m(t)=K.\omega_m(t)$.
+
+Il faut se placer à vitesse constante (régime établi) et négliger les frottements, ainsi, $C_r(t)=0$, $\frac{d^2\omega_m(t)}{dt^2}=0$ et $\frac{d\omega_m(t)}{dt}=0$.
+
+Ainsi, $u_m(t)=K_e.\omega_m(t)$
+
+\corniveau{\textbf{\textcolor{success}{[M] Maths pures :}} $\dfrac{df(t)}{dt}=0$. Plus généralement, la dérivée par rapport au temps d'une grandeur constante (qui ne varie pas) est toujours nulle.}
+
+\corniveau{\textbf{\textcolor{orange}{[++] Bonus :}} en transformée de Laplace, $U_m(p)=\left(\dfrac{L_m.J}{K_m}p^2+\dfrac{R_m.J}{K_m}p+K_e\right)\Omega_m(p)$, soit $\dfrac{\Omega_m(p)}{U_m(p)}=\dfrac{K_m}{L_m.J.p^2+R_m.J.p+K_e.K_m}$. C'est un système du second ordre. Lorsque $p\rightarrow 0$, la fonction de transfert tend vers $\dfrac{1}{K_e}$, ce qui redonne bien $u_m(t)=K_e.\omega_m(t)$ en régime permanent, conforme au résultat de la question 2.}
+
+\paragraph{Question 3:} En supposant que l'on arrive à mesurer le courant qui traverse le moteur, que devient-il alors possible de \textbf{mesurer} ?
+
+Il est alors possible de déterminer le couple résistant $C_r(t)$ en régime établi.
+
+Avec $C_m(t)=K_m.i(t)$ et $J.\frac{d\omega_m(t)}{dt}=C_m(t)-C_r(t)=0$ en régime établi, on obtient $C_r(t)=K_m.i(t)=K_e.i(t)$.
+
+\paragraph{Question 6:}
+
+\corniveau{\textbf{\textcolor{success}{[M] Maths pures :}} $a=\dfrac{13-4}{5-2}=\dfrac{9}{3}=3$. En remplaçant dans le premier point : $4=3\times 2+b$, soit $b=4-6=-2$. La droite a donc pour équation $y=3.x-2$.}
+
+\corniveau{\textbf{\textcolor{orange}{[++] Bonus :}} pour un modèle à un seul paramètre $\hat{y}=\theta_1.x$, $MSE(\theta_1)=\dfrac{1}{m}\sum\limits_{i=1}^m(\theta_1.x^{(i)}-y^{(i)})^2$. En annulant sa dérivée : $\dfrac{d}{d\theta_1}MSE(\theta_1)=\dfrac{2}{m}\sum\limits_{i=1}^m x^{(i)}(\theta_1.x^{(i)}-y^{(i)})=0$, soit $\theta_1\sum (x^{(i)})^2=\sum x^{(i)}y^{(i)}$, donc $\theta_1=\dfrac{\sum x^{(i)}y^{(i)}}{\sum (x^{(i)})^2}$. On retrouve bien la forme matricielle $\hat{\Theta}=(X^TX)^{-1}X^Ty$ dans ce cas particulier à une dimension, où $X^TX=\sum(x^{(i)})^2$ (un scalaire) et $X^Ty=\sum x^{(i)}y^{(i)}$.}
+
+\paragraph{Question 8:}
+
+\corniveau{\textbf{\textcolor{success}{[M] Maths pures :}} en divisant les deux membres de $y=a.x$ par $x$, on obtient $a=\dfrac{y}{x}$. Appliqué à la loi d'Ohm $u=R.i$, cela donne $R=\dfrac{u}{i}$, valable en régime établi (continu) puisque l'équation (1) se réduit alors à $u_m(t)=R_m.i(t)+K_e.\omega_m(t)$ à vitesse nulle (moteur bloqué), soit $u_m(t)=R_m.i(t)$.}
+
+\paragraph{Question 9:}
+
+\corniveau{\textbf{\textcolor{success}{[M] Maths pures :}} $C=0{,}05\times 2{,}3=0{,}115\ N.m$.}
+
+\end{document}

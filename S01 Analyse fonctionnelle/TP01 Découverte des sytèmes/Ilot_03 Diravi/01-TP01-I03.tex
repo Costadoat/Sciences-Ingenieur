@@ -1,0 +1,94 @@
+\input{../../../headers/tpheaders.tex}
+
+
+\prob{Modéliser les caractéristiques d'un moteur à courant continu.} 
+
+\\
+
+\legendeniveaux
+
+
+\section{Étalonnage du capteur de couple}
+
+\section*{Mise en situation}
+ 
+Le système DiRAVI (Direction à Rapport Variable Assisté) équipe la direction assistée électro-hydraulique de certains véhicules. Un \textbf{capteur de couple}, placé sur la colonne de direction, mesure le couple exercé par le conducteur sur le volant. Cette information est utilisée par le calculateur pour piloter l'assistance.
+ 
+L'objectif de ce TP est de \textbf{vérifier la cohérence entre le couple réellement appliqué au volant et la valeur retournée par le capteur}, en générant un couple de référence connu à l'aide d'une masse suspendue de façon excentrée sur la jante du volant.
+ 
+\vspace{0.5em}
+\textbf{Matériel} : banc DiRAVI instrumenté, interface d'acquisition (ou oscilloscope), jeu de masses marquées, fil inextensible, mètre ruban ou pied à coulisse, balance.
+ 
+\section{Principe de la manipulation (5 min)}
+ 
+On accroche une masse $m$ au moyen d'un fil vertical fixé sur la jante du volant, à une distance horizontale $d$ de l'axe de rotation de la colonne de direction (voir figure ci-dessous à réaliser sur le poste).
+ 
+Le couple théorique exercé sur le volant s'écrit :
+\begin{equation}
+C_{th} = m \cdot g \cdot d
+\end{equation}
+avec $g = 9{,}81~\text{m}\cdot\text{s}^{-2}$.
+ 
+\question{1} Justifier pourquoi $d$ doit être mesurée comme la distance \emph{horizontale} entre le point d'attache du fil et l'axe du volant, et non comme le rayon nominal de la jante.
+ 
+\question{2} Le fil doit-il être vertical pendant toute la mesure ? Que se passe-t-il si le volant tourne légèrement sous l'effet de la masse ?
+ 
+\question{3} Identifier les sources d'incertitude sur $C_{th}$ et proposer une méthode de mesure pour chacune (masse, distance).
+ 
+\section{Protocole expérimental (10 min)}
+ 
+\begin{enumerate}
+\item Positionner le volant de sorte que le point d'accroche prévu soit dans un plan vertical passant par l'axe de rotation.
+\item Mesurer $d$ pour la configuration choisie.
+\item Suspendre une première masse $m_1$, attendre la stabilisation, relever la valeur $C_{mes}$ indiquée par la chaîne d'acquisition.
+\item Recommencer avec au moins 4 configurations différentes (masse et/ou distance $d$ variables).
+\item Compléter le tableau de mesures ci-dessous.
+\end{enumerate}
+ 
+\vspace{0.5em}
+\begin{center}
+\begin{tabular}{cccccc}
+\hline
+Essai & $m$ (kg) & $d$ (m) & $C_{th}$ (N$\cdot$m) & $C_{mes}$ (N$\cdot$m) & Écart relatif (\%) \\
+\hline
+1 & & & & & \\
+2 & & & & & \\
+3 & & & & & \\
+4 & & & & & \\
+5 & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+ 
+\question{4} Avant de relever $C_{mes}$, pourquoi est-il nécessaire d'attendre quelques secondes après avoir suspendu la masse ?
+ 
+\question{5} Pour un couple faible (petite masse ou faible bras de levier), que peut-on observer sur la valeur mesurée ? Proposer une explication liée au comportement mécanique de la colonne de direction.
+ 
+\section{Exploitation des résultats (10 min)}
+ 
+\question{6} Tracer $C_{mes}$ en fonction de $C_{th}$ pour l'ensemble des essais. Tracer également la droite $C_{mes} = C_{th}$ (réponse idéale attendue).
+ 
+\question{7} À partir du nuage de points, déterminer par régression linéaire :
+\begin{itemize}
+\item la sensibilité réelle du capteur (pente),
+\item un éventuel décalage à couple nul (ordonnée à l'origine).
+\end{itemize}
+Commenter l'écart avec le comportement idéal (pente = 1, ordonnée nulle).
+ 
+\question{8} Calculer l'incertitude composée $u(C_{th})$ à partir des incertitudes sur $m$ et $d$ :
+\begin{equation}
+\left(\frac{u(C_{th})}{C_{th}}\right)^2 = \left(\frac{u(m)}{m}\right)^2 + \left(\frac{u(d)}{d}\right)^2
+\end{equation}
+Représenter cette incertitude sous forme de barre d'erreur sur au moins un point du graphique.
+ 
+\question{9} Au vu des barres d'erreur, la valeur mesurée par le capteur est-elle compatible avec la valeur théorique ? Conclure sur la validité du capteur de couple testé.
+ 
+\question{10} Proposer une limite de cette méthode de validation (plage de couple accessible, dynamique de sollicitation, etc.) par rapport à une sollicitation réelle du conducteur.
+ 
+\vspace{1em}
+\hrule
+\vspace{0.5em}
+\noindent\textit{Synthèse attendue : un court paragraphe (5 lignes maximum) concluant sur la fidélité du capteur de couple et sur la pertinence de la méthode expérimentale employée.}
+ 
+
+\end{document}
