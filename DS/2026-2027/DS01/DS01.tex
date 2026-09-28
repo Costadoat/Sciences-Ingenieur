@@ -1,0 +1,297 @@
+\input{../../../headers/dsheaders.tex}
+
+
+\section{Mise en situation}
+
+On étudie l'entraînement d'une porte coulissante automatique de magasin. Le mouvement de translation du vantail est assuré par un moteur à courant continu, entraînant une poulie de rayon $r$ sur laquelle est fixée une courroie solidaire de la porte.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\linewidth]{img/fig01.jpg}
+\caption{\label{fig01}Portes coulissantes}
+\end{center}
+\end{figure}
+
+\subsection{Équation électrique de l'induit}
+
+En notant $v(t)$ la tension appliquée aux bornes de l'induit, $i(t)$ le courant d'induit, $R$ la résistance d'induit, $L$ son inductance, et $e(t) = K_e\cdot\omega(t)$ la force contre-électromotrice ($\omega(t)$ étant la vitesse angulaire du rotor), la loi des mailles donne :
+
+\begin{equation}
+L\cdot\frac{di(t)}{dt} + R\cdot i(t) = v(t) - K_e\cdot\omega(t)
+\label{eq:elec}
+\end{equation}
+
+\subsection*{Équation mécanique}
+
+Le couple électromagnétique développé par le moteur est $C_m(t) = K_t\cdot i(t)$. En appliquant le principe fondamental de la dynamique en rotation à l'ensemble \{rotor + réducteur + porte ramenée côté moteur\}, d'inertie totale $J$ et soumis à un frottement visqueux équivalent $b$, on obtient :
+
+\begin{equation}
+J\cdot\frac{d\omega(t)}{dt} + b\cdot\omega(t) = K_t\cdot i(t)
+\label{eq:meca}
+\end{equation}
+
+\subsection*{Notations et valeurs numériques}
+
+\begin{center}
+\begin{tabular}{|c|l|c|}
+\hline
+\textbf{Symbole} & \textbf{Grandeur} & \textbf{Valeur} \\
+\hline
+$V_0$ & Tension d'alimentation (échelon) & $24\ V$ \\
+$R$ & Résistance d'induit & $2\ \Omega$ \\
+$L$ & Inductance d'induit & $5\cdot 10^{-5}\ H$ \\
+$K_e$ & Constante de force contre-électromotrice & $0.05\ V\cdot s\cdot rad^{-1}$ \\
+$K_t$ & Constante de couple & $0.05\ N\cdot m\cdot A^{-1}$ \\
+$J$ & Inertie totale ramenée côté moteur & $0.000325\ kg\cdot m^2$ \\
+$b$ & Frottement visqueux ramené au moteur & $0.02\ N\cdot m \cdot s\cdot rad^{-1}$ \\
+$r$ & Rayon de la poulie d'entraînement & $0.02\ m$ \\
+\hline
+\end{tabular}
+\end{center}
+
+On suppose le système initialement au repos : $i(0) = 0$ et $\omega(0) = 0$. À l'instant $t=0$, on applique un échelon de tension $v(t) = V_0\cdot u(t)$, où $u(t)$ est l'échelon unité.
+
+\section{Passage dans le domaine de Laplace}
+
+\question{Les conditions initiales étant nulles, transformer les équations \eqref{eq:elec} et \eqref{eq:meca} dans le domaine de Laplace. On notera $V(p)$, $I(p)$ et $\Omega(p)$ les transformées de Laplace respectives de $v(t)$, $i(t)$ et $\omega(t)$.}
+
+\vspace{0.5cm}
+
+\question{À partir des deux équations précédentes, établir la fonction de transfert du système sous la forme canonique:
+
+\[
+H(p) = \frac{\Omega(p)}{V(p)}
+\].}
+
+\vspace{0.5cm}
+
+\question{Identifier les paramètres $K$, $\omega_0$ et $\xi$ de la fonction de transfert.}
+
+\vspace{0.5cm}
+
+\question{À l'aide des données du tableau, calculer les valeurs numériques de $K$, $\omega_0$ et $\xi$.}
+
+\question{Justifier alors que la fonction de transfert puisse s'écrire 
+\[
+H(p) = \frac{K}{1 + \tau p}
+\]
+Déterminer alors les valeurs numériques de $K$ et $\tau$.
+}
+
+\section{Réponse temporelle}
+
+Un échelon de tension $v(t)=V_0$ est appliqué aux bornes du moteur.
+
+\question{Déterminer $\omega_{+\infty}=\lim\limits_{t\rightarrow +\infty}\omega(t)$.}
+
+\vspace{0.5cm}
+
+\question{A quel tracé de la figure \ref{fig02} correspond $\omega(t)$ pour }
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=\linewidth]{img/fig02}
+\caption{\label{fig02}Tracé de réponses temporelles}
+\end{center}
+\end{figure}
+
+\question{Quel est le temps de réponse à 5\% du système d'ouverture/fermeture de porte ?}
+
+On note $v_p(t)$ la vitesse de translation de la porte.
+
+\question{Justifier que l'on peut écrire $v_p(t)=r\cdot \omega(t)$}
+
+\question{En déduire $v_{p+\infty}=\lim\limits_{t\rightarrow +\infty}v_p(t)$.}
+
+Le temps de réponse étant considéré faible par rapport au temps de déplacement total de la porte, il sera supposé pour la suite que la porte s'ouvre à une vitesse constante $v_p(t)=v_{p+\infty}$. 
+
+\question{En combien de temps la porte parcours-t-elle les 1.2m de sa course ?}
+
+\section{Questions de cours}
+
+Soit la fonction de transfert suivante:
+\[H_2(p)=\dfrac{K}{1+\dfrac{2\cdot\xi}{\omega_0}\cdot p+\dfrac{p^2}{\omega_0^2}},\ avec\ \xi>1\].
+
+\question{Déterminer l'expression des pôles de cette fonction de transfert en fonction de $\xi$ et de $\omega_0$.}
+
+\vspace{1cm}
+
+Soit la fonction de transfert suivante:
+\[H_3(p)=\dfrac{S_3(p)}{E_3(p)}=\dfrac{8}{1+0.3\cdot p+0,02\cdot p^2}\].
+
+
+\question{Montrer qu'elle peut s'écrire sous la forme suivante en déterminant les valeurs numériques de $\tau_1$ et $\tau_2$.
+\[H_3(p)=\dfrac{8}{(1+\tau_1\cdot p)\cdot (1+\tau_2\cdot p)}\]
+}
+
+\vspace{1cm}
+
+Soit l'entrée de la fonction de transfert $E_3(p)=\dfrac{7}{p}$.
+
+\question{Montrer que $S_3(p)$ peut s'écrire sous la forme suivante en déterminant les valeurs numériques de A, B et C.
+\[S_3(p)=\dfrac{A}{p}+\dfrac{B}{(1+\tau_1\cdot p)}+\dfrac{C}{(1+\tau_2\cdot p)}\]}
+
+%\finsujet{public}
+\finsujet
+
+\sautpage{4}
+
+\debutcor
+
+\reponse{4}{}{Les conditions initiales étant nulles ($i(0)=0$, $\omega(0)=0$), la transformée de Laplace de $\dfrac{dx}{dt}$ est simplement $p\cdot ^X(p)$. On applique la transformée de Laplace terme à terme aux équations \eqref{eq:elec} et \eqref{eq:meca} :
+
+\textbf{Équation électrique :}
+\begin{equation}
+L\cdot p\cdot I(p) + R\cdot I(p) = V(p) - K_e\cdot\Omega(p)
+\end{equation}
+
+soit :
+\begin{equation}
+(R+L\cdot p)\cdot I(p) = V(p) - K_e\cdot\Omega(p)
+\end{equation}
+
+\textbf{Équation mécanique :}
+\begin{equation}
+J\cdot p\cdot\Omega(p) + b\cdot\Omega(p) = K_t\cdot I(p)
+\end{equation}
+}
+
+\reponse{6}{}{On isole $I(p)$ :
+\[
+I(p) = \frac{V(p) - K_e\cdot\Omega(p)}{R+L\cdot p}
+\]
+
+On reporte cette expression dans l'équation mécanique :
+\[
+J\cdot p\cdot\Omega(p) + b\cdot\Omega(p) = K_t\cdot\frac{V(p) - K_e\cdot\Omega(p)}{R+L\cdot p}
+\]
+
+Soit :
+\[
+(J\cdot p+ b)\cdot(L\cdot p+ R)\cdot\Omega(p) + K_t\cdot K_e\cdot\Omega(p) = K_t\cdot V(p)
+\]
+
+On regroupe les termes en $\Omega(p)$ :
+\[
+\left(J\cdot L\cdot p^2 + (b\cdot L+R\cdot J)\cdot p + b\cdot R+ K_t\cdot K_e\right)\Omega(p) = \frac{K_t}{R}\cdot V(p)
+\]
+
+D'où la fonction de transfert :
+\[
+H(p) = \frac{\Omega(p)}{V(p)} = \frac{\dfrac{K_t}{b\cdot R+ K_t\cdot K_e}}{1 + \dfrac{b\cdot L+R\cdot J}{b\cdot R+ K_t\cdot K_e}\cdotp+\dfrac{J\cdot L}{b\cdot R+ K_t\cdot K_e}\cdot p^2}
+\]
+}
+
+\reponse{6}{}{\[
+H(p) = \frac{\Omega(p)}{V(p)} = \frac{K}{1 + \dfrac{2\cdot\xi}{\omega_0}\cdot p+\dfrac{1}{\omega_0^2}\cdot p^2}
+\]
+
+Avec $K=\dfrac{K_t}{b\cdot R+ K_t\cdot K_e}$
+
+$\omega_0=\sqrt{\dfrac{b\cdot R+ K_t\cdot K_e}{J\cdot L}}$
+
+$\xi=\dfrac{b\cdot L+R\cdot J}{b\cdot R+ K_t\cdot K_e}\cdot\dfrac{\sqrt{\dfrac{b\cdot R+ K_t\cdot K_e}{J\cdot L}}}{2}=\dfrac{b\cdot L+R\cdot J}{2\cdot\sqrt{(b\cdot R+ K_t\cdot K_e)\cdot(J\cdot L)}}$
+}
+
+\reponse{6}{}{
+Avec $K=\dfrac{K_t}{b\cdot R+ K_t\cdot K_e}=\dfrac{0.05}{0.02\cdot 2+ 0.05\cdot 0.05}\approx\dfrac{5}{4}\approx 1.25$
+
+$\omega_0=\sqrt{\dfrac{b\cdot R+ K_t\cdot K_e}{J\cdot L}}=\sqrt{\dfrac{0.02\cdot 2+ 0.05\cdot 0.05}{0.000325\cdot 5\cdot 10^{-5}}}\approx\sqrt{\dfrac{4\cdot 10^6}{0.3\cdot 5}}\approx\sqrt{\dfrac{4}{1.5}}\cdot 10^3\approx\sqrt{\dfrac{4}{16\cdot 10^{-1}}}\cdot 10^3\approx\dfrac{\sqrt{10}}{2}\cdot 10^3\approx 1500rad\cdot s^{-1}$
+
+$\xi=\dfrac{b\cdot L+R\cdot J}{2\cdot\sqrt{(b\cdot R+ K_t\cdot K_e)\cdot(J\cdot L)}}=\dfrac{0.02\cdot 5\cdot 10^{-5}+2\cdot 0.000325}{2\cdot\sqrt{(0.02\cdot 2+ 0.05\cdot 0.05)\cdot(0.000325\cdot 5\cdot 10^{-5})}}$
+
+$\xi\approx\dfrac{2\cdot 0.000325}{2\cdot\sqrt{(0.02\cdot 2)\cdot(0.000325\cdot5\cdot 10^{-5})}}\approx\dfrac{0.00065}{2\cdot\sqrt{2\cdot 3.25\cdot 10^{-10}}}\approx\dfrac{10\cdot \sqrt{6.5}}{2}\approx\dfrac{\sqrt{\dfrac{64}{10}}}{2}\cdot 10\approx\dfrac{4}{3}\cdot 10\approx 13$}
+
+\reponse{4}{}{
+On voit que $\xi>>1$, donc une des racines est négligeable devant l'autre. La fonction de transfert peut alors être ramenée à un premier ordre et on peut alors prendre $\tau=\dfrac{2\cdot\xi}{\omega_0}=\dfrac{26}{1500}\approx 0.017s\approx 17ms$}
+
+\reponse{4}{}{Pour un échelon $v(t) = V\cdot u(t)$, soit $V(p) = \dfrac{V}{p}$, le théorème de la valeur finale donne :
+\[
+\omega_{+\infty} = \lim_{t\to\infty}\omega(t) = \lim_{p\to 0} p\cdot\Omega(p) = \lim_{p\to 0} p\cdot H(p)\cdot\frac{V}{p} = K\cdot V
+\]
+
+\[
+\omega_{+\infty} = K \cdot V = 1.25 \times 24
+\]
+
+\[\omega_\infty \approx 30\ rad\cdot s^{-1}
+\]}
+
+\reponse{4}{}{Sur le tracé vert, on lit $\omega_\infty \approx 28\ rad\cdot s^{-1}$ et $\tau\approx 17ms$, cela correspond au tracé "A".
+
+\begin{center}
+\includegraphics[width=.7\linewidth]{img/fig02_cor}
+\end{center}
+}
+
+\reponse{4}{}{$T_{R5\%}=3\cdot\tau=3\cdot 17=51ms$.}
+
+\reponse{3}{}{La vitesse de translation de la porte peut s'écrire comme la vitesse de rotation du moteur multipliée par le rayon de la roue car il s'agit d'une transmission poulie courroie.}
+
+\reponse{4}{}{
+\[
+v_{p+\infty} = r\cdot\omega_\infty = 0.02 \times 30
+\]
+
+\[
+v_\infty \approx 0.6\ m\cdot s^{-1}
+\]}
+
+\reponse{3}{}{
+La porte parcours $1.2m$ à la vitesse de $0.6m\cdot s^{-1}$, cela correspond à une durée de fermeture $T=\dfrac{1.2}{0.6}=2s$.
+}
+
+\reponse{5}{}{
+\[\Delta=\left(\dfrac{2\cdot\xi}{\omega_0}\right)^2-\dfrac{4}{\omega_0^2}\]
+
+\[p=\dfrac{-\dfrac{2\cdot\xi}{\omega_0}\pm\sqrt{\Delta}}{\dfrac{2}{\omega_0^2}}=-\omega_0\cdot\left(\xi\pm\cdot\sqrt{\xi^2-1}\right)\]
+}
+
+\reponse{4}{}{
+$\Delta=0.3^2-4\cdot 0.02=0.09-0.04=0.01$
+
+$p=\dfrac{-0.3\pm\sqrt{0.01}}{2\cdot 0.02}$
+
+$p=\dfrac{-0.3\pm 0.1}{0.04}$
+
+$p_1=-5$ et $p_2=-10$
+
+$\tau_1=\dfrac{1}{5}=0.2s$ et $\tau_2=\dfrac{1}{10}=0.1s$
+
+
+\[H_3(p)=\dfrac{8}{(1+0.2\cdot p)\cdot (1+0.1\cdot p)}\]
+}
+
+\reponse{10}{}{
+\[S_3(p)=\dfrac{8\cdot 7}{p\cdot (1+\tau_1\cdot p)\cdot (1+\tau_2\cdot p)}\]
+
+\[S_3(p)=\dfrac{A\cdot (1+\tau_1\cdot p)\cdot (1+\tau_2\cdot p)+B\cdot p\cdot (1+\tau_2\cdot p)+C\cdot p\cdot (1+\tau_1\cdot p)}{p\cdot (1+\tau_1\cdot p)\cdot (1+\tau_2\cdot p)}\]
+
+\[S_3(p)=\dfrac{A +(A\cdot \tau_1+A\cdot \tau_2+B+C)\cdot p+(A\cdot\tau_1\cdot\tau_2+B\cdot\tau_2+C\cdot\tau_1)\cdot p^2}{p\cdot (1+\tau_1\cdot p)\cdot (1+\tau_2\cdot p)}\]
+
+Ainsi:
+\begin{eqnarray}
+A=8\\
+A\cdot \tau_1+A\cdot \tau_2+B+C=0\\
+A\cdot\tau_1\cdot\tau_2+B\cdot\tau_2+C\cdot\tau_1=0
+\end{eqnarray}
+
+Calcul : $\tau_1\cdot Eq4 -Eq5$
+
+$A\cdot \tau_1^2+B\cdot (\tau_1-\tau_2)=0$
+
+$B=-\dfrac{A\cdot \tau_1^2}{\tau_1-\tau_2}$
+
+De même avec le calcul : $\tau_2\cdot Eq4 -Eq5$
+
+$C=-\dfrac{A\cdot \tau_2^2}{\tau_1-\tau_2}$
+
+$A=56$
+
+$B=-\dfrac{56\cdot 0.2^2}{0.2-0.1}=-\dfrac{7\cdot 0.32}{0.1}=-22.4$
+
+$C=-\dfrac{56\cdot 0.1^2}{0.1-0.2}=\dfrac{56\cdot 0.1^2}{0.1}=5.6$
+
+}
+
+\end{document}

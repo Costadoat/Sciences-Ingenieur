@@ -22,7 +22,6 @@
 \newcommand{\institute}{Lycée Dorian}
 
 
-\usepackage{color}
 \usepackage{xcolor}
 \usepackage{colortbl}
 \usepackage{helvet}
@@ -79,6 +78,27 @@
     linkcolor= orange,                % couleur des liens internes aux documents (index, figures, tableaux, equations,...)
     citecolor= forestgreen                % couleur des liens vers les references bibliographiques
     }
+\definecolor{grisclair}{RGB}{245,245,245}
+\usepackage{listings}
+
+\lstdefinestyle{python}{
+  language=Python,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{bleu}\bfseries,
+  commentstyle=\color{gray},
+  stringstyle=\color{orange},
+  numbers=none,
+  frame=single,
+  rulecolor=\color{gray!40},
+  backgroundcolor=\color{grisclair},
+  showstringspaces=false,
+  columns=fullflexible,
+  keepspaces=true,
+  xleftmargin=4pt,
+  xrightmargin=4pt,
+  aboveskip=7pt,
+  belowskip=7pt
+}
 
 % Mise en page
 \pagestyle{fancy}
