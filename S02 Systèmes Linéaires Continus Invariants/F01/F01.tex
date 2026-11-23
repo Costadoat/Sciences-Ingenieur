@@ -1,0 +1,119 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb,geometry,multicol,array,enumitem,xcolor}
+\geometry{margin=1.8cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\rep}[1][1.1cm]{\par\vspace{#1}}
+\newcommand{\dd}{\mathrm{dB}}
+\newcommand{\jw}{\mathrm{j}\omega}
+\newcommand{\ex}[2]{\subsection*{Exercice #1 --- #2}}
+\begin{document}
+\begin{center}
+{\Large\bfseries Fiche d'entraînement aux calculs}\par
+{\large Étude harmonique et diagrammes de Bode}\par
+%\small Nom : \rule{6cm}{0.4pt}\hfill Date : \rule{3cm}{0.4pt}
+\end{center}
+\vspace{-2mm}
+\fbox{\begin{minipage}{0.96\linewidth}
+\textbf{Outils à maîtriser} :
+\(\mathrm{j}^2=-1\), \( |a+\mathrm{j}b|=\sqrt{a^2+b^2}\),
+\(\arg(a+\mathrm{j}b)=\operatorname{arctan}\left(\dfrac{b}{a}\right)\),
+\(G_{\dd}=20\log_{10}|H(\jw)|\),
+\(\omega_c=1/\tau\).
+Pour un produit, les gains en dB et les phases s'additionnent ; pour un quotient, ils se soustraient.
+\end{minipage}}
+
+\ex{1}{Puissances de dix et logarithmes (5 min)}
+Sans calculatrice, compléter :
+\begin{center}\begin{tabular}{|c|c|c|c|c|}\hline
+$x$ & $0{,}01$ & $0{,}1$ & $10$ & $100$ \\ \hline
+$\log_{10}(x)$ & \rule{0pt}{0.8cm}\hspace{1.4cm} & \hspace{1.4cm} & \hspace{1.4cm} & \hspace{1.4cm} \\ \hline
+$20\log_{10}(x)$ (dB) & \rule{0pt}{0.8cm} & & & \\ \hline
+\end{tabular}\end{center}
+Calculer ensuite à la calculatrice : \(20\log_{10}(2)\), \(20\log_{10}(1/\sqrt{2})\), \(20\log_{10}(5)\) (arrondir à 0,1 dB).
+
+\ex{2}{Nombres complexes (8 min)}
+Pour chacun des nombres suivants, calculer le module et l'argument en degrés :
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*)]
+\item $z_1=3+4\mathrm{j}$
+\item $z_2=1+\mathrm{j}$
+\item $z_3=-1+\mathrm{j}$
+\item $z_4= -2\mathrm{j}$
+\end{enumerate}
+\end{multicols}
+\textit{Attention : le signe de la partie réelle détermine le quadrant.}
+
+\ex{3}{Passer d'une fonction de transfert à $H(\mathrm{j}\omega)$ (5 min)}
+Remplacer $p$ par $\mathrm{j}\omega$ puis simplifier en utilisant $\mathrm{j}^2=-1$ :
+\begin{enumerate}[label=\alph*)]
+\item $H_1(p)=\dfrac{4}{1+0{,}2p}$
+\item $H_2(p)=\dfrac{3}{p}$
+\item $H_3(p)=\dfrac{2}{1+0{,}4p+0{,}04p^2}$
+\end{enumerate}
+
+\ex{4}{Gain pur et intégrateur (8 min)}
+\begin{enumerate}[label=\alph*)]
+\item Pour $H(p)=5$, déterminer $|H(\jw)|$, le gain en dB et la phase.
+\item Pour $H(p)=\dfrac{10}{p}$, compléter le tableau (\(\omega\) en rad/s) :
+\end{enumerate}
+\begin{center}\begin{tabular}{|c|c|c|c|}\hline
+$\omega$ & $0{,}1$ & $1$ & $10$ \\ \hline
+$|H(\jw)|$ & \rule{0pt}{0.85cm} & & \\ \hline
+$G_{\dd}$ & \rule{0pt}{0.85cm} & & \\ \hline
+$\varphi$ & \rule{0pt}{0.85cm} & & \\ \hline
+\end{tabular}\end{center}
+Quelle est la variation du gain lorsqu'on multiplie la pulsation par 10 ? \rep[0.8cm]
+
+\ex{5}{Système du premier ordre (12 min)}
+On étudie \(H(p)=\dfrac{4}{1+0{,}1p}\).
+\begin{enumerate}[label=\alph*)]
+\item Identifier $K$ et $\tau$, puis calculer la pulsation de cassure $\omega_c$.
+\item Montrer que \( |H(\jw)|=\dfrac{4}{\sqrt{1+(0{,}1\omega)^2}}\) et \(\varphi=-\arctan(0{,}1\omega)\).
+\item Compléter le tableau (arrondir les gains à 0,1 dB et les phases au degré).
+\end{enumerate}
+\begin{center}\begin{tabular}{|c|c|c|c|}\hline
+$\omega$ (rad/s) & $1$ & $10$ & $100$ \\ \hline
+$|H(\jw)|$ & \rule{0pt}{0.9cm} & & \\ \hline
+$G_{\dd}$ & \rule{0pt}{0.9cm} & & \\ \hline
+$\varphi$ (degrés) & \rule{0pt}{0.9cm} & & \\ \hline
+\end{tabular}\end{center}
+\begin{enumerate}[label=\alph*),start=4]
+\item À $\omega=\omega_c$, comparer le gain en dB à sa valeur à basse fréquence.
+\end{enumerate}
+
+\ex{6}{Second ordre : calcul direct (12 min)}
+On considère \(H(p)=\dfrac{2}{1+0{,}4p+0{,}04p^2}\).
+\begin{enumerate}[label=\alph*)]
+\item Mettre le dénominateur de $H(\jw)$ sous la forme $a(\omega)+\mathrm{j}b(\omega)$.
+\item Pour $\omega=5$ rad/s, calculer $a$, $b$, $|H(\jw)|$, $G_{\dd}$ et $\varphi$.
+\item Vérifier que $\omega_0=5$ rad/s et que la phase vaut $-90^\circ$ à cette pulsation.
+\end{enumerate}
+\textit{Pour l'argument d'un complexe, utiliser la fonction atan2 ou contrôler le quadrant.}
+
+\ex{7}{Défi : second ordre sous-amorti (10 min)}
+On donne \(H(p)=\dfrac{1}{1+\frac{0{,}4}{10}p+\frac{p^2}{100}}\), soit $K=1$, $z=0{,}2$ et $\omega_0=10$ rad/s.
+\begin{enumerate}[label=\alph*)]
+\item À $\omega=\omega_0$, calculer le module, le gain en dB et la phase.
+\item Le gain à cette pulsation est-il supérieur ou inférieur au gain statique ? De combien de dB ?
+\end{enumerate}
+
+\newpage
+\section*{Corrigé synthétique (à retirer avant distribution)}
+\textbf{1.} $\log_{10}(x)$ : $-2,-1,1,2$ ; gains : $-40,-20,20,40$ dB. Puis $6{,}0$ dB ; $-3{,}0$ dB ; $14{,}0$ dB.
+
+\textbf{2.} $z_1$ : $5$, $53{,}1^\circ$ ; $z_2$ : $\sqrt2$, $45^\circ$ ; $z_3$ : $\sqrt2$, $135^\circ$ ; $z_4$ : $2$, $-90^\circ$.
+
+\textbf{3.} a) $4/(1+0{,}2\mathrm{j}\omega)$ ; b) $3/(\mathrm{j}\omega)=-3\mathrm{j}/\omega$ ; c) $2/(1-0{,}04\omega^2+0{,}4\mathrm{j}\omega)$.
+
+\textbf{4.} a) Module $5$, gain $14{,}0$ dB, phase $0^\circ$. b) Modules $100,10,1$ ; gains $40,20,0$ dB ; phases $-90^\circ$ partout. Pente $-20$ dB/décade.
+
+\textbf{5.} $K=4$, $\tau=0{,}1$ s, $\omega_c=10$ rad/s. Pour $\omega=1,10,100$ : modules $3{,}980;2{,}828;0{,}398$ ; gains $12{,}0;9{,}0;-8{,}0$ dB ; phases $-6^\circ;-45^\circ;-84^\circ$. À la cassure : $-3{,}0$ dB par rapport au plateau $20\log_{10}4\simeq12{,}0$ dB.
+
+\textbf{6.} $a=1-0{,}04\omega^2$, $b=0{,}4\omega$. À $\omega=5$ : $a=0$, $b=2$, module $1$, gain $0$ dB, phase $-90^\circ$. Forme canonique : $\omega_0=5$ rad/s, $z=1$.
+
+\textbf{7.} À $\omega=10$ : dénominateur $0+0{,}4\mathrm{j}$ ; module $2{,}5$, gain $20\log_{10}(2{,}5)\simeq 8{,}0$ dB, phase $-90^\circ$. Gain supérieur de $8{,}0$ dB au gain statique ($0$ dB).
+\end{document}

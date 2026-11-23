@@ -1,0 +1,174 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lmodern,amsmath,amssymb,siunitx,geometry,enumitem,tikz,circuitikz}
+\usetikzlibrary{arrows.meta,positioning}
+\geometry{margin=2cm}
+\sisetup{locale=FR,per-mode=symbol}
+\setlength{\parindent}{0pt}
+\setlist[enumerate]{leftmargin=*,itemsep=0.35em,topsep=0.4em}
+\newcommand{\partie}[1]{\vspace{0.7em}\noindent\textbf{\large #1}\par\vspace{0.25em}}
+\begin{document}
+\begin{center}
+{\Large\bfseries Khôlle de SII -- Filière PT}\\[3pt]
+{\large Électronique de puissance : alimentation et freinage d'un robot à câbles}\\[5pt]
+\textbf{Préparation : 30 min \quad -- \quad Passage : 30 min}
+\end{center}
+\hrule\vspace{0.6em}
+\textbf{Objectifs :} identifier les fonctions de conversion statique, exploiter un modèle d'onduleur commandé en MLI, vérifier la tension disponible et analyser un freinage électrique.
+
+\partie{Mise en situation}
+Un robot à câbles déplace une plate-forme de manutention de charges lourdes. Chaque câble est enroulé sur un tambour entraîné par un moteur synchrone. La chaîne d'alimentation simplifiée d'un moteur est représentée ci-dessous. Lors de la descente d'une charge, le moteur peut fonctionner en génératrice et renvoyer de l'énergie vers le bus continu.
+
+\begin{center}
+\begin{tikzpicture}[>=Latex, node distance=3mm, every node/.style={font=\small}]
+\node[draw,rounded corners,minimum width=2.1cm,minimum height=1.0cm,align=center] (a) {Réseau triphasé\\$400\,\mathrm{V}$ -- $50\,\mathrm{Hz}$};
+\node[draw,rounded corners,right=6mm of a,minimum width=1.7cm,minimum height=1cm] (b) {Redresseur};
+\node[draw,rounded corners,right=6mm of b,minimum width=1.6cm,minimum height=1cm,align=center] (c) {Bus continu\\$C$};
+\node[draw,rounded corners,right=6mm of c,minimum width=1.6cm,minimum height=1cm] (d) {Onduleur};
+\node[draw,rounded corners,right=6mm of d,minimum width=1.8cm,minimum height=1cm,align=center] (e) {Moteur\\synchrone};
+\draw[->,thick] (a)--(b);\draw[->,thick] (b)--(c);\draw[->,thick] (c)--(d);\draw[->,thick] (d)--(e);
+\node[draw,below=7mm of c,minimum width=2.8cm,minimum height=0.7cm] (f) {Hacheur + résistance $R_f$};
+\draw[->] (c)--(f);
+\end{tikzpicture}
+\end{center}
+
+\textbf{Hypothèses et données :} composants idéaux sauf indication contraire ; tension du bus continu nominale $U_0=\SI{540}{\volt}$ ; condensateur $C=\SI{2.0}{\milli\farad}$ ; tension maximale admissible $U_{\max}=\SI{600}{\volt}$ ; résistance de freinage $R_f=\SI{20}{\ohm}$. Pour le moteur, la tension composée efficace nécessaire au point de fonctionnement étudié est $U_{LL,\mathrm{req}}=\SI{295}{\volt}$.
+
+\partie{Partie A -- Identifier la chaîne de puissance (5 min)}
+\begin{enumerate}[label=\textbf{A\arabic*.}]
+\item Préciser la nature des grandeurs électriques en entrée et en sortie de chacun des deux convertisseurs : redresseur et onduleur. Donner leur rôle.
+\item Expliquer l'intérêt du condensateur du bus continu. Pourquoi la présence d'une résistance de freinage peut-elle être nécessaire lors de la descente de la charge ?
+\item Le redresseur est un pont de diodes triphasé. Justifier qualitativement pourquoi ce convertisseur ne permet pas, à lui seul, de renvoyer l'énergie vers le réseau.
+\end{enumerate}
+
+\partie{Partie B -- Principe de la modulation de largeur d'impulsion (10 min)}
+Pour étudier la commande, on considère d'abord un \textbf{onduleur monophasé en pont complet}, alimenté par la tension constante $U_0$. Sur chaque période de découpage $T_d$, la tension de sortie $u(t)$ vaut $+U_0$ pendant $\alpha T_d$, puis $-U_0$ pendant $(1-\alpha)T_d$, avec $0\leq\alpha\leq1$.
+\begin{enumerate}[label=\textbf{B\arabic*.}]
+\item Tracer $u(t)$ sur deux périodes de découpage pour $\alpha=0{,}65$. Préciser les niveaux de tension et les instants de commutation.
+\item Déterminer la valeur moyenne $\langle u\rangle$ sur $T_d$ en fonction de $U_0$ et de $\alpha$. Calculer sa valeur pour $\alpha=0{,}65$.
+\item Exprimer le rapport cyclique $\alpha(t)$ permettant d'obtenir une valeur moyenne locale $\langle u\rangle(t)=\widehat U\sin(\omega t)$. Quelle condition doit vérifier $\widehat U$ ?
+\item Expliquer pourquoi une fréquence de découpage très supérieure à la fréquence électrique fondamentale facilite l'obtention de courants moteurs quasi sinusoïdaux.
+\end{enumerate}
+
+\newpage
+\partie{Partie C -- Vérification de l'alimentation du moteur (7 min)}
+On admet que le pont redresseur triphasé associé au condensateur fournit approximativement la tension crête composée du réseau : $U_0\simeq\sqrt{2}\,U_{LL,\mathrm{réseau}}$. Pour l'onduleur \textbf{triphasé} commandé en MLI sinusoïdale dans sa zone linéaire, on admet la relation
+\[
+U_{LL,1}=\frac{\sqrt{3}}{2\sqrt{2}}\,m\,U_0,\qquad 0\leq m\leq1,
+\]
+où $U_{LL,1}$ est la valeur efficace du fondamental de la tension composée et $m$ l'indice de modulation.
+\begin{enumerate}[label=\textbf{C\arabic*.}]
+\item Estimer $U_0$ à partir de la tension du réseau et comparer au bus nominal retenu.
+\item Calculer la valeur maximale de $U_{LL,1}$. La tension requise par le moteur est-elle accessible ?
+\item Déterminer l'indice de modulation $m$ nécessaire au point de fonctionnement étudié.
+\end{enumerate}
+
+\partie{Partie D -- Récupération d'énergie et freinage (8 min)}
+Lors d'une descente, la charge cède une énergie mécanique $E_{\mathrm{desc}}=\SI{151}{\kilo\joule}$. On suppose ici que cette énergie est intégralement transférée au bus continu, sans pertes. Le bus est initialement à $U_0=\SI{540}{\volt}$.
+\begin{enumerate}[label=\textbf{D\arabic*.}]
+\item Établir l'expression de l'énergie électrostatique stockée dans le condensateur en fonction de $C$ et de la tension $U$.
+\item Calculer l'énergie supplémentaire $\Delta E_C$ que peut stocker le condensateur entre $U_0$ et $U_{\max}$. Comparer à $E_{\mathrm{desc}}$ et conclure.
+\item Lorsque le hacheur connecte $R_f$ aux bornes du bus, exprimer la puissance instantanée dissipée dans $R_f$ en fonction de $U$ et de $R_f$. Calculer cette puissance pour $U=U_0$.
+\item En supposant une puissance dissipée constante égale à celle de la question précédente, estimer la durée minimale théorique nécessaire pour dissiper $E_{\mathrm{desc}}$. Expliquer pourquoi il ne s'agit que d'un ordre de grandeur.
+\end{enumerate}
+
+\vfill
+\hrule\vspace{0.35em}
+{\footnotesize\textbf{Origine et adaptation :} sujet original inspiré du contexte du robot à câbles du concours Centrale-Supélec TSI 2023, partie IV (« fournir l'énergie électrique aux moteurs »), d'après le corrigé UPSTI transmis. Les questions, hypothèses et valeurs complémentaires sont reformulées pour une khôlle PT.}
+
+
+\clearpage
+\begin{center}
+{\Large\bfseries Corrigé de la khôlle}\par\smallskip
+{\large Électronique de puissance -- Filière PT}
+\end{center}
+\hrule\vspace{0.7em}
+
+\partie{Partie A -- Identifier la chaîne de puissance}
+\begin{enumerate}[label=\textbf{A\arabic*.}]
+\item Le \textbf{redresseur} convertit les tensions et courants alternatifs triphasés du réseau en une tension et un courant de sortie unidirectionnels (avec ondulation). L'\textbf{onduleur} convertit la tension continue du bus en tensions alternatives triphasées, dont le fondamental possède une amplitude et une fréquence pilotables.
+\item Le condensateur lisse la tension du bus, stocke temporairement de l'énergie et découple les échanges instantanés de puissance entre redresseur et onduleur. En descente, la machine peut fonctionner en génératrice : l'énergie renvoyée au bus tend à augmenter sa tension. La résistance de freinage permet de dissiper cet excédent sous forme de chaleur pour éviter une surtension.
+\item Un pont de diodes est \textbf{non commandé} : les diodes ne conduisent que dans leur sens passant. Il ne permet pas d'inverser le sens du transfert de puissance moyenne vers le réseau. Il faut donc dissiper l'énergie excédentaire ou disposer d'un redresseur actif réversible.
+\end{enumerate}
+
+\partie{Partie B -- Principe de la MLI}
+\begin{enumerate}[label=\textbf{B\arabic*.}]
+\item Pour $\alpha=0{,}65$, la tension vaut $+U_0=+\SI{540}{\volt}$ de $0$ à $0{,}65T_d$, puis $-U_0=-\SI{540}{\volt}$ jusqu'à $T_d$ ; le motif se répète sur $[T_d,2T_d]$. Les commutations ont lieu à $0{,}65T_d$, $T_d$, $1{,}65T_d$ et $2T_d$ (en négligeant les temps morts).
+\begin{center}
+\begin{tikzpicture}[x=3cm,y=0.006cm,>=Latex]
+\draw[->] (0,0)--(2.22,0) node[right] {$t/T_d$};
+\draw[->] (0,-650)--(0,700) node[above] {$u$ (V)};
+\draw[densely dotted] (0,540)--(2.05,540) (0,-540)--(2.05,-540);
+\draw[very thick,blue] (0,540)--(.65,540)--(.65,-540)--(1,-540)--(1,540)--(1.65,540)--(1.65,-540)--(2,-540);
+\foreach \x/\lab in {0/0,.65/{0{,}65},1/1,1.65/{1{,}65},2/2} {\draw (\x,25)--(\x,-25) node[below=3pt] {$\lab$};}
+\node[left] at (0,540) {$+540$};\node[left] at (0,-540) {$-540$};
+\end{tikzpicture}
+\end{center}
+\item Par définition,
+\[
+\langle u\rangle=\frac{1}{T_d}\left[\alpha T_d U_0+(1-\alpha)T_d(-U_0)\right]
+=\boxed{(2\alpha-1)U_0}.
+\]
+Pour $\alpha=0{,}65$ : $\langle u\rangle=0{,}30\times540=\boxed{\SI{162}{\volt}}$.
+\item En identifiant la moyenne locale à la consigne :
+\[
+(2\alpha(t)-1)U_0=\widehat U\sin(\omega t)
+\quad\Longrightarrow\quad
+\boxed{\alpha(t)=\frac12\left(1+\frac{\widehat U}{U_0}\sin(\omega t)\right)}.
+\]
+Pour conserver $0\leq\alpha(t)\leq1$ à tout instant, il faut $\boxed{|\widehat U|\leq U_0}$.
+\item Lorsque $f_d\gg f$, la moyenne locale suit lentement la sinusoïde de référence tandis que les composantes liées au découpage sont rejetées à haute fréquence. Les inductances des enroulements atténuent ces ondulations de courant : le courant peut ainsi être presque sinusoïdal malgré une tension instantanée hachée.
+\end{enumerate}
+
+\partie{Partie C -- Vérification de l'alimentation du moteur}
+\begin{enumerate}[label=\textbf{C\arabic*.}]
+\item La valeur idéale estimée est
+\[
+U_{0,\mathrm{estim\acute e}}\simeq\sqrt{2}\times400
+=\boxed{\SI{566}{\volt}}.
+\]
+Elle est supérieure d'environ $\SI{26}{\volt}$ au bus nominal de $\SI{540}{\volt}$, soit environ $4{,}8\,\%$ de celui-ci. Cet écart est cohérent avec une valeur nominale choisie plus basse que la valeur crête idéale (chutes de tension, ondulation et charge du bus).
+\item En prenant le bus nominal $U_0=\SI{540}{\volt}$, la MLI linéaire donne pour $m=1$ :
+\[
+U_{LL,1,\max}=\frac{\sqrt3}{2\sqrt2}\times540
+\simeq\boxed{\SI{331}{\volt}}.
+\]
+La tension requise $\SI{295}{\volt}$ est donc \textbf{accessible}.
+\item L'indice nécessaire vaut
+\[
+\boxed{m=\frac{2\sqrt2\,U_{LL,\mathrm{req}}}{\sqrt3\,U_0}}
+=\frac{2\sqrt2\times295}{\sqrt3\times540}
+\simeq\boxed{0{,}892}.
+\]
+Il est inférieur à 1 : le fonctionnement reste dans la zone linéaire retenue.
+\end{enumerate}
+
+\partie{Partie D -- Récupération d'énergie et freinage}
+\begin{enumerate}[label=\textbf{D\arabic*.}]
+\item L'énergie électrostatique du condensateur est
+\[
+\boxed{E_C(U)=\frac12 CU^2}.
+\]
+\item L'énergie supplémentaire admissible entre $U_0$ et $U_{\max}$ vaut
+\[
+\Delta E_C=\frac12 C(U_{\max}^2-U_0^2)
+=\frac12\times 2{,}0\times10^{-3}(600^2-540^2)
+=\boxed{\SI{68.4}{\joule}}.
+\]
+Or $E_{\mathrm{desc}}=\SI{151000}{\joule}$, soit plus de $2200$ fois cette capacité supplémentaire. Le condensateur ne peut donc pas absorber à lui seul l'énergie de la descente : un dispositif de freinage ou de réinjection est indispensable.
+\item Lorsque la résistance est branchée directement aux bornes du bus,
+\[
+\boxed{P_f(U)=\frac{U^2}{R_f}},\qquad
+P_f(U_0)=\frac{540^2}{20}=\boxed{\SI{14580}{\watt}\simeq\SI{14.6}{\kilo\watt}}.
+\]
+\item Sous l'hypothèse simplificatrice d'une dissipation \emph{continue} à la puissance constante $P_f(U_0)$,
+\[
+\boxed{t=\frac{E_{\mathrm{desc}}}{P_f(U_0)}}
+=\frac{151000}{14580}\simeq\boxed{\SI{10.4}{\second}}.
+\]
+Il s'agit d'une durée \emph{équivalente à pleine puissance}, et non d'une durée de freinage garantie : en pratique, le hacheur fonctionne par intermittence, la tension du bus varie et les pertes ainsi que la puissance mécanique récupérée évoluent dans le temps. Cette estimation n'est donc pas une borne inférieure rigoureuse sans hypothèse supplémentaire sur la puissance maximale admissible.
+\end{enumerate}
+
+\end{document}
